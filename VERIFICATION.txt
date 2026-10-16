@@ -1,0 +1,13 @@
+CAISIK EXPERIENCE — verification
+
+JavaScript syntax/bundling passed for the base experience and bundled Three.js motion module.
+DOM-level interaction checks passed: three collection cards, seven interactive principle controls, twelve campaign portals, wishlist add/remove, day/night, simple/cinematic, three-question collection recommendation, local preference and QR album persistence.
+Additional checks passed: unavailable-WebGL fallback, disabled unsupported controls, 12 sticker gallery items, three comic panels and standalone artwork viewer.
+All 12 complete sticker SVGs were rasterized at 1060 x 1460 and decoded using zxing-cpp. Each barcode matched its expected campaign destination.
+Local asset paths and unique HTML identifiers checked.
+
+Limitations: rendered browser QA unavailable due previously observed managed preview bwrap mount failure. Actual WebGL rendering, visual layouts, mobile frame rates and printed physical QR proofs are unverified.
+Storefront remains owner-private. Live commerce, manufacturing, subscriber services, analytics and customer/partner content remain dependent on actual inputs and integrations. See dist/delivery-map.json for all 100 original ideas and explicit status.
+
+Motion source build: npm install, then npm run build:motion. Deployment serves the checked-in dist directory.
+Generated assets used: transparent CAISIK graffiti artwork and cinematic alchemical passage. Generated via built-in image generation, stored in dist/assets.

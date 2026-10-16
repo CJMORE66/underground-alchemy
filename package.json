@@ -1,0 +1,14 @@
+{
+  "name": "caisik-underground-alchemy",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build:motion": "esbuild motion-source.js --bundle --minify --outfile=dist/motion.js --target=es2020"
+  },
+  "dependencies": {
+    "three": "0.186.1"
+  },
+  "devDependencies": {
+    "esbuild": "0.28.2"
+  }
+}

@@ -8,8 +8,8 @@
   {
     "id": 2,
     "idea": "Alchemical portal entrance",
-    "status": "Partial",
-    "detail": "Portal landing and cinematic city artwork exist; no WebGL fly-through."
+    "status": "Implemented",
+    "detail": "Animated perspective tunnel on all QR entrances."
   },
   {
     "id": 3,
@@ -63,13 +63,13 @@
     "id": 11,
     "idea": "True rotatable 3D garment",
     "status": "Needs inputs/integration",
-    "detail": "Accurate GLB/GLTF garment model, textures and print placement."
+    "detail": "Procedural WebGL garment sculpture delivered; accurate real-product model and textures still required."
   },
   {
     "id": 12,
     "idea": "Exploded garment view",
     "status": "Partial",
-    "detail": "Garment illustration exists; exploded production mesh needed."
+    "detail": "Interactive exploded WebGL concept sculpture delivered; no production-level garment mesh."
   },
   {
     "id": 13,
@@ -128,8 +128,8 @@
   {
     "id": 22,
     "idea": "Episodic drops",
-    "status": "Partial",
-    "detail": "Three collection concepts exist; real release episodes need schedule."
+    "status": "Implemented",
+    "detail": "Three original fictional concept episodes, explicitly distinguished from real releases."
   },
   {
     "id": 23,
@@ -147,7 +147,7 @@
     "id": 25,
     "idea": "Interactive sketchbook",
     "status": "Partial",
-    "detail": "Three-step editorial sketchbook is live; real process scans needed."
+    "detail": "Three-step editorial sketchbook and concept comic panels are live; real process scans needed."
   },
   {
     "id": 26,
@@ -164,8 +164,8 @@
   {
     "id": 28,
     "idea": "Comic collection transitions",
-    "status": "Needs inputs/integration",
-    "detail": "Original comic frames and transitions."
+    "status": "Implemented",
+    "detail": "Three animated original comic-panel narratives."
   },
   {
     "id": 29,
@@ -224,8 +224,8 @@
   {
     "id": 38,
     "idea": "Standalone artwork",
-    "status": "Partial",
-    "detail": "Artwork interpretation and generated logo available; separate garment print files needed."
+    "status": "Implemented",
+    "detail": "Standalone geometric artwork viewer independent of garment."
   },
   {
     "id": 39,
@@ -309,7 +309,7 @@
     "id": 52,
     "idea": "Twelve sticker series",
     "status": "Partial",
-    "detail": "Twelve functioning vector QR assets; full twelve graphic sticker designs and press proof remain."
+    "detail": "Twelve original SVG sticker layouts with vector QR, 3 mm bleed and ZIP download; physical scan proof and printer color conversion remain."
   },
   {
     "id": 53,
