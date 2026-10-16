@@ -11,3 +11,5 @@ Storefront remains owner-private. Live commerce, manufacturing, subscriber servi
 
 Motion source build: npm install, then npm run build:motion. Deployment serves the checked-in dist directory.
 Generated assets used: transparent CAISIK graffiti artwork and cinematic alchemical passage. Generated via built-in image generation, stored in dist/assets.
+
+Catalog update: 20 source products read from hiphop /dk pages 1–2, all 20 product detail objects verified, all 20 primary preview PNGs downloaded and PIL-validated. Source price strings, options and SKUs preserved. Search, categories, product modal, EUR snapshot and product wishlist passed DOM checks. Checkout and live stock untested.

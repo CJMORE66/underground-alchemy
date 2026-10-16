@@ -1,0 +1,1936 @@
+{
+  "source": "https://hiphop.caisik.i234.me/dk/store?page=1",
+  "sourcePages": [
+    1,
+    2
+  ],
+  "checkedAt": "2026-10-16",
+  "regionPath": "dk",
+  "currency": "EUR",
+  "mode": "verified-public-snapshot",
+  "checkoutVerified": false,
+  "products": [
+    {
+      "url": "https://hiphop.caisik.i234.me/dk/products/printful-18912189-482100507",
+      "image": "https://files.cdn.printful.com/files/403/403a3bd9a598298837dabd24462f9f4e_preview.png",
+      "name": "Unisex max heavyweight short sleeve copy",
+      "priceLabel": "€26.65",
+      "productId": "prod_01M51CDX7WSP5QPMME938D6PHZ",
+      "description": null,
+      "images": [
+        "https://files.cdn.printful.com/files/403/403a3bd9a598298837dabd24462f9f4e_preview.png",
+        "https://files.cdn.printful.com/files/12c/12c99c673b0a01025377fcc220100301_preview.png"
+      ],
+      "options": [
+        {
+          "title": "Size",
+          "values": [
+            "3XL"
+          ]
+        },
+        {
+          "title": "Color",
+          "values": [
+            "Navy"
+          ]
+        }
+      ],
+      "variants": [
+        {
+          "sku": "PF-18912189-5577001692",
+          "title": "Navy / 3XL",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Navy"
+            },
+            {
+              "title": "Size",
+              "value": "3XL"
+            }
+          ]
+        }
+      ],
+      "detailVerified": true,
+      "localImage": "/assets/catalog/printful-18912189-482100507.png",
+      "category": "tees",
+      "currency": "EUR",
+      "checkedAt": "2026-10-16"
+    },
+    {
+      "url": "https://hiphop.caisik.i234.me/dk/products/printful-18912189-482100511",
+      "image": "https://files.cdn.printful.com/files/e70/e7087dbab1410b7afe4d1fa803eeb66d_preview.png",
+      "name": "Unisex Champion hoodie",
+      "priceLabel": "€47.13",
+      "productId": "prod_01M51CDVGWV789E6ANBP93XBA7",
+      "description": null,
+      "images": [
+        "https://files.cdn.printful.com/files/e70/e7087dbab1410b7afe4d1fa803eeb66d_preview.png",
+        "https://files.cdn.printful.com/files/d34/d34125a6d5b13887a3b15c8dad422cbd_preview.png"
+      ],
+      "options": [
+        {
+          "title": "Color",
+          "values": [
+            "Light Steel"
+          ]
+        },
+        {
+          "title": "Size",
+          "values": [
+            "3XL"
+          ]
+        }
+      ],
+      "variants": [
+        {
+          "sku": "PF-18912189-5577001696",
+          "title": "Light Steel / 3XL",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Light Steel"
+            },
+            {
+              "title": "Size",
+              "value": "3XL"
+            }
+          ]
+        }
+      ],
+      "detailVerified": true,
+      "localImage": "/assets/catalog/printful-18912189-482100511.png",
+      "category": "hoodies",
+      "currency": "EUR",
+      "checkedAt": "2026-10-16"
+    },
+    {
+      "url": "https://hiphop.caisik.i234.me/dk/products/printful-18912189-482100516",
+      "image": "https://files.cdn.printful.com/files/282/28280c7cc63c79072f527f38f4060f97_preview.png",
+      "name": "Unisex garment dye heavyweight long sleeve tee",
+      "priceLabel": "€27.24",
+      "productId": "prod_01M51CDST2TG72WG16YEHMRXRC",
+      "description": null,
+      "images": [
+        "https://files.cdn.printful.com/files/282/28280c7cc63c79072f527f38f4060f97_preview.png"
+      ],
+      "options": [
+        {
+          "title": "Color",
+          "values": [
+            "Black"
+          ]
+        },
+        {
+          "title": "Size",
+          "values": [
+            "XS",
+            "S",
+            "M",
+            "L",
+            "XL",
+            "2XL",
+            "3XL"
+          ]
+        }
+      ],
+      "variants": [
+        {
+          "sku": "PF-18912189-5577001721",
+          "title": "Black / XS",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Black"
+            },
+            {
+              "title": "Size",
+              "value": "XS"
+            }
+          ]
+        },
+        {
+          "sku": "PF-18912189-5577001722",
+          "title": "Black / S",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Black"
+            },
+            {
+              "title": "Size",
+              "value": "S"
+            }
+          ]
+        },
+        {
+          "sku": "PF-18912189-5577001723",
+          "title": "Black / M",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Black"
+            },
+            {
+              "title": "Size",
+              "value": "M"
+            }
+          ]
+        },
+        {
+          "sku": "PF-18912189-5577001724",
+          "title": "Black / L",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Black"
+            },
+            {
+              "title": "Size",
+              "value": "L"
+            }
+          ]
+        },
+        {
+          "sku": "PF-18912189-5577001725",
+          "title": "Black / XL",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Black"
+            },
+            {
+              "title": "Size",
+              "value": "XL"
+            }
+          ]
+        },
+        {
+          "sku": "PF-18912189-5577001726",
+          "title": "Black / 2XL",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Black"
+            },
+            {
+              "title": "Size",
+              "value": "2XL"
+            }
+          ]
+        },
+        {
+          "sku": "PF-18912189-5577001727",
+          "title": "Black / 3XL",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Black"
+            },
+            {
+              "title": "Size",
+              "value": "3XL"
+            }
+          ]
+        }
+      ],
+      "detailVerified": true,
+      "localImage": "/assets/catalog/printful-18912189-482100516.png",
+      "category": "tees",
+      "currency": "EUR",
+      "checkedAt": "2026-10-16"
+    },
+    {
+      "url": "https://hiphop.caisik.i234.me/dk/products/printful-18912189-482100520",
+      "image": "https://files.cdn.printful.com/files/76b/76b010a5907580dcea5db297beb61414_preview.png",
+      "name": "Oversized faded t-shirt",
+      "priceLabel": "€27.95",
+      "productId": "prod_01M51CDQFYEKMW6BN522Y2SJN1",
+      "description": null,
+      "images": [
+        "https://files.cdn.printful.com/files/76b/76b010a5907580dcea5db297beb61414_preview.png",
+        "https://files.cdn.printful.com/files/a8e/a8e2e8af632157af905462c8c0b43603_preview.png"
+      ],
+      "options": [
+        {
+          "title": "Size",
+          "values": [
+            "S",
+            "M",
+            "L",
+            "XL",
+            "2XL",
+            "3XL"
+          ]
+        },
+        {
+          "title": "Color",
+          "values": [
+            "Faded Grey"
+          ]
+        }
+      ],
+      "variants": [
+        {
+          "sku": "PF-18912189-5577001756",
+          "title": "Faded Grey / S",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Faded Grey"
+            },
+            {
+              "title": "Size",
+              "value": "S"
+            }
+          ]
+        },
+        {
+          "sku": "PF-18912189-5577001757",
+          "title": "Faded Grey / M",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Faded Grey"
+            },
+            {
+              "title": "Size",
+              "value": "M"
+            }
+          ]
+        },
+        {
+          "sku": "PF-18912189-5577001758",
+          "title": "Faded Grey / L",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Faded Grey"
+            },
+            {
+              "title": "Size",
+              "value": "L"
+            }
+          ]
+        },
+        {
+          "sku": "PF-18912189-5577001759",
+          "title": "Faded Grey / XL",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Faded Grey"
+            },
+            {
+              "title": "Size",
+              "value": "XL"
+            }
+          ]
+        },
+        {
+          "sku": "PF-18912189-5577001760",
+          "title": "Faded Grey / 2XL",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Faded Grey"
+            },
+            {
+              "title": "Size",
+              "value": "2XL"
+            }
+          ]
+        },
+        {
+          "sku": "PF-18912189-5577001761",
+          "title": "Faded Grey / 3XL",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Faded Grey"
+            },
+            {
+              "title": "Size",
+              "value": "3XL"
+            }
+          ]
+        }
+      ],
+      "detailVerified": true,
+      "localImage": "/assets/catalog/printful-18912189-482100520.png",
+      "category": "tees",
+      "currency": "EUR",
+      "checkedAt": "2026-10-16"
+    },
+    {
+      "url": "https://hiphop.caisik.i234.me/dk/products/printful-18912189-482100561",
+      "image": "https://files.cdn.printful.com/files/607/60799c63c6495ec281ab97dc5663e4e0_preview.png",
+      "name": "Unisex Champion hoodie",
+      "priceLabel": "€48.04",
+      "productId": "prod_01M51CDMQKJM6CTEB6XKTQNMWQ",
+      "description": null,
+      "images": [
+        "https://files.cdn.printful.com/files/607/60799c63c6495ec281ab97dc5663e4e0_preview.png",
+        "https://files.cdn.printful.com/files/a9a/a9a82f31c73d9def5183401ae02376ca_preview.png",
+        "https://files.cdn.printful.com/files/00e/00ee12e22780feb0e1f19cf5b2a6067a_preview.png"
+      ],
+      "options": [
+        {
+          "title": "Size",
+          "values": [
+            "3XL",
+            "S",
+            "M",
+            "L",
+            "XL",
+            "2XL"
+          ]
+        },
+        {
+          "title": "Color",
+          "values": [
+            "Black"
+          ]
+        }
+      ],
+      "variants": [
+        {
+          "sku": "PF-18912189-5577002178",
+          "title": "Black / 3XL",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Black"
+            },
+            {
+              "title": "Size",
+              "value": "3XL"
+            }
+          ]
+        },
+        {
+          "sku": "PF-18912189-5577028752",
+          "title": "Black / S",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Black"
+            },
+            {
+              "title": "Size",
+              "value": "S"
+            }
+          ]
+        },
+        {
+          "sku": "PF-18912189-5577028753",
+          "title": "Black / M",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Black"
+            },
+            {
+              "title": "Size",
+              "value": "M"
+            }
+          ]
+        },
+        {
+          "sku": "PF-18912189-5577028754",
+          "title": "Black / L",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Black"
+            },
+            {
+              "title": "Size",
+              "value": "L"
+            }
+          ]
+        },
+        {
+          "sku": "PF-18912189-5577028755",
+          "title": "Black / XL",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Black"
+            },
+            {
+              "title": "Size",
+              "value": "XL"
+            }
+          ]
+        },
+        {
+          "sku": "PF-18912189-5577028756",
+          "title": "Black / 2XL",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Black"
+            },
+            {
+              "title": "Size",
+              "value": "2XL"
+            }
+          ]
+        }
+      ],
+      "detailVerified": true,
+      "localImage": "/assets/catalog/printful-18912189-482100561.png",
+      "category": "hoodies",
+      "currency": "EUR",
+      "checkedAt": "2026-10-16"
+    },
+    {
+      "url": "https://hiphop.caisik.i234.me/dk/products/printful-18912189-482104116",
+      "image": "https://files.cdn.printful.com/files/96b/96bbaacd3bae49f2a64cc1cd8d8f612a_preview.png",
+      "name": "MagSafe® clear case for iPhone®",
+      "priceLabel": "€16.00",
+      "productId": "prod_01M51CDJ44VKB3MVZ00XWQQCPP",
+      "description": null,
+      "images": [
+        "https://files.cdn.printful.com/files/96b/96bbaacd3bae49f2a64cc1cd8d8f612a_preview.png"
+      ],
+      "options": [
+        {
+          "title": "Color",
+          "values": [
+            "Default"
+          ]
+        },
+        {
+          "title": "Size",
+          "values": [
+            "iPhone 17 Pro Max"
+          ]
+        }
+      ],
+      "variants": [
+        {
+          "sku": "PF-18912189-5577025493",
+          "title": "iPhone 17 Pro Max",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Default"
+            },
+            {
+              "title": "Size",
+              "value": "iPhone 17 Pro Max"
+            }
+          ]
+        }
+      ],
+      "detailVerified": true,
+      "localImage": "/assets/catalog/printful-18912189-482104116.png",
+      "category": "accessories",
+      "currency": "EUR",
+      "checkedAt": "2026-10-16"
+    },
+    {
+      "url": "https://hiphop.caisik.i234.me/dk/products/printful-18912189-482104768",
+      "image": "https://files.cdn.printful.com/files/ff8/ff85508e252ed7d1e95fb0918c32e59f_preview.png",
+      "name": "OMERTA WITH EGO",
+      "priceLabel": "€54.50",
+      "productId": "prod_01M51CDGEA1182P8SZJPAYK27R",
+      "description": null,
+      "images": [
+        "https://files.cdn.printful.com/files/ff8/ff85508e252ed7d1e95fb0918c32e59f_preview.png"
+      ],
+      "options": [
+        {
+          "title": "Color",
+          "values": [
+            "Black"
+          ]
+        },
+        {
+          "title": "Size",
+          "values": [
+            "S",
+            "M",
+            "L",
+            "XL",
+            "2XL",
+            "3XL"
+          ]
+        }
+      ],
+      "variants": [
+        {
+          "sku": "PF-18912189-5577030790",
+          "title": "Black / S",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Black"
+            },
+            {
+              "title": "Size",
+              "value": "S"
+            }
+          ]
+        },
+        {
+          "sku": "PF-18912189-5577030791",
+          "title": "Black / M",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Black"
+            },
+            {
+              "title": "Size",
+              "value": "M"
+            }
+          ]
+        },
+        {
+          "sku": "PF-18912189-5577030792",
+          "title": "Black / L",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Black"
+            },
+            {
+              "title": "Size",
+              "value": "L"
+            }
+          ]
+        },
+        {
+          "sku": "PF-18912189-5577030793",
+          "title": "Black / XL",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Black"
+            },
+            {
+              "title": "Size",
+              "value": "XL"
+            }
+          ]
+        },
+        {
+          "sku": "PF-18912189-5577030794",
+          "title": "Black / 2XL",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Black"
+            },
+            {
+              "title": "Size",
+              "value": "2XL"
+            }
+          ]
+        },
+        {
+          "sku": "PF-18912189-5577030795",
+          "title": "Black / 3XL",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Black"
+            },
+            {
+              "title": "Size",
+              "value": "3XL"
+            }
+          ]
+        }
+      ],
+      "detailVerified": true,
+      "localImage": "/assets/catalog/printful-18912189-482104768.png",
+      "category": "hoodies",
+      "currency": "EUR",
+      "checkedAt": "2026-10-16"
+    },
+    {
+      "url": "https://hiphop.caisik.i234.me/dk/products/printful-18912189-482072983",
+      "image": "https://files.cdn.printful.com/files/fa7/fa72dc83e27487ab86cef00067c80c20_preview.png",
+      "name": "WU TANG - forever - limited ed.",
+      "priceLabel": "€34.50",
+      "productId": "prod_01M514QTJQ2M2A1ZM4ERG521FJ",
+      "description": null,
+      "images": [
+        "https://files.cdn.printful.com/files/fa7/fa72dc83e27487ab86cef00067c80c20_preview.png"
+      ],
+      "options": [
+        {
+          "title": "Size",
+          "values": [
+            "S",
+            "M",
+            "L",
+            "XL",
+            "2XL"
+          ]
+        },
+        {
+          "title": "Color",
+          "values": [
+            "Red"
+          ]
+        }
+      ],
+      "variants": [
+        {
+          "sku": "PF-18912189-5576810041",
+          "title": "Red / S",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Red"
+            },
+            {
+              "title": "Size",
+              "value": "S"
+            }
+          ]
+        },
+        {
+          "sku": "PF-18912189-5576810042",
+          "title": "Red / M",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Red"
+            },
+            {
+              "title": "Size",
+              "value": "M"
+            }
+          ]
+        },
+        {
+          "sku": "PF-18912189-5576810043",
+          "title": "Red / L",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Red"
+            },
+            {
+              "title": "Size",
+              "value": "L"
+            }
+          ]
+        },
+        {
+          "sku": "PF-18912189-5576810044",
+          "title": "Red / XL",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Red"
+            },
+            {
+              "title": "Size",
+              "value": "XL"
+            }
+          ]
+        },
+        {
+          "sku": "PF-18912189-5576810045",
+          "title": "Red / 2XL",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Red"
+            },
+            {
+              "title": "Size",
+              "value": "2XL"
+            }
+          ]
+        }
+      ],
+      "detailVerified": true,
+      "localImage": "/assets/catalog/printful-18912189-482072983.png",
+      "category": "tees",
+      "currency": "EUR",
+      "checkedAt": "2026-10-16"
+    },
+    {
+      "url": "https://hiphop.caisik.i234.me/dk/products/printful-18912189-482088042",
+      "image": "https://files.cdn.printful.com/files/de0/de0c08d98e9a548aa686148c38c98163_preview.png",
+      "name": "Men's Oversized Faded T-Shirt | AS Colour 5082 copy",
+      "priceLabel": "€41.00",
+      "productId": "prod_01M514QREFQAAZJATACW14BX6Q",
+      "description": null,
+      "images": [
+        "https://files.cdn.printful.com/files/de0/de0c08d98e9a548aa686148c38c98163_preview.png"
+      ],
+      "options": [
+        {
+          "title": "Color",
+          "values": [
+            "Faded Grey"
+          ]
+        },
+        {
+          "title": "Size",
+          "values": [
+            "S",
+            "M",
+            "L",
+            "XL",
+            "2XL",
+            "3XL"
+          ]
+        }
+      ],
+      "variants": [
+        {
+          "sku": "PF-18912189-5576894806",
+          "title": "Faded Grey / S",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Faded Grey"
+            },
+            {
+              "title": "Size",
+              "value": "S"
+            }
+          ]
+        },
+        {
+          "sku": "PF-18912189-5576894807",
+          "title": "Faded Grey / M",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Faded Grey"
+            },
+            {
+              "title": "Size",
+              "value": "M"
+            }
+          ]
+        },
+        {
+          "sku": "PF-18912189-5576894808",
+          "title": "Faded Grey / L",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Faded Grey"
+            },
+            {
+              "title": "Size",
+              "value": "L"
+            }
+          ]
+        },
+        {
+          "sku": "PF-18912189-5576894809",
+          "title": "Faded Grey / XL",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Faded Grey"
+            },
+            {
+              "title": "Size",
+              "value": "XL"
+            }
+          ]
+        },
+        {
+          "sku": "PF-18912189-5576894810",
+          "title": "Faded Grey / 2XL",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Faded Grey"
+            },
+            {
+              "title": "Size",
+              "value": "2XL"
+            }
+          ]
+        },
+        {
+          "sku": "PF-18912189-5576894811",
+          "title": "Faded Grey / 3XL",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Faded Grey"
+            },
+            {
+              "title": "Size",
+              "value": "3XL"
+            }
+          ]
+        }
+      ],
+      "detailVerified": true,
+      "localImage": "/assets/catalog/printful-18912189-482088042.png",
+      "category": "tees",
+      "currency": "EUR",
+      "checkedAt": "2026-10-16"
+    },
+    {
+      "url": "https://hiphop.caisik.i234.me/dk/products/printful-18912189-482088808",
+      "image": "https://files.cdn.printful.com/files/9b8/9b8d54b6d806e23a2feb617f52a7c5a5_preview.png",
+      "name": "Snapback Hat copy",
+      "priceLabel": "€19.18",
+      "productId": "prod_01M514QQK596QC43KXDCWB0G8X",
+      "description": null,
+      "images": [
+        "https://files.cdn.printful.com/files/9b8/9b8d54b6d806e23a2feb617f52a7c5a5_preview.png",
+        "https://files.cdn.printful.com/files/ec3/ec3adca384c11c18c3409c810cfbdb2f_preview.png"
+      ],
+      "options": [
+        {
+          "title": "Color",
+          "values": [
+            "Gold / Black / Black"
+          ]
+        },
+        {
+          "title": "Size",
+          "values": [
+            "One size"
+          ]
+        }
+      ],
+      "variants": [
+        {
+          "sku": "PF-18912189-5576898508",
+          "title": "Gold / Black / Black / One size",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Gold / Black / Black"
+            },
+            {
+              "title": "Size",
+              "value": "One size"
+            }
+          ]
+        }
+      ],
+      "detailVerified": true,
+      "localImage": "/assets/catalog/printful-18912189-482088808.png",
+      "category": "accessories",
+      "currency": "EUR",
+      "checkedAt": "2026-10-16"
+    },
+    {
+      "url": "https://hiphop.caisik.i234.me/dk/products/printful-18912189-482088834",
+      "image": "https://files.cdn.printful.com/files/9ed/9ed28103cd1e6950c321578b798cf038_preview.png",
+      "name": "Men's Oversized Faded T-Shirt | AS Colour 5082 copy",
+      "priceLabel": "€29.58",
+      "productId": "prod_01M514QNQ6YTZ05KFGMR5RS2NG",
+      "description": null,
+      "images": [
+        "https://files.cdn.printful.com/files/9ed/9ed28103cd1e6950c321578b798cf038_preview.png",
+        "https://files.cdn.printful.com/files/b28/b2819ff9e293c33731baf55eb4430281_preview.png"
+      ],
+      "options": [
+        {
+          "title": "Size",
+          "values": [
+            "S",
+            "M",
+            "L",
+            "XL",
+            "2XL",
+            "3XL"
+          ]
+        },
+        {
+          "title": "Color",
+          "values": [
+            "Faded Grey"
+          ]
+        }
+      ],
+      "variants": [
+        {
+          "sku": "PF-18912189-5576898542",
+          "title": "Faded Grey / S",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Faded Grey"
+            },
+            {
+              "title": "Size",
+              "value": "S"
+            }
+          ]
+        },
+        {
+          "sku": "PF-18912189-5576898543",
+          "title": "Faded Grey / M",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Faded Grey"
+            },
+            {
+              "title": "Size",
+              "value": "M"
+            }
+          ]
+        },
+        {
+          "sku": "PF-18912189-5576898544",
+          "title": "Faded Grey / L",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Faded Grey"
+            },
+            {
+              "title": "Size",
+              "value": "L"
+            }
+          ]
+        },
+        {
+          "sku": "PF-18912189-5576898545",
+          "title": "Faded Grey / XL",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Faded Grey"
+            },
+            {
+              "title": "Size",
+              "value": "XL"
+            }
+          ]
+        },
+        {
+          "sku": "PF-18912189-5576898546",
+          "title": "Faded Grey / 2XL",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Faded Grey"
+            },
+            {
+              "title": "Size",
+              "value": "2XL"
+            }
+          ]
+        },
+        {
+          "sku": "PF-18912189-5576898547",
+          "title": "Faded Grey / 3XL",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Faded Grey"
+            },
+            {
+              "title": "Size",
+              "value": "3XL"
+            }
+          ]
+        }
+      ],
+      "detailVerified": true,
+      "localImage": "/assets/catalog/printful-18912189-482088834.png",
+      "category": "tees",
+      "currency": "EUR",
+      "checkedAt": "2026-10-16"
+    },
+    {
+      "url": "https://hiphop.caisik.i234.me/dk/products/printful-18912189-482088871",
+      "image": "https://files.cdn.printful.com/files/59d/59d3ed06e50bdf4abb85417cff8c0f46_preview.png",
+      "name": "Urban garment-dyed hoodie copy",
+      "priceLabel": "€42.25",
+      "productId": "prod_01M514QM1KD2M5M73SXQ2D5R97",
+      "description": null,
+      "images": [
+        "https://files.cdn.printful.com/files/59d/59d3ed06e50bdf4abb85417cff8c0f46_preview.png",
+        "https://files.cdn.printful.com/files/d64/d64e0dbe41921b0cbe529d0bbc4582d7_preview.png"
+      ],
+      "options": [
+        {
+          "title": "Size",
+          "values": [
+            "S",
+            "M",
+            "L",
+            "XL",
+            "2XL",
+            "3XL"
+          ]
+        },
+        {
+          "title": "Color",
+          "values": [
+            "Pigment Midnight Navy"
+          ]
+        }
+      ],
+      "variants": [
+        {
+          "sku": "PF-18912189-5576898589",
+          "title": "Pigment Midnight Navy / S",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Pigment Midnight Navy"
+            },
+            {
+              "title": "Size",
+              "value": "S"
+            }
+          ]
+        },
+        {
+          "sku": "PF-18912189-5576898590",
+          "title": "Pigment Midnight Navy / M",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Pigment Midnight Navy"
+            },
+            {
+              "title": "Size",
+              "value": "M"
+            }
+          ]
+        },
+        {
+          "sku": "PF-18912189-5576898591",
+          "title": "Pigment Midnight Navy / L",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Pigment Midnight Navy"
+            },
+            {
+              "title": "Size",
+              "value": "L"
+            }
+          ]
+        },
+        {
+          "sku": "PF-18912189-5576898593",
+          "title": "Pigment Midnight Navy / XL",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Pigment Midnight Navy"
+            },
+            {
+              "title": "Size",
+              "value": "XL"
+            }
+          ]
+        },
+        {
+          "sku": "PF-18912189-5576898594",
+          "title": "Pigment Midnight Navy / 2XL",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Pigment Midnight Navy"
+            },
+            {
+              "title": "Size",
+              "value": "2XL"
+            }
+          ]
+        },
+        {
+          "sku": "PF-18912189-5576898595",
+          "title": "Pigment Midnight Navy / 3XL",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Pigment Midnight Navy"
+            },
+            {
+              "title": "Size",
+              "value": "3XL"
+            }
+          ]
+        }
+      ],
+      "detailVerified": true,
+      "localImage": "/assets/catalog/printful-18912189-482088871.png",
+      "category": "hoodies",
+      "currency": "EUR",
+      "checkedAt": "2026-10-16"
+    },
+    {
+      "url": "https://hiphop.caisik.i234.me/dk/products/printful-18912189-482088888",
+      "image": "https://files.cdn.printful.com/files/d99/d991b0a8c792a712dc2db4bddbd2f599_preview.png",
+      "name": "Men's heavyweight long sleeve t-shirt copy",
+      "priceLabel": "€20.15",
+      "productId": "prod_01M514QJV90TMT3K7YQNTQSGK9",
+      "description": null,
+      "images": [
+        "https://files.cdn.printful.com/files/d99/d991b0a8c792a712dc2db4bddbd2f599_preview.png",
+        "https://files.cdn.printful.com/files/127/12790b8e62dd8fc4c805ece73ce2f149_preview.png"
+      ],
+      "options": [
+        {
+          "title": "Size",
+          "values": [
+            "S",
+            "M",
+            "L",
+            "XL",
+            "2XL",
+            "3XL"
+          ]
+        },
+        {
+          "title": "Color",
+          "values": [
+            "Black"
+          ]
+        }
+      ],
+      "variants": [
+        {
+          "sku": "PF-18912189-5576898634",
+          "title": "Black / S",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Black"
+            },
+            {
+              "title": "Size",
+              "value": "S"
+            }
+          ]
+        },
+        {
+          "sku": "PF-18912189-5576898635",
+          "title": "Black / M",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Black"
+            },
+            {
+              "title": "Size",
+              "value": "M"
+            }
+          ]
+        },
+        {
+          "sku": "PF-18912189-5576898636",
+          "title": "Black / L",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Black"
+            },
+            {
+              "title": "Size",
+              "value": "L"
+            }
+          ]
+        },
+        {
+          "sku": "PF-18912189-5576898637",
+          "title": "Black / XL",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Black"
+            },
+            {
+              "title": "Size",
+              "value": "XL"
+            }
+          ]
+        },
+        {
+          "sku": "PF-18912189-5576898638",
+          "title": "Black / 2XL",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Black"
+            },
+            {
+              "title": "Size",
+              "value": "2XL"
+            }
+          ]
+        },
+        {
+          "sku": "PF-18912189-5576898639",
+          "title": "Black / 3XL",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Black"
+            },
+            {
+              "title": "Size",
+              "value": "3XL"
+            }
+          ]
+        }
+      ],
+      "detailVerified": true,
+      "localImage": "/assets/catalog/printful-18912189-482088888.png",
+      "category": "tees",
+      "currency": "EUR",
+      "checkedAt": "2026-10-16"
+    },
+    {
+      "url": "https://hiphop.caisik.i234.me/dk/products/printful-18912189-482088891",
+      "image": "https://files.cdn.printful.com/files/bab/bab427039afe39eba4b8952532d3af39_preview.png",
+      "name": "Men's heavyweight long sleeve t-shirt copy",
+      "priceLabel": "€18.85",
+      "productId": "prod_01M514QHVEGA719NQ56EF9S7HW",
+      "description": null,
+      "images": [
+        "https://files.cdn.printful.com/files/bab/bab427039afe39eba4b8952532d3af39_preview.png",
+        "https://files.cdn.printful.com/files/7ba/7ba3339931df998e95d5fb1d3cd9792c_preview.png"
+      ],
+      "options": [
+        {
+          "title": "Color",
+          "values": [
+            "Black"
+          ]
+        },
+        {
+          "title": "Size",
+          "values": [
+            "S",
+            "M",
+            "L",
+            "XL",
+            "2XL",
+            "3XL"
+          ]
+        }
+      ],
+      "variants": [
+        {
+          "sku": "PF-18912189-5576898687",
+          "title": "Black / S",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Black"
+            },
+            {
+              "title": "Size",
+              "value": "S"
+            }
+          ]
+        },
+        {
+          "sku": "PF-18912189-5576898688",
+          "title": "Black / M",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Black"
+            },
+            {
+              "title": "Size",
+              "value": "M"
+            }
+          ]
+        },
+        {
+          "sku": "PF-18912189-5576898689",
+          "title": "Black / L",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Black"
+            },
+            {
+              "title": "Size",
+              "value": "L"
+            }
+          ]
+        },
+        {
+          "sku": "PF-18912189-5576898690",
+          "title": "Black / XL",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Black"
+            },
+            {
+              "title": "Size",
+              "value": "XL"
+            }
+          ]
+        },
+        {
+          "sku": "PF-18912189-5576898691",
+          "title": "Black / 2XL",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Black"
+            },
+            {
+              "title": "Size",
+              "value": "2XL"
+            }
+          ]
+        },
+        {
+          "sku": "PF-18912189-5576898692",
+          "title": "Black / 3XL",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Black"
+            },
+            {
+              "title": "Size",
+              "value": "3XL"
+            }
+          ]
+        }
+      ],
+      "detailVerified": true,
+      "localImage": "/assets/catalog/printful-18912189-482088891.png",
+      "category": "tees",
+      "currency": "EUR",
+      "checkedAt": "2026-10-16"
+    },
+    {
+      "url": "https://hiphop.caisik.i234.me/dk/products/printful-18912189-482088894",
+      "image": "https://files.cdn.printful.com/files/662/662427053fde88a7c0dc0582d9027770_preview.png",
+      "name": "Unisex organic ribbed neck t-shirt copy",
+      "priceLabel": "€19.83",
+      "productId": "prod_01M514QGX6424S1KASGR1YCTHJ",
+      "description": null,
+      "images": [
+        "https://files.cdn.printful.com/files/662/662427053fde88a7c0dc0582d9027770_preview.png"
+      ],
+      "options": [
+        {
+          "title": "Color",
+          "values": [
+            "Black"
+          ]
+        },
+        {
+          "title": "Size",
+          "values": [
+            "S",
+            "M",
+            "L",
+            "XL",
+            "2XL",
+            "3XL",
+            "4XL",
+            "5XL"
+          ]
+        }
+      ],
+      "variants": [
+        {
+          "sku": "PF-18912189-5576898697",
+          "title": "Black / S",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Black"
+            },
+            {
+              "title": "Size",
+              "value": "S"
+            }
+          ]
+        },
+        {
+          "sku": "PF-18912189-5576898698",
+          "title": "Black / M",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Black"
+            },
+            {
+              "title": "Size",
+              "value": "M"
+            }
+          ]
+        },
+        {
+          "sku": "PF-18912189-5576898699",
+          "title": "Black / L",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Black"
+            },
+            {
+              "title": "Size",
+              "value": "L"
+            }
+          ]
+        },
+        {
+          "sku": "PF-18912189-5576898700",
+          "title": "Black / XL",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Black"
+            },
+            {
+              "title": "Size",
+              "value": "XL"
+            }
+          ]
+        },
+        {
+          "sku": "PF-18912189-5576898701",
+          "title": "Black / 2XL",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Black"
+            },
+            {
+              "title": "Size",
+              "value": "2XL"
+            }
+          ]
+        },
+        {
+          "sku": "PF-18912189-5576898702",
+          "title": "Black / 3XL",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Black"
+            },
+            {
+              "title": "Size",
+              "value": "3XL"
+            }
+          ]
+        },
+        {
+          "sku": "PF-18912189-5576898703",
+          "title": "Black / 4XL",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Black"
+            },
+            {
+              "title": "Size",
+              "value": "4XL"
+            }
+          ]
+        },
+        {
+          "sku": "PF-18912189-5576898704",
+          "title": "Black / 5XL",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Black"
+            },
+            {
+              "title": "Size",
+              "value": "5XL"
+            }
+          ]
+        }
+      ],
+      "detailVerified": true,
+      "localImage": "/assets/catalog/printful-18912189-482088894.png",
+      "category": "tees",
+      "currency": "EUR",
+      "checkedAt": "2026-10-16"
+    },
+    {
+      "url": "https://hiphop.caisik.i234.me/dk/products/printful-18912189-482088895",
+      "image": "https://files.cdn.printful.com/files/ee5/ee5cab80946d23a72149cf57ef8575b5_preview.png",
+      "name": "Unisex Sculpted Heavyweight Hoodie | Stanley/Stella SASU057 / STSU278 copy",
+      "priceLabel": "€74.04",
+      "productId": "prod_01M514QG3RBA8VXG5NW50WJHA8",
+      "description": null,
+      "images": [
+        "https://files.cdn.printful.com/files/ee5/ee5cab80946d23a72149cf57ef8575b5_preview.png"
+      ],
+      "options": [
+        {
+          "title": "Color",
+          "values": [
+            "Black"
+          ]
+        },
+        {
+          "title": "Size",
+          "values": [
+            "3XL"
+          ]
+        }
+      ],
+      "variants": [
+        {
+          "sku": "PF-18912189-5576898707",
+          "title": "Black / 3XL",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Black"
+            },
+            {
+              "title": "Size",
+              "value": "3XL"
+            }
+          ]
+        }
+      ],
+      "detailVerified": true,
+      "localImage": "/assets/catalog/printful-18912189-482088895.png",
+      "category": "hoodies",
+      "currency": "EUR",
+      "checkedAt": "2026-10-16"
+    },
+    {
+      "url": "https://hiphop.caisik.i234.me/dk/products/printful-18912189-482088896",
+      "image": "https://files.cdn.printful.com/files/7e1/7e11b53ebaf07e6cee0e5525a8cd7f12_preview.png",
+      "name": "Unisex organic ribbed neck t-shirt copy",
+      "priceLabel": "€19.83",
+      "productId": "prod_01M514QF7DKVGYDSZGQDQN3539",
+      "description": null,
+      "images": [
+        "https://files.cdn.printful.com/files/7e1/7e11b53ebaf07e6cee0e5525a8cd7f12_preview.png",
+        "https://files.cdn.printful.com/files/3a8/3a8d7ce0a3677494f88b2cdf3ce80503_preview.png"
+      ],
+      "options": [
+        {
+          "title": "Size",
+          "values": [
+            "S",
+            "M",
+            "L",
+            "XL",
+            "2XL"
+          ]
+        },
+        {
+          "title": "Color",
+          "values": [
+            "Red"
+          ]
+        }
+      ],
+      "variants": [
+        {
+          "sku": "PF-18912189-5576898709",
+          "title": "Red / S",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Red"
+            },
+            {
+              "title": "Size",
+              "value": "S"
+            }
+          ]
+        },
+        {
+          "sku": "PF-18912189-5576898710",
+          "title": "Red / M",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Red"
+            },
+            {
+              "title": "Size",
+              "value": "M"
+            }
+          ]
+        },
+        {
+          "sku": "PF-18912189-5576898711",
+          "title": "Red / L",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Red"
+            },
+            {
+              "title": "Size",
+              "value": "L"
+            }
+          ]
+        },
+        {
+          "sku": "PF-18912189-5576898712",
+          "title": "Red / XL",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Red"
+            },
+            {
+              "title": "Size",
+              "value": "XL"
+            }
+          ]
+        },
+        {
+          "sku": "PF-18912189-5576898713",
+          "title": "Red / 2XL",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Red"
+            },
+            {
+              "title": "Size",
+              "value": "2XL"
+            }
+          ]
+        }
+      ],
+      "detailVerified": true,
+      "localImage": "/assets/catalog/printful-18912189-482088896.png",
+      "category": "tees",
+      "currency": "EUR",
+      "checkedAt": "2026-10-16"
+    },
+    {
+      "url": "https://hiphop.caisik.i234.me/dk/products/printful-18912189-482088898",
+      "image": "https://files.cdn.printful.com/files/51b/51bf2727e85352a7abeb60bfb8cdaace_preview.png",
+      "name": "Men’s cotton crew neck t-shirt copy",
+      "priceLabel": "€29.25",
+      "productId": "prod_01M514QE9WA20R72AP8SN0G5AC",
+      "description": null,
+      "images": [
+        "https://files.cdn.printful.com/files/51b/51bf2727e85352a7abeb60bfb8cdaace_preview.png"
+      ],
+      "options": [
+        {
+          "title": "Color",
+          "values": [
+            "White"
+          ]
+        },
+        {
+          "title": "Size",
+          "values": [
+            "XS",
+            "S",
+            "M",
+            "L",
+            "XL",
+            "2XL"
+          ]
+        }
+      ],
+      "variants": [
+        {
+          "sku": "PF-18912189-5576898719",
+          "title": "White / XS",
+          "options": [
+            {
+              "title": "Color",
+              "value": "White"
+            },
+            {
+              "title": "Size",
+              "value": "XS"
+            }
+          ]
+        },
+        {
+          "sku": "PF-18912189-5576898720",
+          "title": "White / S",
+          "options": [
+            {
+              "title": "Color",
+              "value": "White"
+            },
+            {
+              "title": "Size",
+              "value": "S"
+            }
+          ]
+        },
+        {
+          "sku": "PF-18912189-5576898721",
+          "title": "White / M",
+          "options": [
+            {
+              "title": "Color",
+              "value": "White"
+            },
+            {
+              "title": "Size",
+              "value": "M"
+            }
+          ]
+        },
+        {
+          "sku": "PF-18912189-5576898722",
+          "title": "White / L",
+          "options": [
+            {
+              "title": "Color",
+              "value": "White"
+            },
+            {
+              "title": "Size",
+              "value": "L"
+            }
+          ]
+        },
+        {
+          "sku": "PF-18912189-5576898723",
+          "title": "White / XL",
+          "options": [
+            {
+              "title": "Color",
+              "value": "White"
+            },
+            {
+              "title": "Size",
+              "value": "XL"
+            }
+          ]
+        },
+        {
+          "sku": "PF-18912189-5576898724",
+          "title": "White / 2XL",
+          "options": [
+            {
+              "title": "Color",
+              "value": "White"
+            },
+            {
+              "title": "Size",
+              "value": "2XL"
+            }
+          ]
+        }
+      ],
+      "detailVerified": true,
+      "localImage": "/assets/catalog/printful-18912189-482088898.png",
+      "category": "tees",
+      "currency": "EUR",
+      "checkedAt": "2026-10-16"
+    },
+    {
+      "url": "https://hiphop.caisik.i234.me/dk/products/printful-18912189-482088957",
+      "image": "https://files.cdn.printful.com/files/28f/28f48676ec861e6be6f04c75511be223_preview.png",
+      "name": "Flat Bill Cap copy",
+      "priceLabel": "€15.93",
+      "productId": "prod_01M514QDGVMPMZSAP5YKD0RZJQ",
+      "description": null,
+      "images": [
+        "https://files.cdn.printful.com/files/28f/28f48676ec861e6be6f04c75511be223_preview.png"
+      ],
+      "options": [
+        {
+          "title": "Color",
+          "values": [
+            "Black"
+          ]
+        },
+        {
+          "title": "Size",
+          "values": [
+            "One size"
+          ]
+        }
+      ],
+      "variants": [
+        {
+          "sku": "PF-18912189-5576898951",
+          "title": "Black / One size",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Black"
+            },
+            {
+              "title": "Size",
+              "value": "One size"
+            }
+          ]
+        }
+      ],
+      "detailVerified": true,
+      "localImage": "/assets/catalog/printful-18912189-482088957.png",
+      "category": "accessories",
+      "currency": "EUR",
+      "checkedAt": "2026-10-16"
+    },
+    {
+      "url": "https://hiphop.caisik.i234.me/dk/products/printful-18912189-482088999",
+      "image": "https://files.cdn.printful.com/files/4d9/4d9fb0e38e6248127297647495d9c2e8_preview.png",
+      "name": "Unisex Heavy Blend Zip Hoodie | Gildan 18600 copy",
+      "priceLabel": "€35.75",
+      "productId": "prod_01M514QCQYPTB4SMJWZHGRBRTS",
+      "description": null,
+      "images": [
+        "https://files.cdn.printful.com/files/4d9/4d9fb0e38e6248127297647495d9c2e8_preview.png",
+        "https://files.cdn.printful.com/files/812/8121d1498e4dd0d09742f66c3ba431f9_preview.png"
+      ],
+      "options": [
+        {
+          "title": "Color",
+          "values": [
+            "Dark Chocolate"
+          ]
+        },
+        {
+          "title": "Size",
+          "values": [
+            "3XL"
+          ]
+        }
+      ],
+      "variants": [
+        {
+          "sku": "PF-18912189-5576899300",
+          "title": "Dark Chocolate / 3XL",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Dark Chocolate"
+            },
+            {
+              "title": "Size",
+              "value": "3XL"
+            }
+          ]
+        }
+      ],
+      "detailVerified": true,
+      "localImage": "/assets/catalog/printful-18912189-482088999.png",
+      "category": "hoodies",
+      "currency": "EUR",
+      "checkedAt": "2026-10-16"
+    }
+  ]
+}

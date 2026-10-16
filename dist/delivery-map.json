@@ -501,7 +501,7 @@
     "id": 84,
     "idea": "Variant stock availability",
     "status": "Needs inputs/integration",
-    "detail": "Live Magento store context and inventory data."
+    "detail": "20 real source products and all listed variants/SKUs imported from hiphop /dk. Live stock and checkout verification still required."
   },
   {
     "id": 85,
