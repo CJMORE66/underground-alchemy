@@ -3,12 +3,16 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build:motion": "esbuild motion-source.js --bundle --minify --outfile=dist/motion.js --target=es2020"
+    "build:motion": "esbuild motion-source.js --bundle --minify --outfile=dist/motion.js --target=es2020",
+    "build:cinema": "esbuild src/cinematic-v7.js motion-source.js --bundle --minify --format=esm --splitting --outdir=dist --entry-names=[name] --chunk-names=chunks/experience-[hash] --target=es2020",
+    "test": "node tests/interactions.cjs && node tests/education.cjs && node tests/scene-config.mjs"
   },
   "dependencies": {
-    "three": "0.186.1"
+    "three": "0.186.1",
+    "web-vitals": "6.2.3"
   },
   "devDependencies": {
-    "esbuild": "0.28.2"
+    "esbuild": "0.28.2",
+    "linkedom": "0.18.13"
   }
 }

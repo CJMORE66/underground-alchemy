@@ -1,0 +1,83 @@
+{
+  "review": "Conservative terminal copy removal reviewed against 20 source records. No semantic design names invented. Applied to presentation under user-requested naming cleanup; original source names and IDs preserved.",
+  "changes": [
+    {
+      "productId": "prod_01M51CDX7WSP5QPMME938D6PHZ",
+      "original": "Unisex max heavyweight short sleeve copy",
+      "display": "Unisex max heavyweight short sleeve",
+      "scope": "presentation only; source name retained"
+    },
+    {
+      "productId": "prod_01M514QREFQAAZJATACW14BX6Q",
+      "original": "Men's Oversized Faded T-Shirt | AS Colour 5082 copy",
+      "display": "Men's Oversized Faded T-Shirt | AS Colour 5082",
+      "scope": "presentation only; source name retained"
+    },
+    {
+      "productId": "prod_01M514QQK596QC43KXDCWB0G8X",
+      "original": "Snapback Hat copy",
+      "display": "Snapback Hat",
+      "scope": "presentation only; source name retained"
+    },
+    {
+      "productId": "prod_01M514QNQ6YTZ05KFGMR5RS2NG",
+      "original": "Men's Oversized Faded T-Shirt | AS Colour 5082 copy",
+      "display": "Men's Oversized Faded T-Shirt | AS Colour 5082",
+      "scope": "presentation only; source name retained"
+    },
+    {
+      "productId": "prod_01M514QM1KD2M5M73SXQ2D5R97",
+      "original": "Urban garment-dyed hoodie copy",
+      "display": "Urban garment-dyed hoodie",
+      "scope": "presentation only; source name retained"
+    },
+    {
+      "productId": "prod_01M514QJV90TMT3K7YQNTQSGK9",
+      "original": "Men's heavyweight long sleeve t-shirt copy",
+      "display": "Men's heavyweight long sleeve t-shirt",
+      "scope": "presentation only; source name retained"
+    },
+    {
+      "productId": "prod_01M514QHVEGA719NQ56EF9S7HW",
+      "original": "Men's heavyweight long sleeve t-shirt copy",
+      "display": "Men's heavyweight long sleeve t-shirt",
+      "scope": "presentation only; source name retained"
+    },
+    {
+      "productId": "prod_01M514QGX6424S1KASGR1YCTHJ",
+      "original": "Unisex organic ribbed neck t-shirt copy",
+      "display": "Unisex organic ribbed neck t-shirt",
+      "scope": "presentation only; source name retained"
+    },
+    {
+      "productId": "prod_01M514QG3RBA8VXG5NW50WJHA8",
+      "original": "Unisex Sculpted Heavyweight Hoodie | Stanley/Stella SASU057 / STSU278 copy",
+      "display": "Unisex Sculpted Heavyweight Hoodie | Stanley/Stella SASU057 / STSU278",
+      "scope": "presentation only; source name retained"
+    },
+    {
+      "productId": "prod_01M514QF7DKVGYDSZGQDQN3539",
+      "original": "Unisex organic ribbed neck t-shirt copy",
+      "display": "Unisex organic ribbed neck t-shirt",
+      "scope": "presentation only; source name retained"
+    },
+    {
+      "productId": "prod_01M514QE9WA20R72AP8SN0G5AC",
+      "original": "Men’s cotton crew neck t-shirt copy",
+      "display": "Men’s cotton crew neck t-shirt",
+      "scope": "presentation only; source name retained"
+    },
+    {
+      "productId": "prod_01M514QDGVMPMZSAP5YKD0RZJQ",
+      "original": "Flat Bill Cap copy",
+      "display": "Flat Bill Cap",
+      "scope": "presentation only; source name retained"
+    },
+    {
+      "productId": "prod_01M514QCQYPTB4SMJWZHGRBRTS",
+      "original": "Unisex Heavy Blend Zip Hoodie | Gildan 18600 copy",
+      "display": "Unisex Heavy Blend Zip Hoodie | Gildan 18600",
+      "scope": "presentation only; source name retained"
+    }
+  ]
+}

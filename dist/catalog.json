@@ -4,7 +4,7 @@
     1,
     2
   ],
-  "checkedAt": "2026-10-16",
+  "checkedAt": "2026-10-16T04:52:09.112309+00:00",
   "regionPath": "dk",
   "currency": "EUR",
   "mode": "verified-public-snapshot",
@@ -37,6 +37,7 @@
       ],
       "variants": [
         {
+          "id": "variant_01M51CDX9D33NPE7ZK39J37M5W",
           "sku": "PF-18912189-5577001692",
           "title": "Navy / 3XL",
           "options": [
@@ -48,14 +49,32 @@
               "title": "Size",
               "value": "3XL"
             }
-          ]
+          ],
+          "calculatedAmount": 26.65,
+          "currency": "eur",
+          "priceTaxInclusive": false,
+          "manageInventory": false,
+          "allowBackorder": false,
+          "printfulAvailableAtSync": true,
+          "printfulCatalogVariantId": 51734,
+          "printfulSyncVariantId": 5577001692
         }
       ],
       "detailVerified": true,
       "localImage": "/assets/catalog/printful-18912189-482100507.png",
       "category": "tees",
       "currency": "EUR",
-      "checkedAt": "2026-10-16"
+      "checkedAt": "2026-10-16T04:52:09.112019+00:00",
+      "originalName": "Unisex max heavyweight short sleeve copy",
+      "handle": "printful-18912189-482100507",
+      "sourceMetadata": {
+        "printful_store_id": "18912189",
+        "printful_synced_at": "2026-10-16T03:34:57.529Z",
+        "fulfillment_provider": "printful",
+        "printful_sync_product_id": 482100507
+      },
+      "availabilityVerifiedLive": false,
+      "displayName": "Unisex max heavyweight short sleeve"
     },
     {
       "url": "https://hiphop.caisik.i234.me/dk/products/printful-18912189-482100511",
@@ -84,6 +103,7 @@
       ],
       "variants": [
         {
+          "id": "variant_01M51CDVJC5VPRX7HN7NEYT85R",
           "sku": "PF-18912189-5577001696",
           "title": "Light Steel / 3XL",
           "options": [
@@ -95,14 +115,32 @@
               "title": "Size",
               "value": "3XL"
             }
-          ]
+          ],
+          "calculatedAmount": 47.13,
+          "currency": "eur",
+          "priceTaxInclusive": false,
+          "manageInventory": false,
+          "allowBackorder": false,
+          "printfulAvailableAtSync": true,
+          "printfulCatalogVariantId": 22310,
+          "printfulSyncVariantId": 5577001696
         }
       ],
       "detailVerified": true,
       "localImage": "/assets/catalog/printful-18912189-482100511.png",
       "category": "hoodies",
       "currency": "EUR",
-      "checkedAt": "2026-10-16"
+      "checkedAt": "2026-10-16T04:52:09.112047+00:00",
+      "originalName": "Unisex Champion hoodie",
+      "handle": "printful-18912189-482100511",
+      "sourceMetadata": {
+        "printful_store_id": "18912189",
+        "printful_synced_at": "2026-10-16T03:34:55.768Z",
+        "fulfillment_provider": "printful",
+        "printful_sync_product_id": 482100511
+      },
+      "availabilityVerifiedLive": false,
+      "displayName": "Unisex Champion hoodie"
     },
     {
       "url": "https://hiphop.caisik.i234.me/dk/products/printful-18912189-482100516",
@@ -136,6 +174,7 @@
       ],
       "variants": [
         {
+          "id": "variant_01M51CDSVJVD27C4DSW5SZH8JR",
           "sku": "PF-18912189-5577001721",
           "title": "Black / XS",
           "options": [
@@ -147,9 +186,18 @@
               "title": "Size",
               "value": "XS"
             }
-          ]
+          ],
+          "calculatedAmount": 27.24,
+          "currency": "eur",
+          "priceTaxInclusive": false,
+          "manageInventory": false,
+          "allowBackorder": false,
+          "printfulAvailableAtSync": true,
+          "printfulCatalogVariantId": 49817,
+          "printfulSyncVariantId": 5577001721
         },
         {
+          "id": "variant_01M51CDSVK9Q9B52SXH1Q6J6M3",
           "sku": "PF-18912189-5577001722",
           "title": "Black / S",
           "options": [
@@ -161,9 +209,18 @@
               "title": "Size",
               "value": "S"
             }
-          ]
+          ],
+          "calculatedAmount": 27.24,
+          "currency": "eur",
+          "priceTaxInclusive": false,
+          "manageInventory": false,
+          "allowBackorder": false,
+          "printfulAvailableAtSync": true,
+          "printfulCatalogVariantId": 49822,
+          "printfulSyncVariantId": 5577001722
         },
         {
+          "id": "variant_01M51CDSVKRKT1F8Q2B0F1QF51",
           "sku": "PF-18912189-5577001723",
           "title": "Black / M",
           "options": [
@@ -175,9 +232,18 @@
               "title": "Size",
               "value": "M"
             }
-          ]
+          ],
+          "calculatedAmount": 27.24,
+          "currency": "eur",
+          "priceTaxInclusive": false,
+          "manageInventory": false,
+          "allowBackorder": false,
+          "printfulAvailableAtSync": true,
+          "printfulCatalogVariantId": 49827,
+          "printfulSyncVariantId": 5577001723
         },
         {
+          "id": "variant_01M51CDSVKPQJ083RPAB9ENNCF",
           "sku": "PF-18912189-5577001724",
           "title": "Black / L",
           "options": [
@@ -189,9 +255,18 @@
               "title": "Size",
               "value": "L"
             }
-          ]
+          ],
+          "calculatedAmount": 27.24,
+          "currency": "eur",
+          "priceTaxInclusive": false,
+          "manageInventory": false,
+          "allowBackorder": false,
+          "printfulAvailableAtSync": true,
+          "printfulCatalogVariantId": 49832,
+          "printfulSyncVariantId": 5577001724
         },
         {
+          "id": "variant_01M51CDSVKTCBAXV9AVAYFE6SB",
           "sku": "PF-18912189-5577001725",
           "title": "Black / XL",
           "options": [
@@ -203,9 +278,18 @@
               "title": "Size",
               "value": "XL"
             }
-          ]
+          ],
+          "calculatedAmount": 27.24,
+          "currency": "eur",
+          "priceTaxInclusive": false,
+          "manageInventory": false,
+          "allowBackorder": false,
+          "printfulAvailableAtSync": true,
+          "printfulCatalogVariantId": 49837,
+          "printfulSyncVariantId": 5577001725
         },
         {
+          "id": "variant_01M51CDSVK6Z3M1W8DCDNHG65W",
           "sku": "PF-18912189-5577001726",
           "title": "Black / 2XL",
           "options": [
@@ -217,9 +301,18 @@
               "title": "Size",
               "value": "2XL"
             }
-          ]
+          ],
+          "calculatedAmount": 29.58,
+          "currency": "eur",
+          "priceTaxInclusive": false,
+          "manageInventory": false,
+          "allowBackorder": false,
+          "printfulAvailableAtSync": true,
+          "printfulCatalogVariantId": 49842,
+          "printfulSyncVariantId": 5577001726
         },
         {
+          "id": "variant_01M51CDSVMCER8YQZ87ZY5Q57W",
           "sku": "PF-18912189-5577001727",
           "title": "Black / 3XL",
           "options": [
@@ -231,14 +324,32 @@
               "title": "Size",
               "value": "3XL"
             }
-          ]
+          ],
+          "calculatedAmount": 31.85,
+          "currency": "eur",
+          "priceTaxInclusive": false,
+          "manageInventory": false,
+          "allowBackorder": false,
+          "printfulAvailableAtSync": true,
+          "printfulCatalogVariantId": 49847,
+          "printfulSyncVariantId": 5577001727
         }
       ],
       "detailVerified": true,
       "localImage": "/assets/catalog/printful-18912189-482100516.png",
       "category": "tees",
       "currency": "EUR",
-      "checkedAt": "2026-10-16"
+      "checkedAt": "2026-10-16T04:52:09.112065+00:00",
+      "originalName": "Unisex garment dye heavyweight long sleeve tee",
+      "handle": "printful-18912189-482100516",
+      "sourceMetadata": {
+        "printful_store_id": "18912189",
+        "printful_synced_at": "2026-10-16T03:34:54.015Z",
+        "fulfillment_provider": "printful",
+        "printful_sync_product_id": 482100516
+      },
+      "availabilityVerifiedLive": false,
+      "displayName": "Unisex garment dye heavyweight long sleeve tee"
     },
     {
       "url": "https://hiphop.caisik.i234.me/dk/products/printful-18912189-482100520",
@@ -272,6 +383,7 @@
       ],
       "variants": [
         {
+          "id": "variant_01M51CDR64N7HCKK1D2VV00N7X",
           "sku": "PF-18912189-5577001756",
           "title": "Faded Grey / S",
           "options": [
@@ -283,9 +395,18 @@
               "title": "Size",
               "value": "S"
             }
-          ]
+          ],
+          "calculatedAmount": 27.95,
+          "currency": "eur",
+          "priceTaxInclusive": false,
+          "manageInventory": false,
+          "allowBackorder": false,
+          "printfulAvailableAtSync": true,
+          "printfulCatalogVariantId": 17572,
+          "printfulSyncVariantId": 5577001756
         },
         {
+          "id": "variant_01M51CDR65ZCJ4FHZ6H6NV3R3Z",
           "sku": "PF-18912189-5577001757",
           "title": "Faded Grey / M",
           "options": [
@@ -297,9 +418,18 @@
               "title": "Size",
               "value": "M"
             }
-          ]
+          ],
+          "calculatedAmount": 27.95,
+          "currency": "eur",
+          "priceTaxInclusive": false,
+          "manageInventory": false,
+          "allowBackorder": false,
+          "printfulAvailableAtSync": true,
+          "printfulCatalogVariantId": 17577,
+          "printfulSyncVariantId": 5577001757
         },
         {
+          "id": "variant_01M51CDR65G5H7WYTJT68YKZWH",
           "sku": "PF-18912189-5577001758",
           "title": "Faded Grey / L",
           "options": [
@@ -311,9 +441,18 @@
               "title": "Size",
               "value": "L"
             }
-          ]
+          ],
+          "calculatedAmount": 27.95,
+          "currency": "eur",
+          "priceTaxInclusive": false,
+          "manageInventory": true,
+          "allowBackorder": false,
+          "printfulAvailableAtSync": false,
+          "printfulCatalogVariantId": 17582,
+          "printfulSyncVariantId": 5577001758
         },
         {
+          "id": "variant_01M51CDR65PX6X4GR0HP6HK5CF",
           "sku": "PF-18912189-5577001759",
           "title": "Faded Grey / XL",
           "options": [
@@ -325,9 +464,18 @@
               "title": "Size",
               "value": "XL"
             }
-          ]
+          ],
+          "calculatedAmount": 27.95,
+          "currency": "eur",
+          "priceTaxInclusive": false,
+          "manageInventory": false,
+          "allowBackorder": false,
+          "printfulAvailableAtSync": true,
+          "printfulCatalogVariantId": 17587,
+          "printfulSyncVariantId": 5577001759
         },
         {
+          "id": "variant_01M51CDR654FTBEX0ZKETCZ6D4",
           "sku": "PF-18912189-5577001760",
           "title": "Faded Grey / 2XL",
           "options": [
@@ -339,9 +487,18 @@
               "title": "Size",
               "value": "2XL"
             }
-          ]
+          ],
+          "calculatedAmount": 30.23,
+          "currency": "eur",
+          "priceTaxInclusive": false,
+          "manageInventory": false,
+          "allowBackorder": false,
+          "printfulAvailableAtSync": true,
+          "printfulCatalogVariantId": 17592,
+          "printfulSyncVariantId": 5577001760
         },
         {
+          "id": "variant_01M51CDR664F042RHBPRASXSMG",
           "sku": "PF-18912189-5577001761",
           "title": "Faded Grey / 3XL",
           "options": [
@@ -353,14 +510,32 @@
               "title": "Size",
               "value": "3XL"
             }
-          ]
+          ],
+          "calculatedAmount": 32.83,
+          "currency": "eur",
+          "priceTaxInclusive": false,
+          "manageInventory": false,
+          "allowBackorder": false,
+          "printfulAvailableAtSync": true,
+          "printfulCatalogVariantId": 17597,
+          "printfulSyncVariantId": 5577001761
         }
       ],
       "detailVerified": true,
       "localImage": "/assets/catalog/printful-18912189-482100520.png",
       "category": "tees",
       "currency": "EUR",
-      "checkedAt": "2026-10-16"
+      "checkedAt": "2026-10-16T04:52:09.112082+00:00",
+      "originalName": "Oversized faded t-shirt",
+      "handle": "printful-18912189-482100520",
+      "sourceMetadata": {
+        "printful_store_id": "18912189",
+        "printful_synced_at": "2026-10-16T03:34:51.642Z",
+        "fulfillment_provider": "printful",
+        "printful_sync_product_id": 482100520
+      },
+      "availabilityVerifiedLive": false,
+      "displayName": "Oversized faded t-shirt"
     },
     {
       "url": "https://hiphop.caisik.i234.me/dk/products/printful-18912189-482100561",
@@ -395,6 +570,7 @@
       ],
       "variants": [
         {
+          "id": "variant_01M51CDN02CMQBX4KEFQTR3711",
           "sku": "PF-18912189-5577002178",
           "title": "Black / 3XL",
           "options": [
@@ -406,9 +582,18 @@
               "title": "Size",
               "value": "3XL"
             }
-          ]
+          ],
+          "calculatedAmount": 48.04,
+          "currency": "eur",
+          "priceTaxInclusive": false,
+          "manageInventory": false,
+          "allowBackorder": false,
+          "printfulAvailableAtSync": true,
+          "printfulCatalogVariantId": 22309,
+          "printfulSyncVariantId": 5577002178
         },
         {
+          "id": "variant_01M51CDN03R337GG9MWMQ0DSGG",
           "sku": "PF-18912189-5577028752",
           "title": "Black / S",
           "options": [
@@ -420,9 +605,18 @@
               "title": "Size",
               "value": "S"
             }
-          ]
+          ],
+          "calculatedAmount": 76,
+          "currency": "eur",
+          "priceTaxInclusive": false,
+          "manageInventory": false,
+          "allowBackorder": false,
+          "printfulAvailableAtSync": true,
+          "printfulCatalogVariantId": 22299,
+          "printfulSyncVariantId": 5577028752
         },
         {
+          "id": "variant_01M51CDN03BX6TTTAMG97D898C",
           "sku": "PF-18912189-5577028753",
           "title": "Black / M",
           "options": [
@@ -434,9 +628,18 @@
               "title": "Size",
               "value": "M"
             }
-          ]
+          ],
+          "calculatedAmount": 76,
+          "currency": "eur",
+          "priceTaxInclusive": false,
+          "manageInventory": false,
+          "allowBackorder": false,
+          "printfulAvailableAtSync": true,
+          "printfulCatalogVariantId": 22301,
+          "printfulSyncVariantId": 5577028753
         },
         {
+          "id": "variant_01M51CDN03RK0JZQZ1GQZBGCHV",
           "sku": "PF-18912189-5577028754",
           "title": "Black / L",
           "options": [
@@ -448,9 +651,18 @@
               "title": "Size",
               "value": "L"
             }
-          ]
+          ],
+          "calculatedAmount": 76,
+          "currency": "eur",
+          "priceTaxInclusive": false,
+          "manageInventory": false,
+          "allowBackorder": false,
+          "printfulAvailableAtSync": true,
+          "printfulCatalogVariantId": 22303,
+          "printfulSyncVariantId": 5577028754
         },
         {
+          "id": "variant_01M51CDN0315VV4ZTX3QMF6APV",
           "sku": "PF-18912189-5577028755",
           "title": "Black / XL",
           "options": [
@@ -462,9 +674,18 @@
               "title": "Size",
               "value": "XL"
             }
-          ]
+          ],
+          "calculatedAmount": 76,
+          "currency": "eur",
+          "priceTaxInclusive": false,
+          "manageInventory": false,
+          "allowBackorder": false,
+          "printfulAvailableAtSync": true,
+          "printfulCatalogVariantId": 22305,
+          "printfulSyncVariantId": 5577028755
         },
         {
+          "id": "variant_01M51CDN04W2W943S9FDVD2ZWV",
           "sku": "PF-18912189-5577028756",
           "title": "Black / 2XL",
           "options": [
@@ -476,14 +697,32 @@
               "title": "Size",
               "value": "2XL"
             }
-          ]
+          ],
+          "calculatedAmount": 78.5,
+          "currency": "eur",
+          "priceTaxInclusive": false,
+          "manageInventory": false,
+          "allowBackorder": false,
+          "printfulAvailableAtSync": true,
+          "printfulCatalogVariantId": 22307,
+          "printfulSyncVariantId": 5577028756
         }
       ],
       "detailVerified": true,
       "localImage": "/assets/catalog/printful-18912189-482100561.png",
       "category": "hoodies",
       "currency": "EUR",
-      "checkedAt": "2026-10-16"
+      "checkedAt": "2026-10-16T04:52:09.112096+00:00",
+      "originalName": "Unisex Champion hoodie",
+      "handle": "printful-18912189-482100561",
+      "sourceMetadata": {
+        "printful_store_id": "18912189",
+        "printful_synced_at": "2026-10-16T03:34:48.814Z",
+        "fulfillment_provider": "printful",
+        "printful_sync_product_id": 482100561
+      },
+      "availabilityVerifiedLive": false,
+      "displayName": "Unisex Champion hoodie"
     },
     {
       "url": "https://hiphop.caisik.i234.me/dk/products/printful-18912189-482104116",
@@ -511,6 +750,7 @@
       ],
       "variants": [
         {
+          "id": "variant_01M51CDJNH9WCGY2HNJV5XAPE6",
           "sku": "PF-18912189-5577025493",
           "title": "iPhone 17 Pro Max",
           "options": [
@@ -522,14 +762,32 @@
               "title": "Size",
               "value": "iPhone 17 Pro Max"
             }
-          ]
+          ],
+          "calculatedAmount": 16,
+          "currency": "eur",
+          "priceTaxInclusive": false,
+          "manageInventory": false,
+          "allowBackorder": false,
+          "printfulAvailableAtSync": true,
+          "printfulCatalogVariantId": 34000,
+          "printfulSyncVariantId": 5577025493
         }
       ],
       "detailVerified": true,
       "localImage": "/assets/catalog/printful-18912189-482104116.png",
       "category": "accessories",
       "currency": "EUR",
-      "checkedAt": "2026-10-16"
+      "checkedAt": "2026-10-16T04:52:09.112109+00:00",
+      "originalName": "MagSafe® clear case for iPhone®",
+      "handle": "printful-18912189-482104116",
+      "sourceMetadata": {
+        "printful_store_id": "18912189",
+        "printful_synced_at": "2026-10-16T03:34:46.143Z",
+        "fulfillment_provider": "printful",
+        "printful_sync_product_id": 482104116
+      },
+      "availabilityVerifiedLive": false,
+      "displayName": "MagSafe® clear case for iPhone®"
     },
     {
       "url": "https://hiphop.caisik.i234.me/dk/products/printful-18912189-482104768",
@@ -562,6 +820,7 @@
       ],
       "variants": [
         {
+          "id": "variant_01M51CDGGGBBHJ776CX8TCBB2Z",
           "sku": "PF-18912189-5577030790",
           "title": "Black / S",
           "options": [
@@ -573,9 +832,18 @@
               "title": "Size",
               "value": "S"
             }
-          ]
+          ],
+          "calculatedAmount": 54.5,
+          "currency": "eur",
+          "priceTaxInclusive": false,
+          "manageInventory": false,
+          "allowBackorder": false,
+          "printfulAvailableAtSync": true,
+          "printfulCatalogVariantId": 22299,
+          "printfulSyncVariantId": 5577030790
         },
         {
+          "id": "variant_01M51CDGGGDB0A9AZJSF1F6ACX",
           "sku": "PF-18912189-5577030791",
           "title": "Black / M",
           "options": [
@@ -587,9 +855,18 @@
               "title": "Size",
               "value": "M"
             }
-          ]
+          ],
+          "calculatedAmount": 54.5,
+          "currency": "eur",
+          "priceTaxInclusive": false,
+          "manageInventory": false,
+          "allowBackorder": false,
+          "printfulAvailableAtSync": true,
+          "printfulCatalogVariantId": 22301,
+          "printfulSyncVariantId": 5577030791
         },
         {
+          "id": "variant_01M51CDGGHAWT84HY2RCFESPEW",
           "sku": "PF-18912189-5577030792",
           "title": "Black / L",
           "options": [
@@ -601,9 +878,18 @@
               "title": "Size",
               "value": "L"
             }
-          ]
+          ],
+          "calculatedAmount": 54.5,
+          "currency": "eur",
+          "priceTaxInclusive": false,
+          "manageInventory": false,
+          "allowBackorder": false,
+          "printfulAvailableAtSync": true,
+          "printfulCatalogVariantId": 22303,
+          "printfulSyncVariantId": 5577030792
         },
         {
+          "id": "variant_01M51CDGGHG24C765BK457A1E2",
           "sku": "PF-18912189-5577030793",
           "title": "Black / XL",
           "options": [
@@ -615,9 +901,18 @@
               "title": "Size",
               "value": "XL"
             }
-          ]
+          ],
+          "calculatedAmount": 54.5,
+          "currency": "eur",
+          "priceTaxInclusive": false,
+          "manageInventory": false,
+          "allowBackorder": false,
+          "printfulAvailableAtSync": true,
+          "printfulCatalogVariantId": 22305,
+          "printfulSyncVariantId": 5577030793
         },
         {
+          "id": "variant_01M51CDGGHJT72J1PK1DY3QJBX",
           "sku": "PF-18912189-5577030794",
           "title": "Black / 2XL",
           "options": [
@@ -629,9 +924,18 @@
               "title": "Size",
               "value": "2XL"
             }
-          ]
+          ],
+          "calculatedAmount": 56.5,
+          "currency": "eur",
+          "priceTaxInclusive": false,
+          "manageInventory": false,
+          "allowBackorder": false,
+          "printfulAvailableAtSync": true,
+          "printfulCatalogVariantId": 22307,
+          "printfulSyncVariantId": 5577030794
         },
         {
+          "id": "variant_01M51CDGGHABCYYSB4ECJ5NDZR",
           "sku": "PF-18912189-5577030795",
           "title": "Black / 3XL",
           "options": [
@@ -643,14 +947,32 @@
               "title": "Size",
               "value": "3XL"
             }
-          ]
+          ],
+          "calculatedAmount": 58.5,
+          "currency": "eur",
+          "priceTaxInclusive": false,
+          "manageInventory": false,
+          "allowBackorder": false,
+          "printfulAvailableAtSync": true,
+          "printfulCatalogVariantId": 22309,
+          "printfulSyncVariantId": 5577030795
         }
       ],
       "detailVerified": true,
       "localImage": "/assets/catalog/printful-18912189-482104768.png",
       "category": "hoodies",
       "currency": "EUR",
-      "checkedAt": "2026-10-16"
+      "checkedAt": "2026-10-16T04:52:09.112124+00:00",
+      "originalName": "OMERTA WITH EGO",
+      "handle": "printful-18912189-482104768",
+      "sourceMetadata": {
+        "printful_store_id": "18912189",
+        "printful_synced_at": "2026-10-16T03:34:44.420Z",
+        "fulfillment_provider": "printful",
+        "printful_sync_product_id": 482104768
+      },
+      "availabilityVerifiedLive": false,
+      "displayName": "OMERTA WITH EGO"
     },
     {
       "url": "https://hiphop.caisik.i234.me/dk/products/printful-18912189-482072983",
@@ -682,6 +1004,7 @@
       ],
       "variants": [
         {
+          "id": "variant_01M514QV1RH9Q7E85ZJ6RC01Y5",
           "sku": "PF-18912189-5576810041",
           "title": "Red / S",
           "options": [
@@ -693,9 +1016,18 @@
               "title": "Size",
               "value": "S"
             }
-          ]
+          ],
+          "calculatedAmount": 34.5,
+          "currency": "eur",
+          "priceTaxInclusive": false,
+          "manageInventory": false,
+          "allowBackorder": false,
+          "printfulAvailableAtSync": true,
+          "printfulCatalogVariantId": 21221,
+          "printfulSyncVariantId": 5576810041
         },
         {
+          "id": "variant_01M514QV1RH7DDRE6RNTR41MRR",
           "sku": "PF-18912189-5576810042",
           "title": "Red / M",
           "options": [
@@ -707,9 +1039,18 @@
               "title": "Size",
               "value": "M"
             }
-          ]
+          ],
+          "calculatedAmount": 34.5,
+          "currency": "eur",
+          "priceTaxInclusive": false,
+          "manageInventory": false,
+          "allowBackorder": false,
+          "printfulAvailableAtSync": true,
+          "printfulCatalogVariantId": 21222,
+          "printfulSyncVariantId": 5576810042
         },
         {
+          "id": "variant_01M514QV1SBPXAWZGNM2QFHKSV",
           "sku": "PF-18912189-5576810043",
           "title": "Red / L",
           "options": [
@@ -721,9 +1062,18 @@
               "title": "Size",
               "value": "L"
             }
-          ]
+          ],
+          "calculatedAmount": 34.5,
+          "currency": "eur",
+          "priceTaxInclusive": false,
+          "manageInventory": false,
+          "allowBackorder": false,
+          "printfulAvailableAtSync": true,
+          "printfulCatalogVariantId": 21223,
+          "printfulSyncVariantId": 5576810043
         },
         {
+          "id": "variant_01M514QV1SNCRAV85G9F13NYP3",
           "sku": "PF-18912189-5576810044",
           "title": "Red / XL",
           "options": [
@@ -735,9 +1085,18 @@
               "title": "Size",
               "value": "XL"
             }
-          ]
+          ],
+          "calculatedAmount": 34.5,
+          "currency": "eur",
+          "priceTaxInclusive": false,
+          "manageInventory": false,
+          "allowBackorder": false,
+          "printfulAvailableAtSync": true,
+          "printfulCatalogVariantId": 21224,
+          "printfulSyncVariantId": 5576810044
         },
         {
+          "id": "variant_01M514QV1SQJJMSBHZV7W9RQ1Y",
           "sku": "PF-18912189-5576810045",
           "title": "Red / 2XL",
           "options": [
@@ -749,14 +1108,32 @@
               "title": "Size",
               "value": "2XL"
             }
-          ]
+          ],
+          "calculatedAmount": 36.5,
+          "currency": "eur",
+          "priceTaxInclusive": false,
+          "manageInventory": false,
+          "allowBackorder": false,
+          "printfulAvailableAtSync": true,
+          "printfulCatalogVariantId": 21225,
+          "printfulSyncVariantId": 5576810045
         }
       ],
       "detailVerified": true,
       "localImage": "/assets/catalog/printful-18912189-482072983.png",
       "category": "tees",
       "currency": "EUR",
-      "checkedAt": "2026-10-16"
+      "checkedAt": "2026-10-16T04:52:09.112135+00:00",
+      "originalName": "WU TANG - forever - limited ed.",
+      "handle": "printful-18912189-482072983",
+      "sourceMetadata": {
+        "printful_store_id": "18912189",
+        "printful_synced_at": "2026-10-16T03:35:20.216Z",
+        "fulfillment_provider": "printful",
+        "printful_sync_product_id": 482072983
+      },
+      "availabilityVerifiedLive": false,
+      "displayName": "WU TANG - forever - limited ed."
     },
     {
       "url": "https://hiphop.caisik.i234.me/dk/products/printful-18912189-482088042",
@@ -789,6 +1166,7 @@
       ],
       "variants": [
         {
+          "id": "variant_01M514QRY82WGD2QK6J5X21HNE",
           "sku": "PF-18912189-5576894806",
           "title": "Faded Grey / S",
           "options": [
@@ -800,9 +1178,18 @@
               "title": "Size",
               "value": "S"
             }
-          ]
+          ],
+          "calculatedAmount": 41,
+          "currency": "eur",
+          "priceTaxInclusive": false,
+          "manageInventory": false,
+          "allowBackorder": false,
+          "printfulAvailableAtSync": true,
+          "printfulCatalogVariantId": 17572,
+          "printfulSyncVariantId": 5576894806
         },
         {
+          "id": "variant_01M514QRY8DWMZBA8HH3G8HWCK",
           "sku": "PF-18912189-5576894807",
           "title": "Faded Grey / M",
           "options": [
@@ -814,9 +1201,18 @@
               "title": "Size",
               "value": "M"
             }
-          ]
+          ],
+          "calculatedAmount": 41,
+          "currency": "eur",
+          "priceTaxInclusive": false,
+          "manageInventory": false,
+          "allowBackorder": false,
+          "printfulAvailableAtSync": true,
+          "printfulCatalogVariantId": 17577,
+          "printfulSyncVariantId": 5576894807
         },
         {
+          "id": "variant_01M514QRY8Q2YFFGP7PYXRMAN4",
           "sku": "PF-18912189-5576894808",
           "title": "Faded Grey / L",
           "options": [
@@ -828,9 +1224,18 @@
               "title": "Size",
               "value": "L"
             }
-          ]
+          ],
+          "calculatedAmount": 41,
+          "currency": "eur",
+          "priceTaxInclusive": false,
+          "manageInventory": true,
+          "allowBackorder": false,
+          "printfulAvailableAtSync": false,
+          "printfulCatalogVariantId": 17582,
+          "printfulSyncVariantId": 5576894808
         },
         {
+          "id": "variant_01M514QRY986XHZH0T4XAG3AJB",
           "sku": "PF-18912189-5576894809",
           "title": "Faded Grey / XL",
           "options": [
@@ -842,9 +1247,18 @@
               "title": "Size",
               "value": "XL"
             }
-          ]
+          ],
+          "calculatedAmount": 41,
+          "currency": "eur",
+          "priceTaxInclusive": false,
+          "manageInventory": false,
+          "allowBackorder": false,
+          "printfulAvailableAtSync": true,
+          "printfulCatalogVariantId": 17587,
+          "printfulSyncVariantId": 5576894809
         },
         {
+          "id": "variant_01M514QRY9JBQ58B52YG7X2PSW",
           "sku": "PF-18912189-5576894810",
           "title": "Faded Grey / 2XL",
           "options": [
@@ -856,9 +1270,18 @@
               "title": "Size",
               "value": "2XL"
             }
-          ]
+          ],
+          "calculatedAmount": 43,
+          "currency": "eur",
+          "priceTaxInclusive": false,
+          "manageInventory": false,
+          "allowBackorder": false,
+          "printfulAvailableAtSync": true,
+          "printfulCatalogVariantId": 17592,
+          "printfulSyncVariantId": 5576894810
         },
         {
+          "id": "variant_01M514QRY9WZM2P5P1ZPR2E0EZ",
           "sku": "PF-18912189-5576894811",
           "title": "Faded Grey / 3XL",
           "options": [
@@ -870,14 +1293,32 @@
               "title": "Size",
               "value": "3XL"
             }
-          ]
+          ],
+          "calculatedAmount": 45,
+          "currency": "eur",
+          "priceTaxInclusive": false,
+          "manageInventory": false,
+          "allowBackorder": false,
+          "printfulAvailableAtSync": true,
+          "printfulCatalogVariantId": 17597,
+          "printfulSyncVariantId": 5576894811
         }
       ],
       "detailVerified": true,
       "localImage": "/assets/catalog/printful-18912189-482088042.png",
       "category": "tees",
       "currency": "EUR",
-      "checkedAt": "2026-10-16"
+      "checkedAt": "2026-10-16T04:52:09.112151+00:00",
+      "originalName": "Men's Oversized Faded T-Shirt | AS Colour 5082 copy",
+      "handle": "printful-18912189-482088042",
+      "sourceMetadata": {
+        "printful_store_id": "18912189",
+        "printful_synced_at": "2026-10-16T03:35:18.409Z",
+        "fulfillment_provider": "printful",
+        "printful_sync_product_id": 482088042
+      },
+      "availabilityVerifiedLive": false,
+      "displayName": "Men's Oversized Faded T-Shirt | AS Colour 5082"
     },
     {
       "url": "https://hiphop.caisik.i234.me/dk/products/printful-18912189-482088808",
@@ -906,6 +1347,7 @@
       ],
       "variants": [
         {
+          "id": "variant_01M514QQMM016HJ4NEF4V4QVT9",
           "sku": "PF-18912189-5576898508",
           "title": "Gold / Black / Black / One size",
           "options": [
@@ -917,14 +1359,32 @@
               "title": "Size",
               "value": "One size"
             }
-          ]
+          ],
+          "calculatedAmount": 19.18,
+          "currency": "eur",
+          "priceTaxInclusive": false,
+          "manageInventory": false,
+          "allowBackorder": false,
+          "printfulAvailableAtSync": true,
+          "printfulCatalogVariantId": 4481,
+          "printfulSyncVariantId": 5576898508
         }
       ],
       "detailVerified": true,
       "localImage": "/assets/catalog/printful-18912189-482088808.png",
       "category": "accessories",
       "currency": "EUR",
-      "checkedAt": "2026-10-16"
+      "checkedAt": "2026-10-16T04:52:09.112158+00:00",
+      "originalName": "Snapback Hat copy",
+      "handle": "printful-18912189-482088808",
+      "sourceMetadata": {
+        "printful_store_id": "18912189",
+        "printful_synced_at": "2026-10-16T03:35:16.702Z",
+        "fulfillment_provider": "printful",
+        "printful_sync_product_id": 482088808
+      },
+      "availabilityVerifiedLive": false,
+      "displayName": "Snapback Hat"
     },
     {
       "url": "https://hiphop.caisik.i234.me/dk/products/printful-18912189-482088834",
@@ -958,6 +1418,7 @@
       ],
       "variants": [
         {
+          "id": "variant_01M514QP1K93YK6RPG5M9Z378D",
           "sku": "PF-18912189-5576898542",
           "title": "Faded Grey / S",
           "options": [
@@ -969,9 +1430,18 @@
               "title": "Size",
               "value": "S"
             }
-          ]
+          ],
+          "calculatedAmount": 29.58,
+          "currency": "eur",
+          "priceTaxInclusive": false,
+          "manageInventory": false,
+          "allowBackorder": false,
+          "printfulAvailableAtSync": true,
+          "printfulCatalogVariantId": 17572,
+          "printfulSyncVariantId": 5576898542
         },
         {
+          "id": "variant_01M514QP1MDKC7MFC71N177VCF",
           "sku": "PF-18912189-5576898543",
           "title": "Faded Grey / M",
           "options": [
@@ -983,9 +1453,18 @@
               "title": "Size",
               "value": "M"
             }
-          ]
+          ],
+          "calculatedAmount": 29.58,
+          "currency": "eur",
+          "priceTaxInclusive": false,
+          "manageInventory": false,
+          "allowBackorder": false,
+          "printfulAvailableAtSync": true,
+          "printfulCatalogVariantId": 17577,
+          "printfulSyncVariantId": 5576898543
         },
         {
+          "id": "variant_01M514QP1MWXNB71DPHCMV22GZ",
           "sku": "PF-18912189-5576898544",
           "title": "Faded Grey / L",
           "options": [
@@ -997,9 +1476,18 @@
               "title": "Size",
               "value": "L"
             }
-          ]
+          ],
+          "calculatedAmount": 29.58,
+          "currency": "eur",
+          "priceTaxInclusive": false,
+          "manageInventory": true,
+          "allowBackorder": false,
+          "printfulAvailableAtSync": false,
+          "printfulCatalogVariantId": 17582,
+          "printfulSyncVariantId": 5576898544
         },
         {
+          "id": "variant_01M514QP1MMBT9TX90ADNCDHFF",
           "sku": "PF-18912189-5576898545",
           "title": "Faded Grey / XL",
           "options": [
@@ -1011,9 +1499,18 @@
               "title": "Size",
               "value": "XL"
             }
-          ]
+          ],
+          "calculatedAmount": 29.58,
+          "currency": "eur",
+          "priceTaxInclusive": false,
+          "manageInventory": false,
+          "allowBackorder": false,
+          "printfulAvailableAtSync": true,
+          "printfulCatalogVariantId": 17587,
+          "printfulSyncVariantId": 5576898545
         },
         {
+          "id": "variant_01M514QP1MTE7NDGAHFY4TC9XA",
           "sku": "PF-18912189-5576898546",
           "title": "Faded Grey / 2XL",
           "options": [
@@ -1025,9 +1522,18 @@
               "title": "Size",
               "value": "2XL"
             }
-          ]
+          ],
+          "calculatedAmount": 31.85,
+          "currency": "eur",
+          "priceTaxInclusive": false,
+          "manageInventory": false,
+          "allowBackorder": false,
+          "printfulAvailableAtSync": true,
+          "printfulCatalogVariantId": 17592,
+          "printfulSyncVariantId": 5576898546
         },
         {
+          "id": "variant_01M514QP1NMCXBMH4W8GEK2DA9",
           "sku": "PF-18912189-5576898547",
           "title": "Faded Grey / 3XL",
           "options": [
@@ -1039,14 +1545,32 @@
               "title": "Size",
               "value": "3XL"
             }
-          ]
+          ],
+          "calculatedAmount": 34.13,
+          "currency": "eur",
+          "priceTaxInclusive": false,
+          "manageInventory": false,
+          "allowBackorder": false,
+          "printfulAvailableAtSync": true,
+          "printfulCatalogVariantId": 17597,
+          "printfulSyncVariantId": 5576898547
         }
       ],
       "detailVerified": true,
       "localImage": "/assets/catalog/printful-18912189-482088834.png",
       "category": "tees",
       "currency": "EUR",
-      "checkedAt": "2026-10-16"
+      "checkedAt": "2026-10-16T04:52:09.112172+00:00",
+      "originalName": "Men's Oversized Faded T-Shirt | AS Colour 5082 copy",
+      "handle": "printful-18912189-482088834",
+      "sourceMetadata": {
+        "printful_store_id": "18912189",
+        "printful_synced_at": "2026-10-16T03:35:14.947Z",
+        "fulfillment_provider": "printful",
+        "printful_sync_product_id": 482088834
+      },
+      "availabilityVerifiedLive": false,
+      "displayName": "Men's Oversized Faded T-Shirt | AS Colour 5082"
     },
     {
       "url": "https://hiphop.caisik.i234.me/dk/products/printful-18912189-482088871",
@@ -1080,6 +1604,7 @@
       ],
       "variants": [
         {
+          "id": "variant_01M514QMFET26JCA4XXJGP2ACH",
           "sku": "PF-18912189-5576898589",
           "title": "Pigment Midnight Navy / S",
           "options": [
@@ -1091,9 +1616,18 @@
               "title": "Size",
               "value": "S"
             }
-          ]
+          ],
+          "calculatedAmount": 42.25,
+          "currency": "eur",
+          "priceTaxInclusive": false,
+          "manageInventory": false,
+          "allowBackorder": false,
+          "printfulAvailableAtSync": true,
+          "printfulCatalogVariantId": 34362,
+          "printfulSyncVariantId": 5576898589
         },
         {
+          "id": "variant_01M514QMFEB04AM2Z8TDC9SFJA",
           "sku": "PF-18912189-5576898590",
           "title": "Pigment Midnight Navy / M",
           "options": [
@@ -1105,9 +1639,18 @@
               "title": "Size",
               "value": "M"
             }
-          ]
+          ],
+          "calculatedAmount": 42.25,
+          "currency": "eur",
+          "priceTaxInclusive": false,
+          "manageInventory": false,
+          "allowBackorder": false,
+          "printfulAvailableAtSync": true,
+          "printfulCatalogVariantId": 34365,
+          "printfulSyncVariantId": 5576898590
         },
         {
+          "id": "variant_01M514QMFFV6J4EZ0PS8QC42NN",
           "sku": "PF-18912189-5576898591",
           "title": "Pigment Midnight Navy / L",
           "options": [
@@ -1119,9 +1662,18 @@
               "title": "Size",
               "value": "L"
             }
-          ]
+          ],
+          "calculatedAmount": 42.25,
+          "currency": "eur",
+          "priceTaxInclusive": false,
+          "manageInventory": false,
+          "allowBackorder": false,
+          "printfulAvailableAtSync": true,
+          "printfulCatalogVariantId": 34368,
+          "printfulSyncVariantId": 5576898591
         },
         {
+          "id": "variant_01M514QMFF84QZYFCM7CCV3640",
           "sku": "PF-18912189-5576898593",
           "title": "Pigment Midnight Navy / XL",
           "options": [
@@ -1133,9 +1685,18 @@
               "title": "Size",
               "value": "XL"
             }
-          ]
+          ],
+          "calculatedAmount": 42.25,
+          "currency": "eur",
+          "priceTaxInclusive": false,
+          "manageInventory": false,
+          "allowBackorder": false,
+          "printfulAvailableAtSync": true,
+          "printfulCatalogVariantId": 34371,
+          "printfulSyncVariantId": 5576898593
         },
         {
+          "id": "variant_01M514QMFF7EMCP9W70BET4RT3",
           "sku": "PF-18912189-5576898594",
           "title": "Pigment Midnight Navy / 2XL",
           "options": [
@@ -1147,9 +1708,18 @@
               "title": "Size",
               "value": "2XL"
             }
-          ]
+          ],
+          "calculatedAmount": 44.53,
+          "currency": "eur",
+          "priceTaxInclusive": false,
+          "manageInventory": false,
+          "allowBackorder": false,
+          "printfulAvailableAtSync": true,
+          "printfulCatalogVariantId": 34374,
+          "printfulSyncVariantId": 5576898594
         },
         {
+          "id": "variant_01M514QMFF6Y7E4NXCDTX9ZBYG",
           "sku": "PF-18912189-5576898595",
           "title": "Pigment Midnight Navy / 3XL",
           "options": [
@@ -1161,14 +1731,32 @@
               "title": "Size",
               "value": "3XL"
             }
-          ]
+          ],
+          "calculatedAmount": 46.74,
+          "currency": "eur",
+          "priceTaxInclusive": false,
+          "manageInventory": false,
+          "allowBackorder": false,
+          "printfulAvailableAtSync": true,
+          "printfulCatalogVariantId": 34377,
+          "printfulSyncVariantId": 5576898595
         }
       ],
       "detailVerified": true,
       "localImage": "/assets/catalog/printful-18912189-482088871.png",
       "category": "hoodies",
       "currency": "EUR",
-      "checkedAt": "2026-10-16"
+      "checkedAt": "2026-10-16T04:52:09.112185+00:00",
+      "originalName": "Urban garment-dyed hoodie copy",
+      "handle": "printful-18912189-482088871",
+      "sourceMetadata": {
+        "printful_store_id": "18912189",
+        "printful_synced_at": "2026-10-16T03:35:13.235Z",
+        "fulfillment_provider": "printful",
+        "printful_sync_product_id": 482088871
+      },
+      "availabilityVerifiedLive": false,
+      "displayName": "Urban garment-dyed hoodie"
     },
     {
       "url": "https://hiphop.caisik.i234.me/dk/products/printful-18912189-482088888",
@@ -1202,6 +1790,7 @@
       ],
       "variants": [
         {
+          "id": "variant_01M514QK123SHBAX74AZSHRSP8",
           "sku": "PF-18912189-5576898634",
           "title": "Black / S",
           "options": [
@@ -1213,9 +1802,18 @@
               "title": "Size",
               "value": "S"
             }
-          ]
+          ],
+          "calculatedAmount": 20.15,
+          "currency": "eur",
+          "priceTaxInclusive": false,
+          "manageInventory": false,
+          "allowBackorder": false,
+          "printfulAvailableAtSync": true,
+          "printfulCatalogVariantId": 24428,
+          "printfulSyncVariantId": 5576898634
         },
         {
+          "id": "variant_01M514QK12B5G0DCY2RT1WPY37",
           "sku": "PF-18912189-5576898635",
           "title": "Black / M",
           "options": [
@@ -1227,9 +1825,18 @@
               "title": "Size",
               "value": "M"
             }
-          ]
+          ],
+          "calculatedAmount": 20.15,
+          "currency": "eur",
+          "priceTaxInclusive": false,
+          "manageInventory": false,
+          "allowBackorder": false,
+          "printfulAvailableAtSync": true,
+          "printfulCatalogVariantId": 24423,
+          "printfulSyncVariantId": 5576898635
         },
         {
+          "id": "variant_01M514QK13RTE23PDFQKPA1RKG",
           "sku": "PF-18912189-5576898636",
           "title": "Black / L",
           "options": [
@@ -1241,9 +1848,18 @@
               "title": "Size",
               "value": "L"
             }
-          ]
+          ],
+          "calculatedAmount": 20.15,
+          "currency": "eur",
+          "priceTaxInclusive": false,
+          "manageInventory": false,
+          "allowBackorder": false,
+          "printfulAvailableAtSync": true,
+          "printfulCatalogVariantId": 24433,
+          "printfulSyncVariantId": 5576898636
         },
         {
+          "id": "variant_01M514QK13G280QYBFQA225B7Q",
           "sku": "PF-18912189-5576898637",
           "title": "Black / XL",
           "options": [
@@ -1255,9 +1871,18 @@
               "title": "Size",
               "value": "XL"
             }
-          ]
+          ],
+          "calculatedAmount": 20.15,
+          "currency": "eur",
+          "priceTaxInclusive": false,
+          "manageInventory": false,
+          "allowBackorder": false,
+          "printfulAvailableAtSync": true,
+          "printfulCatalogVariantId": 24438,
+          "printfulSyncVariantId": 5576898637
         },
         {
+          "id": "variant_01M514QK134W90YTNHKR699G31",
           "sku": "PF-18912189-5576898638",
           "title": "Black / 2XL",
           "options": [
@@ -1269,9 +1894,18 @@
               "title": "Size",
               "value": "2XL"
             }
-          ]
+          ],
+          "calculatedAmount": 22.43,
+          "currency": "eur",
+          "priceTaxInclusive": false,
+          "manageInventory": false,
+          "allowBackorder": false,
+          "printfulAvailableAtSync": true,
+          "printfulCatalogVariantId": 24443,
+          "printfulSyncVariantId": 5576898638
         },
         {
+          "id": "variant_01M514QK13X43FHV6VG9YY3E6P",
           "sku": "PF-18912189-5576898639",
           "title": "Black / 3XL",
           "options": [
@@ -1283,14 +1917,32 @@
               "title": "Size",
               "value": "3XL"
             }
-          ]
+          ],
+          "calculatedAmount": 25.03,
+          "currency": "eur",
+          "priceTaxInclusive": false,
+          "manageInventory": false,
+          "allowBackorder": false,
+          "printfulAvailableAtSync": true,
+          "printfulCatalogVariantId": 24448,
+          "printfulSyncVariantId": 5576898639
         }
       ],
       "detailVerified": true,
       "localImage": "/assets/catalog/printful-18912189-482088888.png",
       "category": "tees",
       "currency": "EUR",
-      "checkedAt": "2026-10-16"
+      "checkedAt": "2026-10-16T04:52:09.112198+00:00",
+      "originalName": "Men's heavyweight long sleeve t-shirt copy",
+      "handle": "printful-18912189-482088888",
+      "sourceMetadata": {
+        "printful_store_id": "18912189",
+        "printful_synced_at": "2026-10-16T03:35:11.480Z",
+        "fulfillment_provider": "printful",
+        "printful_sync_product_id": 482088888
+      },
+      "availabilityVerifiedLive": false,
+      "displayName": "Men's heavyweight long sleeve t-shirt"
     },
     {
       "url": "https://hiphop.caisik.i234.me/dk/products/printful-18912189-482088891",
@@ -1324,6 +1976,7 @@
       ],
       "variants": [
         {
+          "id": "variant_01M514QHYVNJFQM7GH1QF1MAB3",
           "sku": "PF-18912189-5576898687",
           "title": "Black / S",
           "options": [
@@ -1335,9 +1988,18 @@
               "title": "Size",
               "value": "S"
             }
-          ]
+          ],
+          "calculatedAmount": 18.85,
+          "currency": "eur",
+          "priceTaxInclusive": false,
+          "manageInventory": false,
+          "allowBackorder": false,
+          "printfulAvailableAtSync": true,
+          "printfulCatalogVariantId": 24428,
+          "printfulSyncVariantId": 5576898687
         },
         {
+          "id": "variant_01M514QHYVMEMTW1RHM22Z36XA",
           "sku": "PF-18912189-5576898688",
           "title": "Black / M",
           "options": [
@@ -1349,9 +2011,18 @@
               "title": "Size",
               "value": "M"
             }
-          ]
+          ],
+          "calculatedAmount": 18.85,
+          "currency": "eur",
+          "priceTaxInclusive": false,
+          "manageInventory": false,
+          "allowBackorder": false,
+          "printfulAvailableAtSync": true,
+          "printfulCatalogVariantId": 24423,
+          "printfulSyncVariantId": 5576898688
         },
         {
+          "id": "variant_01M514QHYVR0PM66X8VS3JQW8C",
           "sku": "PF-18912189-5576898689",
           "title": "Black / L",
           "options": [
@@ -1363,9 +2034,18 @@
               "title": "Size",
               "value": "L"
             }
-          ]
+          ],
+          "calculatedAmount": 18.85,
+          "currency": "eur",
+          "priceTaxInclusive": false,
+          "manageInventory": false,
+          "allowBackorder": false,
+          "printfulAvailableAtSync": true,
+          "printfulCatalogVariantId": 24433,
+          "printfulSyncVariantId": 5576898689
         },
         {
+          "id": "variant_01M514QHYVFV7BVE80N1AHWNYX",
           "sku": "PF-18912189-5576898690",
           "title": "Black / XL",
           "options": [
@@ -1377,9 +2057,18 @@
               "title": "Size",
               "value": "XL"
             }
-          ]
+          ],
+          "calculatedAmount": 18.85,
+          "currency": "eur",
+          "priceTaxInclusive": false,
+          "manageInventory": false,
+          "allowBackorder": false,
+          "printfulAvailableAtSync": true,
+          "printfulCatalogVariantId": 24438,
+          "printfulSyncVariantId": 5576898690
         },
         {
+          "id": "variant_01M514QHYW1HXN1V3FCVGE22B1",
           "sku": "PF-18912189-5576898691",
           "title": "Black / 2XL",
           "options": [
@@ -1391,9 +2080,18 @@
               "title": "Size",
               "value": "2XL"
             }
-          ]
+          ],
+          "calculatedAmount": 21.13,
+          "currency": "eur",
+          "priceTaxInclusive": false,
+          "manageInventory": false,
+          "allowBackorder": false,
+          "printfulAvailableAtSync": true,
+          "printfulCatalogVariantId": 24443,
+          "printfulSyncVariantId": 5576898691
         },
         {
+          "id": "variant_01M514QHYWJNMP660YQR5VCT11",
           "sku": "PF-18912189-5576898692",
           "title": "Black / 3XL",
           "options": [
@@ -1405,14 +2103,32 @@
               "title": "Size",
               "value": "3XL"
             }
-          ]
+          ],
+          "calculatedAmount": 23.34,
+          "currency": "eur",
+          "priceTaxInclusive": false,
+          "manageInventory": false,
+          "allowBackorder": false,
+          "printfulAvailableAtSync": true,
+          "printfulCatalogVariantId": 24448,
+          "printfulSyncVariantId": 5576898692
         }
       ],
       "detailVerified": true,
       "localImage": "/assets/catalog/printful-18912189-482088891.png",
       "category": "tees",
       "currency": "EUR",
-      "checkedAt": "2026-10-16"
+      "checkedAt": "2026-10-16T04:52:09.112214+00:00",
+      "originalName": "Men's heavyweight long sleeve t-shirt copy",
+      "handle": "printful-18912189-482088891",
+      "sourceMetadata": {
+        "printful_store_id": "18912189",
+        "printful_synced_at": "2026-10-16T03:35:09.664Z",
+        "fulfillment_provider": "printful",
+        "printful_sync_product_id": 482088891
+      },
+      "availabilityVerifiedLive": false,
+      "displayName": "Men's heavyweight long sleeve t-shirt"
     },
     {
       "url": "https://hiphop.caisik.i234.me/dk/products/printful-18912189-482088894",
@@ -1447,6 +2163,7 @@
       ],
       "variants": [
         {
+          "id": "variant_01M514QGZ5CVPVNJFB7DCYWX0H",
           "sku": "PF-18912189-5576898697",
           "title": "Black / S",
           "options": [
@@ -1458,9 +2175,18 @@
               "title": "Size",
               "value": "S"
             }
-          ]
+          ],
+          "calculatedAmount": 19.83,
+          "currency": "eur",
+          "priceTaxInclusive": false,
+          "manageInventory": false,
+          "allowBackorder": false,
+          "printfulAvailableAtSync": true,
+          "printfulCatalogVariantId": 20716,
+          "printfulSyncVariantId": 5576898697
         },
         {
+          "id": "variant_01M514QGZ58DRWDMAK68KQS79Q",
           "sku": "PF-18912189-5576898698",
           "title": "Black / M",
           "options": [
@@ -1472,9 +2198,18 @@
               "title": "Size",
               "value": "M"
             }
-          ]
+          ],
+          "calculatedAmount": 19.83,
+          "currency": "eur",
+          "priceTaxInclusive": false,
+          "manageInventory": false,
+          "allowBackorder": false,
+          "printfulAvailableAtSync": true,
+          "printfulCatalogVariantId": 20717,
+          "printfulSyncVariantId": 5576898698
         },
         {
+          "id": "variant_01M514QGZ616XWSZNDWRA72PW8",
           "sku": "PF-18912189-5576898699",
           "title": "Black / L",
           "options": [
@@ -1486,9 +2221,18 @@
               "title": "Size",
               "value": "L"
             }
-          ]
+          ],
+          "calculatedAmount": 19.83,
+          "currency": "eur",
+          "priceTaxInclusive": false,
+          "manageInventory": false,
+          "allowBackorder": false,
+          "printfulAvailableAtSync": true,
+          "printfulCatalogVariantId": 20718,
+          "printfulSyncVariantId": 5576898699
         },
         {
+          "id": "variant_01M514QGZ6MBHQMH9FRK8B1V5B",
           "sku": "PF-18912189-5576898700",
           "title": "Black / XL",
           "options": [
@@ -1500,9 +2244,18 @@
               "title": "Size",
               "value": "XL"
             }
-          ]
+          ],
+          "calculatedAmount": 19.83,
+          "currency": "eur",
+          "priceTaxInclusive": false,
+          "manageInventory": false,
+          "allowBackorder": false,
+          "printfulAvailableAtSync": true,
+          "printfulCatalogVariantId": 20719,
+          "printfulSyncVariantId": 5576898700
         },
         {
+          "id": "variant_01M514QGZ6B5HXFH8146FWQ4G6",
           "sku": "PF-18912189-5576898701",
           "title": "Black / 2XL",
           "options": [
@@ -1514,9 +2267,18 @@
               "title": "Size",
               "value": "2XL"
             }
-          ]
+          ],
+          "calculatedAmount": 22.04,
+          "currency": "eur",
+          "priceTaxInclusive": false,
+          "manageInventory": false,
+          "allowBackorder": false,
+          "printfulAvailableAtSync": true,
+          "printfulCatalogVariantId": 20720,
+          "printfulSyncVariantId": 5576898701
         },
         {
+          "id": "variant_01M514QGZ6TWZSG7R4G7QSSRN6",
           "sku": "PF-18912189-5576898702",
           "title": "Black / 3XL",
           "options": [
@@ -1528,9 +2290,18 @@
               "title": "Size",
               "value": "3XL"
             }
-          ]
+          ],
+          "calculatedAmount": 24.38,
+          "currency": "eur",
+          "priceTaxInclusive": false,
+          "manageInventory": false,
+          "allowBackorder": false,
+          "printfulAvailableAtSync": true,
+          "printfulCatalogVariantId": 21231,
+          "printfulSyncVariantId": 5576898702
         },
         {
+          "id": "variant_01M514QGZ7XKVKWV3C92DHDQ26",
           "sku": "PF-18912189-5576898703",
           "title": "Black / 4XL",
           "options": [
@@ -1542,9 +2313,18 @@
               "title": "Size",
               "value": "4XL"
             }
-          ]
+          ],
+          "calculatedAmount": 26.65,
+          "currency": "eur",
+          "priceTaxInclusive": false,
+          "manageInventory": false,
+          "allowBackorder": false,
+          "printfulAvailableAtSync": true,
+          "printfulCatalogVariantId": 21232,
+          "printfulSyncVariantId": 5576898703
         },
         {
+          "id": "variant_01M514QGZ7EF5760P2SWAF58EE",
           "sku": "PF-18912189-5576898704",
           "title": "Black / 5XL",
           "options": [
@@ -1556,14 +2336,32 @@
               "title": "Size",
               "value": "5XL"
             }
-          ]
+          ],
+          "calculatedAmount": 28.93,
+          "currency": "eur",
+          "priceTaxInclusive": false,
+          "manageInventory": false,
+          "allowBackorder": false,
+          "printfulAvailableAtSync": true,
+          "printfulCatalogVariantId": 21233,
+          "printfulSyncVariantId": 5576898704
         }
       ],
       "detailVerified": true,
       "localImage": "/assets/catalog/printful-18912189-482088894.png",
       "category": "tees",
       "currency": "EUR",
-      "checkedAt": "2026-10-16"
+      "checkedAt": "2026-10-16T04:52:09.112229+00:00",
+      "originalName": "Unisex organic ribbed neck t-shirt copy",
+      "handle": "printful-18912189-482088894",
+      "sourceMetadata": {
+        "printful_store_id": "18912189",
+        "printful_synced_at": "2026-10-16T03:35:07.885Z",
+        "fulfillment_provider": "printful",
+        "printful_sync_product_id": 482088894
+      },
+      "availabilityVerifiedLive": false,
+      "displayName": "Unisex organic ribbed neck t-shirt"
     },
     {
       "url": "https://hiphop.caisik.i234.me/dk/products/printful-18912189-482088895",
@@ -1591,6 +2389,7 @@
       ],
       "variants": [
         {
+          "id": "variant_01M514QG5Y0DAC4WZ3S1DW40AX",
           "sku": "PF-18912189-5576898707",
           "title": "Black / 3XL",
           "options": [
@@ -1602,14 +2401,32 @@
               "title": "Size",
               "value": "3XL"
             }
-          ]
+          ],
+          "calculatedAmount": 74.04,
+          "currency": "eur",
+          "priceTaxInclusive": false,
+          "manageInventory": false,
+          "allowBackorder": false,
+          "printfulAvailableAtSync": true,
+          "printfulCatalogVariantId": 52451,
+          "printfulSyncVariantId": 5576898707
         }
       ],
       "detailVerified": true,
       "localImage": "/assets/catalog/printful-18912189-482088895.png",
       "category": "hoodies",
       "currency": "EUR",
-      "checkedAt": "2026-10-16"
+      "checkedAt": "2026-10-16T04:52:09.112237+00:00",
+      "originalName": "Unisex Sculpted Heavyweight Hoodie | Stanley/Stella SASU057 / STSU278 copy",
+      "handle": "printful-18912189-482088895",
+      "sourceMetadata": {
+        "printful_store_id": "18912189",
+        "printful_synced_at": "2026-10-16T03:35:06.178Z",
+        "fulfillment_provider": "printful",
+        "printful_sync_product_id": 482088895
+      },
+      "availabilityVerifiedLive": false,
+      "displayName": "Unisex Sculpted Heavyweight Hoodie | Stanley/Stella SASU057 / STSU278"
     },
     {
       "url": "https://hiphop.caisik.i234.me/dk/products/printful-18912189-482088896",
@@ -1642,6 +2459,7 @@
       ],
       "variants": [
         {
+          "id": "variant_01M514QF9KSBH1FMTXN4CKXZ94",
           "sku": "PF-18912189-5576898709",
           "title": "Red / S",
           "options": [
@@ -1653,9 +2471,18 @@
               "title": "Size",
               "value": "S"
             }
-          ]
+          ],
+          "calculatedAmount": 19.83,
+          "currency": "eur",
+          "priceTaxInclusive": false,
+          "manageInventory": false,
+          "allowBackorder": false,
+          "printfulAvailableAtSync": true,
+          "printfulCatalogVariantId": 21221,
+          "printfulSyncVariantId": 5576898709
         },
         {
+          "id": "variant_01M514QF9K7B3HTSA3F4QFQ5D0",
           "sku": "PF-18912189-5576898710",
           "title": "Red / M",
           "options": [
@@ -1667,9 +2494,18 @@
               "title": "Size",
               "value": "M"
             }
-          ]
+          ],
+          "calculatedAmount": 19.83,
+          "currency": "eur",
+          "priceTaxInclusive": false,
+          "manageInventory": false,
+          "allowBackorder": false,
+          "printfulAvailableAtSync": true,
+          "printfulCatalogVariantId": 21222,
+          "printfulSyncVariantId": 5576898710
         },
         {
+          "id": "variant_01M514QF9MHQ6WQECZT82DGZH2",
           "sku": "PF-18912189-5576898711",
           "title": "Red / L",
           "options": [
@@ -1681,9 +2517,18 @@
               "title": "Size",
               "value": "L"
             }
-          ]
+          ],
+          "calculatedAmount": 19.83,
+          "currency": "eur",
+          "priceTaxInclusive": false,
+          "manageInventory": false,
+          "allowBackorder": false,
+          "printfulAvailableAtSync": true,
+          "printfulCatalogVariantId": 21223,
+          "printfulSyncVariantId": 5576898711
         },
         {
+          "id": "variant_01M514QF9MWKE1PHN59MBEXBZS",
           "sku": "PF-18912189-5576898712",
           "title": "Red / XL",
           "options": [
@@ -1695,9 +2540,18 @@
               "title": "Size",
               "value": "XL"
             }
-          ]
+          ],
+          "calculatedAmount": 19.83,
+          "currency": "eur",
+          "priceTaxInclusive": false,
+          "manageInventory": false,
+          "allowBackorder": false,
+          "printfulAvailableAtSync": true,
+          "printfulCatalogVariantId": 21224,
+          "printfulSyncVariantId": 5576898712
         },
         {
+          "id": "variant_01M514QF9MQTW1T44CKS6FTRBK",
           "sku": "PF-18912189-5576898713",
           "title": "Red / 2XL",
           "options": [
@@ -1709,14 +2563,32 @@
               "title": "Size",
               "value": "2XL"
             }
-          ]
+          ],
+          "calculatedAmount": 22.04,
+          "currency": "eur",
+          "priceTaxInclusive": false,
+          "manageInventory": false,
+          "allowBackorder": false,
+          "printfulAvailableAtSync": true,
+          "printfulCatalogVariantId": 21225,
+          "printfulSyncVariantId": 5576898713
         }
       ],
       "detailVerified": true,
       "localImage": "/assets/catalog/printful-18912189-482088896.png",
       "category": "tees",
       "currency": "EUR",
-      "checkedAt": "2026-10-16"
+      "checkedAt": "2026-10-16T04:52:09.112249+00:00",
+      "originalName": "Unisex organic ribbed neck t-shirt copy",
+      "handle": "printful-18912189-482088896",
+      "sourceMetadata": {
+        "printful_store_id": "18912189",
+        "printful_synced_at": "2026-10-16T03:35:04.419Z",
+        "fulfillment_provider": "printful",
+        "printful_sync_product_id": 482088896
+      },
+      "availabilityVerifiedLive": false,
+      "displayName": "Unisex organic ribbed neck t-shirt"
     },
     {
       "url": "https://hiphop.caisik.i234.me/dk/products/printful-18912189-482088898",
@@ -1749,6 +2621,7 @@
       ],
       "variants": [
         {
+          "id": "variant_01M514QEBY5AM34MEK0PJX13BS",
           "sku": "PF-18912189-5576898719",
           "title": "White / XS",
           "options": [
@@ -1760,9 +2633,18 @@
               "title": "Size",
               "value": "XS"
             }
-          ]
+          ],
+          "calculatedAmount": 29.25,
+          "currency": "eur",
+          "priceTaxInclusive": false,
+          "manageInventory": false,
+          "allowBackorder": false,
+          "printfulAvailableAtSync": true,
+          "printfulCatalogVariantId": 33937,
+          "printfulSyncVariantId": 5576898719
         },
         {
+          "id": "variant_01M514QEBY0T88QMEHM0DTM1YT",
           "sku": "PF-18912189-5576898720",
           "title": "White / S",
           "options": [
@@ -1774,9 +2656,18 @@
               "title": "Size",
               "value": "S"
             }
-          ]
+          ],
+          "calculatedAmount": 29.25,
+          "currency": "eur",
+          "priceTaxInclusive": false,
+          "manageInventory": false,
+          "allowBackorder": false,
+          "printfulAvailableAtSync": true,
+          "printfulCatalogVariantId": 33938,
+          "printfulSyncVariantId": 5576898720
         },
         {
+          "id": "variant_01M514QEBZ9NBSVK33GYZG04VZ",
           "sku": "PF-18912189-5576898721",
           "title": "White / M",
           "options": [
@@ -1788,9 +2679,18 @@
               "title": "Size",
               "value": "M"
             }
-          ]
+          ],
+          "calculatedAmount": 29.25,
+          "currency": "eur",
+          "priceTaxInclusive": false,
+          "manageInventory": false,
+          "allowBackorder": false,
+          "printfulAvailableAtSync": true,
+          "printfulCatalogVariantId": 33939,
+          "printfulSyncVariantId": 5576898721
         },
         {
+          "id": "variant_01M514QEBZEZ59GMEENRD2X3QR",
           "sku": "PF-18912189-5576898722",
           "title": "White / L",
           "options": [
@@ -1802,9 +2702,18 @@
               "title": "Size",
               "value": "L"
             }
-          ]
+          ],
+          "calculatedAmount": 29.25,
+          "currency": "eur",
+          "priceTaxInclusive": false,
+          "manageInventory": false,
+          "allowBackorder": false,
+          "printfulAvailableAtSync": true,
+          "printfulCatalogVariantId": 33940,
+          "printfulSyncVariantId": 5576898722
         },
         {
+          "id": "variant_01M514QEBZSJRSS05M6AGJX3WP",
           "sku": "PF-18912189-5576898723",
           "title": "White / XL",
           "options": [
@@ -1816,9 +2725,18 @@
               "title": "Size",
               "value": "XL"
             }
-          ]
+          ],
+          "calculatedAmount": 29.25,
+          "currency": "eur",
+          "priceTaxInclusive": false,
+          "manageInventory": false,
+          "allowBackorder": false,
+          "printfulAvailableAtSync": true,
+          "printfulCatalogVariantId": 33941,
+          "printfulSyncVariantId": 5576898723
         },
         {
+          "id": "variant_01M514QEC04YVJBC20CBEYJF6C",
           "sku": "PF-18912189-5576898724",
           "title": "White / 2XL",
           "options": [
@@ -1830,14 +2748,32 @@
               "title": "Size",
               "value": "2XL"
             }
-          ]
+          ],
+          "calculatedAmount": 31.53,
+          "currency": "eur",
+          "priceTaxInclusive": false,
+          "manageInventory": false,
+          "allowBackorder": false,
+          "printfulAvailableAtSync": true,
+          "printfulCatalogVariantId": 33942,
+          "printfulSyncVariantId": 5576898724
         }
       ],
       "detailVerified": true,
       "localImage": "/assets/catalog/printful-18912189-482088898.png",
       "category": "tees",
       "currency": "EUR",
-      "checkedAt": "2026-10-16"
+      "checkedAt": "2026-10-16T04:52:09.112267+00:00",
+      "originalName": "Men’s cotton crew neck t-shirt copy",
+      "handle": "printful-18912189-482088898",
+      "sourceMetadata": {
+        "printful_store_id": "18912189",
+        "printful_synced_at": "2026-10-16T03:35:02.654Z",
+        "fulfillment_provider": "printful",
+        "printful_sync_product_id": 482088898
+      },
+      "availabilityVerifiedLive": false,
+      "displayName": "Men’s cotton crew neck t-shirt"
     },
     {
       "url": "https://hiphop.caisik.i234.me/dk/products/printful-18912189-482088957",
@@ -1865,6 +2801,7 @@
       ],
       "variants": [
         {
+          "id": "variant_01M514QDJNV4EJDZQPVDAQQWVP",
           "sku": "PF-18912189-5576898951",
           "title": "Black / One size",
           "options": [
@@ -1876,14 +2813,32 @@
               "title": "Size",
               "value": "One size"
             }
-          ]
+          ],
+          "calculatedAmount": 15.93,
+          "currency": "eur",
+          "priceTaxInclusive": false,
+          "manageInventory": false,
+          "allowBackorder": false,
+          "printfulAvailableAtSync": true,
+          "printfulCatalogVariantId": 4614,
+          "printfulSyncVariantId": 5576898951
         }
       ],
       "detailVerified": true,
       "localImage": "/assets/catalog/printful-18912189-482088957.png",
       "category": "accessories",
       "currency": "EUR",
-      "checkedAt": "2026-10-16"
+      "checkedAt": "2026-10-16T04:52:09.112275+00:00",
+      "originalName": "Flat Bill Cap copy",
+      "handle": "printful-18912189-482088957",
+      "sourceMetadata": {
+        "printful_store_id": "18912189",
+        "printful_synced_at": "2026-10-16T03:35:00.931Z",
+        "fulfillment_provider": "printful",
+        "printful_sync_product_id": 482088957
+      },
+      "availabilityVerifiedLive": false,
+      "displayName": "Flat Bill Cap"
     },
     {
       "url": "https://hiphop.caisik.i234.me/dk/products/printful-18912189-482088999",
@@ -1912,6 +2867,7 @@
       ],
       "variants": [
         {
+          "id": "variant_01M514QCVAADNZ14CPB6W9GVC8",
           "sku": "PF-18912189-5576899300",
           "title": "Dark Chocolate / 3XL",
           "options": [
@@ -1923,14 +2879,32 @@
               "title": "Size",
               "value": "3XL"
             }
-          ]
+          ],
+          "calculatedAmount": 35.75,
+          "currency": "eur",
+          "priceTaxInclusive": false,
+          "manageInventory": false,
+          "allowBackorder": false,
+          "printfulAvailableAtSync": true,
+          "printfulCatalogVariantId": 32097,
+          "printfulSyncVariantId": 5576899300
         }
       ],
       "detailVerified": true,
       "localImage": "/assets/catalog/printful-18912189-482088999.png",
       "category": "hoodies",
       "currency": "EUR",
-      "checkedAt": "2026-10-16"
+      "checkedAt": "2026-10-16T04:52:09.112282+00:00",
+      "originalName": "Unisex Heavy Blend Zip Hoodie | Gildan 18600 copy",
+      "handle": "printful-18912189-482088999",
+      "sourceMetadata": {
+        "printful_store_id": "18912189",
+        "printful_synced_at": "2026-10-16T03:34:59.211Z",
+        "fulfillment_provider": "printful",
+        "printful_sync_product_id": 482088999
+      },
+      "availabilityVerifiedLive": false,
+      "displayName": "Unisex Heavy Blend Zip Hoodie | Gildan 18600"
     }
   ]
 }
