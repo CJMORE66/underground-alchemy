@@ -4,3 +4,5 @@
 .mw-card-label{display:block}.mw-section-head h2 img{display:block;width:100%;height:auto;max-height:180px;object-fit:contain;object-position:left center}#ug-title img{display:block;width:100%;height:auto;max-height:240px;object-fit:contain;object-position:left center}.mw-download-png{background:var(--mw-lime)!important;color:#111!important;border-color:var(--mw-lime)!important}
 
 body.mw-at-entry .experience-bar,body.mw-at-entry .mw-reading-jump{display:none}
+
+.mw-download-png[aria-disabled="true"]{opacity:.5;pointer-events:none}
