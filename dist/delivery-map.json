@@ -1,0 +1,602 @@
+[
+  {
+    "id": 1,
+    "idea": "Graffiti strokes assemble",
+    "status": "Partial",
+    "detail": "Generated graffiti artwork and entrance animation are present; individual paint-stroke layers are not available."
+  },
+  {
+    "id": 2,
+    "idea": "Alchemical portal entrance",
+    "status": "Partial",
+    "detail": "Portal landing and cinematic city artwork exist; no WebGL fly-through."
+  },
+  {
+    "id": 3,
+    "idea": "Real clothing cinematic hero",
+    "status": "Needs inputs/integration",
+    "detail": "Actual model campaign photos/video and usage rights."
+  },
+  {
+    "id": 4,
+    "idea": "Cursor-lit chrome logo",
+    "status": "Partial",
+    "detail": "Chrome artwork exists; no physically lit logo mesh."
+  },
+  {
+    "id": 5,
+    "idea": "Explore or shop paths",
+    "status": "Implemented",
+    "detail": "Hero and header provide direct shopping and storytelling routes."
+  },
+  {
+    "id": 6,
+    "idea": "Concrete-to-gold transition",
+    "status": "Partial",
+    "detail": "Dark/gold atmosphere exists; no material morph."
+  },
+  {
+    "id": 7,
+    "idea": "Oversized moving typography",
+    "status": "Implemented",
+    "detail": "Large scroll-directed SOLVE/SHADOW/COAGULA typography."
+  },
+  {
+    "id": 8,
+    "idea": "Model silhouette reveal",
+    "status": "Needs inputs/integration",
+    "detail": "Real model silhouette footage."
+  },
+  {
+    "id": 9,
+    "idea": "Day and night modes",
+    "status": "Implemented",
+    "detail": "Day/night mode with browser-local preference."
+  },
+  {
+    "id": 10,
+    "idea": "Opening brand statement",
+    "status": "Implemented",
+    "detail": "From the streets. Into the self."
+  },
+  {
+    "id": 11,
+    "idea": "True rotatable 3D garment",
+    "status": "Needs inputs/integration",
+    "detail": "Accurate GLB/GLTF garment model, textures and print placement."
+  },
+  {
+    "id": 12,
+    "idea": "Exploded garment view",
+    "status": "Partial",
+    "detail": "Garment illustration exists; exploded production mesh needed."
+  },
+  {
+    "id": 13,
+    "idea": "Artwork-to-print transition",
+    "status": "Partial",
+    "detail": "Art and garment shown; accurate print mapping needs garment UVs."
+  },
+  {
+    "id": 14,
+    "idea": "Layered city parallax",
+    "status": "Implemented",
+    "detail": "Layered city atmosphere, garment, sigils and perspective scroll."
+  },
+  {
+    "id": 15,
+    "idea": "Customer-controlled lighting",
+    "status": "Implemented",
+    "detail": "Studio lighting slider for illustrative garment viewer."
+  },
+  {
+    "id": 16,
+    "idea": "Alchemical geometry motion",
+    "status": "Implemented",
+    "detail": "Scroll-driven alchemical geometry."
+  },
+  {
+    "id": 17,
+    "idea": "Print-to-story transition",
+    "status": "Partial",
+    "detail": "Decode modal and story exist; no camera transition through print."
+  },
+  {
+    "id": 18,
+    "idea": "Ink color transition",
+    "status": "Partial",
+    "detail": "Concept switching exists; no ink simulation."
+  },
+  {
+    "id": 19,
+    "idea": "Realistic cloth simulation",
+    "status": "Needs inputs/integration",
+    "detail": "Garment mesh and cloth simulation pipeline."
+  },
+  {
+    "id": 20,
+    "idea": "Optional ambient audio",
+    "status": "Implemented",
+    "detail": "Opt-in synthesized ambient drone; no copyrighted recordings."
+  },
+  {
+    "id": 21,
+    "idea": "Three-chapter brand story",
+    "status": "Implemented",
+    "detail": "Noise, dissolution and transformation chapters."
+  },
+  {
+    "id": 22,
+    "idea": "Episodic drops",
+    "status": "Partial",
+    "detail": "Three collection concepts exist; real release episodes need schedule."
+  },
+  {
+    "id": 23,
+    "idea": "Brand manifesto",
+    "status": "Implemented",
+    "detail": "Brand concept copy across hero, story and closing."
+  },
+  {
+    "id": 24,
+    "idea": "Founder story",
+    "status": "Needs inputs/integration",
+    "detail": "Owner-approved biography and photographs."
+  },
+  {
+    "id": 25,
+    "idea": "Interactive sketchbook",
+    "status": "Partial",
+    "detail": "Three-step editorial sketchbook is live; real process scans needed."
+  },
+  {
+    "id": 26,
+    "idea": "Decode the artwork",
+    "status": "Implemented",
+    "detail": "Decode artwork modal with four original interpretations."
+  },
+  {
+    "id": 27,
+    "idea": "Product story videos",
+    "status": "Needs inputs/integration",
+    "detail": "Product-specific films and confirmed products."
+  },
+  {
+    "id": 28,
+    "idea": "Comic collection transitions",
+    "status": "Needs inputs/integration",
+    "detail": "Original comic frames and transitions."
+  },
+  {
+    "id": 29,
+    "idea": "Front-and-back narrative",
+    "status": "Needs inputs/integration",
+    "detail": "Approved front and back artwork and garment samples."
+  },
+  {
+    "id": 30,
+    "idea": "Past chapter archive",
+    "status": "Partial",
+    "detail": "Current concept studies are present; no actual past releases."
+  },
+  {
+    "id": 31,
+    "idea": "Real models of different builds",
+    "status": "Needs inputs/integration",
+    "detail": "Actual model photography with consent and product fit data."
+  },
+  {
+    "id": 32,
+    "idea": "Walking garment video",
+    "status": "Needs inputs/integration",
+    "detail": "Actual garment walking footage."
+  },
+  {
+    "id": 33,
+    "idea": "Fabric and print macro",
+    "status": "Needs inputs/integration",
+    "detail": "Actual sample macro photography."
+  },
+  {
+    "id": 34,
+    "idea": "Front/back switch",
+    "status": "Needs inputs/integration",
+    "detail": "Verified back-view artwork or photography."
+  },
+  {
+    "id": 35,
+    "idea": "Day/night styling",
+    "status": "Partial",
+    "detail": "Three interactive styling moodboards; real photography needed."
+  },
+  {
+    "id": 36,
+    "idea": "Shoppable complete outfit",
+    "status": "Needs inputs/integration",
+    "detail": "Real compatible products, prices and SKU links."
+  },
+  {
+    "id": 37,
+    "idea": "Regular/oversized comparison",
+    "status": "Partial",
+    "detail": "Fit explanation exists; real blank measurements needed."
+  },
+  {
+    "id": 38,
+    "idea": "Standalone artwork",
+    "status": "Partial",
+    "detail": "Artwork interpretation and generated logo available; separate garment print files needed."
+  },
+  {
+    "id": 39,
+    "idea": "Actual washed sample",
+    "status": "Needs inputs/integration",
+    "detail": "Actual wash test, method and sample evidence."
+  },
+  {
+    "id": 40,
+    "idea": "Sample inspection video",
+    "status": "Needs inputs/integration",
+    "detail": "Real sample inspection footage."
+  },
+  {
+    "id": 41,
+    "idea": "Seven interactive principles",
+    "status": "Implemented",
+    "detail": "Seven interactive visual metaphors in the Alchemy Lab."
+  },
+  {
+    "id": 42,
+    "idea": "Mentalism perspective",
+    "status": "Implemented",
+    "detail": "Perspective slider."
+  },
+  {
+    "id": 43,
+    "idea": "Correspondence mirrors",
+    "status": "Implemented",
+    "detail": "Mirrored orb distance slider."
+  },
+  {
+    "id": 44,
+    "idea": "Vibration control",
+    "status": "Implemented",
+    "detail": "Geometric frequency/rotation slider."
+  },
+  {
+    "id": 45,
+    "idea": "Polarity spectrum",
+    "status": "Implemented",
+    "detail": "Light/shadow composition slider."
+  },
+  {
+    "id": 46,
+    "idea": "Rhythm pendulum",
+    "status": "Implemented",
+    "detail": "Input-controlled pendulum phase."
+  },
+  {
+    "id": 47,
+    "idea": "Cause/effect chain",
+    "status": "Implemented",
+    "detail": "Input-controlled five-step reaction chain."
+  },
+  {
+    "id": 48,
+    "idea": "Create your symbol",
+    "status": "Implemented",
+    "detail": "Shape composition slider."
+  },
+  {
+    "id": 49,
+    "idea": "Choose your principle",
+    "status": "Implemented",
+    "detail": "Three-question visual collection recommender."
+  },
+  {
+    "id": 50,
+    "idea": "Download personal card",
+    "status": "Implemented",
+    "detail": "Downloadable personal principle SVG card."
+  },
+  {
+    "id": 51,
+    "idea": "Unique sticker portals",
+    "status": "Partial",
+    "detail": "Twelve themed symbols and titles; fully bespoke short films remain."
+  },
+  {
+    "id": 52,
+    "idea": "Twelve sticker series",
+    "status": "Partial",
+    "detail": "Twelve functioning vector QR assets; full twelve graphic sticker designs and press proof remain."
+  },
+  {
+    "id": 53,
+    "idea": "Matching sticker landing pages",
+    "status": "Partial",
+    "detail": "Named portal symbols and titles match campaigns; final campaign art not produced."
+  },
+  {
+    "id": 54,
+    "idea": "Personal symbol album",
+    "status": "Implemented",
+    "detail": "Browser-local album records online portal visits, with reset."
+  },
+  {
+    "id": 55,
+    "idea": "Verified partner map",
+    "status": "Needs inputs/integration",
+    "detail": "Confirmed participating venues and permission to list."
+  },
+  {
+    "id": 56,
+    "idea": "Sticker process reveal",
+    "status": "Partial",
+    "detail": "Process note exists; campaign-specific process footage needed."
+  },
+  {
+    "id": 57,
+    "idea": "Above/below paired story",
+    "status": "Partial",
+    "detail": "Above/below destinations exist; paired original story still needed."
+  },
+  {
+    "id": 58,
+    "idea": "Studio partner stickers",
+    "status": "Needs inputs/integration",
+    "detail": "Actual partner agreements and co-created artwork."
+  },
+  {
+    "id": 59,
+    "idea": "Stable QR destinations",
+    "status": "Partial",
+    "detail": "Stable named Site URLs exist; public audience and final print destinations unresolved."
+  },
+  {
+    "id": 60,
+    "idea": "Campaign attribution dashboard",
+    "status": "Needs inputs/integration",
+    "detail": "Server-side events, consent configuration and order attribution."
+  },
+  {
+    "id": 61,
+    "idea": "Defined limited editions",
+    "status": "Needs inputs/integration",
+    "detail": "Verified quantity/window/variant policy for each real drop."
+  },
+  {
+    "id": 62,
+    "idea": "Audited edition numbering",
+    "status": "Needs inputs/integration",
+    "detail": "Production-level serial assignment and order reconciliation."
+  },
+  {
+    "id": 63,
+    "idea": "Released drop archive",
+    "status": "Needs inputs/integration",
+    "detail": "Real released-drop data; never fabricate releases."
+  },
+  {
+    "id": 64,
+    "idea": "Community color vote",
+    "status": "Partial",
+    "detail": "Personal color preference works locally; no community ballot or aggregates."
+  },
+  {
+    "id": 65,
+    "idea": "Early access service",
+    "status": "Needs inputs/integration",
+    "detail": "Subscriber service, launch schedule and access control."
+  },
+  {
+    "id": 66,
+    "idea": "Real launch countdown",
+    "status": "Needs inputs/integration",
+    "detail": "Confirmed date/time and release configuration."
+  },
+  {
+    "id": 67,
+    "idea": "Graffiti artist collaboration",
+    "status": "Needs inputs/integration",
+    "detail": "Artist agreement and original licensed collaboration artwork."
+  },
+  {
+    "id": 68,
+    "idea": "Hand-finished capsule",
+    "status": "Needs inputs/integration",
+    "detail": "Production capacity, samples and actual hand-finishing process."
+  },
+  {
+    "id": 69,
+    "idea": "Complementary drops",
+    "status": "Partial",
+    "detail": "Complementary concept directions; actual garments unconfirmed."
+  },
+  {
+    "id": 70,
+    "idea": "Edition information card",
+    "status": "Needs inputs/integration",
+    "detail": "Confirmed edition metadata linked to products."
+  },
+  {
+    "id": 71,
+    "idea": "Customer outfit gallery",
+    "status": "Needs inputs/integration",
+    "detail": "Customer submissions, consent and moderation."
+  },
+  {
+    "id": 72,
+    "idea": "Customer interpretations",
+    "status": "Partial",
+    "detail": "Interpretation drafting and text download; no public submissions."
+  },
+  {
+    "id": 73,
+    "idea": "Monthly graffiti challenge",
+    "status": "Needs inputs/integration",
+    "detail": "Challenge brief, dates and submission/moderation service."
+  },
+  {
+    "id": 74,
+    "idea": "Curated drop playlists",
+    "status": "Needs inputs/integration",
+    "detail": "Owner-curated licensed/embedded playlist links."
+  },
+  {
+    "id": 75,
+    "idea": "Artist interviews",
+    "status": "Needs inputs/integration",
+    "detail": "Actual interviews and publication consent."
+  },
+  {
+    "id": 76,
+    "idea": "Shared design voting",
+    "status": "Partial",
+    "detail": "Local color choice; no shared voting service."
+  },
+  {
+    "id": 77,
+    "idea": "Live collection premiere",
+    "status": "Needs inputs/integration",
+    "detail": "Scheduled event, streaming destination and production."
+  },
+  {
+    "id": 78,
+    "idea": "Studio journal",
+    "status": "Partial",
+    "detail": "Original field notes and process article; no genuine studio media feed."
+  },
+  {
+    "id": 79,
+    "idea": "Community styling feature",
+    "status": "Needs inputs/integration",
+    "detail": "Real community styling submissions and consent."
+  },
+  {
+    "id": 80,
+    "idea": "Physical pop-up",
+    "status": "Needs inputs/integration",
+    "detail": "Venue, date, budget, agreements and physical production."
+  },
+  {
+    "id": 81,
+    "idea": "Product size chart",
+    "status": "Partial",
+    "detail": "Measuring guide is visible; product-specific tables missing."
+  },
+  {
+    "id": 82,
+    "idea": "Model height and size",
+    "status": "Needs inputs/integration",
+    "detail": "Real model metadata for each image."
+  },
+  {
+    "id": 83,
+    "idea": "Actual garment measurements",
+    "status": "Needs inputs/integration",
+    "detail": "Confirmed blank measurements from product source."
+  },
+  {
+    "id": 84,
+    "idea": "Variant stock availability",
+    "status": "Needs inputs/integration",
+    "detail": "Live Magento store context and inventory data."
+  },
+  {
+    "id": 85,
+    "idea": "Production and delivery estimate",
+    "status": "Needs inputs/integration",
+    "detail": "Printful mapping, destination and shipping estimates."
+  },
+  {
+    "id": 86,
+    "idea": "Made-to-order explanation",
+    "status": "Partial",
+    "detail": "Product expectations explained; Printful SKU mapping and real production facts needed."
+  },
+  {
+    "id": 87,
+    "idea": "Shipping and extra costs",
+    "status": "Needs inputs/integration",
+    "detail": "Verified shipping/tax/pricing integration."
+  },
+  {
+    "id": 88,
+    "idea": "Returns and claims",
+    "status": "Partial",
+    "detail": "Links and explanation exist; actual current seller policies need verification."
+  },
+  {
+    "id": 89,
+    "idea": "Mobile buy button",
+    "status": "Needs inputs/integration",
+    "detail": "Actual variant selection and verified cart backend."
+  },
+  {
+    "id": 90,
+    "idea": "Direct shopping path",
+    "status": "Implemented",
+    "detail": "Direct links to external Magento shop, without story gate."
+  },
+  {
+    "id": 91,
+    "idea": "Registration-free wishlist",
+    "status": "Implemented",
+    "detail": "Browser-local wishlist with save/remove and no account."
+  },
+  {
+    "id": 92,
+    "idea": "Size restock alerts",
+    "status": "Needs inputs/integration",
+    "detail": "Verified stock feed and notification backend."
+  },
+  {
+    "id": 93,
+    "idea": "Newsletter topic choice",
+    "status": "Partial",
+    "detail": "Local topic preferences; no email subscriber backend."
+  },
+  {
+    "id": 94,
+    "idea": "Order confirmation story",
+    "status": "Needs inputs/integration",
+    "detail": "Order email service and actual order events."
+  },
+  {
+    "id": 95,
+    "idea": "Package QR card",
+    "status": "Needs inputs/integration",
+    "detail": "Final public URL and physical packaging production."
+  },
+  {
+    "id": 96,
+    "idea": "Product-specific care",
+    "status": "Partial",
+    "detail": "Care guidance explains dependency; actual material/print instructions missing."
+  },
+  {
+    "id": 97,
+    "idea": "Shareable collection previews",
+    "status": "Partial",
+    "detail": "Principle SVG download exists; collection-specific OG media/share interface incomplete."
+  },
+  {
+    "id": 98,
+    "idea": "Post-delivery feedback",
+    "status": "Needs inputs/integration",
+    "detail": "Order-linked feedback service and moderation."
+  },
+  {
+    "id": 99,
+    "idea": "Hero A/B experiment",
+    "status": "Needs inputs/integration",
+    "detail": "Traffic allocation, consent-compatible measurement and sufficient observations."
+  },
+  {
+    "id": 100,
+    "idea": "Cinematic/simple switch",
+    "status": "Implemented",
+    "detail": "Manual Simple/Cinematic switch and system reduced-motion support."
+  }
+]
