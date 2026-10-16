@@ -76,6 +76,6 @@ At the time of this review, mobile-device and rendered-browser verification were
 
 - On 390–480 px screens the two-column collection-world cards can give the 30 px word “UNDERGROUND” too little room. Use a single-column breakpoint around 480 px or an explicit word-wrapping strategy.
 - The cinematic controller must suppress its DOM layer transforms as well as the WebGL loop under Simple/system reduced motion. This was flagged for the integration owner; verify the final guard/reset in the built module.
-- Canonical and social-share metadata are optional publication follow-ups. The current title and description exist; private access and actual public launch settings remain a separate decision.
+- Canonical and social-share metadata are now included in the homepage and QR documents. This release preserves the current public audience.
 
 Root integration resolved both review followups: collection cards use one column at widths up to 480 px; Simple/reduced motion returns before visual transforms and resets existing layer transforms. Final browser checks are in VERIFICATION.md.

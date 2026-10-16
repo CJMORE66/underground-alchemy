@@ -112,3 +112,5 @@ body.has-portal-v7{overflow:hidden}
 @media(max-width:360px){.portal-v7 .p7-shell{padding-inline:16px}.portal-v7 .p7-album-tools{grid-template-columns:1fr}.portal-v7 .p7-skip{max-width:110px;font-size:8px}#portal.portal-v7 h1{font-size:43px}}
 @media(prefers-reduced-motion:reduce){#portal.portal-v7{scroll-behavior:auto}.portal-v7 *,.portal-v7 *::before,.portal-v7 *::after{animation:none!important;transition:none!important}.portal-v7 .p7-scene.is-revealed .p7-pendulum{transform:rotate(20deg)}}
 body.simple-motion .portal-v7 *,body.simple-motion .portal-v7 *::before,body.simple-motion .portal-v7 *::after{animation:none!important;transition:none!important}
+
+html:has(#portal.portal-v7:not([hidden])){overflow:hidden}

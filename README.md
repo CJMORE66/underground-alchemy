@@ -7,8 +7,10 @@ Cinematic redesign of the existing Sites storefront. This repository serves stat
 Use Node.js with npm. Install the exact dependencies in `package.json`, then run:
 
 ```sh
-npm install
+npm ci
 npm run build:cinema
+npm test
+python tools/package-source.py
 ```
 
 `dist/index.html` and every `dist/q/<slug>/index.html` are directly served files. After changing the main document, copy it to the 12 existing QR entry documents. The portal script switches only allowlisted QR paths. Collection landing documents live under `dist/collections`.

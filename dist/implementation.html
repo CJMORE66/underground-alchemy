@@ -1,0 +1,425 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>CAISIK — Source & verification</title><meta name="robots" content="noindex"><link rel="stylesheet" href="/fonts-v7.css"><style>*{box-sizing:border-box}body{margin:0;background:#0b0d0b;color:#e7e3d7;font:15px/1.8 'DM Sans',sans-serif}main{max-width:1080px;margin:auto;padding:65px 6%}a{color:#c4af79}h1{font:700 clamp(55px,9vw,100px)/.9 'Barlow Condensed',sans-serif;max-width:800px}h2{font:600 30px 'Barlow Condensed',sans-serif}.eyebrow{color:#b8a77b;font-size:11px;letter-spacing:2px}.button{display:inline-block;background:#c4af79;color:#11170e;padding:15px 24px;text-decoration:none;margin:12px 12px 24px 0;min-height:48px}details{border-top:1px solid #76816655;margin:14px 0}summary{padding:20px 0;cursor:pointer;min-height:50px;font-size:17px}pre{font:13px/1.9 ui-monospace,monospace;white-space:pre-wrap;overflow-wrap:anywhere;color:#bfc5b2;padding:20px;background:#141a11}p{max-width:800px}.evidence{display:grid;grid-template-columns:1fr 1fr;gap:18px}.evidence img{width:100%;height:auto;display:block}figcaption{font-size:11px;color:#b4b9a9}figure{margin:0}@media(max-width:650px){.evidence{grid-template-columns:1fr}main{padding-top:35px}}</style></head><body><main><a href="/">← ENTER CAISIK</a><p class="eyebrow">CINEMATIC REDESIGN / 16 OCTOBER 2026</p><h1>THE EXPERIENCE.<br>THE EVIDENCE.</h1><p>Six connected chapters, original graffiti sculpture, seven philosophical lessons, twenty real source products and twelve public street portals. Source code, build instructions and honest test boundaries are included below.</p><a class="button" href="/downloads/caisik-cinematic-source.zip" download>DOWNLOAD SOURCE + DOCUMENTATION ↓</a><p>Purchases continue in the original store. The tested flow reached its address form. Payment and fulfillment remain unverified. The browser used for visual review had no GPU; phone/tablet performance and desktop WebGL approval remain open.</p><h2>Observed desktop session</h2><p>LCP 2.412 s · CLS 0.010 · INP 16 ms. Remote Chrome, 1363 × 936, no applied throttling, lightweight fallback. An earlier visit recorded INP 2.152 s. These are individual visits, not mobile or field certification.</p><div class="evidence"><figure><a href="/evidence/caisik-hero.jpg"><img loading="lazy" src="/evidence/caisik-hero.jpg" alt="Published cinematic Portal chapter in lightweight mode"></a><figcaption>Published desktop fallback. WebGL was unavailable.</figcaption></figure><figure><a href="/evidence/caisik-portal.jpg"><img loading="lazy" src="/evidence/caisik-portal.jpg" alt="Public Transmute portal with its original interactive symbol"></a><figcaption>Public QR entry experience; local progression and optional campaign history.</figcaption></figure></div><h2>Implementation documents</h2><details><summary>Storyboard and scene graph</summary><pre># CAISIK — cinematic scene plan
+
+One native scroll sequence, one persistent stage, six camera keyframes. The art direction preserves the existing graffiti artwork, obsidian/graphite, aged gold and oxide accents. No wheel interception or forced scroll velocity.
+
+| Chapter | Camera / composition | Idea | Visitor action |
+|---|---|---|---|
+| THE PORTAL | Slow approach to extruded original graffiti; nested triangular portal | Cross from street to symbol | Enter the city or skip directly to products |
+| THE CITY | Camera moves left and forward through industrial columns | Clothing carries an idea through everyday life | Explore the shadow chapter |
+| THE DISSOLUTION | Off-axis close approach; emblem alpha sampled into controlled fragments | Question the inherited image | Enter the seven principles |
+| THE SEVEN PRINCIPLES | Pull back to seven geometric nodes | Learn a historical philosophical vocabulary | Select one of seven lessons |
+| THE FORGE | Reframe the actual OMERTA source preview | Translate a symbol into a garment | Open the real product or the conceptual 3D exhibit |
+| THE DROP | Wider final composition, product retained | Choose consciously | Browse the verified catalog or original store |
+
+The reference YouTube page loaded, but its player remained at 0:00 with readyState 0 and no playable frames. No camera, lighting or pacing analysis of that video is claimed. The scene plan above is an original implementation based on the written brief.
+
+## Scene graph
+
+```mermaid
+flowchart TD
+  Stage[Persistent film stage] --&gt; Camera[Perspective camera]
+  Stage --&gt; World[Industrial world]
+  Stage --&gt; Emblem[Graffiti extrusion]
+  Stage --&gt; Meaning[Symbolic geometry]
+  Stage --&gt; Product[Source product plane]
+  World --&gt; Corridor[Columns and floor]
+  World --&gt; Atmosphere[Fog and additive light cone]
+  Emblem --&gt; Fragments[Alpha sampled fragments]
+  Meaning --&gt; Portal[Triangular portal]
+  Meaning --&gt; Seven[Seven nodes and orbit rings]
+```
+
+`src/cinematic/scene-config.js` owns camera targets, emblem positions and adaptive quality. `scene.js` owns rendering; `index.js` owns scroll, accessibility modes, lifecycle and local performance readings. These are reusable independently of the existing catalog and lesson renderers.
+
+The light cone approximates atmospheric illumination; it is not ray-marched volumetric lighting. The product plane uses an authentic source image and is not a manufacturing-accurate garment model. The separate existing forge remains an explicitly labelled conceptual sculpture, with orbit, zoom, light and artwork-layer controls where WebGL is available.
+</pre></details><details><summary>Commerce and original checkout</summary><pre># Commerce integration and verification
+
+Verified on 16 October 2026. The exhibition preserves source product IDs, handles,
+variant IDs, SKUs, source names and prices. It does not receive payment details or
+create orders. Checkout runs on the existing original storefront.
+
+## Actual catalog source
+
+The current working public catalog comes from:
+
+- https://hiphop.caisik.i234.me/dk/store?page=1
+- https://hiphop.caisik.i234.me/dk/store?page=2
+
+Both pages returned HTTP 200. Fresh read-only inspection of all 20 linked product
+pages verified 86 variants. Product IDs, names and SKU sets matched the existing
+catalog snapshot. The product payload contains `prod_…` and `variant_…` IDs,
+calculated prices and Printful synchronization metadata. Its schema is consistent
+with Medusa; identifying the backend platform from that payload is an inference,
+not an inspection of its private deployment.
+
+The exhibition&#x27;s embedded catalog is a dated snapshot, not a live inventory or
+final-price API. Each exact matched variant displays its source SKU, source price
+and currency. Color/size values come from the original product options. No finite
+stock quantities or scarcity are inferred. Public variants expose
+`manage_inventory: false`, and no verified inventory quantity was supplied.
+
+## Magento boundary
+
+https://magento.caisik.i234.me/ is a separate installation. Public GraphQL GET
+queries returned HTTP 200 but no matching public products for an empty search,
+`search: &quot;WU&quot;`, or an exact known SKU filter for `6AD171237B77A`.
+`availableStores` returned only `default` / Default Store View, base currency EUR
+and default display currency CZK.
+
+This does not prove Magento has no admin products. It means the tested public
+storefront queries did not expose the required catalog. The working hiphop product
+IDs have not been mapped to Magento IDs. This release therefore does **not** claim
+a verified Magento cart, Magento checkout or Magento-to-Printful integration.
+Store assignments, visibility, indexes, API configuration and identity mapping
+require server/repository access to diagnose. No Magento records or settings were
+changed.
+
+## Variant handoff
+
+`dist/commerce-v7.js` observes the existing product modal. Selecting all source
+options finds the exact source variant, displays its SKU and variant-specific
+price, and sets the original product link&#x27;s `v_id` query parameter. This is a
+native original-store variant preview; it does not itself add anything to a cart.
+The customer still clicks **Add to cart** in the original store.
+
+An incomplete selection or a combination absent from the saved source data resets
+the purchase link to the unmodified original product URL. No guessed variant ID is
+sent. Product information remains available if the enhancement does not mount.
+
+Verified handoff example:
+
+https://hiphop.caisik.i234.me/dk/products/printful-18912189-482104768?v_id=variant_01M51CDGGHJT72J1PK1DY3QJBX
+
+This fresh-tab URL opened **OMERTA WITH EGO**, Black / 2XL, at **€56.50**, with
+Black and 2XL selected and Add to cart enabled. The exact source SKU is
+`PF-18912189-5577030794`. Additional source price checks: S €54.50 and 3XL €58.50.
+
+## Browser checkout verification
+
+A browser test selected the real OMERTA Black / 2XL variant, added one item to the
+original store&#x27;s bag, and verified the correct variant and €56.50 product price
+on `/dk/cart`. Proceeding to `/dk/checkout?step=address` displayed the shipping
+address form and the same variant in the checkout summary with its displayed
+total. No address, personal fields or payment information were entered, and no
+order was placed. The test item was removed; a fresh cart then showed **BAG 0**.
+
+A separate direct GET of `/dk/checkout` without cart context returned 404. That
+response is not evidence of a broken checkout: the browser cart flow above reached
+the checkout address step successfully.
+
+The verified boundary is **product → correct variant → cart → checkout address
+step**. Shipping selection, destination tax, final delivered total, payment
+authorization, order confirmation, refunds and fulfillment were not tested.
+
+## Pricing, imagery and fulfillment limits
+
+- OMERTA source price data declares `is_calculated_price_tax_inclusive: false`.
+  The native storefront determines current applicable taxes, shipping and totals.
+  Snapshot prices must not be advertised as delivered or universally tax-inclusive
+  prices.
+- Source metadata identifies Printful store `18912189`, synchronization product
+  and variant IDs, and `fulfillment_provider: &quot;printful&quot;`. This verifies that
+  synchronization metadata is present. It does not verify a paid order reaching
+  production or delivery. `printful_available` is synchronization data, not a
+  real-time inventory promise.
+- Gallery assets are authentic original-store / Printful preview images, not
+  evidence of photographed physical samples. They are labeled Preview 1, Preview 2,
+  etc.; front/back orientation is not invented when the source does not label it.
+  The exhibition&#x27;s sculptural 3D artwork is conceptual and is not a manufacturing-
+  accurate garment mesh. No source garment dimensions or material composition were
+  invented.
+- Thirteen terminal `copy` labels were conservatively removed in the presentation
+  layer after reviewing the naming map under the requested cleanup. `displayName`
+  is separate from preserved `name` / `originalName`; backend titles, product IDs,
+  SKUs and prices are unchanged. No semantic design names or limited quantities
+  were fabricated.
+
+## Regression checks
+
+1. Open OMERTA, choose Size 2XL, and verify €56.50 plus
+   `PF-18912189-5577030794`.
+2. Verify `[data-v7-original-buy]` contains the exact selected source variant ID
+   in `v_id`. Open it and confirm native options and native current price.
+3. Reset Size to its placeholder: the link must return to the original product URL
+   without the added `v_id`; SKU and exact selected price must clear.
+4. Select 3XL and verify €58.50. Closing and reopening the modal must initialize a
+   fresh selection, with no stale previous variant ID.
+5. For a product with multiple images, activate `[data-v7-preview=&quot;1&quot;]` and verify
+   the main image changes to the second verified source image. Buttons expose
+   `aria-pressed`; option controls have native labels and keyboard operation.
+6. Verify browsing and variant previews create no Site-side cart, payment or
+   fulfillment requests. Native original-store actions remain on that store.
+
+Key selectors: `[data-v7-option=&quot;Size&quot;]`, `[data-v7-selected-price]`,
+`[data-v7-selected-sku]`, `[data-v7-selected-variant-id]`,
+`[data-v7-original-buy]`, and `[data-v7-preview]`.
+</pre></details><details><summary>Seven educational interactions</summary><pre># CAISIK Learning Studio
+
+The `#learn` section provides seven compact lessons in Czech and English. Each lesson combines a short account of the book&#x27;s idea, an original everyday example, a controllable visual exercise, a misconception explanation, an objective question with feedback, and a practical reflection prompt.
+
+## Historical and scientific framing
+
+The current interface identifies *The Kybalion* as a modern text published in 1908 under the name Three Initiates, rather than a surviving ancient Egyptian book. It distinguishes the book&#x27;s philosophical “universal laws” from experimentally established laws of physics. Examples, visual models and reflection questions are explicitly contemporary interpretations; they do not validate the book&#x27;s metaphysical claims.
+
+The sources linked by the current `dist/learn.js` are:
+
+- [The Kybalion, Project Gutenberg: original text, including chapter II](https://www.gutenberg.org/cache/epub/14209/pg14209-images.html).
+- [The Kybalion, Internet Archive: digitised edition catalogued as 1908](https://archive.org/details/kybalionstudyofh00thre).
+
+## Seven interactions
+
+| Lesson | Historical idea and current metaphor | Actual exercise | Practical reflection |
+| --- | --- | --- | --- |
+| Mentalism | The book gives mind a foundational role. The contemporary example distinguishes an object from its interpretation. | Switch the label of an unchanged geometric shape. | Reframe the description of an unfinished project and identify a concrete next step without denying facts. |
+| Correspondence | The book proposes similarities across levels of existence. The design example treats analogy as a question to investigate. | Resize repeated geometric patterns. | Identify what would need a fresh test when scaling an idea into a larger project. |
+| Vibration | The book invokes metaphysical vibrations. The interface instead manipulates an observable drawing parameter. | Change the number of repetitions in a drawn wave. | Change repetition density in a drawing or beat and name what can actually be observed. |
+| Polarity | The book treats some opposites as degrees of one phenomenon. The example uses a visible range of tones. | Move through shades between black and white. | Find and compare an intermediate option in a creative choice. |
+| Rhythm | The book emphasises cycles and alternating movement. The metaphor illustrates phases without forecasting events. | Position a drawn pendulum manually. | Identify a repeatable work step and the evidence needed before calling it a regular cycle. |
+| Cause and effect | The book describes chains of causes and effects. The example distinguishes dependencies from proof of causation. | Advance a four-step print workflow; additionally explore the branching dependency graph below. | Identify two inputs to a desired result and another possible explanation for an unexpected outcome. |
+| Creative principle / historical Gender | The book uses historical “masculine” and “feminine” terminology. The current interpretation concerns receiving influences and actively forming a composition. | Switch between separate influences and a composed symbol. | Name an influence to receive and a creative decision to make. Both activities are available to anyone. |
+
+The lessons do not diagnose personality, measure consciousness, predict life events, assign gender roles, or claim that thoughts guarantee external results. A visual similarity or event sequence is not presented as sufficient evidence of a shared mechanism or causation.
+
+## Branching dependency graph
+
+In the cause-and-effect lesson, `dist/education-v7.js` adds a labelled SVG with six nodes. Fabric preparation and artwork placement converge at printing; inspection then branches to revision or acceptance. Three native controls change the two preparation inputs and the inspection result (`pending`, `revise`, `accept`).
+
+Both preparation inputs are required in this deliberately simplified model. Selecting acceptance cannot bypass a missing input. With both ready, an uncompleted inspection holds the acceptance path; revision and acceptance illuminate their respective branches. Feedback explains the current dependencies. This is a workflow illustration, not a print-quality prediction, material measurement, or proof of a universal causal law.
+
+## Progress, notes and privacy
+
+- `dist/learn.js` saves the chosen language, active lesson and correctly completed lessons in the browser&#x27;s `caisik-learning` local-storage key. An incorrect answer does not advance progress. Storage failure falls back to the current visit.
+- Reflection notes are optional, limited to 1,200 characters and retained per lesson only in JavaScript page memory. They survive lesson and language changes within that page. This feature performs no network transmission and writes no notes to local storage or session storage. Reloading the page discards them.
+- Each note has a clear button. The shared `caisik-learning-reset` document event clears learning state and in-memory notes. The learning studio&#x27;s own “Start again” button resets lesson progress; notes also have their separate explicit clear action.
+- The enrichment observes only direct child-list changes on `#learn`, remounts after the base studio renders, and guards against duplicate instances. All controls have visible labels; tab navigation supports arrow keys, Home and End. Styles provide mobile layouts and reduced-motion alternatives.
+
+## Verification performed
+
+JavaScript syntax checks passed for `dist/learn.js` and `dist/education-v7.js`.
+
+The independent Linkedom harness at `/workspace/scratch/50ee39693d80/caisik-qa/check-education-v7.cjs` passed checks using the actual lesson and enrichment scripts:
+
+- Seven unique reflection prompts, Czech/English changes, and a single mounted reflection after repeated lesson renders.
+- Notes retained across lesson/language changes, explicit clearing, no notes in persistent storage, clearing through the privacy-reset event, and empty notes in a fresh page instance.
+- Twenty-four workflow combinations across both languages, six SVG nodes with accessible title/description, blocked acceptance when a prerequisite is absent, and correct revision/acceptance feedback.
+- The graph appears only for cause and effect, and loading the enrichment twice does not duplicate it.
+
+Additional VM checks passed the same 24 deterministic workflow states, confirmed the direct-child observer configuration and found no storage or network calls in the enrichment. These are syntax and DOM/model checks; they are not rendered-browser layout verification.
+</pre></details><details><summary>Twelve street portals</summary><pre># Street portals v7
+
+Twelve original geometric mini-experiences extend the existing `/q/:slug/` entry routes. They have individual color, artwork, narrative, reflection and an interaction. No account is required by the portal code. Hosting access is a separate deployment setting.
+
+## Route and chapter map
+
+| Route | Title | Symbol | Associated chapter | Interaction |
+| --- | --- | --- | --- | --- |
+| `/q/transmute/` | TRANSMUTE | ✳ | `/#film-portal` — THE PORTAL | Dissolve / rebuild the form |
+| `/q/mentalism/` | CHANGE THE FRAME | ◉ | `/#film-principles` — THE SEVEN PRINCIPLES | Perspective slider |
+| `/q/correspondence/` | WITHIN / WITHOUT | ◇ | `/#film-principles` — THE SEVEN PRINCIPLES | Nested-scale slider |
+| `/q/vibration/` | FIND YOUR FREQUENCY | ≈ | `/#film-city` — THE CITY | Visual-frequency slider |
+| `/q/polarity/` | BETWEEN THE EXTREMES | ◐ | `/#film-dissolution` — THE DISSOLUTION | Contrast continuum slider |
+| `/q/rhythm/` | KNOW YOUR RETURN | ↔ | `/#film-principles` — THE SEVEN PRINCIPLES | Start / reset pendulum |
+| `/q/cause-effect/` | MAKE A MOVE | → | `/#film-forge` — THE FORGE | Start / reset causal chain |
+| `/q/generation/` | CREATE IN DIALOGUE | ⊕ | `/#film-forge` — THE FORGE | Combine / separate forms |
+| `/q/shadow-work/` | MEET THE SHADOW | ◑ | `/#film-dissolution` — THE DISSOLUTION | Reveal / reset silhouette |
+| `/q/as-above/` | LOOK ABOVE | △ | `/#film-portal` — THE PORTAL | Open / reset upper horizon |
+| `/q/so-below/` | NOTICE BELOW | ▽ | `/#film-city` — THE CITY | Open / reset lower horizon |
+| `/q/underground/` | CARRY THE SIGN | ▥ | `/#film-drop` — THE DROP | Illuminate / reset city grid |
+
+All six chapter IDs and secondary `/#learn`, `/#drops` and `/#album` targets were checked against the current `dist/index.html`. All twelve route HTML files exist. Above/Below also link to each other. Principle portals link to education; other portals link to the real catalog without claiming that particular products form a verified collection.
+
+## Implementation
+
+- `dist/portals-v7.js`: activates only twelve allowlisted `/q/` routes; replaces the existing `#portal` overlay.
+- `dist/portals-v7.css`: scoped responsive layout, drawing states and reduced-motion rules.
+- Load the script after `experience.js` and styles after the existing responsive CSS.
+- Authored SVG scene artwork is also downloadable as an original digital collectible. It is not a manufacturing drawing or a QR code.
+- Controls use native buttons/ranges, pressed state, named SVGs and status announcements. Reduced motion disables animations and transitions; the pendulum uses a static changed state.
+- Philosophical principles are distinguished from scientific claims. The seventh principle includes historical terminology without assigning fixed roles or abilities to people.
+
+## Local progression, attribution and privacy
+
+`caisik-album` records distinct portal visits in this browser, preserving the existing functional album. Opening a URL is a portal visit; it does not verify a physical sticker scan. Clearing the existing album resets that progression. There is no cross-device synchronization, proof of identity, account, or server record.
+
+Campaign history is off by default. Only an affirmative **SAVE CAMPAIGN HISTORY LOCALLY** action enables it. The visitor can disable and remove history at any time. A previous affirmative choice applies to later portal visits on that browser.
+
+Only `utm_source`, `utm_medium`, `utm_campaign`, `utm_content`, and `utm_term` are considered. Values must be 1–80 characters and contain only ASCII letters, numbers, spaces, underscores, periods, slashes or hyphens. Other query parameters and unsafe/overlong labels are ignored. Current labels can be displayed without storing them. Optional history contains portal slug, visit timestamp and accepted labels, capped at 50 entries, under `caisik-campaign-history-v7`; permission is stored under `caisik-campaign-consent-v7`.
+
+There are no requests, analytics SDKs, third-party trackers, conversion measurements or server attribution in this portal module. It cannot demonstrate purchase attribution or total campaign scans. Browser storage can be blocked or cleared; the page continues to work, but persistence may be unavailable. Users should keep personal information out of campaign labels.
+
+Physical QR artwork, destination reachability and hosting access require separate deployment verification. These portal changes do not change Magento, prices, inventory, orders, payment processing or Printful.
+
+## Performed checks
+
+- `node --check dist/portals-v7.js`: passed.
+- Initial isolated execution checks: all twelve route branches, four sliders, eight toggles, local album, consent default, affirmative recording, invalid-label rejection and clearing passed.
+- `node tests/portals.cjs`: **339 DOM assertions passed**, using `linkedom` and Node VM. The suite checks all twelve route HTML files, unique scenes/titles, accessible SVG names, actual current chapter/secondary anchor targets, slider/toggle state changes, distinct-visit album progression, no default campaign history, opt-in/opt-out/clear behavior, UTM allowlisting, overlong/unsafe-label rejection, stored affirmative choice on return, blocked-storage handling, unknown-route noninterception and zero `fetch` calls.
+
+To run after installing the declared project dependencies:
+
+```sh
+node tests/portals.cjs
+```
+
+This development session used the already-installed scratch dependency location:
+
+```sh
+NODE_PATH=/workspace/scratch/50ee39693d80/caisik-qa/node_modules node tests/portals.cjs
+```
+
+DOM assertions do not measure rendered layout, real keyboard navigation, screen-reader behavior, QR scanning, browser FPS, Core Web Vitals, hosting authentication or end-to-end checkout. Those checks remain separate from this suite.
+</pre></details><details><summary>Responsive configurations</summary><pre># Responsive configuration and verification
+
+Reviewed on 16 October 2026. This records the source configuration and static checks performed. It is not a claim that a mobile device, browser layout, checkout, screen reader or GPU performance test passed.
+
+## Layout ownership
+
+- `dist/responsive-v6.css` owns shared responsive layout, product grids, touch controls, dialogs, the original story archive and compact navigation.
+- `dist/cinematic-v7.css` loads after it and owns the fixed header, bottom experience controls and the six-chapter native-scroll film. The final rules remove the film-stage minimum-height mismatch, give an open menu an opaque backing and reserve 90 px at the bottom of the document for the fixed controls.
+- `dist/learn.css` and `dist/education-v7.css` own the responsive educational section. That section sets its own `lang` to Czech or English as selected.
+- `dist/commerce-v7.css` and `dist/portals-v7.css` own the added product and QR experiences. The enhanced QR overlay has z-index 100, above the fixed header and experience controls.
+- `dist/responsive-v6.js` owns the mobile menu state (`header.nav-open`, `aria-expanded`) and closes the menu on navigation, Escape, outside click or a return to desktop width.
+
+## Width and motion behavior
+
+| Viewport / setting | Source behavior |
+|---|---|
+| Above 1100 px | Four actual-product columns |
+| 769–1100 px | Three actual-product columns |
+| 360–768 px | Two actual-product columns |
+| Below 360 px | One actual-product column |
+| Up to 768 px | Compact header menu; shared visual/control grids stack; original three-chapter story becomes a complete sequential narrative |
+| Above 768 px | Original story can use its sticky cinematic layout; desktop product tilt stays available to fine pointers |
+| Up to 700 px | The new film uses its lightweight poster and layered CSS presentation instead of starting its WebGL scene |
+| `prefers-reduced-motion`, Simple mode | WebGL stops; CSS animations/transitions are disabled; text and native navigation remain available |
+| Save-Data enabled | Initial film quality profile disables WebGL |
+| Low CPU/memory profile | Desktop scene profile lowers its rendering budget and targets 30 fps |
+
+The normal film uses native scrolling and six textual chapters over one persistent visual stage. No wheel interception is required. WebGL is optional; the static imagery, copy, catalog links and keyboard-operable lesson controls are still present without the rendering module.
+
+The original story archive uses the same 768 px breakpoint in CSS and JavaScript. Its chapters become non-inert in compact mode. Resizing back to desktop invalidates the active chapter and reapplies the appropriate inert state. Static review covered the transitions between compact/desktop, Simple/Cinematic and system reduced motion.
+
+## Touch and content constraints
+
+Shared buttons, search controls, catalog filters, summary controls and dialog close actions have at least 44 px target-height rules. The final film rules also enlarge its lesson/index controls. Form text uses 16 px where practical on phones. The compact product layout wraps product names, and dialog content, SKU lists, long labels and tables have explicit containment/overflow handling.
+
+The main mobile breakpoints are 1024, 900, 768, 600, 390 and 359 px. These were reviewed from source; 320, 360, 390, 600, 768 and 1024 px remain the intended real-browser/device checks.
+
+## Local fonts
+
+`dist/fonts-v7.css` serves official Google Fonts files locally with `font-display: swap`:
+
+- Barlow Condensed 600, 700 and 800: Latin and Latin Extended subsets.
+- DM Sans variable 400–700: Latin and Latin Extended subsets.
+
+The eight WOFF2 files total 166,080 bytes. The Latin Extended subsets include the character ranges needed for Czech diacritics. OFL license texts for both families are stored beside the fonts in `dist/assets/fonts/`. All font and license downloads succeeded. WOFF2 signatures and CSS syntax were checked; deep font metadata decoding was unavailable because the Python Brotli extension is not installed.
+
+## Static checks completed
+
+- 16 root distribution and project source JavaScript files passed `node --check`.
+- Eight linked CSS files were recursively parsed, including media blocks and declarations, with zero syntax errors.
+- Every local URL referenced from those CSS files resolved to an existing asset; no external font/CSS URLs remained.
+- Main HTML had no duplicate IDs, missing same-page fragment targets, missing local `src`/`href` targets or images missing an `alt` attribute.
+- Embedded catalog JSON and ItemList JSON-LD parsed successfully. Product schema does not invent a stock status or verified checkout offer.
+- External new-tab links in the main HTML included `rel=&quot;noopener&quot;`.
+- The two selects flagged by a simple label scan were manually confirmed to be inside implicit `&lt;label&gt;` elements.
+- The main document uses English; educational content updates its own language attribute. The second H1 belongs to the hidden QR overlay, rather than a second visible main title.
+
+These checks establish source consistency and syntax. They do not measure rendered contrast, overflow, focus order, screen-reader announcements, Core Web Vitals or actual frame rate.
+
+## Final manual checks still required
+
+Use a real authenticated preview/public build to verify:
+
+1. Widths 320/360/390/600/768/1024 px, plus a short landscape viewport.
+2. Full header menu opening/closing, keyboard focus and no clipping behind fixed chrome.
+3. Long product names, wishlist, filtered empty state, product dialog and SKU lists.
+4. Czech and English lessons, exercise controls, feedback, quiz options and progress state.
+5. Film Simple mode and system reduced motion: no moving city, sigil or product layer; camera and GPU loops stopped.
+6. Footer controls and toast visibility above the bottom experience bar and safe-area inset.
+7. Background tab, return to foreground, WebGL failure and Save-Data behavior.
+8. Font loading/layout shift on a cold cache and a slower real connection.
+
+At the time of this review, mobile-device and rendered-browser verification were unavailable. Do not describe these as passed checks or attach invented screenshots/metrics.
+
+## Narrow follow-ups raised during static review
+
+- On 390–480 px screens the two-column collection-world cards can give the 30 px word “UNDERGROUND” too little room. Use a single-column breakpoint around 480 px or an explicit word-wrapping strategy.
+- The cinematic controller must suppress its DOM layer transforms as well as the WebGL loop under Simple/system reduced motion. This was flagged for the integration owner; verify the final guard/reset in the built module.
+- Canonical and social-share metadata are now included in the homepage and QR documents. This release preserves the current public audience.
+
+Root integration resolved both review followups: collection cards use one column at widths up to 480 px; Simple/reduced motion returns before visual transforms and resets existing layer transforms. Final browser checks are in VERIFICATION.md.
+</pre></details><details><summary>Scene asset inventory</summary><pre># Scene asset inventory
+
+| Asset | Bytes | Purpose |
+|---|---:|---|
+| `assets/caisik-graffiti.webp` | 450,536 | Original graffiti derivative; hero poster and extruded cap texture |
+| `assets/alchemy-passage.webp` | 211,984 | Original city atmosphere derivative; multi-layer fallback |
+| `assets/emblem-contours.json` | 17,860 | 11 traced alpha contours / 1195 vertices; sculptural extrusion |
+| `assets/catalog/printful-18912189-482104768.png` | 240,171 | Authentic OMERTA store/Printful preview; source garment plane |
+| `cinematic-v7.js` | 14,655 | Classic story/controller entry; no eager Three.js |
+| `film-scene-v7.js` | 6,725 | Lazy 3D scene entry |
+| `motion-source.js` | 9,595 | Lazy existing conceptual forge/exhibits |
+| `chunks/experience-DM22MDVD.js` | 578,720 | Shared runtime dependency |
+
+Eight local WOFF2 font subsets total 166,080 bytes, with both OFL licenses in `assets/fonts`. Twenty locally copied catalog previews remain available. Original PNG artwork and three illustrative collection SVGs remain available for the preserved editorial features. Twelve real QR matrices and twelve print sticker SVGs remain unchanged.
+
+No GLB/garment scan, video sequence or fabric simulation has been invented. The graffiti extrusion is an artistic sculpture; the product plane is an authentic product preview. Geometry uses built-in Three.js primitives, deterministic emblem fragments, fog and an additive lighting approximation.
+
+Each current source asset can be inspected in the downloadable source archive. Build dependencies and exact versions are in package-lock.json.
+</pre></details><details><summary>Tests and remaining limitations</summary><pre># Verification — 16 October 2026
+
+## Scope and environment
+
+Static Sites deployment. Live browser: remote Chrome, viewport 1363 × 936 CSS px, reported connection type 4g, no network or CPU throttling applied. GPU/WebGL is disabled in this browser. Exact physical device/Chrome version was not exposed. This is not a representative mobile test and is not field data.
+
+## Actual browser observations
+
+- Existing storefront inspected before redesign; large header/settings bands and disconnected story blocks motivated a compact header and one continuous stage.
+- Published six-chapter fallback inspected visually. Native Portal → City link advanced the counter to 02; cinematic product CTA opened the real OMERTA detail.
+- Black / 2XL selection displayed €56.50 and SKU PF-18912189-5577030794; purchase href carried the exact source variant ID.
+- Original store accepted that variant into its bag and cart, then displayed the shipping-address checkout screen with the same variant and €56.50 subtotal. No personal information, payment or order was submitted. The test item was removed and the empty cart verified.
+- A fresh original-store variant URL selected Black / 2XL automatically and enabled Add to cart.
+- Educational causal graph changed from missing placement to accepted workflow after both preparation inputs and the accept choice. Its explanation explicitly rejects treating that model as evidence of real print quality.
+- The real Transmute sticker URL redirected to its slash route with all UTM labels preserved. Its public portal opened without login. The reveal control changed its state; campaign history remained off by default.
+
+## Measured browser sessions
+
+| Published build / visit | LCP | CLS | INP | Interpretation |
+|---|---:|---:|---:|---|
+| v7, warm visit | 460 ms | 0.009 | 2,152 ms | Slow interaction observed; cause not attributed. Target missed in this visit. |
+| v8, controller/first chapter/product visit | 2,412 ms | 0.010 | 16 ms | Meets the numeric targets for this one desktop fallback session only. |
+
+Readings came from web-vitals 6.2.3 on the actual rendered page, read from the session performance disclosure after interaction. LCP/INP may depend on cache, page visibility, browser automation and which interactions occurred. The second sample does not prove the earlier slow interaction is resolved. No external telemetry is sent. No 60 FPS result or throttled-mobile score is claimed.
+
+## Source and interaction checks
+
+`npm ci --ignore-scripts --offline`, `npm run build:cinema`, and `npm test` succeeded in the provided environment. Exact dependency versions are locked. Tests use Linkedom/VM and are explicitly not rendered-browser tests.
+
+- Legacy feature regressions: three concept collections, seven lab scenes, twelve album entries, wishlist, theme/motion controls, quiz, local preference, original optional artwork/exhibits and product filtering/search.
+- Commerce: 20 product IDs/original names/base prices and all 86 SKUs/options preserved against the prior source; exact variant prices/IDs enriched from fresh public product detail data. Selecting 2XL and clearing it checks against stale pricing and stale variant links.
+- Education: seven bilingual lessons, wrong-answer retry, 7/7 completion/reset, exercises, 24 causal workflow combinations, 14 reflection prompts, language remounts, page-memory notes and privacy reset.
+- Cinema: six keyframes, bounded interpolation, chapter counters, all seven lesson actions, product action/fallback, Simple/reduced-motion transform reset, mobile/save-data/adaptive quality and local measurement initialization.
+- QR portals: 339 DOM assertions across all 12 routes, unique scenes, interaction states, actual chapter targets, progression, affirmative consent, revocation, invalid UTM handling and blocked storage.
+- All 12 print sticker SVGs were rendered at 1000 px and decoded using zxing-cpp. Each encoded the correct portal path and sticker/qr/campaign/content UTM labels. This is not a physical print/camera test.
+- HTML IDs/fragments/local assets, image alt attributes and embedded JSON were checked. Linked CSS parsed without syntax errors; JS syntax and the production bundle build passed. No external CSS/font fetch is needed.
+
+## Security and accessibility boundary
+
+The added frontend has no commerce write API, secrets, customer/order import, analytics endpoint or compulsory account. Source URLs are HTTPS; public product data is rendered with existing escaping and DOM text nodes. Campaign labels are allowlisted and length-limited. New tab links preserve noopener. Native controls, labels, semantic headings, skip navigation, keyboard actions and reduced motion are implemented. This is source review and functional testing, not a penetration test, formal WCAG certification or full screen-reader audit.
+
+## Remaining release checks
+
+1. Real phone/tablet browsers at 320–1024 px, touch, keyboard/screen reader and contrast review.
+2. Capable desktop GPU inspection of the extruded emblem, camera framing, context loss/recovery and sustained frame rate.
+3. Cold-cache representative mobile tests with documented device, CPU and network profiles; LCP ≤2.5 s, CLS ≤0.1 and INP ≤200 ms remain unverified for mobile/field use.
+4. Investigate the earlier slow interaction with a browser performance trace; do not generalize the faster single sample.
+5. Authenticated Magento access/configuration: the public GraphQL endpoint exposed zero products; the actual source catalog uses different product identifiers. No Magento cart integration is claimed.
+6. Payment, country/shipping/tax totals, Printful fulfillment, production order/webhook delivery and authenticated customer flows require authorized integration testing.
+7. Server campaign analytics, conversion attribution/dashboard and cross-device progression need a consent-aware backend. Current progression/history is local only.
+8. Accurate garment scans/front/back designation and manufacturing/fit simulation require verified assets. Current sculpture is conceptual; source previews are authentic.
+
+The reference video page was accessible but no playable frames were obtained. No analysis of that video&#x27;s motion is claimed.
+
+Final integration adds an immediately enforced CSS reduced-motion reset, a consistent primary variant price, compact optional source details, canonical/social metadata, local hero font preload and QR overlay scroll containment. All interaction suites and static checks were rerun after these changes.
+</pre></details><p><a href="/naming-map.json">Presentation naming map</a> · <a href="/catalog.json">Verified source catalog snapshot</a></p></main></body></html>

@@ -95,7 +95,10 @@
     const panel = node('section', 'v7-commerce-panel');
     panel.dataset.v7VariantPreview = '';
     panel.setAttribute('aria-label', 'Source variant preview');
-    panel.append(node('h3', '', 'Explore your variant'));
+    panel.append(node('h3', '', 'Choose your fit'));
+    const mainPrice = side.querySelector('.real-detail-price');
+    const resetPrice = () => { if (mainPrice) mainPrice.textContent = `FROM ${product.priceLabel}`; };
+    resetPrice();
     const caption = node('p', 'v7-commerce-caption', 'Choose your options to open the matching variant in the original store.');
     panel.append(caption);
     const fields = node('div', 'v7-option-fields');
@@ -132,7 +135,7 @@
     sku.dataset.v7SelectedSku = '';
     const note = node('p', 'v7-source-note');
     result.append(title, price, sku, note);
-    const caveat = node('p', 'v7-commerce-caveat', 'Source price snapshot. The selected variant opens in the original store; you still need to click Add to cart there. Current availability, taxes, shipping and the final total are confirmed by that store.');
+    const caveat = node('p', 'v7-commerce-caveat', 'Your selected variant opens in the original store. Stock, tax, shipping and the final total are confirmed there.');
     panel.append(result, caveat);
     const anchor = side.querySelector('.fineprint');
     side.insertBefore(panel, anchor || null);
@@ -143,6 +146,13 @@
       buy.setAttribute('aria-describedby', 'v7-store-selection-note');
       caveat.id = 'v7-store-selection-note';
       buy.dataset.v7OriginalBuy = '';
+      if (anchor) {
+        const disclosure = node('details', 'v7-commerce-source');
+        disclosure.append(node('summary', '', 'Price & product details'));
+        anchor.replaceWith(disclosure);
+        disclosure.append(anchor);
+        side.insertBefore(buy, disclosure);
+      }
     }
     function resetBuy() {
       if (!originalBuy) return;
@@ -151,6 +161,7 @@
       delete originalBuy.dataset.v7VariantId;
     }
     function update() {
+      resetPrice();
       resetBuy();
       const ready = selects.every(({ select }) => select.value);
       const variant = ready && variants.find(v => selects.every(({ title, select }) =>
@@ -186,6 +197,7 @@
       }
       title.textContent = variant.title;
       price.textContent = money(variant, product);
+      if (mainPrice) mainPrice.textContent = money(variant, product);
       sku.textContent = variant.sku ? `SKU: ${variant.sku}` : 'SKU not provided by source';
       note.textContent = `Source price snapshot${product.checkedAt || data.checkedAt ? ` · ${String(product.checkedAt || data.checkedAt).slice(0, 10)}` : ''}${variant.priceTaxInclusive === false ? ' · Tax excluded in source price data' : ''}. Reconfirm current price and availability in store.`;
     }

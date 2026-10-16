@@ -27,3 +27,5 @@
   .v7-preview-button { min-width: 72px; }
   .v7-preview-button img { width: 56px; height: 56px; }
 }
+
+.v7-commerce-source{margin:18px 0;border-top:1px solid #a99b6b44}.v7-commerce-source summary{cursor:pointer;min-height:44px;display:flex;align-items:center;font-size:11px;letter-spacing:1px}.v7-commerce-source .fineprint{font-size:11px;line-height:1.8}.v7-commerce-caveat{font-size:11px}
