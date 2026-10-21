@@ -21,6 +21,8 @@ The WebGL code is split into a small entry, lazy scene and shared Three.js chunk
 
 ## Implementation and evidence
 
+A concurrent publication (version 13, source `e159616e564d8bb5904c5af55f58fdc91afe8db3`) was discovered before saving this release. Its full atlas entry, styles, interaction modules and research datasets are preserved at `/editions/atlas-v13/`, linked from the footer and isolated from the current homepage. Its generated artwork, font, original archive and supporting sources remain in place. `tests/atlas.mjs` now validates that preserved edition; it runs alongside the current and legacy suites. `tools/preserve-edition.mjs` reproduces this snapshot from the retained Git parent. The merge retains both source histories. The original pre-atlas experience is available at `/archive/`.
+
 - [Storyboard and scene graph](docs/STORYBOARD.md)
 - [Commerce source, variants and checkout evidence](docs/COMMERCE.md)
 - [Educational modules](docs/EDUCATION.md)
