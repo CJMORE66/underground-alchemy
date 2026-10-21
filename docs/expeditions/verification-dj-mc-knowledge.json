@@ -1,0 +1,745 @@
+{
+  "checkedAt": "2026-10-21",
+  "scope": [
+    "dj",
+    "mc",
+    "knowledge"
+  ],
+  "method": "Přečtené oficiální weby provozovatelů, organizátorů, autorů, projektů a institucí; u neúspěšného načtení není převzatý údaj prohlášen za ověřený. Stav se vztahuje ke konkrétním uvedeným tvrzením, nikoli k rezervaci, fyzické obhlídce či volné kapacitě.",
+  "global": {
+    "bookingConfirmed": false,
+    "partnerConfirmed": false,
+    "coordinatesWereNotEstimated": true,
+    "pricesArePublishedRatesNotOffers": true,
+    "allTransitDurationsRemainEditorialEstimates": true,
+    "sourceMediaRightsGranted": false
+  },
+  "places": [
+    {
+      "id": "univers-sons",
+      "name": "Univers Sons",
+      "address": "159 rue Amelot, 75011 Paris",
+      "coordinates": null,
+      "bookingConfirmed": false,
+      "partnerConfirmed": false,
+      "sources": [
+        {
+          "id": "univers-sons-course",
+          "label": "Univers Sons — cours DJ et tarifs",
+          "url": "https://www.univers-sons.com/news/cours-dj.html"
+        },
+        {
+          "id": "univers-sons-contact",
+          "label": "Univers Sons — adresse et horaires",
+          "url": "https://www.univers-sons.com/a-propos/nous-contacter.html"
+        }
+      ],
+      "access": {
+        "status": "verified",
+        "checkedAt": "2026-10-21",
+        "summary": "Prodejna uvádí po–so 11:00–19:00. Oficiální nabídka kurzu s Hitchem zveřejňuje 69 € za 1 hodinu. Konkrétní lekci, jazyk a vinylové vybavení domluv předem; návštěva prodejny není potvrzená lekce.",
+        "requiresConfirmation": [
+          "Termín a volné místo",
+          "Jazyk výuky",
+          "Gramofony, přenosky, scratch/DVS a obsah konkrétní lekce"
+        ]
+      },
+      "verifiedClaims": [
+        "Adresa prodejny a běžná otevírací doba jsou přímo na kontaktní stránce.",
+        "Kurz s Hitchem a základní sazba 69 €/1 h jsou na stránce kurzu."
+      ],
+      "unresolvedClaims": []
+    },
+    {
+      "id": "betinos-record-shop",
+      "name": "Betino’s Record Shop",
+      "address": "32 rue Saint-Sébastien, 75011 Paris",
+      "coordinates": null,
+      "bookingConfirmed": false,
+      "partnerConfirmed": false,
+      "sources": [
+        {
+          "id": "betinos-info",
+          "label": "Betino’s — Info Shop/Shipping",
+          "url": "https://www.betinos.com/content/info-shopshipping"
+        }
+      ],
+      "access": {
+        "status": "verified",
+        "checkedAt": "2026-10-21",
+        "summary": "Oficiální stránka uvádí pondělí–sobota 13:00–20:00. Poslech a konkrétní dostupnost desek ověř v obchodě.",
+        "requiresConfirmation": [
+          "Sváteční změny otevírání",
+          "Možnost a podmínky poslechu"
+        ]
+      },
+      "verifiedClaims": [
+        "Adresa a běžná otevírací doba po–so 13–20."
+      ],
+      "unresolvedClaims": []
+    },
+    {
+      "id": "heartbeat-vinyl",
+      "name": "Heartbeat Vinyl",
+      "address": "26 rue Godefroy Cavaignac, 75011 Paris",
+      "coordinates": null,
+      "bookingConfirmed": false,
+      "partnerConfirmed": false,
+      "sources": [
+        {
+          "id": "heartbeat-site",
+          "label": "Heartbeat Vinyl — site officiel (lecture indisponible)",
+          "url": "https://www.heartbeatvinyl.com/"
+        }
+      ],
+      "access": {
+        "status": "unverified",
+        "checkedAt": null,
+        "summary": "Adresa je převzatá z roadbooku. Oficiální web se při kontrole nenačetl, proto zde nejsou potvrzené hodiny. Před přesunem si provoz ověř; při nedostupnosti pokračuj poslechovým úkolem z vlastních nahrávek.",
+        "requiresConfirmation": [
+          "Fyzický provoz, přesná adresa a aktuální otevírání",
+          "Podmínky poslechu"
+        ]
+      },
+      "verifiedClaims": [],
+      "unresolvedClaims": [
+        "Oficiální web při opakované dostupnostní kontrole vracel 502; nepřebírat hodiny út–so 12–20 jako znovu ověřené."
+      ]
+    },
+    {
+      "id": "la-place",
+      "name": "La Place — Centre culturel hip-hop",
+      "address": "10 passage de la Canopée, 75001 Paris",
+      "coordinates": null,
+      "bookingConfirmed": false,
+      "partnerConfirmed": false,
+      "sources": [
+        {
+          "id": "la-place-studios",
+          "label": "La Place — Les studios",
+          "url": "https://laplace-paris.com/nos-espaces/les-studios/"
+        },
+        {
+          "id": "la-place-quickstudio",
+          "label": "La Place — réservation officielle via Quickstudio",
+          "url": "https://www.quickstudio.com/fr/studios/la-place-paris/bookings"
+        }
+      ],
+      "access": {
+        "status": "verified",
+        "checkedAt": "2026-10-21",
+        "summary": "Studia jsou na rezervaci. Provozovatel odkazuje na Quickstudio; při kontrole zveřejňuje pro studia 4/5/6/7 sazbu 18 €/h pro jednotlivce a asociativní kulturní projekty. Studia 6 a 7 mají DJ vybavení s možností vinylových gramofonů. Konkrétní sestavu a záznam potvrď předem; pronájem není automaticky vedená lekce ani služba zvukaře.",
+        "requiresConfirmation": [
+          "Termín, sazba pro tvůj účel a podmínky pronájmu",
+          "Mikrofon, interface, DAW, technik a export",
+          "Vinylové gramofony, přenosky a záznam"
+        ]
+      },
+      "verifiedClaims": [
+        "Oficiální adresa a rezervace studií.",
+        "Studia 4/5 jsou určena pro záznam/produkci/mix; 6/7 pro DJing.",
+        "Sazba 18 €/h je zveřejněna pro uvedenou kategorii klientů."
+      ],
+      "unresolvedClaims": [
+        "Quickstudio u studií 6/7 uvádí v nadpisu 2 osoby a v těle 3 osoby; kapacitu nepublikovat jako potvrzenou."
+      ]
+    },
+    {
+      "id": "frequence-paris",
+      "name": "Fréquence",
+      "address": "20 rue Keller, 75011 Paris",
+      "coordinates": null,
+      "bookingConfirmed": false,
+      "partnerConfirmed": false,
+      "sources": [
+        {
+          "id": "frequence-official",
+          "label": "Fréquence — compte officiel (lecture indisponible)",
+          "url": "https://www.instagram.com/frequenceparis/"
+        }
+      ],
+      "access": {
+        "status": "unverified",
+        "checkedAt": null,
+        "summary": "Volitelný poslechový závěr z roadbooku. Oficiální program se nepodařilo přečíst; konkrétní DJ set ani jeho čas nejsou potvrzené. Zkontroluj program podniku před přesunem.",
+        "requiresConfirmation": [
+          "Adresa, aktuální provoz a konkrétní hudební program",
+          "Čas DJ setu a podmínky vstupu"
+        ]
+      },
+      "verifiedClaims": [],
+      "unresolvedClaims": [
+        "Adresa a obecná audiophile charakteristika se objevují v aktuálních redakčních přehledech, ale oficiální účet nebyl přístupný. Páteční/sobotní DJ set nepovažovat za potvrzený konkrétní termín."
+      ]
+    },
+    {
+      "id": "scred-boutique",
+      "name": "Scred Boutique",
+      "address": "13 rue Eugène Sue, 75018 Paris",
+      "coordinates": null,
+      "bookingConfirmed": false,
+      "partnerConfirmed": false,
+      "sources": [
+        {
+          "id": "scred-terms",
+          "label": "Scred Boutique — adresse publiée dans les conditions",
+          "url": "https://scredboutique.com/content/conditions-generales-de-ventes.html"
+        },
+        {
+          "id": "scred-home",
+          "label": "Scred Boutique — catalogue et service client",
+          "url": "https://scredboutique.com/"
+        }
+      ],
+      "access": {
+        "status": "partial",
+        "checkedAt": "2026-10-21",
+        "summary": "Oficiální podmínky publikují tuto adresu a telefon 01 42 64 31 78. Web zároveň uvádí servisní hodiny po–so 10–19; to samo nepotvrzuje otevírání fyzické prodejny. Návštěvu nejdřív potvrď.",
+        "requiresConfirmation": [
+          "Aktuální fyzické otevírání a možnost návštěvy",
+          "Případná veřejná session"
+        ]
+      },
+      "verifiedClaims": [
+        "Adresa 13 rue Eugène Süe je na oficiálním webu uvedená pro vrácení zásilky.",
+        "Telefon zákaznického servisu je zveřejněný."
+      ],
+      "unresolvedClaims": [
+        "Servisní hodiny nejsou důkazem provozní doby kamenné prodejny; nepřislibovat přítomnost členů Scred Connexion."
+      ]
+    },
+    {
+      "id": "barbes-rochechouart",
+      "name": "Barbès-Rochechouart",
+      "address": "Métro Barbès-Rochechouart, Paris",
+      "coordinates": null,
+      "bookingConfirmed": false,
+      "partnerConfirmed": false,
+      "sources": [
+        {
+          "id": "ratp-barbes",
+          "label": "Bonjour RATP — station Barbès-Rochechouart",
+          "url": "https://www.bonjour-ratp.fr/stations-metro/barbes-rochechouart/"
+        }
+      ],
+      "access": {
+        "status": "verified",
+        "checkedAt": "2026-10-21",
+        "summary": "Orientační bod pro pozorování veřejného prostoru, nikoli rezervovaná aktivita. RATP potvrzuje stanici linek 2 a 4 a její vstupy. Úkol nevyžaduje nahrávání cizích rozhovorů ani tváří.",
+        "requiresConfirmation": [
+          "Dopravní omezení v den návštěvy"
+        ]
+      },
+      "verifiedClaims": [
+        "Existence stanice a linky 2/4 potvrzené dopravcem."
+      ],
+      "unresolvedClaims": []
+    },
+    {
+      "id": "au-chat-noir",
+      "name": "Au Chat Noir — SpokenWord / AWOL",
+      "address": "76 rue Jean-Pierre Timbaud, 75011 Paris",
+      "coordinates": null,
+      "bookingConfirmed": false,
+      "partnerConfirmed": false,
+      "sources": [
+        {
+          "id": "spokenword-programme",
+          "label": "SpokenWord Paris — programme régulier, mise à jour septembre 2026",
+          "url": "https://spokenwordparis.org/"
+        }
+      ],
+      "access": {
+        "status": "verified",
+        "checkedAt": "2026-10-21",
+        "summary": "Organizátor uvádí pravidelný pondělní SpokenWord: zápis 20:00, začátek 20:45 (mimo srpen). AWOL je obvykle v neděli 17:15–19:15 a zdarma. To není potvrzení konkrétního dne ani slotu; před cestou zkontroluj aktuality.",
+        "requiresConfirmation": [
+          "Konkrétní datum, změny programu a jazyk skupiny",
+          "Slot, délka a podmínky vystoupení"
+        ]
+      },
+      "verifiedClaims": [
+        "Adresa obou pravidelných setkání je na stránce organizátora.",
+        "Pravidelný pondělní program a nedělní AWOL jsou popsány na stránce aktualizované 28. 9. 2026."
+      ],
+      "unresolvedClaims": [
+        "Jedna aktualita publikovaná 20. 10. 2026 má v nadpisu datum 16. října a označení pondělí. Nepoužívat ji k odvození budoucího termínu."
+      ]
+    },
+    {
+      "id": "chuuut-jef-aerosol",
+      "name": "Jef Aérosol — Chuuuttt!!!",
+      "address": "Place Igor Stravinsky, 75004 Paris",
+      "coordinates": null,
+      "bookingConfirmed": false,
+      "partnerConfirmed": false,
+      "sources": [
+        {
+          "id": "jef-cv",
+          "label": "Jef Aérosol — CV et fresques",
+          "url": "https://www.jefaerosol.com/cv"
+        }
+      ],
+      "access": {
+        "status": "verified",
+        "checkedAt": "2026-10-21",
+        "summary": "Venkovní dílo pozoruj z veřejného prostoru. Autorův přehled zaznamenává realizaci fresky na Place Stravinsky v roce 2011. Aktuální viditelnost může ovlivnit provoz nebo práce na místě.",
+        "requiresConfirmation": [
+          "Aktuální přístup a viditelnost na místě"
+        ]
+      },
+      "verifiedClaims": [
+        "Autorovo CV uvádí fresku na Place Stravinsky v části pro rok 2011."
+      ],
+      "unresolvedClaims": []
+    },
+    {
+      "id": "cryptik-maruani",
+      "name": "Cryptik — Untitled nad Librairie Maruani",
+      "address": "171 boulevard Vincent Auriol, 75013 Paris",
+      "coordinates": null,
+      "bookingConfirmed": false,
+      "partnerConfirmed": false,
+      "sources": [
+        {
+          "id": "cryptik-itinerrance",
+          "label": "Galerie Itinerrance — Cryptik à Paris",
+          "url": "https://itinerrance.fr/actualites/cryptik-a-paris-streetart13/"
+        },
+        {
+          "id": "maruani-official",
+          "label": "Librairie Maruani — adresse et horaires",
+          "url": "https://www.librairiemaruani.fr/"
+        },
+        {
+          "id": "paris13-official-walk",
+          "label": "Paris je t’aime — promenade street art du 13e",
+          "url": "https://parisjetaime.com/article/balade-street-art-dans-le-13e-arrondissement-a776"
+        }
+      ],
+      "access": {
+        "status": "verified",
+        "checkedAt": "2026-10-21",
+        "summary": "Nedělní zastávka je pozorování fasády. Galerie spojuje kaligrafii s textem Williama Saroyana. Knihkupectví na oficiálním webu uvádí neděli zavřenou; návštěvu interiéru proto tato varianta neslibuje.",
+        "requiresConfirmation": [
+          "Aktuální viditelnost fasády a případné změny provozu"
+        ]
+      },
+      "verifiedClaims": [
+        "Adresa a text Saroyana potvrzeny galerií projektu.",
+        "Knihkupectví potvrzuje adresu a nedělní zavření."
+      ],
+      "unresolvedClaims": []
+    },
+    {
+      "id": "liberte-egalite-fraternite-fairey",
+      "name": "Shepard Fairey — Liberté, Égalité, Fraternité",
+      "address": "141 boulevard Vincent Auriol, 75013 Paris",
+      "coordinates": null,
+      "bookingConfirmed": false,
+      "partnerConfirmed": false,
+      "sources": [
+        {
+          "id": "fairey-project",
+          "label": "Boulevard Paris 13 — Liberté, Égalité, Fraternité",
+          "url": "https://boulevardparis13.com/project/liberte-egalite-fraternite/"
+        },
+        {
+          "id": "paris13-official-walk",
+          "label": "Paris je t’aime — promenade street art du 13e",
+          "url": "https://parisjetaime.com/article/balade-street-art-dans-le-13e-arrondissement-a776"
+        }
+      ],
+      "access": {
+        "status": "verified",
+        "checkedAt": "2026-10-21",
+        "summary": "Dílo se studuje z veřejného prostoru. Projekt Boulevard Paris 13 jej vysvětluje jako Marianne s francouzskou vlajkou a projev solidarity po útoku na Bataclan 13. listopadu 2015. Vlastní čtení sloganu je zvlášť označené tvůrčí zadání.",
+        "requiresConfirmation": [
+          "Aktuální viditelnost a přístup na místě"
+        ]
+      },
+      "verifiedClaims": [
+        "Adresa doložena turistickou kanceláří.",
+        "Popsaný kontext a význam jsou připsané stránce projektu, nikoli vydávané za náš nezávislý výklad autorova úmyslu."
+      ],
+      "unresolvedClaims": [
+        "Turistická kancelář chybně píše datum útoků 15. listopadu; pro datum použít projektovou stránku s 13. listopadem 2015."
+      ]
+    },
+    {
+      "id": "la-madre-secular-2-inti",
+      "name": "INTI — La Madre Secular 2",
+      "address": "81 boulevard Vincent Auriol, 75013 Paris",
+      "coordinates": null,
+      "bookingConfirmed": false,
+      "partnerConfirmed": false,
+      "sources": [
+        {
+          "id": "inti-project",
+          "label": "Boulevard Paris 13 — La Madre Secular 2",
+          "url": "https://boulevardparis13.com/project/la-madre-secular-2/"
+        },
+        {
+          "id": "paris13-official-walk",
+          "label": "Paris je t’aime — promenade street art du 13e",
+          "url": "https://parisjetaime.com/article/balade-street-art-dans-le-13e-arrondissement-a776"
+        }
+      ],
+      "access": {
+        "status": "verified",
+        "checkedAt": "2026-10-21",
+        "summary": "Pozorování z veřejného prostoru. Projekt popisuje světskou Madonu a Newtonovo jablko jako motiv vědění a skepticismu. Vlastní znak důvěry či pochybnosti je současný tvůrčí úkol, nikoli doložený univerzální význam symbolů.",
+        "requiresConfirmation": [
+          "Aktuální viditelnost a přístup na místě"
+        ]
+      },
+      "verifiedClaims": [
+        "Adresa potvrzena oficiální turistickou trasou.",
+        "Projekt vysvětluje Newtonovo jablko, sekulární Madonu a vztah poznání a skepticismu."
+      ],
+      "unresolvedClaims": []
+    },
+    {
+      "id": "place-frehel-ben",
+      "name": "Place Fréhel — Il faut se méfier des mots",
+      "address": "Place Fréhel, 75020 Paris",
+      "coordinates": null,
+      "bookingConfirmed": false,
+      "partnerConfirmed": false,
+      "sources": [
+        {
+          "id": "frehel-municipal",
+          "label": "Mairie du 20e — place Fréhel et œuvre de Ben",
+          "url": "https://mairie20.paris.fr/pages/il-etait-une-fois-le-20e-la-place-frehel-une-galerie-d-art-a-ciel-ouvert-26201"
+        }
+      ],
+      "access": {
+        "status": "verified",
+        "checkedAt": "2026-10-21",
+        "summary": "Městská část popisuje náměstí na křížení rue Julien-Lacroix a rue de Belleville a Benovo dílo s nápisem Il faut se méfier des mots. Pozoruj veřejné dílo a odděl jeho popis od vlastní interpretace.",
+        "requiresConfirmation": [
+          "Aktuální viditelnost a podmínky průchodu"
+        ]
+      },
+      "verifiedClaims": [
+        "Poloha náměstí a přítomnost/popis Benova díla doložené městskou částí."
+      ],
+      "unresolvedClaims": []
+    }
+  ],
+  "sources": [
+    {
+      "id": "univers-sons-course",
+      "label": "Univers Sons — cours DJ et tarifs",
+      "url": "https://www.univers-sons.com/news/cours-dj.html",
+      "kind": "official-operator",
+      "retrieval": "read",
+      "ref": "turn65view0"
+    },
+    {
+      "id": "univers-sons-contact",
+      "label": "Univers Sons — adresse et horaires",
+      "url": "https://www.univers-sons.com/a-propos/nous-contacter.html",
+      "kind": "official-operator",
+      "retrieval": "read",
+      "ref": "turn65view1"
+    },
+    {
+      "id": "betinos-info",
+      "label": "Betino’s — Info Shop/Shipping",
+      "url": "https://www.betinos.com/content/info-shopshipping",
+      "kind": "official-operator",
+      "retrieval": "read",
+      "ref": "turn63view0"
+    },
+    {
+      "id": "heartbeat-site",
+      "label": "Heartbeat Vinyl — site officiel (lecture indisponible)",
+      "url": "https://www.heartbeatvinyl.com/",
+      "kind": "official-operator",
+      "retrieval": "failed-502",
+      "ref": "turn63view1"
+    },
+    {
+      "id": "la-place-studios",
+      "label": "La Place — Les studios",
+      "url": "https://laplace-paris.com/nos-espaces/les-studios/",
+      "kind": "official-operator",
+      "retrieval": "read",
+      "ref": "turn78view0"
+    },
+    {
+      "id": "la-place-quickstudio",
+      "label": "La Place — réservation officielle via Quickstudio",
+      "url": "https://www.quickstudio.com/fr/studios/la-place-paris/bookings",
+      "kind": "operator-booking-platform",
+      "retrieval": "read",
+      "ref": "turn65view2"
+    },
+    {
+      "id": "frequence-official",
+      "label": "Fréquence — compte officiel (lecture indisponible)",
+      "url": "https://www.instagram.com/frequenceparis/",
+      "kind": "official-operator",
+      "retrieval": "failed",
+      "ref": "turn70view1"
+    },
+    {
+      "id": "scred-terms",
+      "label": "Scred Boutique — adresse publiée dans les conditions",
+      "url": "https://scredboutique.com/content/conditions-generales-de-ventes.html",
+      "kind": "official-operator",
+      "retrieval": "read",
+      "ref": "turn72view0"
+    },
+    {
+      "id": "scred-home",
+      "label": "Scred Boutique — catalogue et service client",
+      "url": "https://scredboutique.com/",
+      "kind": "official-operator",
+      "retrieval": "read",
+      "ref": "turn65view4"
+    },
+    {
+      "id": "ratp-barbes",
+      "label": "Bonjour RATP — station Barbès-Rochechouart",
+      "url": "https://www.bonjour-ratp.fr/stations-metro/barbes-rochechouart/",
+      "kind": "official-transport-operator",
+      "retrieval": "read",
+      "ref": "turn74view0"
+    },
+    {
+      "id": "spokenword-programme",
+      "label": "SpokenWord Paris — programme régulier, mise à jour septembre 2026",
+      "url": "https://spokenwordparis.org/",
+      "kind": "official-organizer",
+      "retrieval": "read",
+      "ref": "turn63view2"
+    },
+    {
+      "id": "jef-cv",
+      "label": "Jef Aérosol — CV et fresques",
+      "url": "https://www.jefaerosol.com/cv",
+      "kind": "artist-primary",
+      "retrieval": "read",
+      "ref": "turn72view3"
+    },
+    {
+      "id": "cryptik-itinerrance",
+      "label": "Galerie Itinerrance — Cryptik à Paris",
+      "url": "https://itinerrance.fr/actualites/cryptik-a-paris-streetart13/",
+      "kind": "commissioning-project",
+      "retrieval": "read",
+      "ref": "turn63view3"
+    },
+    {
+      "id": "maruani-official",
+      "label": "Librairie Maruani — adresse et horaires",
+      "url": "https://www.librairiemaruani.fr/",
+      "kind": "official-operator",
+      "retrieval": "read",
+      "ref": "turn67view0"
+    },
+    {
+      "id": "paris13-official-walk",
+      "label": "Paris je t’aime — promenade street art du 13e",
+      "url": "https://parisjetaime.com/article/balade-street-art-dans-le-13e-arrondissement-a776",
+      "kind": "official-tourism-office",
+      "retrieval": "read",
+      "ref": "turn67view2"
+    },
+    {
+      "id": "fairey-project",
+      "label": "Boulevard Paris 13 — Liberté, Égalité, Fraternité",
+      "url": "https://boulevardparis13.com/project/liberte-egalite-fraternite/",
+      "kind": "commissioning-project",
+      "retrieval": "read",
+      "ref": "turn67view3"
+    },
+    {
+      "id": "inti-project",
+      "label": "Boulevard Paris 13 — La Madre Secular 2",
+      "url": "https://boulevardparis13.com/project/la-madre-secular-2/",
+      "kind": "commissioning-project",
+      "retrieval": "read",
+      "ref": "turn65view6"
+    },
+    {
+      "id": "frehel-municipal",
+      "label": "Mairie du 20e — place Fréhel et œuvre de Ben",
+      "url": "https://mairie20.paris.fr/pages/il-etait-une-fois-le-20e-la-place-frehel-une-galerie-d-art-a-ciel-ouvert-26201",
+      "kind": "municipal",
+      "retrieval": "read",
+      "ref": "turn65view7"
+    },
+    {
+      "id": "smithsonian-sazon",
+      "label": "Smithsonian — The sazón in hip-hop",
+      "url": "https://americanhistory.si.edu/explore/stories/sazon-hip-hop",
+      "kind": "museum-research",
+      "retrieval": "official-indexed-excerpt; full page fetch500",
+      "ref": "turn72search0"
+    },
+    {
+      "id": "philharmonie-hiphop360",
+      "label": "Philharmonie — archive de l’exposition Hip-Hop 360 (2021–2022)",
+      "url": "https://philharmoniedeparis.fr/fr/activite/exposition/23375-hip-hop-360",
+      "kind": "museum-archive",
+      "retrieval": "read",
+      "ref": "turn70view3"
+    },
+    {
+      "id": "philharmonie-diffusion",
+      "label": "Philharmonie — histoire, radio et mixtapes",
+      "url": "https://philharmoniedeparis.fr/fr/magazine/series/hip-hop-360/exposition-hip-hop-360-un-parcours-foisonnant-et-immersif",
+      "kind": "museum-editorial",
+      "retrieval": "read",
+      "ref": "turn72view2"
+    },
+    {
+      "id": "maison-hiphop-missions",
+      "label": "Maison du Hip Hop — missions, transmission et réflexion",
+      "url": "https://www.maisonduhiphop.com/",
+      "kind": "cultural-organization",
+      "retrieval": "read",
+      "ref": "turn74view2"
+    },
+    {
+      "id": "laplace-knowledge-archive",
+      "label": "La Place — archive L2P Convention mars 2026",
+      "url": "https://laplace-paris.com/l2p-convention-2026-une-premiere-serie-de-talks-et-conferences-annoncee/",
+      "kind": "cultural-organization-archive",
+      "retrieval": "read",
+      "ref": "turn77view0"
+    }
+  ],
+  "culture": {
+    "dj": [
+      {
+        "type": "documented-context",
+        "text": "Hip-hop vznikal v Bronxu sedmdesátých let v prostředí afroamerických a karibských komunit. Smithsonian připomíná také podíl portorických a jamajských účastníků; jediné jméno ani jediný hudební žánr proto nevystihují celý společný vznik.",
+        "sourceIds": [
+          "smithsonian-sazon"
+        ]
+      },
+      {
+        "type": "documented-context",
+        "text": "Archiv Hip-Hop 360 ukazuje DJing vedle tance, graffiti a rapu a pracuje také s výběrem desek Dee Nastyho. Poslechový úkol CAISIK na tento kontext navazuje vlastní otázkou: jakou konkrétní funkci v tvém setu dostane nalezený zvuk?",
+        "sourceIds": [
+          "philharmonie-hiphop360"
+        ],
+        "interpretation": "Poslední otázka je autorské vzdělávací zadání CAISIK."
+      }
+    ],
+    "mc": [
+      {
+        "type": "documented-context",
+        "text": "Francouzský hip-hop se v osmdesátých letech rozvíjel adaptací hudby, flow a vyprávění na místní sociální a kulturní zkušenost. Philharmonie připomíná roli Dee Nastyho i cest od asociativních rádií k národním frekvencím a mixtapes: hlas se šířil skrze konkrétní média a komunity.",
+        "sourceIds": [
+          "philharmonie-diffusion"
+        ]
+      },
+      {
+        "type": "documented-context",
+        "text": "SpokenWord Paris přijímá různé jazyky a několik podob živého slova, včetně poezie, monologu nebo příběhu. Je to současný prostor pro vlastní text, ne důkaz, že spoken word a rap battle jsou stejná praxe. Tvoje sloka může vzniknout i bez veřejného slotu.",
+        "sourceIds": [
+          "spokenword-programme"
+        ]
+      }
+    ],
+    "knowledge": [
+      {
+        "type": "documented-context",
+        "text": "Maison du Hip Hop výslovně propojuje knowledge s předáváním, výzkumem, setkáváním a reflexí místa hip-hopu ve společnosti. Knowledge zde tedy není jen soukromá motivace: zahrnuje také otázku, od koho znalost přichází a komu v komunitě slouží.",
+        "sourceIds": [
+          "maison-hiphop-missions"
+        ]
+      },
+      {
+        "type": "documented-context",
+        "text": "Archiv programu La Place pro L2P Convention v březnu 2026 zahrnuje výzkumný kolektiv TransKript a debaty o reprezentaci, médiích a tvorbě. V expedici na to navazuje naše současná metoda: rozlišit pozorování, doložený kontext a vlastní význam. Není to tvrzení o hermetickém původu hip-hopu.",
+        "sourceIds": [
+          "laplace-knowledge-archive"
+        ],
+        "interpretation": "Metoda a návaznost na městská díla jsou autorská koncepce CAISIK; událost z března 2026 je historický příklad, nikoli budoucí program."
+      }
+    ]
+  },
+  "routeStopOverrides": {
+    "dj-1": {
+      "task": "Domluv si hip-hopové cueing, baby scratch a jeden přechod. Přines dva vlastní tracky a sluchátka; jazyk i vybavení potvrď předem.",
+      "conditions": "Konkrétní čas je návrh itineráře, nikoli rezervace. Kurz musí potvrdit pořadatel."
+    },
+    "dj-4": {
+      "conditions": "Aktuální hodiny nejsou znovu ověřené. Před přesunem potvrď provoz u obchodu; při nedostupnosti použij vlastní legální nahrávky."
+    },
+    "dj-5": {
+      "task": "Vyhraď dvě hodiny na zkoušku záznamu, 15–20minutový mix, kontrolu a export. Požadavek na vinylové gramofony potvrď při rezervaci.",
+      "conditions": "Sazbu a vybavení sleduj u společného záznamu La Place. Pronájem sám nezahrnuje lektora."
+    },
+    "dj-6": {
+      "conditions": "Volitelná zastávka pouze podle skutečně potvrzeného programu. Není potvrzen open-decks ani hip-hopový set. Po alkoholu nepokračuj na kole."
+    },
+    "mc-1": {
+      "conditions": "Potvrď fyzické otevření před odjezdem. Servisní hodiny webu nejsou potvrzené hodiny prodejny; setkání s členy skupiny není slíbené."
+    },
+    "mc-6": {
+      "task": "Nahraj pracovní sloku, druhý take a čistý export. Přines vlastní nebo oprávněně použitý beat a kopii textu.",
+      "conditions": "Mikrofon, interface, DAW, obsluhu i technika domluv předem. Zveřejněná sazba je pro prostor v určené kategorii klientů; hotový mix není součástí příslibu."
+    },
+    "mc-7": {
+      "conditions": "Jde o pravidelný spoken word, nikoli potvrzený rap battle nebo zaručený slot. Konkrétní termín, délku a podmínky ověř u organizátora."
+    },
+    "knowledge-2": {
+      "conditions": "Nedělní varianta zůstává venku: knihkupectví uvádí neděli zavřenou. Uvnitř není domluvená návštěva."
+    },
+    "knowledge-3": {
+      "task": "Popiš slova a obraz, potom napiš, kde pro tebe končí hodnota a začíná slogan. Svůj výklad odliš od kontextu doloženého projektem."
+    },
+    "knowledge-4": {
+      "task": "Porovnej svůj první popis s vysvětlením projektu: sekulární Madona, Newtonovo jablko, vědění a skepse. Nakresli vlastní znak pochybnosti a důvěry."
+    },
+    "knowledge-6": {
+      "conditions": "Pořadatel uvádí obvyklou neděli a bezplatný workshop, konkrétní den je třeba ověřit. Není zaměřený výlučně na rap nebo filozofii."
+    }
+  },
+  "contradictions": [
+    {
+      "id": "la-place-capacity",
+      "note": "Studia 6 a 7: nadpis uvádí 2 osoby, popis 3 osoby. Bez potvrzení neuvádět kapacitu.",
+      "sourceIds": [
+        "la-place-quickstudio"
+      ]
+    },
+    {
+      "id": "fairey-attack-date",
+      "note": "Turistická stránka uvádí 15. 11., projektová stránka 13. 11. 2015. Nepřebírat datum 15. 11.",
+      "sourceIds": [
+        "fairey-project",
+        "paris13-official-walk"
+      ]
+    },
+    {
+      "id": "spokenword-post-date",
+      "note": "Záhlaví jedné aktuality a napsané denní datum jsou nekonzistentní. Pravidelný program nepředstavuje potvrzený konkrétní termín.",
+      "sourceIds": [
+        "spokenword-programme"
+      ]
+    }
+  ],
+  "unresolved": [
+    {
+      "id": "heartbeat",
+      "note": "Oficiální web opakovaně vracel chybu 502; otevírací doba není ověřená."
+    },
+    {
+      "id": "frequence",
+      "note": "Oficiální Instagram byl nedostupný; program není ověřený."
+    },
+    {
+      "id": "scred-physical-hours",
+      "note": "Ověřena adresa a telefon, nikoliv otevírací doba kamenné prodejny."
+    }
+  ],
+  "rightsNote": "Použity jen stručné faktografické parafráze a odkazy. Žádné fotografie, nahrávky ani rozsáhlé texty se neimportovaly; odkaz není licence."
+}

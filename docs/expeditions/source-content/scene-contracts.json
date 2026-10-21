@@ -1,0 +1,257 @@
+[
+  {
+    "id": "dj",
+    "durationScrollViewport": 2.2,
+    "nativeScroll": true,
+    "states": [
+      {
+        "range": [
+          0,
+          0.28
+        ],
+        "lessonId": "dj-1",
+        "role": "observe",
+        "visual": "illustration and first vector layer revealed"
+      },
+      {
+        "range": [
+          0.28,
+          0.56
+        ],
+        "lessonId": "dj-2",
+        "role": "understand",
+        "visual": "diagram extends, origin remains fixed"
+      },
+      {
+        "range": [
+          0.56,
+          0.84
+        ],
+        "lessonId": "dj-3",
+        "role": "create",
+        "visual": "completed diagram, action available"
+      },
+      {
+        "range": [
+          0.84,
+          1
+        ],
+        "role": "transition",
+        "visual": "crossfade plus directional movement to next chapter, reading text kept stable until chapter switch"
+      }
+    ],
+    "semanticMotion": "Vinyl se přibližuje. Drážka se mění na rytmickou linku. Linka přechází do mikrofonního kabelu.",
+    "reducedMotion": "No transform parallax; all lessons and route stops readable in linear field mode.",
+    "staticFrame": "fully revealed final diagram with normal reading order",
+    "assets": [
+      "assets/scenes/dj-local.webp",
+      "assets/layers/dj.svg"
+    ],
+    "mobile": "same content, smaller graphic; field mode provides stacked complete text; no horizontal overflow",
+    "note": "Illustrations are static; browser animates separate SVG layers and image transforms. Not a character rig or true 3D."
+  },
+  {
+    "id": "mc",
+    "durationScrollViewport": 2.2,
+    "nativeScroll": true,
+    "states": [
+      {
+        "range": [
+          0,
+          0.28
+        ],
+        "lessonId": "mc-1",
+        "role": "observe",
+        "visual": "illustration and first vector layer revealed"
+      },
+      {
+        "range": [
+          0.28,
+          0.56
+        ],
+        "lessonId": "mc-2",
+        "role": "understand",
+        "visual": "diagram extends, origin remains fixed"
+      },
+      {
+        "range": [
+          0.56,
+          0.84
+        ],
+        "lessonId": "mc-3",
+        "role": "create",
+        "visual": "completed diagram, action available"
+      },
+      {
+        "range": [
+          0.84,
+          1
+        ],
+        "role": "transition",
+        "visual": "crossfade plus directional movement to next chapter, reading text kept stable until chapter switch"
+      }
+    ],
+    "semanticMotion": "Zvuková linka kreslí pauzy. Z pauz vznikají řádky. Inkoust odkryje další stěnu.",
+    "reducedMotion": "No transform parallax; all lessons and route stops readable in linear field mode.",
+    "staticFrame": "fully revealed final diagram with normal reading order",
+    "assets": [
+      "assets/scenes/mc-local.webp",
+      "assets/layers/mc.svg"
+    ],
+    "mobile": "same content, smaller graphic; field mode provides stacked complete text; no horizontal overflow",
+    "note": "Illustrations are static; browser animates separate SVG layers and image transforms. Not a character rig or true 3D."
+  },
+  {
+    "id": "writer",
+    "durationScrollViewport": 2.2,
+    "nativeScroll": true,
+    "states": [
+      {
+        "range": [
+          0,
+          0.28
+        ],
+        "lessonId": "writer-1",
+        "role": "observe",
+        "visual": "illustration and first vector layer revealed"
+      },
+      {
+        "range": [
+          0.28,
+          0.56
+        ],
+        "lessonId": "writer-2",
+        "role": "understand",
+        "visual": "diagram extends, origin remains fixed"
+      },
+      {
+        "range": [
+          0.56,
+          0.84
+        ],
+        "lessonId": "writer-3",
+        "role": "create",
+        "visual": "completed diagram, action available"
+      },
+      {
+        "range": [
+          0.84,
+          1
+        ],
+        "role": "transition",
+        "visual": "crossfade plus directional movement to next chapter, reading text kept stable until chapter switch"
+      }
+    ],
+    "semanticMotion": "Obrys je kreslen po tahu. Výplň odhalí maska. Kruhový detail vytváří další cypher.",
+    "reducedMotion": "No transform parallax; all lessons and route stops readable in linear field mode.",
+    "staticFrame": "fully revealed final diagram with normal reading order",
+    "assets": [
+      "assets/scenes/writer-local.webp",
+      "assets/layers/writer.svg"
+    ],
+    "mobile": "same content, smaller graphic; field mode provides stacked complete text; no horizontal overflow",
+    "note": "Illustrations are static; browser animates separate SVG layers and image transforms. Not a character rig or true 3D."
+  },
+  {
+    "id": "breaking",
+    "durationScrollViewport": 2.2,
+    "nativeScroll": true,
+    "states": [
+      {
+        "range": [
+          0,
+          0.28
+        ],
+        "lessonId": "breaking-1",
+        "role": "observe",
+        "visual": "illustration and first vector layer revealed"
+      },
+      {
+        "range": [
+          0.28,
+          0.56
+        ],
+        "lessonId": "breaking-2",
+        "role": "understand",
+        "visual": "diagram extends, origin remains fixed"
+      },
+      {
+        "range": [
+          0.56,
+          0.84
+        ],
+        "lessonId": "breaking-3",
+        "role": "create",
+        "visual": "completed diagram, action available"
+      },
+      {
+        "range": [
+          0.84,
+          1
+        ],
+        "role": "transition",
+        "visual": "crossfade plus directional movement to next chapter, reading text kept stable until chapter switch"
+      }
+    ],
+    "semanticMotion": "Kruh je stabilní. Zvýraznění sleduje rytmus, ne fiktivní techniku těla. Kruh se mění v iris.",
+    "reducedMotion": "No transform parallax; all lessons and route stops readable in linear field mode.",
+    "staticFrame": "fully revealed final diagram with normal reading order",
+    "assets": [
+      "assets/scenes/breaking-local.webp",
+      "assets/layers/breaking.svg"
+    ],
+    "mobile": "same content, smaller graphic; field mode provides stacked complete text; no horizontal overflow",
+    "note": "Illustrations are static; browser animates separate SVG layers and image transforms. Not a character rig or true 3D."
+  },
+  {
+    "id": "knowledge",
+    "durationScrollViewport": 2.2,
+    "nativeScroll": true,
+    "states": [
+      {
+        "range": [
+          0,
+          0.28
+        ],
+        "lessonId": "knowledge-1",
+        "role": "observe",
+        "visual": "illustration and first vector layer revealed"
+      },
+      {
+        "range": [
+          0.28,
+          0.56
+        ],
+        "lessonId": "knowledge-2",
+        "role": "understand",
+        "visual": "diagram extends, origin remains fixed"
+      },
+      {
+        "range": [
+          0.56,
+          0.84
+        ],
+        "lessonId": "knowledge-3",
+        "role": "create",
+        "visual": "completed diagram, action available"
+      },
+      {
+        "range": [
+          0.84,
+          1
+        ],
+        "role": "transition",
+        "visual": "crossfade plus directional movement to next chapter, reading text kept stable until chapter switch"
+      }
+    ],
+    "semanticMotion": "Odkrývá se oko, potom oddělené vrstvy faktu, interpretace a tvorby. Konec otevírá vlastní Blackbook.",
+    "reducedMotion": "No transform parallax; all lessons and route stops readable in linear field mode.",
+    "staticFrame": "fully revealed final diagram with normal reading order",
+    "assets": [
+      "assets/scenes/knowledge-local.webp",
+      "assets/layers/knowledge.svg"
+    ],
+    "mobile": "same content, smaller graphic; field mode provides stacked complete text; no horizontal overflow",
+    "note": "Illustrations are static; browser animates separate SVG layers and image transforms. Not a character rig or true 3D."
+  }
+]

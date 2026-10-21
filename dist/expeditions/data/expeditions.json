@@ -1,0 +1,2142 @@
+{
+  "schemaVersion": 1,
+  "chapters": [
+    {
+      "id": "dj",
+      "number": 1,
+      "label": "DJ",
+      "title": "SOUND\nARCHAEOLOGY",
+      "subtitle": "Nauč se slyšet rozhodnutí. Nejen skladby.",
+      "teaser": "Tři poslechy. Jeden záměr. Tvůj vlastní mix.",
+      "outcome": "Mix + tracklist + tři rozhodnutí",
+      "goals": [
+        "Oddělit rytmickou, basovou a melodickou funkci v poslechu.",
+        "Zdůvodnit a vyzkoušet jednu návaznost.",
+        "Sestavit a zreflektovat krátký vlastní set."
+      ],
+      "lessonIds": [
+        "lesson-dj-1",
+        "lesson-dj-2",
+        "lesson-dj-3"
+      ],
+      "routeId": "route-dj",
+      "preparation": [
+        "Sluchátka, zápisník a dvě vlastní nebo oprávněně použité nahrávky.",
+        "Předem napiš, jaké gramofony či kontroler potřebuješ a jak nahraješ vlastní výstup.",
+        "Ověř konkrétní datum lekce, studio, vybavení, cenu a podmínky exportu přímo u provozovatele.",
+        "Ponech souvislý blok nejméně dvou hodin na poslech, nahrání a export; obchody jsou volitelné odbočky."
+      ],
+      "homeAlternative": "Použij dvě vlastní nebo oprávněně použité skladby a dostupný přehrávač či DAW. Dokonči krátký mix, tracklist a tři rozhodnutí doma; nevydávej jej za absolvovanou lekci v pařížském studiu.",
+      "context": [
+        {
+          "text": "Raný hip-hop vyrůstal ze setkávání afroamerických, latinskoamerických a karibských komunit v Bronxu. Smithsonian popisuje DJe hledající na deskách break: úsek, v němž vystoupí synkopovaný rytmus a perkuse. Salsa, disco, funk i rock tak nebyly jen oddělené police v obchodě, ale dostupný materiál pro nový způsob poslechu a společné tancování.",
+          "kind": "documented-fact",
+          "sourceIds": [
+            "culture-smithsonian-sazon"
+          ]
+        },
+        {
+          "text": "Výběr konkrétního úseku měnil funkci už existující nahrávky; kulturní souvislost neleží pouze v názvu skladby nebo ve značce gramofonu. V této expedici proto ber výběr jako rozhodnutí, které umíš vysvětlit druhému člověku. Nejdřív pojmenuj slyšený detail, potom zkus návaznost a teprve následně hodnoť, zda plní tvůj záměr. Vlastní mapa energie setu je naše tvůrčí pomůcka, nikoli historické pravidlo DJingu. Stejnou dvojici skladeb můžeš použít k různým účinkům; dolož změnu konkrétním místem v poslechu.",
+          "kind": "artistic-interpretation",
+          "sourceIds": []
+        }
+      ],
+      "art": {
+        "poster": "/assets/masterworks-v2/012.webp",
+        "layer": "/expeditions/assets/layers/dj.svg",
+        "alt": "Ilustrační grafická scéna pro DJ; není fotografií skutečného místa. Schválená autorská ilustrace CAISIK."
+      }
+    },
+    {
+      "id": "mc",
+      "number": 2,
+      "label": "MC",
+      "title": "FIND YOUR\nOWN VOICE",
+      "subtitle": "Než začneš mluvit, všimni si.",
+      "teaser": "Z jednoho skutečného detailu do vlastní sloky.",
+      "outcome": "Text + dvě verze přednesu",
+      "goals": [
+        "Napsat čtyři řádky z konkrétních pozorování.",
+        "Vyzkoušet dvě odlišná umístění důrazu a pauzy.",
+        "Dokončit pracovní sloku a vědomou revizi."
+      ],
+      "lessonIds": [
+        "lesson-mc-1",
+        "lesson-mc-2",
+        "lesson-mc-3"
+      ],
+      "routeId": "route-mc",
+      "preparation": [
+        "Zápisník, vlastní text, sluchátka a telefon nebo jiný přístroj pro vlastní záznam.",
+        "Použij vlastní nebo licencovaný beat a měj zálohu textu.",
+        "Před studiem potvrď techniku a případnou přítomnost technika; pronájem prostoru není hotová produkce.",
+        "Ponech dvě hodiny na dvě verze přednesu a jejich poslech. Veřejný open mic je dobrovolný bonus."
+      ],
+      "homeAlternative": "Pozoruj vlastní okolí, napiš sloku a nahraj dvě verze přednesu dostupným přístrojem. Vysvětli jednu změnu; vystoupení ani placené studio nejsou podmínkou výstupu.",
+      "context": [
+        {
+          "text": "Francouzský hip-hop se šířil také mimo hlavní hudební průmysl. Philharmonie de Paris připomíná dráhu Dee Nastyho, asociativní rádia, pozdější celostátní vysílání a oběh mixtapů. Její archiv uvádí La Chapelle jako jedno z pařížských míst, kde se propojovali DJs, rappeři, breakeři a graffeři. Jde o historický kontext vztahů a přenosu, nikoli dnešní příslib session na dané adrese.",
+          "kind": "documented-fact",
+          "sourceIds": [
+            "culture-philharmonie-immersif",
+            "culture-philharmonie-archive"
+          ]
+        },
+        {
+          "text": "Vlastní hlas tedy vstupuje do konkrétního prostředí posluchačů, médií a dalších autorů. Na trase zkoumej, komu a proč svůj text říkáš. Rozdíl mezi prvním a druhým přednesem nemá být jen hlasitost: můžeš změnit pauzu, místo důrazu nebo přejít od obecného soudu k pozorovanému detailu. Naše vymyšlené textové ukázky ukazují takové rozhodování; nejsou výpověďmi obyvatel Barbès. Zpětnou vazbu formuluj otázkou na srozumitelnost konkrétního řádku a pak zapiš, co jsi podle reakce skutečně upravil.",
+          "kind": "artistic-interpretation",
+          "sourceIds": []
+        }
+      ],
+      "art": {
+        "poster": "/assets/masterworks-v2/020.webp",
+        "layer": "/expeditions/assets/layers/mc.svg",
+        "alt": "Ilustrační grafická scéna pro MC; není fotografií skutečného místa. Schválená autorská ilustrace CAISIK."
+      }
+    },
+    {
+      "id": "writer",
+      "number": 3,
+      "label": "WRITER",
+      "title": "LETTERS\nINTO IDENTITY",
+      "subtitle": "Neodnášej si jen fotku. Vytvoř svoji stopu.",
+      "teaser": "Kostra. Prostor. Barva. Legální realizace.",
+      "outcome": "Skica + paleta + procesní Blackbook",
+      "goals": [
+        "Vytvořit čitelnou konstrukci vlastních písmen.",
+        "Vědomě rozhodnout o rozestupech, překryvech a kontrastu.",
+        "Realizovat menší vlastní práci a zdokumentovat postup."
+      ],
+      "lessonIds": [
+        "lesson-writer-1",
+        "lesson-writer-2",
+        "lesson-writer-3"
+      ],
+      "routeId": "route-writer",
+      "preparation": [
+        "Skicák, tužka a vlastní slovo; nejdřív navrhni konstrukci a až potom materiál.",
+        "Připrav paletu dvou výplní, obrysu a jednoho akcentu podle svého návrhu.",
+        "Před cestou ověř povolený úsek, počasí, pravidla správce a bezpečný převoz materiálu.",
+        "Ochranu a použití materiálů zvol podle výrobce. Na realizaci, dokumentaci a úklid si ponech dvě a půl hodiny."
+      ],
+      "homeAlternative": "Pokud nejsou potvrzené podmínky malování, dokonči na papíře nebo ve vlastním editoru kostru, dvě prostorové varianty, paletu a procesní Blackbook. Venkovní realizaci odlož, nevytvářej náhradní nepovolenou plochu.",
+      "context": [
+        {
+          "text": "Když Smithsonian v roce 2006 vyhlásil sběratelskou iniciativu Hip-Hop Won’t Stop, zahrnul vedle nahrávek a DJ vybavení také graffiti, fotografie, oděvy a ručně psané texty. Takový archiv ukazuje kulturu prostřednictvím věcí, způsobů jejich použití a stop konkrétních autorů.",
+          "kind": "documented-fact",
+          "sourceIds": [
+            "culture-smithsonian-collecting"
+          ]
+        },
+        {
+          "text": "Graffiti zde má doloženou vazbu na hip-hop; z této vazby ale nelze odvodit, že každý nápis ve městě má stejný původ, význam nebo souhlas vlastníka plochy. Pro vlastní práci proto odděl studium principu od převzetí cizího podpisu. Zaznamenej osu, mezeru, překrytí a rozhodnutí o kontrastu; až potom sestav vlastní tvar a paletu. Procesní Blackbook má ukázat také neúspěšný pokus a opravu. Návštěva shopu slouží realizaci návrhu a fotografie hotové stěny je zdrojem otázek, nikoli potvrzením oprávnění malovat. Vlastní realizaci plánuj výhradně pro konkrétní povolený úsek.",
+          "kind": "artistic-interpretation",
+          "sourceIds": []
+        }
+      ],
+      "art": {
+        "poster": "/assets/masterworks-v2/044.webp",
+        "layer": "/expeditions/assets/layers/writer.svg",
+        "alt": "Ilustrační grafická scéna pro WRITER; není fotografií skutečného místa. Schválená autorská ilustrace CAISIK."
+      }
+    },
+    {
+      "id": "breaking",
+      "number": 4,
+      "label": "B-BOY / B-GIRL",
+      "title": "READ\nTHE RHYTHM",
+      "subtitle": "Tělo v dialogu s hudbou.",
+      "teaser": "Pozornost, respekt a jedna vědomá oprava.",
+      "outcome": "Krátká fráze + zpětná vazba",
+      "goals": [
+        "Rozpoznat hudební podnět a navrhnout vlastní jednoduchou reakci.",
+        "Vstoupit do sdíleného prostoru s respektem.",
+        "Porovnat dvě bezpečně provedené verze krátké fráze."
+      ],
+      "lessonIds": [
+        "lesson-breaking-1",
+        "lesson-breaking-2",
+        "lesson-breaking-3"
+      ],
+      "routeId": "route-breaking",
+      "preparation": [
+        "Čisté boty vhodné pro potvrzený povrch, pohodlné oblečení, voda a pauzy.",
+        "Před lekcí potvrď datum, úroveň, přístupnost, cenu a volné místo přímo se školou.",
+        "Připrav jednu otázku a jednoduchou frázi, kterou už bezpečně zvládáš; ilustrace není návod techniky.",
+        "Žádej souhlas před připojením ke skupině i před natáčením. Doporučení k pohybu má dát skutečný lektor."
+      ],
+      "homeAlternative": "Bez potvrzené lekce pracuj s poslechem hudby, poznámkou o rytmickém podnětu a jednoduchou známou reakcí, kterou bezpečně zvládáš. Odbornou reakci lektora označ jako čekající, nikdy ji nenahrazuj AI skóre.",
+      "context": [
+        {
+          "text": "Philharmonie de Paris při výkladu Hip-Hop 360 zdůrazňuje kruh jako prostor tanečních battlů a rapového freestylu: diváci jsou nablízku a tvoří součást události. Její historický přehled sleduje breaking od francouzských průkopníků Aktuel Force k dalším generacím. Smithsonian současně popisuje breaking jako tanec b-boys a b-girls na opakované synkopované breakbeaty.",
+          "kind": "documented-fact",
+          "sourceIds": [
+            "culture-philharmonie-immersif",
+            "culture-smithsonian-represent"
+          ]
+        },
+        {
+          "text": "Hudba, prostor a vzájemná přítomnost tak patří do kulturního kontextu vedle jednotlivých pohybových prvků. Náš animovaný kruh ukazuje pozornost k rytmu, ne správnou polohu těla. Sleduj, na jaký zvuk někdo reaguje, kde nechává pauzu a jak sdílí prostor; nevydávej pozorování za odborné posouzení techniky. Vlastní frázi vybírej pouze z pohybů, které bezpečně ovládáš. Konkrétní opravu a další postup řeš s kvalifikovaným lektorem. Ilustrace tenisky ani generovaná postava jeho demonstraci nebo zpětnou vazbu nenahrazují.",
+          "kind": "artistic-interpretation",
+          "sourceIds": []
+        }
+      ],
+      "art": {
+        "poster": "/assets/masterworks-v2/083.webp",
+        "layer": "/expeditions/assets/layers/breaking.svg",
+        "alt": "Ilustrační grafická scéna pro B-BOY / B-GIRL; není fotografií skutečného místa. Schválená autorská ilustrace CAISIK; nejde o odbornou pohybovou demonstraci."
+      }
+    },
+    {
+      "id": "knowledge",
+      "number": 5,
+      "label": "KNOWLEDGE",
+      "title": "QUESTION\nYOURSELF",
+      "subtitle": "Co skutečně vidíš — a co si přidáváš?",
+      "teaser": "Symbol není odpověď. Je to začátek otázky.",
+      "outcome": "Manifest + vlastní znak + revize",
+      "goals": [
+        "Oddělit pozorování od výkladu.",
+        "Převést abstraktní slovo na konkrétní tvrzení nebo čin.",
+        "Vytvořit symbol s vysvětlením a přijmout konkrétní zpětnou vazbu."
+      ],
+      "lessonIds": [
+        "lesson-knowledge-1",
+        "lesson-knowledge-2",
+        "lesson-knowledge-3"
+      ],
+      "routeId": "route-knowledge",
+      "preparation": [
+        "Zápisník pro oddělené poznámky pozorování, výkladu a vlastního záměru.",
+        "Vyber vlastní text v rozsahu 150–250 slov a připrav konkrétní otázku pro dobrovolnou zpětnou vazbu.",
+        "Před návštěvou skupiny ověř aktuální termín a jazyk. Veřejné dílo prohlížej ze zpřístupněného prostoru.",
+        "Ponech nejméně 90 minut v klidu na vlastní text, znak a jejich revizi."
+      ],
+      "homeAlternative": "Vyber vlastní dílo nebo legálně zpřístupněnou reprodukci, odděl pozorování od výkladu a vytvoř text i znak. Dobrovolnou reakci může dát známý; neoznačuj ji za uskutečněný pařížský workshop.",
+      "context": [
+        {
+          "text": "Kulturní paměť hip-hopu se neopírá jen o hotové skladby. Smithsonian ve svém sběratelském projektu zahrnul rozhovory, korespondenci, fotografie a ručně psané texty. Pařížský přehled La Place zase spojuje tvorbu s předáváním znalostí, setkáváním a pamětí místa; Les Halles popisuje jako důležité prostředí francouzského hip-hopu.",
+          "kind": "documented-fact",
+          "sourceIds": [
+            "culture-smithsonian-collecting",
+            "culture-paris-laplace"
+          ]
+        },
+        {
+          "text": "Tyto zdroje ukazují různé druhy svědectví. Historické tvrzení proto potřebuje určit, kdo něco zaznamenal, v jakém kontextu a o čem daný záznam skutečně vypovídá. Knowledge of Self zde používáme jako autorský rámec kritického čtení a vlastní tvorby. Odděluj, co vidíš, co doložíš zdrojem a co si k obrazu přidáváš. Vlastní znak nemusí skrývat univerzální tajemství; měl by mít význam, který dokážeš obhájit a případně zpřesnit. Alchymistické motivy a Seven Principles jsou současné tvůrčí propojení CAISIK, nikoli doložený starověký původ hip-hopu ani důkaz nadpřirozeného působení města.",
+          "kind": "artistic-interpretation",
+          "sourceIds": []
+        }
+      ],
+      "art": {
+        "poster": "/assets/masterworks-v2/031.webp",
+        "layer": "/expeditions/assets/layers/knowledge.svg",
+        "alt": "Ilustrační grafická scéna pro KNOWLEDGE; není fotografií skutečného místa. Schválená autorská ilustrace CAISIK."
+      }
+    }
+  ],
+  "lessons": [
+    {
+      "id": "lesson-dj-1",
+      "title": "Slyš vrstvy, ne jen název skladby.",
+      "objective": "Oddělit rytmickou, basovou a melodickou funkci v poslechu.",
+      "why": "Dnes nehledáš nejdražší desku. Hledáš zvuk, pro který dokážeš popsat konkrétní roli. Pozornost zaměřujeme postupně; nejde o jediný správný způsob poslechu.",
+      "example": "Autorský příklad: první poslech zachytí pouze silný groove. Při druhém si poznamenáš pravidelný kopák a mezeru před dalším úderem. Ve třetím sleduješ, kdy do ní vstupuje basa. Z pocitu vzniká popsatelná volba.",
+      "steps": [
+        "Vyber skladbu, kterou smíš přehrát. Poslouchej krátký úsek bez čtení názvu.",
+        "Zapiš zvlášť rytmus, basu a výrazný motiv. Nevíš-li, jak se nástroj jmenuje, popiš zvuk vlastními slovy.",
+        "Pusť úsek znovu a oprav jednu první domněnku.",
+        "V obchodě požádej o doporučení podle konkrétního zvuku, ne pouze podle žánru."
+      ],
+      "check": [
+        "Dokážeš ukázat čas, kdy se něco mění?",
+        "Rozlišuješ slyšený detail od předpokladu o jeho původu?"
+      ],
+      "artifact": "Tři poslechové poznámky a jedna oprava.",
+      "advanced": "Porovnej dva odlišné tracky a najdi společnou zvukovou funkci, ne nutně shodný styl.",
+      "sourceIds": [],
+      "kind": "original-editorial-exercise",
+      "reviewStatus": "editorial-draft-for-specialist-review",
+      "sourceId": "dj-1",
+      "chapterId": "dj",
+      "question": "Co ve skladbě opravdu slyším, když na chvíli schovám její název?",
+      "notice": "Sleduj nástup rytmu, basy a jednoho motivu; zapisuj konkrétní okamžiky.",
+      "transfer": "Příště použij stejný třívrstvý poslech u skladby jiného stylu a oprav první domněnku."
+    },
+    {
+      "id": "lesson-dj-2",
+      "title": "Proč patří tyto dvě věci za sebe?",
+      "objective": "Zdůvodnit a vyzkoušet jednu návaznost.",
+      "why": "Přechod může pracovat s podobností i kontrastem. Pro tuto lekci vyber pouze jeden záměr: udržet energii, změnit prostor nebo zvýraznit překvapení.",
+      "example": "A je hutný rytmus, B má delší tiché začátky. Původní pokus pustí obě věci přes sebe a záměr se ztratí. Opravený pokus nechá před B krátký prostor. Neříkáme, že druhý je univerzálně lepší; hodnotíme, zda plní zadaný záměr.",
+      "steps": [
+        "Vyber dvě vlastní nebo oprávněně použité nahrávky.",
+        "Napiš jednou větou záměr návaznosti.",
+        "Na skutečně potvrzeném vybavení zkus dvě verze. Nezaměňuj pronájem studia za automatickou přítomnost lektora.",
+        "Poslechni si záznam bez sledování rukou. Označ okamžik, který odpovídá záměru."
+      ],
+      "check": [
+        "Je rozdíl mezi verzemi slyšitelný?",
+        "Máš pojmenované rozhodnutí, nejen oblíbenou skladbu?"
+      ],
+      "artifact": "Dva pokusy a krátké zdůvodnění.",
+      "advanced": "Postav návaznost, která funguje bez shodné nálady obou skladeb.",
+      "sourceIds": [],
+      "kind": "original-editorial-exercise",
+      "reviewStatus": "editorial-draft-for-specialist-review",
+      "sourceId": "dj-2",
+      "chapterId": "dj",
+      "question": "Jakou změnu má tato konkrétní návaznost vyvolat?",
+      "notice": "Všímej si začátků, konců a prostoru mezi nahrávkami, nikoli jen shodného tempa.",
+      "transfer": "Zkus stejný záměr na jiné dvojici nahrávek a vysvětli, které rozhodnutí bylo třeba změnit."
+    },
+    {
+      "id": "lesson-dj-3",
+      "title": "Z výběru vytvoř příběh.",
+      "objective": "Sestavit a zreflektovat krátký vlastní set.",
+      "why": "Větší počet skladeb nemusí znamenat lepší celek. Ve studiu rezervuj čas na zkoušku záznamu a export. Večer pak porovnej svoje rozhodnutí s tím, čeho si všimneš u jiného DJ.",
+      "example": "Osnova: uvedení tématu → první změna → kontrast → návrat či otevřený konec. Je to pracovní pomůcka, ne povinná forma každého setu.",
+      "steps": [
+        "Připrav pořadí a označ tři přechody se zamýšlenou funkcí.",
+        "Otestuj úroveň záznamu a způsob exportu ještě před hlavním pokusem.",
+        "Nahraj 15–20 minut nebo kratší úsek podle možností.",
+        "Zapiš jednu věc, kterou ponecháš, a jednu, kterou příště změníš."
+      ],
+      "check": [
+        "Má export skutečný zvuk a lze ho přehrát?",
+        "Jsou poznámky spojeny s konkrétními místy?"
+      ],
+      "artifact": "Mix, tracklist a tři komentovaná rozhodnutí.",
+      "advanced": "Vytvoř alternativní pořadí stejných skladeb a popiš jiný účinek.",
+      "sourceIds": [],
+      "kind": "original-editorial-exercise",
+      "reviewStatus": "editorial-draft-for-specialist-review",
+      "sourceId": "dj-3",
+      "chapterId": "dj",
+      "question": "Která tři rozhodnutí drží můj mix pohromadě?",
+      "notice": "Označ vstup, změnu energie a konec; porovnej plán se skutečným záznamem.",
+      "transfer": "Ze stejných tracků postav jinou posloupnost. Porovnej její účinek se svými třemi původními rozhodnutími."
+    },
+    {
+      "id": "lesson-mc-1",
+      "title": "Od pozorování k vlastnímu obrazu.",
+      "objective": "Napsat čtyři řádky z konkrétních pozorování.",
+      "why": "Čtvrť není kulisa pro převzaté soudy o jejích obyvatelích. Nejdřív zachyť viditelné nebo slyšitelné detaily, teprve potom je proměň v autorský obraz.",
+      "example": "Obecné: „Město je tvrdý a lidi se honí za penězi.“ Konkrétní: „Roleta ještě spí, první mince už cinká do šálku.“ Druhá věta je vymyšlená výuková ukázka, ne reportáž z Barbès.",
+      "steps": [
+        "Pět minut pozoruj bez nahrávání cizích rozhovorů.",
+        "Zapiš zvuk, gesto a předmět. Označ, co jsi skutečně vnímal.",
+        "Napiš čtyři řádky. Pro první pokus vynech slova systém, realita, osud a ulice.",
+        "Přečti text nahlas a změň nejméně konkrétní řádek."
+      ],
+      "check": [
+        "Který detail může druhý člověk uvidět nebo slyšet?",
+        "Kde začíná tvoje interpretace?"
+      ],
+      "artifact": "Poznámky, čtyři řádky a jedna vysvětlená změna.",
+      "advanced": "Udrž stejný význam při dvou rozdílných perspektivách vypravěče.",
+      "sourceIds": [],
+      "kind": "original-editorial-exercise",
+      "reviewStatus": "editorial-draft-for-specialist-review",
+      "sourceId": "mc-1",
+      "chapterId": "mc",
+      "question": "Který vlastní detail nahradí obecný soud o městě?",
+      "notice": "Zapiš zvuk, gesto a předmět, aniž bys lidem přisuzoval motivy.",
+      "transfer": "V jiném místě napiš čtyři nové řádky podle stejné metody a porovnej konkrétnost."
+    },
+    {
+      "id": "lesson-mc-2",
+      "title": "Pauza také něco říká.",
+      "objective": "Vyzkoušet dvě odlišná umístění důrazu a pauzy.",
+      "why": "Psaný text a přednes nejsou stejná věc. Pro tento pokus neměň slova; změň pouze místa důrazů a pauz. Není předepsaná jedna správná flow.",
+      "example": "Větu „Dnes mluvím já, ne hlasy kolem“ přečti nejprve s pauzou za „já“, potom s důrazem na „dnes“. Zhodnoť, zda změna slouží záměru. Ukázka je původní výukový text.",
+      "steps": [
+        "Vyber vlastní čtyři řádky.",
+        "Označ svislicí dvě možné pauzy a podtrhni jedno důležité slovo.",
+        "Nahraj dvě krátké verze stejným přístrojem ze stejné vzdálenosti.",
+        "Poslechni bez čtení textu a popiš rozdíl."
+      ],
+      "check": [
+        "Je význam srozumitelný bez doprovodného vysvětlení?",
+        "Změnil jsi přednes, nebo jen hlasitost nahrávky?"
+      ],
+      "artifact": "Dvě nahrávky a popis jednoho rozdílu.",
+      "advanced": "Vyzkoušej tentýž text a cappella i na vlastním beatu, který smíš používat.",
+      "sourceIds": [],
+      "kind": "original-editorial-exercise",
+      "reviewStatus": "editorial-draft-for-specialist-review",
+      "sourceId": "mc-2",
+      "chapterId": "mc",
+      "question": "Co v mém textu změní místo pauzy a důrazu?",
+      "notice": "Sleduj místo nádechu, důležité slovo a srozumitelnost stejného textu.",
+      "transfer": "Přenes zvolenou práci s pauzou do další vlastní sloky, ne jen do stejné věty."
+    },
+    {
+      "id": "lesson-mc-3",
+      "title": "Demo je pokus, ne rozsudek.",
+      "objective": "Dokončit pracovní sloku a vědomou revizi.",
+      "why": "První nahrávka má odhalit, co text potřebuje. Hodnotíme konkrétní záměr a změnu, ne automatické procentní skóre kvality rapu. Open mic je dobrovolný bonus závislý na pořadateli.",
+      "example": "První verze obsahuje řádek, který potřebuje vysvětlovat. Ve druhé vyměníš abstraktní formulaci za vlastní detail a upravíš pauzu. V Blackbooku uložíš obě, ne pouze „dokonalou“.",
+      "steps": [
+        "Před rezervací potvrď technika, mikrofon, DAW a export.",
+        "Připrav beat s vyjasněnými právy a zálohu textu.",
+        "Nahraj první take, vyber jeden problém a oprav jej.",
+        "Ulož dvě verze; pro případný open mic připrav i krátkou a cappella variantu."
+      ],
+      "check": [
+        "Umíš vysvětlit jednu slyšitelnou změnu?",
+        "Nezaměňuješ možný slot za potvrzené vystoupení?"
+      ],
+      "artifact": "Pracovní sloka, dvě verze a poznámka o revizi.",
+      "advanced": "Požádej posluchače o reakci na jednu konkrétní otázku a vyhodnoť ji bez nutnosti slepě přijmout každý názor.",
+      "sourceIds": [],
+      "kind": "original-editorial-exercise",
+      "reviewStatus": "editorial-draft-for-specialist-review",
+      "sourceId": "mc-3",
+      "chapterId": "mc",
+      "question": "Který jeden slyšitelný problém chci druhým pokusem opravit?",
+      "notice": "Při poslechu ukaž konkrétní řádek a čas změny, ne obecný dojem vlastní kvality.",
+      "transfer": "U další sloky si předem zvol jedno kritérium revize a ulož obě verze i důvod změny."
+    },
+    {
+      "id": "lesson-writer-1",
+      "title": "Nejdřív kostra. Potom efekt.",
+      "objective": "Vytvořit čitelnou konstrukci vlastních písmen.",
+      "why": "Dnes trénujeme konstrukci, ne napodobení cizího podpisu. Barevné výplně mohou přitáhnout pozornost, ale pro tuto lekci je schováme a prohlédneme samotné proporce.",
+      "example": "Tři stavy stejného pracovního písmene: osa a hlavní tahy → objem → obrys. SVG v demu je zjednodušený výukový diagram, ne hotový graffiti styl ani šablona cizího writera.",
+      "steps": [
+        "Na ulici vyber tři odlišné konstrukční principy. Fotografuj respektujíc okolí.",
+        "Do skicáku nakresli své jméno pouze osami hlavních tahů.",
+        "Přidej objem a zkontroluj prázdná místa.",
+        "Zmenši náhled nebo se na něj podívej z dálky; uprav nejasné spojení."
+      ],
+      "check": [
+        "Rozlišíš jednotlivá písmena bez barvy?",
+        "Je inspirací princip, ne převzatý podpis?"
+      ],
+      "artifact": "První skica a opravená konstrukce.",
+      "advanced": "Navrhni tři konstrukčně odlišné podoby stejného slova.",
+      "sourceIds": [],
+      "kind": "original-editorial-exercise",
+      "reviewStatus": "editorial-draft-for-specialist-review",
+      "sourceId": "writer-1",
+      "chapterId": "writer",
+      "question": "Je moje slovo čitelné ještě před barvou a efekty?",
+      "notice": "Hledej osy tahů, šířky, mezery a to, co zůstane čitelné z dálky.",
+      "transfer": "Přenes vybraný konstrukční princip na jiné vlastní slovo bez kopírování cizího podpisu."
+    },
+    {
+      "id": "lesson-writer-2",
+      "title": "Prázdné místo je součást písmene.",
+      "objective": "Vědomě rozhodnout o rozestupech, překryvech a kontrastu.",
+      "why": "V tomhle cvičení omezíme paletu a zkoumáme vztahy mezi tvary. Omezení není obecný zákon graffiti, ale způsob, jak lépe vidět vlastní rozhodnutí.",
+      "example": "Dvě stejné výplně mohou při jiném rozestupu působit jako jedna hmota. Porovnej verzi s velkým překryvem a verzi s otevřeným průhledem. Popiš, co se změnilo v čitelnosti.",
+      "steps": [
+        "Vytvoř kopii své skici.",
+        "Na první změň jen mezery, na druhé jen překryvy.",
+        "Vyber dvě výplně, obrys a jeden světelný akcent.",
+        "Materiál kup podle vybrané skici; ověř vhodnost povrchu a podmínky u výrobce nebo prodejce."
+      ],
+      "check": [
+        "Umíš ukázat jednu změnu, která zlepšila tvůj záměr?",
+        "Máš plán a materiál pro konkrétní formát?"
+      ],
+      "artifact": "Dvě varianty kompozice a paleta.",
+      "advanced": "Zachovej čitelnost při výrazně omezené paletě a asymetrické kompozici.",
+      "sourceIds": [],
+      "kind": "original-editorial-exercise",
+      "reviewStatus": "editorial-draft-for-specialist-review",
+      "sourceId": "writer-2",
+      "chapterId": "writer",
+      "question": "Co se stane, když změním pouze mezeru nebo překryv?",
+      "notice": "Zakryj efekty a porovnej průhledy, překryvy a kontrast jednotlivých hmot.",
+      "transfer": "Zkus zachovat záměr v jiném formátu a s jinou omezenou paletou."
+    },
+    {
+      "id": "lesson-writer-3",
+      "title": "Ze skicáku na povolenou plochu.",
+      "objective": "Realizovat menší vlastní práci a zdokumentovat postup.",
+      "why": "Povolení se vztahuje na konkrétní úsek. Kurátorovaná stěna není automaticky legál. Před cestou znovu ověř pravidla, počasí a vybavení; pro organizovanou komerční činnost vyjasni souhlas správce.",
+      "example": "Dokumentace: skica → první rozvržení → výplně → obrys → závěr. Neslibujeme, že jedna odpolední session vyřeší techniku nebo vytvoří profesionální masterpiece.",
+      "steps": [
+        "Na místě identifikuj povolenou část a aktuální značení.",
+        "Respektuj pracující lidi, průchod a pravidla správce. Použij ochranu podle pokynů výrobce.",
+        "Přenášej návrh po etapách a průběžně kontroluj proporce.",
+        "Dokumentuj jednotlivé kroky, ukliď a zapiš jednu změnu pro příště."
+      ],
+      "check": [
+        "Je použitá plocha skutečně povolená právě pro tuto aktivitu?",
+        "Ukazuje dokumentace tvoje rozhodnutí, ne jen hotovou fotku?"
+      ],
+      "artifact": "Procesní Blackbook: skica, paleta, vrstvy a reflexe.",
+      "advanced": "Přepracuj návrh podle skutečných omezení povrchu, aniž bys ztratil hlavní myšlenku.",
+      "sourceIds": [],
+      "kind": "original-editorial-exercise",
+      "reviewStatus": "editorial-draft-for-specialist-review",
+      "sourceId": "writer-3",
+      "chapterId": "writer",
+      "question": "Jak přizpůsobím návrh skutečné povolené ploše?",
+      "notice": "Sleduj skutečný rozměr, povrch, povolený úsek, průchod a pořadí vrstev.",
+      "transfer": "Navrhni další verzi podle jednoho konkrétního omezení, které ukázala reálná realizace."
+    },
+    {
+      "id": "lesson-breaking-1",
+      "title": "Nejdřív poslouchej změnu.",
+      "objective": "Rozpoznat hudební podnět a navrhnout vlastní jednoduchou reakci.",
+      "why": "Ilustrace na webu není technický návod. Bezpečnou pohybovou variantu přizpůsob své úrovni a konzultuj lektora; náročné prvky a první power moves do samostatné terénní lekce nepatří.",
+      "example": "Zvol jednoduchou sekvenci, kterou už bezpečně zvládáš. V jednom pokusu opakuješ automaticky, ve druhém vědomě reaguješ na jeden konkrétní hudební moment. Porovnáváš záměr, ne obtížnost.",
+      "steps": [
+        "Vyber hudbu, kterou můžeš použít. Nejprve ji jen poslouchej.",
+        "Označ jeden zřetelný hudební moment.",
+        "Po přiměřené přípravě zvol známý jednoduchý pohyb jako reakci.",
+        "Poznamenej si, co bys chtěl večer probrat s lektorem."
+      ],
+      "check": [
+        "Dokážeš označit hudební moment, na který reaguješ?",
+        "Je zvolená varianta přiměřená tvým schopnostem a povrchu?"
+      ],
+      "artifact": "Jedna hudební poznámka a otázka pro lektora.",
+      "advanced": "Použij stejnou známou frázi se dvěma rozdílnými hudebními podněty.",
+      "sourceIds": [],
+      "kind": "original-editorial-exercise",
+      "reviewStatus": "editorial-draft-for-specialist-review",
+      "sourceId": "breaking-1",
+      "chapterId": "breaking",
+      "question": "Na který hudební okamžik dokážu vědomě reagovat?",
+      "notice": "Nejdřív označ hudební změnu; obtížnost pohybu není měřítkem tohoto úkolu.",
+      "transfer": "U jiné skladby najdi nový podnět a prober vhodnou reakci s lektorem."
+    },
+    {
+      "id": "lesson-breaking-2",
+      "title": "Cypher není turistická atrakce.",
+      "objective": "Vstoupit do sdíleného prostoru s respektem.",
+      "why": "Volná tréninková hala nezaručuje vedenou lekci ani přijetí do konkrétní skupiny. Komunitu nelze prodávat jako automatickou součást vstupenky. Sleduj místní pravidla a souhlas lidí.",
+      "example": "Místo automatického vstupu mezi tanečníky: krátce se představíš, zeptáš se, zda se můžeš přidat, a respektuješ i odmítnutí. Kamera zůstává vypnutá, dokud nemáš souhlas.",
+      "steps": [
+        "Přečti pravidla místa a zjisti dostupný prostor.",
+        "Začni vlastní klidnou přípravou; nepřekážej ostatním.",
+        "Ptej se před připojením i před natáčením.",
+        "Na bezplatné otevřené ploše neorganizuj placenou lekci v rozporu s pravidly."
+      ],
+      "check": [
+        "Rozlišuješ společný prostor od rezervované služby?",
+        "Máš souhlas pro záznam ostatních?"
+      ],
+      "artifact": "Krátká poznámka: co jsi pozoroval a jak ses zapojil.",
+      "advanced": "Poskytni druhému člověku konkrétní respektující zpětnou vazbu, pouze když ji chce.",
+      "sourceIds": [],
+      "kind": "original-editorial-exercise",
+      "reviewStatus": "editorial-draft-for-specialist-review",
+      "sourceId": "breaking-2",
+      "chapterId": "breaking",
+      "question": "Jak poznám, že v tomto prostoru mohu začít a připojit se?",
+      "notice": "Všímej si značení, využití prostoru a toho, zda ostatní chtějí sdílet praxi.",
+      "transfer": "Stejný postup otázky a souhlasu použij v jiném sdíleném tvůrčím prostoru."
+    },
+    {
+      "id": "lesson-breaking-3",
+      "title": "Vlastní fráze, jedna vědomá oprava.",
+      "objective": "Porovnat dvě bezpečně provedené verze krátké fráze.",
+      "why": "Lektor má posoudit konkrétní provedení. Na web nepatří AI hodnocení techniky z efektního obrázku. Výukové demonstrace lidí vyžadují skutečného tanečního spoluautora a souhlas se zveřejněním.",
+      "example": "Před lekcí zaznamenáš krátkou známou frázi. Po konzultaci opravíš jedinou věc. Výstupem není počet triků, ale pojmenovaná a proveditelná změna.",
+      "steps": [
+        "Potvrď jednorázový vstup, úroveň a aktuální konání lekce.",
+        "Přines otázku z prvního úkolu.",
+        "Po lekci si poznamenej konkrétní doporučení a bezpečný způsob dalšího tréninku.",
+        "Se svolením a v odpovídajícím prostoru zaznamenej druhou verzi."
+      ],
+      "check": [
+        "Dokážeš vysvětlit, co změnil lektor a proč?",
+        "Není úspěch závislý na soutěži s ostatními?"
+      ],
+      "artifact": "Dvě krátké verze a další tréninkový krok.",
+      "advanced": "Ověř, zda stejná úprava funguje také při jiném hudebním tempu; případné limity řeš s lektorem.",
+      "sourceIds": [],
+      "kind": "original-editorial-exercise",
+      "reviewStatus": "editorial-draft-for-specialist-review",
+      "sourceId": "breaking-3",
+      "chapterId": "breaking",
+      "question": "Jakou jednu změnu dokážu po lekci bezpečně zopakovat?",
+      "notice": "Zaznamenej přesná slova lektorova doporučení a rozdíl mezi dvěma vlastními pokusy.",
+      "transfer": "Naplánuj další přiměřený tréninkový krok podle doporučení lektora; limity neřeš obtížnějším trikem."
+    },
+    {
+      "id": "lesson-knowledge-1",
+      "title": "Co vidím. Co si přidávám.",
+      "objective": "Oddělit pozorování od výkladu.",
+      "why": "Tato kapitola je současná autorská interpretace knowledge of self. Neprohlašuje hermetiku za původ hip-hopu a nenabízí léčebný nebo nadpřirozený účinek.",
+      "example": "„Na zdi je oko“ je popis viditelného motivu. „Autor tím myslí univerzální vědomí“ už je výklad, který potřebuje zdroj nebo označení jako domněnka.",
+      "steps": [
+        "Pět minut sleduj jedno dílo bez poslechu komentáře.",
+        "Napiš tři viditelné detaily a tři svoje interpretace.",
+        "Přečti doložené vyjádření autora či instituce, pokud existuje.",
+        "Označ, co se po přečtení změnilo a co stále nevíš."
+      ],
+      "check": [
+        "Nezaměňuješ symbol za důkaz tvrzení?",
+        "Dokážeš ukázat zdroj autorova vysvětlení?"
+      ],
+      "artifact": "Dvojice sloupců: pozorování a interpretace.",
+      "advanced": "Najdi dvě obhajitelné interpretace a u každé pojmenuj oporu i omezení.",
+      "sourceIds": [],
+      "kind": "original-editorial-exercise",
+      "reviewStatus": "editorial-draft-for-specialist-review",
+      "sourceId": "knowledge-1",
+      "chapterId": "knowledge",
+      "question": "Co na díle vidím a co už je moje přidané vysvětlení?",
+      "notice": "Odděl viditelný tvar, vlastní asociaci a doložené autorovo vyjádření.",
+      "transfer": "U dalšího obrazu zopakuj dvě oddělené kolonky a vyhledej oporu nejistého výkladu."
+    },
+    {
+      "id": "lesson-knowledge-2",
+      "title": "Hodnota, nebo jen slogan?",
+      "objective": "Převést abstraktní slovo na konkrétní tvrzení nebo čin.",
+      "why": "Efektní věta může vytvářet dojem jasnosti, aniž něco přesně říká. Cílem není zakázat metaforu, ale poznat, kdy ji používáš místo argumentu.",
+      "example": "„Jsem nezávislý“ doplň otázkou „Na čem konkrétně?“ Potom napiš jeden ověřitelný závazek, například jak zkontroluješ zdroj informace před sdílením. Jde o výukový příklad, ne osobní hodnocení návštěvníka.",
+      "steps": [
+        "Vyber tři slova ze svého pracovního textu.",
+        "Ke každému napiš konkrétní význam v této situaci.",
+        "Označ větu, kterou neumíš obhájit nebo vysvětlit.",
+        "Přepiš ji přesněji a zachovej vlastní hlas."
+      ],
+      "check": [
+        "Je poznat, co tvrdíš a co pouze navrhuješ?",
+        "Neztrácí metafora smysl po jednoduchém vysvětlení?"
+      ],
+      "artifact": "Druhá verze krátkého manifestu.",
+      "advanced": "Sepiš nejsilnější rozumnou námitku proti svému postoji a zkus ji poctivě zohlednit.",
+      "sourceIds": [],
+      "kind": "original-editorial-exercise",
+      "reviewStatus": "editorial-draft-for-specialist-review",
+      "sourceId": "knowledge-2",
+      "chapterId": "knowledge",
+      "question": "Co přesně moje silné slovo znamená v této situaci?",
+      "notice": "Všímej si slov, která působí silně, ale neumíš je vysvětlit konkrétně.",
+      "transfer": "Před sdílením dalšího tvrzení doplň konkrétní význam, zdroj nebo jasné označení domněnky."
+    },
+    {
+      "id": "lesson-knowledge-3",
+      "title": "Vlastní znak. Otevřený dialog.",
+      "objective": "Vytvořit symbol s vysvětlením a přijmout konkrétní zpětnou vazbu.",
+      "why": "Autorský symbol nemusí mít jediný výklad. Rozlišuj svůj záměr od toho, co v něm čte druhý člověk. Diskuse není soutěž o potvrzení vlastní výjimečnosti.",
+      "example": "Spoj motiv pochybnosti s motivem důvěry. Ukaž znak bez vysvětlení, vyslechni čtení druhého a teprve potom doplň záměr. Zapiš rozdíl.",
+      "steps": [
+        "Nakresli jednoduchý znak a napiš dvě věty o záměru.",
+        "Připrav 150–250 slov vlastního textu pro diskusi.",
+        "Ptej se na jednu konkrétní věc, například srozumitelnost hlavního tvrzení.",
+        "Vytvoř další verzi nebo vysvětli, proč konkrétní připomínku nepřijímáš."
+      ],
+      "check": [
+        "Dokážeš přiznat nejasnost, aniž vymýšlíš historický původ znaku?",
+        "Je zpětná vazba dobrovolná a vzájemná?"
+      ],
+      "artifact": "Znak, krátký text a jedna zpřesněná myšlenka.",
+      "advanced": "Porovnej úvodní a konečnou interpretaci bez potřeby tvrdit, že každá změna byla nutně zlepšení.",
+      "sourceIds": [],
+      "kind": "original-editorial-exercise",
+      "reviewStatus": "editorial-draft-for-specialist-review",
+      "sourceId": "knowledge-3",
+      "chapterId": "knowledge",
+      "question": "Co z mého záměru druhý člověk přečte i bez vysvětlování?",
+      "notice": "Porovnej cizí čtení znaku s vlastním záměrem; rozdíl nemusí být chyba.",
+      "transfer": "Znak nebo text po čase znovu ukaž jinému dobrovolnému čtenáři a zapiš, co přetrvalo a co se změnilo."
+    }
+  ],
+  "places": [
+    {
+      "id": "univers-sons",
+      "name": "Univers Sons",
+      "address": "159 rue Amelot, 75011 Paris",
+      "coordinates": null,
+      "sources": [
+        {
+          "label": "Univers Sons — cours DJ et tarifs",
+          "url": "https://www.univers-sons.com/news/cours-dj.html"
+        },
+        {
+          "label": "Univers Sons — adresse et horaires",
+          "url": "https://www.univers-sons.com/a-propos/nous-contacter.html"
+        }
+      ],
+      "access": {
+        "status": "verified",
+        "checkedAt": "2026-10-21",
+        "summary": "Prodejna uvádí po–so 11:00–19:00. Oficiální nabídka kurzu s Hitchem zveřejňuje 69 € za 1 hodinu. Konkrétní lekci, jazyk a vinylové vybavení domluv předem; návštěva prodejny není potvrzená lekce.",
+        "requiresConfirmation": [
+          "Termín a volné místo",
+          "Jazyk výuky",
+          "Gramofony, přenosky, scratch/DVS a obsah konkrétní lekce"
+        ]
+      }
+    },
+    {
+      "id": "betinos-record-shop",
+      "name": "Betino’s Record Shop",
+      "address": "32 rue Saint-Sébastien, 75011 Paris",
+      "coordinates": null,
+      "sources": [
+        {
+          "label": "Betino’s — Info Shop/Shipping",
+          "url": "https://www.betinos.com/content/info-shopshipping"
+        }
+      ],
+      "access": {
+        "status": "verified",
+        "checkedAt": "2026-10-21",
+        "summary": "Oficiální stránka uvádí pondělí–sobota 13:00–20:00. Poslech a konkrétní dostupnost desek ověř v obchodě.",
+        "requiresConfirmation": [
+          "Sváteční změny otevírání",
+          "Možnost a podmínky poslechu"
+        ]
+      }
+    },
+    {
+      "id": "le-grand-jeu",
+      "name": "Le Grand Jeu",
+      "address": "15 passage de Ménilmontant, 75011 Paris",
+      "coordinates": null,
+      "sources": [
+        {
+          "label": "Le Grand Jeu — provozovatel",
+          "url": "https://www.legrandj.eu/"
+        }
+      ],
+      "access": {
+        "status": "verified",
+        "checkedAt": "2026-10-21",
+        "summary": "Publikované hodiny: po–st 14:00–19:00, čt–pá 14:00–20:00, so 11:00–20:00; v neděli zavřeno. Knihkupectví je místem pro práci s referencemi. Workshop ani setkání s autorem nejsou sjednány.",
+        "requiresConfirmation": [
+          "Případné mimořádné uzavření a dostupnost konkrétní publikace."
+        ]
+      }
+    },
+    {
+      "id": "heartbeat-vinyl",
+      "name": "Heartbeat Vinyl",
+      "address": "26 rue Godefroy Cavaignac, 75011 Paris",
+      "coordinates": null,
+      "sources": [
+        {
+          "label": "Heartbeat Vinyl — site officiel (lecture indisponible)",
+          "url": "https://www.heartbeatvinyl.com/"
+        }
+      ],
+      "access": {
+        "status": "unverified",
+        "checkedAt": null,
+        "summary": "Adresa je převzatá z roadbooku. Oficiální web se při kontrole nenačetl, proto zde nejsou potvrzené hodiny. Před přesunem si provoz ověř; při nedostupnosti pokračuj poslechovým úkolem z vlastních nahrávek.",
+        "requiresConfirmation": [
+          "Fyzický provoz, přesná adresa a aktuální otevírání",
+          "Podmínky poslechu"
+        ]
+      }
+    },
+    {
+      "id": "la-place",
+      "name": "La Place — Centre culturel hip-hop",
+      "address": "10 passage de la Canopée, 75001 Paris",
+      "coordinates": null,
+      "sources": [
+        {
+          "label": "La Place — Les studios",
+          "url": "https://laplace-paris.com/nos-espaces/les-studios/"
+        },
+        {
+          "label": "La Place — réservation officielle via Quickstudio",
+          "url": "https://www.quickstudio.com/fr/studios/la-place-paris/bookings"
+        }
+      ],
+      "access": {
+        "status": "verified",
+        "checkedAt": "2026-10-21",
+        "summary": "Studia jsou na rezervaci. Provozovatel odkazuje na Quickstudio; při kontrole zveřejňuje pro studia 4/5/6/7 sazbu 18 €/h pro jednotlivce a asociativní kulturní projekty. Studia 6 a 7 mají DJ vybavení s možností vinylových gramofonů. Konkrétní sestavu a záznam potvrď předem; pronájem není automaticky vedená lekce ani služba zvukaře.",
+        "requiresConfirmation": [
+          "Termín, sazba pro tvůj účel a podmínky pronájmu",
+          "Mikrofon, interface, DAW, technik a export",
+          "Vinylové gramofony, přenosky a záznam"
+        ]
+      }
+    },
+    {
+      "id": "frequence-paris",
+      "name": "Fréquence",
+      "address": "20 rue Keller, 75011 Paris",
+      "coordinates": null,
+      "sources": [
+        {
+          "label": "Fréquence — compte officiel (lecture indisponible)",
+          "url": "https://www.instagram.com/frequenceparis/"
+        }
+      ],
+      "access": {
+        "status": "unverified",
+        "checkedAt": null,
+        "summary": "Volitelný poslechový závěr z roadbooku. Oficiální program se nepodařilo přečíst; konkrétní DJ set ani jeho čas nejsou potvrzené. Zkontroluj program podniku před přesunem.",
+        "requiresConfirmation": [
+          "Adresa, aktuální provoz a konkrétní hudební program",
+          "Čas DJ setu a podmínky vstupu"
+        ]
+      }
+    },
+    {
+      "id": "scred-boutique",
+      "name": "Scred Boutique",
+      "address": "13 rue Eugène Sue, 75018 Paris",
+      "coordinates": null,
+      "sources": [
+        {
+          "label": "Scred Boutique — adresse publiée dans les conditions",
+          "url": "https://scredboutique.com/content/conditions-generales-de-ventes.html"
+        },
+        {
+          "label": "Scred Boutique — catalogue et service client",
+          "url": "https://scredboutique.com/"
+        }
+      ],
+      "access": {
+        "status": "partial",
+        "checkedAt": "2026-10-21",
+        "summary": "Oficiální podmínky publikují tuto adresu a telefon 01 42 64 31 78. Web zároveň uvádí servisní hodiny po–so 10–19; to samo nepotvrzuje otevírání fyzické prodejny. Návštěvu nejdřív potvrď.",
+        "requiresConfirmation": [
+          "Aktuální fyzické otevírání a možnost návštěvy",
+          "Případná veřejná session"
+        ]
+      }
+    },
+    {
+      "id": "barbes-rochechouart",
+      "name": "Barbès-Rochechouart",
+      "address": "Métro Barbès-Rochechouart, Paris",
+      "coordinates": null,
+      "sources": [
+        {
+          "label": "Bonjour RATP — station Barbès-Rochechouart",
+          "url": "https://www.bonjour-ratp.fr/stations-metro/barbes-rochechouart/"
+        }
+      ],
+      "access": {
+        "status": "verified",
+        "checkedAt": "2026-10-21",
+        "summary": "Orientační bod pro pozorování veřejného prostoru, nikoli rezervovaná aktivita. RATP potvrzuje stanici linek 2 a 4 a její vstupy. Úkol nevyžaduje nahrávání cizích rozhovorů ani tváří.",
+        "requiresConfirmation": [
+          "Dopravní omezení v den návštěvy"
+        ]
+      }
+    },
+    {
+      "id": "la-chapelle",
+      "name": "La Chapelle — historický kontext",
+      "address": "Métro La Chapelle, Paris",
+      "coordinates": null,
+      "sources": [
+        {
+          "label": "Philharmonie de Paris — prezentační dokument Hip-Hop 360",
+          "url": "https://deneb.philharmoniedeparis.fr/uploads/documents/63cff2cc5ef33_PRESENTATION%20HIP%20HOP%20VF-.pdf"
+        },
+        {
+          "label": "Louis Jesu — L’élite artistique des cités, disertace, Université de Lorraine, 2016, s. 70–72",
+          "url": "https://docnum.univ-lorraine.fr/public/DDOC_T_2016_0095_JESU.pdf"
+        }
+      ],
+      "access": {
+        "status": "partial",
+        "checkedAt": "2026-10-21",
+        "summary": "Orientační zastávka u metra a v okolní čtvrti. Historický terrain vague je doloženým místem setkávání různých hiphopových disciplín; není zde potvrzený dnešní tréninkový areál ani veřejný vstup na původní parcelu.",
+        "requiresConfirmation": [
+          "Přesné vymezení bývalé parcely a dnešní vlastnický či přístupový režim."
+        ]
+      }
+    },
+    {
+      "id": "mur-oberkampf",
+      "name": "Le M.U.R. Oberkampf",
+      "address": "107 rue Oberkampf, 75011 Paris",
+      "coordinates": null,
+      "sources": [
+        {
+          "label": "Le M.U.R. — asociace a výběr umělců",
+          "url": "https://www.lemur.fr/"
+        },
+        {
+          "label": "Le M.U.R. — adresa Oberkampf",
+          "url": "https://www.lemur.fr/livre-le-mur-the-wall/"
+        }
+      ],
+      "access": {
+        "status": "verified",
+        "checkedAt": "2026-10-21",
+        "summary": "Kurátorovaná stěna asociace Le M.U.R. na rohu rue Oberkampf a rue Saint-Maur. Zastávka je pozorovací; vlastní malování vyžaduje dohodu se správcem.",
+        "requiresConfirmation": [
+          "Konkrétní program a případné autorské svolení pro další komerční užití fotografií díla."
+        ]
+      }
+    },
+    {
+      "id": "au-chat-noir",
+      "name": "Au Chat Noir — SpokenWord / AWOL",
+      "address": "76 rue Jean-Pierre Timbaud, 75011 Paris",
+      "coordinates": null,
+      "sources": [
+        {
+          "label": "SpokenWord Paris — programme régulier, mise à jour septembre 2026",
+          "url": "https://spokenwordparis.org/"
+        }
+      ],
+      "access": {
+        "status": "verified",
+        "checkedAt": "2026-10-21",
+        "summary": "Organizátor uvádí pravidelný pondělní SpokenWord: zápis 20:00, začátek 20:45 (mimo srpen). AWOL je obvykle v neděli 17:15–19:15 a zdarma. To není potvrzení konkrétního dne ani slotu; před cestou zkontroluj aktuality.",
+        "requiresConfirmation": [
+          "Konkrétní datum, změny programu a jazyk skupiny",
+          "Slot, délka a podmínky vystoupení"
+        ]
+      }
+    },
+    {
+      "id": "rue-denoyez",
+      "name": "Rue Dénoyez",
+      "address": "Rue Dénoyez, 75020 Paris",
+      "coordinates": null,
+      "sources": [
+        {
+          "label": "Visit Paris Region — Rue Dénoyez",
+          "url": "https://www.visitparisregion.com/fr/rue-denoyez"
+        }
+      ],
+      "access": {
+        "status": "verified",
+        "checkedAt": "2026-10-21",
+        "summary": "Veřejná ulice v Belleville s proměnlivou street-artovou tvorbou. Zastávka slouží k pozorování; turistický popis ani přítomnost graffiti nejsou povolením k vlastnímu malování.",
+        "requiresConfirmation": [
+          "Případná místní omezení a aktuální stav děl."
+        ]
+      }
+    },
+    {
+      "id": "75shop",
+      "name": "75Shop & Gallery",
+      "address": "12 boulevard Saint-Martin, 75010 Paris",
+      "coordinates": null,
+      "sources": [
+        {
+          "label": "75Shop — kontakt a otevírací hodiny",
+          "url": "https://75shop.fr/contact/"
+        },
+        {
+          "label": "75Shop — domovská stránka s rozpornými hodinami",
+          "url": "https://75shop.fr/"
+        }
+      ],
+      "access": {
+        "status": "partial",
+        "checkedAt": "2026-10-21",
+        "summary": "Adresa je potvrzená. Oficiální web uvádí rozdílné zavírání v 18:00 a 20:00; před pozdní návštěvou potvrď provoz. Navržená sobotní polední návštěva leží v obou zveřejněných intervalech. Ceny a skladové zásoby nejsou potvrzené.",
+        "requiresConfirmation": [
+          "Zavírací hodina konkrétního dne.",
+          "Cena a dostupnost vybraných barev, caps a ochranných prostředků."
+        ]
+      }
+    },
+    {
+      "id": "mur-de-boulogne",
+      "name": "Le Mur de Boulogne",
+      "address": "Rue Paul Adolphe Souriau, Boulogne-Billancourt, France",
+      "coordinates": null,
+      "sources": [
+        {
+          "label": "Acaci’Art — Le Mur de Boulogne a rozdělení úseků",
+          "url": "https://atelierstreetart.fr/le-mur-de-boulogne"
+        }
+      ],
+      "access": {
+        "status": "partial",
+        "checkedAt": "2026-10-21",
+        "summary": "Správce rozlišuje 50 m pozvaných autorů, 15 m vedené výuky a 135 m cihlového úseku pro volné legální malování bez žádosti Acaci’Art. Vymezení a aktuální značení ověř na místě. Komerční workshop CAISIK nemá potvrzené oprávnění.",
+        "requiresConfirmation": [
+          "Aktuální značení, volná část a případné místní uzavření.",
+          "Před placenou organizovanou výukou kontaktovat správce."
+        ]
+      }
+    },
+    {
+      "id": "centquatre",
+      "name": "CENTQUATRE-PARIS",
+      "address": "5 rue Curial, 75019 Paris",
+      "coordinates": null,
+      "sources": [
+        {
+          "label": "CENTQUATRE-PARIS — pravidla espaces libres",
+          "url": "https://www.104.fr/espaces-libres"
+        },
+        {
+          "label": "Ville de Paris — Le CENTQUATRE-PARIS, adresa a přístup",
+          "url": "https://www.paris.fr/lieux/le-centquatre-paris-3990"
+        }
+      ],
+      "access": {
+        "status": "verified",
+        "checkedAt": "2026-10-21",
+        "summary": "Volná samostatná umělecká praxe zdarma a bez rezervace. Út–pá 12:00–19:00, so–ne 11:00–19:00; v pondělí zavřeno. Prostor se mění podle programu. Placené lekce jsou zakázané; nejsou šatny ani úschova. Cypher ani účast dalších tanečníků nejsou slíbené.",
+        "requiresConfirmation": [
+          "Aktuální denní program a dostupná plocha."
+        ]
+      }
+    },
+    {
+      "id": "rue-de-lourcq",
+      "name": "Rue de l’Ourcq",
+      "address": "Rue de l’Ourcq, Paris 19e",
+      "coordinates": null,
+      "sources": [
+        {
+          "label": "Paris je t’aime — street art na severu Paříže",
+          "url": "https://parisjetaime.com/eng/article/street-art-in-the-north-of-paris-a716"
+        }
+      ],
+      "access": {
+        "status": "partial",
+        "checkedAt": "2026-10-21",
+        "summary": "Pozorovací zastávka v proměnlivém veřejném prostoru. Oficiální turistický zdroj dokumentuje místní street art a dAcRuZ. Žádný cypher ani taneční lekce nejsou potvrzené. Pokud není vhodná volná plocha, splň úkol pozorováním a poznámkou.",
+        "requiresConfirmation": [
+          "Místní průchodnost a vhodné podmínky pro krátký vlastní pohyb."
+        ]
+      }
+    },
+    {
+      "id": "belvedere-belleville",
+      "name": "Belvédère Willy-Ronis / Belleville",
+      "address": "27 rue Piat, 75020 Paris",
+      "coordinates": null,
+      "sources": [
+        {
+          "label": "Ville de Paris — Belvédère Willy-Ronis, 27 rue Piat",
+          "url": "https://www.paris.fr/pages/ou-voir-le-feu-d-artifice-du-14-juillet-35766"
+        }
+      ],
+      "access": {
+        "status": "partial",
+        "checkedAt": "2026-10-21",
+        "summary": "Město potvrzuje Belvédère Willy-Ronis nad parkem Belleville na adrese 27 rue Piat. Místo slouží k pozorování a odpočinku; taneční plocha ani lekce nejsou rezervované. Vlastní frázi zvol jen z pohybů, které bezpečně ovládáš.",
+        "requiresConfirmation": [
+          "Aktuální povrch, přístup, omezení a vhodnost místa pro krátký pohyb."
+        ]
+      }
+    },
+    {
+      "id": "juste-debout-school-core",
+      "name": "Juste Debout School CORE",
+      "address": "3 rue de l’Est, 75020 Paris",
+      "coordinates": null,
+      "sources": [
+        {
+          "label": "Juste Debout School — publikovaný rozvrh open lekcí a adresa CORE",
+          "url": "https://www.juste-debout-school.com/cours-open-prives/"
+        },
+        {
+          "label": "Juste Debout School — CORE Paris 20e",
+          "url": "https://www.juste-debout-school.com/"
+        }
+      ],
+      "access": {
+        "status": "partial",
+        "checkedAt": "2026-10-21",
+        "summary": "Publikovaný týdenní rozvrh uvádí Bboying s DysDys ve středu 19:00–20:30 v CORE, 3 rue de l’Est. Před konkrétní návštěvou potvrď cenu, volné místo a konání během prázdnin. Publikovaný rozvrh není rezervace; telefon +33 9 84 05 50 75.",
+        "requiresConfirmation": [
+          "Konání ve vybraný den včetně prázdninového provozu.",
+          "Jednorázová cena, přijímaná úroveň, volná kapacita a způsob rezervace."
+        ]
+      }
+    },
+    {
+      "id": "chuuut-jef-aerosol",
+      "name": "Jef Aérosol — Chuuuttt!!!",
+      "address": "Place Igor Stravinsky, 75004 Paris",
+      "coordinates": null,
+      "sources": [
+        {
+          "label": "Jef Aérosol — CV et fresques",
+          "url": "https://www.jefaerosol.com/cv"
+        }
+      ],
+      "access": {
+        "status": "verified",
+        "checkedAt": "2026-10-21",
+        "summary": "Venkovní dílo pozoruj z veřejného prostoru. Autorův přehled zaznamenává realizaci fresky na Place Stravinsky v roce 2011. Aktuální viditelnost může ovlivnit provoz nebo práce na místě.",
+        "requiresConfirmation": [
+          "Aktuální přístup a viditelnost na místě"
+        ]
+      }
+    },
+    {
+      "id": "cryptik-maruani",
+      "name": "Cryptik — Untitled nad Librairie Maruani",
+      "address": "171 boulevard Vincent Auriol, 75013 Paris",
+      "coordinates": null,
+      "sources": [
+        {
+          "label": "Galerie Itinerrance — Cryptik à Paris",
+          "url": "https://itinerrance.fr/actualites/cryptik-a-paris-streetart13/"
+        },
+        {
+          "label": "Librairie Maruani — adresse et horaires",
+          "url": "https://www.librairiemaruani.fr/"
+        },
+        {
+          "label": "Paris je t’aime — promenade street art du 13e",
+          "url": "https://parisjetaime.com/article/balade-street-art-dans-le-13e-arrondissement-a776"
+        }
+      ],
+      "access": {
+        "status": "verified",
+        "checkedAt": "2026-10-21",
+        "summary": "Nedělní zastávka je pozorování fasády. Galerie spojuje kaligrafii s textem Williama Saroyana. Knihkupectví na oficiálním webu uvádí neděli zavřenou; návštěvu interiéru proto tato varianta neslibuje.",
+        "requiresConfirmation": [
+          "Aktuální viditelnost fasády a případné změny provozu"
+        ]
+      }
+    },
+    {
+      "id": "liberte-egalite-fraternite-fairey",
+      "name": "Shepard Fairey — Liberté, Égalité, Fraternité",
+      "address": "141 boulevard Vincent Auriol, 75013 Paris",
+      "coordinates": null,
+      "sources": [
+        {
+          "label": "Boulevard Paris 13 — Liberté, Égalité, Fraternité",
+          "url": "https://boulevardparis13.com/project/liberte-egalite-fraternite/"
+        },
+        {
+          "label": "Paris je t’aime — promenade street art du 13e",
+          "url": "https://parisjetaime.com/article/balade-street-art-dans-le-13e-arrondissement-a776"
+        }
+      ],
+      "access": {
+        "status": "verified",
+        "checkedAt": "2026-10-21",
+        "summary": "Dílo se studuje z veřejného prostoru. Projekt Boulevard Paris 13 jej vysvětluje jako Marianne s francouzskou vlajkou a projev solidarity po útoku na Bataclan 13. listopadu 2015. Vlastní čtení sloganu je zvlášť označené tvůrčí zadání.",
+        "requiresConfirmation": [
+          "Aktuální viditelnost a přístup na místě"
+        ]
+      }
+    },
+    {
+      "id": "la-madre-secular-2-inti",
+      "name": "INTI — La Madre Secular 2",
+      "address": "81 boulevard Vincent Auriol, 75013 Paris",
+      "coordinates": null,
+      "sources": [
+        {
+          "label": "Boulevard Paris 13 — La Madre Secular 2",
+          "url": "https://boulevardparis13.com/project/la-madre-secular-2/"
+        },
+        {
+          "label": "Paris je t’aime — promenade street art du 13e",
+          "url": "https://parisjetaime.com/article/balade-street-art-dans-le-13e-arrondissement-a776"
+        }
+      ],
+      "access": {
+        "status": "verified",
+        "checkedAt": "2026-10-21",
+        "summary": "Pozorování z veřejného prostoru. Projekt popisuje světskou Madonu a Newtonovo jablko jako motiv vědění a skepticismu. Vlastní znak důvěry či pochybnosti je současný tvůrčí úkol, nikoli doložený univerzální význam symbolů.",
+        "requiresConfirmation": [
+          "Aktuální viditelnost a přístup na místě"
+        ]
+      }
+    },
+    {
+      "id": "place-frehel-ben",
+      "name": "Place Fréhel — Il faut se méfier des mots",
+      "address": "Place Fréhel, 75020 Paris",
+      "coordinates": null,
+      "sources": [
+        {
+          "label": "Mairie du 20e — place Fréhel et œuvre de Ben",
+          "url": "https://mairie20.paris.fr/pages/il-etait-une-fois-le-20e-la-place-frehel-une-galerie-d-art-a-ciel-ouvert-26201"
+        }
+      ],
+      "access": {
+        "status": "verified",
+        "checkedAt": "2026-10-21",
+        "summary": "Městská část popisuje náměstí na křížení rue Julien-Lacroix a rue de Belleville a Benovo dílo s nápisem Il faut se méfier des mots. Pozoruj veřejné dílo a odděl jeho popis od vlastní interpretace.",
+        "requiresConfirmation": [
+          "Aktuální viditelnost a podmínky průchodu"
+        ]
+      }
+    }
+  ],
+  "routes": [
+    {
+      "id": "route-dj",
+      "chapterId": "dj",
+      "title": "DJ — Od prvního breaku k vlastnímu mixu",
+      "summary": "Od cíleného poslechu přes dvě zkoušky návaznosti k vlastnímu krátkému mixu. Obchody a večerní poslech jsou volitelné; na vlastní práci ponech souvislý blok. Lekci, studio a vybavení potvrzuje jejich provozovatel.",
+      "stops": [
+        {
+          "id": "stop-dj-1",
+          "sourceId": "dj-1",
+          "placeId": "univers-sons",
+          "title": "Univers Sons — lekce s Hitchem",
+          "task": "Domluv si hip-hopové cueing, baby scratch a jeden přechod. Přines dva vlastní tracky a sluchátka; jazyk i vybavení potvrď předem.",
+          "transfer": "Start; metro Oberkampf (5/9) nebo République.",
+          "conditions": "Konkrétní čas je návrh itineráře, nikoli rezervace. Kurz musí potvrdit pořadatel.",
+          "proposedTime": "11:00–12:00",
+          "durationMinutes": 60,
+          "optional": false,
+          "lessonId": "lesson-dj-1"
+        },
+        {
+          "id": "stop-dj-2",
+          "sourceId": "dj-2",
+          "placeId": "betinos-record-shop",
+          "title": "Betino’s Record Shop",
+          "task": "Vyber jeden drum break, jednu basovou linku a jeden melodický motiv. Ptej se na poslech desek, neber jej automaticky jako službu bez podmínek.",
+          "transfer": "Pěšky přibližně 10–15 min.",
+          "conditions": "Poslech desek ani konkrétní skladová nabídka nejsou automaticky slíbená služba. Nákup není podmínkou úkolu.",
+          "proposedTime": "13:00–14:00",
+          "durationMinutes": 60,
+          "optional": true,
+          "lessonId": "lesson-dj-1"
+        },
+        {
+          "id": "stop-dj-3",
+          "sourceId": "dj-3",
+          "placeId": "le-grand-jeu",
+          "title": "Le Grand Jeu — vizuální jazyk desek",
+          "task": "Najdi jeden zin nebo fotografickou knihu. Do skicáku navrhni obal pro mix, který dnes nahraješ.",
+          "transfer": "Kolo asi 10 min nebo pěšky 25–30 min.",
+          "conditions": "Volitelná práce s referencemi; ověř aktuální fyzický provoz. Vlastní výsledek musí jít dokončit i bez nákupu.",
+          "proposedTime": "14:20–15:00",
+          "durationMinutes": 40,
+          "optional": true,
+          "lessonId": "lesson-dj-2"
+        },
+        {
+          "id": "stop-dj-4",
+          "sourceId": "dj-4",
+          "placeId": "heartbeat-vinyl",
+          "title": "Heartbeat Vinyl — druhý digging",
+          "task": "Hledej kontrast k prvnímu nákupu: jinou dekádu, groove nebo instrumentál. Nejvýš dvě věci, které opravdu využiješ.",
+          "transfer": "Kolo asi 10–15 min; pěšky 25–30 min.",
+          "conditions": "Aktuální hodiny nejsou znovu ověřené. Před přesunem potvrď provoz u obchodu; při nedostupnosti použij vlastní legální nahrávky.",
+          "proposedTime": "15:20–16:00",
+          "durationMinutes": 40,
+          "optional": true,
+          "lessonId": "lesson-dj-2"
+        },
+        {
+          "id": "stop-dj-5",
+          "sourceId": "dj-5",
+          "placeId": "la-place",
+          "title": "La Place — studio 6 nebo 7",
+          "task": "Vyhraď dvě hodiny na zkoušku záznamu, 15–20minutový mix, kontrolu a export. Požadavek na vinylové gramofony potvrď při rezervaci.",
+          "transfer": "Kolo asi 20–30 min; metrem přes Voltaire (9) → Strasbourg–Saint-Denis, poté 4 → Les Halles a pěšky.",
+          "conditions": "Sazbu a vybavení sleduj u společného záznamu La Place. Pronájem sám nezahrnuje lektora.",
+          "proposedTime": "17:00–19:00",
+          "durationMinutes": 120,
+          "optional": false,
+          "lessonId": "lesson-dj-3"
+        },
+        {
+          "id": "stop-dj-6",
+          "sourceId": "dj-6",
+          "placeId": "frequence-paris",
+          "title": "Fréquence — vinylový poslechový bar",
+          "task": "Poslouchej práci se stranami desek, pořadím a energií. Zapiš tři přechody, které tě zaujmou.",
+          "transfer": "Kolo asi 20–25 min; nebo Châtelet (1 směr Château de Vincennes) → Bastille + pěšky.",
+          "conditions": "Volitelná zastávka pouze podle skutečně potvrzeného programu. Není potvrzen open-decks ani hip-hopový set. Po alkoholu nepokračuj na kole.",
+          "proposedTime": "Večer podle potvrzeného programu",
+          "durationMinutes": 45,
+          "optional": true,
+          "lessonId": "lesson-dj-3"
+        }
+      ]
+    },
+    {
+      "id": "route-mc",
+      "chapterId": "mc",
+      "title": "MC — Od čtvrti přes studio až k mikrofonu",
+      "summary": "Z konkrétních detailů čtvrti vznikne vlastní sloka, dvě verze přednesu a vysvětlená revize. Na nahrávání a poslech vyhraď skutečný čas. Veřejný mikrofon je volitelný a závisí na aktuálním programu i pořadateli.",
+      "stops": [
+        {
+          "id": "stop-mc-1",
+          "sourceId": "mc-1",
+          "placeId": "scred-boutique",
+          "title": "Scred Boutique",
+          "task": "Objev nezávislý francouzský rap a zeptej se na nejbližší veřejně přístupnou rapovou session. Nečekej automaticky přítomnost členů Scred Connexion.",
+          "transfer": "Start; od metra Château Rouge nebo Marcadet–Poissonniers pěšky.",
+          "conditions": "Potvrď fyzické otevření před odjezdem. Servisní hodiny webu nejsou potvrzené hodiny prodejny; setkání s členy skupiny není slíbené.",
+          "proposedTime": "11:00–11:45",
+          "durationMinutes": 45,
+          "optional": true,
+          "lessonId": "lesson-mc-1"
+        },
+        {
+          "id": "stop-mc-2",
+          "sourceId": "mc-2",
+          "placeId": "barbes-rochechouart",
+          "title": "Barbès — pozorování bez klišé",
+          "task": "Zapiš pět konkrétních detailů, nikoli soudy o obyvatelích. Udělej z nich čtyři řádky. Cizí rozhovory a tváře nenahrávej bez svolení.",
+          "transfer": "Pěšky asi 15–20 min.",
+          "conditions": "Nezaznamenávej cizí rozhovory nebo rozpoznatelné osoby bez souhlasu; neblokuj průchod.",
+          "proposedTime": "12:00–12:25",
+          "durationMinutes": 25,
+          "optional": false,
+          "lessonId": "lesson-mc-1"
+        },
+        {
+          "id": "stop-mc-3",
+          "sourceId": "mc-3",
+          "placeId": "la-chapelle",
+          "title": "La Chapelle — historický kontext",
+          "task": "Z doloženého historického zdroje si připrav poznámku o raných společných jams. Porovnej popsané setkání s dnešní kulturní infrastrukturou; orientační stanice není přesný vstup na zaniklou lokalitu.",
+          "transfer": "Pěšky asi 15 min podél boulevard de la Chapelle.",
+          "conditions": "Jde o orientační čtvrť a stanici. Zaniklá historická lokalita není dnešní slíbený tréninkový areál ani přesný vstup.",
+          "proposedTime": "12:40–13:00",
+          "durationMinutes": 20,
+          "optional": false,
+          "lessonId": "lesson-mc-2"
+        },
+        {
+          "id": "stop-mc-4",
+          "sourceId": "mc-4",
+          "placeId": "le-grand-jeu",
+          "title": "Le Grand Jeu — nezávislé publikace",
+          "task": "Vyber motiv pro sloku: paměť místa, vlastní reprezentace nebo nezávislost. Napiš pracovní refrén.",
+          "transfer": "La Chapelle (2 směr Nation) → Couronnes; potom pěšky.",
+          "conditions": "Volitelná práce s referencemi; ověř aktuální fyzický provoz. Vlastní výsledek musí jít dokončit i bez nákupu.",
+          "proposedTime": "14:00–14:45",
+          "durationMinutes": 45,
+          "optional": true,
+          "lessonId": "lesson-mc-2"
+        },
+        {
+          "id": "stop-mc-5",
+          "sourceId": "mc-5",
+          "placeId": "mur-oberkampf",
+          "title": "Le M.U.R. Oberkampf — text z obrazu",
+          "task": "Napiš čtyři řádky popisu obrazu bez vysvětlení jeho smyslu a čtyři řádky vlastní interpretace. Odděl pozorování od domněnky.",
+          "transfer": "Pěšky asi 10–15 min.",
+          "conditions": "Kurátorované dílo studuj z veřejného prostoru. Tato expedice neuděluje souhlas k malování na stěnu.",
+          "proposedTime": "15:00–15:20",
+          "durationMinutes": 20,
+          "optional": false,
+          "lessonId": "lesson-mc-3"
+        },
+        {
+          "id": "stop-mc-6",
+          "sourceId": "mc-6",
+          "placeId": "la-place",
+          "title": "La Place — vlastní demo",
+          "task": "Nahraj pracovní sloku, druhý take a čistý export. Přines vlastní nebo oprávněně použitý beat a kopii textu.",
+          "transfer": "Kolo asi 20 min; nebo k République a 11 směr Châtelet → Châtelet, pak pěšky.",
+          "conditions": "Mikrofon, interface, DAW, obsluhu i technika domluv předem. Zveřejněná sazba je pro prostor v určené kategorii klientů; hotový mix není součástí příslibu.",
+          "proposedTime": "16:00–18:00",
+          "durationMinutes": 120,
+          "optional": false,
+          "lessonId": "lesson-mc-3"
+        },
+        {
+          "id": "stop-mc-7",
+          "sourceId": "mc-7",
+          "placeId": "au-chat-noir",
+          "title": "Au Chat Noir — SpokenWord Paris",
+          "task": "Pokud pořadatel potvrdí prostor pro přednes, připrav krátký vlastní text i a cappella variantu. Bez slotu dokonči stejný výstup vlastním záznamem.",
+          "transfer": "Châtelet (11 směr Rosny–Bois-Perrier) → Belleville + asi 10–15 min pěšky. Přijď dřív na jídlo a zkoušku textu.",
+          "conditions": "Jde o pravidelný spoken word, nikoli potvrzený rap battle nebo zaručený slot. Konkrétní termín, délku a podmínky ověř u organizátora.",
+          "proposedTime": "Večer podle potvrzeného programu",
+          "durationMinutes": 90,
+          "optional": true,
+          "lessonId": "lesson-mc-3"
+        }
+      ]
+    },
+    {
+      "id": "route-writer",
+      "chapterId": "writer",
+      "title": "WRITER — Návrh, vlastní paleta, skutečný legál",
+      "summary": "Od čtení písmen přes vlastní konstrukci a paletu k realizaci na skutečně povoleném úseku. Nákup vychází ze skici; na malování, dokumentaci a úklid zůstává samostatný blok. Nepotvrzené podmínky znamenají variantu na papíře.",
+      "stops": [
+        {
+          "id": "stop-writer-1",
+          "sourceId": "writer-1",
+          "placeId": "rue-denoyez",
+          "title": "Rue Dénoyez — čtení písmen",
+          "task": "Vyber tři odlišné konstrukce písmen. Zaznamenej jejich princip, ne cizí podpis jako vlastní návrh.",
+          "transfer": "Start: Belleville (2/11), pak pěšky.",
+          "conditions": "Existence graffiti není souhlas k vlastnímu malování. Díla se mění; pozoruj a respektuj okolí.",
+          "proposedTime": "09:45–10:30",
+          "durationMinutes": 45,
+          "optional": false,
+          "lessonId": "lesson-writer-1"
+        },
+        {
+          "id": "stop-writer-2",
+          "sourceId": "writer-2",
+          "placeId": "le-grand-jeu",
+          "title": "Le Grand Jeu — skicák a reference",
+          "task": "Nakresli jednoduchý pětipísmenný až šestipísmenný návrh. Zvol dvě výplňové barvy, obrys, světlo a jednoduché pozadí.",
+          "transfer": "Pěšky asi 15–20 min.",
+          "conditions": "Volitelná práce s referencemi; ověř aktuální fyzický provoz. Vlastní výsledek musí jít dokončit i bez nákupu.",
+          "proposedTime": "11:00–11:40",
+          "durationMinutes": 40,
+          "optional": true,
+          "lessonId": "lesson-writer-1"
+        },
+        {
+          "id": "stop-writer-3",
+          "sourceId": "writer-3",
+          "placeId": "mur-oberkampf",
+          "title": "Le M.U.R. Oberkampf — studium hotového díla",
+          "task": "Sleduj negativní prostor, pozadí a čitelnost z dálky. Dnešní malbu jen fotografuj a studuj.",
+          "transfer": "Pěšky asi 10 min.",
+          "conditions": "Kurátorované dílo studuj z veřejného prostoru. Tato expedice neuděluje souhlas k malování na stěnu.",
+          "proposedTime": "11:50–12:15",
+          "durationMinutes": 25,
+          "optional": false,
+          "lessonId": "lesson-writer-2"
+        },
+        {
+          "id": "stop-writer-4",
+          "sourceId": "writer-4",
+          "placeId": "75shop",
+          "title": "75Shop & Gallery — nákup podle návrhu",
+          "task": "Kup pouze materiál pro svůj náčrt. Nech si sladit low-pressure barvy, caps a ochranné prostředky; řekni, že jdeš na cihlovou venkovní stěnu.",
+          "transfer": "Kolo asi 10 min; pěšky 20–25 min.",
+          "conditions": "Oficiální web uvádí rozdílné zavírání v 18:00/20:00. Navržené sobotní poledne je v obou rozvrzích. Cenu a dostupnost konkrétního materiálu potvrď přímo v obchodě.",
+          "proposedTime": "12:30–13:15",
+          "durationMinutes": 45,
+          "optional": true,
+          "lessonId": "lesson-writer-2"
+        },
+        {
+          "id": "stop-writer-5",
+          "sourceId": "writer-5",
+          "placeId": "mur-de-boulogne",
+          "title": "Le Mur de Boulogne — nejdřív orientace",
+          "task": "Podle aktuálních informací správce a značení rozliš pozvané autory, pedagogickou sekci a volný úsek. Vyber vhodnou povolenou část; úvodní kurátorovaná stěna není náhradní plocha.",
+          "transfer": "Kolo z centra přibližně 60–85 min, dle bezpečně zvolené trasy. Metro alternativa: M9 → Porte de Saint-Cloud, pěšky, s materiálem předem zajištěným na místě.",
+          "conditions": "Adresní navigace míří k ulici, nikoli k ověřenému vstupnímu bodu. Na místě rozliš 50m kurátorovaný, 15m výukový a 135m volný úsek podle značení.",
+          "proposedTime": "14:45–15:00",
+          "durationMinutes": 15,
+          "optional": false,
+          "lessonId": "lesson-writer-3"
+        },
+        {
+          "id": "stop-writer-6",
+          "sourceId": "writer-6",
+          "placeId": "mur-de-boulogne",
+          "title": "135m volný úsek — vlastní piece",
+          "task": "Vyhraď 20 minut na výběr povoleného místa a přípravu, 20 na skicu, 45 na výplně, 35 na obrysy a světla, 20 na opravy a 10 na dokumentaci a úklid.",
+          "transfer": "Na místě, dále do volné cihlové části.",
+          "conditions": "Správce dovoluje vlastní malování bez žádosti na 135m volném úseku. Respektuj jeho vymezení, aktuální značení a ostatní writery. Souhlas pro placený organizovaný workshop není potvrzen; před takovým využitím kontaktuj správce. Při nevhodném počasí dokonči skicu a realizaci odlož.",
+          "proposedTime": "15:00–17:30",
+          "durationMinutes": 150,
+          "optional": false,
+          "lessonId": "lesson-writer-3"
+        }
+      ]
+    },
+    {
+      "id": "route-breaking",
+      "chapterId": "breaking",
+      "title": "B-BOY / B-GIRL — Živý trénink, kultura cypheru a lekce breakingu",
+      "summary": "Od poslechu hudebního podnětu přes respektovanou volnou praxi ke skutečné lekci podle potvrzení školy. Součástí dne jsou pauzy. Cílem je přiměřená vlastní fráze, konkrétní reakce lektora a další krok.",
+      "stops": [
+        {
+          "id": "stop-breaking-1",
+          "sourceId": "breaking-1",
+          "placeId": "la-chapelle",
+          "title": "La Chapelle — společné kořeny elementů",
+          "task": "Porovnej doloženou historii setkávání DJů, MCs, writerů a tanečníků s pozdějším mýtem jediného místa zrodu. Zapiš, co se společným prostorem získávaly jednotlivé disciplíny.",
+          "transfer": "Start: metro La Chapelle (2).",
+          "conditions": "Jde o orientační historickou zastávku u metra. Současný přístup na původní parcelu není ověřený; nevstupuj kvůli trase na soukromé pozemky.",
+          "proposedTime": "11:00–11:25",
+          "durationMinutes": 25,
+          "optional": false,
+          "lessonId": "lesson-breaking-1"
+        },
+        {
+          "id": "stop-breaking-2",
+          "sourceId": "breaking-2",
+          "placeId": "centquatre",
+          "title": "CENTQUATRE-PARIS — skutečný volný trénink",
+          "task": "V dostupném prostoru zvol přiměřenou přípravu a jednoduchou známou reakci na rytmus. Před připojením ke skupině se zeptej; respektuj odmítnutí i prostor ostatních.",
+          "transfer": "Pěšky asi 25–35 min nebo kolo asi 15 min.",
+          "conditions": "Volná samostatná praxe zdarma a bez rezervace: út–pá 12–19, so–ne 11–19; pondělí zavřeno. Bez šaten a úschovy. Placené lekce jsou zakázané. Dostupná plocha se mění podle programu.",
+          "proposedTime": "12:00–13:30",
+          "durationMinutes": 90,
+          "optional": false,
+          "lessonId": "lesson-breaking-1"
+        },
+        {
+          "id": "stop-breaking-3",
+          "sourceId": "breaking-3",
+          "placeId": "rue-de-lourcq",
+          "title": "Rue de l’Ourcq — vizuální rytmus a pauza",
+          "task": "Hledej opakování, rytmus a přerušení v muralech. Převáděj jeden vizuální princip do osmitaktové pohybové fráze; natáčej jen sebe.",
+          "transfer": "Pěšky asi 15–20 min k okolí kanálu.",
+          "conditions": "Není slíbený organizovaný cypher. Vyber vhodný neblokující prostor a jen známou bezpečnou variantu pohybu.",
+          "proposedTime": "14:00–15:00",
+          "durationMinutes": 60,
+          "optional": false,
+          "lessonId": "lesson-breaking-2"
+        },
+        {
+          "id": "stop-breaking-4",
+          "sourceId": "breaking-4",
+          "placeId": "le-grand-jeu",
+          "title": "Le Grand Jeu — taneční publikace",
+          "task": "Hledej záznamy starších stylů, fotografie postojů a kontext. Vyber jeden princip, který se večer zeptáš instruktora.",
+          "transfer": "Ourcq (5 směr Place d’Italie) → République; 11 směr Rosny–Bois-Perrier → Belleville; pak pěšky.",
+          "conditions": "Volitelná práce s referencemi; ověř aktuální fyzický provoz. Vlastní výsledek musí jít dokončit i bez nákupu.",
+          "proposedTime": "15:45–16:20",
+          "durationMinutes": 35,
+          "optional": true,
+          "lessonId": "lesson-breaking-2"
+        },
+        {
+          "id": "stop-breaking-5",
+          "sourceId": "breaking-5",
+          "placeId": "belvedere-belleville",
+          "title": "Belvédère de Belleville — odpočinek a vlastní fráze",
+          "task": "Odpočiň si a sestav osm taktů, které bezpečně zvládáš. Požádej kamaráda o krátký záznam; netoč cizí lidi bez souhlasu.",
+          "transfer": "Pěšky asi 20–25 min do kopce.",
+          "conditions": "Odpočinek a dobrovolná fráze z bezpečně zvládnutých pohybů podle aktuálních podmínek. Na betonu nezkoušej první power moves. Taneční plocha není rezervovaná.",
+          "proposedTime": "16:45–17:20",
+          "durationMinutes": 35,
+          "optional": false,
+          "lessonId": "lesson-breaking-3"
+        },
+        {
+          "id": "stop-breaking-6",
+          "sourceId": "breaking-6",
+          "placeId": "juste-debout-school-core",
+          "title": "Juste Debout School CORE — Bboying s Dys Dys",
+          "task": "Na skutečně potvrzené lekci řekni svoji úroveň a požádej o reakci na jednu jednoduchou sekvenci. Zapiš doporučení i přiměřený další krok.",
+          "transfer": "Pěšky asi 20–25 min; před lekcí přijď s rezervou.",
+          "conditions": "Publikovaný rozvrh uvádí středu 19–20:30. Na +33 9 84 05 50 75 potvrď konkrétní termín, prázdninový provoz, cenu a kapacitu. Rezervace ani reakce lektora nejsou zajištěné. Není-li lekce dostupná, pracuj s dosavadní poznámkou a zaznamenej otázku pro budoucího lektora; 104 nelze nabízet jako večerní náhradu po jeho zavření.",
+          "proposedTime": "19:00–20:30",
+          "durationMinutes": 90,
+          "optional": false,
+          "lessonId": "lesson-breaking-3"
+        }
+      ]
+    },
+    {
+      "id": "route-knowledge",
+      "chapterId": "knowledge",
+      "title": "PHILOSOPHER — Knowledge of self: od symbolu k vlastnímu sdělení",
+      "summary": "Veřejná díla otevírají otázky pozorování, interpretace a přesnosti vlastních slov. Vyhraď samostatný klidný blok na text a znak; dobrovolnou diskusi podle aktuálního programu lze nahradit vlastní reflexí.",
+      "stops": [
+        {
+          "id": "stop-knowledge-1",
+          "sourceId": "knowledge-1",
+          "placeId": "chuuut-jef-aerosol",
+          "title": "Jef Aérosol — Chuuut!!!",
+          "task": "Pět minut bez hudby a telefonu. Rozděl poznámky na „co jsem skutečně vnímal“ a „co jsem si k tomu doplnil“.",
+          "transfer": "Start: Châtelet / Rambuteau a pěšky.",
+          "conditions": "Jde o vlastní cvičení pozornosti z veřejného prostoru, nikoli tvrzení o léčebném účinku díla.",
+          "proposedTime": "10:00–10:30",
+          "durationMinutes": 30,
+          "optional": false,
+          "lessonId": "lesson-knowledge-1"
+        },
+        {
+          "id": "stop-knowledge-2",
+          "sourceId": "knowledge-2",
+          "placeId": "cryptik-maruani",
+          "title": "Cryptik — kaligrafie nad knihkupectvím",
+          "task": "Nejdřív prohlédni formu kaligrafie a potom ji porovnej s vysvětlením galerie. Navrhni vlastní krátkou větu a označ, co je doložený výklad a co tvoje asociace.",
+          "transfer": "Châtelet (7 směr Villejuif / Mairie d’Ivry) → Place d’Italie, pak pěšky. Celkem plánuj asi 35–45 min.",
+          "conditions": "Nedělní varianta zůstává venku: knihkupectví uvádí neděli zavřenou. Uvnitř není domluvená návštěva.",
+          "proposedTime": "11:30–12:00",
+          "durationMinutes": 30,
+          "optional": false,
+          "lessonId": "lesson-knowledge-1"
+        },
+        {
+          "id": "stop-knowledge-3",
+          "sourceId": "knowledge-3",
+          "placeId": "liberte-egalite-fraternite-fairey",
+          "title": "Shepard Fairey — Liberté, Égalité, Fraternité",
+          "task": "Popiš slova a obraz, potom napiš, kde pro tebe končí hodnota a začíná slogan. Svůj výklad odliš od kontextu doloženého projektem.",
+          "transfer": "Pěšky přibližně 5–10 min.",
+          "conditions": "Prohlížej z veřejného prostoru. Odděl doložený autorův záměr od vlastního čtení díla.",
+          "proposedTime": "12:10–12:40",
+          "durationMinutes": 30,
+          "optional": false,
+          "lessonId": "lesson-knowledge-2"
+        },
+        {
+          "id": "stop-knowledge-4",
+          "sourceId": "knowledge-4",
+          "placeId": "la-madre-secular-2-inti",
+          "title": "INTI — La Madre Secular 2",
+          "task": "Porovnej svůj první popis s vysvětlením projektu: sekulární Madona, Newtonovo jablko, vědění a skepse. Nakresli vlastní znak pochybnosti a důvěry.",
+          "transfer": "Pěšky přibližně 10–15 min.",
+          "conditions": "Ponech si klidný čas na jídlo a vlastní psaní. Symbolické čtení není důkaz nadpřirozených vlastností umění.",
+          "proposedTime": "12:50–13:20",
+          "durationMinutes": 30,
+          "optional": false,
+          "lessonId": "lesson-knowledge-2"
+        },
+        {
+          "id": "stop-knowledge-5",
+          "sourceId": "knowledge-5",
+          "placeId": "place-frehel-ben",
+          "title": "Place Fréhel — Ben a moc slov",
+          "task": "Benovo dílo Il faut se méfier des mots použij jako test vlastního textu. Které tvrzení umíš obhájit? Které jen působí přesvědčivě? Vytvoř druhou, přesnější verzi.",
+          "transfer": "Z okolí Place d’Italie: 5 směr Bobigny → République; 11 směr Rosny–Bois-Perrier → Belleville + pěšky. Nebo kolo asi 40–55 min.",
+          "conditions": "Veřejné dílo použij jako podnět pro vlastní revizi; neslibuje individuální setkání s autorem.",
+          "proposedTime": "15:45–16:30",
+          "durationMinutes": 45,
+          "optional": false,
+          "lessonId": "lesson-knowledge-3"
+        },
+        {
+          "id": "stop-knowledge-6",
+          "sourceId": "knowledge-6",
+          "placeId": "au-chat-noir",
+          "title": "Au Chat Noir — AWOL writers’ workshop",
+          "task": "Přines svůj text a jednu konkrétní otázku. Požádej o reakci na srozumitelnost a přesnost, ne jen o pochvalu. Poskytni stejně konkrétní zpětnou vazbu někomu dalšímu.",
+          "transfer": "Pěšky asi 15–20 min.",
+          "conditions": "Pořadatel uvádí obvyklou neděli a bezplatný workshop, konkrétní den je třeba ověřit. Není zaměřený výlučně na rap nebo filozofii.",
+          "proposedTime": "17:15–19:15",
+          "durationMinutes": 120,
+          "optional": true,
+          "lessonId": "lesson-knowledge-3"
+        }
+      ]
+    }
+  ],
+  "sceneContracts": [
+    {
+      "id": "dj",
+      "durationScrollViewport": 2.2,
+      "nativeScroll": true,
+      "states": [
+        {
+          "range": [
+            0,
+            0.28
+          ],
+          "lessonId": "lesson-dj-1",
+          "role": "observe",
+          "visual": "illustration and first vector layer revealed",
+          "sourceLessonId": "dj-1"
+        },
+        {
+          "range": [
+            0.28,
+            0.56
+          ],
+          "lessonId": "lesson-dj-2",
+          "role": "understand",
+          "visual": "diagram extends, origin remains fixed",
+          "sourceLessonId": "dj-2"
+        },
+        {
+          "range": [
+            0.56,
+            0.84
+          ],
+          "lessonId": "lesson-dj-3",
+          "role": "create",
+          "visual": "completed diagram, action available",
+          "sourceLessonId": "dj-3"
+        },
+        {
+          "range": [
+            0.84,
+            1
+          ],
+          "role": "transition",
+          "visual": "crossfade plus directional movement to next chapter, reading text kept stable until chapter switch"
+        }
+      ],
+      "semanticMotion": "Vinyl se přibližuje. Drážka se mění na rytmickou linku. Linka přechází do mikrofonního kabelu.",
+      "reducedMotion": "No transform parallax; all lessons and route stops readable in linear field mode.",
+      "staticFrame": "fully revealed final diagram with normal reading order",
+      "assets": [
+        "/assets/masterworks-v2/012.webp",
+        "/expeditions/assets/layers/dj.svg"
+      ],
+      "mobile": "same content, smaller graphic; field mode provides stacked complete text; no horizontal overflow",
+      "note": "Illustrations are static; browser animates separate SVG layers and image transforms. Not a character rig or true 3D."
+    },
+    {
+      "id": "mc",
+      "durationScrollViewport": 2.2,
+      "nativeScroll": true,
+      "states": [
+        {
+          "range": [
+            0,
+            0.28
+          ],
+          "lessonId": "lesson-mc-1",
+          "role": "observe",
+          "visual": "illustration and first vector layer revealed",
+          "sourceLessonId": "mc-1"
+        },
+        {
+          "range": [
+            0.28,
+            0.56
+          ],
+          "lessonId": "lesson-mc-2",
+          "role": "understand",
+          "visual": "diagram extends, origin remains fixed",
+          "sourceLessonId": "mc-2"
+        },
+        {
+          "range": [
+            0.56,
+            0.84
+          ],
+          "lessonId": "lesson-mc-3",
+          "role": "create",
+          "visual": "completed diagram, action available",
+          "sourceLessonId": "mc-3"
+        },
+        {
+          "range": [
+            0.84,
+            1
+          ],
+          "role": "transition",
+          "visual": "crossfade plus directional movement to next chapter, reading text kept stable until chapter switch"
+        }
+      ],
+      "semanticMotion": "Zvuková linka kreslí pauzy. Z pauz vznikají řádky. Inkoust odkryje další stěnu.",
+      "reducedMotion": "No transform parallax; all lessons and route stops readable in linear field mode.",
+      "staticFrame": "fully revealed final diagram with normal reading order",
+      "assets": [
+        "/assets/masterworks-v2/020.webp",
+        "/expeditions/assets/layers/mc.svg"
+      ],
+      "mobile": "same content, smaller graphic; field mode provides stacked complete text; no horizontal overflow",
+      "note": "Illustrations are static; browser animates separate SVG layers and image transforms. Not a character rig or true 3D."
+    },
+    {
+      "id": "writer",
+      "durationScrollViewport": 2.2,
+      "nativeScroll": true,
+      "states": [
+        {
+          "range": [
+            0,
+            0.28
+          ],
+          "lessonId": "lesson-writer-1",
+          "role": "observe",
+          "visual": "illustration and first vector layer revealed",
+          "sourceLessonId": "writer-1"
+        },
+        {
+          "range": [
+            0.28,
+            0.56
+          ],
+          "lessonId": "lesson-writer-2",
+          "role": "understand",
+          "visual": "diagram extends, origin remains fixed",
+          "sourceLessonId": "writer-2"
+        },
+        {
+          "range": [
+            0.56,
+            0.84
+          ],
+          "lessonId": "lesson-writer-3",
+          "role": "create",
+          "visual": "completed diagram, action available",
+          "sourceLessonId": "writer-3"
+        },
+        {
+          "range": [
+            0.84,
+            1
+          ],
+          "role": "transition",
+          "visual": "crossfade plus directional movement to next chapter, reading text kept stable until chapter switch"
+        }
+      ],
+      "semanticMotion": "Obrys je kreslen po tahu. Výplň odhalí maska. Kruhový detail vytváří další cypher.",
+      "reducedMotion": "No transform parallax; all lessons and route stops readable in linear field mode.",
+      "staticFrame": "fully revealed final diagram with normal reading order",
+      "assets": [
+        "/assets/masterworks-v2/044.webp",
+        "/expeditions/assets/layers/writer.svg"
+      ],
+      "mobile": "same content, smaller graphic; field mode provides stacked complete text; no horizontal overflow",
+      "note": "Illustrations are static; browser animates separate SVG layers and image transforms. Not a character rig or true 3D."
+    },
+    {
+      "id": "breaking",
+      "durationScrollViewport": 2.2,
+      "nativeScroll": true,
+      "states": [
+        {
+          "range": [
+            0,
+            0.28
+          ],
+          "lessonId": "lesson-breaking-1",
+          "role": "observe",
+          "visual": "illustration and first vector layer revealed",
+          "sourceLessonId": "breaking-1"
+        },
+        {
+          "range": [
+            0.28,
+            0.56
+          ],
+          "lessonId": "lesson-breaking-2",
+          "role": "understand",
+          "visual": "diagram extends, origin remains fixed",
+          "sourceLessonId": "breaking-2"
+        },
+        {
+          "range": [
+            0.56,
+            0.84
+          ],
+          "lessonId": "lesson-breaking-3",
+          "role": "create",
+          "visual": "completed diagram, action available",
+          "sourceLessonId": "breaking-3"
+        },
+        {
+          "range": [
+            0.84,
+            1
+          ],
+          "role": "transition",
+          "visual": "crossfade plus directional movement to next chapter, reading text kept stable until chapter switch"
+        }
+      ],
+      "semanticMotion": "Kruh je stabilní. Zvýraznění sleduje rytmus, ne fiktivní techniku těla. Kruh se mění v iris.",
+      "reducedMotion": "No transform parallax; all lessons and route stops readable in linear field mode.",
+      "staticFrame": "fully revealed final diagram with normal reading order",
+      "assets": [
+        "/assets/masterworks-v2/083.webp",
+        "/expeditions/assets/layers/breaking.svg"
+      ],
+      "mobile": "same content, smaller graphic; field mode provides stacked complete text; no horizontal overflow",
+      "note": "Illustrations are static; browser animates separate SVG layers and image transforms. Not a character rig or true 3D."
+    },
+    {
+      "id": "knowledge",
+      "durationScrollViewport": 2.2,
+      "nativeScroll": true,
+      "states": [
+        {
+          "range": [
+            0,
+            0.28
+          ],
+          "lessonId": "lesson-knowledge-1",
+          "role": "observe",
+          "visual": "illustration and first vector layer revealed",
+          "sourceLessonId": "knowledge-1"
+        },
+        {
+          "range": [
+            0.28,
+            0.56
+          ],
+          "lessonId": "lesson-knowledge-2",
+          "role": "understand",
+          "visual": "diagram extends, origin remains fixed",
+          "sourceLessonId": "knowledge-2"
+        },
+        {
+          "range": [
+            0.56,
+            0.84
+          ],
+          "lessonId": "lesson-knowledge-3",
+          "role": "create",
+          "visual": "completed diagram, action available",
+          "sourceLessonId": "knowledge-3"
+        },
+        {
+          "range": [
+            0.84,
+            1
+          ],
+          "role": "transition",
+          "visual": "crossfade plus directional movement to next chapter, reading text kept stable until chapter switch"
+        }
+      ],
+      "semanticMotion": "Odkrývá se oko, potom oddělené vrstvy faktu, interpretace a tvorby. Konec otevírá vlastní Blackbook.",
+      "reducedMotion": "No transform parallax; all lessons and route stops readable in linear field mode.",
+      "staticFrame": "fully revealed final diagram with normal reading order",
+      "assets": [
+        "/assets/masterworks-v2/031.webp",
+        "/expeditions/assets/layers/knowledge.svg"
+      ],
+      "mobile": "same content, smaller graphic; field mode provides stacked complete text; no horizontal overflow",
+      "note": "Illustrations are static; browser animates separate SVG layers and image transforms. Not a character rig or true 3D."
+    }
+  ],
+  "sources": [
+    {
+      "id": "univers-sons-course",
+      "label": "Univers Sons — cours DJ et tarifs",
+      "url": "https://www.univers-sons.com/news/cours-dj.html",
+      "kind": "official-operator"
+    },
+    {
+      "id": "univers-sons-contact",
+      "label": "Univers Sons — adresse et horaires",
+      "url": "https://www.univers-sons.com/a-propos/nous-contacter.html",
+      "kind": "official-operator"
+    },
+    {
+      "id": "betinos-info",
+      "label": "Betino’s — Info Shop/Shipping",
+      "url": "https://www.betinos.com/content/info-shopshipping",
+      "kind": "official-operator"
+    },
+    {
+      "id": "le-grand-jeu-official",
+      "label": "Le Grand Jeu — provozovatel",
+      "url": "https://www.legrandj.eu/",
+      "kind": "operator"
+    },
+    {
+      "id": "heartbeat-site",
+      "label": "Heartbeat Vinyl — site officiel (lecture indisponible)",
+      "url": "https://www.heartbeatvinyl.com/",
+      "kind": "official-operator"
+    },
+    {
+      "id": "la-place-quickstudio",
+      "label": "La Place — réservation officielle via Quickstudio",
+      "url": "https://www.quickstudio.com/fr/studios/la-place-paris/bookings",
+      "kind": "operator-booking-platform"
+    },
+    {
+      "id": "frequence-official",
+      "label": "Fréquence — compte officiel (lecture indisponible)",
+      "url": "https://www.instagram.com/frequenceparis/",
+      "kind": "official-operator"
+    },
+    {
+      "id": "scred-home",
+      "label": "Scred Boutique — catalogue et service client",
+      "url": "https://scredboutique.com/",
+      "kind": "official-operator"
+    },
+    {
+      "id": "lemur-official",
+      "label": "Le M.U.R. — asociace a výběr umělců",
+      "url": "https://www.lemur.fr/",
+      "kind": "operator"
+    },
+    {
+      "id": "spokenword-programme",
+      "label": "SpokenWord Paris — programme régulier, mise à jour septembre 2026",
+      "url": "https://spokenwordparis.org/",
+      "kind": "official-organizer"
+    },
+    {
+      "id": "75shop-contact",
+      "label": "75Shop — kontakt a otevírací hodiny",
+      "url": "https://75shop.fr/contact/",
+      "kind": "operator"
+    },
+    {
+      "id": "75shop-home",
+      "label": "75Shop — domovská stránka s rozpornými hodinami",
+      "url": "https://75shop.fr/",
+      "kind": "operator"
+    },
+    {
+      "id": "acaciart-boulogne",
+      "label": "Acaci’Art — Le Mur de Boulogne a rozdělení úseků",
+      "url": "https://atelierstreetart.fr/le-mur-de-boulogne",
+      "kind": "operator"
+    },
+    {
+      "id": "104-espaces-libres",
+      "label": "CENTQUATRE-PARIS — pravidla espaces libres",
+      "url": "https://www.104.fr/espaces-libres",
+      "kind": "operator"
+    },
+    {
+      "id": "justedebout-cours",
+      "label": "Juste Debout School — publikovaný rozvrh open lekcí a adresa CORE",
+      "url": "https://www.juste-debout-school.com/cours-open-prives/",
+      "kind": "operator"
+    },
+    {
+      "id": "justedebout-home",
+      "label": "Juste Debout School — CORE Paris 20e",
+      "url": "https://www.juste-debout-school.com/",
+      "kind": "operator"
+    },
+    {
+      "id": "cryptik-itinerrance",
+      "label": "Galerie Itinerrance — Cryptik à Paris",
+      "url": "https://itinerrance.fr/actualites/cryptik-a-paris-streetart13/",
+      "kind": "commissioning-project"
+    },
+    {
+      "id": "maruani-official",
+      "label": "Librairie Maruani — adresse et horaires",
+      "url": "https://www.librairiemaruani.fr/",
+      "kind": "official-operator"
+    },
+    {
+      "id": "paris13-official-walk",
+      "label": "Paris je t’aime — promenade street art du 13e",
+      "url": "https://parisjetaime.com/article/balade-street-art-dans-le-13e-arrondissement-a776",
+      "kind": "official-tourism-office"
+    },
+    {
+      "id": "inti-project",
+      "label": "Boulevard Paris 13 — La Madre Secular 2",
+      "url": "https://boulevardparis13.com/project/la-madre-secular-2/",
+      "kind": "commissioning-project"
+    },
+    {
+      "id": "frehel-municipal",
+      "label": "Mairie du 20e — place Fréhel et œuvre de Ben",
+      "url": "https://mairie20.paris.fr/pages/il-etait-une-fois-le-20e-la-place-frehel-une-galerie-d-art-a-ciel-ouvert-26201",
+      "kind": "municipal"
+    },
+    {
+      "id": "la-place-studios",
+      "label": "La Place — Les studios",
+      "url": "https://laplace-paris.com/nos-espaces/les-studios/",
+      "kind": "official-operator"
+    },
+    {
+      "id": "scred-terms",
+      "label": "Scred Boutique — adresse publiée dans les conditions",
+      "url": "https://scredboutique.com/content/conditions-generales-de-ventes.html",
+      "kind": "official-operator"
+    },
+    {
+      "id": "ratp-barbes",
+      "label": "Bonjour RATP — station Barbès-Rochechouart",
+      "url": "https://www.bonjour-ratp.fr/stations-metro/barbes-rochechouart/",
+      "kind": "official-transport-operator"
+    },
+    {
+      "id": "jef-cv",
+      "label": "Jef Aérosol — CV et fresques",
+      "url": "https://www.jefaerosol.com/cv",
+      "kind": "artist-primary"
+    },
+    {
+      "id": "fairey-project",
+      "label": "Boulevard Paris 13 — Liberté, Égalité, Fraternité",
+      "url": "https://boulevardparis13.com/project/liberte-egalite-fraternite/",
+      "kind": "commissioning-project"
+    },
+    {
+      "id": "culture-philharmonie-immersif",
+      "label": "Philharmonie de Paris — Hip-Hop 360, parcours foisonnant et immersif (2021)",
+      "url": "https://philharmoniedeparis.fr/fr/magazine/series/hip-hop-360/exposition-hip-hop-360-un-parcours-foisonnant-et-immersif",
+      "kind": "institutional-primary"
+    },
+    {
+      "id": "visitparisregion-denoyez",
+      "label": "Visit Paris Region — Rue Dénoyez",
+      "url": "https://www.visitparisregion.com/fr/rue-denoyez",
+      "kind": "official-tourism"
+    },
+    {
+      "id": "lemur-address",
+      "label": "Le M.U.R. — adresa Oberkampf",
+      "url": "https://www.lemur.fr/livre-le-mur-the-wall/",
+      "kind": "operator"
+    },
+    {
+      "id": "philharmonie-hiphop-360",
+      "label": "Philharmonie de Paris — prezentační dokument Hip-Hop 360",
+      "url": "https://deneb.philharmoniedeparis.fr/uploads/documents/63cff2cc5ef33_PRESENTATION%20HIP%20HOP%20VF-.pdf",
+      "kind": "museum"
+    },
+    {
+      "id": "jesu-2016",
+      "label": "Louis Jesu — L’élite artistique des cités, disertace, Université de Lorraine, 2016, s. 70–72",
+      "url": "https://docnum.univ-lorraine.fr/public/DDOC_T_2016_0095_JESU.pdf",
+      "kind": "research"
+    },
+    {
+      "id": "paris-104",
+      "label": "Ville de Paris — Le CENTQUATRE-PARIS, adresa a přístup",
+      "url": "https://www.paris.fr/lieux/le-centquatre-paris-3990",
+      "kind": "municipal"
+    },
+    {
+      "id": "parisjetaime-north-art",
+      "label": "Paris je t’aime — street art na severu Paříže",
+      "url": "https://parisjetaime.com/eng/article/street-art-in-the-north-of-paris-a716",
+      "kind": "official-tourism"
+    },
+    {
+      "id": "paris-belvedere-address",
+      "label": "Ville de Paris — Belvédère Willy-Ronis, 27 rue Piat",
+      "url": "https://www.paris.fr/pages/ou-voir-le-feu-d-artifice-du-14-juillet-35766",
+      "kind": "municipal"
+    },
+    {
+      "id": "culture-smithsonian-sazon",
+      "label": "Smithsonian NMAH — The sazón in hip-hop (2015)",
+      "url": "https://www.americanhistory.si.edu/explore/stories/sazon-hip-hop",
+      "kind": "institutional-primary"
+    },
+    {
+      "id": "culture-philharmonie-archive",
+      "label": "Médiathèque de la Philharmonie — archives Hip-Hop 360",
+      "url": "https://mediatheque.philharmoniedeparis.fr/exposition-hip-hop-360.aspx?_lg=fr-FR",
+      "kind": "institutional-primary"
+    },
+    {
+      "id": "culture-smithsonian-collecting",
+      "label": "Smithsonian NMAH — Hip-Hop Comes to the Smithsonian (2006)",
+      "url": "https://americanhistory.si.edu/press/releases/hip-hop-comes-smithsonian",
+      "kind": "institutional-primary"
+    },
+    {
+      "id": "culture-smithsonian-represent",
+      "label": "Smithsonian NMAAHC — Represent: Hip-Hop Photography (archiv výstavy 2022)",
+      "url": "https://nmaahc.si.edu/explore/exhibitions/represent",
+      "kind": "institutional-primary"
+    },
+    {
+      "id": "culture-paris-laplace",
+      "label": "Ville de Paris — La Place, un centre culturel pour le hip-hop (2022)",
+      "url": "https://www.paris.fr/pages/la-place-un-lieu-pour-la-culture-hip-hop-3330",
+      "kind": "institutional-primary"
+    }
+  ],
+  "mediaStatus": {
+    "artwork": "approved-existing-caisik-illustrations",
+    "sourceMasters": "Stav importu původních masterů uvádí samostatný protokol grafiky; malé výřezy nejsou produkční mastery.",
+    "recordedInterviews": false,
+    "licensedAudioExamples": false,
+    "qualifiedDanceDemonstration": false,
+    "partnerships": false,
+    "reservations": false,
+    "accountSync": false,
+    "realParticipantPilot": false,
+    "missing": [
+      "Licencované komentované audio ukázky a skutečné rozhovory.",
+      "Odborná taneční demonstrace a kvalifikovaný pohybový spoluautor.",
+      "Skutečná partnerská dohoda, potvrzené rezervace a pilot s účastníkem.",
+      "Přihlášení a synchronizace účtu; osobní přílohy se na server nenahrávají."
+    ],
+    "notes": [
+      "Lekce jsou původní autorská cvičení, nikoli odborně certifikovaný kurz.",
+      "Ilustrace nejsou dokumentární fotografie skutečných míst nebo lidí.",
+      "Návrhy časů jsou plán tvůrčího dne; aktuální provoz je samostatně označen u místa."
+    ]
+  }
+}

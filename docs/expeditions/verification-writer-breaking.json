@@ -1,0 +1,460 @@
+{
+  "checkedAt": "2026-10-21",
+  "scope": "Writer a Breaking, včetně sdílených míst Le Grand Jeu, Le M.U.R. a La Chapelle.",
+  "method": "Kontrola veřejných primárních stránek provozovatelů, města, oficiálních turistických kanceláří a institucionálního výzkumu. Bez telefonického potvrzení, rezervací nebo místní inspekce.",
+  "operationalPolicy": "Časové bloky a délky přesunů v roadbooku jsou návrh, nikoli potvrzený provoz. Otevírací hodiny jsou publikovaný rozvrh z data kontroly; živá kapacita, ceny lekcí, partnerství a komerční souhlasy nejsou doplněny bez důkazu. Souřadnice zůstávají null.",
+  "places": [
+    {
+      "id": "rue-denoyez",
+      "name": "Rue Dénoyez",
+      "address": "Rue Dénoyez, 75020 Paris",
+      "coordinates": null,
+      "sources": [
+        {
+          "label": "Visit Paris Region — Rue Dénoyez",
+          "url": "https://www.visitparisregion.com/fr/rue-denoyez"
+        }
+      ],
+      "access": {
+        "status": "verified",
+        "checkedAt": "2026-10-21",
+        "summary": "Veřejná ulice v Belleville s proměnlivou street-artovou tvorbou. Zastávka slouží k pozorování; turistický popis ani přítomnost graffiti nejsou povolením k vlastnímu malování.",
+        "requiresConfirmation": [
+          "Případná místní omezení a aktuální stav děl."
+        ]
+      },
+      "verifiedClaims": [
+        "Oficiální regionální turistický zdroj uvádí adresu Rue Dénoyez, 75020 Paris a spojení přes Belleville (metro 2/11).",
+        "Zdroj popisuje průběžně obměňovanou galerii ve veřejné ulici."
+      ],
+      "unresolvedClaims": [
+        "Žádné oprávnění k vlastnímu malování zde nebylo ověřeno."
+      ],
+      "contradictions": []
+    },
+    {
+      "id": "le-grand-jeu",
+      "name": "Le Grand Jeu",
+      "address": "15 passage de Ménilmontant, 75011 Paris",
+      "coordinates": null,
+      "sources": [
+        {
+          "label": "Le Grand Jeu — provozovatel",
+          "url": "https://www.legrandj.eu/"
+        }
+      ],
+      "access": {
+        "status": "verified",
+        "checkedAt": "2026-10-21",
+        "summary": "Publikované hodiny: po–st 14:00–19:00, čt–pá 14:00–20:00, so 11:00–20:00; v neděli zavřeno. Knihkupectví je místem pro práci s referencemi. Workshop ani setkání s autorem nejsou sjednány.",
+        "requiresConfirmation": [
+          "Případné mimořádné uzavření a dostupnost konkrétní publikace."
+        ]
+      },
+      "verifiedClaims": [
+        "Provozovatel uvádí tuto adresu a uvedený týdenní rozvrh."
+      ],
+      "unresolvedClaims": [
+        "Dostupnost titulů, možnost delší práce skupiny v obchodě a jakákoli spolupráce nebyly potvrzeny."
+      ],
+      "contradictions": []
+    },
+    {
+      "id": "mur-oberkampf",
+      "name": "Le M.U.R. Oberkampf",
+      "address": "107 rue Oberkampf, 75011 Paris",
+      "coordinates": null,
+      "sources": [
+        {
+          "label": "Le M.U.R. — asociace a výběr umělců",
+          "url": "https://www.lemur.fr/"
+        },
+        {
+          "label": "Le M.U.R. — adresa Oberkampf",
+          "url": "https://www.lemur.fr/livre-le-mur-the-wall/"
+        }
+      ],
+      "access": {
+        "status": "verified",
+        "checkedAt": "2026-10-21",
+        "summary": "Kurátorovaná stěna asociace Le M.U.R. na rohu rue Oberkampf a rue Saint-Maur. Zastávka je pozorovací; vlastní malování vyžaduje dohodu se správcem.",
+        "requiresConfirmation": [
+          "Konkrétní program a případné autorské svolení pro další komerční užití fotografií díla."
+        ]
+      },
+      "verifiedClaims": [
+        "Asociace vybírá vystavující umělce a zveřejňuje postup pro přihlášky.",
+        "Provozovatel uvádí adresu 107 rue Oberkampf."
+      ],
+      "unresolvedClaims": [
+        "Nebyl získán souhlas s vlastní realizací ani partnerství s CAISIK."
+      ],
+      "contradictions": []
+    },
+    {
+      "id": "75shop",
+      "name": "75Shop & Gallery",
+      "address": "12 boulevard Saint-Martin, 75010 Paris",
+      "coordinates": null,
+      "sources": [
+        {
+          "label": "75Shop — kontakt a otevírací hodiny",
+          "url": "https://75shop.fr/contact/"
+        },
+        {
+          "label": "75Shop — domovská stránka s rozpornými hodinami",
+          "url": "https://75shop.fr/"
+        }
+      ],
+      "access": {
+        "status": "partial",
+        "checkedAt": "2026-10-21",
+        "summary": "Adresa je potvrzená. Oficiální web uvádí rozdílné zavírání v 18:00 a 20:00; před pozdní návštěvou potvrď provoz. Navržená sobotní polední návštěva leží v obou zveřejněných intervalech. Ceny a skladové zásoby nejsou potvrzené.",
+        "requiresConfirmation": [
+          "Zavírací hodina konkrétního dne.",
+          "Cena a dostupnost vybraných barev, caps a ochranných prostředků."
+        ]
+      },
+      "verifiedClaims": [
+        "Kontaktní stránka a domovská stránka uvádějí stejnou adresu.",
+        "Oba rozvrhy zahrnují sobotu kolem poledne."
+      ],
+      "unresolvedClaims": [
+        "Ceník nákupu podle konkrétní skici ani skladová dostupnost nejsou ověřeny."
+      ],
+      "contradictions": [
+        "Kontaktní stránka a patička uvádějí zavírání ve 20:00, hlavní blok domovské stránky v 18:00 pro většinu dnů. Nelze tvrdit jednotnou aktuální zavírací dobu."
+      ]
+    },
+    {
+      "id": "mur-de-boulogne",
+      "name": "Le Mur de Boulogne",
+      "address": "Rue Paul Adolphe Souriau, Boulogne-Billancourt, France",
+      "coordinates": null,
+      "sources": [
+        {
+          "label": "Acaci’Art — Le Mur de Boulogne a rozdělení úseků",
+          "url": "https://atelierstreetart.fr/le-mur-de-boulogne"
+        }
+      ],
+      "access": {
+        "status": "partial",
+        "checkedAt": "2026-10-21",
+        "summary": "Správce rozlišuje 50 m pozvaných autorů, 15 m vedené výuky a 135 m cihlového úseku pro volné legální malování bez žádosti Acaci’Art. Vymezení a aktuální značení ověř na místě. Komerční workshop CAISIK nemá potvrzené oprávnění.",
+        "requiresConfirmation": [
+          "Aktuální značení, volná část a případné místní uzavření.",
+          "Před placenou organizovanou výukou kontaktovat správce."
+        ]
+      },
+      "verifiedClaims": [
+        "Provozovatel umisťuje zeď do slepé rue Paul Adolphe Souriau od avenue Édouard-Vaillant.",
+        "Výslovně rozlišuje uvedené tři úseky a povoluje vlastní malování bez žádosti pouze na 135m volném úseku."
+      ],
+      "unresolvedClaims": [
+        "Aktuální obsazenost, provozní omezení a fyzická přístupnost nebyly ověřeny na místě.",
+        "Souhlas pro placenou organizovanou výuku ani partnerská dohoda nejsou dodané."
+      ],
+      "contradictions": []
+    },
+    {
+      "id": "la-chapelle",
+      "name": "La Chapelle — historický kontext",
+      "address": "Métro La Chapelle, Paris",
+      "coordinates": null,
+      "sources": [
+        {
+          "label": "Philharmonie de Paris — prezentační dokument Hip-Hop 360",
+          "url": "https://deneb.philharmoniedeparis.fr/uploads/documents/63cff2cc5ef33_PRESENTATION%20HIP%20HOP%20VF-.pdf"
+        },
+        {
+          "label": "Louis Jesu — L’élite artistique des cités, disertace, Université de Lorraine, 2016, s. 70–72",
+          "url": "https://docnum.univ-lorraine.fr/public/DDOC_T_2016_0095_JESU.pdf"
+        }
+      ],
+      "access": {
+        "status": "partial",
+        "checkedAt": "2026-10-21",
+        "summary": "Orientační zastávka u metra a v okolní čtvrti. Historický terrain vague je doloženým místem setkávání různých hiphopových disciplín; není zde potvrzený dnešní tréninkový areál ani veřejný vstup na původní parcelu.",
+        "requiresConfirmation": [
+          "Přesné vymezení bývalé parcely a dnešní vlastnický či přístupový režim."
+        ]
+      },
+      "verifiedClaims": [
+        "Muzejní dokumentace připomíná setkávání rapperů, tanečníků a writerů u terrain vague de La Chapelle.",
+        "Disertace Louise Jesu (2016, s. 70–72) popisuje block parties v období srpen–listopad 1986 a předchozí graffiti a taneční praxi; současně zpochybňuje zjednodušený mýtus jediného místa zrodu."
+      ],
+      "unresolvedClaims": [
+        "Adresa v trase je orientační bod u metra, nikoli ověřený vstup na někdejší pozemek.",
+        "Současné oprávnění ke vstupu na konkrétní parcelu není doloženo."
+      ],
+      "contradictions": [],
+      "historicalSourceReplacement": "Nahradit původní wikipedický odkaz muzeem a disertací. Přesný bod původního místa nezakreslovat."
+    },
+    {
+      "id": "centquatre",
+      "name": "CENTQUATRE-PARIS",
+      "address": "5 rue Curial, 75019 Paris",
+      "coordinates": null,
+      "sources": [
+        {
+          "label": "CENTQUATRE-PARIS — pravidla espaces libres",
+          "url": "https://www.104.fr/espaces-libres"
+        },
+        {
+          "label": "Ville de Paris — Le CENTQUATRE-PARIS, adresa a přístup",
+          "url": "https://www.paris.fr/lieux/le-centquatre-paris-3990"
+        }
+      ],
+      "access": {
+        "status": "verified",
+        "checkedAt": "2026-10-21",
+        "summary": "Volná samostatná umělecká praxe zdarma a bez rezervace. Út–pá 12:00–19:00, so–ne 11:00–19:00; v pondělí zavřeno. Prostor se mění podle programu. Placené lekce jsou zakázané; nejsou šatny ani úschova. Cypher ani účast dalších tanečníků nejsou slíbené.",
+        "requiresConfirmation": [
+          "Aktuální denní program a dostupná plocha."
+        ]
+      },
+      "verifiedClaims": [
+        "Pravidla provozovatele výslovně potvrzují bezplatný přístup bez rezervace, uvedené časy a zákaz placených lekcí.",
+        "Městský profil potvrzuje vstupní adresu 5 rue Curial; uvádí také 104 rue d’Aubervilliers."
+      ],
+      "unresolvedClaims": [
+        "Žádná vyhrazená plocha, odborný lektor ani konkrétní skupinová lekce nejsou sjednány."
+      ],
+      "contradictions": []
+    },
+    {
+      "id": "rue-de-lourcq",
+      "name": "Rue de l’Ourcq",
+      "address": "Rue de l’Ourcq, Paris 19e",
+      "coordinates": null,
+      "sources": [
+        {
+          "label": "Paris je t’aime — street art na severu Paříže",
+          "url": "https://parisjetaime.com/eng/article/street-art-in-the-north-of-paris-a716"
+        }
+      ],
+      "access": {
+        "status": "partial",
+        "checkedAt": "2026-10-21",
+        "summary": "Pozorovací zastávka v proměnlivém veřejném prostoru. Oficiální turistický zdroj dokumentuje místní street art a dAcRuZ. Žádný cypher ani taneční lekce nejsou potvrzené. Pokud není vhodná volná plocha, splň úkol pozorováním a poznámkou.",
+        "requiresConfirmation": [
+          "Místní průchodnost a vhodné podmínky pro krátký vlastní pohyb."
+        ]
+      },
+      "verifiedClaims": [
+        "Turistická kancelář popisuje street-artová díla v rue de l’Ourcq a vazbu na dAcRuZ a Ourcq Living Colors."
+      ],
+      "unresolvedClaims": [
+        "Trasa nemá ověřené číslo domu ani samostatnou taneční plochu.",
+        "Žádná licence k malování nebo komerční výuce nebyla ověřena."
+      ],
+      "contradictions": []
+    },
+    {
+      "id": "belvedere-belleville",
+      "name": "Belvédère Willy-Ronis / Belleville",
+      "address": "27 rue Piat, 75020 Paris",
+      "coordinates": null,
+      "sources": [
+        {
+          "label": "Ville de Paris — Belvédère Willy-Ronis, 27 rue Piat",
+          "url": "https://www.paris.fr/pages/ou-voir-le-feu-d-artifice-du-14-juillet-35766"
+        }
+      ],
+      "access": {
+        "status": "partial",
+        "checkedAt": "2026-10-21",
+        "summary": "Město potvrzuje Belvédère Willy-Ronis nad parkem Belleville na adrese 27 rue Piat. Místo slouží k pozorování a odpočinku; taneční plocha ani lekce nejsou rezervované. Vlastní frázi zvol jen z pohybů, které bezpečně ovládáš.",
+        "requiresConfirmation": [
+          "Aktuální povrch, přístup, omezení a vhodnost místa pro krátký pohyb."
+        ]
+      },
+      "verifiedClaims": [
+        "Městský zdroj jmenuje Belvédère Willy-Ronis a uvádí 27 rue Piat v 20. obvodu."
+      ],
+      "unresolvedClaims": [
+        "Otevírací doba a konkrétní pravidla organizované taneční činnosti nejsou ověřeny."
+      ],
+      "contradictions": []
+    },
+    {
+      "id": "juste-debout-school-core",
+      "name": "Juste Debout School CORE",
+      "address": "3 rue de l’Est, 75020 Paris",
+      "coordinates": null,
+      "sources": [
+        {
+          "label": "Juste Debout School — publikovaný rozvrh open lekcí a adresa CORE",
+          "url": "https://www.juste-debout-school.com/cours-open-prives/"
+        },
+        {
+          "label": "Juste Debout School — CORE Paris 20e",
+          "url": "https://www.juste-debout-school.com/"
+        }
+      ],
+      "access": {
+        "status": "partial",
+        "checkedAt": "2026-10-21",
+        "summary": "Publikovaný týdenní rozvrh uvádí Bboying s DysDys ve středu 19:00–20:30 v CORE, 3 rue de l’Est. Před konkrétní návštěvou potvrď cenu, volné místo a konání během prázdnin. Publikovaný rozvrh není rezervace; telefon +33 9 84 05 50 75.",
+        "requiresConfirmation": [
+          "Konání ve vybraný den včetně prázdninového provozu.",
+          "Jednorázová cena, přijímaná úroveň, volná kapacita a způsob rezervace."
+        ]
+      },
+      "verifiedClaims": [
+        "Oficiální rozvrh obsahuje středeční Bboying s DysDys 19:00–20:30.",
+        "Zdroj uvádí adresu CORE 3 rue de l’Est, Paris 20e a uvedený kontakt."
+      ],
+      "unresolvedClaims": [
+        "Otevřená lekce v konkrétní datum, kapacita a cena nejsou potvrzené.",
+        "Není sjednán lektor, osobní zpětná vazba pro CAISIK ani partnerská dohoda."
+      ],
+      "contradictions": []
+    }
+  ],
+  "sources": [
+    {
+      "id": "visitparisregion-denoyez",
+      "label": "Visit Paris Region — Rue Dénoyez",
+      "url": "https://www.visitparisregion.com/fr/rue-denoyez",
+      "kind": "official-tourism"
+    },
+    {
+      "id": "le-grand-jeu-official",
+      "label": "Le Grand Jeu — provozovatel",
+      "url": "https://www.legrandj.eu/",
+      "kind": "operator"
+    },
+    {
+      "id": "lemur-official",
+      "label": "Le M.U.R. — asociace a výběr umělců",
+      "url": "https://www.lemur.fr/",
+      "kind": "operator"
+    },
+    {
+      "id": "lemur-address",
+      "label": "Le M.U.R. — adresa Oberkampf",
+      "url": "https://www.lemur.fr/livre-le-mur-the-wall/",
+      "kind": "operator"
+    },
+    {
+      "id": "75shop-contact",
+      "label": "75Shop — kontakt a otevírací hodiny",
+      "url": "https://75shop.fr/contact/",
+      "kind": "operator"
+    },
+    {
+      "id": "75shop-home",
+      "label": "75Shop — domovská stránka s rozpornými hodinami",
+      "url": "https://75shop.fr/",
+      "kind": "operator"
+    },
+    {
+      "id": "acaciart-boulogne",
+      "label": "Acaci’Art — Le Mur de Boulogne a rozdělení úseků",
+      "url": "https://atelierstreetart.fr/le-mur-de-boulogne",
+      "kind": "operator"
+    },
+    {
+      "id": "philharmonie-hiphop-360",
+      "label": "Philharmonie de Paris — prezentační dokument Hip-Hop 360",
+      "url": "https://deneb.philharmoniedeparis.fr/uploads/documents/63cff2cc5ef33_PRESENTATION%20HIP%20HOP%20VF-.pdf",
+      "kind": "museum"
+    },
+    {
+      "id": "jesu-2016",
+      "label": "Louis Jesu — L’élite artistique des cités, disertace, Université de Lorraine, 2016, s. 70–72",
+      "url": "https://docnum.univ-lorraine.fr/public/DDOC_T_2016_0095_JESU.pdf",
+      "kind": "research"
+    },
+    {
+      "id": "104-espaces-libres",
+      "label": "CENTQUATRE-PARIS — pravidla espaces libres",
+      "url": "https://www.104.fr/espaces-libres",
+      "kind": "operator"
+    },
+    {
+      "id": "paris-104",
+      "label": "Ville de Paris — Le CENTQUATRE-PARIS, adresa a přístup",
+      "url": "https://www.paris.fr/lieux/le-centquatre-paris-3990",
+      "kind": "municipal"
+    },
+    {
+      "id": "parisjetaime-north-art",
+      "label": "Paris je t’aime — street art na severu Paříže",
+      "url": "https://parisjetaime.com/eng/article/street-art-in-the-north-of-paris-a716",
+      "kind": "official-tourism"
+    },
+    {
+      "id": "paris-belvedere-address",
+      "label": "Ville de Paris — Belvédère Willy-Ronis, 27 rue Piat",
+      "url": "https://www.paris.fr/pages/ou-voir-le-feu-d-artifice-du-14-juillet-35766",
+      "kind": "municipal"
+    },
+    {
+      "id": "justedebout-cours",
+      "label": "Juste Debout School — publikovaný rozvrh open lekcí a adresa CORE",
+      "url": "https://www.juste-debout-school.com/cours-open-prives/",
+      "kind": "operator"
+    },
+    {
+      "id": "justedebout-home",
+      "label": "Juste Debout School — CORE Paris 20e",
+      "url": "https://www.juste-debout-school.com/",
+      "kind": "operator"
+    }
+  ],
+  "routeStopOverrides": {
+    "writer-4": {
+      "conditions": "Oficiální web uvádí rozdílné zavírání v 18:00/20:00. Navržené sobotní poledne je v obou rozvrzích. Cenu a dostupnost konkrétního materiálu potvrď přímo v obchodě."
+    },
+    "writer-5": {
+      "conditions": "Adresní navigace míří k ulici, nikoli k ověřenému vstupnímu bodu. Na místě rozliš 50m kurátorovaný, 15m výukový a 135m volný úsek podle značení."
+    },
+    "writer-6": {
+      "conditions": "Správce dovoluje vlastní malování bez žádosti na 135m volném úseku. Respektuj jeho vymezení, aktuální značení a ostatní writery. Souhlas pro placený organizovaný workshop není potvrzen; před takovým využitím kontaktuj správce. Při nevhodném počasí dokonči skicu a realizaci odlož."
+    },
+    "breaking-1": {
+      "task": "Porovnej doloženou historii setkávání DJů, MCs, writerů a tanečníků s pozdějším mýtem jediného místa zrodu. Zapiš, co se společným prostorem získávaly jednotlivé disciplíny.",
+      "conditions": "Jde o orientační historickou zastávku u metra. Současný přístup na původní parcelu není ověřený; nevstupuj kvůli trase na soukromé pozemky.",
+      "sources": [
+        {
+          "label": "Philharmonie de Paris — prezentační dokument Hip-Hop 360",
+          "url": "https://deneb.philharmoniedeparis.fr/uploads/documents/63cff2cc5ef33_PRESENTATION%20HIP%20HOP%20VF-.pdf"
+        },
+        {
+          "label": "Louis Jesu — L’élite artistique des cités, disertace, Université de Lorraine, 2016, s. 70–72",
+          "url": "https://docnum.univ-lorraine.fr/public/DDOC_T_2016_0095_JESU.pdf"
+        }
+      ]
+    },
+    "breaking-2": {
+      "conditions": "Volná samostatná praxe zdarma a bez rezervace: út–pá 12–19, so–ne 11–19; pondělí zavřeno. Bez šaten a úschovy. Placené lekce jsou zakázané. Dostupná plocha se mění podle programu."
+    },
+    "breaking-3": {
+      "sources": [
+        {
+          "label": "Paris je t’aime — street art na severu Paříže",
+          "url": "https://parisjetaime.com/eng/article/street-art-in-the-north-of-paris-a716"
+        }
+      ]
+    },
+    "breaking-5": {
+      "conditions": "Odpočinek a dobrovolná fráze z bezpečně zvládnutých pohybů podle aktuálních podmínek. Na betonu nezkoušej první power moves. Taneční plocha není rezervovaná.",
+      "sources": [
+        {
+          "label": "Ville de Paris — Belvédère Willy-Ronis, 27 rue Piat",
+          "url": "https://www.paris.fr/pages/ou-voir-le-feu-d-artifice-du-14-juillet-35766"
+        }
+      ]
+    },
+    "breaking-6": {
+      "conditions": "Publikovaný rozvrh uvádí středu 19–20:30. Na +33 9 84 05 50 75 potvrď konkrétní termín, prázdninový provoz, cenu a kapacitu. Rezervace ani reakce lektora nejsou zajištěné. Není-li lekce dostupná, pracuj s dosavadní poznámkou a zaznamenej otázku pro budoucího lektora; 104 nelze nabízet jako večerní náhradu po jeho zavření."
+    }
+  },
+  "retrievalNotes": [
+    "Původní francouzská stránka Paris je t’aime pro sever Paříže se nenačetla spolehlivě; použita funkční oficiální anglická verze stejného tematického článku.",
+    "Původní obecný turistický odkaz pro Dénoyez nahrazen konkrétní stránkou Visit Paris Region.",
+    "Historická fakta La Chapelle jsou doložena muzeem a akademickým výzkumem; nejsou důkazem dnešního vstupu na historický pozemek."
+  ]
+}

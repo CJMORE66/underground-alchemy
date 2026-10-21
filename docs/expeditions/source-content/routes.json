@@ -1,0 +1,720 @@
+[
+  {
+    "id": "dj",
+    "title": "DJ — Od prvního breaku k vlastnímu mixu",
+    "summaryMarkdown": "**Kdy:** Pátek nebo sobota. **Čas:** 11:00–19:00 + vinylový večer.\n\n**Výsledek:** 15–20minutový vlastní mix, 3 objevené skladby a poznámky z poslechu DJ setu.\n\n**Rozpočet:** 69 € lekce + 36 € za 2 h DJ studia. Desky, jídlo, doprava a bar zvlášť.\n\n**Předem:** Předem potvrď lekci u Hitcha a studio 6/7. Vyžádej vinylové gramofony a způsob záznamu; nic není rezervované.",
+    "stops": [
+      {
+        "id": "dj-1",
+        "title": "Univers Sons — lekce s Hitchem",
+        "addressLine": "159 rue Amelot, 75011 Paris · 11:00–12:00 · REZERVACE",
+        "address": "159 rue Amelot, 75011 Paris",
+        "task": "Požádej o hip-hopové cueing, baby scratch a jeden přechod. Přines dva vlastní tracky a sluchátka. Zveřejněná úvodní hodina stojí 69 €.",
+        "transfer": "Start; metro Oberkampf (5/9) nebo République.",
+        "conditions": "Skutečné gramofony/DVS a jazyk výuky musí instruktor potvrdit. Poté nech 12:00–13:00 na oběd.",
+        "sources": [
+          {
+            "label": "Lekce a sazby",
+            "url": "https://www.univers-sons.com/news/cours-dj.html"
+          },
+          {
+            "label": "Adresa prodejny",
+            "url": "https://www.univers-sons.com/a-propos/nous-contacter.html"
+          }
+        ],
+        "verification": "inherited-roadbook-recheck-before-publication",
+        "verifiedAt": null,
+        "sourceDocumentDate": "2026-10-21",
+        "coordinates": null,
+        "bookingConfirmed": false,
+        "rawMarkdown": "159 rue Amelot, 75011 Paris · 11:00–12:00 · REZERVACE\n\nPožádej o hip-hopové cueing, baby scratch a jeden přechod. Přines dva vlastní tracky a sluchátka. Zveřejněná úvodní hodina stojí 69 €.\n\n**Přesun:** Start; metro Oberkampf (5/9) nebo République.\n\n**Podmínky:** Skutečné gramofony/DVS a jazyk výuky musí instruktor potvrdit. Poté nech 12:00–13:00 na oběd.\n\n[Lekce a sazby](https://www.univers-sons.com/news/cours-dj.html) · [Adresa prodejny](https://www.univers-sons.com/a-propos/nous-contacter.html)"
+      },
+      {
+        "id": "dj-2",
+        "title": "Betino’s Record Shop",
+        "addressLine": "32 rue Saint-Sébastien, 75011 Paris · 13:00–14:00 · OBCHOD",
+        "address": "32 rue Saint-Sébastien, 75011 Paris",
+        "task": "Vyber jeden drum break, jednu basovou linku a jeden melodický motiv. Ptej se na poslech desek, neber jej automaticky jako službu bez podmínek.",
+        "transfer": "Pěšky přibližně 10–15 min.",
+        "conditions": "Po–so 13:00–20:00; v neděli zavřeno.",
+        "sources": [
+          {
+            "label": "Adresa a otevírání",
+            "url": "https://www.betinos.com/content/info-shopshipping"
+          }
+        ],
+        "verification": "inherited-roadbook-recheck-before-publication",
+        "verifiedAt": null,
+        "sourceDocumentDate": "2026-10-21",
+        "coordinates": null,
+        "bookingConfirmed": false,
+        "rawMarkdown": "32 rue Saint-Sébastien, 75011 Paris · 13:00–14:00 · OBCHOD\n\nVyber jeden drum break, jednu basovou linku a jeden melodický motiv. Ptej se na poslech desek, neber jej automaticky jako službu bez podmínek.\n\n**Přesun:** Pěšky přibližně 10–15 min.\n\n**Podmínky:** Po–so 13:00–20:00; v neděli zavřeno.\n\n[Adresa a otevírání](https://www.betinos.com/content/info-shopshipping)"
+      },
+      {
+        "id": "dj-3",
+        "title": "Le Grand Jeu — vizuální jazyk desek",
+        "addressLine": "15 passage de Ménilmontant, 75011 Paris · 14:20–15:00 · OBCHOD",
+        "address": "15 passage de Ménilmontant, 75011 Paris",
+        "task": "Najdi jeden zin nebo fotografickou knihu. Do skicáku navrhni obal pro mix, který dnes nahraješ.",
+        "transfer": "Kolo asi 10 min nebo pěšky 25–30 min.",
+        "conditions": "",
+        "sources": [
+          {
+            "label": "Le Grand Jeu — provoz a kontakt",
+            "url": "https://www.legrandj.eu/"
+          }
+        ],
+        "verification": "inherited-roadbook-recheck-before-publication",
+        "verifiedAt": null,
+        "sourceDocumentDate": "2026-10-21",
+        "coordinates": null,
+        "bookingConfirmed": false,
+        "rawMarkdown": "15 passage de Ménilmontant, 75011 Paris · 14:20–15:00 · OBCHOD\n\nNajdi jeden zin nebo fotografickou knihu. Do skicáku navrhni obal pro mix, který dnes nahraješ.\n\n**Přesun:** Kolo asi 10 min nebo pěšky 25–30 min.\n\n[Le Grand Jeu — provoz a kontakt](https://www.legrandj.eu/)"
+      },
+      {
+        "id": "dj-4",
+        "title": "Heartbeat Vinyl — druhý digging",
+        "addressLine": "26 rue Godefroy Cavaignac, 75011 Paris · 15:20–16:00 · OBCHOD",
+        "address": "26 rue Godefroy Cavaignac, 75011 Paris",
+        "task": "Hledej kontrast k prvnímu nákupu: jinou dekádu, groove nebo instrumentál. Nejvýš dvě věci, které opravdu využiješ.",
+        "transfer": "Kolo asi 10–15 min; pěšky 25–30 min.",
+        "conditions": "Oficiální web uvádí út–so 12:00–20:00; neděle a pondělí pouze po zvláštní dohodě. Kontakt: +33 9 51 65 92 08.",
+        "sources": [
+          {
+            "label": "Heartbeat Vinyl — oficiální web a kontakt",
+            "url": "https://www.heartbeatvinyl.com/"
+          }
+        ],
+        "verification": "inherited-roadbook-recheck-before-publication",
+        "verifiedAt": null,
+        "sourceDocumentDate": "2026-10-21",
+        "coordinates": null,
+        "bookingConfirmed": false,
+        "rawMarkdown": "26 rue Godefroy Cavaignac, 75011 Paris · 15:20–16:00 · OBCHOD\n\nHledej kontrast k prvnímu nákupu: jinou dekádu, groove nebo instrumentál. Nejvýš dvě věci, které opravdu využiješ.\n\n**Přesun:** Kolo asi 10–15 min; pěšky 25–30 min.\n\n**Podmínky:** Oficiální web uvádí út–so 12:00–20:00; neděle a pondělí pouze po zvláštní dohodě. Kontakt: +33 9 51 65 92 08.\n\n[Heartbeat Vinyl — oficiální web a kontakt](https://www.heartbeatvinyl.com/)"
+      },
+      {
+        "id": "dj-5",
+        "title": "La Place — studio 6 nebo 7",
+        "addressLine": "10 passage de la Canopée, 75001 Paris · 17:00–19:00 · REZERVACE",
+        "address": "10 passage de la Canopée, 75001 Paris",
+        "task": "Nahraj 15–20 min: vstup, tři návazné bloky, závěr. Sazba 18 €/h. Studio uvádí možnost vinylových gramofonů; vyžádej je při objednávce.",
+        "transfer": "Kolo asi 20–30 min; metrem přes Voltaire (9) → Strasbourg–Saint-Denis, poté 4 → Les Halles a pěšky.",
+        "conditions": "Vybavení, přenosky a nahrávání potvrď předem. Pronájem není vedená lekce.",
+        "sources": [
+          {
+            "label": "La Place — studia a rezervace",
+            "url": "https://www.quickstudio.com/fr/studios/la-place-paris/bookings"
+          }
+        ],
+        "verification": "inherited-roadbook-recheck-before-publication",
+        "verifiedAt": null,
+        "sourceDocumentDate": "2026-10-21",
+        "coordinates": null,
+        "bookingConfirmed": false,
+        "rawMarkdown": "10 passage de la Canopée, 75001 Paris · 17:00–19:00 · REZERVACE\n\nNahraj 15–20 min: vstup, tři návazné bloky, závěr. Sazba 18 €/h. Studio uvádí možnost vinylových gramofonů; vyžádej je při objednávce.\n\n**Přesun:** Kolo asi 20–30 min; metrem přes Voltaire (9) → Strasbourg–Saint-Denis, poté 4 → Les Halles a pěšky.\n\n**Podmínky:** Vybavení, přenosky a nahrávání potvrď předem. Pronájem není vedená lekce.\n\n[La Place — studia a rezervace](https://www.quickstudio.com/fr/studios/la-place-paris/bookings)"
+      },
+      {
+        "id": "dj-6",
+        "title": "Fréquence — vinylový poslechový bar",
+        "addressLine": "20 rue Keller, 75011 Paris · Od 19:30; čas hostujícího DJ ověř · BAR / PROGRAM",
+        "address": "20 rue Keller, 75011 Paris",
+        "task": "Poslouchej práci se stranami desek, pořadím a energií. Zapiš tři přechody, které tě zaujmou.",
+        "transfer": "Kolo asi 20–25 min; nebo Châtelet (1 směr Château de Vincennes) → Bastille + pěšky.",
+        "conditions": "Publikované DJ sety jsou v pátek a sobotu. Není to automatický open-decks bar ani záruka čistě hip-hopového programu. Po alkoholu nepokračuj na kole.",
+        "sources": [
+          {
+            "label": "Fréquence — aktuální profil a hodiny",
+            "url": "https://lefooding.com/bars/bar-frequence-paris"
+          },
+          {
+            "label": "Program podniku",
+            "url": "https://www.instagram.com/frequenceparis/"
+          }
+        ],
+        "verification": "inherited-roadbook-recheck-before-publication",
+        "verifiedAt": null,
+        "sourceDocumentDate": "2026-10-21",
+        "coordinates": null,
+        "bookingConfirmed": false,
+        "rawMarkdown": "20 rue Keller, 75011 Paris · Od 19:30; čas hostujícího DJ ověř · BAR / PROGRAM\n\nPoslouchej práci se stranami desek, pořadím a energií. Zapiš tři přechody, které tě zaujmou.\n\n**Přesun:** Kolo asi 20–25 min; nebo Châtelet (1 směr Château de Vincennes) → Bastille + pěšky.\n\n**Podmínky:** Publikované DJ sety jsou v pátek a sobotu. Není to automatický open-decks bar ani záruka čistě hip-hopového programu. Po alkoholu nepokračuj na kole.\n\n[Fréquence — aktuální profil a hodiny](https://lefooding.com/bars/bar-frequence-paris) · [Program podniku](https://www.instagram.com/frequenceparis/)\n\n---"
+      }
+    ]
+  },
+  {
+    "id": "mc",
+    "title": "MC — Od čtvrti přes studio až k mikrofonu",
+    "summaryMarkdown": "**Kdy:** Pondělí — varianta s veřejným vystoupením. **Čas:** 11:00–18:00 + večerní open mic.\n\n**Výsledek:** Jedna vlastní sloka, nahrané demo a krátké živé vystoupení, pokud získáš slot.\n\n**Rozpočet:** 2 h ve studiu 4/5 = 36 € za prostor. Zvukař, mikrofon, nákupy, jídlo a doprava dle potvrzení.\n\n**Předem:** Zarezervuj studio; na večer připrav 60–120 sekund a cappella. Středeční workshop Maison du Hip-Hop je alternativní den, ne součást pondělního programu.",
+    "stops": [
+      {
+        "id": "mc-1",
+        "title": "Scred Boutique",
+        "addressLine": "13 rue Eugène Sue, 75018 Paris · 11:00–11:45 · OBCHOD / OVĚŘIT PROVOZ",
+        "address": "13 rue Eugène Sue, 75018 Paris",
+        "task": "Objev nezávislý francouzský rap a zeptej se na nejbližší veřejně přístupnou rapovou session. Nečekej automaticky přítomnost členů Scred Connexion.",
+        "transfer": "Start; od metra Château Rouge nebo Marcadet–Poissonniers pěšky.",
+        "conditions": "Před odjezdem potvrď fyzické otevírání na +33 1 42 64 31 78. Web uvádí také servisní hodiny; to není totéž co provoz prodejny.",
+        "sources": [
+          {
+            "label": "Oficiální obchod",
+            "url": "https://scredboutique.com/"
+          },
+          {
+            "label": "Adresa prodejny",
+            "url": "https://www.infobel.com/fr/france/scred_boutique/paris/FR111374006-0142643178/businessdetails.aspx"
+          }
+        ],
+        "verification": "inherited-roadbook-recheck-before-publication",
+        "verifiedAt": null,
+        "sourceDocumentDate": "2026-10-21",
+        "coordinates": null,
+        "bookingConfirmed": false,
+        "rawMarkdown": "13 rue Eugène Sue, 75018 Paris · 11:00–11:45 · OBCHOD / OVĚŘIT PROVOZ\n\nObjev nezávislý francouzský rap a zeptej se na nejbližší veřejně přístupnou rapovou session. Nečekej automaticky přítomnost členů Scred Connexion.\n\n**Přesun:** Start; od metra Château Rouge nebo Marcadet–Poissonniers pěšky.\n\n**Podmínky:** Před odjezdem potvrď fyzické otevírání na +33 1 42 64 31 78. Web uvádí také servisní hodiny; to není totéž co provoz prodejny.\n\n[Oficiální obchod](https://scredboutique.com/) · [Adresa prodejny](https://www.infobel.com/fr/france/scred_boutique/paris/FR111374006-0142643178/businessdetails.aspx)"
+      },
+      {
+        "id": "mc-2",
+        "title": "Barbès — pozorování bez klišé",
+        "addressLine": "Métro Barbès-Rochechouart, Paris · 12:00–12:25 · VEŘEJNÝ PROSTOR",
+        "address": "Métro Barbès-Rochechouart, Paris",
+        "task": "Zapiš pět konkrétních detailů, nikoli soudy o obyvatelích. Udělej z nich čtyři řádky. Cizí rozhovory a tváře nenahrávej bez svolení.",
+        "transfer": "Pěšky asi 15–20 min.",
+        "conditions": "",
+        "sources": [
+          {
+            "label": "Historický kontext La Chapelle",
+            "url": "https://fr.wikipedia.org/wiki/Terrain_vague_de_la_Chapelle"
+          }
+        ],
+        "verification": "inherited-roadbook-recheck-before-publication",
+        "verifiedAt": null,
+        "sourceDocumentDate": "2026-10-21",
+        "coordinates": null,
+        "bookingConfirmed": false,
+        "rawMarkdown": "Métro Barbès-Rochechouart, Paris · 12:00–12:25 · VEŘEJNÝ PROSTOR\n\nZapiš pět konkrétních detailů, nikoli soudy o obyvatelích. Udělej z nich čtyři řádky. Cizí rozhovory a tváře nenahrávej bez svolení.\n\n**Přesun:** Pěšky asi 15–20 min.\n\n[Historický kontext La Chapelle](https://fr.wikipedia.org/wiki/Terrain_vague_de_la_Chapelle)"
+      },
+      {
+        "id": "mc-3",
+        "title": "La Chapelle — historický kontext",
+        "addressLine": "Métro La Chapelle, Paris · 12:40–13:00 · HISTORICKÁ LOKALITA",
+        "address": "Métro La Chapelle, Paris",
+        "task": "Připomeň si free jams Dee Nastyho z roku 1986 a propojení MC/DJ/writer/tanečník. Napiš kontrast: někdejší improvizované setkání versus dnešní profesionální kulturní infrastruktura.",
+        "transfer": "Pěšky asi 15 min podél boulevard de la Chapelle.",
+        "conditions": "Mapový bod je stanice/orientační čtvrť, nikoli tvrzení o přesném vstupu na dnes zaniklý původní terrain vague. Poté oběd.",
+        "sources": [
+          {
+            "label": "Historický kontext La Chapelle",
+            "url": "https://fr.wikipedia.org/wiki/Terrain_vague_de_la_Chapelle"
+          }
+        ],
+        "verification": "inherited-roadbook-recheck-before-publication",
+        "verifiedAt": null,
+        "sourceDocumentDate": "2026-10-21",
+        "coordinates": null,
+        "bookingConfirmed": false,
+        "rawMarkdown": "Métro La Chapelle, Paris · 12:40–13:00 · HISTORICKÁ LOKALITA\n\nPřipomeň si free jams Dee Nastyho z roku 1986 a propojení MC/DJ/writer/tanečník. Napiš kontrast: někdejší improvizované setkání versus dnešní profesionální kulturní infrastruktura.\n\n**Přesun:** Pěšky asi 15 min podél boulevard de la Chapelle.\n\n**Podmínky:** Mapový bod je stanice/orientační čtvrť, nikoli tvrzení o přesném vstupu na dnes zaniklý původní terrain vague. Poté oběd.\n\n[Historický kontext La Chapelle](https://fr.wikipedia.org/wiki/Terrain_vague_de_la_Chapelle)"
+      },
+      {
+        "id": "mc-4",
+        "title": "Le Grand Jeu — nezávislé publikace",
+        "addressLine": "15 passage de Ménilmontant, 75011 Paris · 14:00–14:45 · OBCHOD",
+        "address": "15 passage de Ménilmontant, 75011 Paris",
+        "task": "Vyber motiv pro sloku: paměť místa, vlastní reprezentace nebo nezávislost. Napiš pracovní refrén.",
+        "transfer": "La Chapelle (2 směr Nation) → Couronnes; potom pěšky.",
+        "conditions": "",
+        "sources": [
+          {
+            "label": "Le Grand Jeu — provoz a kontakt",
+            "url": "https://www.legrandj.eu/"
+          }
+        ],
+        "verification": "inherited-roadbook-recheck-before-publication",
+        "verifiedAt": null,
+        "sourceDocumentDate": "2026-10-21",
+        "coordinates": null,
+        "bookingConfirmed": false,
+        "rawMarkdown": "15 passage de Ménilmontant, 75011 Paris · 14:00–14:45 · OBCHOD\n\nVyber motiv pro sloku: paměť místa, vlastní reprezentace nebo nezávislost. Napiš pracovní refrén.\n\n**Přesun:** La Chapelle (2 směr Nation) → Couronnes; potom pěšky.\n\n[Le Grand Jeu — provoz a kontakt](https://www.legrandj.eu/)"
+      },
+      {
+        "id": "mc-5",
+        "title": "Le M.U.R. Oberkampf — text z obrazu",
+        "addressLine": "107 rue Oberkampf, 75011 Paris · 15:00–15:20 · POZOROVÁNÍ",
+        "address": "107 rue Oberkampf, 75011 Paris",
+        "task": "Napiš čtyři řádky popisu obrazu bez vysvětlení jeho smyslu a čtyři řádky vlastní interpretace. Odděl pozorování od domněnky.",
+        "transfer": "Pěšky asi 10–15 min.",
+        "conditions": "Jde o kurátorovanou stěnu. Nemaluj na ni.",
+        "sources": [
+          {
+            "label": "Le M.U.R. — pořadatel",
+            "url": "https://www.lemur.fr/"
+          }
+        ],
+        "verification": "inherited-roadbook-recheck-before-publication",
+        "verifiedAt": null,
+        "sourceDocumentDate": "2026-10-21",
+        "coordinates": null,
+        "bookingConfirmed": false,
+        "rawMarkdown": "107 rue Oberkampf, 75011 Paris · 15:00–15:20 · POZOROVÁNÍ\n\nNapiš čtyři řádky popisu obrazu bez vysvětlení jeho smyslu a čtyři řádky vlastní interpretace. Odděl pozorování od domněnky.\n\n**Přesun:** Pěšky asi 10–15 min.\n\n**Podmínky:** Jde o kurátorovanou stěnu. Nemaluj na ni.\n\n[Le M.U.R. — pořadatel](https://www.lemur.fr/)"
+      },
+      {
+        "id": "mc-6",
+        "title": "La Place — vlastní demo",
+        "addressLine": "10 passage de la Canopée, 75001 Paris · 16:00–18:00 · REZERVACE",
+        "address": "10 passage de la Canopée, 75001 Paris",
+        "task": "Nahraj pracovní sloku, druhý take a čistý export. Sazba studia 4/5: 18 €/h. Přines vlastní nebo oprávněně použitý beat a kopii textu.",
+        "transfer": "Kolo asi 20 min; nebo k République a 11 směr Châtelet → Châtelet, pak pěšky.",
+        "conditions": "Předem potvrď mikrofon, interface, DAW, obsluhu a technika. 36 € je jen cena dvouhodinového pronájmu, ne slíbený hotový mix.",
+        "sources": [
+          {
+            "label": "La Place — studia a rezervace",
+            "url": "https://www.quickstudio.com/fr/studios/la-place-paris/bookings"
+          }
+        ],
+        "verification": "inherited-roadbook-recheck-before-publication",
+        "verifiedAt": null,
+        "sourceDocumentDate": "2026-10-21",
+        "coordinates": null,
+        "bookingConfirmed": false,
+        "rawMarkdown": "10 passage de la Canopée, 75001 Paris · 16:00–18:00 · REZERVACE\n\nNahraj pracovní sloku, druhý take a čistý export. Sazba studia 4/5: 18 €/h. Přines vlastní nebo oprávněně použitý beat a kopii textu.\n\n**Přesun:** Kolo asi 20 min; nebo k République a 11 směr Châtelet → Châtelet, pak pěšky.\n\n**Podmínky:** Předem potvrď mikrofon, interface, DAW, obsluhu a technika. 36 € je jen cena dvouhodinového pronájmu, ne slíbený hotový mix.\n\n[La Place — studia a rezervace](https://www.quickstudio.com/fr/studios/la-place-paris/bookings)"
+      },
+      {
+        "id": "mc-7",
+        "title": "Au Chat Noir — SpokenWord Paris",
+        "addressLine": "76 rue Jean-Pierre Timbaud, 75011 Paris · 20:00 zápis; 20:45 začátek · PRAVIDELNÁ AKCE",
+        "address": "76 rue Jean-Pierre Timbaud, 75011 Paris",
+        "task": "Přednes 60–120 s vlastního textu. Všechny jazyky jsou vítány; dej publiku krátký úvod v angličtině nebo francouzštině.",
+        "transfer": "Châtelet (11 směr Rosny–Bois-Perrier) → Belleville + asi 10–15 min pěšky. Přijď dřív na jídlo a zkoušku textu.",
+        "conditions": "Pondělní spoken word je doložený program, ne potvrzený rap battle ani DJ s tvým beatem. Slot a limit určuje pořadatel.",
+        "sources": [
+          {
+            "label": "SpokenWord / AWOL — pravidelný program",
+            "url": "https://spokenwordparis.org/"
+          }
+        ],
+        "verification": "inherited-roadbook-recheck-before-publication",
+        "verifiedAt": null,
+        "sourceDocumentDate": "2026-10-21",
+        "coordinates": null,
+        "bookingConfirmed": false,
+        "rawMarkdown": "76 rue Jean-Pierre Timbaud, 75011 Paris · 20:00 zápis; 20:45 začátek · PRAVIDELNÁ AKCE\n\nPřednes 60–120 s vlastního textu. Všechny jazyky jsou vítány; dej publiku krátký úvod v angličtině nebo francouzštině.\n\n**Přesun:** Châtelet (11 směr Rosny–Bois-Perrier) → Belleville + asi 10–15 min pěšky. Přijď dřív na jídlo a zkoušku textu.\n\n**Podmínky:** Pondělní spoken word je doložený program, ne potvrzený rap battle ani DJ s tvým beatem. Slot a limit určuje pořadatel.\n\n[SpokenWord / AWOL — pravidelný program](https://spokenwordparis.org/)\n\n---"
+      }
+    ]
+  },
+  {
+    "id": "writer",
+    "title": "WRITER — Návrh, vlastní paleta, skutečný legál",
+    "summaryMarkdown": "**Kdy:** Suchá sobota. **Čas:** 09:45–17:30.\n\n**Výsledek:** Vlastní legální piece, fotky vrstev a poznámky o použité paletě.\n\n**Rozpočet:** Vstup na volný úsek zdi zdarma. Doporučená vlastní obálka 35–60 € na materiál je odhad, nikoli ceník.\n\n**Předem:** Vlastní skicák, bezpečný transport sprejů, ochranné prostředky podle výrobce, voda a sáček na odpad. S vlastním materiálem je navržena hlavně cyklistická verze.",
+    "stops": [
+      {
+        "id": "writer-1",
+        "title": "Rue Dénoyez — čtení písmen",
+        "addressLine": "Rue Dénoyez, 75020 Paris · 09:45–10:30 · POZOROVÁNÍ",
+        "address": "Rue Dénoyez, 75020 Paris",
+        "task": "Vyber tři odlišné konstrukce písmen. Zaznamenej jejich princip, ne cizí podpis jako vlastní návrh.",
+        "transfer": "Start: Belleville (2/11), pak pěšky.",
+        "conditions": "Existence graffiti není povolení k vlastnímu malování. Konkrétní díla se průběžně mění.",
+        "sources": [
+          {
+            "label": "Pařížská turistická kancelář — street art",
+            "url": "https://parisjetaime.com/article/5-quartiers-ou-voir-du-street-art-a-paris-a1052"
+          }
+        ],
+        "verification": "inherited-roadbook-recheck-before-publication",
+        "verifiedAt": null,
+        "sourceDocumentDate": "2026-10-21",
+        "coordinates": null,
+        "bookingConfirmed": false,
+        "rawMarkdown": "Rue Dénoyez, 75020 Paris · 09:45–10:30 · POZOROVÁNÍ\n\nVyber tři odlišné konstrukce písmen. Zaznamenej jejich princip, ne cizí podpis jako vlastní návrh.\n\n**Přesun:** Start: Belleville (2/11), pak pěšky.\n\n**Podmínky:** Existence graffiti není povolení k vlastnímu malování. Konkrétní díla se průběžně mění.\n\n[Pařížská turistická kancelář — street art](https://parisjetaime.com/article/5-quartiers-ou-voir-du-street-art-a-paris-a1052)"
+      },
+      {
+        "id": "writer-2",
+        "title": "Le Grand Jeu — skicák a reference",
+        "addressLine": "15 passage de Ménilmontant, 75011 Paris · 11:00–11:40 · OBCHOD",
+        "address": "15 passage de Ménilmontant, 75011 Paris",
+        "task": "Nakresli jednoduchý pětipísmenný až šestipísmenný návrh. Zvol dvě výplňové barvy, obrys, světlo a jednoduché pozadí.",
+        "transfer": "Pěšky asi 15–20 min.",
+        "conditions": "Sobota: 11:00–20:00.",
+        "sources": [
+          {
+            "label": "Le Grand Jeu — provoz a kontakt",
+            "url": "https://www.legrandj.eu/"
+          }
+        ],
+        "verification": "inherited-roadbook-recheck-before-publication",
+        "verifiedAt": null,
+        "sourceDocumentDate": "2026-10-21",
+        "coordinates": null,
+        "bookingConfirmed": false,
+        "rawMarkdown": "15 passage de Ménilmontant, 75011 Paris · 11:00–11:40 · OBCHOD\n\nNakresli jednoduchý pětipísmenný až šestipísmenný návrh. Zvol dvě výplňové barvy, obrys, světlo a jednoduché pozadí.\n\n**Přesun:** Pěšky asi 15–20 min.\n\n**Podmínky:** Sobota: 11:00–20:00.\n\n[Le Grand Jeu — provoz a kontakt](https://www.legrandj.eu/)"
+      },
+      {
+        "id": "writer-3",
+        "title": "Le M.U.R. Oberkampf — studium hotového díla",
+        "addressLine": "107 rue Oberkampf, 75011 Paris · 11:50–12:15 · POZOROVÁNÍ",
+        "address": "107 rue Oberkampf, 75011 Paris",
+        "task": "Sleduj negativní prostor, pozadí a čitelnost z dálky. Dnešní malbu jen fotografuj a studuj.",
+        "transfer": "Pěšky asi 10 min.",
+        "conditions": "Kurátorovaná plocha; není veřejný legál.",
+        "sources": [
+          {
+            "label": "Le M.U.R. — pořadatel",
+            "url": "https://www.lemur.fr/"
+          }
+        ],
+        "verification": "inherited-roadbook-recheck-before-publication",
+        "verifiedAt": null,
+        "sourceDocumentDate": "2026-10-21",
+        "coordinates": null,
+        "bookingConfirmed": false,
+        "rawMarkdown": "107 rue Oberkampf, 75011 Paris · 11:50–12:15 · POZOROVÁNÍ\n\nSleduj negativní prostor, pozadí a čitelnost z dálky. Dnešní malbu jen fotografuj a studuj.\n\n**Přesun:** Pěšky asi 10 min.\n\n**Podmínky:** Kurátorovaná plocha; není veřejný legál.\n\n[Le M.U.R. — pořadatel](https://www.lemur.fr/)"
+      },
+      {
+        "id": "writer-4",
+        "title": "75Shop & Gallery — nákup podle návrhu",
+        "addressLine": "12 boulevard Saint-Martin, 75010 Paris · 12:30–13:15 · OBCHOD",
+        "address": "12 boulevard Saint-Martin, 75010 Paris",
+        "task": "Kup pouze materiál pro svůj náčrt. Nech si sladit low-pressure barvy, caps a ochranné prostředky; řekni, že jdeš na cihlovou venkovní stěnu.",
+        "transfer": "Kolo asi 10 min; pěšky 20–25 min.",
+        "conditions": "Web uvádí dvě rozdílné zavírací hodiny (18:00/20:00). Polední návštěva je v obou zveřejněných intervalech. Poté oběd.",
+        "sources": [
+          {
+            "label": "75Shop — adresa",
+            "url": "https://75shop.fr/contact/"
+          },
+          {
+            "label": "75Shop — sortiment",
+            "url": "https://75shop.fr/"
+          }
+        ],
+        "verification": "inherited-roadbook-recheck-before-publication",
+        "verifiedAt": null,
+        "sourceDocumentDate": "2026-10-21",
+        "coordinates": null,
+        "bookingConfirmed": false,
+        "rawMarkdown": "12 boulevard Saint-Martin, 75010 Paris · 12:30–13:15 · OBCHOD\n\nKup pouze materiál pro svůj náčrt. Nech si sladit low-pressure barvy, caps a ochranné prostředky; řekni, že jdeš na cihlovou venkovní stěnu.\n\n**Přesun:** Kolo asi 10 min; pěšky 20–25 min.\n\n**Podmínky:** Web uvádí dvě rozdílné zavírací hodiny (18:00/20:00). Polední návštěva je v obou zveřejněných intervalech. Poté oběd.\n\n[75Shop — adresa](https://75shop.fr/contact/) · [75Shop — sortiment](https://75shop.fr/)"
+      },
+      {
+        "id": "writer-5",
+        "title": "Le Mur de Boulogne — nejdřív orientace",
+        "addressLine": "Rue Paul Adolphe Souriau, Boulogne-Billancourt, France · 14:45–15:00 · VEŘEJNÁ GALERIE",
+        "address": "Rue Paul Adolphe Souriau, Boulogne-Billancourt, France",
+        "task": "Vstup do slepé ulice z avenue Édouard-Vaillant. Rozliš 50 m pozvaných autorů, 15 m pedagogickou sekci a 135 m cihlového volného úseku.",
+        "transfer": "Kolo z centra přibližně 60–85 min, dle bezpečně zvolené trasy. Metro alternativa: M9 → Porte de Saint-Cloud, pěšky, s materiálem předem zajištěným na místě.",
+        "conditions": "Pin označuje ulici. Samotný volný úsek je nutné rozeznat na místě podle rozdělení a případného značení; neplést s úvodní kurátorovanou sekcí.",
+        "sources": [
+          {
+            "label": "Acaci’Art — přesné rozdělení legální zdi",
+            "url": "https://atelierstreetart.fr/le-mur-de-boulogne"
+          }
+        ],
+        "verification": "inherited-roadbook-recheck-before-publication",
+        "verifiedAt": null,
+        "sourceDocumentDate": "2026-10-21",
+        "coordinates": null,
+        "bookingConfirmed": false,
+        "rawMarkdown": "Rue Paul Adolphe Souriau, Boulogne-Billancourt, France · 14:45–15:00 · VEŘEJNÁ GALERIE\n\nVstup do slepé ulice z avenue Édouard-Vaillant. Rozliš 50 m pozvaných autorů, 15 m pedagogickou sekci a 135 m cihlového volného úseku.\n\n**Přesun:** Kolo z centra přibližně 60–85 min, dle bezpečně zvolené trasy. Metro alternativa: M9 → Porte de Saint-Cloud, pěšky, s materiálem předem zajištěným na místě.\n\n**Podmínky:** Pin označuje ulici. Samotný volný úsek je nutné rozeznat na místě podle rozdělení a případného značení; neplést s úvodní kurátorovanou sekcí.\n\n[Acaci’Art — přesné rozdělení legální zdi](https://atelierstreetart.fr/le-mur-de-boulogne)"
+      },
+      {
+        "id": "writer-6",
+        "title": "135m volný úsek — vlastní piece",
+        "addressLine": "Le Mur de Boulogne, rue Paul Adolphe Souriau, Boulogne-Billancourt · 15:00–17:30 · VOLNÝ LEGÁL",
+        "address": "Le Mur de Boulogne, rue Paul Adolphe Souriau, Boulogne-Billancourt",
+        "task": "20 min výběr vhodného místa a příprava; 20 min skica; 45 min výplně; 35 min obrysy a světla; 20 min opravy; 10 min dokumentace a úklid.",
+        "transfer": "Na místě, dále do volné cihlové části.",
+        "conditions": "Organizátor výslovně dovoluje malování bez žádosti na 135m úseku. Nejde o povolení malovat v sousedství. Respektuj aktuální značení, pracující writery a nech průchod. Za deště přesuň malování na jiný den.",
+        "sources": [
+          {
+            "label": "Acaci’Art — přesné rozdělení legální zdi",
+            "url": "https://atelierstreetart.fr/le-mur-de-boulogne"
+          }
+        ],
+        "verification": "inherited-roadbook-recheck-before-publication",
+        "verifiedAt": null,
+        "sourceDocumentDate": "2026-10-21",
+        "coordinates": null,
+        "bookingConfirmed": false,
+        "rawMarkdown": "Le Mur de Boulogne, rue Paul Adolphe Souriau, Boulogne-Billancourt · 15:00–17:30 · VOLNÝ LEGÁL\n\n20 min výběr vhodného místa a příprava; 20 min skica; 45 min výplně; 35 min obrysy a světla; 20 min opravy; 10 min dokumentace a úklid.\n\n**Přesun:** Na místě, dále do volné cihlové části.\n\n**Podmínky:** Organizátor výslovně dovoluje malování bez žádosti na 135m úseku. Nejde o povolení malovat v sousedství. Respektuj aktuální značení, pracující writery a nech průchod. Za deště přesuň malování na jiný den.\n\n[Acaci’Art — přesné rozdělení legální zdi](https://atelierstreetart.fr/le-mur-de-boulogne)\n\n---"
+      }
+    ]
+  },
+  {
+    "id": "breaking",
+    "title": "B-BOY / B-GIRL — Živý trénink, kultura cypheru a lekce breakingu",
+    "summaryMarkdown": "**Kdy:** Středa podle potvrzeného rozvrhu. **Čas:** 11:00–20:30.\n\n**Výsledek:** Krátká vlastní kombinace a zpětná vazba z lekce; volný cypher jen pokud skutečně vznikne.\n\n**Rozpočet:** CENTQUATRE zdarma. Jednorázovou cenu a místo v lekci Juste Debout musí škola potvrdit.\n\n**Předem:** Čisté tenisky, voda, pohodlné oblečení, malá taška. Dva pohybové bloky, ne celodenní maximální zátěž. Není to slib účasti na battle.",
+    "stops": [
+      {
+        "id": "breaking-1",
+        "title": "La Chapelle — společné kořeny elementů",
+        "addressLine": "Métro La Chapelle, Paris · 11:00–11:25 · HISTORICKÁ LOKALITA",
+        "address": "Métro La Chapelle, Paris",
+        "task": "Připomeň si propojení tanečníků, DJů, MCs a writerů při zdejších raných free jams.",
+        "transfer": "Start: metro La Chapelle (2).",
+        "conditions": "Původní terrain vague již není dnešní veřejný tréninkový areál.",
+        "sources": [
+          {
+            "label": "Historický kontext La Chapelle",
+            "url": "https://fr.wikipedia.org/wiki/Terrain_vague_de_la_Chapelle"
+          }
+        ],
+        "verification": "inherited-roadbook-recheck-before-publication",
+        "verifiedAt": null,
+        "sourceDocumentDate": "2026-10-21",
+        "coordinates": null,
+        "bookingConfirmed": false,
+        "rawMarkdown": "Métro La Chapelle, Paris · 11:00–11:25 · HISTORICKÁ LOKALITA\n\nPřipomeň si propojení tanečníků, DJů, MCs a writerů při zdejších raných free jams.\n\n**Přesun:** Start: metro La Chapelle (2).\n\n**Podmínky:** Původní terrain vague již není dnešní veřejný tréninkový areál.\n\n[Historický kontext La Chapelle](https://fr.wikipedia.org/wiki/Terrain_vague_de_la_Chapelle)"
+      },
+      {
+        "id": "breaking-2",
+        "title": "CENTQUATRE-PARIS — skutečný volný trénink",
+        "addressLine": "5 rue Curial, 75019 Paris · 12:00–13:30 · VOLNĚ A ZDARMA",
+        "address": "5 rue Curial, 75019 Paris",
+        "task": "Rozcvič se, pracuj na rytmu a toprocku. Zeptej se tanečníků, zda se můžeš přidat; respektuj odmítnutí i jejich prostor.",
+        "transfer": "Pěšky asi 25–35 min nebo kolo asi 15 min.",
+        "conditions": "Út–pá 12–19, so–ne 11–19. Bez rezervace, bez šaten a bez úschovy. Pořádání placených lekcí v halách není dovoleno; dostupný prostor se může měnit.",
+        "sources": [
+          {
+            "label": "CENTQUATRE — pravidla volné praxe",
+            "url": "https://www.104.fr/espaces-libres"
+          }
+        ],
+        "verification": "inherited-roadbook-recheck-before-publication",
+        "verifiedAt": null,
+        "sourceDocumentDate": "2026-10-21",
+        "coordinates": null,
+        "bookingConfirmed": false,
+        "rawMarkdown": "5 rue Curial, 75019 Paris · 12:00–13:30 · VOLNĚ A ZDARMA\n\nRozcvič se, pracuj na rytmu a toprocku. Zeptej se tanečníků, zda se můžeš přidat; respektuj odmítnutí i jejich prostor.\n\n**Přesun:** Pěšky asi 25–35 min nebo kolo asi 15 min.\n\n**Podmínky:** Út–pá 12–19, so–ne 11–19. Bez rezervace, bez šaten a bez úschovy. Pořádání placených lekcí v halách není dovoleno; dostupný prostor se může měnit.\n\n[CENTQUATRE — pravidla volné praxe](https://www.104.fr/espaces-libres)"
+      },
+      {
+        "id": "breaking-3",
+        "title": "Rue de l’Ourcq — vizuální rytmus a pauza",
+        "addressLine": "Rue de l’Ourcq, Paris 19e · 14:00–15:00 · POZOROVÁNÍ / OBĚD",
+        "address": "Rue de l’Ourcq, Paris 19e",
+        "task": "Hledej opakování, rytmus a přerušení v muralech. Převáděj jeden vizuální princip do osmitaktové pohybové fráze; natáčej jen sebe.",
+        "transfer": "Pěšky asi 15–20 min k okolí kanálu.",
+        "conditions": "Nejde o slíbený organizovaný cypher. Podle provozu si najdi vhodný neblokující veřejný prostor.",
+        "sources": [
+          {
+            "label": "Pařížská turistická kancelář — severní Paříž",
+            "url": "https://parisjetaime.com/article/du-street-art-au-nord-de-paris-a716"
+          }
+        ],
+        "verification": "inherited-roadbook-recheck-before-publication",
+        "verifiedAt": null,
+        "sourceDocumentDate": "2026-10-21",
+        "coordinates": null,
+        "bookingConfirmed": false,
+        "rawMarkdown": "Rue de l’Ourcq, Paris 19e · 14:00–15:00 · POZOROVÁNÍ / OBĚD\n\nHledej opakování, rytmus a přerušení v muralech. Převáděj jeden vizuální princip do osmitaktové pohybové fráze; natáčej jen sebe.\n\n**Přesun:** Pěšky asi 15–20 min k okolí kanálu.\n\n**Podmínky:** Nejde o slíbený organizovaný cypher. Podle provozu si najdi vhodný neblokující veřejný prostor.\n\n[Pařížská turistická kancelář — severní Paříž](https://parisjetaime.com/article/du-street-art-au-nord-de-paris-a716)"
+      },
+      {
+        "id": "breaking-4",
+        "title": "Le Grand Jeu — taneční publikace",
+        "addressLine": "15 passage de Ménilmontant, 75011 Paris · 15:45–16:20 · OBCHOD",
+        "address": "15 passage de Ménilmontant, 75011 Paris",
+        "task": "Hledej záznamy starších stylů, fotografie postojů a kontext. Vyber jeden princip, který se večer zeptáš instruktora.",
+        "transfer": "Ourcq (5 směr Place d’Italie) → République; 11 směr Rosny–Bois-Perrier → Belleville; pak pěšky.",
+        "conditions": "",
+        "sources": [
+          {
+            "label": "Le Grand Jeu — provoz a kontakt",
+            "url": "https://www.legrandj.eu/"
+          }
+        ],
+        "verification": "inherited-roadbook-recheck-before-publication",
+        "verifiedAt": null,
+        "sourceDocumentDate": "2026-10-21",
+        "coordinates": null,
+        "bookingConfirmed": false,
+        "rawMarkdown": "15 passage de Ménilmontant, 75011 Paris · 15:45–16:20 · OBCHOD\n\nHledej záznamy starších stylů, fotografie postojů a kontext. Vyber jeden princip, který se večer zeptáš instruktora.\n\n**Přesun:** Ourcq (5 směr Place d’Italie) → République; 11 směr Rosny–Bois-Perrier → Belleville; pak pěšky.\n\n[Le Grand Jeu — provoz a kontakt](https://www.legrandj.eu/)"
+      },
+      {
+        "id": "breaking-5",
+        "title": "Belvédère de Belleville — odpočinek a vlastní fráze",
+        "addressLine": "27 rue Piat, 75020 Paris · 16:45–17:20 · VEŘEJNÝ PROSTOR",
+        "address": "27 rue Piat, 75020 Paris",
+        "task": "Odpočiň si a sestav osm taktů, které bezpečně zvládáš. Požádej kamaráda o krátký záznam; netoč cizí lidi bez souhlasu.",
+        "transfer": "Pěšky asi 20–25 min do kopce.",
+        "conditions": "Další čas nech na jídlo a přesun. Na betonu nezkoušej první power moves.",
+        "sources": [
+          {
+            "label": "Pařížská turistická kancelář — street art",
+            "url": "https://parisjetaime.com/article/5-quartiers-ou-voir-du-street-art-a-paris-a1052"
+          }
+        ],
+        "verification": "inherited-roadbook-recheck-before-publication",
+        "verifiedAt": null,
+        "sourceDocumentDate": "2026-10-21",
+        "coordinates": null,
+        "bookingConfirmed": false,
+        "rawMarkdown": "27 rue Piat, 75020 Paris · 16:45–17:20 · VEŘEJNÝ PROSTOR\n\nOdpočiň si a sestav osm taktů, které bezpečně zvládáš. Požádej kamaráda o krátký záznam; netoč cizí lidi bez souhlasu.\n\n**Přesun:** Pěšky asi 20–25 min do kopce.\n\n**Podmínky:** Další čas nech na jídlo a přesun. Na betonu nezkoušej první power moves.\n\n[Pařížská turistická kancelář — street art](https://parisjetaime.com/article/5-quartiers-ou-voir-du-street-art-a-paris-a1052)"
+      },
+      {
+        "id": "breaking-6",
+        "title": "Juste Debout School CORE — Bboying s Dys Dys",
+        "addressLine": "3 rue de l’Est, 75020 Paris · Středa 19:00–20:30 · LEKCE / POTVRDIT MÍSTO",
+        "address": "3 rue de l’Est, 75020 Paris",
+        "task": "Publikovaný rozvrh uvádí přímo Bboying, nikoli jen obecný hip-hop. Řekni úroveň a chtěj opravit jednu konkrétní sekvenci.",
+        "transfer": "Pěšky asi 20–25 min; před lekcí přijď s rezervou.",
+        "conditions": "Telefon +33 9 84 05 50 75. Potvrď cenu, kapacitu a provoz v prázdninovém týdnu. Při nedostupnosti se drž volné praxe v 104; nevymýšlí se náhradní battle.",
+        "sources": [
+          {
+            "label": "Juste Debout — rozvrh a soukromé lekce",
+            "url": "https://www.juste-debout-school.com/cours-open-prives/"
+          },
+          {
+            "label": "Škola — kontakt a adresa",
+            "url": "https://www.juste-debout-school.com/"
+          }
+        ],
+        "verification": "inherited-roadbook-recheck-before-publication",
+        "verifiedAt": null,
+        "sourceDocumentDate": "2026-10-21",
+        "coordinates": null,
+        "bookingConfirmed": false,
+        "rawMarkdown": "3 rue de l’Est, 75020 Paris · Středa 19:00–20:30 · LEKCE / POTVRDIT MÍSTO\n\nPublikovaný rozvrh uvádí přímo Bboying, nikoli jen obecný hip-hop. Řekni úroveň a chtěj opravit jednu konkrétní sekvenci.\n\n**Přesun:** Pěšky asi 20–25 min; před lekcí přijď s rezervou.\n\n**Podmínky:** Telefon +33 9 84 05 50 75. Potvrď cenu, kapacitu a provoz v prázdninovém týdnu. Při nedostupnosti se drž volné praxe v 104; nevymýšlí se náhradní battle.\n\n[Juste Debout — rozvrh a soukromé lekce](https://www.juste-debout-school.com/cours-open-prives/) · [Škola — kontakt a adresa](https://www.juste-debout-school.com/)\n\n---"
+      }
+    ]
+  },
+  {
+    "id": "knowledge",
+    "title": "PHILOSOPHER — Knowledge of self: od symbolu k vlastnímu sdělení",
+    "summaryMarkdown": "**Kdy:** Neděle — varianta s AWOL workshopem. **Čas:** 10:00–19:15 včetně dlouhé pauzy na psaní.\n\n**Výsledek:** Vlastní krátký text nebo manifest, osobní symbol a zpětná vazba od dalších autorů.\n\n**Rozpočet:** Venkovní díla a AWOL zdarma. Konzumace, doprava a případná další návštěva knihkupectví zvlášť.\n\n**Předem:** Jde o autorskou interpretaci knowledge of self, nikoli tvrzení, že všichni navštívení umělci patří do hip-hopu. Připrav text pro diskusi v angličtině nebo předem ověř jazyk skupiny.",
+    "stops": [
+      {
+        "id": "knowledge-1",
+        "title": "Jef Aérosol — Chuuut!!!",
+        "addressLine": "Place Igor Stravinsky, 75004 Paris · 10:00–10:30 · VEŘEJNÉ UMĚNÍ",
+        "address": "Place Igor Stravinsky, 75004 Paris",
+        "task": "Pět minut bez hudby a telefonu. Rozděl poznámky na „co jsem skutečně vnímal“ a „co jsem si k tomu doplnil“.",
+        "transfer": "Start: Châtelet / Rambuteau a pěšky.",
+        "conditions": "Toto je vlastní cvičení pozornosti, ne tvrzení o léčebném účinku díla.",
+        "sources": [
+          {
+            "label": "Turistická kancelář — Chuuut!!! a další díla",
+            "url": "https://parisjetaime.com/article/du-street-art-au-coeur-du-grand-paris-a713"
+          }
+        ],
+        "verification": "inherited-roadbook-recheck-before-publication",
+        "verifiedAt": null,
+        "sourceDocumentDate": "2026-10-21",
+        "coordinates": null,
+        "bookingConfirmed": false,
+        "rawMarkdown": "Place Igor Stravinsky, 75004 Paris · 10:00–10:30 · VEŘEJNÉ UMĚNÍ\n\nPět minut bez hudby a telefonu. Rozděl poznámky na „co jsem skutečně vnímal“ a „co jsem si k tomu doplnil“.\n\n**Přesun:** Start: Châtelet / Rambuteau a pěšky.\n\n**Podmínky:** Toto je vlastní cvičení pozornosti, ne tvrzení o léčebném účinku díla.\n\n[Turistická kancelář — Chuuut!!! a další díla](https://parisjetaime.com/article/du-street-art-au-coeur-du-grand-paris-a713)"
+      },
+      {
+        "id": "knowledge-2",
+        "title": "Cryptik — kaligrafie nad knihkupectvím",
+        "addressLine": "171 boulevard Vincent Auriol, 75013 Paris · 11:30–12:00 · VEŘEJNÉ UMĚNÍ",
+        "address": "171 boulevard Vincent Auriol, 75013 Paris",
+        "task": "Dílo pracuje s textem Williama Saroyana. Nejprve zkus přečíst formu, teprve potom porovnej s vysvětlením galerie. Navrhni vlastní krátkou větu.",
+        "transfer": "Châtelet (7 směr Villejuif / Mairie d’Ivry) → Place d’Italie, pak pěšky. Celkem plánuj asi 35–45 min.",
+        "conditions": "Nedělní trasa prohlíží fasádu. Knihkupectví Maruani je v neděli zavřené; návštěvu uvnitř nelze slibovat.",
+        "sources": [
+          {
+            "label": "Galerie — popis, autor a adresa",
+            "url": "https://itinerrance.fr/actualites/cryptik-a-paris-streetart13/"
+          },
+          {
+            "label": "Librairie Maruani — provoz",
+            "url": "https://www.librairiemaruani.fr/"
+          }
+        ],
+        "verification": "inherited-roadbook-recheck-before-publication",
+        "verifiedAt": null,
+        "sourceDocumentDate": "2026-10-21",
+        "coordinates": null,
+        "bookingConfirmed": false,
+        "rawMarkdown": "171 boulevard Vincent Auriol, 75013 Paris · 11:30–12:00 · VEŘEJNÉ UMĚNÍ\n\nDílo pracuje s textem Williama Saroyana. Nejprve zkus přečíst formu, teprve potom porovnej s vysvětlením galerie. Navrhni vlastní krátkou větu.\n\n**Přesun:** Châtelet (7 směr Villejuif / Mairie d’Ivry) → Place d’Italie, pak pěšky. Celkem plánuj asi 35–45 min.\n\n**Podmínky:** Nedělní trasa prohlíží fasádu. Knihkupectví Maruani je v neděli zavřené; návštěvu uvnitř nelze slibovat.\n\n[Galerie — popis, autor a adresa](https://itinerrance.fr/actualites/cryptik-a-paris-streetart13/) · [Librairie Maruani — provoz](https://www.librairiemaruani.fr/)"
+      },
+      {
+        "id": "knowledge-3",
+        "title": "Shepard Fairey — Liberté, Égalité, Fraternité",
+        "addressLine": "141 boulevard Vincent Auriol, 75013 Paris · 12:10–12:40 · VEŘEJNÉ UMĚNÍ",
+        "address": "141 boulevard Vincent Auriol, 75013 Paris",
+        "task": "Napiš, kde končí hodnota a začíná slogan. Zkus vytvořit vlastní alternativu bez reklamního jazyka.",
+        "transfer": "Pěšky přibližně 5–10 min.",
+        "conditions": "",
+        "sources": [
+          {
+            "label": "Boulevard Paris 13 — umělecký projekt",
+            "url": "https://boulevardparis13.com/"
+          },
+          {
+            "label": "Turistická trasa s adresou díla",
+            "url": "https://parisjetaime.com/article/balade-street-art-dans-le-13e-arrondissement-a776"
+          }
+        ],
+        "verification": "inherited-roadbook-recheck-before-publication",
+        "verifiedAt": null,
+        "sourceDocumentDate": "2026-10-21",
+        "coordinates": null,
+        "bookingConfirmed": false,
+        "rawMarkdown": "141 boulevard Vincent Auriol, 75013 Paris · 12:10–12:40 · VEŘEJNÉ UMĚNÍ\n\nNapiš, kde končí hodnota a začíná slogan. Zkus vytvořit vlastní alternativu bez reklamního jazyka.\n\n**Přesun:** Pěšky přibližně 5–10 min.\n\n[Boulevard Paris 13 — umělecký projekt](https://boulevardparis13.com/) · [Turistická trasa s adresou díla](https://parisjetaime.com/article/balade-street-art-dans-le-13e-arrondissement-a776)"
+      },
+      {
+        "id": "knowledge-4",
+        "title": "INTI — La Madre Secular 2",
+        "addressLine": "81 boulevard Vincent Auriol, 75013 Paris · 12:50–13:20 · VEŘEJNÉ UMĚNÍ",
+        "address": "81 boulevard Vincent Auriol, 75013 Paris",
+        "task": "Galerie vysvětluje dílo jako světskou Madonu a vztah poznání, přírody a skepticismu. Nakresli vlastní symbol pochybnosti a vlastní symbol důvěry.",
+        "transfer": "Pěšky přibližně 10–15 min.",
+        "conditions": "Poté vyhraď přibližně 90 minut na jídlo a napsání 150–250 slov. Symbolické čtení není důkaz o nadpřirozených vlastnostech umění.",
+        "sources": [
+          {
+            "label": "Autorský projekt — výklad díla",
+            "url": "https://boulevardparis13.com/project/la-madre-secular-2/"
+          },
+          {
+            "label": "FFRandonnée — adresa díla",
+            "url": "https://www.cirkwi.com/fr/point-interet/2018841-la-madre-secular-2-d-inti"
+          }
+        ],
+        "verification": "inherited-roadbook-recheck-before-publication",
+        "verifiedAt": null,
+        "sourceDocumentDate": "2026-10-21",
+        "coordinates": null,
+        "bookingConfirmed": false,
+        "rawMarkdown": "81 boulevard Vincent Auriol, 75013 Paris · 12:50–13:20 · VEŘEJNÉ UMĚNÍ\n\nGalerie vysvětluje dílo jako světskou Madonu a vztah poznání, přírody a skepticismu. Nakresli vlastní symbol pochybnosti a vlastní symbol důvěry.\n\n**Přesun:** Pěšky přibližně 10–15 min.\n\n**Podmínky:** Poté vyhraď přibližně 90 minut na jídlo a napsání 150–250 slov. Symbolické čtení není důkaz o nadpřirozených vlastnostech umění.\n\n[Autorský projekt — výklad díla](https://boulevardparis13.com/project/la-madre-secular-2/) · [FFRandonnée — adresa díla](https://www.cirkwi.com/fr/point-interet/2018841-la-madre-secular-2-d-inti)"
+      },
+      {
+        "id": "knowledge-5",
+        "title": "Place Fréhel — Ben a moc slov",
+        "addressLine": "Place Fréhel, 75020 Paris · 15:45–16:30 · VEŘEJNÉ UMĚNÍ",
+        "address": "Place Fréhel, 75020 Paris",
+        "task": "Benovo dílo Il faut se méfier des mots použij jako test vlastního textu. Které tvrzení umíš obhájit? Které jen působí přesvědčivě? Vytvoř druhou, přesnější verzi.",
+        "transfer": "Z okolí Place d’Italie: 5 směr Bobigny → République; 11 směr Rosny–Bois-Perrier → Belleville + pěšky. Nebo kolo asi 40–55 min.",
+        "conditions": "",
+        "sources": [
+          {
+            "label": "Městská část — díla na Place Fréhel",
+            "url": "https://mairie20.paris.fr/pages/il-etait-une-fois-le-20e-la-place-frehel-une-galerie-d-art-a-ciel-ouvert-26201"
+          }
+        ],
+        "verification": "inherited-roadbook-recheck-before-publication",
+        "verifiedAt": null,
+        "sourceDocumentDate": "2026-10-21",
+        "coordinates": null,
+        "bookingConfirmed": false,
+        "rawMarkdown": "Place Fréhel, 75020 Paris · 15:45–16:30 · VEŘEJNÉ UMĚNÍ\n\nBenovo dílo Il faut se méfier des mots použij jako test vlastního textu. Které tvrzení umíš obhájit? Které jen působí přesvědčivě? Vytvoř druhou, přesnější verzi.\n\n**Přesun:** Z okolí Place d’Italie: 5 směr Bobigny → République; 11 směr Rosny–Bois-Perrier → Belleville + pěšky. Nebo kolo asi 40–55 min.\n\n[Městská část — díla na Place Fréhel](https://mairie20.paris.fr/pages/il-etait-une-fois-le-20e-la-place-frehel-une-galerie-d-art-a-ciel-ouvert-26201)"
+      },
+      {
+        "id": "knowledge-6",
+        "title": "Au Chat Noir — AWOL writers’ workshop",
+        "addressLine": "76 rue Jean-Pierre Timbaud, 75011 Paris · Neděle 17:15–19:15 · PRAVIDELNÝ WORKSHOP",
+        "address": "76 rue Jean-Pierre Timbaud, 75011 Paris",
+        "task": "Přines svůj text a jednu konkrétní otázku. Požádej o reakci na srozumitelnost a přesnost, ne jen o pochvalu. Poskytni stejně konkrétní zpětnou vazbu někomu dalšímu.",
+        "transfer": "Pěšky asi 15–20 min.",
+        "conditions": "Workshop je zdarma a zaměřený na psaní, nikoli výlučně na rap či filozofii. Pořadatel uvádí pravidelnou neděli; před konkrétní návštěvou zkontroluj aktuality.",
+        "sources": [
+          {
+            "label": "SpokenWord / AWOL — pravidelný program",
+            "url": "https://spokenwordparis.org/"
+          }
+        ],
+        "verification": "inherited-roadbook-recheck-before-publication",
+        "verifiedAt": null,
+        "sourceDocumentDate": "2026-10-21",
+        "coordinates": null,
+        "bookingConfirmed": false,
+        "rawMarkdown": "76 rue Jean-Pierre Timbaud, 75011 Paris · Neděle 17:15–19:15 · PRAVIDELNÝ WORKSHOP\n\nPřines svůj text a jednu konkrétní otázku. Požádej o reakci na srozumitelnost a přesnost, ne jen o pochvalu. Poskytni stejně konkrétní zpětnou vazbu někomu dalšímu.\n\n**Přesun:** Pěšky asi 15–20 min.\n\n**Podmínky:** Workshop je zdarma a zaměřený na psaní, nikoli výlučně na rap či filozofii. Pořadatel uvádí pravidelnou neděli; před konkrétní návštěvou zkontroluj aktuality.\n\n[SpokenWord / AWOL — pravidelný program](https://spokenwordparis.org/)\n\n---"
+      }
+    ]
+  }
+]

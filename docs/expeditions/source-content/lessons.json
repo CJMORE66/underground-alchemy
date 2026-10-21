@@ -1,0 +1,332 @@
+[
+  {
+    "id": "dj-1",
+    "title": "Slyš vrstvy, ne jen název skladby.",
+    "objective": "Oddělit rytmickou, basovou a melodickou funkci v poslechu.",
+    "why": "Dnes nehledáš nejdražší desku. Hledáš zvuk, pro který dokážeš popsat konkrétní roli. Pozornost zaměřujeme postupně; nejde o jediný správný způsob poslechu.",
+    "example": "Autorský příklad: první poslech zachytí pouze silný groove. Při druhém si poznamenáš pravidelný kopák a mezeru před dalším úderem. Ve třetím sleduješ, kdy do ní vstupuje basa. Z pocitu vzniká popsatelná volba.",
+    "steps": [
+      "Vyber skladbu, kterou smíš přehrát. Poslouchej krátký úsek bez čtení názvu.",
+      "Zapiš zvlášť rytmus, basu a výrazný motiv. Nevíš-li, jak se nástroj jmenuje, popiš zvuk vlastními slovy.",
+      "Pusť úsek znovu a oprav jednu první domněnku.",
+      "V obchodě požádej o doporučení podle konkrétního zvuku, ne pouze podle žánru."
+    ],
+    "check": [
+      "Dokážeš ukázat čas, kdy se něco mění?",
+      "Rozlišuješ slyšený detail od předpokladu o jeho původu?"
+    ],
+    "artifact": "Tři poslechové poznámky a jedna oprava.",
+    "advanced": "Porovnej dva odlišné tracky a najdi společnou zvukovou funkci, ne nutně shodný styl.",
+    "sourceIds": [],
+    "kind": "original-editorial-exercise",
+    "reviewStatus": "editorial-draft-for-specialist-review"
+  },
+  {
+    "id": "dj-2",
+    "title": "Proč patří tyto dvě věci za sebe?",
+    "objective": "Zdůvodnit a vyzkoušet jednu návaznost.",
+    "why": "Přechod může pracovat s podobností i kontrastem. Pro tuto lekci vyber pouze jeden záměr: udržet energii, změnit prostor nebo zvýraznit překvapení.",
+    "example": "A je hutný rytmus, B má delší tiché začátky. Původní pokus pustí obě věci přes sebe a záměr se ztratí. Opravený pokus nechá před B krátký prostor. Neříkáme, že druhý je univerzálně lepší; hodnotíme, zda plní zadaný záměr.",
+    "steps": [
+      "Vyber dvě vlastní nebo oprávněně použité nahrávky.",
+      "Napiš jednou větou záměr návaznosti.",
+      "Na skutečně potvrzeném vybavení zkus dvě verze. Nezaměňuj pronájem studia za automatickou přítomnost lektora.",
+      "Poslechni si záznam bez sledování rukou. Označ okamžik, který odpovídá záměru."
+    ],
+    "check": [
+      "Je rozdíl mezi verzemi slyšitelný?",
+      "Máš pojmenované rozhodnutí, nejen oblíbenou skladbu?"
+    ],
+    "artifact": "Dva pokusy a krátké zdůvodnění.",
+    "advanced": "Postav návaznost, která funguje bez shodné nálady obou skladeb.",
+    "sourceIds": [],
+    "kind": "original-editorial-exercise",
+    "reviewStatus": "editorial-draft-for-specialist-review"
+  },
+  {
+    "id": "dj-3",
+    "title": "Z výběru vytvoř příběh.",
+    "objective": "Sestavit a zreflektovat krátký vlastní set.",
+    "why": "Větší počet skladeb nemusí znamenat lepší celek. Ve studiu rezervuj čas na zkoušku záznamu a export. Večer pak porovnej svoje rozhodnutí s tím, čeho si všimneš u jiného DJ.",
+    "example": "Osnova: uvedení tématu → první změna → kontrast → návrat či otevřený konec. Je to pracovní pomůcka, ne povinná forma každého setu.",
+    "steps": [
+      "Připrav pořadí a označ tři přechody se zamýšlenou funkcí.",
+      "Otestuj úroveň záznamu a způsob exportu ještě před hlavním pokusem.",
+      "Nahraj 15–20 minut nebo kratší úsek podle možností.",
+      "Zapiš jednu věc, kterou ponecháš, a jednu, kterou příště změníš."
+    ],
+    "check": [
+      "Má export skutečný zvuk a lze ho přehrát?",
+      "Jsou poznámky spojeny s konkrétními místy?"
+    ],
+    "artifact": "Mix, tracklist a tři komentovaná rozhodnutí.",
+    "advanced": "Vytvoř alternativní pořadí stejných skladeb a popiš jiný účinek.",
+    "sourceIds": [],
+    "kind": "original-editorial-exercise",
+    "reviewStatus": "editorial-draft-for-specialist-review"
+  },
+  {
+    "id": "mc-1",
+    "title": "Od pozorování k vlastnímu obrazu.",
+    "objective": "Napsat čtyři řádky z konkrétních pozorování.",
+    "why": "Čtvrť není kulisa pro převzaté soudy o jejích obyvatelích. Nejdřív zachyť viditelné nebo slyšitelné detaily, teprve potom je proměň v autorský obraz.",
+    "example": "Obecné: „Město je tvrdý a lidi se honí za penězi.“ Konkrétní: „Roleta ještě spí, první mince už cinká do šálku.“ Druhá věta je vymyšlená výuková ukázka, ne reportáž z Barbès.",
+    "steps": [
+      "Pět minut pozoruj bez nahrávání cizích rozhovorů.",
+      "Zapiš zvuk, gesto a předmět. Označ, co jsi skutečně vnímal.",
+      "Napiš čtyři řádky. Pro první pokus vynech slova systém, realita, osud a ulice.",
+      "Přečti text nahlas a změň nejméně konkrétní řádek."
+    ],
+    "check": [
+      "Který detail může druhý člověk uvidět nebo slyšet?",
+      "Kde začíná tvoje interpretace?"
+    ],
+    "artifact": "Poznámky, čtyři řádky a jedna vysvětlená změna.",
+    "advanced": "Udrž stejný význam při dvou rozdílných perspektivách vypravěče.",
+    "sourceIds": [],
+    "kind": "original-editorial-exercise",
+    "reviewStatus": "editorial-draft-for-specialist-review"
+  },
+  {
+    "id": "mc-2",
+    "title": "Pauza také něco říká.",
+    "objective": "Vyzkoušet dvě odlišná umístění důrazu a pauzy.",
+    "why": "Psaný text a přednes nejsou stejná věc. Pro tento pokus neměň slova; změň pouze místa důrazů a pauz. Není předepsaná jedna správná flow.",
+    "example": "Větu „Dnes mluvím já, ne hlasy kolem“ přečti nejprve s pauzou za „já“, potom s důrazem na „dnes“. Zhodnoť, zda změna slouží záměru. Ukázka je původní výukový text.",
+    "steps": [
+      "Vyber vlastní čtyři řádky.",
+      "Označ svislicí dvě možné pauzy a podtrhni jedno důležité slovo.",
+      "Nahraj dvě krátké verze stejným přístrojem ze stejné vzdálenosti.",
+      "Poslechni bez čtení textu a popiš rozdíl."
+    ],
+    "check": [
+      "Je význam srozumitelný bez doprovodného vysvětlení?",
+      "Změnil jsi přednes, nebo jen hlasitost nahrávky?"
+    ],
+    "artifact": "Dvě nahrávky a popis jednoho rozdílu.",
+    "advanced": "Vyzkoušej tentýž text a cappella i na vlastním beatu, který smíš používat.",
+    "sourceIds": [],
+    "kind": "original-editorial-exercise",
+    "reviewStatus": "editorial-draft-for-specialist-review"
+  },
+  {
+    "id": "mc-3",
+    "title": "Demo je pokus, ne rozsudek.",
+    "objective": "Dokončit pracovní sloku a vědomou revizi.",
+    "why": "První nahrávka má odhalit, co text potřebuje. Hodnotíme konkrétní záměr a změnu, ne automatické procentní skóre kvality rapu. Open mic je dobrovolný bonus závislý na pořadateli.",
+    "example": "První verze obsahuje řádek, který potřebuje vysvětlovat. Ve druhé vyměníš abstraktní formulaci za vlastní detail a upravíš pauzu. V Blackbooku uložíš obě, ne pouze „dokonalou“.",
+    "steps": [
+      "Před rezervací potvrď technika, mikrofon, DAW a export.",
+      "Připrav beat s vyjasněnými právy a zálohu textu.",
+      "Nahraj první take, vyber jeden problém a oprav jej.",
+      "Ulož dvě verze; pro případný open mic připrav i krátkou a cappella variantu."
+    ],
+    "check": [
+      "Umíš vysvětlit jednu slyšitelnou změnu?",
+      "Nezaměňuješ možný slot za potvrzené vystoupení?"
+    ],
+    "artifact": "Pracovní sloka, dvě verze a poznámka o revizi.",
+    "advanced": "Požádej posluchače o reakci na jednu konkrétní otázku a vyhodnoť ji bez nutnosti slepě přijmout každý názor.",
+    "sourceIds": [],
+    "kind": "original-editorial-exercise",
+    "reviewStatus": "editorial-draft-for-specialist-review"
+  },
+  {
+    "id": "writer-1",
+    "title": "Nejdřív kostra. Potom efekt.",
+    "objective": "Vytvořit čitelnou konstrukci vlastních písmen.",
+    "why": "Dnes trénujeme konstrukci, ne napodobení cizího podpisu. Barevné výplně mohou přitáhnout pozornost, ale pro tuto lekci je schováme a prohlédneme samotné proporce.",
+    "example": "Tři stavy stejného pracovního písmene: osa a hlavní tahy → objem → obrys. SVG v demu je zjednodušený výukový diagram, ne hotový graffiti styl ani šablona cizího writera.",
+    "steps": [
+      "Na ulici vyber tři odlišné konstrukční principy. Fotografuj respektujíc okolí.",
+      "Do skicáku nakresli své jméno pouze osami hlavních tahů.",
+      "Přidej objem a zkontroluj prázdná místa.",
+      "Zmenši náhled nebo se na něj podívej z dálky; uprav nejasné spojení."
+    ],
+    "check": [
+      "Rozlišíš jednotlivá písmena bez barvy?",
+      "Je inspirací princip, ne převzatý podpis?"
+    ],
+    "artifact": "První skica a opravená konstrukce.",
+    "advanced": "Navrhni tři konstrukčně odlišné podoby stejného slova.",
+    "sourceIds": [],
+    "kind": "original-editorial-exercise",
+    "reviewStatus": "editorial-draft-for-specialist-review"
+  },
+  {
+    "id": "writer-2",
+    "title": "Prázdné místo je součást písmene.",
+    "objective": "Vědomě rozhodnout o rozestupech, překryvech a kontrastu.",
+    "why": "V tomhle cvičení omezíme paletu a zkoumáme vztahy mezi tvary. Omezení není obecný zákon graffiti, ale způsob, jak lépe vidět vlastní rozhodnutí.",
+    "example": "Dvě stejné výplně mohou při jiném rozestupu působit jako jedna hmota. Porovnej verzi s velkým překryvem a verzi s otevřeným průhledem. Popiš, co se změnilo v čitelnosti.",
+    "steps": [
+      "Vytvoř kopii své skici.",
+      "Na první změň jen mezery, na druhé jen překryvy.",
+      "Vyber dvě výplně, obrys a jeden světelný akcent.",
+      "Materiál kup podle vybrané skici; ověř vhodnost povrchu a podmínky u výrobce nebo prodejce."
+    ],
+    "check": [
+      "Umíš ukázat jednu změnu, která zlepšila tvůj záměr?",
+      "Máš plán a materiál pro konkrétní formát?"
+    ],
+    "artifact": "Dvě varianty kompozice a paleta.",
+    "advanced": "Zachovej čitelnost při výrazně omezené paletě a asymetrické kompozici.",
+    "sourceIds": [],
+    "kind": "original-editorial-exercise",
+    "reviewStatus": "editorial-draft-for-specialist-review"
+  },
+  {
+    "id": "writer-3",
+    "title": "Ze skicáku na povolenou plochu.",
+    "objective": "Realizovat menší vlastní práci a zdokumentovat postup.",
+    "why": "Povolení se vztahuje na konkrétní úsek. Kurátorovaná stěna není automaticky legál. Před cestou znovu ověř pravidla, počasí a vybavení; pro organizovanou komerční činnost vyjasni souhlas správce.",
+    "example": "Dokumentace: skica → první rozvržení → výplně → obrys → závěr. Neslibujeme, že jedna odpolední session vyřeší techniku nebo vytvoří profesionální masterpiece.",
+    "steps": [
+      "Na místě identifikuj povolenou část a aktuální značení.",
+      "Respektuj pracující lidi, průchod a pravidla správce. Použij ochranu podle pokynů výrobce.",
+      "Přenášej návrh po etapách a průběžně kontroluj proporce.",
+      "Dokumentuj jednotlivé kroky, ukliď a zapiš jednu změnu pro příště."
+    ],
+    "check": [
+      "Je použitá plocha skutečně povolená právě pro tuto aktivitu?",
+      "Ukazuje dokumentace tvoje rozhodnutí, ne jen hotovou fotku?"
+    ],
+    "artifact": "Procesní Blackbook: skica, paleta, vrstvy a reflexe.",
+    "advanced": "Přepracuj návrh podle skutečných omezení povrchu, aniž bys ztratil hlavní myšlenku.",
+    "sourceIds": [],
+    "kind": "original-editorial-exercise",
+    "reviewStatus": "editorial-draft-for-specialist-review"
+  },
+  {
+    "id": "breaking-1",
+    "title": "Nejdřív poslouchej změnu.",
+    "objective": "Rozpoznat hudební podnět a navrhnout vlastní jednoduchou reakci.",
+    "why": "Ilustrace na webu není technický návod. Bezpečnou pohybovou variantu přizpůsob své úrovni a konzultuj lektora; náročné prvky a první power moves do samostatné terénní lekce nepatří.",
+    "example": "Zvol jednoduchou sekvenci, kterou už bezpečně zvládáš. V jednom pokusu opakuješ automaticky, ve druhém vědomě reaguješ na jeden konkrétní hudební moment. Porovnáváš záměr, ne obtížnost.",
+    "steps": [
+      "Vyber hudbu, kterou můžeš použít. Nejprve ji jen poslouchej.",
+      "Označ jeden zřetelný hudební moment.",
+      "Po přiměřené přípravě zvol známý jednoduchý pohyb jako reakci.",
+      "Poznamenej si, co bys chtěl večer probrat s lektorem."
+    ],
+    "check": [
+      "Dokážeš označit hudební moment, na který reaguješ?",
+      "Je zvolená varianta přiměřená tvým schopnostem a povrchu?"
+    ],
+    "artifact": "Jedna hudební poznámka a otázka pro lektora.",
+    "advanced": "Použij stejnou známou frázi se dvěma rozdílnými hudebními podněty.",
+    "sourceIds": [],
+    "kind": "original-editorial-exercise",
+    "reviewStatus": "editorial-draft-for-specialist-review"
+  },
+  {
+    "id": "breaking-2",
+    "title": "Cypher není turistická atrakce.",
+    "objective": "Vstoupit do sdíleného prostoru s respektem.",
+    "why": "Volná tréninková hala nezaručuje vedenou lekci ani přijetí do konkrétní skupiny. Komunitu nelze prodávat jako automatickou součást vstupenky. Sleduj místní pravidla a souhlas lidí.",
+    "example": "Místo automatického vstupu mezi tanečníky: krátce se představíš, zeptáš se, zda se můžeš přidat, a respektuješ i odmítnutí. Kamera zůstává vypnutá, dokud nemáš souhlas.",
+    "steps": [
+      "Přečti pravidla místa a zjisti dostupný prostor.",
+      "Začni vlastní klidnou přípravou; nepřekážej ostatním.",
+      "Ptej se před připojením i před natáčením.",
+      "Na bezplatné otevřené ploše neorganizuj placenou lekci v rozporu s pravidly."
+    ],
+    "check": [
+      "Rozlišuješ společný prostor od rezervované služby?",
+      "Máš souhlas pro záznam ostatních?"
+    ],
+    "artifact": "Krátká poznámka: co jsi pozoroval a jak ses zapojil.",
+    "advanced": "Poskytni druhému člověku konkrétní respektující zpětnou vazbu, pouze když ji chce.",
+    "sourceIds": [],
+    "kind": "original-editorial-exercise",
+    "reviewStatus": "editorial-draft-for-specialist-review"
+  },
+  {
+    "id": "breaking-3",
+    "title": "Vlastní fráze, jedna vědomá oprava.",
+    "objective": "Porovnat dvě bezpečně provedené verze krátké fráze.",
+    "why": "Lektor má posoudit konkrétní provedení. Na web nepatří AI hodnocení techniky z efektního obrázku. Výukové demonstrace lidí vyžadují skutečného tanečního spoluautora a souhlas se zveřejněním.",
+    "example": "Před lekcí zaznamenáš krátkou známou frázi. Po konzultaci opravíš jedinou věc. Výstupem není počet triků, ale pojmenovaná a proveditelná změna.",
+    "steps": [
+      "Potvrď jednorázový vstup, úroveň a aktuální konání lekce.",
+      "Přines otázku z prvního úkolu.",
+      "Po lekci si poznamenej konkrétní doporučení a bezpečný způsob dalšího tréninku.",
+      "Se svolením a v odpovídajícím prostoru zaznamenej druhou verzi."
+    ],
+    "check": [
+      "Dokážeš vysvětlit, co změnil lektor a proč?",
+      "Není úspěch závislý na soutěži s ostatními?"
+    ],
+    "artifact": "Dvě krátké verze a další tréninkový krok.",
+    "advanced": "Ověř, zda stejná úprava funguje také při jiném hudebním tempu; případné limity řeš s lektorem.",
+    "sourceIds": [],
+    "kind": "original-editorial-exercise",
+    "reviewStatus": "editorial-draft-for-specialist-review"
+  },
+  {
+    "id": "knowledge-1",
+    "title": "Co vidím. Co si přidávám.",
+    "objective": "Oddělit pozorování od výkladu.",
+    "why": "Tato kapitola je současná autorská interpretace knowledge of self. Neprohlašuje hermetiku za původ hip-hopu a nenabízí léčebný nebo nadpřirozený účinek.",
+    "example": "„Na zdi je oko“ je popis viditelného motivu. „Autor tím myslí univerzální vědomí“ už je výklad, který potřebuje zdroj nebo označení jako domněnka.",
+    "steps": [
+      "Pět minut sleduj jedno dílo bez poslechu komentáře.",
+      "Napiš tři viditelné detaily a tři svoje interpretace.",
+      "Přečti doložené vyjádření autora či instituce, pokud existuje.",
+      "Označ, co se po přečtení změnilo a co stále nevíš."
+    ],
+    "check": [
+      "Nezaměňuješ symbol za důkaz tvrzení?",
+      "Dokážeš ukázat zdroj autorova vysvětlení?"
+    ],
+    "artifact": "Dvojice sloupců: pozorování a interpretace.",
+    "advanced": "Najdi dvě obhajitelné interpretace a u každé pojmenuj oporu i omezení.",
+    "sourceIds": [],
+    "kind": "original-editorial-exercise",
+    "reviewStatus": "editorial-draft-for-specialist-review"
+  },
+  {
+    "id": "knowledge-2",
+    "title": "Hodnota, nebo jen slogan?",
+    "objective": "Převést abstraktní slovo na konkrétní tvrzení nebo čin.",
+    "why": "Efektní věta může vytvářet dojem jasnosti, aniž něco přesně říká. Cílem není zakázat metaforu, ale poznat, kdy ji používáš místo argumentu.",
+    "example": "„Jsem nezávislý“ doplň otázkou „Na čem konkrétně?“ Potom napiš jeden ověřitelný závazek, například jak zkontroluješ zdroj informace před sdílením. Jde o výukový příklad, ne osobní hodnocení návštěvníka.",
+    "steps": [
+      "Vyber tři slova ze svého pracovního textu.",
+      "Ke každému napiš konkrétní význam v této situaci.",
+      "Označ větu, kterou neumíš obhájit nebo vysvětlit.",
+      "Přepiš ji přesněji a zachovej vlastní hlas."
+    ],
+    "check": [
+      "Je poznat, co tvrdíš a co pouze navrhuješ?",
+      "Neztrácí metafora smysl po jednoduchém vysvětlení?"
+    ],
+    "artifact": "Druhá verze krátkého manifestu.",
+    "advanced": "Sepiš nejsilnější rozumnou námitku proti svému postoji a zkus ji poctivě zohlednit.",
+    "sourceIds": [],
+    "kind": "original-editorial-exercise",
+    "reviewStatus": "editorial-draft-for-specialist-review"
+  },
+  {
+    "id": "knowledge-3",
+    "title": "Vlastní znak. Otevřený dialog.",
+    "objective": "Vytvořit symbol s vysvětlením a přijmout konkrétní zpětnou vazbu.",
+    "why": "Autorský symbol nemusí mít jediný výklad. Rozlišuj svůj záměr od toho, co v něm čte druhý člověk. Diskuse není soutěž o potvrzení vlastní výjimečnosti.",
+    "example": "Spoj motiv pochybnosti s motivem důvěry. Ukaž znak bez vysvětlení, vyslechni čtení druhého a teprve potom doplň záměr. Zapiš rozdíl.",
+    "steps": [
+      "Nakresli jednoduchý znak a napiš dvě věty o záměru.",
+      "Připrav 150–250 slov vlastního textu pro diskusi.",
+      "Ptej se na jednu konkrétní věc, například srozumitelnost hlavního tvrzení.",
+      "Vytvoř další verzi nebo vysvětli, proč konkrétní připomínku nepřijímáš."
+    ],
+    "check": [
+      "Dokážeš přiznat nejasnost, aniž vymýšlíš historický původ znaku?",
+      "Je zpětná vazba dobrovolná a vzájemná?"
+    ],
+    "artifact": "Znak, krátký text a jedna zpřesněná myšlenka.",
+    "advanced": "Porovnej úvodní a konečnou interpretaci bez potřeby tvrdit, že každá změna byla nutně zlepšení.",
+    "sourceIds": [],
+    "kind": "original-editorial-exercise",
+    "reviewStatus": "editorial-draft-for-specialist-review"
+  }
+]

@@ -1,0 +1,432 @@
+{
+  "schemaVersion": 1,
+  "checkedAt": "2026-10-21T07:13:24.793151+00:00",
+  "sourcePackage": "CAISIK_AI_WEB_PACKAGE_v1(1).zip",
+  "recoveryStatus": "complete",
+  "existingMasterImport": {
+    "command": "python tools/import_masters.py",
+    "exitCode": 0,
+    "regeneratedImages": false,
+    "modelCallsMade": false,
+    "summary": "All five original masters recovered at 2752×1536, plus supplied 1920×1080 five-frame WebP archive. No missing-master claim remains."
+  },
+  "productionDecision": {
+    "rule": "The latest user-approved CAISIK artwork style overrides the portable package art direction.",
+    "selected": "Existing approved site masterworks, reused byte-for-byte.",
+    "recoveredMasters": "Preserved byte-for-byte in git-backed reference assets, available for future production work but not used in the active UI.",
+    "newGenerationRequested": false,
+    "reason": "Recovered assets are usable files but visually conflict with the exact latest approved intricate gold/yellow engraved and sculptural wildstyle direction.",
+    "recoveredReferenceStatus": "recovered-reference-not-active-art-direction"
+  },
+  "masters": [
+    {
+      "id": "dj",
+      "originalUrl": "https://gcdn.picsart.com/pipeline-output/974bb314-6e5e-439f-a30f-812892dbe1b5.png",
+      "importCommand": "python tools/import_masters.py",
+      "importExitCode": 0,
+      "recovered": true,
+      "original": {
+        "path": "/workspace/scratch/53e4f6e58dee/expedition-package/CAISIK_AI_WEB_PACKAGE_v1/assets/masters/dj.png",
+        "bytes": 5051474,
+        "sha256": "980d2b688f0d27624fa4ad60d5f90e127ae751a7c9e727448f987362ba2b2502",
+        "dimensions": [
+          2752,
+          1536
+        ],
+        "format": "PNG"
+      },
+      "optimizedWebP": {
+        "path": "/workspace/scratch/53e4f6e58dee/expedition-package/CAISIK_AI_WEB_PACKAGE_v1/assets/scenes/dj-master.webp",
+        "bytes": 487620,
+        "sha256": "abb54ac0eac07cdc195a5135ea336fcab063f978ce596646919f54285314f639",
+        "dimensions": [
+          2752,
+          1536
+        ],
+        "format": "WEBP"
+      },
+      "visuallyInspected": true,
+      "subject": "Anonymous DJ hands, vinyl and vaulted record shop",
+      "selectedForProduction": false,
+      "reason": "Recovered image uses flat two-tone comic art; the overriding approved visual direction is intricate engraved/sculptural gold wildstyle. No existing graphic was replaced.",
+      "gitBackedReference": {
+        "path": "dist/expeditions/assets/masters/dj.webp",
+        "url": "/expeditions/assets/masters/dj.webp",
+        "status": "recovered-reference-not-active-art-direction",
+        "bytes": 487620,
+        "sha256": "abb54ac0eac07cdc195a5135ea336fcab063f978ce596646919f54285314f639",
+        "copiedWithoutModification": true
+      }
+    },
+    {
+      "id": "mc",
+      "originalUrl": "https://gcdn.picsart.com/pipeline-output/05aff7e5-c448-4193-8d3f-a3b42d519c82.png",
+      "importCommand": "python tools/import_masters.py",
+      "importExitCode": 0,
+      "recovered": true,
+      "original": {
+        "path": "/workspace/scratch/53e4f6e58dee/expedition-package/CAISIK_AI_WEB_PACKAGE_v1/assets/masters/mc.png",
+        "bytes": 5179644,
+        "sha256": "611b5404d3378bbebb7e21cce3286975517cac9882866b1045691358d14ed6f2",
+        "dimensions": [
+          2752,
+          1536
+        ],
+        "format": "PNG"
+      },
+      "optimizedWebP": {
+        "path": "/workspace/scratch/53e4f6e58dee/expedition-package/CAISIK_AI_WEB_PACKAGE_v1/assets/scenes/mc-master.webp",
+        "bytes": 455724,
+        "sha256": "a353898cec7c7c867863512e9aac7e5b0cddc744984ab4ed49cb3090931b3b52",
+        "dimensions": [
+          2752,
+          1536
+        ],
+        "format": "WEBP"
+      },
+      "visuallyInspected": true,
+      "subject": "Anonymous MC, microphone, elevated railway and notebook",
+      "selectedForProduction": false,
+      "reason": "Recovered image uses flat two-tone comic art; the overriding approved visual direction is intricate engraved/sculptural gold wildstyle. No existing graphic was replaced.",
+      "gitBackedReference": {
+        "path": "dist/expeditions/assets/masters/mc.webp",
+        "url": "/expeditions/assets/masters/mc.webp",
+        "status": "recovered-reference-not-active-art-direction",
+        "bytes": 455724,
+        "sha256": "a353898cec7c7c867863512e9aac7e5b0cddc744984ab4ed49cb3090931b3b52",
+        "copiedWithoutModification": true
+      }
+    },
+    {
+      "id": "writer",
+      "originalUrl": "https://gcdn.picsart.com/pipeline-output/de43a601-3e23-454e-95d8-349f6ca627f4.png",
+      "importCommand": "python tools/import_masters.py",
+      "importExitCode": 0,
+      "recovered": true,
+      "original": {
+        "path": "/workspace/scratch/53e4f6e58dee/expedition-package/CAISIK_AI_WEB_PACKAGE_v1/assets/masters/writer.png",
+        "bytes": 4708860,
+        "sha256": "1fe7e787048eadab11a9a1ef986741621c89c44acea4bddc0ba4ed570e9c4fac",
+        "dimensions": [
+          2752,
+          1536
+        ],
+        "format": "PNG"
+      },
+      "optimizedWebP": {
+        "path": "/workspace/scratch/53e4f6e58dee/expedition-package/CAISIK_AI_WEB_PACKAGE_v1/assets/scenes/writer-master.webp",
+        "bytes": 322368,
+        "sha256": "da1397c30e7089fd6b7802e4e13c600ee67734e5c2bf236081decbb38a442fa7",
+        "dimensions": [
+          2752,
+          1536
+        ],
+        "format": "WEBP"
+      },
+      "visuallyInspected": true,
+      "subject": "Anonymous writer painting abstract letters beside sketchbook",
+      "selectedForProduction": false,
+      "reason": "Recovered image uses flat two-tone comic art; the overriding approved visual direction is intricate engraved/sculptural gold wildstyle. No existing graphic was replaced.",
+      "gitBackedReference": {
+        "path": "dist/expeditions/assets/masters/writer.webp",
+        "url": "/expeditions/assets/masters/writer.webp",
+        "status": "recovered-reference-not-active-art-direction",
+        "bytes": 322368,
+        "sha256": "da1397c30e7089fd6b7802e4e13c600ee67734e5c2bf236081decbb38a442fa7",
+        "copiedWithoutModification": true
+      }
+    },
+    {
+      "id": "breaking",
+      "originalUrl": "https://gcdn.picsart.com/pipeline-output/b9f18348-1f47-4ad1-ba82-e5378c79aef5.png",
+      "importCommand": "python tools/import_masters.py",
+      "importExitCode": 0,
+      "recovered": true,
+      "original": {
+        "path": "/workspace/scratch/53e4f6e58dee/expedition-package/CAISIK_AI_WEB_PACKAGE_v1/assets/masters/breaking.png",
+        "bytes": 4926684,
+        "sha256": "fd6c73e32c9148bb26e6bcf1ca86e723e6f4159bfc5177121e3c1d7923ca08c0",
+        "dimensions": [
+          2752,
+          1536
+        ],
+        "format": "PNG"
+      },
+      "optimizedWebP": {
+        "path": "/workspace/scratch/53e4f6e58dee/expedition-package/CAISIK_AI_WEB_PACKAGE_v1/assets/scenes/breaking-master.webp",
+        "bytes": 546070,
+        "sha256": "9bcab62a8555902421cfbebdf21edd7ff42a227af472b377ca054a57a0bccdec",
+        "dimensions": [
+          2752,
+          1536
+        ],
+        "format": "WEBP"
+      },
+      "visuallyInspected": true,
+      "subject": "Anonymous upright dancer in an industrial hall with watchers",
+      "selectedForProduction": false,
+      "reason": "Recovered image uses flat two-tone comic art; the overriding approved visual direction is intricate engraved/sculptural gold wildstyle. No existing graphic was replaced.",
+      "gitBackedReference": {
+        "path": "dist/expeditions/assets/masters/breaking.webp",
+        "url": "/expeditions/assets/masters/breaking.webp",
+        "status": "recovered-reference-not-active-art-direction",
+        "bytes": 546070,
+        "sha256": "9bcab62a8555902421cfbebdf21edd7ff42a227af472b377ca054a57a0bccdec",
+        "copiedWithoutModification": true
+      }
+    },
+    {
+      "id": "knowledge",
+      "originalUrl": "https://gcdn.picsart.com/pipeline-output/1a02ac98-bc0c-4190-a5c7-919e5bd2e556.png",
+      "importCommand": "python tools/import_masters.py",
+      "importExitCode": 0,
+      "recovered": true,
+      "original": {
+        "path": "/workspace/scratch/53e4f6e58dee/expedition-package/CAISIK_AI_WEB_PACKAGE_v1/assets/masters/knowledge.png",
+        "bytes": 4744522,
+        "sha256": "4737e5e220fefac87b32137188f013a67091e2e849926d9d6d55780ae41596a4",
+        "dimensions": [
+          2752,
+          1536
+        ],
+        "format": "PNG"
+      },
+      "optimizedWebP": {
+        "path": "/workspace/scratch/53e4f6e58dee/expedition-package/CAISIK_AI_WEB_PACKAGE_v1/assets/scenes/knowledge-master.webp",
+        "bytes": 405680,
+        "sha256": "5773afd87a94c2f65d3664f6efac27ed5d01f5b1972996a2d1a8ec826b01b788",
+        "dimensions": [
+          2752,
+          1536
+        ],
+        "format": "WEBP"
+      },
+      "visuallyInspected": true,
+      "subject": "Anonymous hooded reader, rooftop and eye/astrolabe",
+      "selectedForProduction": false,
+      "reason": "Recovered image uses flat two-tone comic art; the overriding approved visual direction is intricate engraved/sculptural gold wildstyle. No existing graphic was replaced.",
+      "gitBackedReference": {
+        "path": "dist/expeditions/assets/masters/knowledge.webp",
+        "url": "/expeditions/assets/masters/knowledge.webp",
+        "status": "recovered-reference-not-active-art-direction",
+        "bytes": 405680,
+        "sha256": "5773afd87a94c2f65d3664f6efac27ed5d01f5b1972996a2d1a8ec826b01b788",
+        "copiedWithoutModification": true
+      }
+    }
+  ],
+  "externalArchive": {
+    "url": "https://gcdn.picsart.com/media-engine/eca3d514-b6b5-4811-ad14-55e039d0867f.zip",
+    "downloadUrl": "https://gcdn.picsart.com/media-engine/eca3d514-b6b5-4811-ad14-55e039d0867f.zip?download=true&download_file_name=CAISIK-five-production-scenes-1920.zip",
+    "downloadSucceeded": true,
+    "path": "/workspace/scratch/53e4f6e58dee/expedition-package/CAISIK_AI_WEB_PACKAGE_v1/assets/recovered-archive/CAISIK-five-production-scenes-1920.zip",
+    "bytes": 712138,
+    "sha256": "afe4541887441bed32869e98fbeada964e5eda9f928ec0403b7d0110830f220b",
+    "inspection": "All five actual WebP files visually inspected; order agrees with the supplied chronological scene order.",
+    "frames": [
+      {
+        "index": 0,
+        "id": "dj",
+        "path": "/workspace/scratch/53e4f6e58dee/expedition-package/CAISIK_AI_WEB_PACKAGE_v1/assets/recovered-archive/frames/0000.webp",
+        "bytes": 160732,
+        "sha256": "24eba25b81dcaf85243f925e9952012880ea2393280d447603f4bebdce21a714",
+        "dimensions": [
+          1920,
+          1080
+        ],
+        "format": "WEBP",
+        "visuallyInspected": true,
+        "matchesRecoveredMasterSubject": true
+      },
+      {
+        "index": 1,
+        "id": "mc",
+        "path": "/workspace/scratch/53e4f6e58dee/expedition-package/CAISIK_AI_WEB_PACKAGE_v1/assets/recovered-archive/frames/0001.webp",
+        "bytes": 147270,
+        "sha256": "59b985428bff221797788560eba334c2e71bf1d07896a44e8d8226758e5aaba4",
+        "dimensions": [
+          1920,
+          1080
+        ],
+        "format": "WEBP",
+        "visuallyInspected": true,
+        "matchesRecoveredMasterSubject": true
+      },
+      {
+        "index": 2,
+        "id": "writer",
+        "path": "/workspace/scratch/53e4f6e58dee/expedition-package/CAISIK_AI_WEB_PACKAGE_v1/assets/recovered-archive/frames/0002.webp",
+        "bytes": 106332,
+        "sha256": "66570365ce6190dece7684211d3c5ad994c954f564477df97e3546680e326b14",
+        "dimensions": [
+          1920,
+          1080
+        ],
+        "format": "WEBP",
+        "visuallyInspected": true,
+        "matchesRecoveredMasterSubject": true
+      },
+      {
+        "index": 3,
+        "id": "breaking",
+        "path": "/workspace/scratch/53e4f6e58dee/expedition-package/CAISIK_AI_WEB_PACKAGE_v1/assets/recovered-archive/frames/0003.webp",
+        "bytes": 162298,
+        "sha256": "25569391b60842247906e5020b77c1a4d5c3e280de81f893de26d334ddeb1001",
+        "dimensions": [
+          1920,
+          1080
+        ],
+        "format": "WEBP",
+        "visuallyInspected": true,
+        "matchesRecoveredMasterSubject": true
+      },
+      {
+        "index": 4,
+        "id": "knowledge",
+        "path": "/workspace/scratch/53e4f6e58dee/expedition-package/CAISIK_AI_WEB_PACKAGE_v1/assets/recovered-archive/frames/0004.webp",
+        "bytes": 135014,
+        "sha256": "e269a6a59bf13d898acec357a8bcc631e5ed3b191764ce5b4da43f4ef3052c4f",
+        "dimensions": [
+          1920,
+          1080
+        ],
+        "format": "WEBP",
+        "visuallyInspected": true,
+        "matchesRecoveredMasterSubject": true
+      }
+    ],
+    "gitBackedPath": "docs/expeditions/source-media/CAISIK-five-scenes-1920.zip",
+    "status": "recovered-reference-not-active-art-direction"
+  },
+  "productionArtwork": [
+    {
+      "id": "dj",
+      "image": "/assets/masterworks-v2/012.webp",
+      "title": "Two Decks",
+      "catalogRecord": "/art/artworks.json (id 12)",
+      "status": "existing-approved-site-artwork-reused-without-modification",
+      "depiction": "Generated symbolic illustration, not a documentary image of a venue, participant or instructional dance performance.",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "bytes": 492160,
+      "sha256": "047f92f728bcb399f9deaf21db3b4b22416f4d456952505feb0dbcc827ae606a",
+      "sourceStatus": "generated"
+    },
+    {
+      "id": "mc",
+      "image": "/assets/masterworks-v2/020.webp",
+      "title": "Pass the Mic",
+      "catalogRecord": "/art/artworks.json (id 20)",
+      "status": "existing-approved-site-artwork-reused-without-modification",
+      "depiction": "Generated symbolic illustration, not a documentary image of a venue, participant or instructional dance performance.",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "bytes": 491732,
+      "sha256": "48ff035797f2a44170765e830b8dfcd74912db5a3d998e3223419fbaa80feab1",
+      "sourceStatus": "generated"
+    },
+    {
+      "id": "writer",
+      "image": "/assets/masterworks-v2/044.webp",
+      "title": "Wild Structure",
+      "catalogRecord": "/art/artworks.json (id 44)",
+      "status": "existing-approved-site-artwork-reused-without-modification",
+      "depiction": "Generated symbolic illustration, not a documentary image of a venue, participant or instructional dance performance.",
+      "dimensions": [
+        1600,
+        800
+      ],
+      "bytes": 380522,
+      "sha256": "eb7e5c1b44b0401e29e83300e203e125401d48cc057bc971b8de280b81cc91ba",
+      "sourceStatus": "generated"
+    },
+    {
+      "id": "breaking",
+      "image": "/assets/masterworks-v2/083.webp",
+      "title": "Step Into It",
+      "catalogRecord": "/art/artworks.json (id 83)",
+      "status": "existing-approved-site-artwork-reused-without-modification",
+      "depiction": "Generated symbolic illustration, not a documentary image of a venue, participant or instructional dance performance.",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "bytes": 494300,
+      "sha256": "49a402b95b2fb13939c5a85cfeaa4cbcf61ec08d9d71818f48a52d84d7b69bf8",
+      "sourceStatus": "generated"
+    },
+    {
+      "id": "knowledge",
+      "image": "/assets/masterworks-v2/031.webp",
+      "title": "The Reader",
+      "catalogRecord": "/art/artworks.json (id 31)",
+      "status": "existing-approved-site-artwork-reused-without-modification",
+      "depiction": "Generated symbolic illustration, not a documentary image of a venue, participant or instructional dance performance.",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "bytes": 475650,
+      "sha256": "bbe3fa3379fddf1a48bf9415fb682e116fb5fbd87b320d2b173c110acf748f63",
+      "sourceStatus": "generated"
+    }
+  ],
+  "packagedMotionLayers": [
+    {
+      "id": "dj",
+      "source": "assets/layers/dj.svg",
+      "productionPath": "/expeditions/assets/layers/dj.svg",
+      "bytes": 4719,
+      "sha256": "369a4912c1f59cc69794c85259a9f21e02e206ae8c1f47c5c513b4aeb4ed80c8",
+      "modified": false,
+      "role": "Semantic instructional overlay. Not a full character rig or physical movement demonstration."
+    },
+    {
+      "id": "mc",
+      "source": "assets/layers/mc.svg",
+      "productionPath": "/expeditions/assets/layers/mc.svg",
+      "bytes": 777,
+      "sha256": "f26ade73af56b134dd952d37e98a8a6d42f4804491b92ca026b250e5d2fe5812",
+      "modified": false,
+      "role": "Semantic instructional overlay. Not a full character rig or physical movement demonstration."
+    },
+    {
+      "id": "writer",
+      "source": "assets/layers/writer.svg",
+      "productionPath": "/expeditions/assets/layers/writer.svg",
+      "bytes": 991,
+      "sha256": "f54b1ee12007d5dbd77781200cffd1b501535ee780e84f844148cba2e0d7560d",
+      "modified": false,
+      "role": "Semantic instructional overlay. Not a full character rig or physical movement demonstration."
+    },
+    {
+      "id": "breaking",
+      "source": "assets/layers/breaking.svg",
+      "productionPath": "/expeditions/assets/layers/breaking.svg",
+      "bytes": 1101,
+      "sha256": "82b3cc48e27d75caa6b08c8630eb0ee37a7d93006b7127c274742a05f32c78fc",
+      "modified": false,
+      "role": "Semantic instructional overlay. Not a full character rig or physical movement demonstration."
+    },
+    {
+      "id": "knowledge",
+      "source": "assets/layers/knowledge.svg",
+      "productionPath": "/expeditions/assets/layers/knowledge.svg",
+      "bytes": 640,
+      "sha256": "08f9d3701df7f7a33f557170b2c2b800f2e35a45b73d4d2c3fa856aa2b85e10e",
+      "modified": false,
+      "role": "Semantic instructional overlay. Not a full character rig or physical movement demonstration."
+    }
+  ],
+  "rightsAndRepresentation": {
+    "sourceProvenance": "Generated artwork provenance is inherited from supplied manifests and the existing site catalog; no new third-party music/photo/video was downloaded.",
+    "documentaryMediaProvided": false,
+    "danceTechniqueVideoProvided": false,
+    "partnerAgreementsProvided": false,
+    "characterRigProvided": false
+  }
+}
