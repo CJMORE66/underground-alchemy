@@ -1,0 +1,13 @@
+{
+  "source": "025.webp approved Rhythm illustration",
+  "edit": "Remove complete pendulum and ghost positions; preserve and restore stationary arch and pillars",
+  "generated": "2026-10-21",
+  "asset": "rhythm-frame-clean.png",
+  "sha256": "24548cd195859b7ab716a539e209b72b0a7886f63c6535442c8ae7ef8ba15855",
+  "dimensions": [
+    1254,
+    1254
+  ],
+  "method": "Built-in image generation precise-object-edit; transparent background",
+  "prompt": "Use case: precise-object-edit. Asset type: clean background plate for an animated CAISIK pendulum illustration. Edit target: attached original. Remove the entire central diagonal pendulum: rod from the small suspension loop under the top central rosette at approximately x50%, y20%, the large faceted spherical bob at x68%, y69%, its bottom finial, and the crimson ribbon attached to that bob. Also remove the three smaller ghost bob positions, curved motion trails and dangling lines inside the arch so the opening is clean. Keep the full stationary outer Gothic clock arch, the TWO left and right architectural pillars, top central engraved rosette and small suspension ring, side spherical ornaments and lower compass medallion. Restore previously occluded background architecture naturally. The central opening must be empty transparent space. Keep original square composition and exact alignment of left/right pillars, top rosette and bottom compass, do not crop. Preserve original saturated yellow, sharp black engraved comic ink, bone white edge highlights, tiny crimson accents, mature sophisticated angular graphic novel style. Clean transparent exterior and transparent empty opening, no new pendulum, no lettering, no floating rod, no gray fog, no noise, no fake checkerboard. This is a background plate; only stationary frame remains."
+}

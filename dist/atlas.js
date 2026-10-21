@@ -1,5 +1,5 @@
 import {artworkMarkup} from './artwork-markup.js';
-import {initPrinciples} from './atlas-principles.js';
+import {initPrinciples} from './atlas-principles.js?v=2';
 import {initFrequency} from './atlas-frequency.js';
 const $=id=>document.getElementById(id);
 const escape=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));

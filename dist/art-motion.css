@@ -32,3 +32,18 @@
 @media(max-width:390px){.ap-art.art-motion-scope{height:315px}.art-piece .living-art{height:245px}.art-dialog-motion{gap:8px}.art-dialog-motion>span{max-width:135px}.art-dialog-motion .small-button{font-size:8px;letter-spacing:.6px}}
 html[data-motion=off] .ap-tab svg path,body.simple-mode .ap-tab svg path{animation:none!important}
 @media(prefers-reduced-motion:reduce){.ap-tab svg path{animation:none!important}.art-piece .living-art{filter:none!important}}
+
+/* A readable visual story, with a moment to stop and study each transformation. */
+.ap-art.art-motion-scope{height:480px;padding-bottom:108px}
+.ap-art.art-motion-scope .ap-art-caption{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px 12px;bottom:6px;text-align:left;padding:0 3px}
+.ap-art-credit{font-size:9px;letter-spacing:1px}
+.ap-story-buttons{display:flex;gap:6px;align-items:center}
+.ap-story-buttons .ap-art-replay{min-height:32px;font-size:10px;padding:5px 9px;letter-spacing:.7px}
+.ap-story-scrub{display:grid;grid-column:1/-1;gap:5px;width:100%;font:600 11px/1.4 'Barlow Condensed',sans-serif;letter-spacing:1px;color:#ffd600}
+.ap-story-scrub input{width:100%;margin:0;accent-color:#ffd600;min-height:22px;cursor:pointer}
+.ap-story-scrub input:focus-visible{outline:2px solid #fff;outline-offset:2px}
+.ap-story-scrub input:disabled{opacity:.3;cursor:default}
+.living-art[data-art-scene=mentalism][data-art-state=loading] .living-art-poster{visibility:hidden}
+@media(max-width:1000px){.ap-art.art-motion-scope{height:440px}.ap-art.art-motion-scope .ap-art-caption{gap:7px}.ap-art-credit{font-size:8px}.ap-story-buttons .ap-art-replay{font-size:9px;padding:5px 7px}}
+@media(max-width:700px){.ap-art.art-motion-scope{height:430px;padding-bottom:114px}.ap-art.art-motion-scope .ap-art-caption{gap:7px 10px}.ap-art-credit{font-size:8px;letter-spacing:.7px}.ap-story-scrub{font-size:11px}.ap-story-buttons .ap-art-replay{min-height:36px}}
+@media(max-width:390px){.ap-art.art-motion-scope{height:420px;padding-bottom:120px}.ap-art.art-motion-scope .ap-art-caption{grid-template-columns:1fr}.ap-art-credit{grid-column:1}.ap-story-buttons{position:absolute;right:3px;top:13px}.ap-story-scrub{padding-top:26px}.ap-story-scrub input{min-height:24px}}

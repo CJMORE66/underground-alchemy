@@ -6,9 +6,42 @@
     "svg": "/assets/art-motion/mentalism.svg",
     "width": 1254,
     "height": 1254,
-    "motionSummary": "The engraved eye opens, blinks and follows attention; celestial interiors turn while a light travels the architectural spiral.",
+    "motionSummary": "An empty black field becomes a thought, a drawn geometric framework, a growing faceted self, nine rising architectural towers and a connected celestial city. The complete approved masterpiece stays alive, then returns to possibility.",
+    "story": {
+      "duration": 24,
+      "phases": [
+        {
+          "at": 0,
+          "label": "VOID / An open field of possibility"
+        },
+        {
+          "at": 0.8,
+          "label": "THOUGHT / A point of attention"
+        },
+        {
+          "at": 2.1,
+          "label": "GEOMETRY / An idea finds structure"
+        },
+        {
+          "at": 3.7,
+          "label": "FORM / A self takes shape"
+        },
+        {
+          "at": 6.3,
+          "label": "WORLD / Architecture rises from the mind"
+        },
+        {
+          "at": 13.15,
+          "label": "CREATION / The imagined world is alive"
+        },
+        {
+          "at": 20.7,
+          "label": "RETURN / Form becomes possibility"
+        }
+      ]
+    },
     "posterSha256": "a3b4676ea4786514f96b4dc75209cbac7657c292cfb3f92abb6cf061cf344f05",
-    "sceneSha256": "ec0de44b738d22cd4ade208985cb1cf560ab9d340571c5d2b404fa17512eda92"
+    "sceneSha256": "504379fcee5775ad9c8f1f6086f719c3af98b7518c7933b53a5182da24f7fb06"
   },
   {
     "id": "correspondence",
@@ -17,9 +50,34 @@
     "svg": "/assets/art-motion/correspondence.svg",
     "width": 1254,
     "height": 1254,
-    "motionSummary": "Mirrored stair lights answer one another; the central compass and two vanishing-point stars turn within the original architecture.",
+    "motionSummary": "The upper architectural world grows from the central axis; the lower world answers with the same motion. Both expand and contract together before settling into one mirrored composition.",
+    "story": {
+      "duration": 12,
+      "phases": [
+        {
+          "at": 0,
+          "label": "ONE PATTERN / ABOVE"
+        },
+        {
+          "at": 2.2,
+          "label": "THE ANSWER / BELOW"
+        },
+        {
+          "at": 4.5,
+          "label": "MATCH THE SCALE"
+        },
+        {
+          "at": 8,
+          "label": "ONE STRUCTURE / TWO VIEWS"
+        },
+        {
+          "at": 10.6,
+          "label": "RETURN TO THE SOURCE"
+        }
+      ]
+    },
     "posterSha256": "598706297d90b34f971ada3b1aaba16802e9ea90776ae794bbe5fab6e29efbcf",
-    "sceneSha256": "533e44b92794a3b6a2102b04736152eb0fab8b1d5cc67608a7280f0d9185b7c9"
+    "sceneSha256": "209e99ed63a2bb537649c6d0a2de149db189974127613c4da013aeb88581dcc5"
   },
   {
     "id": "vibration",
@@ -28,9 +86,34 @@
     "svg": "/assets/art-motion/vibration.svg",
     "width": 1254,
     "height": 1254,
-    "motionSummary": "The two tuning-fork tines quiver in opposition; painted wave fronts breathe and luminous vibration moves out across the rings.",
+    "motionSummary": "A visible impulse starts opposed tuning-fork motion. Three pairs of bright wave packets travel away from the fork, and the painted wave architecture builds outwards before the vibration settles.",
+    "story": {
+      "duration": 10,
+      "phases": [
+        {
+          "at": 0,
+          "label": "STILLNESS"
+        },
+        {
+          "at": 1,
+          "label": "AN IMPULSE"
+        },
+        {
+          "at": 2.1,
+          "label": "THE FORK VIBRATES"
+        },
+        {
+          "at": 3.3,
+          "label": "WAVES CARRY THE MOTION"
+        },
+        {
+          "at": 8.2,
+          "label": "SETTLE / REPEAT"
+        }
+      ]
+    },
     "posterSha256": "691ec08ed37f97e2c56ebee360853cd971d39d4a834cfefa74c89186f4763772",
-    "sceneSha256": "398d2cb9c4ca600e22de33bfbc11fde5509a883fb1705d7ec0a7f42acd9ab8cf"
+    "sceneSha256": "1cc212861dbaf424b900efd609c29f6b52f3034414addc90eb6372febaeeadaf"
   },
   {
     "id": "polarity",
@@ -39,9 +122,34 @@
     "svg": "/assets/art-motion/polarity.svg",
     "width": 1254,
     "height": 1254,
-    "motionSummary": "Opposed crescent surfaces catch travelling light, two orbital pearls turn in contrary directions and the central compass holds their shared axis.",
+    "motionSummary": "The complete interlocked gold and dark crescents exchange sides through a half-turn, hold the opposite arrangement, then turn back around their shared axis. Both poles remain part of one continuous composition.",
+    "story": {
+      "duration": 12,
+      "phases": [
+        {
+          "at": 0,
+          "label": "TWO POLES / ONE WHOLE"
+        },
+        {
+          "at": 1.2,
+          "label": "POSITIONS EXCHANGE"
+        },
+        {
+          "at": 4,
+          "label": "OPPOSITE VIEW"
+        },
+        {
+          "at": 6,
+          "label": "THE SAME AXIS"
+        },
+        {
+          "at": 9,
+          "label": "RETURN / INTEGRATE"
+        }
+      ]
+    },
     "posterSha256": "406b869119331f70b3f29be4b6c49cadf728eb00ffe5a715149cdd2e7f3caa83",
-    "sceneSha256": "17ee4a0e86c80bfb175b497c404e2acc2a10cdded1c8f91b0ad5110c3802a76d"
+    "sceneSha256": "05c68a2ac7d254096429827041a42c5fd47506c51171d13c3d152826ffe21fc6"
   },
   {
     "id": "rhythm",
@@ -50,9 +158,47 @@
     "svg": "/assets/art-motion/rhythm.svg",
     "width": 1254,
     "height": 1254,
-    "motionSummary": "The actual painted pendulum swings from its pin; small orbiting clock interiors turn and sequential gold arcs mark a silent visual rhythm.",
+    "assets": [
+      "/assets/art-motion/rhythm-frame-clean.png"
+    ],
+    "motionSummary": "The entire painted rod, faceted bob and finial swing as one rigid pendulum through 46 degrees; the fixed pivot, return points and centre-crossing pulse make the repeating rhythm visible.",
+    "story": {
+      "duration": 4.8,
+      "phases": [
+        {
+          "at": 0,
+          "label": "OUTWARD — THE RIGHT EXTREME"
+        },
+        {
+          "at": 1.05,
+          "label": "RETURN — CROSSING THE CENTRE"
+        },
+        {
+          "at": 2.4,
+          "label": "OPPOSITE — THE LEFT EXTREME"
+        },
+        {
+          "at": 3.45,
+          "label": "RETURN — THE RHYTHM REPEATS"
+        }
+      ]
+    },
+    "construction": {
+      "sourcePivot": [
+        627,
+        251
+      ],
+      "framePivot": [
+        627,
+        335
+      ],
+      "registrationScale": 0.86,
+      "offsetDegrees": 19.3,
+      "swingAmplitudeDegrees": 23,
+      "movingParts": "One rigid original-painted rod, bob and finial. Stationary frame is a restored clean plate."
+    },
     "posterSha256": "dcab1d66764865fd2840834bb469b0ec5ec05b1244448cc405384f49868c181a",
-    "sceneSha256": "2210fb8d9719cecd86497c963841301d37eea8acbb378889afa9dffa1fbd11d8"
+    "sceneSha256": "3ab3642b6adff9b3f048c1683a240a93be7925b33cb7ebfb0369445b70da0f2d"
   },
   {
     "id": "cause-effect",
@@ -61,9 +207,38 @@
     "svg": "/assets/art-motion/cause-effect.svg",
     "width": 1254,
     "height": 1254,
-    "motionSummary": "A phased ripple passes through the five painted dominoes; solar and compass interiors rotate while light follows the chain of consequence.",
+    "motionSummary": "A single visible push tips the first complete domino. Its fall triggers the second, then the remaining three. The whole chain stays fallen before resetting in reverse order.",
+    "story": {
+      "duration": 14,
+      "phases": [
+        {
+          "at": 0,
+          "label": "A CHANGE BEGINS"
+        },
+        {
+          "at": 1.4,
+          "label": "THE FIRST CONTACT"
+        },
+        {
+          "at": 2.4,
+          "label": "ONE EVENT TRIGGERS THE NEXT"
+        },
+        {
+          "at": 5,
+          "label": "THE CONSEQUENCE"
+        },
+        {
+          "at": 8,
+          "label": "RESET THE CONDITIONS"
+        },
+        {
+          "at": 11.2,
+          "label": "READY FOR ANOTHER CHOICE"
+        }
+      ]
+    },
     "posterSha256": "6e3b5ac6f468b62ff87f56ddd7faa4e1901ac668c83f5ba5a7722ccfa94fcc77",
-    "sceneSha256": "bb85a3a8721f609c777793018e9cc5e108d9cf7c5476970252d2c96c12a962fb"
+    "sceneSha256": "f9f86bd1ee77aabf3d08f53df7bf95dde66fff7080fbe505bbc4c561893a6060"
   },
   {
     "id": "gender",
@@ -72,9 +247,38 @@
     "svg": "/assets/art-motion/gender.svg",
     "width": 1254,
     "height": 1254,
-    "motionSummary": "Organic veins breathe against precise geometric edges; leaf interiors sway while the central red seed and outer pearls turn.",
+    "motionSummary": "Gold impressions travel inward to a red seed. The received energy branches out: leaf forms unfold on one side while angular architecture grows on the other, completing one intricate living composition.",
+    "story": {
+      "duration": 14,
+      "phases": [
+        {
+          "at": 0,
+          "label": "RECEIVE / AN OPEN SEED"
+        },
+        {
+          "at": 2,
+          "label": "GATHER THE IMPRESSIONS"
+        },
+        {
+          "at": 3.8,
+          "label": "INITIATE / MAKE A FORM"
+        },
+        {
+          "at": 7.2,
+          "label": "ORGANIC + GEOMETRIC"
+        },
+        {
+          "at": 9,
+          "label": "CREATE TOGETHER"
+        },
+        {
+          "at": 12,
+          "label": "RETURN TO POSSIBILITY"
+        }
+      ]
+    },
     "posterSha256": "ffbbb89ce0dda8915da2a44f1834e1f178d40ce15e06f722829f9e9ab03e57b1",
-    "sceneSha256": "cb8d4fd27648956d4c227ad7d4bfd5550087b4ad8174978e90f777bd78a8429f"
+    "sceneSha256": "722ed1c25390b48df96d132c5a97dbe061debaef72ddb3b371d901accbb6a674"
   },
   {
     "id": "as-above",

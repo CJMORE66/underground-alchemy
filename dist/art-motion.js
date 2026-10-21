@@ -5,7 +5,7 @@
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
   const fine = matchMedia('(hover: hover) and (pointer: fine)');
   const states = new Map(), scenes = new Map(), bitmaps = new Map();
-  const supported = new Set(['rotate','swing','float','pulse','scale','trace','shine','gaze','blink','lid','wave','spark']);
+  const supported = new Set(['rotate','swing','float','pulse','scale','trace','shine','gaze','blink','lid','wave','spark','story','pendulum']);
   let manifest, frame = 0, serial = 0, pageHidden = false, storedMotion;
   try { storedMotion = localStorage.getItem('atlas-motion'); if (storedMotion !== 'off' && storedMotion !== 'on') storedMotion = JSON.parse(storedMotion); } catch {}
   const clamp = value => Math.max(0, Math.min(1, value));
@@ -21,11 +21,11 @@
     const dialog = document.querySelector('#art-dialog[open]');
     return Boolean(dialog && !dialog.contains(state.host));
   };
-  const active = state => state.ready && state.visible && state.host.isConnected && permitted() && !document.hidden && !pageHidden && !obscured(state);
+  const active = state => state.ready && !state.localPaused && state.visible && state.host.isConnected && permitted() && !document.hidden && !pageHidden && !obscured(state);
   const interacting = state => state.hover || state.focus;
 
   function descriptors() {
-    if (!manifest) manifest = fetch('/assets/art-motion/scenes.json?v=1').then(response => {
+    if (!manifest) manifest = fetch('/assets/art-motion/scenes.json?v=2').then(response => {
       if (!response.ok) throw new Error('Artwork index unavailable');
       return response.json();
     }).then(items => {
@@ -47,11 +47,15 @@
 
   function source(item) {
     if (!scenes.has(item.id)) scenes.set(item.id, Promise.all([
-      fetch(`${item.svg}?v=1`).then(response => {
+      fetch(`${item.svg}?v=${item.sceneSha256 || 2}`).then(response => {
         if (!response.ok) throw new Error('Artwork scene unavailable');
         return response.text();
       }),
-      decode(item.poster)
+      decode(item.poster),
+      ...((item.assets || []).map(asset => {
+        if (typeof asset !== 'string' || !asset.startsWith('/assets/')) throw new Error('Artwork image metadata invalid');
+        return decode(asset);
+      }))
     ]).then(([svg]) => svg));
     return scenes.get(item.id);
   }
@@ -78,7 +82,7 @@
   }
 
   function showState(state) {
-    const value = state.failed ? 'static' : !permitted() || !state.visible || document.hidden || pageHidden || obscured(state) ? 'paused' : !state.ready ? 'loading' : state.elapsed - state.introStart < 1.1 ? 'intro' : interacting(state) || state.elapsed - state.burstStart < .8 ? 'awake' : 'idle';
+    const value = state.failed ? 'static' : !permitted() || state.localPaused || !state.visible || document.hidden || pageHidden || obscured(state) ? 'paused' : !state.ready ? 'loading' : state.elapsed - state.introStart < 1.1 ? 'intro' : interacting(state) || state.elapsed - state.burstStart < .8 ? 'awake' : 'idle';
     if (state.host.dataset.artState !== value) state.host.dataset.artState = value;
   }
 
@@ -90,15 +94,78 @@
     return clamp((introTime - .2) / .22) * (1 - blink);
   }
 
+  const trackKeys = new Set(['opacity','x','y','scale','rotate','dash','r']);
+  function authoredTracks(node) {
+    const tracks = JSON.parse(node.dataset.frames || '{}');
+    if (!tracks || typeof tracks !== 'object' || Array.isArray(tracks)) throw new Error('Artwork story tracks invalid');
+    for (const [name, keys] of Object.entries(tracks)) {
+      if (!trackKeys.has(name) || !Array.isArray(keys) || !keys.length) throw new Error('Artwork story track invalid');
+      let previous = -Infinity;
+      for (const key of keys) {
+        if (!Array.isArray(key) || key.length !== 2 || !key.every(Number.isFinite) || key[0] < 0 || key[0] < previous) throw new Error('Artwork story key invalid');
+        previous = key[0];
+      }
+    }
+    return tracks;
+  }
+  function sample(keys, time, fallback, smooth) {
+    if (!keys?.length) return fallback;
+    if (time < keys[0][0]) return keys[0][1];
+    for (let index = 1; index < keys.length; index++) {
+      if (time < keys[index][0]) {
+        const [start, from] = keys[index - 1], [end, to] = keys[index];
+        let progress = end > start ? clamp((time - start) / (end - start)) : 1;
+        if (smooth) progress = progress * progress * (3 - 2 * progress);
+        return from + (to - from) * progress;
+      }
+    }
+    return keys.at(-1)[1];
+  }
+  function storyTime(state) {
+    if (!state.storyDuration) return 0;
+    return state.storySeekEnd ? state.storyDuration : state.storyElapsed % state.storyDuration;
+  }
+  function storyControls(state) {
+    const scope = state.host.closest('.art-motion-scope');
+    if (!scope) return;
+    const label = scope.querySelector('[data-art-story-phase]');
+    const range = scope.querySelector('[data-art-story-progress]');
+    const pause = scope.querySelector('[data-art-story-pause]');
+    const available = state.ready && state.storyDuration > 0 && !state.failed;
+    const enabled = permitted() && available;
+    const time = storyTime(state);
+    let phase = state.storyPhases?.[0]?.label || state.item?.title || 'THE LIVING STORY';
+    for (const item of state.storyPhases || []) if (time >= item.at) phase = item.label;
+    if (!permitted()) phase = 'STATIC ARTWORK';
+    if (state.failed) phase = 'ORIGINAL ARTWORK';
+    if (label && label.textContent !== phase) label.textContent = phase;
+    if (range) {
+      range.disabled = !enabled;
+      range.value = state.storyDuration ? String(time / state.storyDuration * 100) : '0';
+      range.setAttribute('aria-valuetext', `${phase} · ${time.toFixed(1)} of ${state.storyDuration || 0} seconds`);
+    }
+    if (pause) {
+      pause.disabled = !enabled;
+      const text = state.localPaused ? 'PLAY STORY ▷' : 'PAUSE STORY Ⅱ';
+      if (pause.textContent !== text) pause.textContent = text;
+      pause.setAttribute('aria-pressed', String(state.localPaused));
+      pause.setAttribute('aria-label', `${state.localPaused ? 'Play' : 'Pause'} ${state.item?.title || 'artwork'} animation`);
+    }
+    state.host.dataset.artStoryPaused = String(state.localPaused);
+  }
+
   function render(state, delta = 0) {
-    const time = state.elapsed, introTime = time - state.introStart;
+    const age = state.elapsed;
+    const sceneTime = storyTime(state);
+    const time = state.storyDuration ? sceneTime : age;
+    const introTime = state.storyDuration ? sceneTime : age - state.introStart;
     const follow = 1 - Math.exp(-delta * 12);
     state.gazeX += (state.targetX - state.gazeX) * follow;
     state.gazeY += (state.targetY - state.gazeY) * follow;
     state.host.style.setProperty('--art-x', state.gazeX.toFixed(3));
     state.host.style.setProperty('--art-y', state.gazeY.toFixed(3));
-    const burst = (time - state.burstStart) / .8, bursting = burst >= 0 && burst < 1;
-    const shine = (time - state.shineStart) / .65;
+    const burst = (age - state.burstStart) / .8, bursting = burst >= 0 && burst < 1;
+    const shine = (age - state.shineStart) / .65;
     let eyeOpen = 1;
     for (const node of state.nodes) {
       const type = node.dataset.am;
@@ -106,6 +173,16 @@
       const period = Math.max(.1, number(node, 'period', 6));
       const phase = number(node, 'phase', 0), q = time / period * Math.PI * 2 + phase;
       switch (type) {
+        case 'story': {
+          const tracks = state.storyTracks.get(node), smooth = node.dataset.ease === 'smooth';
+          const value = (key, fallback) => sample(tracks[key], sceneTime, fallback, smooth);
+          if (tracks.opacity) opacity(node, value('opacity', 1));
+          if (tracks.x || tracks.y || tracks.scale || tracks.rotate) transform(node, `translate(${value('x', 0).toFixed(4)} ${value('y', 0).toFixed(4)}) translate(${cx} ${cy}) rotate(${value('rotate', 0).toFixed(4)}) scale(${value('scale', 1).toFixed(5)}) translate(${-cx} ${-cy})`);
+          if (tracks.dash) node.style.strokeDashoffset = String(value('dash', 0));
+          if (tracks.r) node.setAttribute('r', String(Math.max(0, value('r', 0))));
+          break;
+        }
+        case 'pendulum': transform(node, `rotate(${(number(node, 'offset', 0) + number(node, 'amp', 23) * Math.sin(sceneTime / period * Math.PI * 2 + phase)).toFixed(4)} ${cx} ${cy})`); break;
         case 'rotate': transform(node, `rotate(${(time * number(node, 'speed', 6)).toFixed(3)} ${cx} ${cy})`); break;
         case 'swing': transform(node, `rotate(${(number(node, 'amp', 1) * Math.sin(q)).toFixed(4)} ${cx} ${cy})`); break;
         case 'float': transform(node, `translate(${(number(node, 'x', 0) * Math.sin(q)).toFixed(3)} ${(number(node, 'y', 3) * Math.cos(q)).toFixed(3)})`); break;
@@ -151,14 +228,17 @@
         }
       }
     }
-    const stamp = Math.floor(time * 5);
+    const stamp = Math.floor(age * 5);
     if (stamp !== state.stamp) {
       state.stamp = stamp;
-      state.svg.dataset.elapsed = time.toFixed(3);
+      state.svg.dataset.elapsed = age.toFixed(3);
+      state.svg.dataset.storyTime = sceneTime.toFixed(3);
+      state.svg.dataset.storyDuration = String(state.storyDuration || 0);
       state.svg.dataset.open = eyeOpen.toFixed(3);
       state.svg.dataset.burst = bursting ? burst.toFixed(3) : 'off';
       state.svg.dataset.shine = shine >= 0 && shine <= 1 ? shine.toFixed(3) : 'auto';
       showState(state);
+      storyControls(state);
     }
   }
 
@@ -171,6 +251,8 @@
       const delta = state.lastTime === null ? 0 : Math.max(0, Math.min((now - state.lastTime) / 1000, .1));
       state.lastTime = now;
       state.elapsed += delta;
+      state.storyElapsed += delta;
+      state.storySeekEnd = false;
       render(state, delta);
     }
     if (running) frame = requestAnimationFrame(tick);
@@ -186,6 +268,7 @@
         state.host.style.setProperty('--art-y', '0');
       }
       showState(state);
+      storyControls(state);
       if (allowed && state.host.isConnected && state.visible && !obscured(state) && !state.ready && !state.loading && !state.failed) load(state);
     }
     document.querySelectorAll('[data-art-replay]').forEach(button => { button.disabled = !allowed; });
@@ -206,6 +289,12 @@
       if (!states.has(state.host) || !state.host.isConnected) return;
       state.item = item;
       state.nodes = [...svg.querySelectorAll('[data-am]')];
+      const duration = Number(item.story?.duration || svg.dataset.storyDuration || 0);
+      if (!Number.isFinite(duration) || duration < 0) throw new Error('Artwork story duration invalid');
+      state.storyDuration = duration;
+      state.storyPhases = Array.isArray(item.story?.phases) ? item.story.phases.filter(phase => Number.isFinite(phase.at) && phase.at >= 0 && phase.at <= duration && typeof phase.label === 'string').sort((a, b) => a.at - b.at) : [];
+      state.storyTracks = new Map(state.nodes.filter(node => node.dataset.am === 'story').map(node => [node, authoredTracks(node)]));
+      if (state.storyTracks.size && !duration) throw new Error('Artwork story duration missing');
       if (!state.nodes.length || state.nodes.some(node => !supported.has(node.dataset.am))) throw new Error('Artwork channels invalid');
       state.svg = svg;
       state.introStart = state.elapsed;
@@ -229,7 +318,7 @@
   }
 
   function awaken(state, burst = false) {
-    if (!permitted() || !state.ready) return;
+    if (!permitted() || !state.ready || state.localPaused) return;
     state.shineStart = state.elapsed;
     if (burst) state.burstStart = state.elapsed;
     state.stamp = -1;
@@ -241,6 +330,9 @@
     if (!permitted()) return;
     if (!state.ready) { state.pendingReplay = true; if (!state.loading && !state.failed) load(state); return; }
     state.pendingReplay = false;
+    state.localPaused = false;
+    state.storyElapsed = 0;
+    state.storySeekEnd = false;
     state.introStart = state.elapsed;
     state.shineStart = state.elapsed + .15;
     state.burstStart = state.elapsed + .3;
@@ -262,7 +354,7 @@
     const stage = host.querySelector('.living-art-stage');
     if (!stage) return;
     const interaction = host.closest('button,a') || host;
-    const state = { host, stage, interaction, id: host.dataset.artScene, visible: !observer, ready: false, loading: false, failed: false, elapsed: 0, introStart: 0, shineStart: -10, burstStart: -10, lastTime: null, stamp: -1, targetX: 0, targetY: 0, gazeX: 0, gazeY: 0, hover: false, focus: false, listeners: [] };
+    const state = { host, stage, interaction, id: host.dataset.artScene, visible: !observer, ready: false, loading: false, failed: false, elapsed: 0, storyElapsed: 0, storyDuration: 0, storyPhases: [], storyTracks: new Map(), storySeekEnd: false, localPaused: false, introStart: 0, shineStart: -10, burstStart: -10, lastTime: null, stamp: -1, targetX: 0, targetY: 0, gazeX: 0, gazeY: 0, hover: false, focus: false, listeners: [] };
     states.set(host, state);
     const on = (type, handler, options) => { interaction.addEventListener(type, handler, options); state.listeners.push([type, handler, options]); };
     on('pointerenter', event => {
@@ -294,12 +386,37 @@
     synchronize();
   }
 
+  const controlState = control => states.get(control?.closest('.art-motion-scope')?.querySelector(selector));
   document.addEventListener('click', event => {
-    const button = event.target.closest?.('[data-art-replay]');
-    if (!button) return;
-    const host = button.closest('.art-motion-scope')?.querySelector(selector);
-    const state = states.get(host);
-    if (state) replay(state);
+    const replayButton = event.target.closest?.('[data-art-replay]');
+    if (replayButton) {
+      const state = controlState(replayButton);
+      if (state) replay(state);
+      return;
+    }
+    const pause = event.target.closest?.('[data-art-story-pause]');
+    const state = controlState(pause);
+    if (!pause || !state?.ready || !state.storyDuration || !permitted()) return;
+    state.localPaused = !state.localPaused;
+    state.lastTime = null;
+    if (!state.localPaused) state.storySeekEnd = false;
+    state.stamp = -1;
+    render(state);
+    synchronize();
+  });
+  document.addEventListener('input', event => {
+    const range = event.target.closest?.('[data-art-story-progress]');
+    const state = controlState(range);
+    if (!range || !state?.ready || !state.storyDuration || !permitted()) return;
+    const value = Number(range.value);
+    if (!Number.isFinite(value)) return;
+    state.localPaused = true;
+    state.storyElapsed = clamp(value / 100) * state.storyDuration;
+    state.storySeekEnd = value >= 100;
+    state.lastTime = null;
+    state.stamp = -1;
+    render(state);
+    synchronize();
   });
   document.addEventListener('visibilitychange', synchronize);
   document.addEventListener('close', synchronize, true);

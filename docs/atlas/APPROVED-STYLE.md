@@ -50,3 +50,13 @@ Motion follows observed details: Mentalism's eye, mirrored stair lights, opposin
 `tools/build-principle-scenes.py` and `tools/build-wall-scenes.py` author the scenes. `tools/build-art-scenes.py` regenerates both groups and validates the combined scene index. `dist/art-motion.js` shares loads and a single clock between visible hosts, isolates SVG references, and cleans up scenes when lesson tabs or artwork details change. The enclosing native buttons keep their labels and existing opening/navigation behavior. Full-size artwork details provide replay and click/tap activation.
 
 Respect the atlas motion preference, live reduced-motion preference, simple mode, visibility and page lifecycle. Pause paintings behind an open artwork dialog. The exact static image remains available until a scene loads and whenever animation is disabled. Keep every experience silent; sound demonstrations retain their explicit user controls.
+
+### Principles as visible stories
+
+The current principle direction replaces subtle ornament with explicit, repeating transformations. Mentalism begins in a genuinely empty black field, grows a thought into drawn geometry, builds the faceted head and nine towers as separate painted parts, connects celestial anchors, holds the complete living world, and returns to black in a 24-second cycle. This remains a contemporary philosophical illustration; the educational disclosure remains present.
+
+Rhythm uses a restored stationary frame (`rhythm-frame-clean.png`) and the original rod, faceted bob and finial clipped as one rigid object. A constant registration aligns the old source pivot to the restored suspension loop; the entire pendulum moves through a 46-degree arc. The empty clean plate removes the stationary duplicate. The original approved image remains the static fallback and gallery download. The background edit's prompt and hash are recorded in `rhythm-frame-provenance.json`.
+
+Each principle now has a story duration and meaningful phase labels. A progress slider allows close study: moving it holds the selected frame. Play resumes that artwork; Replay begins its story again. All controls retain the global motion/reduced-motion override. No decorative pulse substitutes for the actual principle: waves propagate, halves mirror/exchange, a falling domino triggers its neighbour, and received inputs become a creative form.
+
+`tools/build-mentalism-story.py` and `tools/build-rhythm-story.py` author the two flagship sequences; `tools/build-principle-scenes.py` builds the other five and combines their metadata. Generic story tracks are deterministic and share the existing visible-scene clock.

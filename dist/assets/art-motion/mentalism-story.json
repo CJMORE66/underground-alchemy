@@ -1,0 +1,42 @@
+{
+  "id": "mentalism",
+  "title": "Mentalism",
+  "poster": "/assets/masterworks-v2/021.webp",
+  "svg": "/assets/art-motion/mentalism.svg",
+  "width": 1254,
+  "height": 1254,
+  "motionSummary": "An empty black field becomes a thought, a drawn geometric framework, a growing faceted self, nine rising architectural towers and a connected celestial city. The complete approved masterpiece stays alive, then returns to possibility.",
+  "story": {
+    "duration": 24,
+    "phases": [
+      {
+        "at": 0,
+        "label": "VOID / An open field of possibility"
+      },
+      {
+        "at": 0.8,
+        "label": "THOUGHT / A point of attention"
+      },
+      {
+        "at": 2.1,
+        "label": "GEOMETRY / An idea finds structure"
+      },
+      {
+        "at": 3.7,
+        "label": "FORM / A self takes shape"
+      },
+      {
+        "at": 6.3,
+        "label": "WORLD / Architecture rises from the mind"
+      },
+      {
+        "at": 13.15,
+        "label": "CREATION / The imagined world is alive"
+      },
+      {
+        "at": 20.7,
+        "label": "RETURN / Form becomes possibility"
+      }
+    ]
+  }
+}

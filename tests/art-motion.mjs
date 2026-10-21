@@ -30,7 +30,7 @@ class Element {
   dispatchEvent(event) { if (!event.target) event.target = this; this.listeners[event.type]?.forEach(fn => fn(event)); if (event.bubbles) this.parent?.dispatchEvent(event); return !event.defaultPrevented; }
   cloneNode(deep) { const node = new Element(this.localName, Object.fromEntries(this.values)); if (deep) node.append(...this.children.map(child => child.cloneNode(true))); return node; }
 }
-function templateScene() {
+function templateScene(story = false) {
   const svg = new Element('svg', { id: 'scene', viewBox: '0 0 1000 1000', 'aria-labelledby': 'art-title art-description' });
   svg.append(new Element('title', { id: 'art-title' }), new Element('desc', { id: 'art-description' }));
   const defs = new Element('defs'); defs.append(new Element('image', { id: 'paint', href: '/assets/test.webp' }), new Element('mask', { id: 'alpha' })); svg.append(defs, new Element('use', { 'data-reference': '', href: '#paint', mask: "url('#alpha')" }));
@@ -38,10 +38,22 @@ function templateScene() {
     ['rotate', { cx: 500, cy: 500, speed: 12 }], ['swing', { cx: 500, cy: 100, amp: 8, period: 4 }], ['float', { x: 4, y: 6, period: 4 }], ['pulse', { min: .2, max: .8, period: 4 }], ['scale', { cx: 500, cy: 500, amp: .02, period: 4 }], ['trace', { speed: 15 }], ['shine', { start: -300, end: 1400, period: 8 }], ['blink', { cx: 500, cy: 400, period: 3 }], ['gaze', { x: 9, y: 4 }], ['lid', { period: 3 }], ['wave', { radius: 300 }], ['spark', { cx: 500, cy: 400, angle: 45, radius: 200 }]
   ];
   for (const [type, attributes] of nodes) { const node = new Element('g', { 'data-am': type, ...Object.fromEntries(Object.entries(attributes).map(([key, value]) => ['data-' + key, value])) }); if (type === 'wave') node.append(new Element('circle', { r: 0 }), new Element('circle', { r: 0 })); svg.append(node); }
+  if (story) {
+    svg.setAttribute('data-story-duration', '20');
+    const node = (name, frames, extra = {}) => new Element(name, { 'data-am': 'story', 'data-frames': JSON.stringify(frames), ...extra });
+    svg.append(
+      node('g', { opacity: [[0,0],[.8,0],[2,1],[18,1],[20,0]] }, { 'data-story-part': 'guard', opacity: 0 }),
+      node('circle', { opacity: [[0,0],[1,0],[2,1],[4,0],[20,0]], r: [[0,0],[1,0],[3,40],[4,0],[20,0]] }, { 'data-story-part': 'seed', 'data-ease': 'smooth', opacity: 0, r: 0 }),
+      node('g', { opacity: [[0,0],[8,0],[12,1],[18,1],[20,0]], x: [[0,-30],[8,-30],[12,0],[20,0]], y: [[0,100],[8,100],[12,0],[20,0]], scale: [[0,.1],[8,.1],[12,1],[18,1],[20,.1]], rotate: [[0,-15],[12,0],[20,0]] }, { 'data-story-part': 'world', 'data-cx': 500, 'data-cy': 700, opacity: 0 }),
+      node('path', { dash: [[0,100],[3,100],[6,0],[18,0],[20,100]] }, { 'data-story-part': 'drawing', transform: 'translate(2 3)' }),
+      new Element('g', { 'data-am': 'pendulum', 'data-cx': 500, 'data-cy': 100, 'data-offset': -20, 'data-amp': 23, 'data-period': 4.8 })
+    );
+  }
   return svg;
 }
 
-async function setup({ reducedMotion = false, storedMotion = null, failBitmap = false, malformed = false, failManifest = false } = {}) {
+
+async function setup({ reducedMotion = false, storedMotion = null, failBitmap = false, malformed = false, failManifest = false, story = false, failExtraAsset = false, malformedTrack = false } = {}) {
   const document = new Element('document'), window = new Element('window');
   document.documentElement = new Element('html'); document.body = new Element('body'); document.append(document.documentElement); document.documentElement.append(document.body); document.body.append(new Element('dialog', { id: 'art-dialog' }));
   document.createElement = name => new Element(name); document.importNode = (node, deep) => node.cloneNode(deep);
@@ -60,8 +72,16 @@ async function setup({ reducedMotion = false, storedMotion = null, failBitmap = 
     host.getBoundingClientRect = () => ({ left: 0, top: 0, width: 1000, height: 1000 });
     action.append(host); scope.append(action);
     const replay = document.createElement('button'); replay.setAttribute('data-art-replay', ''); scope.append(replay);
+    let phase, progress, pause;
+    if (story) {
+      phase = new Element('span', { 'data-art-story-phase': '' });
+      progress = new Element('input', { 'data-art-story-progress': '', type: 'range' });
+      progress.value = '0';
+      pause = new Element('button', { 'data-art-story-pause': '' });
+      scope.append(phase, progress, pause);
+    }
     parent.append(scope);
-    return { scope, action, host, replay, stage: host.querySelector('.living-art-stage') };
+    return { scope, action, host, replay, phase, progress, pause, stage: host.querySelector('.living-art-stage') };
   };
   const first = add('mentalism', document.body, 'a'), second = add();
   const context = {
@@ -72,11 +92,11 @@ async function setup({ reducedMotion = false, storedMotion = null, failBitmap = 
     cancelAnimationFrame: id => frames.delete(id),
     MutationObserver: class { constructor(callback) { this.callback = callback; observers.push(this); } observe(target, options) { this.target = target; this.options = options; } },
     IntersectionObserver: class { constructor(callback) { intersectionCallback = callback; } observe(target) { intersections.add(target); } unobserve(target) { intersections.delete(target); unobserved.push(target); } },
-    Image: class { set src(value) { queueMicrotask(() => failBitmap ? this.onerror() : this.onload()); } decode() { decoded++; return Promise.resolve(); } },
-    DOMParser: class { parseFromString() { return { querySelector: () => null, documentElement: malformed ? new Element('html') : templateScene() }; } },
+    Image: class { set src(value) { queueMicrotask(() => failBitmap || failExtraAsset && value.includes('clean.png') ? this.onerror() : this.onload()); } decode() { decoded++; return Promise.resolve(); } },
+    DOMParser: class { parseFromString() { return { querySelector: () => null, documentElement: malformed ? new Element('html') : (() => { const scene = templateScene(story); if (malformedTrack) scene.querySelector('[data-am="story"]').setAttribute('data-frames', '{bad-json'); return scene; })() }; } },
     fetch: async url => {
       fetches.push(url);
-      if (url.includes('scenes.json')) return { ok: !failManifest, json: async () => ['mentalism', 'rhythm'].map(id => ({ id, title: id, poster: '/assets/test.webp', svg: `/assets/art-motion/${id}.svg`, width: 1000, height: 1000 })) };
+      if (url.includes('scenes.json')) return { ok: !failManifest, json: async () => ['mentalism', 'rhythm'].map(id => ({ id, title: id, poster: '/assets/test.webp', svg: `/assets/art-motion/${id}.svg`, width: 1000, height: 1000, ...(story ? { assets: ['/assets/clean.png'], story: { duration: 20, phases: [{at: 0, label: 'VOID'},{at: 2, label: 'SEED'},{at: 6, label: 'GEOMETRY'},{at: 12, label: 'WORLD'},{at: 18, label: 'RETURN'}] } } : {}) })) };
       return { ok: true, text: async () => '<svg/>' };
     }
   };
@@ -217,4 +237,77 @@ for (const options of [{ failBitmap: true }, { malformed: true }, { failManifest
   assert(!failed.first.host.classList.contains('art-running'));
   assert.equal(failed.frames.size, 0);
 }
-console.log('PASS: 12 authored motion channels; isolated dynamic scenes; shared fetch/decode/RAF; eye, hover, activation and scoped replay; modal/offscreen/preference lifecycle; static fallbacks.');
+// Narrative tests inspect authored early/middle/late poses, rather than mirroring renderer statements.
+const story = await setup({ story: true });
+story.intersect(true); await story.flush();
+assert.equal(story.decoded, 2, 'The shared painting and cleaned background both decode once');
+assert.equal(story.first.progress.disabled, false);
+assert.equal(story.first.pause.disabled, false);
+const storyPart = name => story.svg().querySelector(`[data-story-part="${name}"]`);
+assert.equal(storyPart('guard').style.opacity, '0', 'A story can begin with a completely hidden painted world');
+assert.equal(storyPart('world').style.opacity, '0');
+assert.equal(storyPart('seed').getAttribute('r'), '0');
+assert.equal(story.first.phase.textContent, 'VOID');
+assert.equal(storyPart('drawing').getAttribute('transform'), 'translate(2 3)', 'Opacity/dash-only tracks retain authored static transforms');
+const seek = time => {
+  story.first.progress.value = String(time / 20 * 100);
+  story.emit(story.first.progress, 'input');
+  assert.equal(Number(story.svg().dataset.storyTime), time);
+  assert.equal(story.first.host.dataset.artStoryPaused, 'true');
+  assert(story.first.host.classList.contains('art-running'), 'Study pause keeps the selected SVG pose visible');
+};
+seek(.8);
+assert.equal(storyPart('guard').style.opacity, '0', 'The requested opening void lasts before the thought seed');
+seek(1.5);
+assert(Math.abs(Number(storyPart('guard').style.opacity) - 7/12) < 1e-8, 'The first thought fades into the original void');
+assert.equal(Number(storyPart('seed').style.opacity), .5, 'Smoothstep reaches the seed midpoint');
+assert(Math.abs(Number(storyPart('seed').getAttribute('r')) - 6.25) < 1e-8, 'Radius growth uses authored easing');
+seek(4.5);
+assert.equal(Number(storyPart('drawing').style.strokeDashoffset), 50, 'The geometric blueprint draws before full paint');
+assert.equal(storyPart('world').style.opacity, '0');
+seek(10);
+assert.equal(Number(storyPart('world').style.opacity), .5, 'The painted world grows through a visible middle pose');
+assert.match(storyPart('world').getAttribute('transform'), /translate\(-15\.0000 50\.0000\).*scale\(0\.55000\)/);
+seek(13);
+assert.equal(storyPart('world').style.opacity, '1', 'The full masterpiece holds after growth');
+assert.equal(story.first.phase.textContent, 'WORLD');
+seek(19);
+assert.equal(Number(storyPart('world').style.opacity), .5, 'The finished world returns gradually toward the next loop');
+seek(20);
+assert.equal(storyPart('world').style.opacity, '0', 'Scrubbing 100% can inspect the closing pose without modulo jump');
+assert.equal(story.first.phase.textContent, 'RETURN');
+seek(1.2);
+assert.match(story.part('pendulum').getAttribute('transform'), /rotate\(3\.0000 500 100\)/, 'The entire pendulum reaches its right extreme');
+seek(3.6);
+assert.match(story.part('pendulum').getAttribute('transform'), /rotate\(-43\.0000 500 100\)/, 'The entire pendulum covers a bold 46-degree arc');
+const held = story.part('pendulum').getAttribute('transform');
+story.step(0); story.step(100);
+assert.equal(story.part('pendulum').getAttribute('transform'), held, 'Study pause freezes the full illustrated scene');
+assert.equal(story.first.pause.getAttribute('aria-label'), 'Play mentalism animation');
+assert.equal(story.first.pause.getAttribute('aria-pressed'), 'true');
+story.emit(story.first.pause, 'click');
+assert.equal(story.first.host.dataset.artStoryPaused, 'false');
+assert.equal(story.first.pause.getAttribute('aria-label'), 'Pause mentalism animation');
+story.step(200); story.step(300);
+assert.notEqual(story.part('pendulum').getAttribute('transform'), held, 'Play continues from the inspected pose');
+seek(19.9); story.emit(story.first.pause, 'click'); story.step(400); story.step(500); story.step(600); story.step(700);
+assert(Number(story.svg().dataset.storyTime) < .5, 'A completed narrative loops back to its initial void');
+assert.equal(story.first.phase.textContent, 'VOID');
+story.emit(story.first.replay, 'click');
+assert.equal(story.svg().dataset.storyTime, '0.000');
+assert.equal(story.first.host.dataset.artStoryPaused, 'false', 'Replay resumes the story from its true beginning');
+assert.equal(storyPart('world').style.opacity, '0');
+const initialStoryTime = story.svg().dataset.storyTime;
+story.intersect(false, [story.first]); story.step(10000); story.step(10100);
+assert.equal(story.svg().dataset.storyTime, initialStoryTime, 'Story clocks also freeze offscreen');
+story.intersect(true, [story.first]); story.step(20000);
+assert.equal(story.svg().dataset.storyTime, initialStoryTime, 'Story visibility resume excludes hidden elapsed time');
+story.document.documentElement.dataset.motion = 'off'; story.mutate(story.document.documentElement, 'data-motion');
+assert(story.first.progress.disabled && story.first.pause.disabled && story.first.replay.disabled, 'The global preference disables local narrative controls');
+assert(!story.first.host.classList.contains('art-running'), 'Global pause restores the approved poster');
+for (const options of [{story: true, failExtraAsset: true}, {story: true, malformedTrack: true}]) {
+  const failed = await setup(options); failed.intersect(true); await failed.flush();
+  assert.equal(failed.first.host.dataset.artState, 'static', 'Incomplete story assets/tracks retain the original artwork');
+  assert.equal(failed.frames.size, 0);
+}
+console.log('PASS: 14 motion channels; void-to-world narrative, loop and full pendulum arc; scoped seek/pause/replay; shared assets/RAF; modal/offscreen/preferences; static fallback.');

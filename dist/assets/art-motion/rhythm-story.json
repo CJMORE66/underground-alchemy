@@ -1,0 +1,47 @@
+{
+  "id": "rhythm",
+  "title": "Rhythm",
+  "poster": "/assets/masterworks-v2/025.webp",
+  "svg": "/assets/art-motion/rhythm.svg",
+  "width": 1254,
+  "height": 1254,
+  "assets": [
+    "/assets/art-motion/rhythm-frame-clean.png"
+  ],
+  "motionSummary": "The entire painted rod, faceted bob and finial swing as one rigid pendulum through 46 degrees; the fixed pivot, return points and centre-crossing pulse make the repeating rhythm visible.",
+  "story": {
+    "duration": 4.8,
+    "phases": [
+      {
+        "at": 0,
+        "label": "OUTWARD — THE RIGHT EXTREME"
+      },
+      {
+        "at": 1.05,
+        "label": "RETURN — CROSSING THE CENTRE"
+      },
+      {
+        "at": 2.4,
+        "label": "OPPOSITE — THE LEFT EXTREME"
+      },
+      {
+        "at": 3.45,
+        "label": "RETURN — THE RHYTHM REPEATS"
+      }
+    ]
+  },
+  "construction": {
+    "sourcePivot": [
+      627,
+      251
+    ],
+    "framePivot": [
+      627,
+      335
+    ],
+    "registrationScale": 0.86,
+    "offsetDegrees": 19.3,
+    "swingAmplitudeDegrees": 23,
+    "movingParts": "One rigid original-painted rod, bob and finial. Stationary frame is a restored clean plate."
+  }
+}
