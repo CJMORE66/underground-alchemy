@@ -10,7 +10,7 @@ const dist = path.resolve(__dirname, '../dist');
 const code = fs.readFileSync(path.join(dist, 'portals-v7.js'), 'utf8');
 const main = parseHTML(fs.readFileSync(path.join(dist, 'index.html'), 'utf8')).document;
 const slugs = ['transmute','mentalism','correspondence','vibration','polarity','rhythm','cause-effect','generation','shadow-work','as-above','so-below','underground'];
-const chapters = ['portal','principles','principles','city','dissolution','principles','forge','forge','dissolution','portal','city','drop'];
+const chapters = ['living-wall','principles','principles','explorer','fieldnotes','principles','freestyle','freestyle','fieldnotes','living-wall','explorer','living-wall'];
 const titles = new Set();
 const emblems = new Set();
 let assertions = 0;
@@ -50,7 +50,7 @@ for (let index = 0; index < slugs.length; index++) {
   emblems.add(svg.innerHTML);
   check(svg.getAttribute('role') === 'img' && svg.getAttribute('aria-label'), `${slug}: symbol accessible name`);
   const chapterHref = d.querySelector('.p7-primary').getAttribute('href');
-  check(chapterHref === `/#film-${chapters[index]}`, `${slug}: expected chapter mapping`);
+  check(chapterHref === `/#${chapters[index]}`, `${slug}: expected atlas chapter mapping`);
   check(main.getElementById(chapterHref.slice(2)), `${slug}: chapter target exists in current index`);
   for (const a of d.querySelectorAll('a[href^="/#"]')) check(main.getElementById(a.getAttribute('href').slice(2)), `${slug}: internal link target ${a.getAttribute('href')}`);
   check(d.querySelectorAll('.p7-symbols a').length === 12, `${slug}: 12 album navigation links`);

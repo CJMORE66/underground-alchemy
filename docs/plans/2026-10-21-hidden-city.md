@@ -1,0 +1,8 @@
+# Implementation plan: The Hidden City
+
+1. **Research and data** (`dist/paris-locations.js`, `docs/HIDDEN-CITY-SOURCES.md`): verify official claims, coordinates, access and photo provenance; separate interpretation. Depends on no implementation. Risk medium: changing visitor conditions.
+2. **Explorer** (`dist/explorer.js`, `dist/explorer.css`, `tests/explorer.test.mjs`): develop map, filtering, profiles, favorites, geolocation and three ordered routes with test-first filtering checks. Depends on data schema. Risk medium: external map availability and browser permission failures.
+3. **Editorial experience** (`dist/index.html`, `dist/atlas.css`, `dist/atlas.js`, `dist/principles.js`): coherent responsive visual design, navigation, seven interactive studies, original artwork curation, optional notebook, Symbol Lens and scroll composition. Reuse local fonts and original assets, existing recorder. Depends on shell/DOM contract. Risk medium: inherited route compatibility.
+4. **Verification and publication** (`tests/hidden-city.test.mjs`, `docs/HIDDEN-CITY-VERIFICATION.md`, `README.md`): test matching/empty/error/save cases, keyboard and mobile layout, real map/detail/favorites routes, seven studies, gallery and local playback/privacy controls. Review specification, then code/security. Package via Sites source helper, preserve project ID and public audience, deploy and open returned URL. Risk medium: hosting availability.
+
+Use the isolated `feat/hidden-city` worktree. Existing QR, artwork and collections documents remain served. Historical tests continue to cover these retained modules; homepage assertions are updated to the new experience. No new server, account, payment or upload system is needed.

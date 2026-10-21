@@ -1,6 +1,6 @@
 # CAISIK UNDERGROUND ALCHEMY
 
-Cinematic redesign of the existing Sites storefront. This repository serves static HTML, CSS and ES modules from `dist`; commerce remains in the authoritative original store. No production catalog/order/payment data is written by this repository.
+Cultural atlas and creative learning experience for the existing public CAISIK Site. The homepage now contains the source-backed Paris explorer, seven philosophical studies, a local freestyle recorder, eight original archive compositions and optional browser-local fieldnotes. The repository serves static HTML, CSS and ES modules from `dist`; commerce remains in the original store.
 
 ## Build
 
@@ -8,12 +8,14 @@ Use Node.js with npm. Install the exact dependencies in `package.json`, then run
 
 ```sh
 npm ci
-npm run build:cinema
+npm run build:atlas
 npm test
 python tools/package-source.py
 ```
 
-`dist/index.html` and every `dist/q/<slug>/index.html` are directly served files. After changing the main document, copy it to the 12 existing QR entry documents. The portal script switches only allowlisted QR paths. Collection landing documents live under `dist/collections`.
+`src/atlas.html` builds to `dist/index.html`; `dist/atlas.js` and `dist/explorer.js` are the homepage entry modules. The twelve `dist/q/<slug>/index.html` documents intentionally retain their original exhibits, with updated portal links into the new atlas. Do not overwrite them with the atlas homepage. Collection documents and the complete `/art/` blackbook remain served. Leaflet is vendored locally; the map requests OpenStreetMap tiles and displays attribution. Discovery filtering and profiles continue to work without map tiles.
+
+`node tools/fetch-paris-assets.mjs` refreshes the explicitly selected Commons photographs and their declared author/license metadata. This is not required for ordinary builds; the photographs and credits are tracked in `dist/assets/paris`. Access research was checked on 21 October 2026; each profile links to official current visitor information. Coordinates are orientation points, not surveyed accessible entrances.
 
 The WebGL code is split into a small entry, lazy scene and shared Three.js chunk. `advanced-loader-v7.js` loads the original optional forge/exhibits on demand. Local fonts, WebP city/logo derivatives and original product previews are included. Original source assets remain available.
 
