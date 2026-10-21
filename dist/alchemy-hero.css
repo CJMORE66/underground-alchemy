@@ -1,0 +1,18 @@
+/* All painted layers share the original 1536 x 1024 coordinate system. */
+.alchemy-stage{position:absolute;inset:0;z-index:-3;overflow:hidden;pointer-events:none;visibility:hidden;transform:translate3d(calc(var(--mx,0)*-7px),calc(var(--my,0)*-4px),0);transition:transform .6s cubic-bezier(.2,.6,.2,1)}
+.alchemy-stage>svg{position:absolute;display:block;max-width:none;overflow:visible;stroke:none;fill:none}
+.hero.alchemy-running .alchemy-stage{visibility:visible}
+.hero.alchemy-running .hero-art{visibility:hidden}
+.hero.alchemy-ready .hero-geometry{display:none}
+.alchemy-controls{position:absolute;right:2%;bottom:32px;z-index:4;display:none}
+.hero.alchemy-ready .alchemy-controls{display:block}
+.alchemy-awaken{display:flex;gap:12px;align-items:center;min-height:44px;padding:10px 15px;background:#080808e8;border:1px solid #ffd60080;color:#ffe25b;font:600 12px/1.2 'Barlow Condensed',sans-serif;letter-spacing:1.6px;cursor:pointer;box-shadow:3px 3px 0 #e719322b;transition:border-color .2s,color .2s,box-shadow .2s}
+.alchemy-awaken:before{content:'';width:7px;height:7px;border:1px solid currentColor;border-radius:50%;flex:none}
+.alchemy-awaken[aria-pressed=true]:before{background:#ffd600;box-shadow:0 0 8px #ffd60080}
+.alchemy-awaken:hover,.alchemy-awaken:focus-visible{color:#fff;border-color:#fff;box-shadow:3px 3px 0 #e71932}
+.alchemy-awaken:focus-visible{outline:2px solid #ffd600;outline-offset:5px}
+.alchemy-awaken:disabled{cursor:default;opacity:.6;box-shadow:none}
+.alchemy-status{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap;border:0}
+html[data-motion=off] .alchemy-stage,body.simple-mode .alchemy-stage{transform:none;transition:none}
+@media(max-width:760px){.alchemy-stage{inset:auto 0 0;height:490px;z-index:-2;transform:none}.alchemy-controls{right:5%;bottom:32px}.alchemy-awaken{font-size:11px;padding:10px 12px;letter-spacing:1.2px}}
+@media(prefers-reduced-motion:reduce){.alchemy-stage{transform:none;transition:none}.alchemy-awaken{transition:none}}

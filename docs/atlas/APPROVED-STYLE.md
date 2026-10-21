@@ -24,3 +24,9 @@ Use dark comic panels, bright graphic borders, bold condensed UI display heading
 ## Motion
 
 Hover and keyboard focus may lift a panel, tilt an artwork gently, offset a crimson shadow layer, reveal geometric accents or rotate a separate decorative ring. Pointer parallax is restrained and uses requestAnimationFrame; touch uses static or press feedback. Honor both prefers-reduced-motion and the site's Pause Motion control. No flashing, autoplay sound or motion that obscures controls.
+
+### Living main hero
+
+The seated-alchemist homepage scene is animated as separately generated layers: `dist/assets/alchemy-motion/hero-clean.webp`, `sun.webp` and `moon.webp`. `dist/alchemy-hero.svg` is the shared 1536 × 1024 scene and occlusion masks; `alchemy-hero.js` owns its elapsed clock and eye interaction. Keep the painted layers in one frame on every breakpoint. Never move the background independently of its celestial sprites or face patches. The approved `hero-v2.webp` remains the exact static poster and social image. Generation prompts and asset hashes are recorded in `hero-motion/ASSETS.json`.
+
+Slower orbiting sun and moon, an engraved ring, awakened/blinking eyes, vinyl glints and water reflections are the active motion direction for this hero. Preserve the left copy area. The drawing remains silent. Global Pause Motion, live reduced-motion preference, simple mode, hidden tabs and offscreen state control the animation lifecycle.

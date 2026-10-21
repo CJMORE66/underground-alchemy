@@ -1,0 +1,69 @@
+{
+  "date": "2026-10-21",
+  "target": "Main homepage seated-alchemist hero, 1536 x 1024",
+  "approvedDirection": "../APPROVED-STYLE.md",
+  "originalPoster": "dist/assets/atlas/hero-v2.webp",
+  "method": "Built-in image generation for a clean plate and two transparent celestial sprites; native SVG layer animation.",
+  "cleanPlatePrompt": "Use case: precise-object-edit\nAsset type: animation clean plate for an existing website hero illustration.\nInput image 1 is the EDIT TARGET, not a loose style reference. Preserve its exact 1536 × 1024 composition and framing.\nPrimary request: remove ONLY these two celestial subjects so they can later be animated as separate overlays: (1) the large anthropomorphic golden SUN FACE disk centered about x775,y290 and ALL of its long wavy sun rays (approximately x650–880,y175–420); (2) the anthropomorphic golden MOON CRESCENT face on the far right centered about x1365,y295 (approximately x1275–1438,y192–394). Reconstruct the underlying dark Gothic architectural/geometric backdrop seamlessly where those two subjects were, with quiet black charcoal interior space, consistent with the existing scene. No replacement sun, moon, faces, or celestial symbols. Preserve the thin golden circular orbit frameworks around their former positions and all the small spherical planets. The isolated small star to the left of the former moon can remain.\nINVARIANTS: Keep the seated hooded urban alchemist's exact anatomy, face and glowing eyes, hand gesture, yellow and black clothing, huge foreshortened sneakers, necklace, throne and stepped stone base UNCHANGED. Keep the snake ouroboros, triangle, radial geometry, cathedral, vinyl record with red label, its gold orbit, all crimson ribbons, gold drips and wet reflections unchanged. Keep the entire black negative space on the LEFT untouched. Preserve the crisp saturated golden yellow, deep black and crimson comic / wildstyle ink illustration style. Do not redesign, move, crop, mirror or enlarge anything. Do not add text, border, watermark or new objects. This is an exact local removal edit, not a remake. Full opaque scene, no transparency.",
+  "cleanPlateInspection": "Sun disk and all wavy rays removed. Moon crescent removed. Their thin golden rings, smaller spherical orbit objects and moon-side star remain. Seated character, pose, ouroboros, triangle, vinyl, crimson ribbons and black copy space retained in same geometry. As an imagegen edit, fine ink shading and tiny surface details are slightly re-rendered throughout rather than pixel-identical; visual composition and landmarks remain closely aligned. No obvious new defect or extra celestial subject. Left cleared ring spans roughly x644..868,y163..427; right cleared ring spans roughly x1248..1454,y174..412. PNG is opaque RGB. WebP quality 90 method 4.",
+  "celestialPrompts": [
+    {
+      "name": "sun",
+      "prompt": "Use case: background-extraction.\nAsset type: transparent production cutout for a layered animated web hero.\nInput image 1 is the exact subject and style reference.\nPrimary request: extract and faithfully recreate ONLY the golden anthropomorphic sun on the left side of the seated hooded alchemist, as one isolated complete sun on genuinely transparent background.\nSubject: serious, mature front-facing circular human sun face with its complete irregular wavy flame rays, matching the reference face and engraving. Saturated bright yellow-gold, dense black engraved-comic contour lines and black hatching, small pale gold and white highlights. Preserve the reference's sharp dramatic underground comic rendering. All rays fully visible. Center the whole subject in a square image with 10% transparent margin all around.\nConstraints: only the sun face and rays; exact same visual character. No orbit ring, circular frame, geometry, planets, crescent, stars, architecture, person, red smoke, text, watermark, shadow plate, gradient, checkerboard or opaque backdrop. No cute cartoon redesign. Keep empty space truly alpha-transparent, including gaps between rays. Clean precise silhouette."
+    },
+    {
+      "name": "moon",
+      "prompt": "Use case: background-extraction.\nAsset type: transparent production cutout for a layered animated web hero.\nInput image 1 is the exact subject and style reference.\nPrimary request: extract and faithfully recreate ONLY the golden anthropomorphic crescent moon on the right side of the seated hooded alchemist, as one isolated complete crescent on genuinely transparent background.\nSubject: mature gold crescent moon, crescent opening to the LEFT, human face on the right-hand curved body facing LEFT, with the same long profile nose, eyelid, lips and chin as reference. Two sharp tapering tips pointing left at top and bottom. Bright yellow-gold outer contour, pale gold and white highlights, strong black engraved-comic ink outlines and densely stippled shaded crater details. Preserve the serious antique engraved / dramatic underground-comic character. Entire crescent fully visible. Center in square frame with 10% transparent margin.\nConstraints: only the crescent itself; transparent opening and transparent empty background. No circular disc, orbit ring, circular frame, star, planets, rays, architecture, person, red smoke, text, watermark, shadow plate, gradient, checkerboard or opaque backdrop. No cute cartoon redesign. Genuine alpha with clean precise silhouette."
+    }
+  ],
+  "assets": [
+    {
+      "file": "dist/assets/alchemy-motion/hero-clean.png",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGB",
+      "bytes": 2249640,
+      "sha256": "0a1f7860249e6f36c91caec25d999464dc3ad0fcd525a5920227f50777da30bb"
+    },
+    {
+      "file": "dist/assets/alchemy-motion/hero-clean.webp",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGB",
+      "bytes": 367778,
+      "sha256": "988c0dde61bec0f166a0918fd59426eb403f8848667900670d416896b0fb8675"
+    },
+    {
+      "file": "dist/assets/alchemy-motion/moon.png",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "bytes": 1057030,
+      "sha256": "544e4a8b992a864f4c675430150467bc4739e67c470a99726e66f16d1ebc6ffb"
+    },
+    {
+      "file": "dist/assets/alchemy-motion/moon.webp",
+      "width": 700,
+      "height": 700,
+      "mode": "RGBA",
+      "bytes": 100590,
+      "sha256": "e8a060094116921b56af54f3fe9b4f16b93fc048a7a2490243edaae09495b71b"
+    },
+    {
+      "file": "dist/assets/alchemy-motion/sun.png",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "bytes": 1407785,
+      "sha256": "6670b049edd27c45e10fb0b871eb65b034476b5929c699f2108c68e776faf6ea"
+    },
+    {
+      "file": "dist/assets/alchemy-motion/sun.webp",
+      "width": 700,
+      "height": 700,
+      "mode": "RGBA",
+      "bytes": 155760,
+      "sha256": "5bd72c132f60e812fc387103d92b32a31bbd2c5d9966d684898b108fa2b1950a"
+    }
+  ]
+}

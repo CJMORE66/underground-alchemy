@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1536 1024" aria-hidden="true" focusable="false">
+  <defs>
+    <mask id="alchemy-figure-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="1536" height="1024" style="mask-type:luminance">
+      <rect width="1536" height="1024" fill="white"/>
+      <path fill="black" stroke="black" stroke-width="3" d="M990 176C1027 169 1064 190 1089 227L1118 264C1152 265 1178 280 1206 302L1244 331 1266 376 1302 416 1310 466 1294 499 1297 537C1337 576 1352 621 1367 673C1383 721 1348 754 1302 760L1248 752 1187 734 1146 715 1097 721 1071 709 1075 677 1089 649 1108 611 1117 552 1105 525 1045 525 1010 558 974 574 956 637 925 676 940 722 955 787 970 860 975 892 946 909 708 912 708 875 720 829 747 782 754 722 729 699 709 673 707 638 694 587 705 550 729 504 743 455 768 418 792 404 808 374 837 348 870 325 901 301 929 280 951 280 946 253 955 220 970 188Z"/>
+    </mask>
+    <clipPath id="alchemy-water-clip"><path d="M290 919H1536V1024H290Z"/></clipPath>
+    <mask id="alchemy-vinyl-mask" maskUnits="userSpaceOnUse" x="1250" y="413" width="240" height="230" style="mask-type:luminance">
+      <circle cx="1370" cy="525" r="99" fill="white"/>
+      <path d="M1260 514Q1375 612 1517 497L1536 524Q1393 648 1260 544Z" fill="black"/>
+      <path d="M1262 488L1316 551 1343 622 1260 643Z" fill="black"/>
+    </mask>
+    <linearGradient id="alchemy-reflection" x1="0" x2="1"><stop stop-color="#ffd600" stop-opacity="0"/><stop offset=".5" stop-color="#fff4a4"/><stop offset="1" stop-color="#ffd600" stop-opacity="0"/></linearGradient>
+  </defs>
+  <image href="/assets/alchemy-motion/hero-clean.webp" width="1536" height="1024"/>
+  <g mask="url(#alchemy-figure-mask)">
+    <g id="alchemy-orbit-ring" fill="none" stroke="#ffe45c" stroke-width="1" opacity=".48">
+      <ellipse cx="1065" cy="290" rx="290" ry="125" stroke-dasharray="1 18"/>
+      <path d="M775 290h14m566 0h-14M1065 165v12m0 238v-12" stroke-width="2"/>
+      <circle cx="1065" cy="165" r="4" fill="#ffe45c" stroke="none"/>
+    </g>
+    <g id="alchemy-sun" transform="translate(775 290)"><image href="/assets/alchemy-motion/sun.webp" x="-145" y="-145" width="290" height="290"/></g>
+    <g id="alchemy-moon" transform="translate(1355 290)"><image href="/assets/alchemy-motion/moon.webp" x="-127" y="-127" width="254" height="254"/></g>
+  </g>
+  <g mask="url(#alchemy-vinyl-mask)"><g id="alchemy-vinyl" fill="none" stroke="#fff7c2" stroke-linecap="round" opacity=".55">
+    <path d="M1317 451A91 91 0 0 1 1422 451M1316 598A91 91 0 0 0 1423 599" stroke-width="1.2"/>
+    <path d="M1323 463A79 79 0 0 1 1410 456M1331 589A78 78 0 0 0 1416 590" stroke-width=".7"/>
+  </g></g>
+  <g id="alchemy-pupil-left"><path d="m984 229 10-4-4 6Z" fill="#fff9c5" opacity=".85"/></g>
+  <g id="alchemy-pupil-right"><path d="m1013 220 11-6-5 7Z" fill="#fff9c5" opacity=".85"/></g>
+  <g id="alchemy-eyelid-left">
+    <path d="M976 224Q989 215 1002 221L1004 235Q990 243 975 237Z" fill="#171109"/>
+    <path d="M978 230Q990 234 1001 226" fill="none" stroke="#5d4114" stroke-width="1.5"/>
+  </g>
+  <g id="alchemy-eyelid-right">
+    <path d="M1006 214Q1018 202 1032 207L1036 221Q1022 230 1008 228Z" fill="#181207"/>
+    <path d="M1008 220Q1021 220 1032 211" fill="none" stroke="#6c4b14" stroke-width="1.5"/>
+  </g>
+  <g clip-path="url(#alchemy-water-clip)">
+    <g id="alchemy-water" fill="none" stroke="url(#alchemy-reflection)" stroke-linecap="round" opacity=".4">
+      <path d="M440 935h105m276 9h88m247-17h170m-738 49h100m202-5h155m248-21h96" stroke-width="1.8"/>
+      <path d="M577 951h92m173-26h52m319 63h162m-446 16h83m375-35h136" stroke-width="1"/>
+    </g>
+  </g>
+</svg>

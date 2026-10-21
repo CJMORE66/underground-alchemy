@@ -79,7 +79,7 @@ assert.deepEqual(JSON.parse(JSON.stringify(artScript.CAISIK_ART)),artworks,'Gall
 
 // Every non-dynamic local asset in the new page, JS, and styles must ship.
 const checked=new Set();
-for(const file of ['index.html','atlas.js','atlas-principles.js','atlas-frequency.js','atlas.css','atlas-principles.css','atlas-frequency.css','fonts-v7.css','graphic-novel.css','graphic-novel.js']){
+for(const file of ['index.html','atlas.js','atlas-principles.js','atlas-frequency.js','atlas.css','atlas-principles.css','atlas-frequency.css','fonts-v7.css','graphic-novel.css','graphic-novel.js','alchemy-hero.css','alchemy-hero.js','alchemy-hero.svg']){
   const text=read(file);
   for(const match of text.matchAll(/(?:src|href)=["'](\/[^"'<>]+)["']/g)){
     const asset=match[1].split(/[?#]/)[0];
@@ -94,7 +94,7 @@ const htmlIds=new Set(Array.from(html.matchAll(/\bid="([^"]+)"/g),m=>m[1]));
 const rootSelectors=Array.from(source.matchAll(/\$\('([^']+)'\)/g),m=>m[1]);
 const dynamicIds=new Set(Array.from(source.matchAll(/\bid="([^"$]+)"/g),m=>m[1]));
 rootSelectors.forEach(id=>assert.ok(htmlIds.has(id)||dynamicIds.has(id),`Atlas DOM target exists: ${id}`));
-for(const file of ['atlas.js','atlas-principles.js','atlas-frequency.js','graphic-novel.js','masterworks.js']){
+for(const file of ['atlas.js','atlas-principles.js','atlas-frequency.js','graphic-novel.js','alchemy-hero.js','masterworks.js']){
   const result=spawnSync(process.execPath,['--check',path.join(root,file)],{encoding:'utf8'});
   assert.equal(result.status,0,`${file} syntax: ${result.stderr}`);
 }
