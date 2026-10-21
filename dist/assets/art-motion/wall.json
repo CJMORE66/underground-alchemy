@@ -1,0 +1,65 @@
+[
+  {
+    "id": "as-above",
+    "title": "AS ABOVE / SO BELOW",
+    "poster": "/assets/masterworks-v2/072.webp",
+    "svg": "/assets/art-motion/as-above.svg",
+    "width": 1312,
+    "height": 1199,
+    "motionSummary": "Opposed triangle edge illumination, mirrored meridian, rotating dial hands, alternating star points and a luminance-masked paint sweep."
+  },
+  {
+    "id": "transmute",
+    "title": "TRANSMUTE",
+    "poster": "/assets/atlas/transmute-approved.webp",
+    "svg": "/assets/art-motion/transmute.svg",
+    "width": 1536,
+    "height": 1024,
+    "motionSummary": "Letter-face highlights, painted halo tracing, moving vinyl groove glints, glowing alchemist eyes and pendant, and rippling street reflections."
+  },
+  {
+    "id": "map-territory",
+    "title": "THE MAP IS NOT THE TERRITORY",
+    "poster": "/assets/masterworks-v2/089.webp",
+    "svg": "/assets/art-motion/map-territory.svg",
+    "width": 1536,
+    "height": 1024,
+    "motionSummary": "Staggered light inside the real city windows, travelling architectural linework, the framed skyline halo and alternating compass-star glints."
+  },
+  {
+    "id": "know-thyself",
+    "title": "KNOW THYSELF",
+    "poster": "/assets/masterworks-v2/005.webp",
+    "svg": "/assets/art-motion/know-thyself.svg",
+    "width": 1536,
+    "height": 1024,
+    "motionSummary": "Two engraved eyes open, blink and follow attention; distinct upper/lower word highlights, a pulsing central star and travelling compass arcs."
+  },
+  {
+    "id": "shadow-work",
+    "title": "SHADOW WORK",
+    "poster": "/assets/masterworks-v2/033.webp",
+    "svg": "/assets/art-motion/shadow-work.svg",
+    "width": 1254,
+    "height": 1254,
+    "motionSummary": "Watchful triangle and pendant eyes, light travelling through mask cracks and hood folds, engraved halo traces and a crescent-dial glint."
+  },
+  {
+    "id": "omerta-ego",
+    "title": "OMERTÀ WITH THE EGO",
+    "poster": "/assets/masterworks-v2/039.webp",
+    "svg": "/assets/art-motion/omerta-ego.svg",
+    "width": 1600,
+    "height": 800,
+    "motionSummary": "Paired large engraved irises track the pointer and blink together, a third eye opens, lettering carries mirrored highlights and the central dial turns."
+  },
+  {
+    "id": "city-remembers",
+    "title": "THE CITY REMEMBERS",
+    "poster": "/assets/masterworks-v2/049.webp",
+    "svg": "/assets/art-motion/city-remembers.svg",
+    "width": 1254,
+    "height": 1254,
+    "motionSummary": "Staggered apartment lights, antenna and staircase signals, vinyl groove glints, rooftop compass flashes and a restrained architectural light pass."
+  }
+]

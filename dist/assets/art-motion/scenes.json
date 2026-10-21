@@ -1,0 +1,156 @@
+[
+  {
+    "id": "mentalism",
+    "title": "Mentalism",
+    "poster": "/assets/masterworks-v2/021.webp",
+    "svg": "/assets/art-motion/mentalism.svg",
+    "width": 1254,
+    "height": 1254,
+    "motionSummary": "The engraved eye opens, blinks and follows attention; celestial interiors turn while a light travels the architectural spiral.",
+    "posterSha256": "a3b4676ea4786514f96b4dc75209cbac7657c292cfb3f92abb6cf061cf344f05",
+    "sceneSha256": "ec0de44b738d22cd4ade208985cb1cf560ab9d340571c5d2b404fa17512eda92"
+  },
+  {
+    "id": "correspondence",
+    "title": "Correspondence",
+    "poster": "/assets/masterworks-v2/022.webp",
+    "svg": "/assets/art-motion/correspondence.svg",
+    "width": 1254,
+    "height": 1254,
+    "motionSummary": "Mirrored stair lights answer one another; the central compass and two vanishing-point stars turn within the original architecture.",
+    "posterSha256": "598706297d90b34f971ada3b1aaba16802e9ea90776ae794bbe5fab6e29efbcf",
+    "sceneSha256": "533e44b92794a3b6a2102b04736152eb0fab8b1d5cc67608a7280f0d9185b7c9"
+  },
+  {
+    "id": "vibration",
+    "title": "Vibration",
+    "poster": "/assets/masterworks-v2/023.webp",
+    "svg": "/assets/art-motion/vibration.svg",
+    "width": 1254,
+    "height": 1254,
+    "motionSummary": "The two tuning-fork tines quiver in opposition; painted wave fronts breathe and luminous vibration moves out across the rings.",
+    "posterSha256": "691ec08ed37f97e2c56ebee360853cd971d39d4a834cfefa74c89186f4763772",
+    "sceneSha256": "398d2cb9c4ca600e22de33bfbc11fde5509a883fb1705d7ec0a7f42acd9ab8cf"
+  },
+  {
+    "id": "polarity",
+    "title": "Polarity",
+    "poster": "/assets/masterworks-v2/024.webp",
+    "svg": "/assets/art-motion/polarity.svg",
+    "width": 1254,
+    "height": 1254,
+    "motionSummary": "Opposed crescent surfaces catch travelling light, two orbital pearls turn in contrary directions and the central compass holds their shared axis.",
+    "posterSha256": "406b869119331f70b3f29be4b6c49cadf728eb00ffe5a715149cdd2e7f3caa83",
+    "sceneSha256": "17ee4a0e86c80bfb175b497c404e2acc2a10cdded1c8f91b0ad5110c3802a76d"
+  },
+  {
+    "id": "rhythm",
+    "title": "Rhythm",
+    "poster": "/assets/masterworks-v2/025.webp",
+    "svg": "/assets/art-motion/rhythm.svg",
+    "width": 1254,
+    "height": 1254,
+    "motionSummary": "The actual painted pendulum swings from its pin; small orbiting clock interiors turn and sequential gold arcs mark a silent visual rhythm.",
+    "posterSha256": "dcab1d66764865fd2840834bb469b0ec5ec05b1244448cc405384f49868c181a",
+    "sceneSha256": "2210fb8d9719cecd86497c963841301d37eea8acbb378889afa9dffa1fbd11d8"
+  },
+  {
+    "id": "cause-effect",
+    "title": "Cause and Effect",
+    "poster": "/assets/masterworks-v2/026.webp",
+    "svg": "/assets/art-motion/cause-effect.svg",
+    "width": 1254,
+    "height": 1254,
+    "motionSummary": "A phased ripple passes through the five painted dominoes; solar and compass interiors rotate while light follows the chain of consequence.",
+    "posterSha256": "6e3b5ac6f468b62ff87f56ddd7faa4e1901ac668c83f5ba5a7722ccfa94fcc77",
+    "sceneSha256": "bb85a3a8721f609c777793018e9cc5e108d9cf7c5476970252d2c96c12a962fb"
+  },
+  {
+    "id": "gender",
+    "title": "Gender / Creative Modes",
+    "poster": "/assets/masterworks-v2/027.webp",
+    "svg": "/assets/art-motion/gender.svg",
+    "width": 1254,
+    "height": 1254,
+    "motionSummary": "Organic veins breathe against precise geometric edges; leaf interiors sway while the central red seed and outer pearls turn.",
+    "posterSha256": "ffbbb89ce0dda8915da2a44f1834e1f178d40ce15e06f722829f9e9ab03e57b1",
+    "sceneSha256": "cb8d4fd27648956d4c227ad7d4bfd5550087b4ad8174978e90f777bd78a8429f"
+  },
+  {
+    "id": "as-above",
+    "title": "AS ABOVE / SO BELOW",
+    "poster": "/assets/masterworks-v2/072.webp",
+    "svg": "/assets/art-motion/as-above.svg",
+    "width": 1312,
+    "height": 1199,
+    "motionSummary": "Opposed triangle edge illumination, mirrored meridian, rotating dial hands, alternating star points and a luminance-masked paint sweep.",
+    "posterSha256": "688f2455b89f0a629230ed4b75ab156dfec723a6358c6b1b851b0d6fb43af38a",
+    "sceneSha256": "f8685306a906196565567b74bf3e5a7105102993ccd072ef52f28d111fa7edb7"
+  },
+  {
+    "id": "transmute",
+    "title": "TRANSMUTE",
+    "poster": "/assets/atlas/transmute-approved.webp",
+    "svg": "/assets/art-motion/transmute.svg",
+    "width": 1536,
+    "height": 1024,
+    "motionSummary": "Letter-face highlights, painted halo tracing, moving vinyl groove glints, glowing alchemist eyes and pendant, and rippling street reflections.",
+    "posterSha256": "1ec953aeb28a11ab8798067f6a67c19e142cd2552fee25bdfe81d78573ca6344",
+    "sceneSha256": "5aba1a0aca90cea17f00d5873cd825d192dafd13c24f5c64edfd149b52edcc75"
+  },
+  {
+    "id": "map-territory",
+    "title": "THE MAP IS NOT THE TERRITORY",
+    "poster": "/assets/masterworks-v2/089.webp",
+    "svg": "/assets/art-motion/map-territory.svg",
+    "width": 1536,
+    "height": 1024,
+    "motionSummary": "Staggered light inside the real city windows, travelling architectural linework, the framed skyline halo and alternating compass-star glints.",
+    "posterSha256": "83d251a0feeba959140df8ebd03bb5503019858c59334cea66221e63893ab8e3",
+    "sceneSha256": "c8bbf00a751e5eceee4d20273392c0a8dc5d0e0d3d2431e29eed7cb685684191"
+  },
+  {
+    "id": "know-thyself",
+    "title": "KNOW THYSELF",
+    "poster": "/assets/masterworks-v2/005.webp",
+    "svg": "/assets/art-motion/know-thyself.svg",
+    "width": 1536,
+    "height": 1024,
+    "motionSummary": "Two engraved eyes open, blink and follow attention; distinct upper/lower word highlights, a pulsing central star and travelling compass arcs.",
+    "posterSha256": "5c31abf38fd4b9eb3e5ef9b6e99007ec1d1c14a9ab163c2eb797bb58782580f4",
+    "sceneSha256": "80497a513c905aaf51092100773bb1d681b2434f1bf3d21c5564efce36ddfb14"
+  },
+  {
+    "id": "shadow-work",
+    "title": "SHADOW WORK",
+    "poster": "/assets/masterworks-v2/033.webp",
+    "svg": "/assets/art-motion/shadow-work.svg",
+    "width": 1254,
+    "height": 1254,
+    "motionSummary": "Watchful triangle and pendant eyes, light travelling through mask cracks and hood folds, engraved halo traces and a crescent-dial glint.",
+    "posterSha256": "54bfbcb79b4d16c2864cfde1ad500a51e20e39e530be6814a2ff8945b1a85012",
+    "sceneSha256": "fc27e0d65a6553093ab302a1560528fe176dff7b5e67864dcd6a573fb5a59154"
+  },
+  {
+    "id": "omerta-ego",
+    "title": "OMERTÀ WITH THE EGO",
+    "poster": "/assets/masterworks-v2/039.webp",
+    "svg": "/assets/art-motion/omerta-ego.svg",
+    "width": 1600,
+    "height": 800,
+    "motionSummary": "Paired large engraved irises track the pointer and blink together, a third eye opens, lettering carries mirrored highlights and the central dial turns.",
+    "posterSha256": "ae111a8238ae529b4de5ffbcfb32934f56ed987a2e7263ca8ba4c29ee61185ae",
+    "sceneSha256": "71babafb89fbbe343df1fc2cb4aaceec7560577f43ff899e42603352c08b4062"
+  },
+  {
+    "id": "city-remembers",
+    "title": "THE CITY REMEMBERS",
+    "poster": "/assets/masterworks-v2/049.webp",
+    "svg": "/assets/art-motion/city-remembers.svg",
+    "width": 1254,
+    "height": 1254,
+    "motionSummary": "Staggered apartment lights, antenna and staircase signals, vinyl groove glints, rooftop compass flashes and a restrained architectural light pass.",
+    "posterSha256": "4b581d84db8e3b0ff79463c0436e95e9a303e453abc912cc2df564cb7536a72a",
+    "sceneSha256": "33fd20dac7fc5239525635768f9fedcf044a095a515587aae6adeb2c1fa37a9c"
+  }
+]

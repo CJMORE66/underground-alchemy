@@ -1,0 +1,65 @@
+[
+  {
+    "id": "mentalism",
+    "title": "Mentalism",
+    "poster": "/assets/masterworks-v2/021.webp",
+    "svg": "/assets/art-motion/mentalism.svg",
+    "width": 1254,
+    "height": 1254,
+    "motionSummary": "The engraved eye opens, blinks and follows attention; celestial interiors turn while a light travels the architectural spiral."
+  },
+  {
+    "id": "correspondence",
+    "title": "Correspondence",
+    "poster": "/assets/masterworks-v2/022.webp",
+    "svg": "/assets/art-motion/correspondence.svg",
+    "width": 1254,
+    "height": 1254,
+    "motionSummary": "Mirrored stair lights answer one another; the central compass and two vanishing-point stars turn within the original architecture."
+  },
+  {
+    "id": "vibration",
+    "title": "Vibration",
+    "poster": "/assets/masterworks-v2/023.webp",
+    "svg": "/assets/art-motion/vibration.svg",
+    "width": 1254,
+    "height": 1254,
+    "motionSummary": "The two tuning-fork tines quiver in opposition; painted wave fronts breathe and luminous vibration moves out across the rings."
+  },
+  {
+    "id": "polarity",
+    "title": "Polarity",
+    "poster": "/assets/masterworks-v2/024.webp",
+    "svg": "/assets/art-motion/polarity.svg",
+    "width": 1254,
+    "height": 1254,
+    "motionSummary": "Opposed crescent surfaces catch travelling light, two orbital pearls turn in contrary directions and the central compass holds their shared axis."
+  },
+  {
+    "id": "rhythm",
+    "title": "Rhythm",
+    "poster": "/assets/masterworks-v2/025.webp",
+    "svg": "/assets/art-motion/rhythm.svg",
+    "width": 1254,
+    "height": 1254,
+    "motionSummary": "The actual painted pendulum swings from its pin; small orbiting clock interiors turn and sequential gold arcs mark a silent visual rhythm."
+  },
+  {
+    "id": "cause-effect",
+    "title": "Cause and Effect",
+    "poster": "/assets/masterworks-v2/026.webp",
+    "svg": "/assets/art-motion/cause-effect.svg",
+    "width": 1254,
+    "height": 1254,
+    "motionSummary": "A phased ripple passes through the five painted dominoes; solar and compass interiors rotate while light follows the chain of consequence."
+  },
+  {
+    "id": "gender",
+    "title": "Gender / Creative Modes",
+    "poster": "/assets/masterworks-v2/027.webp",
+    "svg": "/assets/art-motion/gender.svg",
+    "width": 1254,
+    "height": 1254,
+    "motionSummary": "Organic veins breathe against precise geometric edges; leaf interiors sway while the central red seed and outer pearls turn."
+  }
+]

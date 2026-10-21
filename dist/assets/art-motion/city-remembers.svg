@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1254 1254" aria-hidden="true" focusable="false"><defs>
+<image id="paint" href="/assets/masterworks-v2/049.webp" width="1254" height="1254"/>
+<linearGradient id="sweep"><stop stop-color="#fff" stop-opacity="0"/><stop offset=".45" stop-color="#fff9db" stop-opacity=".1"/><stop offset=".58" stop-color="#fff" stop-opacity=".85"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
+<linearGradient id="sclera" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#151006"/><stop offset=".55" stop-color="#edcf71"/><stop offset="1" stop-color="#f6e9b2"/></linearGradient>
+<clipPath id="rooftop-vinyl"><path d="M245 319Q344 282 448 365L454 417 374 410Q322 404 307 456L247 418Z"/></clipPath>
+<mask id="luminance-1" maskUnits="userSpaceOnUse" x="0" y="0" width="1254" height="1254" style="mask-type:luminance"><use href="#paint"/></mask>
+<clipPath id="shine-area-2"><path d="M135 222H1170V1110H135Z"/></clipPath>
+</defs>
+<use href="#paint"/>
+<g data-am="pulse" data-period="5.4" data-phase="0.0" data-min="0.02" data-max="0.65"><path d="M234 794L261 782V829L234 841Z M332 767L351 761V809L332 815Z" fill="#fff4a7" stroke="none"/></g>
+<g data-am="pulse" data-period="6.1000000000000005" data-phase="1.2" data-min="0.02" data-max="0.65"><path d="M463 708L486 698V746L463 754Z M730 741L748 733V779L730 789Z" fill="#fff4a7" stroke="none"/></g>
+<g data-am="pulse" data-period="6.800000000000001" data-phase="2.4" data-min="0.02" data-max="0.65"><path d="M474 490L491 484V509L474 516Z M475 524L492 518V578L475 585Z" fill="#fff4a7" stroke="none"/></g>
+<g data-am="pulse" data-period="7.5" data-phase="3.5999999999999996" data-min="0.02" data-max="0.65"><path d="M808 769L829 774V839L808 829Z M579 486L590 490V515L579 512Z" fill="#fff4a7" stroke="none"/></g>
+<path data-am="trace" data-speed="15" d="M545 164V300L590 312V349M591 43V289M1080 428V565M990 912L971 960 925 948 900 1007 860 994 833 1047" pathLength="100" fill="none" stroke="#fff5c2" stroke-width="2.2" stroke-dasharray="8 92" stroke-linecap="round" opacity="0.6"/>
+<path data-am="trace" data-speed="20" d="M328 430Q312 361 393 366Q435 378 442 400" pathLength="100" fill="none" stroke="#fff5c2" stroke-width="2" stroke-dasharray="12 88" stroke-linecap="round" opacity="0.65"/>
+<g clip-path="url(#rooftop-vinyl)"><g data-am="rotate" data-cx="350" data-cy="400" data-speed="14"><path d="M269 376A95 95 0 0 1 421 343M279 443A90 90 0 0 0 428 425" fill="none" stroke="#fff5c2" stroke-width="2.4" opacity=".5"/></g></g>
+<g data-am="pulse" data-period="5.7" data-phase="0" data-min="0.08" data-max="0.85"><path d="M367 169L369 189L389 191L369 193L367 213L365 193L345 191L365 189Z" fill="#fff5c2" stroke="none"/></g>
+<g data-am="pulse" data-period="5.7" data-phase="2.9" data-min="0.08" data-max="0.85"><path d="M1148 529L1150 545L1166 547L1150 549L1148 565L1146 549L1130 547L1146 545Z" fill="#fff5c2" stroke="none"/></g>
+<g data-am="pulse" data-period="6.8" data-phase="1" data-min="0.08" data-max="0.85"><path d="M655 987L657 1008L678 1010L657 1012L655 1033L653 1012L632 1010L653 1008Z" fill="#fff5c2" stroke="none"/></g>
+<g mask="url(#luminance-1)"><g clip-path="url(#shine-area-2)"><g data-am="shine" data-start="-438.9" data-end="1755.6" data-period="12" opacity="0"><path d="M0 -40H163.02L-87.78 1294H-250.8Z" fill="url(#sweep)" stroke="none"/></g></g></g>
+<g data-am="wave" data-radius="290" opacity="0"><circle cx="655" cy="846" r="0" fill="none" stroke="#ffe768" stroke-width="2.8"/><circle cx="655" cy="846" r="0" fill="none" stroke="#e71932" stroke-width="1.3"/></g>
+<path data-am="spark" data-cx="655" data-cy="846" data-angle="17.0" data-radius="203.0" d="M0-7 2-2 7 0 2 2 0 7-2 2-7 0-2-2Z" fill="#fff5c2" stroke="none" opacity="0"/>
+<path data-am="spark" data-cx="655" data-cy="846" data-angle="77.0" data-radius="246.5" d="M0-7 2-2 7 0 2 2 0 7-2 2-7 0-2-2Z" fill="#fff5c2" stroke="none" opacity="0"/>
+<path data-am="spark" data-cx="655" data-cy="846" data-angle="137.0" data-radius="203.0" d="M0-7 2-2 7 0 2 2 0 7-2 2-7 0-2-2Z" fill="#fff5c2" stroke="none" opacity="0"/>
+<path data-am="spark" data-cx="655" data-cy="846" data-angle="197.0" data-radius="246.5" d="M0-7 2-2 7 0 2 2 0 7-2 2-7 0-2-2Z" fill="#fff5c2" stroke="none" opacity="0"/>
+<path data-am="spark" data-cx="655" data-cy="846" data-angle="257.0" data-radius="203.0" d="M0-7 2-2 7 0 2 2 0 7-2 2-7 0-2-2Z" fill="#fff5c2" stroke="none" opacity="0"/>
+<path data-am="spark" data-cx="655" data-cy="846" data-angle="317.0" data-radius="246.5" d="M0-7 2-2 7 0 2 2 0 7-2 2-7 0-2-2Z" fill="#fff5c2" stroke="none" opacity="0"/>
+</svg>

@@ -1,0 +1,34 @@
+/* Original paint, living detail. All continuous motion is owned by art-motion.js. */
+.living-art{position:relative;display:block;width:100%;height:100%;isolation:isolate;line-height:0;contain:layout style}
+.living-art .living-art-poster{position:absolute;inset:0;display:block;width:100%!important;height:100%!important;max-height:none!important;max-width:none;object-fit:contain;transform:none!important;animation:none!important;transition:none!important;filter:none!important;margin:0}
+.living-art-stage{position:absolute;inset:0;display:block;visibility:hidden;pointer-events:none;line-height:0}
+.living-art-stage>svg{display:block;width:100%;height:100%;max-width:none;overflow:hidden;fill:none;stroke:none;transform:none}
+.living-art.art-running .living-art-poster{visibility:hidden}
+.living-art.art-running .living-art-stage{visibility:visible}
+.ap-art.art-motion-scope{height:410px;display:block;position:relative;padding-bottom:38px;margin-bottom:24px}
+.ap-art-trigger,.art-dialog-trigger{appearance:none;display:block;border:0;border-radius:0;padding:0;margin:0;width:100%;height:100%;background:transparent;color:inherit;cursor:pointer;line-height:0;-webkit-tap-highlight-color:transparent}
+.ap-art-trigger:focus-visible,.art-dialog-trigger:focus-visible{outline:2px solid #ffd600;outline-offset:-3px}
+.ap-art.art-motion-scope .ap-art-caption{display:flex;align-items:center;justify-content:center;gap:14px;bottom:5px;padding:0 6px;font:600 9px/1.6 'Barlow Condensed',sans-serif;letter-spacing:1.4px;color:#b7b5a9!important}
+.ap-art-caption>span{min-width:0}
+.ap-art-replay{flex-shrink:0;appearance:none;background:transparent;border:1px solid #8b7819;color:#ffd600;min-height:34px;padding:5px 10px;cursor:pointer;font:700 11px/1.3 'Barlow Condensed',sans-serif;letter-spacing:1px}
+.ap-art-replay:hover,.ap-art-replay:focus-visible{background:#ffd600;color:#080808;border-color:#ffd600}
+.ap-art-replay:focus-visible{outline:2px solid #fff;outline-offset:3px}
+[data-art-replay]:disabled{opacity:.4;cursor:default}
+.art-piece .living-art{height:320px}
+.art-piece:hover .living-art,.art-piece:focus-visible .living-art{filter:drop-shadow(0 6px 10px #ffd6000a)}
+.art-dialog-scene{margin:22px 0 18px}
+.art-dialog-trigger{position:relative;aspect-ratio:var(--art-ratio,1);height:auto;max-height:52dvh;min-height:0}
+.art-dialog-trigger>.living-art{position:absolute;inset:0}
+.art-dialog-motion{display:flex;align-items:center;justify-content:space-between;gap:16px;border-block:1px solid #74601e;padding:9px 0;margin-top:10px}
+.art-dialog-motion>span{font:600 10px/1.5 'Barlow Condensed',sans-serif;letter-spacing:1.5px;color:#aead9f}
+.art-dialog-motion .small-button{margin:0;min-height:34px;white-space:nowrap}
+/* The glyph responds to attention; the full painting has its own native scene. */
+.ap-tab:hover svg,.ap-tab:focus-visible svg{filter:drop-shadow(0 0 5px #ffd60055)}
+.ap-tab:hover svg path,.ap-tab:focus-visible svg path{stroke-dasharray:100 8;animation:ap-glyph-line 9s linear infinite}
+@keyframes ap-glyph-line{to{stroke-dashoffset:-108}}
+@media(max-width:1000px){.ap-art.art-motion-scope{height:350px}.art-piece .living-art{height:280px}.ap-art.art-motion-scope .ap-art-caption{gap:8px;font-size:8px;letter-spacing:.7px}}
+@media(max-width:760px){.art-piece .living-art{height:280px}.art-dialog-trigger{max-height:42dvh}.art-dialog-motion>span{font-size:9px;letter-spacing:1px}}
+@media(max-width:700px){.ap-art.art-motion-scope{height:345px;max-width:480px;width:100%;justify-self:center}.ap-art.art-motion-scope .ap-art-caption{font-size:9px;letter-spacing:1px}.ap-art-replay{min-height:38px}}
+@media(max-width:390px){.ap-art.art-motion-scope{height:315px}.art-piece .living-art{height:245px}.art-dialog-motion{gap:8px}.art-dialog-motion>span{max-width:135px}.art-dialog-motion .small-button{font-size:8px;letter-spacing:.6px}}
+html[data-motion=off] .ap-tab svg path,body.simple-mode .ap-tab svg path{animation:none!important}
+@media(prefers-reduced-motion:reduce){.ap-tab svg path{animation:none!important}.art-piece .living-art{filter:none!important}}

@@ -40,3 +40,13 @@ The approved new CAISIK logo is `dist/assets/logo/caisik-signature-approved.png`
 `dist/caisik-logo.js` uses a shared SVG/image loader, unique instance IDs and a single animation clock. Intro: 1.1 seconds. Eye opening: 220 ms. Pointer/focus sweep: 650 ms. Click/tap energy: 800 ms. Native home navigation remains available on brand links. `/logo/` is the large interactive signature view with replay, PNG download and the shared motion preference.
 
 Use the new mark on the atlas, lesson routes, archive branding and blackbook masthead. Artwork 001 remains a historical gallery composition. Honor reduced motion, Pause Motion, simple mode, hidden tabs, offscreen state and failed-load fallback. Use static approved artwork when motion is disabled. No audio or permission requests.
+
+### Living principles and letterworks
+
+All seven principle paintings and all eight Living Wall placements now use native SVG scenes. Vibration is shared between the principle lesson and Frequency of the Underground, making 14 distinct scenes for 15 placements. Exact approved source WebPs remain the fallback and download artwork; no source raster was regenerated or recolored. `dist/assets/art-motion/scenes.json` records dimensions, motion summaries and SHA-256 hashes of each original and scene.
+
+Motion follows observed details: Mentalism's eye, mirrored stair lights, opposing tuning-fork tines, crescent surfaces, the actual painted pendulum, a phased sequence through dominoes, and organic/geometric breathing. Letterworks use traced letter faces, original engraved irises, mask cracks, architectural windows, vinyl glints and reflection lines. Rotation is confined to circular interiors; unrecovered silhouette boundaries use small bounded motion. Do not describe these flattened sources as fully reconstructed 3D or recovered vector glyphs.
+
+`tools/build-principle-scenes.py` and `tools/build-wall-scenes.py` author the scenes. `tools/build-art-scenes.py` regenerates both groups and validates the combined scene index. `dist/art-motion.js` shares loads and a single clock between visible hosts, isolates SVG references, and cleans up scenes when lesson tabs or artwork details change. The enclosing native buttons keep their labels and existing opening/navigation behavior. Full-size artwork details provide replay and click/tap activation.
+
+Respect the atlas motion preference, live reduced-motion preference, simple mode, visibility and page lifecycle. Pause paintings behind an open artwork dialog. The exact static image remains available until a scene loads and whenever animation is disabled. Keep every experience silent; sound demonstrations retain their explicit user controls.

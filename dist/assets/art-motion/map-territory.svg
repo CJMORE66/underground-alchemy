@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1536 1024" aria-hidden="true" focusable="false"><defs>
+<image id="paint" href="/assets/masterworks-v2/089.webp" width="1536" height="1024"/>
+<linearGradient id="sweep"><stop stop-color="#fff" stop-opacity="0"/><stop offset=".45" stop-color="#fff9db" stop-opacity=".1"/><stop offset=".58" stop-color="#fff" stop-opacity=".85"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
+<linearGradient id="sclera" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#151006"/><stop offset=".55" stop-color="#edcf71"/><stop offset="1" stop-color="#f6e9b2"/></linearGradient>
+<mask id="luminance-1" maskUnits="userSpaceOnUse" x="0" y="0" width="1536" height="1024" style="mask-type:luminance"><use href="#paint"/></mask>
+<clipPath id="shine-area-2"><path d="M220 125H1305V854H220Z"/></clipPath>
+</defs>
+<use href="#paint"/>
+<path data-am="trace" data-speed="11" d="M531 420V565L579 550 629 572M697 362V543L728 550V435L751 437V506M850 328V563L874 559V491M914 270V517" pathLength="100" fill="none" stroke="#fff5c2" stroke-width="2" stroke-dasharray="7 93" stroke-linecap="round" opacity="0.6"/>
+<g data-am="pulse" data-period="5.2" data-phase="0.0" data-min="0.05" data-max="0.55"><path d="M384 447V484H400V444Z M447 456V474H458V451Z M432 545V559H443V542Z" fill="#fff1a1" stroke="none"/></g>
+<g data-am="pulse" data-period="5.8" data-phase="1.3" data-min="0.05" data-max="0.55"><path d="M627 525V551H638V523Z M723 607V633H736V604Z M780 606V627H787V603Z" fill="#fff1a1" stroke="none"/></g>
+<g data-am="pulse" data-period="6.4" data-phase="2.6" data-min="0.05" data-max="0.55"><path d="M840 398V424H847V395Z M850 508V536H858V504Z M960 406V433H969V404Z" fill="#fff1a1" stroke="none"/></g>
+<g data-am="pulse" data-period="7.0" data-phase="3.9000000000000004" data-min="0.05" data-max="0.55"><path d="M1043 316V338H1051V313Z M1077 263V282H1084V261Z M1245 454V476H1253V450Z" fill="#fff1a1" stroke="none"/></g>
+<path data-am="trace" data-speed="8" d="M604 116Q783 1 957 116M957 116Q1066 225 1038 338" pathLength="100" fill="none" stroke="#fff5c2" stroke-width="2" stroke-dasharray="6 94" stroke-linecap="round" opacity="0.55"/>
+<g data-am="pulse" data-period="5" data-phase="0" data-min="0.08" data-max="0.85"><path d="M783 32L785 54L807 56L785 58L783 80L781 58L759 56L781 54Z" fill="#fff5c2" stroke="none"/></g>
+<g data-am="pulse" data-period="5" data-phase="2" data-min="0.08" data-max="0.85"><path d="M1130 246L1132 268L1154 270L1132 272L1130 294L1128 272L1106 270L1128 268Z" fill="#fff5c2" stroke="none"/></g>
+<g data-am="pulse" data-period="6.6" data-phase="3.4" data-min="0.08" data-max="0.85"><path d="M453 723L455 743L475 745L455 747L453 767L451 747L431 745L451 743Z" fill="#fff5c2" stroke="none"/></g>
+<g mask="url(#luminance-1)"><g clip-path="url(#shine-area-2)"><g data-am="shine" data-start="-537.5999999999999" data-end="2150.3999999999996" data-period="11" opacity="0"><path d="M0 -40H199.68L-5.12 1064H-204.8Z" fill="url(#sweep)" stroke="none"/></g></g></g>
+<g data-am="wave" data-radius="300" opacity="0"><circle cx="781" cy="497" r="0" fill="none" stroke="#ffe768" stroke-width="2.8"/><circle cx="781" cy="497" r="0" fill="none" stroke="#e71932" stroke-width="1.3"/></g>
+<path data-am="spark" data-cx="781" data-cy="497" data-angle="17.0" data-radius="210.0" d="M0-7 2-2 7 0 2 2 0 7-2 2-7 0-2-2Z" fill="#fff5c2" stroke="none" opacity="0"/>
+<path data-am="spark" data-cx="781" data-cy="497" data-angle="77.0" data-radius="255.0" d="M0-7 2-2 7 0 2 2 0 7-2 2-7 0-2-2Z" fill="#fff5c2" stroke="none" opacity="0"/>
+<path data-am="spark" data-cx="781" data-cy="497" data-angle="137.0" data-radius="210.0" d="M0-7 2-2 7 0 2 2 0 7-2 2-7 0-2-2Z" fill="#fff5c2" stroke="none" opacity="0"/>
+<path data-am="spark" data-cx="781" data-cy="497" data-angle="197.0" data-radius="255.0" d="M0-7 2-2 7 0 2 2 0 7-2 2-7 0-2-2Z" fill="#fff5c2" stroke="none" opacity="0"/>
+<path data-am="spark" data-cx="781" data-cy="497" data-angle="257.0" data-radius="210.0" d="M0-7 2-2 7 0 2 2 0 7-2 2-7 0-2-2Z" fill="#fff5c2" stroke="none" opacity="0"/>
+<path data-am="spark" data-cx="781" data-cy="497" data-angle="317.0" data-radius="255.0" d="M0-7 2-2 7 0 2 2 0 7-2 2-7 0-2-2Z" fill="#fff5c2" stroke="none" opacity="0"/>
+</svg>
