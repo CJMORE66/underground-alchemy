@@ -14,6 +14,7 @@ class Element {
     this.clientWidth = 1440;
     this.clientHeight = 670;
     this.textContent = '';
+    this.children = [];
     const classes = new Set();
     this.classList = {
       contains: name => classes.has(name),
@@ -26,14 +27,14 @@ class Element {
   emit(type, event = {}) { this.listeners[type]?.forEach(listener => listener(event)); }
   setAttribute(name, value) { this.attributes[name] = value; }
   getBoundingClientRect() { return { left: 0, top: 0, width: this.clientWidth, height: this.clientHeight }; }
-  append(child) { this.child = child; }
+  append(child) { this.child = child; this.children.push(child); }
   remove() { this.removed = true; }
 }
 
 async function scene({ reducedMotion = false, failedAsset = false } = {}) {
   const hero = new Element(), stage = new Element(), button = new Element(), status = new Element(), controls = new Element();
   const html = new Element(), body = new Element(), svg = new Element();
-  const nodes = new Map(['sun', 'moon', 'orbit-ring', 'water', 'vinyl', 'eyelid-left', 'eyelid-right', 'pupil-left', 'pupil-right'].map(id => [`#alchemy-${id}`, new Element()]));
+  const nodes = new Map(['sun', 'moon', 'orbit-ring', 'water', 'vinyl', 'eyelid-left', 'eyelid-right', 'pupil-left', 'pupil-right', 'breath', 'halo-outer', 'halo-inner', 'pendant', 'star', 'energy-back', 'energy-front', 'sparks', 'water-ripples', 'shockwave'].map(id => [`#alchemy-${id}`, new Element()]));
   hero.querySelector = selector => ({ '.alchemy-stage': stage, '.alchemy-awaken': button, '.alchemy-status': status, '.alchemy-controls': controls }[selector]);
   hero.contains = node => node === hero || node === button;
   svg.querySelector = id => nodes.get(id);
@@ -47,6 +48,7 @@ async function scene({ reducedMotion = false, failedAsset = false } = {}) {
   document.body = body;
   document.hidden = false;
   document.importNode = node => node;
+  document.createElementNS = () => new Element();
   window.innerWidth = 1440;
   const frames = new Map(), observers = [];
   let requestCount = 0, fetchCount = 0, intersection;
@@ -101,17 +103,24 @@ assert(asleep.hero.classList.contains('alchemy-running'));
 assert.equal(asleep.svg.style.width, '1005px');
 assert.equal(asleep.svg.style.height, '670px');
 assert.equal(asleep.svg.style.left, '435px', 'Desktop source frame is right aligned');
+assert.equal(asleep.nodes.get('#alchemy-sparks').children.length, 22, 'Particle population is bounded and allocated once');
 
 asleep.step(1000);
 const initialSun = asleep.nodes.get('#alchemy-sun').attributes.transform;
+const initialBreath = asleep.nodes.get('#alchemy-breath').attributes.transform;
+const initialSpark = asleep.nodes.get('#alchemy-sparks').children[0].attributes.transform;
 asleep.step(1100);
 assert.notEqual(asleep.nodes.get('#alchemy-sun').attributes.transform, initialSun, 'The celestial body moves independently');
+assert.notEqual(asleep.nodes.get('#alchemy-breath').attributes.transform, initialBreath, 'Interior cloth breathes independently of the base image');
+assert.notEqual(asleep.nodes.get('#alchemy-sparks').children[0].attributes.transform, initialSpark, 'Embers rise independently');
+assert(Number(asleep.nodes.get('#alchemy-energy-back').style.strokeDashoffset) < 0, 'Ribbons carry moving dash bands');
 asleep.button.emit('click');
 asleep.step(1200);
 assert.equal(asleep.button.attributes['aria-pressed'], 'true');
 assert.equal(asleep.button.attributes['aria-label'], 'Let the alchemist dream');
 assert.equal(asleep.hero.dataset.alchemyState, 'awake');
 assert(Number(asleep.nodes.get('#alchemy-eyelid-left').style.opacity) < 1, 'Awakening retracts the lids covering the original eyes');
+assert(Number(asleep.nodes.get('#alchemy-shockwave').style.opacity) > 0, 'Awakening emits a visible energy wave');
 
 for (const pause of [
   { name: 'global pause', off() { asleep.html.dataset.motion = 'off'; asleep.mutate(asleep.html); }, on() { asleep.html.dataset.motion = 'on'; asleep.mutate(asleep.html); }, poster: true },
@@ -124,10 +133,14 @@ for (const pause of [
   assert.equal(asleep.frames.size, 0, `${pause.name} cancels the pending RAF`);
   assert.equal(asleep.hero.classList.contains('alchemy-running'), !pause.poster, `${pause.name} chooses the right poster/scene presentation`);
   const frozen = asleep.nodes.get('#alchemy-sun').attributes.transform;
+  const frozenBreath = asleep.nodes.get('#alchemy-breath').attributes.transform;
+  const frozenRibbon = asleep.nodes.get('#alchemy-energy-back').style.strokeDashoffset;
   pause.on();
   assert.equal(asleep.frames.size, 1, `${pause.name} resumes exactly one RAF chain`);
   asleep.step(50000);
   assert.equal(asleep.nodes.get('#alchemy-sun').attributes.transform, frozen, `${pause.name} resumes without adding time spent paused`);
+  assert.equal(asleep.nodes.get('#alchemy-breath').attributes.transform, frozenBreath, `${pause.name} also freezes cloth breathing`);
+  assert.equal(asleep.nodes.get('#alchemy-energy-back').style.strokeDashoffset, frozenRibbon, `${pause.name} also freezes energy flow`);
   asleep.step(50100);
   assert.notEqual(asleep.nodes.get('#alchemy-sun').attributes.transform, frozen, `${pause.name} moves again after resuming`);
 }
@@ -148,4 +161,5 @@ assert.equal(broken.frames.size, 0, 'Asset failure does not leave an animation l
 assert.equal(broken.stage.child, undefined);
 assert.equal(broken.controls.attributes.hidden, '', 'Unavailable interaction controls are hidden');
 
-console.log('PASS: living hero motion lifecycle, synchronized frame, awakening and static fallback.');
+assert.equal(asleep.nodes.get('#alchemy-sparks').children.length, 22, 'Pause/resume never reallocates particles');
+console.log('PASS: cinematic hero layers, bounded particles, energy wave, motion lifecycle, synchronized frame and static fallback.');

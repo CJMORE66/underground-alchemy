@@ -5,6 +5,14 @@
       <path fill="black" stroke="black" stroke-width="3" d="M990 176C1027 169 1064 190 1089 227L1118 264C1152 265 1178 280 1206 302L1244 331 1266 376 1302 416 1310 466 1294 499 1297 537C1337 576 1352 621 1367 673C1383 721 1348 754 1302 760L1248 752 1187 734 1146 715 1097 721 1071 709 1075 677 1089 649 1108 611 1117 552 1105 525 1045 525 1010 558 974 574 956 637 925 676 940 722 955 787 970 860 975 892 946 909 708 912 708 875 720 829 747 782 754 722 729 699 709 673 707 638 694 587 705 550 729 504 743 455 768 418 792 404 808 374 837 348 870 325 901 301 929 280 951 280 946 253 955 220 970 188Z"/>
     </mask>
     <clipPath id="alchemy-water-clip"><path d="M290 919H1536V1024H290Z"/></clipPath>
+    <radialGradient id="alchemy-breath-fade">
+      <stop offset=".12" stop-color="white"/><stop offset=".54" stop-color="white" stop-opacity=".95"/><stop offset=".82" stop-color="white" stop-opacity=".3"/><stop offset="1" stop-color="white" stop-opacity="0"/>
+    </radialGradient>
+    <mask id="alchemy-breath-mask" maskUnits="userSpaceOnUse" x="820" y="246" width="400" height="300" style="mask-type:luminance">
+      <ellipse cx="1020" cy="395" rx="190" ry="146" fill="url(#alchemy-breath-fade)"/>
+    </mask>
+    <clipPath id="alchemy-torso-clip"><path d="M957 260 990 274 1070 265 1119 280 1187 309 1203 359 1190 404 1133 475 1104 524 1051 518 1009 541 953 513 897 480 868 428 829 400 851 365 909 318 950 291Z"/></clipPath>
+    <radialGradient id="alchemy-pendant-light"><stop stop-color="#fff5a4" stop-opacity=".65"/><stop offset=".4" stop-color="#ffd600" stop-opacity=".15"/><stop offset="1" stop-color="#ffd600" stop-opacity="0"/></radialGradient>
     <mask id="alchemy-vinyl-mask" maskUnits="userSpaceOnUse" x="1250" y="413" width="240" height="230" style="mask-type:luminance">
       <circle cx="1370" cy="525" r="99" fill="white"/>
       <path d="M1260 514Q1375 612 1517 497L1536 524Q1393 648 1260 544Z" fill="black"/>
@@ -13,7 +21,30 @@
     <linearGradient id="alchemy-reflection" x1="0" x2="1"><stop stop-color="#ffd600" stop-opacity="0"/><stop offset=".5" stop-color="#fff4a4"/><stop offset="1" stop-color="#ffd600" stop-opacity="0"/></linearGradient>
   </defs>
   <image href="/assets/alchemy-motion/hero-clean.webp" width="1536" height="1024"/>
+  <g clip-path="url(#alchemy-torso-clip)" mask="url(#alchemy-breath-mask)">
+    <g id="alchemy-breath"><image href="/assets/alchemy-motion/hero-clean.webp" width="1536" height="1024"/></g>
+  </g>
   <g mask="url(#alchemy-figure-mask)">
+    <g id="alchemy-energy-back" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity=".76">
+      <path class="alchemy-ribbon" pathLength="100" stroke="#e71932" stroke-width="6" stroke-dasharray="15 9 2 12" d="M666 326C598 341 712 350 644 387S625 438 657 455 595 486 620 524 557 548 600 590 530 639 576 678 509 735 541 781"/>
+      <path class="alchemy-ribbon" pathLength="100" stroke="#ff454d" stroke-width="2.1" stroke-dasharray="8 14 1 16" d="M656 337C612 355 696 360 638 399S645 452 635 478 604 505 611 544 564 572 583 607 550 646 563 681 528 732 538 777"/>
+      <path class="alchemy-ribbon" pathLength="100" stroke="#e71932" stroke-width="7" stroke-dasharray="11 7 2 16" d="M1460 302C1426 328 1513 330 1475 364S1535 400 1480 425 1522 466 1488 491 1544 530 1495 570 1559 618 1506 660 1566 705 1510 753 1547 801 1512 837"/>
+      <path class="alchemy-ribbon" pathLength="100" stroke="#ff454d" stroke-width="2.3" stroke-dasharray="9 13 1 18" d="M1455 318C1443 344 1497 339 1481 374S1516 407 1487 439 1510 466 1501 504 1516 550 1506 590 1538 628 1514 670 1548 713 1518 761"/>
+      <path class="alchemy-ribbon" pathLength="100" stroke="#e71932" stroke-width="4" stroke-dasharray="12 17 2 18" d="M721 407C757 376 782 416 819 389S878 398 917 374M1240 400C1285 368 1320 424 1363 403S1415 428 1455 401"/>
+    </g>
+    <g id="alchemy-halo-outer" fill="none" stroke="#ffe35c" stroke-width="1.5" opacity=".58">
+      <circle cx="1050" cy="280" r="210" stroke-dasharray="98 18 3 18"/>
+      <circle cx="1050" cy="280" r="202" stroke-width=".7" stroke-dasharray="2 8"/>
+      <path d="M1050 62v19m0 398v19M832 280h19m398 0h19M896 126l13 13m282 282 13 13M896 434l13-13m282-282 13-13" stroke-width="2.3"/>
+      <path d="m1044 70 6-8 6 8-6 8Zm0 420 6-8 6 8-6 8ZM832 280l8-6 8 6-8 6Zm420 0 8-6 8 6-8 6Z" fill="#ffd600" stroke="none"/>
+    </g>
+    <g id="alchemy-halo-inner" fill="none" stroke="#ffd600" stroke-width="1.15" opacity=".64">
+      <circle cx="1050" cy="280" r="150" stroke-dasharray="40 8 1 8"/>
+      <path d="M1050 130 1180 355H920ZM1050 430 920 205h260ZM900 280h300M1050 130v300"/>
+      <circle cx="1050" cy="130" r="4" fill="#fff0a0" stroke="none"/>
+      <circle cx="920" cy="355" r="3.5" fill="#ffd600" stroke="none"/>
+      <circle cx="1180" cy="355" r="3.5" fill="#ffd600" stroke="none"/>
+    </g>
     <g id="alchemy-orbit-ring" fill="none" stroke="#ffe45c" stroke-width="1" opacity=".48">
       <ellipse cx="1065" cy="290" rx="290" ry="125" stroke-dasharray="1 18"/>
       <path d="M775 290h14m566 0h-14M1065 165v12m0 238v-12" stroke-width="2"/>
@@ -26,6 +57,15 @@
     <path d="M1317 451A91 91 0 0 1 1422 451M1316 598A91 91 0 0 0 1423 599" stroke-width="1.2"/>
     <path d="M1323 463A79 79 0 0 1 1410 456M1331 589A78 78 0 0 0 1416 590" stroke-width=".7"/>
   </g></g>
+  <g id="alchemy-pendant" opacity=".45">
+    <ellipse cx="1025" cy="385" rx="47" ry="49" fill="url(#alchemy-pendant-light)"/>
+    <g fill="none" stroke="#fff0a0" stroke-width="1.25"><circle cx="1025" cy="385" r="19"/><path d="m1025 359 22 39h-44Zm0 47v7m-25-28h-7m57 0h7"/></g>
+  </g>
+  <circle id="alchemy-shockwave" cx="1025" cy="385" r="25" fill="none" stroke="#ffe35c" stroke-width="1.7" stroke-dasharray="16 9" opacity="0"/>
+  <g id="alchemy-star" fill="#fff3ac" opacity=".75">
+    <path d="m1326 250 3 24 25 4-25 3-3 25-4-25-24-3 24-4Z"/>
+    <path d="m1326 262 3 13 12 3-12 3-3 12-3-12-12-3 12-3Z" fill="#fff"/>
+  </g>
   <g id="alchemy-pupil-left"><path d="m984 229 10-4-4 6Z" fill="#fff9c5" opacity=".85"/></g>
   <g id="alchemy-pupil-right"><path d="m1013 220 11-6-5 7Z" fill="#fff9c5" opacity=".85"/></g>
   <g id="alchemy-eyelid-left">
@@ -36,7 +76,18 @@
     <path d="M1006 214Q1018 202 1032 207L1036 221Q1022 230 1008 228Z" fill="#181207"/>
     <path d="M1008 220Q1021 220 1032 211" fill="none" stroke="#6c4b14" stroke-width="1.5"/>
   </g>
+  <g id="alchemy-energy-front" fill="none" stroke-linecap="round" opacity=".58">
+    <path class="alchemy-ribbon" pathLength="100" stroke="#e71932" stroke-width="3.5" stroke-dasharray="10 19 2 21" d="M700 914C793 895 831 928 935 900S1078 907 1163 882 1327 901 1433 865"/>
+    <path class="alchemy-ribbon" pathLength="100" stroke="#ff454d" stroke-width="1.4" stroke-dasharray="7 22 1 25" d="M740 916C852 904 884 923 972 905S1107 905 1190 885 1354 896 1415 874"/>
+  </g>
+  <g id="alchemy-sparks"/>
   <g clip-path="url(#alchemy-water-clip)">
+    <g id="alchemy-water-ripples" fill="none" stroke="#ffe35c" stroke-width="1.1" opacity=".32">
+      <ellipse cx="550" cy="947" rx="45" ry="5" stroke-dasharray="57 17 14 19"/>
+      <ellipse cx="1000" cy="972" rx="68" ry="7" stroke-dasharray="84 22 33 18"/>
+      <ellipse cx="1300" cy="943" rx="55" ry="5" stroke-dasharray="64 14 21 16"/>
+      <path d="M897 1001q90-13 184 0m-506-30q42-7 84 0"/>
+    </g>
     <g id="alchemy-water" fill="none" stroke="url(#alchemy-reflection)" stroke-linecap="round" opacity=".4">
       <path d="M440 935h105m276 9h88m247-17h170m-738 49h100m202-5h155m248-21h96" stroke-width="1.8"/>
       <path d="M577 951h92m173-26h52m319 63h162m-446 16h83m375-35h136" stroke-width="1"/>
