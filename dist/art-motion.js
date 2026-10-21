@@ -25,7 +25,7 @@
   const interacting = state => state.hover || state.focus;
 
   function descriptors() {
-    if (!manifest) manifest = fetch('/assets/art-motion/scenes.json?v=2').then(response => {
+    if (!manifest) manifest = fetch('/assets/art-motion/scenes.json?v=3').then(response => {
       if (!response.ok) throw new Error('Artwork index unavailable');
       return response.json();
     }).then(items => {

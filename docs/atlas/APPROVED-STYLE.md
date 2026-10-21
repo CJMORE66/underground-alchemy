@@ -60,3 +60,9 @@ Rhythm uses a restored stationary frame (`rhythm-frame-clean.png`) and the origi
 Each principle now has a story duration and meaningful phase labels. A progress slider allows close study: moving it holds the selected frame. Play resumes that artwork; Replay begins its story again. All controls retain the global motion/reduced-motion override. No decorative pulse substitutes for the actual principle: waves propagate, halves mirror/exchange, a falling domino triggers its neighbour, and received inputs become a creative form.
 
 `tools/build-mentalism-story.py` and `tools/build-rhythm-story.py` author the two flagship sequences; `tools/build-principle-scenes.py` builds the other five and combines their metadata. Generic story tracks are deterministic and share the existing visible-scene clock.
+
+### TRANSMUTE: each painted element has its own movement
+
+The second Living Wall composition uses a dedicated scene builder rather than a highlight pass over a static complete poster. The approved original remains the exact fallback and download. A separate empty gothic-city background was produced with the built-in image tool; its exact production prompt is retained in `transmute-city-provenance.json`. Foreground components use the original approved paint and hand-traced source-space paths, including all nine interlocking letters and the separate CAISIK signature in `tools/transmute-letter-layers.json`.
+
+Preserve occlusion order and legibility when changing the motion: the word sits in front of the seated figure and celestial/music objects. Hidden strokes in interlocked raster lettering must not be invented or exposed through large displacement. Keep independent letter movement restrained while making the larger illustration elements clearly move. The detailed artwork view supports local pause, replay and a native study slider, with the shared reduced-motion/global-pause fallback still authoritative.

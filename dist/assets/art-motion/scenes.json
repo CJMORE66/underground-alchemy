@@ -298,9 +298,100 @@
     "svg": "/assets/art-motion/transmute.svg",
     "width": 1536,
     "height": 1024,
-    "motionSummary": "Letter-face highlights, painted halo tracing, moving vinyl groove glints, glowing alchemist eyes and pendant, and rippling street reflections.",
+    "motionSummary": "Every major painted component has its own rig: nine individual wildstyle letters and signature, breathing alchemist with blinking eyes and swinging necklace, turning sun rays, floating moon, leaning microphone, spinning vinyl label and grooves, Ouroboros, orbital pearls, crimson ribbons, rosette, diamond, window lights and street reflections. Original paint is assembled over a restored empty city; there is no stationary full-image duplicate.",
+    "assets": [
+      "/assets/art-motion/transmute-city-clean.png"
+    ],
+    "parts": [
+      "city-windows-1",
+      "city-windows-2",
+      "city-windows-3",
+      "city-windows-4",
+      "left-statue",
+      "right-statue",
+      "left-orbit",
+      "right-orbit",
+      "lower-orbit",
+      "sun-orbit-pearl",
+      "left-upper-pearl",
+      "mic-orbit-pearl",
+      "mic-lower-pearl",
+      "moon-orbit-pearl",
+      "right-upper-pearl",
+      "right-lower-pearl",
+      "lower-left-pearl",
+      "lower-left-pearl-2",
+      "lower-right-pearl",
+      "ouroboros",
+      "halo-rings",
+      "triangle-geometry",
+      "sun-rays",
+      "sun-face",
+      "vinyl-record",
+      "vinyl-label",
+      "vinyl-groove-reflections",
+      "vinyl-orbit-rings",
+      "moon-face",
+      "moon-star",
+      "microphone",
+      "microphone-orbit-rings",
+      "ribbon-left-upper",
+      "ribbon-left-mid",
+      "ribbon-right-upper",
+      "ribbon-right-mid",
+      "ribbon-right-low",
+      "alchemist-body",
+      "alchemist-eye-0-loop-guard",
+      "alchemist-eye-0-blink",
+      "alchemist-eye-0-gaze",
+      "alchemist-eye-1-loop-guard",
+      "alchemist-eye-1-blink",
+      "alchemist-eye-1-gaze",
+      "alchemist-pendant",
+      "alchemist-beads-0",
+      "alchemist-beads-1",
+      "alchemist-beads-2",
+      "alchemist-beads-3",
+      "letter-bevel-framework",
+      "letter-t-1",
+      "letter-r",
+      "letter-a",
+      "letter-n",
+      "letter-s",
+      "letter-m",
+      "letter-u",
+      "letter-t-2",
+      "letter-e",
+      "caisik-signature",
+      "rosette",
+      "hanging-diamond",
+      "letter-face-signal",
+      "water-reflection-1",
+      "water-reflection-2"
+    ],
+    "story": {
+      "duration": 24,
+      "phases": [
+        {
+          "at": 0,
+          "label": "TRANSMUTE / Every element is alive"
+        },
+        {
+          "at": 6,
+          "label": "STONE TO SYMBOL / Follow the separate layers"
+        },
+        {
+          "at": 12,
+          "label": "VOICE TO FORM / Let the letters move"
+        },
+        {
+          "at": 18,
+          "label": "ONE LIVING COMPOSITION / Return and renew"
+        }
+      ]
+    },
     "posterSha256": "1ec953aeb28a11ab8798067f6a67c19e142cd2552fee25bdfe81d78573ca6344",
-    "sceneSha256": "5aba1a0aca90cea17f00d5873cd825d192dafd13c24f5c64edfd149b52edcc75"
+    "sceneSha256": "a8a056bda9774298d96887842c2f36fec9eab2e2f96016ca395b5a22aaba3f0b"
   },
   {
     "id": "map-territory",

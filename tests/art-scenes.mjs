@@ -41,6 +41,19 @@ assert.equal((rhythm.match(/data-am="pendulum"/g)||[]).length,1,'Complete rod an
 assert.match(rhythm,/rhythm-frame-clean.png/,'Clean frame removes stationary pendulum');
 const amplitude=Number(rhythm.match(/data-am="pendulum"[^>]*data-amp="([^"]+)"/)?.[1]);
 assert.ok(amplitude>=20,'Whole pendulum has a clearly visible swing');
+const transmute=scenes.find(s=>s.id==='transmute');
+const transmuteSvg=read(transmute.svg);
+assert.equal(transmute.story.duration,24,'Transmute has a complete authored loop');
+assert.ok(transmute.parts.length>=40&&transmute.parts.length<80,'Transmute separates the painted details within a bounded animation budget');
+for(const part of ['alchemist-body','sun-face','sun-rays','moon-face','microphone','vinyl-label','ouroboros','rosette','hanging-diamond','caisik-signature']){
+ assert.ok(transmute.parts.includes(part),`Transmute independently animates ${part}`);
+ assert.ok(transmuteSvg.includes(`data-part="${part}"`),`Transmute ships ${part} rig`);
+}
+const letterNames=['letter-t-1','letter-r','letter-a','letter-n','letter-s','letter-m','letter-u','letter-t-2','letter-e'];
+for(const part of letterNames)assert.ok(transmute.parts.includes(part),'Every letter of TRANSMUTE has its own painted rig');
+for(const asset of transmute.assets)assert.ok(fs.existsSync(path.join(root,asset)),'Transmute clean background ships');
+assert.match(transmuteSvg,/data-part="restored-city"/,'Moving foreground uses an empty city background');
+assert.doesNotMatch(transmuteSvg,/<use href="#paint"\s*\/>/,'The original full image is never left behind the moving foreground');
 const atlas=read('atlas.js');
 const table=atlas.match(/const artThemes=(\[[\s\S]*?\]);/)[1];
 const placements=[...table.matchAll(/scene:'([^']+)'/g)].map(m=>m[1]);
@@ -49,8 +62,9 @@ placements.forEach(id=>assert.ok(expected.includes(id)));
 assert.match(read('atlas-principles.js'),/data-art-story-progress/,'Story has native exploration control');
 assert.match(read('atlas-principles.js'),/id:p\.id,poster:/,'Every principle uses its own native scene');
 assert.match(atlas,/data-art-replay/,'Large artwork view has replay');
+assert.match(atlas,/Explore TRANSMUTE animation/,'Transmute details have a native study slider');
 assert.match(read('art-motion.css'),/\.living-art\.art-running \.living-art-poster/,'Approved poster stays until runtime success');
 for(const page of ['index.html',...fs.readdirSync(path.join(root,'q')).map(q=>`q/${q}/index.html`)]){
- const html=read(page);assert.match(html,/\/art-motion.js\?v=2/);assert.match(html,/\/art-motion.css\?v=2/);
+ const html=read(page);assert.match(html,/\/art-motion.js\?v=3/);assert.match(html,/\/art-motion.css\?v=3/);
 }
 console.log('PASS: 14 custom scenes / 15 placements, original paint hashes, native channels, mask references, asset packaging, lesson routing and replay integration.');

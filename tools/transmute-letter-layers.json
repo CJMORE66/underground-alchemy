@@ -1,0 +1,106 @@
+{
+  "source": "/assets/atlas/transmute-approved.webp",
+  "width": 1536,
+  "height": 1024,
+  "text": "TRANSMUTE",
+  "method": "Hand-traced visible painted regions from the approved interlocking letterwork. Hidden strokes are intentionally not invented.",
+  "notes": [
+    "The original letters overlap and share extensions. Paths track visible source paint rather than reconstructing a font.",
+    "Use restrained transforms: approximately 2–5 source pixels and less than 0.5 degrees. Larger displacements expose intentionally occluded neighbouring strokes.",
+    "Draw lettering above the seated figure, celestial objects, vinyl and microphone. Draw the signature last.",
+    "Gold drops at the bottom are included as compound subpaths in their nearest letter. The central flower/diamond and floating gold orbs are separate illustration elements and should not be included in these letter masks.",
+    "Visible overlap is deliberate at the dark bevel seams; retain the listed back-to-front order."
+  ],
+  "parts": [
+    {
+      "id": "letter-t-1",
+      "name": "T — opening arrow and downstroke",
+      "letter": "T",
+      "cx": 279,
+      "cy": 594,
+      "path": "M116 478L224 443L343 467L424 506L440 478L489 550L474 592L350 619L311 669L329 723L285 704L252 690L223 740L198 716L200 679L166 667L134 679L81 706L73 697L141 644L174 632L228 657L276 568L230 574L209 549L143 537L117 523Z M148 681L166 685L166 749Q162 765 158 751L156 697L150 711Z M188 702L202 710L198 798Q195 817 191 802Z",
+      "motion": {"x": 2.4, "y": 3.8, "rotate": 0.25, "period": 5.4, "phase": 0}
+    },
+    {
+      "id": "letter-r",
+      "name": "R — lower-left counter and swept leg",
+      "letter": "R",
+      "cx": 308,
+      "cy": 724,
+      "path": "M282 566L342 570L340 617L398 598L445 630L396 672L345 687L334 713L382 724L421 713L414 749L348 776L358 838L339 853L323 779L268 806L226 831L140 864L153 837L190 798L224 754L250 714L244 685L282 706L316 715L330 692L282 681L288 645L314 604L270 622Z M280 792L292 788L288 852Q286 870 282 854Z M337 812L346 811L342 925Q339 942 336 926Z",
+      "motion": {"x": 1.6, "y": 4.2, "rotate": -0.28, "period": 6.1, "phase": 0.65}
+    },
+    {
+      "id": "letter-a",
+      "name": "A — rising blade and sweeping baseline",
+      "letter": "A",
+      "cx": 476,
+      "cy": 731,
+      "path": "M424 446L493 509L534 554L557 597L585 632L572 653L533 639L521 662L498 691L478 732L520 717L520 751L464 781L416 817L479 824L550 796L602 773L590 802L530 832L479 852L412 858L384 843L373 826L386 798L427 749L453 702L483 639L501 606L493 579L466 605L456 594L471 553Z M389 845L402 848L399 914Q397 932 392 919Z M408 850L418 850L414 935Q411 949 407 935Z M430 851L439 848L437 918Q433 934 430 921Z M467 846L476 843L475 899Q472 915 468 902Z M510 827L520 824L518 861Q514 877 511 862Z",
+      "motion": {"x": -2.1, "y": 3.5, "rotate": 0.3, "period": 5.8, "phase": 1.25}
+    },
+    {
+      "id": "letter-n",
+      "name": "N — diagonal bolt",
+      "letter": "N",
+      "cx": 625,
+      "cy": 671,
+      "path": "M550 564L617 553L654 581L641 596L660 645L694 670L718 660L710 692L730 714L699 750L666 716L657 757L658 783L621 767L617 808L608 823L602 772L576 753L542 741L520 767L517 739L554 699L572 691L564 638L579 662L583 626L572 591Z M609 778L622 785L621 823Q618 841 614 824Z M649 761L657 764L653 802Q650 818 647 805Z",
+      "motion": {"x": 2.2, "y": -3.5, "rotate": -0.35, "period": 5.2, "phase": 1.9}
+    },
+    {
+      "id": "letter-s",
+      "name": "S — central turn",
+      "letter": "S",
+      "cx": 767,
+      "cy": 665,
+      "path": "M662 509L711 526L748 548L779 563L822 551L838 579L797 600L762 606L749 619L775 633L811 638L839 656L849 684L835 711L802 738L761 762L724 796L691 786L699 762L716 727L747 709L775 691L797 670L774 662L734 654L705 640L694 621L701 599L724 582L699 565L679 607L670 577Z M709 764L718 763L714 816Q711 833 708 818Z M850 745L861 747L864 924Q861 944 856 927Z",
+      "motion": {"x": -1.8, "y": 4.5, "rotate": 0.32, "period": 6.4, "phase": 2.5}
+    },
+    {
+      "id": "letter-m",
+      "name": "M — twin peaks and long feet",
+      "letter": "M",
+      "cx": 917,
+      "cy": 664,
+      "path": "M811 501L837 526L860 555L879 573L912 553L938 532L933 584L959 610L995 555L1002 542L1008 605L1030 633L1013 656L1000 642L1001 687L1023 718L1064 769L1012 763L956 759L932 743L935 770L909 783L889 762L850 753L816 738L824 712L848 656L860 612L843 598L840 635L824 664L811 641L820 588L799 556Z M932 764L944 764L940 896Q937 917 933 899Z M892 759L902 764L901 796Q898 810 894 797Z",
+      "motion": {"x": 2.2, "y": -3.3, "rotate": -0.27, "period": 5.7, "phase": 3.1}
+    },
+    {
+      "id": "letter-u",
+      "name": "U — rounded gold bowl",
+      "letter": "U",
+      "cx": 1048,
+      "cy": 660,
+      "path": "M972 573L1000 557L1028 552L1023 588L1038 625L1048 654L1052 680L1067 684L1080 676L1081 652L1068 617L1059 594L1037 579L1097 562L1103 603L1096 627L1111 653L1111 684L1094 713L1081 731L1054 737L1030 724L1013 699L994 660L978 617L967 594Z M1015 714L1029 728L1027 782Q1024 801 1020 783Z",
+      "motion": {"x": -1.7, "y": 4, "rotate": 0.35, "period": 6, "phase": 3.75}
+    },
+    {
+      "id": "letter-t-2",
+      "name": "T — long upper-right arrow",
+      "letter": "T",
+      "cx": 1202,
+      "cy": 596,
+      "path": "M1014 570L1100 549L1181 525L1243 507L1309 483L1301 514L1354 528L1384 556L1397 576L1374 581L1325 572L1260 583L1191 608L1174 620L1201 666L1183 678L1162 651L1155 670L1174 705L1188 733L1152 736L1127 708L1128 682L1115 650L1098 620L1087 603L1047 612Z M1132 709L1141 721L1139 769Q1136 786 1132 771Z M1240 592L1250 589L1248 629Q1245 644 1242 630Z M1370 576L1379 580L1379 616Q1375 631 1372 618Z",
+      "motion": {"x": 2.3, "y": -3.8, "rotate": -0.25, "period": 5.5, "phase": 4.4}
+    },
+    {
+      "id": "letter-e",
+      "name": "E — right blade, curl and descending extension",
+      "letter": "E",
+      "cx": 1310,
+      "cy": 748,
+      "path": "M1180 622L1218 614L1283 594L1266 622L1250 641L1279 652L1319 637L1362 624L1400 629L1428 643L1406 666L1367 683L1351 701L1389 710L1427 737L1430 752L1392 776L1418 807L1431 842L1438 879L1416 889L1383 865L1337 847L1295 831L1309 869L1312 902L1295 922L1274 881L1240 843L1207 812L1170 787L1203 784L1239 797L1234 779L1210 754L1180 724L1177 693L1193 684L1180 661L1161 647Z M1305 834L1317 840L1317 889Q1314 908 1309 892Z M1359 707L1371 711L1367 750Q1363 768 1360 753Z M1422 843L1430 846L1432 915Q1429 934 1426 918Z M1299 918L1308 923L1307 946Q1304 958 1301 947Z",
+      "motion": {"x": -2.3, "y": 4.2, "rotate": 0.28, "period": 6.3, "phase": 5.05}
+    },
+    {
+      "id": "caisik-signature",
+      "name": "CAISIK handstyle and crown",
+      "letter": null,
+      "cx": 1076,
+      "cy": 814,
+      "path": "M1098 745L1107 757L1115 748L1123 764L1132 754L1138 770L1153 764L1146 783L1135 789L1146 804L1162 816L1158 831L1137 846L1147 862L1135 883L1124 877L1118 850L1098 854L1096 876L1086 871L1080 849L1042 844L1025 851L1016 842L985 853L973 844L981 826L973 813L983 793L1001 784L1018 767L1049 773L1061 762L1086 770L1090 753Z M1010 845L1026 846L1024 907Q1020 927 1015 910Z M1111 848L1126 847L1127 872Q1122 890 1116 876Z M1134 850L1144 847L1143 889Q1139 907 1135 892Z",
+      "motion": {"x": 0.8, "y": 2.2, "rotate": -0.18, "period": 7.2, "phase": 2.2}
+    }
+  ]
+}

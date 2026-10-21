@@ -7,6 +7,8 @@ shared browser runtime, so reduced-motion and pause controls remain authoritativ
 from pathlib import Path
 from html import escape
 import json
+import subprocess
+import sys
 import xml.etree.ElementTree as ET
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -100,21 +102,9 @@ s.shine(10)
 s.activation(285)
 scenes.append(s.save('Opposed triangle edge illumination, mirrored meridian, rotating dial hands, alternating star points and a luminance-masked paint sweep.'))
 
-# Transmute: the original illustrated scene and lettering remain intact.
-s = Scene('transmute', 'TRANSMUTE', '/assets/atlas/transmute-approved.webp', 1536, 1024, (767, 625))
-s.trace('M149 515L471 552 306 588M522 517L660 748M728 553Q908 597 754 702M955 555L1052 710M1200 575L1381 555M227 821L377 772M1001 788L1117 778', 14, WHITE, 2.5, .65, '5 95')
-# The halo sweep follows the actual painted disc and stays behind the central hood.
-s.trace('M543 237C535 127 614 45 716 26M815 35C928 75 990 143 1001 235', 8, WHITE, 2.3, .6, '7 93')
-s.layers.append(f'<g clip-path="url(#vinyl-pass)"><g {am("rotate", cx=1210, cy=400, speed=18)}><path d="M1114 386A100 100 0 0 1 1240 306M1188 492A96 96 0 0 0 1303 378" fill="none" stroke="{WHITE}" stroke-width="3" opacity=".45"/></g></g>')
-s.defs.append('<clipPath id="vinyl-pass"><ellipse cx="1210" cy="400" rx="104" ry="110"/></clipPath>')
-s.pulse('<path d="M703 177L712 175M728 169L739 165" fill="none" stroke="#fff0a0" stroke-width="4" stroke-linecap="round"/>', 4.4, 0, .1, .8)
-s.glint(1045, 237, 20, 6)
-s.glint(747, 329, 12, 3.6)
-# Passing water strokes sit on the painted reflections, below the letter drips.
-s.trace('M80 973H361M428 990H697M831 971H1083M1167 986H1473', 20, GOLD, 1.8, .5, '9 91')
-s.shine(8.5, 'M60 455H1464V952H60Z')
-s.activation(350)
-scenes.append(s.save('Letter-face highlights, painted halo tracing, moving vinyl groove glints, glowing alchemist eyes and pendant, and rippling street reflections.'))
+# TRANSMUTE has independently extracted full painted components and its own loop.
+subprocess.run([sys.executable, str(ROOT / 'tools/build-transmute-scene.py')], cwd=ROOT, check=True)
+scenes.append(json.loads((OUT / 'transmute-story.json').read_text()))
 
 # Frame the City: window-by-window illumination inside the hand-built frame.
 s = Scene('map-territory', 'THE MAP IS NOT THE TERRITORY', '/assets/masterworks-v2/089.webp', 1536, 1024, (781, 497))
