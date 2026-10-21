@@ -1,6 +1,6 @@
 /* Original authored geometry. Portal-only styles; no unrelated storefront overrides. */
 body.has-portal-v7{overflow:hidden}
-#portal.portal-v7{--p7-accent:#c6aa6c;--p7-ink:#e9e4d8;position:fixed;inset:0;z-index:100;overflow:auto;overscroll-behavior:contain;background:#111211;color:var(--p7-ink);text-align:left;padding:0;isolation:isolate;scroll-behavior:smooth}
+#portal.portal-v7{--p7-accent:#ffd600;--p7-ink:#f5f5f0;position:fixed;inset:0;z-index:100;overflow:auto;overscroll-behavior:contain;background:#111211;color:var(--p7-ink);text-align:left;padding:0;isolation:isolate;scroll-behavior:smooth}
 #portal.portal-v7::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(ellipse at 22% 28%,color-mix(in srgb,var(--p7-accent) 16%,transparent),transparent 58%)}
 .portal-v7 .p7-grain{position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.12;background-image:repeating-linear-gradient(0deg,transparent 0 5px,#ffffff0a 5px 6px)}
 .portal-v7 .p7-shell{max-width:1600px;margin:0 auto;padding:32px clamp(20px,5vw,80px) 22px}

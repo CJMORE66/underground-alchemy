@@ -1,0 +1,907 @@
+{
+  "direction": "approved yellow/black graphic novel",
+  "approvedReference": "dist/assets/style-reference/approved-caisik-graphic-novel.png",
+  "restoredSource": "e159616e564d8bb5904c5af55f58fdc91afe8db3",
+  "artworks": [
+    {
+      "id": 1,
+      "title": "CAISIK",
+      "image": "/assets/masterworks-v2/001.webp",
+      "width": 1600,
+      "height": 533,
+      "alpha": true,
+      "sha256": "65795c5ab00b5c0e51a93fa50157abe96bcad165401651b917bbfeefe409c252"
+    },
+    {
+      "id": 2,
+      "title": "Transmute",
+      "image": "/assets/masterworks-v2/002.webp",
+      "width": 1536,
+      "height": 1024,
+      "alpha": false,
+      "sha256": "33951a624c2b9c16be77cc7b06056da6fcabf740a3feaf7a505e692d4241c357"
+    },
+    {
+      "id": 3,
+      "title": "Underground",
+      "image": "/assets/masterworks-v2/003.webp",
+      "width": 1600,
+      "height": 800,
+      "alpha": true,
+      "sha256": "01e49ab0703a69b85677f0b571b7d0c3113edbb216859eda2d7d1f8de53c5d77"
+    },
+    {
+      "id": 4,
+      "title": "Inner Voice",
+      "image": "/assets/masterworks-v2/004.webp",
+      "width": 1600,
+      "height": 800,
+      "alpha": true,
+      "sha256": "d90a09a7b0d638ecf1b0a1fcf71c4eb9c6918317712b06217b31acb16b45ceae"
+    },
+    {
+      "id": 5,
+      "title": "Know Thyself",
+      "image": "/assets/masterworks-v2/005.webp",
+      "width": 1536,
+      "height": 1024,
+      "alpha": true,
+      "sha256": "5c31abf38fd4b9eb3e5ef9b6e99007ec1d1c14a9ab163c2eb797bb58782580f4"
+    },
+    {
+      "id": 6,
+      "title": "No Mask",
+      "image": "/assets/masterworks-v2/006.webp",
+      "width": 1600,
+      "height": 800,
+      "alpha": true,
+      "sha256": "ca9f297189d458ddff42a1874ca6a6ed2839338f4f3fe5b45b81a1f2abc6e701"
+    },
+    {
+      "id": 7,
+      "title": "Raw Thoughts",
+      "image": "/assets/masterworks-v2/007.webp",
+      "width": 1536,
+      "height": 1024,
+      "alpha": true,
+      "sha256": "54b311db71d06ad0dd5db6ecab36497de42884927f9baee56a6e87dbee27ba98"
+    },
+    {
+      "id": 8,
+      "title": "Stay True",
+      "image": "/assets/masterworks-v2/008.webp",
+      "width": 1536,
+      "height": 1024,
+      "alpha": true,
+      "sha256": "34ab57447af9f8f9b1c2c240faee6d79b459c272d4eeed8e99b693860935216f"
+    },
+    {
+      "id": 9,
+      "title": "Create",
+      "image": "/assets/masterworks-v2/009.webp",
+      "width": 1600,
+      "height": 533,
+      "alpha": true,
+      "sha256": "32edcdd8391773e1def29ba18a998ef4a13c515200725155d708a2eb562b753b"
+    },
+    {
+      "id": 10,
+      "title": "Listen",
+      "image": "/assets/masterworks-v2/010.webp",
+      "width": 1600,
+      "height": 800,
+      "alpha": true,
+      "sha256": "f45af35f6406ae2ab97d2ee93450654e855c873c90a5a2cbe6c5a30a30e54eaf"
+    },
+    {
+      "id": 11,
+      "title": "The Open Mic",
+      "image": "/assets/masterworks-v2/011.webp",
+      "width": 1024,
+      "height": 1536,
+      "alpha": true,
+      "sha256": "629b467c62e6fc0bb43ec1cc03da38ac009569e52bfe13e812c2f16eea035f0a"
+    },
+    {
+      "id": 12,
+      "title": "Two Decks",
+      "image": "/assets/masterworks-v2/012.webp",
+      "width": 1536,
+      "height": 1024,
+      "alpha": true,
+      "sha256": "047f92f728bcb399f9deaf21db3b4b22416f4d456952505feb0dbcc827ae606a"
+    },
+    {
+      "id": 13,
+      "title": "Analog Thoughts",
+      "image": "/assets/masterworks-v2/013.webp",
+      "width": 1536,
+      "height": 1024,
+      "alpha": true,
+      "sha256": "11617535e8f7fda8317d5cb6baf86c0559c27eb7d9ecaa8edcb7c3eb8ad3654c"
+    },
+    {
+      "id": 14,
+      "title": "Balance",
+      "image": "/assets/masterworks-v2/014.webp",
+      "width": 1536,
+      "height": 1024,
+      "alpha": true,
+      "sha256": "e952e4c39f9a57ce08dbf056d9180e712ffcb67a66868155eb5de0e417be8801"
+    },
+    {
+      "id": 15,
+      "title": "Paint the Silence",
+      "image": "/assets/masterworks-v2/015.webp",
+      "width": 1536,
+      "height": 1024,
+      "alpha": true,
+      "sha256": "cf9579ea0ddc135b3aeace8a7fa4dfd29a7964d23a47c088afce0c3f8b580a48"
+    },
+    {
+      "id": 16,
+      "title": "Low End Theory",
+      "image": "/assets/masterworks-v2/016.webp",
+      "width": 1536,
+      "height": 1024,
+      "alpha": true,
+      "sha256": "fcf6aece174bc810786271cf48d283f8e7f4ea2f8fadd13bf151b60b0a988de8"
+    },
+    {
+      "id": 17,
+      "title": "The Blackbook",
+      "image": "/assets/masterworks-v2/017.webp",
+      "width": 1536,
+      "height": 1024,
+      "alpha": true,
+      "sha256": "3a73abd787eacc718217fa35b264f45d9f2bcc6a92fa684cdd6751c695b1ce82"
+    },
+    {
+      "id": 18,
+      "title": "Listen In",
+      "image": "/assets/masterworks-v2/018.webp",
+      "width": 1254,
+      "height": 1254,
+      "alpha": true,
+      "sha256": "c2d493c8422c720124fd49e36aea8c01a07cf4ea2c96f315fb26c1c0c53e17cc"
+    },
+    {
+      "id": 19,
+      "title": "City in the Groove",
+      "image": "/assets/masterworks-v2/019.webp",
+      "width": 1254,
+      "height": 1254,
+      "alpha": true,
+      "sha256": "f7a7a5f639b37d7b0f248a8bbdb0c7f120ea27b5ce002d2eeefca61bca17c288"
+    },
+    {
+      "id": 20,
+      "title": "Pass the Mic",
+      "image": "/assets/masterworks-v2/020.webp",
+      "width": 1254,
+      "height": 1254,
+      "alpha": true,
+      "sha256": "48ff035797f2a44170765e830b8dfcd74912db5a3d998e3223419fbaa80feab1"
+    },
+    {
+      "id": 21,
+      "title": "Inner World",
+      "image": "/assets/masterworks-v2/021.webp",
+      "width": 1254,
+      "height": 1254,
+      "alpha": true,
+      "sha256": "a3b4676ea4786514f96b4dc75209cbac7657c292cfb3f92abb6cf061cf344f05"
+    },
+    {
+      "id": 22,
+      "title": "Correspondence",
+      "image": "/assets/masterworks-v2/022.webp",
+      "width": 1254,
+      "height": 1254,
+      "alpha": true,
+      "sha256": "598706297d90b34f971ada3b1aaba16802e9ea90776ae794bbe5fab6e29efbcf"
+    },
+    {
+      "id": 23,
+      "title": "Vibration",
+      "image": "/assets/masterworks-v2/023.webp",
+      "width": 1254,
+      "height": 1254,
+      "alpha": true,
+      "sha256": "691ec08ed37f97e2c56ebee360853cd971d39d4a834cfefa74c89186f4763772"
+    },
+    {
+      "id": 24,
+      "title": "Polarity",
+      "image": "/assets/masterworks-v2/024.webp",
+      "width": 1254,
+      "height": 1254,
+      "alpha": true,
+      "sha256": "406b869119331f70b3f29be4b6c49cadf728eb00ffe5a715149cdd2e7f3caa83"
+    },
+    {
+      "id": 25,
+      "title": "Rhythm",
+      "image": "/assets/masterworks-v2/025.webp",
+      "width": 1254,
+      "height": 1254,
+      "alpha": true,
+      "sha256": "dcab1d66764865fd2840834bb469b0ec5ec05b1244448cc405384f49868c181a"
+    },
+    {
+      "id": 26,
+      "title": "Cause & Effect",
+      "image": "/assets/masterworks-v2/026.webp",
+      "width": 1254,
+      "height": 1254,
+      "alpha": true,
+      "sha256": "6e3b5ac6f468b62ff87f56ddd7faa4e1901ac668c83f5ba5a7722ccfa94fcc77"
+    },
+    {
+      "id": 27,
+      "title": "Generation",
+      "image": "/assets/masterworks-v2/027.webp",
+      "width": 1254,
+      "height": 1254,
+      "alpha": true,
+      "sha256": "ffbbb89ce0dda8915da2a44f1834e1f178d40ce15e06f722829f9e9ab03e57b1"
+    },
+    {
+      "id": 28,
+      "title": "Seven Chapters",
+      "image": "/assets/masterworks-v2/028.webp",
+      "width": 1254,
+      "height": 1254,
+      "alpha": true,
+      "sha256": "dccd60ad595107c2466e6bf4f23b497042ab2ef4bd163073f8bbf5ea47181e23"
+    },
+    {
+      "id": 29,
+      "title": "Interconnected",
+      "image": "/assets/masterworks-v2/029.webp",
+      "width": 1254,
+      "height": 1254,
+      "alpha": true,
+      "sha256": "ab20cca24dc3f9a8645df704453e0507023a8429b0cca18c8c9f0811a262d316"
+    },
+    {
+      "id": 30,
+      "title": "The Lantern",
+      "image": "/assets/masterworks-v2/030.webp",
+      "width": 1254,
+      "height": 1254,
+      "alpha": true,
+      "sha256": "e30bf4c694bdfe6339dd21eed4d0367785c41e0ca97a0aa5c97d9dd77d0dd828"
+    },
+    {
+      "id": 31,
+      "title": "The Reader",
+      "image": "/assets/masterworks-v2/031.webp",
+      "width": 1254,
+      "height": 1254,
+      "alpha": true,
+      "sha256": "bbe3fa3379fddf1a48bf9415fb682e116fb5fbd87b320d2b173c110acf748f63"
+    },
+    {
+      "id": 32,
+      "title": "Mirror Flame",
+      "image": "/assets/masterworks-v2/032.webp",
+      "width": 1254,
+      "height": 1254,
+      "alpha": true,
+      "sha256": "441193336acc97d4d5cdd9b14b90592a90e17d7c117322c932d28f296a2be556"
+    },
+    {
+      "id": 33,
+      "title": "Unmask",
+      "image": "/assets/masterworks-v2/033.webp",
+      "width": 1254,
+      "height": 1254,
+      "alpha": true,
+      "sha256": "54bfbcb79b4d16c2864cfde1ad500a51e20e39e530be6814a2ff8945b1a85012"
+    },
+    {
+      "id": 34,
+      "title": "Heart on Record",
+      "image": "/assets/masterworks-v2/034.webp",
+      "width": 1312,
+      "height": 1199,
+      "alpha": true,
+      "sha256": "9e54084b0ff073ba903b45d7d9178b0fed6188f7bd0114ee525ad6df9eb46d62"
+    },
+    {
+      "id": 35,
+      "title": "A Way In",
+      "image": "/assets/masterworks-v2/035.webp",
+      "width": 1254,
+      "height": 1254,
+      "alpha": true,
+      "sha256": "dc125727e3e5ae958bd9b82d7ac4507dde652d2a68e99f401540c74191798416"
+    },
+    {
+      "id": 36,
+      "title": "Reform",
+      "image": "/assets/masterworks-v2/036.webp",
+      "width": 1536,
+      "height": 1024,
+      "alpha": true,
+      "sha256": "e557221399c115faf14fa83d4ccee902b9bdd134b1be68d591f63c1ed7488d36"
+    },
+    {
+      "id": 37,
+      "title": "The Endless Cable",
+      "image": "/assets/masterworks-v2/037.webp",
+      "width": 1254,
+      "height": 1254,
+      "alpha": true,
+      "sha256": "8b738e09b4276e1cd3f810b9133b097c971cbee368d3cd7feb08eee51fc256ea"
+    },
+    {
+      "id": 38,
+      "title": "Mended Crown",
+      "image": "/assets/masterworks-v2/038.webp",
+      "width": 1536,
+      "height": 1024,
+      "alpha": true,
+      "sha256": "164611291a9f8c2828e86c96522527291e6f60116bbe3a731d339d567d86cf9a"
+    },
+    {
+      "id": 39,
+      "title": "Inward Eyes",
+      "image": "/assets/masterworks-v2/039.webp",
+      "width": 1600,
+      "height": 800,
+      "alpha": true,
+      "sha256": "ae111a8238ae529b4de5ffbcfb32934f56ed987a2e7263ca8ba4c29ee61185ae"
+    },
+    {
+      "id": 40,
+      "title": "The Inner Door",
+      "image": "/assets/masterworks-v2/040.webp",
+      "width": 1254,
+      "height": 1254,
+      "alpha": true,
+      "sha256": "7f44f876f5b5b6c0eea88ec325fff920f6783d02a7113f42bbba769c9c1d60ea"
+    },
+    {
+      "id": 41,
+      "title": "Concrete Portal",
+      "image": "/assets/masterworks-v2/041.webp",
+      "width": 1254,
+      "height": 1254,
+      "alpha": true,
+      "sha256": "8d726831f26f2c930155494c87ce68d57274d44fb6be046119c2ad032fc97ab5"
+    },
+    {
+      "id": 42,
+      "title": "Transit Language",
+      "image": "/assets/masterworks-v2/042.webp",
+      "width": 1600,
+      "height": 800,
+      "alpha": true,
+      "sha256": "b13fd0b113bcc95d2c2962c4f5770fdf05227ce452962d5117b4bfd349f218dc"
+    },
+    {
+      "id": 43,
+      "title": "Writer’s Crown",
+      "image": "/assets/masterworks-v2/043.webp",
+      "width": 1536,
+      "height": 1024,
+      "alpha": true,
+      "sha256": "0ba213b22b29cb1cf3566480823a94881d81751f04cabc4466fdd9b2e28dbd34"
+    },
+    {
+      "id": 44,
+      "title": "Wild Structure",
+      "image": "/assets/masterworks-v2/044.webp",
+      "width": 1600,
+      "height": 800,
+      "alpha": true,
+      "sha256": "eb7e5c1b44b0401e29e83300e203e125401d48cc057bc971b8de280b81cc91ba"
+    },
+    {
+      "id": 45,
+      "title": "Unchained",
+      "image": "/assets/masterworks-v2/045.webp",
+      "width": 1536,
+      "height": 1024,
+      "alpha": true,
+      "sha256": "6296ee3203c04390cbdcb71e0c3d66bf4f17bc2a71667988593b34cbb6f9e5bd"
+    },
+    {
+      "id": 46,
+      "title": "Chrome Relic",
+      "image": "/assets/masterworks-v2/046.webp",
+      "width": 1222,
+      "height": 1287,
+      "alpha": true,
+      "sha256": "4f7d35c45246dda98aa7880176e8f663592ec6a701f1295e060dd6a441e11a95"
+    },
+    {
+      "id": 47,
+      "title": "Make Your World",
+      "image": "/assets/masterworks-v2/047.webp",
+      "width": 1536,
+      "height": 1024,
+      "alpha": true,
+      "sha256": "4d34b6ee118a9c1c733daf658e7317ce6f34f957eb2f09961edb723f8a89b917"
+    },
+    {
+      "id": 48,
+      "title": "Fragments of Time",
+      "image": "/assets/masterworks-v2/048.webp",
+      "width": 1024,
+      "height": 1536,
+      "alpha": true,
+      "sha256": "48d75a27b2361c74b207fcaf64357ab5369a7644b8e812aa06b3f8f62d82dfb4"
+    },
+    {
+      "id": 49,
+      "title": "Rooftop Frequency",
+      "image": "/assets/masterworks-v2/049.webp",
+      "width": 1254,
+      "height": 1254,
+      "alpha": true,
+      "sha256": "4b581d84db8e3b0ff79463c0436e95e9a303e453abc912cc2df564cb7536a72a"
+    },
+    {
+      "id": 50,
+      "title": "Find a Direction",
+      "image": "/assets/masterworks-v2/050.webp",
+      "width": 1536,
+      "height": 1024,
+      "alpha": true,
+      "sha256": "1254fac7970b9d44d6195d633906c403ecaf5f7083611d73921e02f9f2fc0957"
+    },
+    {
+      "id": 51,
+      "title": "Speak It",
+      "image": "/assets/masterworks-v2/051.webp",
+      "width": 1536,
+      "height": 1024,
+      "alpha": true,
+      "sha256": "e036518a0ac0bd1c73867d35bb9de717c4c33e3c24f814c107fa9bf9a3ee7e43"
+    },
+    {
+      "id": 52,
+      "title": "Raw Capture",
+      "image": "/assets/masterworks-v2/052.webp",
+      "width": 1536,
+      "height": 1024,
+      "alpha": true,
+      "sha256": "b2f1e1b3b955fb9f7bfcfcd951d5e7e47042c946bb2ad59959fe58d047eff652"
+    },
+    {
+      "id": 53,
+      "title": "Paper Wings",
+      "image": "/assets/masterworks-v2/053.webp",
+      "width": 1536,
+      "height": 1024,
+      "alpha": true,
+      "sha256": "1e32c368441e3ced79811ddf025ee05dcf69ae6cb7d83968f116e0f78e7fe294"
+    },
+    {
+      "id": 54,
+      "title": "A Safe Voice",
+      "image": "/assets/masterworks-v2/054.webp",
+      "width": 1536,
+      "height": 1024,
+      "alpha": true,
+      "sha256": "76634f9640f58417225fffb749fedf6c5f975eac070868fa75e8b34303a22d73"
+    },
+    {
+      "id": 55,
+      "title": "Follow the Thread",
+      "image": "/assets/masterworks-v2/055.webp",
+      "width": 1536,
+      "height": 1024,
+      "alpha": true,
+      "sha256": "9ec72e35a4823cd6b606dd825392129858352218df4e12c5e2a3a092c9990e32"
+    },
+    {
+      "id": 56,
+      "title": "Tape Ritual",
+      "image": "/assets/masterworks-v2/056.webp",
+      "width": 1536,
+      "height": 1024,
+      "alpha": true,
+      "sha256": "747ba444a713a1f570d960af9ea80b25152f46076c851f851b9d5b43d7235382"
+    },
+    {
+      "id": 57,
+      "title": "First Bar",
+      "image": "/assets/masterworks-v2/057.webp",
+      "width": 1536,
+      "height": 1024,
+      "alpha": true,
+      "sha256": "0ac093ab5cf74f4449191832dfd56e29f8b0e861ff7181e6b46cd294ef127768"
+    },
+    {
+      "id": 58,
+      "title": "Deep Listening",
+      "image": "/assets/masterworks-v2/058.webp",
+      "width": 1222,
+      "height": 1287,
+      "alpha": true,
+      "sha256": "2246ae065a94219cadbc8b4ff7ea6c11819639a1f7a199d436e5ece8d4e497a6"
+    },
+    {
+      "id": 59,
+      "title": "Hear Your Heart",
+      "image": "/assets/masterworks-v2/059.webp",
+      "width": 1536,
+      "height": 1024,
+      "alpha": true,
+      "sha256": "d6cf3587c5e348185461b3595fd8e06e111447a710d4c254bec547ef341877e2"
+    },
+    {
+      "id": 60,
+      "title": "Honest",
+      "image": "/assets/masterworks-v2/060.webp",
+      "width": 1600,
+      "height": 800,
+      "alpha": true,
+      "sha256": "ec76c939cb8a18e954c9e79fb97efc5a79a0d14c2e53598c9cbbedc584e9253b"
+    },
+    {
+      "id": 61,
+      "title": "Rough to Refined",
+      "image": "/assets/masterworks-v2/061.webp",
+      "width": 1536,
+      "height": 1024,
+      "alpha": true,
+      "sha256": "12b11980e5a308426063742cdec85b87d79a3f07589a637142e3b11e1107004c"
+    },
+    {
+      "id": 62,
+      "title": "Tools of Expression",
+      "image": "/assets/masterworks-v2/062.webp",
+      "width": 1536,
+      "height": 1024,
+      "alpha": true,
+      "sha256": "4633c8ad378a3a848d1b02022caecc8ff04b58ab94e1f89343f3d3dbb938fce7"
+    },
+    {
+      "id": 63,
+      "title": "Build on Paper",
+      "image": "/assets/masterworks-v2/063.webp",
+      "width": 1536,
+      "height": 1024,
+      "alpha": true,
+      "sha256": "06598a3c0c0551694e431a184c50f9cad2fcdf12c5d5b96f02773d24ea7bb184"
+    },
+    {
+      "id": 64,
+      "title": "One Continuous Line",
+      "image": "/assets/masterworks-v2/064.webp",
+      "width": 1536,
+      "height": 1024,
+      "alpha": true,
+      "sha256": "c6566996489adbcde195f759bd12e0e4fd902f4e921c2947b97d52b5df51e785"
+    },
+    {
+      "id": 65,
+      "title": "Work in Progress",
+      "image": "/assets/masterworks-v2/065.webp",
+      "width": 1312,
+      "height": 1199,
+      "alpha": true,
+      "sha256": "77842531bfaf0ff585a94dc7f8466313af8b03ce552dcacd100b6574231c64eb"
+    },
+    {
+      "id": 66,
+      "title": "Reassembled",
+      "image": "/assets/masterworks-v2/066.webp",
+      "width": 1536,
+      "height": 1024,
+      "alpha": true,
+      "sha256": "7b24b2de557078090ab1c066edf070686768f6cbab562b4de23d16921d0b250d"
+    },
+    {
+      "id": 67,
+      "title": "Construct the Idea",
+      "image": "/assets/masterworks-v2/067.webp",
+      "width": 1536,
+      "height": 1024,
+      "alpha": true,
+      "sha256": "5faa12d9c6e54eecc6e1d8bb27ef2f36145ae26787f5dd2d0835d4229e155c06"
+    },
+    {
+      "id": 68,
+      "title": "Grow Through",
+      "image": "/assets/masterworks-v2/068.webp",
+      "width": 1536,
+      "height": 1024,
+      "alpha": true,
+      "sha256": "1489e477c2be16925614f4f341840ff588dee91a388989fe477f41476f6080ce"
+    },
+    {
+      "id": 69,
+      "title": "Field Notes",
+      "image": "/assets/masterworks-v2/069.webp",
+      "width": 1536,
+      "height": 1024,
+      "alpha": true,
+      "sha256": "2f94309465ea8a67dffa6d1533a255cd0c76ddcd33ab85f9b95bb1187ada3664"
+    },
+    {
+      "id": 70,
+      "title": "Inner Compass",
+      "image": "/assets/masterworks-v2/070.webp",
+      "width": 1536,
+      "height": 1024,
+      "alpha": true,
+      "sha256": "25ea437d184667905c1eb914643665ed1bd587c0c89210cec2accb0707219641"
+    },
+    {
+      "id": 71,
+      "title": "Open Eye",
+      "image": "/assets/masterworks-v2/071.webp",
+      "width": 1600,
+      "height": 800,
+      "alpha": true,
+      "sha256": "73f96c83a995eba2dc577fc36e56bbc38f89648275648ffd18f277920ddc536a"
+    },
+    {
+      "id": 72,
+      "title": "As Above / So Below",
+      "image": "/assets/masterworks-v2/072.webp",
+      "width": 1312,
+      "height": 1199,
+      "alpha": true,
+      "sha256": "688f2455b89f0a629230ed4b75ab156dfec723a6358c6b1b851b0d6fb43af38a"
+    },
+    {
+      "id": 73,
+      "title": "The Knot",
+      "image": "/assets/masterworks-v2/073.webp",
+      "width": 1332,
+      "height": 1181,
+      "alpha": true,
+      "sha256": "02ed48275fc157e48304e475d620e1a22b1d6c59380a35ad61e2bf904bcb1962"
+    },
+    {
+      "id": 74,
+      "title": "Sun & Moon",
+      "image": "/assets/masterworks-v2/074.webp",
+      "width": 1536,
+      "height": 1024,
+      "alpha": true,
+      "sha256": "d191db47d63fd5318b8c7f3ab985b5729a4fc0d5ea60c1944ff01a270bd3ab44"
+    },
+    {
+      "id": 75,
+      "title": "An Opening",
+      "image": "/assets/masterworks-v2/075.webp",
+      "width": 1536,
+      "height": 1024,
+      "alpha": true,
+      "sha256": "2f57c27b116a8c5feb7a346c4ee9e7107977aaeb5eb8efe51f9ec2b35485437b"
+    },
+    {
+      "id": 76,
+      "title": "Inner Fire",
+      "image": "/assets/masterworks-v2/076.webp",
+      "width": 1312,
+      "height": 1199,
+      "alpha": true,
+      "sha256": "0a1a9132ed7a355b5ec0a8527613e31d93735cb38c897720bb64ae9a5cfe6943"
+    },
+    {
+      "id": 77,
+      "title": "The Key",
+      "image": "/assets/masterworks-v2/077.webp",
+      "width": 1536,
+      "height": 1024,
+      "alpha": true,
+      "sha256": "7f18f72cce52b58faf2200bfa06c63f33b864488da6d108467602446f3f13f15"
+    },
+    {
+      "id": 78,
+      "title": "Seven Points",
+      "image": "/assets/masterworks-v2/078.webp",
+      "width": 1312,
+      "height": 1199,
+      "alpha": true,
+      "sha256": "5d53dd97f0afa1245c4f1b562c15d53cfa51e84ec8e21080aff0201398e6656b"
+    },
+    {
+      "id": 79,
+      "title": "Crystal Stair",
+      "image": "/assets/masterworks-v2/079.webp",
+      "width": 1024,
+      "height": 1536,
+      "alpha": true,
+      "sha256": "3f3258b257e683bcd00a7e2bd69a6c76fb90bd7f6dac95bc820c5f2221d0b80f"
+    },
+    {
+      "id": 80,
+      "title": "Spiral Thought",
+      "image": "/assets/masterworks-v2/080.webp",
+      "width": 1536,
+      "height": 1024,
+      "alpha": true,
+      "sha256": "3e6672da0cb79c7f84ea09c11d3044fcf4e43db3f802a91fa5231baa6f874080"
+    },
+    {
+      "id": 81,
+      "title": "Four Forms",
+      "image": "/assets/masterworks-v2/081.webp",
+      "width": 1536,
+      "height": 1024,
+      "alpha": true,
+      "sha256": "2dbc16539add9d001ba93655d00acf82975b148681d83fc23e39c3fa29871fe1"
+    },
+    {
+      "id": 82,
+      "title": "Connection",
+      "image": "/assets/masterworks-v2/082.webp",
+      "width": 1536,
+      "height": 1024,
+      "alpha": true,
+      "sha256": "fce5a2ab6b07e2f6ea50c2ff082d900df21d51b46fceb1ab34d6d288505e2df4"
+    },
+    {
+      "id": 83,
+      "title": "Step Into It",
+      "image": "/assets/masterworks-v2/083.webp",
+      "width": 1536,
+      "height": 1024,
+      "alpha": true,
+      "sha256": "49a402b95b2fb13939c5a85cfeaa4cbcf61ec08d9d71818f48a52d84d7b69bf8"
+    },
+    {
+      "id": 84,
+      "title": "Make the Beat",
+      "image": "/assets/masterworks-v2/084.webp",
+      "width": 1536,
+      "height": 1024,
+      "alpha": true,
+      "sha256": "9a2de9396ce0082f76b5cd05b2a25916bb4469da0f24abb9faccfb03d86e9677"
+    },
+    {
+      "id": 85,
+      "title": "The Blend",
+      "image": "/assets/masterworks-v2/085.webp",
+      "width": 1536,
+      "height": 1024,
+      "alpha": true,
+      "sha256": "8e763a056868684e07c0ab8bbad81b432ad528b02e4aa180536f454459789149"
+    },
+    {
+      "id": 86,
+      "title": "Foundation",
+      "image": "/assets/masterworks-v2/086.webp",
+      "width": 1536,
+      "height": 1024,
+      "alpha": true,
+      "sha256": "0a3ed3e000edf3ae78ba1f333f1495e9cebfc0eed256f201252dff199acb50c5"
+    },
+    {
+      "id": 87,
+      "title": "Cap & Crown",
+      "image": "/assets/masterworks-v2/087.webp",
+      "width": 1536,
+      "height": 1024,
+      "alpha": true,
+      "sha256": "f5ca1b2b008886c6a5e4bfff2cfdd0572402f21e65c0faeeb0aab304e443eb4e"
+    },
+    {
+      "id": 88,
+      "title": "Pages of Practice",
+      "image": "/assets/masterworks-v2/088.webp",
+      "width": 1536,
+      "height": 1024,
+      "alpha": true,
+      "sha256": "853dc301cf3906b38e98d0eaddc1ffa8ddfb87255f1f4e6379b6af7f2ce6b8d3"
+    },
+    {
+      "id": 89,
+      "title": "Frame the City",
+      "image": "/assets/masterworks-v2/089.webp",
+      "width": 1536,
+      "height": 1024,
+      "alpha": true,
+      "sha256": "83d251a0feeba959140df8ebd03bb5503019858c59334cea66221e63893ab8e3"
+    },
+    {
+      "id": 90,
+      "title": "Respect",
+      "image": "/assets/masterworks-v2/090.webp",
+      "width": 1536,
+      "height": 1024,
+      "alpha": true,
+      "sha256": "7cb353da84df0357dc4f2ee26072d72ca1b92f311c355fe01784a82e9a3e49f9"
+    },
+    {
+      "id": 91,
+      "title": "Analog Bloom",
+      "image": "/assets/masterworks-v2/091.webp",
+      "width": 1536,
+      "height": 1024,
+      "alpha": true,
+      "sha256": "1a67ddfefa9ef7347976f474973aeca2aed8f1e03710947fa2ff800280139b35"
+    },
+    {
+      "id": 92,
+      "title": "Temple of Voice",
+      "image": "/assets/masterworks-v2/092.webp",
+      "width": 1536,
+      "height": 1024,
+      "alpha": true,
+      "sha256": "06b3c652e6d60df68a15863fa7cbe31109207756c3e14dfe2ef5f34dce10e9a5"
+    },
+    {
+      "id": 93,
+      "title": "Eye in the Groove",
+      "image": "/assets/masterworks-v2/093.webp",
+      "width": 1536,
+      "height": 1024,
+      "alpha": true,
+      "sha256": "31983e7d835eb7512e42466ef9ed3ed695fba34e92c28788d95b64ba6ce0cd9c"
+    },
+    {
+      "id": 94,
+      "title": "Future Wing",
+      "image": "/assets/masterworks-v2/094.webp",
+      "width": 1536,
+      "height": 1024,
+      "alpha": true,
+      "sha256": "20b48b5ebdfc6f9b6e484637d30ef81c4f37239783bc19447fcfbbb42531c270"
+    },
+    {
+      "id": 95,
+      "title": "Become",
+      "image": "/assets/masterworks-v2/095.webp",
+      "width": 1536,
+      "height": 1024,
+      "alpha": true,
+      "sha256": "afeb9830e5bed369ac98e4c053c983ac0a974a68eb7b0ea1f385c7f8cc4e23c4"
+    },
+    {
+      "id": 96,
+      "title": "Repair Time",
+      "image": "/assets/masterworks-v2/096.webp",
+      "width": 1536,
+      "height": 1024,
+      "alpha": true,
+      "sha256": "c7a0508e41880ef179a0eca8c1dd10ec414de370122407c484b3c72d2493cb56"
+    },
+    {
+      "id": 97,
+      "title": "Carry the Light",
+      "image": "/assets/masterworks-v2/097.webp",
+      "width": 1536,
+      "height": 1024,
+      "alpha": true,
+      "sha256": "90ef68fc4a5e2926baddaf20b9964b1454faf2485fc17c3103b26cb953dfd41b"
+    },
+    {
+      "id": 98,
+      "title": "The Book & Crown",
+      "image": "/assets/masterworks-v2/098.webp",
+      "width": 1536,
+      "height": 1024,
+      "alpha": true,
+      "sha256": "6f4bcea9afca01b93caac9b1826412c3535312ce0a3b0beb2a55a502f4f2b81e"
+    },
+    {
+      "id": 99,
+      "title": "New Language",
+      "image": "/assets/masterworks-v2/099.webp",
+      "width": 1536,
+      "height": 1024,
+      "alpha": true,
+      "sha256": "ac2965c24e313bf979d51603fa6a2b6b35a04a17b2b4fe7cc532799a89eb483f"
+    },
+    {
+      "id": 100,
+      "title": "Alchemy",
+      "image": "/assets/masterworks-v2/100.webp",
+      "width": 1536,
+      "height": 1024,
+      "alpha": true,
+      "sha256": "c53970200dec0a9753e31ad8e222845cc40790cdc6f3b89401e0da10cc751f1e"
+    }
+  ]
+}

@@ -1,10 +1,11 @@
-CAISIK — STREET SERIES / 12 ORIGINAL VECTOR LAYOUTS
+CAISIK — STREET SERIES / APPROVED GRAPHIC-NOVEL EDITION
 
-Artboard: 106 x 146 mm. Intended trim: 100 x 140 mm (3 mm bleed each side).
-Vector QR codes are black on white with their own quiet zone. Do not distort, recolor or crop the code.
-Color: RGB SVG. Printer must convert using its selected production profile, outline/substitute fonts, and confirm trim/bleed. These are design masters, not certified CMYK press PDFs.
-Print one actual-size proof and scan each finished physical sticker on multiple phones before a full run.
-CRITICAL: destinations currently use the owner-private Sites URL. Public access and final destination approval must be completed before distribution.
-No claim of final physical scannability is made before proof testing.
+Artboard: 106 x 146 mm. Intended trim: 100 x 140 mm (3 mm bleed per side).
+12 original layouts reuse the approved individually generated CAISIK illustrations.
+The illustration is an embedded WebP raster; labels, frames and QR geometry are vector.
+QR paths, their size, positioning and white quiet zones are preserved from the original designs.
+Destinations link to the public CAISIK Site.
+RGB SVG is a design master. The print provider must convert embedded images and fonts for its process and confirm trim/bleed. This is not a certified CMYK press PDF.
+Print one actual-size proof and scan every finished code on multiple phones before a full run.
 Apply only where permission has been granted.
-All campaigns use utm_source=sticker, utm_medium=qr, per-design campaign/content identifiers. This build does not implement analytics or order attribution.
+Campaign parameters are retained; this build adds no analytics or order attribution.

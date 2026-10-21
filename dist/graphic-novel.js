@@ -1,0 +1,10 @@
+/* Shared pointer accents, independent of atlas data and storage. */
+(()=>{'use strict';const reduced=matchMedia('(prefers-reduced-motion: reduce)'),fine=matchMedia('(hover:hover) and (pointer:fine)');const known=new WeakSet();const selector='.hero,.layer-doors>a,.art-piece,.mw-art-card,.ap-art,.route';let pending=new Map(),frame=0;
+ const allowed=()=>fine.matches&&!reduced.matches&&document.documentElement.dataset.motion!=='off'&&!document.body.classList.contains('simple-mode');
+ const apply=()=>{frame=0;for(const [el,p]of pending){el.style.setProperty('--mx',String(p.x));el.style.setProperty('--my',String(p.y));}pending.clear();};
+ const queue=(el,x,y)=>{pending.set(el,{x,y});if(!frame)frame=requestAnimationFrame(apply);};
+ const bind=el=>{if(known.has(el))return;known.add(el);el.addEventListener('pointerenter',()=>{if(allowed())el.classList.add('is-hovered');});el.addEventListener('pointermove',event=>{if(!allowed())return;const rect=el.getBoundingClientRect();queue(el,Math.max(-1,Math.min(1,((event.clientX-rect.left)/rect.width-.5)*2)),Math.max(-1,Math.min(1,((event.clientY-rect.top)/rect.height-.5)*2)));},{passive:true});el.addEventListener('pointerleave',()=>{el.classList.remove('is-hovered');queue(el,0,0);});};
+ const scan=()=>document.querySelectorAll(selector).forEach(bind);scan();new MutationObserver(scan).observe(document.body,{childList:true,subtree:true});
+ const reset=()=>{cancelAnimationFrame(frame);frame=0;pending.clear();document.querySelectorAll(selector).forEach(el=>{el.classList.remove('is-hovered');el.style.setProperty('--mx','0');el.style.setProperty('--my','0');});};
+ reduced.addEventListener?.('change',reset);fine.addEventListener?.('change',reset);new MutationObserver(()=>{if(!allowed())reset();}).observe(document.documentElement,{attributes:true,attributeFilter:['data-motion']});new MutationObserver(()=>{if(!allowed())reset();}).observe(document.body,{attributes:true,attributeFilter:['class']});window.addEventListener('pagehide',()=>{cancelAnimationFrame(frame);pending.clear();});
+})();

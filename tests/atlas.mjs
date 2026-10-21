@@ -4,17 +4,13 @@ import path from 'node:path';
 import vm from 'node:vm';
 import {spawnSync} from 'node:child_process';
 import {fileURLToPath} from 'node:url';
-import {buildSync} from 'esbuild';
 
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'../dist');
-const editionFiles=new Set(['index.html','atlas.js','atlas.css','atlas-principles.js','atlas-principles.css','atlas-frequency.js','atlas-frequency.css','locations-data.json','principles-data.json']);
-const sourcePath=file=>path.join(root,editionFiles.has(file)?'editions/atlas-v13':'',file);
-const read=file=>fs.readFileSync(sourcePath(file),'utf8');
+const read=file=>fs.readFileSync(path.join(root,file),'utf8');
 const atlas=JSON.parse(read('locations-data.json'));
 const learning=JSON.parse(read('principles-data.json'));
 const source=read('atlas.js');
 const html=read('index.html');
-buildSync({entryPoints:[sourcePath('atlas.js')],bundle:true,write:false,logLevel:'silent'});
 const expectedPrinciples=['mentalism','correspondence','vibration','polarity','rhythm','cause-effect','gender'];
 const ids=new Set(atlas.locations.map(p=>p.id));
 assert.equal(ids.size,atlas.locations.length,'Location IDs must be unique');
@@ -51,7 +47,7 @@ for(const [index,p]of learning.principles.entries()){
   assert.equal(p.number,index+1);
   for(const field of ['name','subtitle','doctrine','context','explanation','urban','observe','exercise','freestyle','deeper'])meaningful(p[field],`${p.id}.${field}`);
   assert.ok(p.related.length>0);
-  assert.ok(fs.existsSync(path.join(root,`assets/masterworks/${String(index+21).padStart(3,'0')}.webp`)),`${p.id} artwork exists`);
+  assert.ok(fs.existsSync(path.join(root,`assets/masterworks-v2/${String(index+21).padStart(3,'0')}.webp`)),`${p.id} artwork exists`);
 }
 assert.ok(learning.freestyleExercises.length>=7,'Lab includes the prepared freestyle exercises');
 learning.freestyleExercises.forEach(e=>['title','duration','instruction'].forEach(k=>meaningful(e[k],`Exercise ${k}`)));
@@ -64,14 +60,26 @@ const themes=vm.runInNewContext(themesMatch[1],{}, {timeout:1000});
 const requiredThemes=['AS ABOVE / SO BELOW','TRANSMUTE','THE MAP IS NOT THE TERRITORY','KNOW THYSELF','SHADOW WORK','OMERTÀ WITH THE EGO','THE CITY REMEMBERS','FREQUENCY OF THE UNDERGROUND'];
 assert.deepEqual(Array.from(themes,a=>a.title),requiredThemes);
 for(const theme of themes){
-  const image=theme.image||`/assets/masterworks/${theme.asset}.webp`;
+  const image=theme.image||`/assets/masterworks-v2/${theme.asset}.webp`;
   assert.ok(fs.existsSync(path.join(root,image)),`Gallery image exists: ${image}`);
   if(theme.download)assert.ok(fs.existsSync(path.join(root,theme.download)),`Download exists: ${theme.download}`);
 }
 
+const artworks=JSON.parse(read('art/artworks.json'));
+assert.equal(artworks.length,100,'Complete regenerated blackbook');
+assert.equal(new Set(artworks.map(a=>a.id)).size,100,'Unique artwork IDs');
+for(const art of artworks){
+  assert.match(art.image,/^\/assets\/masterworks-v2\/\d{3}\.webp$/,'Active approved artwork namespace');
+  for(const asset of [art.image,art.thumbnail])assert.ok(fs.existsSync(path.join(root,asset)),`Regenerated artwork ships: ${asset}`);
+  assert.ok(art.width>0&&art.height>0,'Recorded dimensions are present');
+  assert.equal(typeof art.alpha,'boolean','Background transparency is declared per asset');
+}
+const artScript={};vm.runInNewContext(read('art/artworks.js'),{window:artScript});
+assert.deepEqual(JSON.parse(JSON.stringify(artScript.CAISIK_ART)),artworks,'Gallery JS and JSON metadata agree');
+
 // Every non-dynamic local asset in the new page, JS, and styles must ship.
 const checked=new Set();
-for(const file of ['index.html','atlas.js','atlas-principles.js','atlas-frequency.js','atlas.css','atlas-principles.css','atlas-frequency.css','fonts-v7.css']){
+for(const file of ['index.html','atlas.js','atlas-principles.js','atlas-frequency.js','atlas.css','atlas-principles.css','atlas-frequency.css','fonts-v7.css','graphic-novel.css','graphic-novel.js']){
   const text=read(file);
   for(const match of text.matchAll(/(?:src|href)=["'](\/[^"'<>]+)["']/g)){
     const asset=match[1].split(/[?#]/)[0];
@@ -86,9 +94,9 @@ const htmlIds=new Set(Array.from(html.matchAll(/\bid="([^"]+)"/g),m=>m[1]));
 const rootSelectors=Array.from(source.matchAll(/\$\('([^']+)'\)/g),m=>m[1]);
 const dynamicIds=new Set(Array.from(source.matchAll(/\bid="([^"$]+)"/g),m=>m[1]));
 rootSelectors.forEach(id=>assert.ok(htmlIds.has(id)||dynamicIds.has(id),`Atlas DOM target exists: ${id}`));
-for(const file of ['atlas.js','atlas-principles.js','atlas-frequency.js']){
-  const result=spawnSync(process.execPath,['--check',sourcePath(file)],{encoding:'utf8'});
+for(const file of ['atlas.js','atlas-principles.js','atlas-frequency.js','graphic-novel.js','masterworks.js']){
+  const result=spawnSync(process.execPath,['--check',path.join(root,file)],{encoding:'utf8'});
   assert.equal(result.status,0,`${file} syntax: ${result.stderr}`);
 }
-console.log(`PASS: 12 location records and sources; ${atlas.routes.length} valid ordered routes; seven principles and artworks; eight gallery themes; ${checked.size} local asset references; DOM target integrity and JS syntax.`);
+console.log(`PASS: 12 location records and sources; ${atlas.routes.length} valid ordered routes; seven principles and artworks; eight gallery themes; 100 regenerated artworks; ${checked.size} local asset references; DOM target integrity and JS syntax.`);
 console.log('This is static data/packaging verification. Browser layout, permissions, microphone capture and rendered interactions require browser QA.');

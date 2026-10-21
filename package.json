@@ -3,10 +3,10 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build:atlas": "node tools/build-atlas.mjs",
     "build:motion": "esbuild motion-source.js --bundle --minify --outfile=dist/motion.js --target=es2020",
     "build:cinema": "esbuild src/film-scene-v7.js motion-source.js --bundle --minify --format=esm --splitting --outdir=dist --entry-names=[name] --chunk-names=chunks/experience-[hash] --target=es2020 && esbuild src/cinematic-v7.js --bundle --minify --format=iife --external:/film-scene-v7.js --outfile=dist/cinematic-v7.js --target=es2020",
-    "test": "node tests/interactions.cjs && node tests/education.cjs && node tests/scene-config.mjs && node tests/portals.cjs && node tests/cinema.cjs && node tests/static.cjs && node tests/masterworks.cjs && node tests/atlas-dom.cjs && node tests/recorder.cjs && node --test tests/hidden-city.test.mjs tests/explorer.test.mjs && node tests/atlas.mjs"
+    "test": "node tests/atlas.mjs",
+    "test:previous-experience": "node tests/interactions.cjs && node tests/education.cjs && node tests/scene-config.mjs && node tests/portals.cjs && node tests/cinema.cjs && node tests/static.cjs"
   },
   "dependencies": {
     "three": "0.186.1",

@@ -6,7 +6,7 @@ const assert = require('node:assert/strict');
 const dist = path.resolve(__dirname, '../dist');
 
 function boot({width = 1280, reduced = false, simple = false, productTarget = true} = {}) {
-  const {window} = parseHTML(fs.readFileSync(path.join(dist, 'q/mentalism/index.html'), 'utf8'));
+  const {window} = parseHTML(fs.readFileSync(path.join(dist, 'index.html'), 'utf8'));
   const document = window.document;
   const events = new Map(), frames = new Map(), idle = [], observers = [], memory = {};
   let serial = 0, hostTop = 0, productClicks = 0;
@@ -39,7 +39,7 @@ function boot({width = 1280, reduced = false, simple = false, productTarget = tr
     return {top: 0, left: 0, width, height, bottom: height, right: width};
   };
   const cinema = document.querySelector('#cinema');
-  assert(cinema, 'Retained QR document must contain the cinematic section');
+  assert(cinema, 'Actual index must contain the cinematic section');
   cinema.getBoundingClientRect = () => ({top: hostTop, left: 0, width, height: hostHeight, bottom: hostTop + hostHeight});
   if (simple) document.body.classList.add('simple-mode');
   if (productTarget) {

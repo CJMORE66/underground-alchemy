@@ -1,4 +1,4 @@
-#frequency{--fl-gold:#C5A45D;--fl-bone:#E6DFCE;--fl-muted:#a79f8e;--fl-line:#3d3526;background:#080808;color:var(--fl-bone);padding:90px clamp(22px,4vw,64px) 55px;border-top:1px solid var(--fl-line);scroll-margin-top:88px}
+#frequency{--fl-gold:#ffd600;--fl-bone:#f5f5f0;--fl-muted:#a79f8e;--fl-line:#3d3526;background:#080808;color:var(--fl-bone);padding:90px clamp(22px,4vw,64px) 55px;border-top:1px solid var(--fl-line);scroll-margin-top:88px}
 #frequency *{box-sizing:border-box}
 #frequency button,#frequency input,#frequency textarea,#frequency select{font:inherit}
 #frequency button,#frequency a{touch-action:manipulation}
@@ -34,13 +34,13 @@
 .fl-workshop>label span{font-size:9px;letter-spacing:.4px;color:var(--fl-muted);text-align:right}
 #frequency select,#frequency input[type=text],#frequency textarea{width:100%;color:var(--fl-bone);border:1px solid #493f2c;border-radius:0;background:#10100e;font:12px/1.6 'DM Sans',sans-serif;padding:13px 14px}
 #frequency select{appearance:auto}
-#frequency textarea{font:16px/1.8 Georgia,serif;resize:vertical;min-height:190px;background-image:repeating-linear-gradient(transparent,transparent 28px,#c5a45d0b 29px,#c5a45d0b 30px);background-position:0 13px}
+#frequency textarea{font:16px/1.8 Georgia,serif;resize:vertical;min-height:190px;background-image:repeating-linear-gradient(transparent,transparent 28px,#ffd6000b 29px,#ffd6000b 30px);background-position:0 13px}
 #frequency input::placeholder,#frequency textarea::placeholder{color:#777364}
 .fl-exercise-copy{font:13px/1.75 'DM Sans',sans-serif;color:#c0b8a7;margin:13px 0 24px}
 .fl-microcopy{font:10px/1.8 'DM Sans',sans-serif;color:var(--fl-muted);letter-spacing:.1px;margin:11px 0 0}
 .fl-draft-actions{display:flex;align-items:center;gap:24px;flex-wrap:wrap;margin-top:16px}
 .fl-outline{display:inline-flex;justify-content:center;align-items:center;gap:12px;background:none;color:var(--fl-gold);border:1px solid #77613b;padding:12px 18px;font:10px/1.5 'DM Sans',sans-serif!important;letter-spacing:1px;text-transform:uppercase;min-height:42px}
-.fl-outline:hover{background:#c5a45d12;border-color:var(--fl-gold)}
+.fl-outline:hover{background:#ffd60012;border-color:var(--fl-gold)}
 .fl-booth{border-left:1px solid var(--fl-line);padding-left:clamp(25px,4vw,60px);min-width:0}
 .fl-booth h3{font:400 clamp(40px,4.8vw,68px)/1.05 'Bodoni Moda',Georgia,serif;letter-spacing:-1px;margin:26px 0 18px}
 .fl-booth h3 em{font-weight:400;color:var(--fl-gold)}
@@ -48,7 +48,7 @@
 .fl-recorder{border:1px solid #6c5938;background:linear-gradient(145deg,#1a1914,#0e0e0c);padding:14px 18px 0;box-shadow:inset 0 0 0 4px #0c0c0b}
 .fl-recorder-top{font:8px/1.6 'DM Sans',sans-serif;letter-spacing:1.5px;display:flex;gap:10px;justify-content:space-between;color:var(--fl-gold);border-bottom:1px solid #493e2a;padding:0 0 11px}
 .fl-reels{display:flex;align-items:center;justify-content:space-between;padding:23px 15px 18px;gap:12px}
-.fl-reels>div{height:68px;width:68px;border:1px solid #8b7448;border-radius:50%;display:grid;place-items:center;background:repeating-conic-gradient(from 0deg,#c5a45d26 0deg 19deg,#12120f 20deg 60deg);box-shadow:inset 0 0 0 8px #171610,inset 0 0 0 9px #6f5c37}
+.fl-reels>div{height:68px;width:68px;border:1px solid #8b7448;border-radius:50%;display:grid;place-items:center;background:repeating-conic-gradient(from 0deg,#ffd60026 0deg 19deg,#12120f 20deg 60deg);box-shadow:inset 0 0 0 8px #171610,inset 0 0 0 9px #6f5c37}
 .fl-reels i{height:16px;width:16px;border:1px solid var(--fl-gold);border-radius:50%;background:#080808}
 .fl-reels>span{font:8px/2 'DM Sans',sans-serif;letter-spacing:2px;text-align:center;color:#96876a}
 .fl-tape-label{display:flex;justify-content:space-between;align-items:center;color:var(--fl-muted);font:8px/1.5 'DM Sans',sans-serif;letter-spacing:1px;border-top:1px solid #493e2a;padding-top:12px}

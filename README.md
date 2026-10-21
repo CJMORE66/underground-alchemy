@@ -1,40 +1,34 @@
-# CAISIK UNDERGROUND ALCHEMY
+# CAISIK — The Hidden City / Underground Alchemy
 
-Cultural atlas and creative learning experience for the existing public CAISIK Site. The homepage now contains the source-backed Paris explorer, seven philosophical studies, a local freestyle recorder, eight original archive compositions and optional browser-local fieldnotes. The repository serves static HTML, CSS and ES modules from `dist`; commerce remains in the original store.
+A static, source-backed Paris cultural atlas. The restored atlas homepage combines an interactive geographic explorer, three ordered routes, seven philosophical lessons, a browser-local freestyle workspace, and the regenerated CAISIK graffiti archive. The existing Site identity and public audience are preserved.
 
-## Build
+## Run and verify
 
-Use Node.js with npm. Install the exact dependencies in `package.json`, then run:
+The deployment serves `dist/` directly. No dependency installation or build is required for this release. In the managed Sites environment use `sites-preview start /workspace/sites/caisik-underground-alchemy` for internal browser QA. Run `npm test` for the focused atlas integrity and syntax checks.
 
-```sh
-npm ci
-npm run build:atlas
-npm test
-python tools/package-source.py
-```
+- `dist/atlas.js` owns discovery filters, geographic map, profiles, local notebook, source register and gallery.
+- `dist/atlas-principles.js` owns the seven lessons, visual/sound demonstrations and observation-based progression.
+- `dist/atlas-frequency.js` owns creative prompts, local writing, microphone capture, playback/download and timing tools.
+- `dist/locations-data.json` contains research, explicit access flags, approximate/verified coordinate notes, routes and credited image sources.
+- `dist/principles-data.json` contains the modern Kybalion context, attributed doctrine and original creative exercises.
+- `dist/graphic-novel.css` and `dist/graphic-novel.js` apply the approved yellow/black graphic-novel identity and pointer-responsive artwork motion across the atlas, archive, blackbook and collections.
+- `docs/atlas/APPROVED-STYLE.md` and `dist/assets/style-reference/approved-caisik-graphic-novel.png` preserve the exact approved direction.
+- `dist/assets/masterworks-v2/` contains 100 regenerated artworks and their lightweight thumbnails. Metadata records actual dimensions and alpha, rather than assuming every piece is transparent.
 
-`src/atlas.html` builds to `dist/index.html`; `dist/atlas.js` and `dist/explorer.js` are the homepage entry modules. The twelve `dist/q/<slug>/index.html` documents intentionally retain their original exhibits, with updated portal links into the new atlas. Do not overwrite them with the atlas homepage. Collection documents and the complete `/art/` blackbook remain served. Leaflet is vendored locally; the map requests OpenStreetMap tiles and displays attribution. Discovery filtering and profiles continue to work without map tiles.
+## Content and privacy
 
-`node tools/fetch-paris-assets.mjs` refreshes the explicitly selected Commons photographs and their declared author/license metadata. This is not required for ordinary builds; the photographs and credits are tracked in `dist/assets/paris`. Access research was checked on 21 October 2026; each profile links to official current visitor information. Coordinates are orientation points, not surveyed accessible entrances.
+Historical evidence and contemporary CAISIK interpretation are presented separately. The Kybalion is identified as a 1908 modern Hermetic-inspired text, not an authenticated ancient Egyptian source. Le M.U.R. is a curated exhibition, not a free-paint wall. Access conditions are sourced per location and can change after the 21 October 2026 research check.
 
-The WebGL code is split into a small entry, lazy scene and shared Three.js chunk. `advanced-loader-v7.js` loads the original optional forge/exhibits on demand. Local fonts, WebP city/logo derivatives and original product previews are included. Original source assets remain available.
+Notes, favourites and lesson progress use browser localStorage with an in-memory fallback. Export a JSON notebook for a durable personal copy. Microphone permission is requested only by Record; recordings are never uploaded, stop at five minutes or when the page becomes hidden, and must be downloaded before leaving. Narration uses only a device voice marked local. Geolocation is opt-in, retained only in page memory, and map requests reveal the viewed area and IP to OpenStreetMap. Maps request only ordinary viewed tiles, without prefetch or offline download.
 
-## Implementation and evidence
+## Retained experiences and verification
 
-A concurrent publication (version 13, source `e159616e564d8bb5904c5af55f58fdc91afe8db3`) was discovered before saving this release. Its full atlas entry, styles, interaction modules and research datasets are preserved at `/editions/atlas-v13/`, linked from the footer and isolated from the current homepage. Its generated artwork, font, original archive and supporting sources remain in place. `tests/atlas.mjs` now validates that preserved edition; it runs alongside the current and legacy suites. `tools/preserve-edition.mjs` reproduces this snapshot from the retained Git parent. The merge retains both source histories. The original pre-atlas experience is available at `/archive/`.
+The original homepage is preserved at `/archive/`; collections, the 100-work `/art/` blackbook, and store links remain available. The twelve existing `/q/` entry paths now open related lessons in the new experience. Product ordering remains with the original store.
 
-- [Storyboard and scene graph](docs/STORYBOARD.md)
-- [Commerce source, variants and checkout evidence](docs/COMMERCE.md)
-- [Educational modules](docs/EDUCATION.md)
-- [QR experiences and consent](docs/QR-PORTALS.md)
-- [Responsive configurations](docs/RESPONSIVE.md)
-- [Asset inventory](docs/ASSETS.md)
-- [Test results and unverified requirements](docs/VERIFICATION.md)
+Nine discovery profiles use credited, reusable external Commons photographs, some explicitly archival. La Place, Le M.U.R. and Philharmonie use labelled contemporary geometric studies and link to official venue imagery; those are not documentary photos. The hero is a generated artistic collage. Eight regenerated artworks are curated under the original thematic prompts. All 100 archive artworks, the logo and the hero have been regenerated in the approved graphic-novel direction. Documentary and product photographs remain faithful to their subjects.
 
-The live site has a performance disclosure showing local Web Vitals measurements for the current visit. No measurement is transmitted. It does not replace throttled mobile lab tests or real-user field data.
+Desktop browser interactions were verified at the cloud browser's native viewport. Mobile responsive rules were reviewed in source; a physical mobile browser, actual microphone capture, geolocation permission grant, and device-local narration were not exercised. Browser permission/format fallbacks are implemented, but these remain device checks.
 
-## Limits
+## Restoration
 
-The public source exposes 20 products / 86 variants. The accessible Magento GraphQL catalog returns zero products; therefore this release does not claim a working Magento cart integration. Source-backed variant links open the original store, where current stock, tax, shipping, payment and final totals are authoritative. Payment capture, fulfillment and Printful order delivery have not been tested.
-
-Mobile/reduced-motion fallbacks are implemented. This environment has no usable GPU and no mobile viewport/device capability; desktop WebGL visual quality, 60 FPS, representative mobile Core Web Vitals and full cross-device approval remain release checks. No fabricated urgency or inventory quantities are added.
+At the user’s explicit request, the atlas functionality was restored from version 13, source `e159616e564d8bb5904c5af55f58fdc91afe8db3`, before applying the approved graphic-novel direction. The superseded version 14 was preserved in Git history and the local `before-approved-style-v14` branch. No history was rewritten.
