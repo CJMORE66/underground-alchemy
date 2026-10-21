@@ -1,0 +1,22 @@
+{
+  "approvedOn": "2026-10-21",
+  "source": "User-approved second logo preview, exec-56b951e0-72ff-4a36-97ae-047fd66de1b1.png",
+  "dimensions": [
+    1942,
+    809
+  ],
+  "assets": {
+    "caisik-signature-approved.png": {
+      "sha256": "c649d0430832870d0ea60054cb0a64fa29af18c344660b9dc2efec166e7f47b7",
+      "bytes": 1919526
+    },
+    "caisik-signature.webp": {
+      "sha256": "b53b92700e82852c085e99917e99620a895afbeeba2113f041ae612fb87da237",
+      "bytes": 482820
+    },
+    "caisik-signature.svg": {
+      "sha256": "05472a9f344bdc1817d57291f8e28a26fc1681be54e53d8a978eb86469df8b1b",
+      "bytes": 6104
+    }
+  }
+}

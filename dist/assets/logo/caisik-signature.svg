@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-28 -28 1998 865" aria-hidden="true" focusable="false"><defs>
+<image id="logo-paint" href="/assets/logo/caisik-signature.webp" width="1942" height="809"/>
+<mask id="logo-word" maskUnits="userSpaceOnUse" x="0" y="0" width="1942" height="809" style="mask-type:luminance"><rect width="1942" height="809" fill="white"/><rect x="425" y="623" width="1095" height="74" fill="black"/></mask>
+<mask id="logo-light-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="1942" height="809" style="mask-type:luminance"><use href="#logo-paint"/><path d="M599 386C622 365 646 341 674 342C709 342 732 362 750 384C724 400 698 411 675 411C644 410 617 400 599 386Z" fill="black"/></mask>
+<filter id="logo-red-ink" color-interpolation-filters="sRGB"><feFlood flood-color="#e71932"/><feComposite in2="SourceAlpha" operator="in"/></filter>
+<linearGradient id="logo-sweep"><stop stop-color="#fff" stop-opacity="0"/><stop offset=".45" stop-color="#fffbd8" stop-opacity=".2"/><stop offset=".55" stop-color="#fff" stop-opacity=".8"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
+<linearGradient id="logo-sclera" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#6d5a26"/><stop offset=".45" stop-color="#f0e2b4"/><stop offset="1" stop-color="#b99b3b"/></linearGradient>
+<clipPath id="logo-eye-aperture"><path d="M599 386C622 365 646 341 674 342C709 342 732 362 750 384C724 400 698 411 675 411C644 410 617 400 599 386Z"/></clipPath>
+<clipPath id="logo-iris-cut"><circle cx="676" cy="373" r="39"/></clipPath>
+<clipPath id="logo-tagline-cut"><rect x="425" y="623" width="1095" height="74"/></clipPath>
+<clipPath id="logo-region-0"><path d="M0,0 0,809 690.7,809 690.7,625 690.7,565 570.7,480 400.7,415 514.7,380 590.7,305 590.7,230 600.7,100 600.7,0Z"/></clipPath>
+<clipPath id="logo-region-1"><path d="M599.3,0 599.3,100 589.3,230 589.3,305 513.3,380 399.3,415 569.3,480 689.3,565 689.3,625 689.3,809 965.7,809 965.7,625 950.7,560 900.7,470 845.7,390 830.7,260 820.7,120 820.7,0Z"/></clipPath>
+<clipPath id="logo-region-2"><path d="M819.3,0 819.3,120 829.3,260 844.3,390 899.3,470 949.3,560 964.3,625 964.3,809 1000.7,809 1000.7,625 995.7,530 1025.7,440 970.7,370 958.7,250 990.7,120 980.7,0Z"/></clipPath>
+<clipPath id="logo-region-3"><path d="M979.3,0 989.3,120 957.3,250 969.3,370 1024.3,440 994.3,530 999.3,625 999.3,809 1250.7,809 1250.7,625 1295.7,500 1270.7,390 1250.7,260 1220.7,180 1225.7,0Z"/></clipPath>
+<clipPath id="logo-region-4"><path d="M1224.3,0 1219.3,180 1249.3,260 1269.3,390 1294.3,500 1249.3,625 1249.3,809 1400.7,809 1400.7,625 1405.7,500 1405.7,390 1410.7,260 1400.7,130 1400.7,0Z"/></clipPath>
+<clipPath id="logo-region-5"><path d="M1399.3,0 1399.3,130 1409.3,260 1404.3,390 1404.3,500 1399.3,625 1399.3,809 1942,809 1942,0Z"/></clipPath>
+</defs><g data-logo-shadow="" opacity="0" filter="url(#logo-red-ink)"><use href="#logo-paint"/></g>
+<g data-logo-letter="0" data-logo-cx="295" data-logo-cy="370"><use href="#logo-paint" clip-path="url(#logo-region-0)" mask="url(#logo-word)"/>
+</g>
+<g data-logo-letter="1" data-logo-cx="676" data-logo-cy="365"><use href="#logo-paint" clip-path="url(#logo-region-1)" mask="url(#logo-word)"/>
+<path d="M599 386C622 365 646 341 674 342C709 342 732 362 750 384C724 400 698 411 675 411C644 410 617 400 599 386Z" fill="#090805"/>
+<g clip-path="url(#logo-eye-aperture)"><g data-logo-eye-content="">
+<path d="M599 386C622 365 646 341 674 342C709 342 732 362 750 384C724 400 698 411 675 411C644 410 617 400 599 386Z" fill="url(#logo-sclera)"/>
+<g data-logo-iris=""><use href="#logo-paint" clip-path="url(#logo-iris-cut)"/></g>
+</g></g>
+<path data-logo-closed-lid="" d="M601 386Q675 403 748 384" fill="none" stroke="#d6b930" stroke-width="3.5" stroke-linecap="round" opacity="0"/>
+</g>
+<g data-logo-letter="2" data-logo-cx="888" data-logo-cy="360"><use href="#logo-paint" clip-path="url(#logo-region-2)" mask="url(#logo-word)"/>
+</g>
+<g data-logo-letter="3" data-logo-cx="1130" data-logo-cy="370"><use href="#logo-paint" clip-path="url(#logo-region-3)" mask="url(#logo-word)"/>
+</g>
+<g data-logo-letter="4" data-logo-cx="1330" data-logo-cy="365"><use href="#logo-paint" clip-path="url(#logo-region-4)" mask="url(#logo-word)"/>
+</g>
+<g data-logo-letter="5" data-logo-cx="1620" data-logo-cy="400"><use href="#logo-paint" clip-path="url(#logo-region-5)" mask="url(#logo-word)"/>
+</g>
+<g data-logo-tagline=""><use href="#logo-paint" clip-path="url(#logo-tagline-cut)"/></g>
+<g mask="url(#logo-light-mask)"><g data-logo-shine="" opacity="0"><path d="M0 -60H150L-70 870H-220Z" fill="url(#logo-sweep)"/></g></g>
+<g data-logo-trace="" fill="none" stroke="#fff4aa" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="100" stroke-dashoffset="100" opacity="0">
+<path pathLength="100" d="M136 184Q286 142 480 247Q225 162 147 386Q124 527 368 534L300 459 543 534"/>
+<path pathLength="100" d="M430 432 665 35 796 162 734 145 558 458M536 462 704 482 905 603"/>
+<path pathLength="100" d="M860 121 918 190 876 239 883 462 936 513"/>
+<path pathLength="100" d="M962 150Q1151 172 1241 278L1114 297Q1046 312 1118 341Q1297 402 1228 492Q1168 558 1006 557"/>
+<path pathLength="100" d="M1294 150 1346 216 1304 258 1313 485 1358 524"/>
+<path pathLength="100" d="M1380 65 1512 109 1460 161 1449 362 1762 239 1684 278 1914 245M1449 362 1711 529 1799 683"/>
+</g><g data-logo-wave="" opacity="0"><circle cx="676" cy="373" r="0" fill="none" stroke="#ffe35c" stroke-width="3"/><circle cx="676" cy="373" r="0" fill="none" stroke="#e71932" stroke-width="1.5"/></g><g data-logo-sparks="" fill="#fff0a0" stroke="none">
+<path d="M0 -6 2 -1 6 0 2 2 0 7-2 2-6 0-2 -1Z" opacity="0"/>
+<path d="M0 -6 2 -1 6 0 2 2 0 7-2 2-6 0-2 -1Z" opacity="0"/>
+<path d="M0 -6 2 -1 6 0 2 2 0 7-2 2-6 0-2 -1Z" opacity="0"/>
+<path d="M0 -6 2 -1 6 0 2 2 0 7-2 2-6 0-2 -1Z" opacity="0"/>
+<path d="M0 -6 2 -1 6 0 2 2 0 7-2 2-6 0-2 -1Z" opacity="0"/>
+<path d="M0 -6 2 -1 6 0 2 2 0 7-2 2-6 0-2 -1Z" opacity="0"/>
+<path d="M0 -6 2 -1 6 0 2 2 0 7-2 2-6 0-2 -1Z" opacity="0"/>
+<path d="M0 -6 2 -1 6 0 2 2 0 7-2 2-6 0-2 -1Z" opacity="0"/>
+</g></svg>
