@@ -1,5 +1,7 @@
 # CAISIK / Underground Alchemy
 
+Lokální rozšíření na RPG: začni [RPG200 / Hermes](docs/rpg200/START_HERE.md). Obsahuje plán 200 vylepšení, technické předpoklady, trvalou frontu a protokol nativního Hermes loopu. Jde o implementační plán; nenahrazuje níže uvedený současný funkční stav webu.
+
 Projekt už obsahuje pět úplných expedic DJ, MC, Writer, Breaking a Knowledge. Nevytvářej duplicitní stránky ani novou značku. Závazná je schválená podrobná žlutozlatá grafika v `docs/atlas/APPROVED-STYLE.md`.
 
 1. Přečti aktuální `docs/expeditions/QA_REPORT.md` a `docs/expeditions/README.md`.

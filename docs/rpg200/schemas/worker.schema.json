@@ -1,0 +1,103 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "taskId": {
+      "type": "string",
+      "pattern": "^(F[0-9]{2}|RPG-[0-9]{3})$"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "implemented",
+        "partial",
+        "blocked"
+      ]
+    },
+    "implementation": {
+      "type": "string",
+      "enum": [
+        "new",
+        "existing"
+      ]
+    },
+    "summary": {
+      "type": "string",
+      "minLength": 1
+    },
+    "run": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "engine": {
+          "type": "string",
+          "minLength": 1
+        },
+        "session": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "engine",
+        "session"
+      ]
+    },
+    "uiChanged": {
+      "type": "boolean"
+    },
+    "acceptance": {
+      "type": "array",
+      "minItems": 3,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "criterion": {
+            "type": "string",
+            "minLength": 1
+          },
+          "passed": {
+            "type": "boolean"
+          },
+          "evidence": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        },
+        "required": [
+          "criterion",
+          "passed",
+          "evidence"
+        ]
+      }
+    },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "limitations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "taskId",
+    "status",
+    "implementation",
+    "summary",
+    "run",
+    "uiChanged",
+    "acceptance",
+    "evidence",
+    "limitations"
+  ]
+}
