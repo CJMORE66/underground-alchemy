@@ -47,11 +47,13 @@ Stávající sekce se propojují přes `/#hidden-city`, `/#principles`, `/#frequ
 
 ## Blackbook, soukromí a offline
 
-Expedice používají pouze vlastní klíč `localStorage` **`caisik-expeditions-v1`**. Původní klíče `atlas-*` se nepřepisují. Ukládají textové poznámky, volbu režimu a postup mezi zastávkami. JSON export `CAISIK-Expeditions-Blackbook.json` uchová zápisník; Markdown export uloží textový průvodce a poznámky. Automatický import exportu není součástí rozhraní.
+Expedice používají pouze vlastní klíč `localStorage` **`caisik-expeditions-v1`**. Původní klíče `atlas-*` se nepřepisují. Ukládají textové poznámky, volbu režimu a postup mezi zastávkami. JSON export `CAISIK-Expeditions-Blackbook.json` uchová zápisník; UTF-8 TXT export uloží úplný textový průvodce a poznámky. Připravený soubor má také přímý odkaz pro prohlížeče, které odmítnou automatické stažení. Automatický import exportu není součástí rozhraní.
 
-Selhání nebo poškození úložiště se zobrazuje ve stavové zprávě. V tom případě nové poznámky žijí pouze v paměti stránky: pro zachování je nutný export. Vymazání dat webu v prohlížeči odstraní lokální zápisník i cache; exportovaný soubor tím nezmizí.
+Změny se ukládají jen po skutečně upravených polích a slučují s aktuálním zápisníkem. Dvě otevřené expedice tak nemažou poznámky druhé karty. Stejné pole má poslední skutečně uloženou úpravu; aktivně rozepsané pole se nepřepisuje vzdálenou změnou.
 
-Offline ukládání spouští výslovně uživatel. Service worker má scope `/expeditions/`; ukládá texty všech pěti kapitol, runtime, diagramy a vybraný obraz. Výsledek ukládání je viditelný. Externí mapy, programy a zdroje vyžadují připojení. Pokud prohlížeč offline cache nepodporuje nebo soubory chybí, použij textový export. Při změně offline balíčku aktualizuj verzi cache v `sw.js` a související URL/verze konzistentně otestuj.
+Selhání nebo poškození úložiště se zobrazuje ve stavové zprávě. Poškozený původní záznam se nepřepisuje; JSON export obsahuje také `recovery.rawNotebook` pro obnovu. Opravu původního JSON nejprve proveď v samostatné kopii. Nové poznámky exportuj před jakoukoli ruční obnovou. Při nedostatku místa může tlačítko Uložit znovu zapsat čekající změny po uvolnění úložiště. V tom případě nové poznámky žijí pouze v paměti stránky: pro zachování je nutný export. Vymazání dat webu v prohlížeči odstraní lokální zápisník i cache; exportovaný soubor tím nezmizí.
+
+Offline ukládání spouští výslovně uživatel. Service worker má scope `/expeditions/`; ukládá texty všech pěti kapitol, runtime, diagramy a vybraný obraz. Nový worker musí nejprve uložit všech šest stránek a povinný runtime ve správných verzích; neúplný upgrade zachová předchozí offline balíček. Výsledek ukládání je viditelný. Externí mapy, programy a zdroje vyžadují připojení. Pokud prohlížeč offline cache nepodporuje nebo soubory chybí, použij textový export. Při změně offline balíčku aktualizuj verzi cache v `sw.js` a související URL/verze konzistentně otestuj.
 
 Žádné nahrávky ani fotografie se neuploadují. Expedice neobsahují přílohy, nevyžádanou geolokaci, automatický zvuk ani marketingový tracking.
 
@@ -63,6 +65,6 @@ Nejsou dodané licencované DJ/MC ukázky a rozhovory, odborná taneční videa,
 
 Před vydáním zkontroluj desktop, telefon, krátkou landscape obrazovku, klávesnici, reduced motion, rychlý i zpětný scroll, chybějící obrázek, selhání storage a skutečné offline načtení. HTML musí zůstat užitečné i bez JavaScriptu. Kromě testů expedic spusť při zásahu do původního pohybu také `node tests/art-scenes.mjs`, `node tests/art-motion.mjs`, `node tests/logo-motion.mjs` a `node tests/hero-motion.mjs`. Vydání proveď až po kontrole skutečných screenshotů a příslušném oprávnění.
 
-Výchozí checkpoint je uložená **verze 21**, commit **`3a1b4939e2b093792384a815d53d0bd91a6ff546`**, větev **`caisik-expeditions-base-v21`**. Sites project ID je `appgprj_6ad19e715dcc819185592c61456c5182`; uložená verze má ID `appgprj_6ad19e715dcc819185592c61456c5182~appgver_cb77c55134788191ad8cd8b1bbf2c539`.
+Výchozí checkpoint této úpravy je uložená **verze 22**, commit **`05f45362bc530ff8ff948c694fd285ac7c43962b`**, větev **`caisik-expeditions-base-v22`**. Sites project ID je `appgprj_6ad19e715dcc819185592c61456c5182`; uložená verze má ID `appgprj_6ad19e715dcc819185592c61456c5182~appgver_552be4e92aec8191bf1d8101fb266f5e`.
 
 Pro rychlý provozní návrat znovu nasaď tuto uloženou verzi přes Sites. Pro trvalý návrat zdrojů obnov změny v novém commitu a po testech jej nasaď. **Neresetuj checkpoint větev, nemaž historii a nepoužívej force-push.** Rollback webu není záloha lokálních zápisníků návštěvníků; před změnou datového formátu zachovej kompatibilitu klíče nebo připrav migraci a export.

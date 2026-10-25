@@ -1,11 +1,12 @@
 /* Opt-in text cache. This worker is scoped to /expeditions/ only. */
-const CACHE = 'caisik-expeditions-v1-20261021';
-const CORE = ['/expeditions/expeditions.css?v=1', '/expeditions/app.js?v=1', '/expeditions/store.js?v=1', '/expeditions/schema.js?v=1', '/expeditions/data/expeditions.json?v=1'];
+const CACHE = 'caisik-expeditions-v2-20261025';
+const CORE = ['/expeditions/expeditions.css?v=2', '/expeditions/app.js?v=2', '/expeditions/store.js?v=2', '/expeditions/schema.js?v=1', '/expeditions/data/expeditions.json?v=1'];
 const PAGES = ['/expeditions/', ...['dj','mc','writer','breaking','knowledge'].map(id => `/expeditions/${id}/`)];
+const REQUIRED = [...CORE, ...PAGES];
 const LAYERS = ['dj','mc','writer','breaking','knowledge'].map(id => `/expeditions/assets/layers/${id}.svg`);
 const allowed = url => url.origin === self.location.origin && (url.pathname.startsWith('/expeditions/') || /^\/assets\/masterworks-v2\/[0-9]{3}\.webp$/.test(url.pathname));
 async function openCache() { try { return await caches.open(CACHE); } catch { return null; } }
-async function readCache(cache, request) { try { return await cache?.match(request, {ignoreSearch: true}); } catch { return undefined; } }
+async function readCache(cache, request, ignoreSearch = true) { try { return await cache?.match(request, {ignoreSearch}); } catch { return undefined; } }
 async function cacheFiles(paths) {
   const cache = await openCache();
   if (!cache) return {ok: false, textReady: false, saved: 0, failed: [...paths]};
@@ -19,13 +20,29 @@ async function cacheFiles(paths) {
       if (!url.pathname.endsWith('/') && /text\/html/i.test(response.headers.get('content-type') || '')) throw new Error('Unexpected document in asset response');
       await cache.put(url.href, response); saved.push(path);
     } catch {
-      if (await readCache(cache, url.href)) saved.push(path); else failed.push(path);
+      if (await readCache(cache, url.href, false)) saved.push(path); else failed.push(path);
     }
   }));
   return {ok: failed.length === 0, textReady: [...CORE,...PAGES].every(path => saved.includes(path)), saved: saved.length, failed};
 }
-self.addEventListener('install', event => { event.waitUntil(cacheFiles(CORE).then(() => self.skipWaiting())); });
+async function mandatoryTextReady() {
+  const cache = await openCache();
+  if (!cache) return false;
+  const ready = await Promise.all(REQUIRED.map(async path => {
+    const response = await readCache(cache, new URL(path, self.location.origin).href, false);
+    return Boolean(response?.ok && response.type !== 'opaque'
+      && (path.endsWith('/') || !/text\/html/i.test(response.headers.get('content-type') || '')));
+  }));
+  return ready.every(Boolean);
+}
+self.addEventListener('install', event => { event.waitUntil((async () => {
+  const result = await cacheFiles(REQUIRED);
+  if (!result.textReady || !await mandatoryTextReady()) throw new Error('Incomplete offline text package');
+  // A failed upgrade must leave the previous worker and complete cache intact.
+  await self.skipWaiting();
+})()); });
 self.addEventListener('activate', event => { event.waitUntil((async () => {
+  if (!await mandatoryTextReady()) throw new Error('Offline text package unavailable');
   const keys = await caches.keys();
   await Promise.all(keys.filter(key => key.startsWith('caisik-expeditions-') && key !== CACHE).map(key => caches.delete(key)));
   await self.clients.claim();

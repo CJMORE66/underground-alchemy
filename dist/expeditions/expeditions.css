@@ -22,3 +22,5 @@
 
 .exp-field-bar button{border:1px solid #857226;background:transparent;color:var(--exp-yellow);padding:9px 12px;min-height:42px;font:600 12px/1.5 "Barlow Condensed",sans-serif;letter-spacing:.8px}.exp-field-bar button:hover{background:#ffd60012}.exp-paths>.exp-section-heading{font-size:clamp(36px,4.8vw,64px);margin:30px 0}
 @media(max-width:600px) and (max-height:700px){.exp-stage{display:none}.exp-step{scroll-margin-top:calc(var(--exp-header) + 20px)}}
+
+#exp-export-status{font-size:12px;line-height:1.7;color:#c3bb99;margin:12px 0}#exp-export-ready{max-width:100%;overflow-wrap:anywhere;white-space:normal;font-size:11px}

@@ -1,6 +1,6 @@
 /* Native scroll is the input. All lesson, route and source text remains in HTML. */
 import {validateExpeditionData} from './schema.js?v=1';
-import {createExpeditionStore, NOTE_FIELDS, CHAPTER_IDS, buildMarkdownGuide} from './store.js?v=1';
+import {createExpeditionStore, NOTE_FIELDS, CHAPTER_IDS, buildMarkdownGuide, EXPEDITION_STORAGE_KEY} from './store.js?v=2';
 
 const clamp = value => Math.max(0, Math.min(1, Number.isFinite(value) ? value : 0));
 export function sampleStory(steps, scrollY, focusOffset = 0) {
@@ -44,6 +44,7 @@ function mount() {
   const stage = $('#exp-stage');
   const status = $('#exp-storage-status');
   const offlineStatus = $('#exp-offline-status');
+  const exportStatus = $('#exp-export-status');
   const form = $('#exp-blackbook-form');
   const select = $('#exp-note-chapter');
   const sceneNodes = $$('.exp-scene[data-scene]');
@@ -53,6 +54,7 @@ function mount() {
   const phaseNode = $('#exp-phase');
   let model = null, frame = 0, metrics = [], field = false, disposed = false, resizeObserver = null, mediaObserver = null;
   let current = {chapterId: overview ? 'dj' : pageId, phase: 0, progress: 0, total: 0};
+  let noteBaseline = {};
   const trackedTimeouts = new Set(), objectUrls = new Set(), ports = new Set();
   const later = (callback, ms) => { const handle = setTimeout(() => { trackedTimeouts.delete(handle); if (!disposed) callback(); }, ms); trackedTimeouts.add(handle); return handle; };
   const storage = createExpeditionStore({storage: () => window.localStorage, onStatus: value => {
@@ -156,14 +158,21 @@ function mount() {
       } catch {}
     }
   }
-  function loadNote() {
+  function loadNote({preserveEditing = false} = {}) {
     const note = storage.getChapter(noteChapter());
-    for (const input of form?.querySelectorAll('[data-note-field]') || []) if (NOTE_FIELDS.includes(input.name)) input.value = note[input.name] || '';
+    for (const input of form?.querySelectorAll('[data-note-field]') || []) if (NOTE_FIELDS.includes(input.name)) {
+      // An active edit wins locally. Other fields can follow another open tab.
+      if (preserveEditing && (input === document.activeElement || input.value !== (noteBaseline[input.name] || ''))) continue;
+      input.value = note[input.name] || '';
+      noteBaseline[input.name] = input.value;
+    }
   }
   function saveNote() {
     const fields = {};
-    for (const input of form?.querySelectorAll('[data-note-field]') || []) if (NOTE_FIELDS.includes(input.name)) fields[input.name] = input.value;
-    return storage.updateChapter(noteChapter(), fields);
+    for (const input of form?.querySelectorAll('[data-note-field]') || []) if (NOTE_FIELDS.includes(input.name) && input.value !== (noteBaseline[input.name] || '')) fields[input.name] = input.value;
+    const saved = storage.updateChapter(noteChapter(), fields);
+    for (const key of Object.keys(fields)) noteBaseline[key] = fields[key];
+    return saved;
   }
   function applyStop(chapterId, stopId, focus = false) {
     const nodes = routeNodes.filter(node => (node.dataset.chapter || pageId) === chapterId);
@@ -185,20 +194,38 @@ function mount() {
     if (focus && target) { target.tabIndex = -1; target.scrollIntoView({behavior: 'auto', block: 'start'}); target.focus({preventScroll: true}); }
   }
   function download(content, type, filename) {
+    // Keep a real link available if a browser declines a scripted download.
+    for (const previous of objectUrls) URL.revokeObjectURL(previous);
+    objectUrls.clear();
     const blob = new Blob([content], {type});
     const url = URL.createObjectURL(blob); objectUrls.add(url);
-    const anchor = document.createElement('a'); anchor.href = url; anchor.download = filename; anchor.click();
-    later(() => { URL.revokeObjectURL(url); objectUrls.delete(url); }, 1500);
+    const prepared = $('#exp-export-ready');
+    if (prepared) { prepared.href = url; prepared.download = filename; prepared.hidden = false; prepared.textContent = `Stáhnout soubor ${filename} ↓`; }
+    const anchor = document.createElement('a'); anchor.href = url; anchor.download = filename;
+    anchor.hidden = true; document.body.append(anchor); anchor.click(); anchor.remove();
   }
-  function exportNotes() { saveNote(); download(JSON.stringify(storage.exportPayload(), null, 2), 'application/json;charset=utf-8', 'CAISIK-Expeditions-Blackbook.json'); }
+  function exportNotes() {
+    try {
+      saveNote(); download(JSON.stringify(storage.exportPayload(), null, 2), 'application/json;charset=utf-8', 'CAISIK-Expeditions-Blackbook.json');
+      if (exportStatus) exportStatus.textContent = 'Blackbook je připravený ke stažení. Ověř uložený soubor ve stažených souborech prohlížeče.';
+    } catch {
+      if (exportStatus) exportStatus.textContent = 'Export se nepodařilo připravit. Ponech stránku otevřenou a zkopíruj si vlastní text do souboru.';
+    }
+  }
   function exportGuide() {
-    saveNote();
-    const content = model ? buildMarkdownGuide(model, noteChapter(), storage.snapshot()) : `${document.querySelector('main')?.innerText || document.body.innerText}\n\n# Můj Blackbook\n\n${JSON.stringify(storage.exportPayload(), null, 2)}`;
-    download(content, 'text/markdown;charset=utf-8', `CAISIK-${noteChapter()}-terenni-pruvodce.md`);
+    try {
+      saveNote();
+      const content = model ? buildMarkdownGuide(model, noteChapter(), storage.snapshot()) : `${document.querySelector('main')?.innerText || document.body.innerText}\n\n# Můj Blackbook\n\n${JSON.stringify(storage.exportPayload(), null, 2)}`;
+      download(content, 'text/plain;charset=utf-8', `CAISIK-${noteChapter()}-terenni-pruvodce.txt`);
+      if (exportStatus) exportStatus.textContent = 'Textový průvodce je připravený ke stažení. Obsahuje lekce, adresy i tvoje poznámky.';
+    } catch {
+      if (exportStatus) exportStatus.textContent = 'Průvodce se nepodařilo připravit. Blackbook můžeš exportovat samostatně nebo si text stránky vytisknout.';
+    }
   }
   on(form, 'input', event => { if (event.target.matches('[data-note-field]')) saveNote(); });
+  on(form, 'focusout', event => { if (event.target.matches('[data-note-field]')) loadNote({preserveEditing: true}); });
   on(form, 'submit', event => { event.preventDefault(); saveNote(); });
-  on(select, 'change', loadNote);
+  on(select, 'change', () => { noteBaseline = {}; loadNote(); });
   on($('#exp-export'), 'click', exportNotes);
   on($('#exp-export-text'), 'click', exportGuide);
   on(modeButton, 'click', () => applyMode(field ? 'story' : 'field', {persist: true, navigate: true}));
@@ -231,7 +258,13 @@ function mount() {
   on(window, 'resize', () => { applyMode(modePreference()); measure(); schedule(); }, {passive: true});
   on(document, 'toggle', () => { measure(); schedule(); }, {capture: true});
   on(document, 'visibilitychange', () => { if (document.hidden) { cancelAnimationFrame(frame); frame = 0; } else { measure(); schedule(); } });
-  on(window, 'storage', event => { if (event.key === 'atlas-motion') applyMode(modePreference()); });
+  on(window, 'storage', event => {
+    if (event.key === 'atlas-motion') applyMode(modePreference());
+    if (event.key === EXPEDITION_STORAGE_KEY || event.key === null) {
+      storage.refresh(); loadNote({preserveEditing: true});
+      for (const chapterId of CHAPTER_IDS) applyStop(chapterId, storage.getCurrentStop(chapterId));
+    }
+  });
   on(reduced, 'change', () => applyMode(modePreference()));
   on(shortScreen, 'change', () => applyMode(modePreference()));
   if ('ResizeObserver' in window) {
@@ -296,6 +329,8 @@ function mount() {
     resizeObserver?.disconnect(); mediaObserver?.disconnect();
     trackedTimeouts.forEach(clearTimeout); trackedTimeouts.clear();
     objectUrls.forEach(url => URL.revokeObjectURL(url)); objectUrls.clear();
+    const prepared = $('#exp-export-ready');
+    if (prepared) { prepared.hidden = true; prepared.removeAttribute('href'); }
     ports.forEach(port => port.close()); ports.clear();
     if (mounted?.dispose === dispose) mounted = null;
   }

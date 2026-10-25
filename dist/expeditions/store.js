@@ -25,26 +25,82 @@ export function normalizeNotebook(value) {
   return output;
 }
 
-export function createExpeditionStore({storage = () => globalThis.localStorage, onStatus = () => {}, now = () => new Date().toISOString()} = {}) {
-  let state = empty(), durable = false, problem = null;
-  const report = message => onStatus({durable, problem, message});
-  try {
-    const target = storage();
-    if (!target || typeof target.getItem !== 'function') throw new Error('Storage unavailable');
-    const raw = target.getItem(EXPEDITION_STORAGE_KEY);
-    if (raw) state = normalizeNotebook(JSON.parse(raw));
-    durable = true;
-    report('Místní Blackbook je připravený. Export je tvoje záloha.');
-  } catch (error) {
-    problem = error instanceof SyntaxError || /format|invalid/i.test(error?.message || '') ? 'corrupt' : 'unavailable';
-    report(problem === 'corrupt' ? 'Uložený Blackbook se nepodařilo přečíst. Nové poznámky jsou v paměti; použij export.' : 'Úložiště není dostupné. Poznámky jsou jen v paměti této stránky; použij export.');
+// Keep a damaged original available for recovery; salvage only known text fields.
+function salvageNotebook(value) {
+  const candidate = empty();
+  if (!plain(value)) return candidate;
+  for (const chapterId of CHAPTER_IDS) {
+    if (plain(value.notes?.[chapterId])) candidate.notes[chapterId] = value.notes[chapterId];
+    if (typeof value.currentStops?.[chapterId] === 'string') candidate.currentStops[chapterId] = value.currentStops[chapterId];
   }
-  function persist() {
+  candidate.mode = value.mode;
+  return normalizeNotebook(candidate);
+}
+const emptyPatch = () => ({notes: {}, currentStops: {}});
+function mergeNotebook(base, patch) {
+  const output = clone(base);
+  for (const chapterId of CHAPTER_IDS) {
+    if (patch.notes[chapterId]) output.notes[chapterId] = {...(output.notes[chapterId] || {}), ...patch.notes[chapterId]};
+    if (Object.hasOwn(patch.currentStops, chapterId)) output.currentStops[chapterId] = patch.currentStops[chapterId];
+  }
+  if (Object.hasOwn(patch, 'mode')) output.mode = patch.mode;
+  return output;
+}
+
+export function createExpeditionStore({storage = () => globalThis.localStorage, onStatus = () => {}, now = () => new Date().toISOString()} = {}) {
+  let state = empty(), pending = emptyPatch(), durable = false, problem = null, recovery = null, lastNotice = null;
+  const hasPending = () => Object.keys(pending.notes).length > 0 || Object.keys(pending.currentStops).length > 0 || Object.hasOwn(pending, 'mode');
+  const report = message => {
+    const notice = {durable, problem, message};
+    const serialized = JSON.stringify(notice);
+    if (serialized !== lastNotice) { lastNotice = serialized; onStatus(notice); }
+  };
+  function readCurrent() {
+    let target, raw, parsed;
     try {
-      const target = storage();
-      if (!target || typeof target.setItem !== 'function') throw new Error('Storage unavailable');
-      target.setItem(EXPEDITION_STORAGE_KEY, JSON.stringify(state));
-      durable = true; problem = null;
+      target = storage();
+      if (!target || typeof target.getItem !== 'function') throw new Error('Storage unavailable');
+      raw = target.getItem(EXPEDITION_STORAGE_KEY);
+    } catch { return {ok: false, problem: 'unavailable'}; }
+    try {
+      parsed = raw === null || raw === undefined || raw === '' ? empty() : JSON.parse(raw);
+      return {ok: true, target, value: normalizeNotebook(parsed)};
+    } catch {
+      // Never replace the original corrupt record with an empty notebook.
+      recovery = {rawNotebook: typeof raw === 'string' ? raw : String(raw), reason: 'corrupt'};
+      return {ok: false, problem: 'corrupt', value: salvageNotebook(parsed)};
+    }
+  }
+  function refreshInternal() {
+    const current = readCurrent();
+    const oldProblem = problem;
+    if (current.ok) {
+      state = mergeNotebook(current.value, pending);
+      if (!hasPending()) {
+        durable = true; problem = null;
+        if (oldProblem) report('Místní Blackbook je opět dostupný. Export je tvoje záloha.');
+      }
+    } else {
+      if (current.value) state = mergeNotebook(state, current.value);
+      state = mergeNotebook(state, pending);
+      durable = false; problem = current.problem;
+      report(problem === 'corrupt'
+        ? 'Uložený Blackbook je poškozený. Původní data zůstávají zachovaná; nové poznámky jsou jen v paměti. Export obsahuje i data pro obnovu.'
+        : 'Úložiště není dostupné. Poznámky jsou jen v paměti této stránky; použij export.');
+    }
+    return current;
+  }
+  const initial = refreshInternal();
+  if (initial.ok) report('Místní Blackbook je připravený. Export je tvoje záloha.');
+  function persist() {
+    // Re-read before every write so another expedition tab is never replaced
+    // by this tab's older full snapshot. Only explicit field patches win.
+    const current = refreshInternal();
+    if (!current.ok) return false;
+    try {
+      if (typeof current.target.setItem !== 'function') throw new Error('Storage unavailable');
+      current.target.setItem(EXPEDITION_STORAGE_KEY, JSON.stringify(state));
+      pending = emptyPatch(); durable = true; problem = null;
       report('Uloženo v tomto prohlížeči.');
       return true;
     } catch {
@@ -54,32 +110,36 @@ export function createExpeditionStore({storage = () => globalThis.localStorage, 
     }
   }
   const known = id => { if (!CHAPTER_IDS.includes(id)) throw new Error('Unknown expedition'); };
+  function snapshot() { refreshInternal(); return clone(state); }
   return {
-    getChapter(id) { known(id); return clone(state.notes[id] || {}); },
+    refresh: snapshot,
+    getChapter(id) { known(id); refreshInternal(); return clone(state.notes[id] || {}); },
     updateChapter(id, fields) {
       known(id);
-      const note = {...(state.notes[id] || {})};
-      for (const key of NOTE_FIELDS) if (Object.hasOwn(fields, key) && typeof fields[key] === 'string') note[key] = fields[key].slice(0, MAX_TEXT);
-      note.updatedAt = now();
-      state.notes[id] = note;
+      const patch = {};
+      for (const key of NOTE_FIELDS) if (Object.hasOwn(fields, key) && typeof fields[key] === 'string') patch[key] = fields[key].slice(0, MAX_TEXT);
+      if (!Object.keys(patch).length) { if (hasPending()) return persist(); refreshInternal(); return durable; }
+      pending.notes[id] = {...(pending.notes[id] || {}), ...patch, updatedAt: now()};
       return persist();
     },
-    getCurrentStop(id) { known(id); return state.currentStops[id] || null; },
+    getCurrentStop(id) { known(id); refreshInternal(); return state.currentStops[id] || null; },
     setCurrentStop(id, stopId) {
       known(id);
       if (typeof stopId !== 'string' || !/^stop-[a-z0-9-]+$/.test(stopId)) throw new Error('Invalid route placement');
-      state.currentStops[id] = stopId;
+      pending.currentStops[id] = stopId;
       return persist();
     },
-    getMode() { return state.mode; },
+    getMode() { refreshInternal(); return state.mode; },
     setMode(mode) {
       if (mode !== 'field' && mode !== 'story') throw new Error('Invalid reading mode');
-      state.mode = mode;
+      pending.mode = mode;
       return persist();
     },
-    snapshot() { return clone(state); },
+    snapshot,
     persistence() { return {durable, problem}; },
-    exportPayload() { return {...clone(state), exportedAt: now(), format: 'CAISIK-Expeditions-Blackbook', privacy: 'Local text only; no audio or photo attachments.'}; }
+    exportPayload() {
+      return {...snapshot(), exportedAt: now(), format: 'CAISIK-Expeditions-Blackbook', privacy: 'Local text only; no audio or photo attachments.', ...(recovery ? {recovery: clone(recovery)} : {})};
+    }
   };
 }
 

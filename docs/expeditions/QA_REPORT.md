@@ -1,57 +1,48 @@
-# CAISIK expedice — kontrola vydání 21. 10. 2026
+# CAISIK expedice — kontrola 25. 10. 2026
 
-## Rozsah a výsledek
+## Rozsah
 
-Implementace přidává šest skutečných statických stránek, pět samostatně použitelných expedic, patnáct úplných lekcí a třicet jedna zařazení dvaceti tří míst. Původní atlas, všech sedm principů, Frequency, Living Wall, animační systémy a galerie sta děl jsou zachované. Nevzniká účet, rezervace, partnerství, placený provoz ani upload médií.
+Navázáno na skutečně publikovanou verzi 22, commit `05f45362bc530ff8ff948c694fd285ac7c43962b`. Pět samostatných expedic, patnáct úplných lekcí, třicet jedna zastávek a dvacet tři míst již existovalo. Tato úprava opravuje spolehlivost zápisníku, exportu a aktualizace offline balíčku. Zachovává poslední schválenou grafiku, všechny původní sekce a 100 děl.
 
-## Automatické kontroly
+Původní report je uchován v [QA_REPORT_2026-10-21.md](QA_REPORT_2026-10-21.md). Obnovený dodaný ZIP byl znovu přečten v požadovaném pořadí: všech 15 autorských lekcí, archivované routes/lessons/scene-contracts a všech 5 SVG odpovídají zdrojům; kapitoly mají pouze již provedené změny cest obrázků a příznaku importu. Mastery skutečně existují jako 2752 × 1536 WebP, dodatečný archiv scén je zachovaný. Nová generace není potřebná.
 
-| Kontrola | Výsledek / co skutečně ověřuje |
+## Opravené chyby
+
+1. Dvě otevřené expedice dříve přepisovaly celý starší snapshot. Ukládají se pouze skutečně změněná pole sloučená s aktuálním stavem. Nedotčená pole se aktualizují také v jiných kartách; aktivně rozepsané pole se nepřepisuje. Pro stejné pole platí poslední uložená úprava. Nejde o synchronizaci mezi zařízeními.
+2. Poškozený zápisník mohl být přepsán pouhou změnou režimu. Originál nyní zůstává beze změny. Čitelné části se zachrání do paměti; JSON export obsahuje i `recovery.rawNotebook`. Selhání zůstává viditelné. Čekající změny lze znovu uložit po obnově dostupnosti úložiště.
+3. Testovací prohlížeč nedoručoval Markdown stažení. Úplný průvodce nyní používá přenosný UTF-8 TXT a byl skutečně stažen i s vlastními poznámkami. JSON zůstává samostatnou zálohou všech expedic. Připravený soubor má také přímý odkaz a srozumitelný stav; nehlásí se neověřené „staženo“.
+4. Neúplný upgrade service workeru mohl smazat starší offline stránky. Instalace nyní vyžaduje všech šest stránek a povinný runtime se správnými verzemi. Při selhání nebo chybějícím souboru se předchozí balíček zachová; nesouvisející cache se nemažou. Volitelné ilustrace neblokují úplný text.
+
+## Provedené testy
+
+| Kontrola | Výsledek |
 |---|---|
-| `python tools/import-expeditions.py` | PASS — 5 kapitol, 15 úplných lekcí, 23 míst, 31 zastávek. |
-| `python tools/build-expeditions.py` | PASS — všech šest HTML stránek s obsahem dostupným bez JS. |
-| `node tests/expeditions.mjs` | PASS — vazby dat, stabilní oddělená ID, null souřadnice, 17 odmítnutých neplatných vstupů, všech 15 úplných lekcí, adresy a zdroje 31 zastávek, 454 syntakticky bezpečných odkazů s ověřením lokálních cílů, hashe schválené grafiky, rozměry obnovených masterů. Nejde o síťový test všech externích URL. |
-| `node tests/expeditions-runtime.mjs` | PASS — lokální persistence, selhání/poškození storage, UTF-8 export a úplný Markdown průvodce, vratný scroll, skutečný kód workeru ve VM, omezený offline scope, chybějící obrázek, postup mezi zastávkami a chyby quota/open/read cache. |
-| `npm test` | PASS — původních 12 míst, 3 trasy, 7 principů, 8 témat, 100 děl, lokální assety a DOM vazby. |
-| `node tests/art-scenes.mjs` | PASS — 14 scén / 15 umístění, původní hashe, masky a routování lekcí. |
-| `node tests/art-motion.mjs` | PASS — sémantický pohyb principů, růst světa, celé kyvadlo, pause/replay, lifecycle a fallback. |
-| `node tests/logo-motion.mjs` | PASS — podpis, oko, hover, replay, pause a původní fallback. |
-| `node tests/hero-motion.mjs` | PASS — hero vrstvy, částice, pohyb a statický fallback. |
-| `git diff --check` | PASS — whitespace. |
+| `node tests/expeditions.mjs` | PASS: 5/15/31/23; 17 neplatných vstupů odmítnuto; 454 bezpečných odkazů a skutečné lokální cíle; úplnost všech lekcí a zastávek; hashe schválené grafiky a masterů. Zahrnuje runtime suite. |
+| `node tests/expeditions-runtime.mjs` | PASS: různé expedice ve více kartách; různá pole stejné kapitoly; úmyslné vyprázdnění; zachování stop/režimu; poškození a obnova; quota retry; úplný průvodce; vratný scroll; scope workeru a chyby cache. |
+| Skutečný kód workeru ve VM | PASS: neúplná Knowledge stránka, výpadek sítě, starý `?v=1` soubor místo v2, úplná instalace, ztráta souboru před aktivací, zachování původní i cizí cache. |
+| `npm test` | PASS: původní atlas, 12 míst, 3 trasy, 7 principů, 8 témat a 100 děl. |
+| `node tests/art-scenes.mjs`, `art-motion.mjs`, `logo-motion.mjs`, `hero-motion.mjs` | PASS: původní grafika, sémantické animace principů, logo a hero. Jejich zdroje se nemění. |
+| Syntaxe JS a `git diff --check` | PASS. |
 
-Testy nepoužívají nově instalované závislosti; HTML čte Python stdlib parser. Existující závislosti projektu se nemění.
+Nové závislosti se neinstalovaly. Validace externích URL je syntaktická; není to síťový test každého externího webu. Provozní obsah má nadále pravdivé datum kontroly 21. 10. 2026, nikoli neprovedené nové ověření k dnešku.
 
-## Skutečná kontrola v prohlížeči
+## Skutečný prohlížeč
 
-Kontrolováno na spravovaném lokálním náhledu v desktopovém Chrome, viewport 1363 × 936. Všech šest stránek bylo opravdu otevřeno. DJ, MC, Writer, Breaking a Knowledge mají po třech lekcích, příslušné počty zastávek 6/7/6/6/6, načtená validovaná data a žádný chybějící aktivní obrázek. Žádná stránka nepřetéká vodorovně.
+V desktopovém Chrome byly znovu otevřeny všechny šestice stránek. Dedicated stránky obsahují po třech lekcích a 6/7/6/6/6 zastávkách, data jsou načtená, aktivní obrázky nechybí a dokument nepřetéká vodorovně. Writer scéna při přesunu do třetí lekce dosáhla postupu 0,6470 a návrat do první ji vrátil na 0; text je stále dostupný. Nativní přepínač a další zastávka jsou ovladatelné klávesnicí.
 
-- Writer: skutečná sticky scéna vedle úplného textu. Postup 0 → 1 a návrat k první lekci vrací diagram i fázi na začátek. Přehled při rychlém přesunu mezi první a poslední kapitolou mění aktivní scénu DJ → Knowledge → DJ.
-- Terénní tlačítko skryje stage a ponechá všechny lekce i adresy. První adresa a úkol jsou přístupné přímo, bez animace. Ověřeno skutečné postupné tlačítko 1 → 2 → 3 → 4 → 5 → 6 → Blackbook; poslední akce nezruší aktuální zastávku. Návrat do příběhu synchronizuje URL na #story, aby změna orientace nepřepnula zpět starý terénní hash.
-- Klávesa Space na fokusovaném přepínači skutečně aktivuje terénní režim. Formulář má nativní popisky a viditelné fokusy.
-- Dvě zkušební české poznámky přežily reload. Skutečný JSON export se stáhl jako 547bajtový soubor a obsahoval vlastní text. Zkušební text byl po kontrole vymazán formulářem.
-- Kliknutí na Markdown export bylo provedeno; cloudový prohlížeč následné stažení nedoručil. Obsah a úplnost Markdownu jsou ověřené automatickým testem, nikoli vydávané za úspěšné druhé stažení v browseru.
-- Původní globální PAUSE MOTION se promítá do expedic: tlačítko ukáže „Klidný režim“, animovaná stage zmizí. Nastavení bylo po testu obnoveno.
-- Záměrné offline uložení na HTTP náhledu viditelně nabídne textový export, protože zde není dostupný secure context. Skutečné offline chování workeru je testované ve VM; instalace na publikované HTTPS doméně a odpojení reálného telefonu nejsou tímto testem nahrazené.
-- Původní homepage byla vizuálně zkontrolována: logo, hero i pět odkazů v navigaci se vejdou, stávající sekce existují a nový vstup vede do expedic.
+Dvě skutečně otevřené karty uložily MC text a různá Writer pole. Oba Writer záznamy i MC zůstaly po reloadu zachované. Skutečně stažený TXT o velikosti 14 235 bajtů obsahoval všechny tři lekce, adresy i obě vlastní poznámky. Skutečně stažený JSON obsahoval Writer i MC. Zkušební poznámky byly následně vráceny formuláři do původního stavu.
 
-Responzivní kontrola používá skutečně renderované iframe viewporty 390 × 844, 320 × 568 a 768 × 420, nikoli fotografii telefonu nebo zařízení Safari. Šířky dokumentu nepřekračují dostupnou plochu. 390 px zachovává malou sticky stage; 320 × 568 a krátký landscape automaticky použijí lineární klidný režim. V malém telefonu bylo skutečně otevřeno „Adresy a podmínky“ a přečtena první zastávka. Dočasný QA soubor není součástí vydání.
+Responzivní kontrola používá skutečné iframe viewporty 390 × 844, 320 × 568 a 768 × 420. Dokumenty nepřetékají. Velký telefon má malou sticky stage; malý telefon a landscape lineární klidný režim. V malém viewportu byla přímo otevřena konkrétní adresa Rue Dénoyez. Nejde o skutečné iOS Safari ani fyzický telefon.
 
-Systémové `prefers-reduced-motion` není v tomto cloudovém prohlížeči přepínatelné. Ověřena je implementovaná media query a shodná větev klidného režimu přes skutečné globální ovládání, ne změna nastavení OS. Skutečné iOS Safari, terénní cesta, odborná taneční demonstrace a reálná reakce lektora zatím nejsou otestované ani dodané.
+- [Desktop Writer](qa/2026-10-25/desktop-writer.jpg)
+- [Mobil, terén a landscape](qa/2026-10-25/responsive.jpg)
 
-## Důkazy
+Snímky zachycují skutečný render a byly uživateli ukázány před publikací. Dočasný QA HTML soubor se nepublikuje.
 
-- [Desktop — přehled](qa/desktop-overview.jpg)
-- [Desktop — úplná Writer lekce a scéna](qa/desktop-writer.jpg)
-- [Responzivní Writer, malý telefon a landscape](qa/responsive-writer.jpg)
+## Meze a nedodané materiály
 
-Jde o skutečné screenshoty renderovaného náhledu, nikoli generované návrhy UI. Byly pořízené před zveřejněním.
+HTTP náhled neumožňuje skutečnou instalaci service workeru; její chybová větev je viditelná a worker je testovaný ve VM. HTTPS instalace na fyzickém telefonu a terénní pilot zůstávají k provedení. OS reduced-motion nelze zde přepnout; jeho implementace i automatický klidný režim krátké obrazovky jsou zachované. Nej­de o úplný WCAG audit.
 
-## Obsah, licence a zbývající produkce
+Licencované DJ/MC nahrávky a rozhovory, odborná taneční videa a skutečná reakce lektora nejsou dodané. Totéž platí pro redakční posouzení specialistou, reálný procesní pilot, filmový morph, partnerské smlouvy, komerční oprávnění, živé rezervace, účty a přílohy. Nejsou prezentované jako hotové. Hudební ani historické dokumentární materiály bez oprávnění se nepřidávaly.
 
-Provozní kontrola je uchována v obou `verification-*.json`: 14 míst ověřeno, 7 částečně, 2 neověřena. Nejistoty jsou viditelné u míst. Převzaté rozvrhy nejsou živá dostupnost; žádné místo nemá vymyšlený přesný vstupní pin. Kulturní výklad používá šest institucionálních primárních zdrojů a rozlišuje fakta od autorského čtení.
-
-Všech pět vzdálených masterů 2752 × 1536 i dodatečný archiv scén 1920 × 1080 bylo obnoveno; přesný stav a hashe jsou v `ASSET_IMPORT.json`. Produkční stránky používají poslední schválenou podrobnou žlutozlatou grafiku CAISIK. Obnovené plošší reference ji nenahradily.
-
-Nedodané zůstávají licencované komentované DJ/MC nahrávky, rozhovory, videa kvalifikovaného tanečního spoluautora, skutečná zpětná vazba lektora, plný filmový morph/parallax, partnerské smlouvy, komerční povolení, živé rezervace a účty s přílohami. V textu se za hotové nevydávají. Připravený produkt je samostatný vzdělávací průvodce s vlastní tvorbou a lokálním zápisníkem.
-
-Správa obsahu a přesný rollback na verzi 21 jsou popsány v [README.md](README.md).
+Správa obsahu, změněné moduly a rollback na verzi 22: [README.md](README.md). Vstup do projektu: [START_HERE.md](../../START_HERE.md).
