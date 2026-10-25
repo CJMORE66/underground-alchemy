@@ -60,6 +60,7 @@ jobs:
           git("config", "user.email", "104183381+CJMORE66@users.noreply.github.com")
           git("merge", "--no-commit", "--no-ff", "--allow-unrelated-histories", "-s", "ours", original)
           preserved = repo / "docs" / "github" / "INITIAL-README.md"
+          assert not preserved.exists(), "archive path already exists"
           preserved.parent.mkdir(parents=True, exist_ok=True)
           preserved.write_text(original_readme)
           git("add", "docs/github/INITIAL-README.md")
@@ -68,13 +69,14 @@ jobs:
           assert changes == ["docs/github/INITIAL-README.md"], changes
           git("merge-base", "--is-ancestor", source, "HEAD")
           git("merge-base", "--is-ancestor", original, "HEAD")
-          subprocess.run(["node", "tests/expeditions.mjs"], cwd=repo, check=True)
-          subprocess.run(["npm", "test"], cwd=repo, check=True)
+          test_env = {k: v for k, v in os.environ.items() if k not in ("GITHUB_TOKEN", "CAISIK_GIT_AUTH")}
+          subprocess.run(["node", "tests/expeditions.mjs"], cwd=repo, env=test_env, check=True)
+          subprocess.run(["npm", "test"], cwd=repo, env=test_env, check=True)
           head = git("rev-parse", "HEAD", capture=True).strip()
           git("push", "origin", "HEAD:refs/heads/main")
           assert git("ls-remote", "--heads", "origin", "main", capture=True).split()[0] == head
           transfer = git("ls-remote", "--heads", "origin", env["TRANSFER_BRANCH"], capture=True).split()[0]
-          if transfer == env["TRANSFER_COMMIT"]:
-              git("push", "origin", "--delete", env["TRANSFER_BRANCH"])
+          assert transfer == env["TRANSFER_COMMIT"], "transfer branch changed; retaining it"
+          git("push", "origin", "--delete", env["TRANSFER_BRANCH"])
           with open(env["GITHUB_STEP_SUMMARY"], "a") as summary:
               summary.write("Imported source " + source + " to main " + head + ". Both original histories preserved. Source tree unchanged except archived initial GitHub README. Expedition tests and npm test passed. Temporary transfer branch removed.\n")
