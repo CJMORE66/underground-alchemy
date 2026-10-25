@@ -1,0 +1,80 @@
+name: Import CAISIK Sites source
+on:
+  push:
+    branches: [caisik-sites-transfer-20261025]
+    paths: [transfer-ready.json]
+permissions:
+  contents: write
+concurrency:
+  group: caisik-source-import
+  cancel-in-progress: false
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      GITHUB_TOKEN: ${{ github.token }}
+      EXPECTED_SOURCE: 65b2f899af9326ec9f5f069288d34d04dac351f5
+      EXPECTED_MAIN: 45f20ddc4c8e52f313d116b24dfdeef032322286
+      TRANSFER_BRANCH: caisik-sites-transfer-20261025
+      TRANSFER_COMMIT: ${{ github.sha }}
+    steps:
+      - name: Verify bundle, preserve both histories, test and import
+        shell: python
+        run: |
+          import base64, hashlib, json, os, pathlib, subprocess
+          root = pathlib.Path.cwd()
+          repo = root / "migration-checkout"
+          remote = "https://github.com/CJMORE66/underground-alchemy.git"
+          env = os.environ.copy()
+          env["CAISIK_GIT_AUTH"] = "Authorization: Basic " + base64.b64encode(("x-access-token:" + env["GITHUB_TOKEN"]).encode()).decode()
+          env["GIT_TERMINAL_PROMPT"] = "0"
+          def git(*args, cwd=repo, capture=False):
+              return subprocess.run(["git", "-c", "credential.helper=", "--config-env=http.https://github.com/.extraHeader=CAISIK_GIT_AUTH", *args], cwd=cwd, env=env, check=True, text=True, stdout=subprocess.PIPE if capture else None).stdout
+          git("clone", "--single-branch", "--branch", env["TRANSFER_BRANCH"], "--depth", "1", remote, str(repo), cwd=root)
+          assert git("rev-parse", "HEAD", capture=True).strip() == env["TRANSFER_COMMIT"]
+          manifest = json.loads((repo / "transfer-ready.json").read_text())
+          assert manifest["sourceCommit"] == env["EXPECTED_SOURCE"]
+          bundle = root / "caisik-source.bundle"
+          full = hashlib.sha256()
+          with bundle.open("wb") as out:
+              for part in manifest["parts"]:
+                  name = part["path"]
+                  assert name.startswith("transfer-parts/") and ".." not in name
+                  raw = (repo / name).read_bytes()
+                  assert len(raw) == part["size"]
+                  assert hashlib.sha256(raw).hexdigest() == part["sha256"]
+                  out.write(raw)
+                  full.update(raw)
+          assert full.hexdigest() == manifest["sha256"]
+          git("bundle", "verify", str(bundle))
+          git("fetch", str(bundle), "refs/heads/main:refs/remotes/sites/main")
+          source = git("rev-parse", "refs/remotes/sites/main", capture=True).strip()
+          assert source == env["EXPECTED_SOURCE"]
+          git("fetch", "--no-tags", "origin", "refs/heads/main:refs/remotes/origin/main")
+          original = git("rev-parse", "refs/remotes/origin/main", capture=True).strip()
+          assert original == env["EXPECTED_MAIN"], "main changed; refusing to overwrite concurrent work"
+          original_readme = git("show", original + ":README.md", capture=True)
+          git("checkout", "--detach", source)
+          git("config", "user.name", "CAISIK source migration")
+          git("config", "user.email", "104183381+CJMORE66@users.noreply.github.com")
+          git("merge", "--no-commit", "--no-ff", "--allow-unrelated-histories", "-s", "ours", original)
+          preserved = repo / "docs" / "github" / "INITIAL-README.md"
+          preserved.parent.mkdir(parents=True, exist_ok=True)
+          preserved.write_text(original_readme)
+          git("add", "docs/github/INITIAL-README.md")
+          git("commit", "-m", "Import complete CAISIK Sites history and preserve GitHub initialization")
+          changes = git("diff", "--name-only", source, "HEAD", capture=True).splitlines()
+          assert changes == ["docs/github/INITIAL-README.md"], changes
+          git("merge-base", "--is-ancestor", source, "HEAD")
+          git("merge-base", "--is-ancestor", original, "HEAD")
+          subprocess.run(["node", "tests/expeditions.mjs"], cwd=repo, check=True)
+          subprocess.run(["npm", "test"], cwd=repo, check=True)
+          head = git("rev-parse", "HEAD", capture=True).strip()
+          git("push", "origin", "HEAD:refs/heads/main")
+          assert git("ls-remote", "--heads", "origin", "main", capture=True).split()[0] == head
+          transfer = git("ls-remote", "--heads", "origin", env["TRANSFER_BRANCH"], capture=True).split()[0]
+          if transfer == env["TRANSFER_COMMIT"]:
+              git("push", "origin", "--delete", env["TRANSFER_BRANCH"])
+          with open(env["GITHUB_STEP_SUMMARY"], "a") as summary:
+              summary.write("Imported source " + source + " to main " + head + ". Both original histories preserved. Source tree unchanged except archived initial GitHub README. Expedition tests and npm test passed. Temporary transfer branch removed.\n")
