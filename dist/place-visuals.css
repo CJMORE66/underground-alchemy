@@ -1,0 +1,40 @@
+/* CAISIK illustrations are artwork. Documentary material keeps its own credit. */
+#hidden-city .place-image.place-artwork,.profile-visual.place-artwork{position:relative;height:auto;aspect-ratio:3/2;background:#080808;overflow:hidden;isolation:isolate}
+.place-artwork>img[data-place-illustration]{display:block;width:100%;height:100%;object-fit:contain;filter:none!important;opacity:1!important}
+.place-artwork .image-credit{position:absolute;left:0;right:0;bottom:0;z-index:4;background:#080808e8;color:#f5f1e8;padding:5px 9px;margin:0;font:700 8px/1.5 var(--sans,Arial,sans-serif);letter-spacing:.7px;pointer-events:none}
+.place-art-replay{position:absolute;right:12px;top:12px;z-index:5;max-width:calc(100% - 24px);padding:10px 12px;min-height:40px;background:#080808e8;border:1px solid #ffd600;color:#ffd600;font:700 9px/1.4 var(--sans,Arial,sans-serif);letter-spacing:1px}
+.place-art-replay:hover{background:#ffd600;color:#080808}
+.place-art-replay:focus-visible{outline:2px solid #f5f1e8;outline-offset:3px}
+.place-art-disclosure{color:#bcb6a8;font:11px/1.7 var(--sans,Arial,sans-serif);margin:12px 0 22px}
+.documentary-source{margin:18px 0 25px;border:1px solid #51491f;background:#0c0c0b;padding:0 18px 16px}
+.documentary-source>summary{cursor:pointer;color:#ffd600;font:700 10px/1.6 var(--sans,Arial,sans-serif);letter-spacing:1.2px;padding:17px 0 0;min-height:48px}
+.documentary-source[open]>summary{margin-bottom:16px}
+.documentary-source .profile-visual{margin:0;background:#161614}
+.documentary-source .profile-visual img{filter:grayscale(1);height:auto;max-height:440px;object-fit:contain}
+.documentary-source a{text-decoration:underline;text-underline-offset:3px}
+.place-model-actions{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin:18px 0 10px}
+.place-model-actions>span{font:11px/1.5 var(--sans);color:#bcb6a8}
+.place-model-dialog{width:min(1100px,94vw);padding:32px;max-height:94dvh}
+.place-model-dialog h2{font-size:clamp(25px,4vw,43px);margin-bottom:12px}
+.place-model-dialog .place-art-disclosure{max-width:800px;margin-bottom:16px}
+.landmark-study{position:relative;min-height:360px;overflow:hidden;border:1px solid #51491f;background:radial-gradient(ellipse at 50% 80%,#30290d,#080808 70%)}
+.landmark-study svg{display:block;max-width:100%;height:auto;fill:initial;stroke:initial}
+.landmark-study button{min-height:40px;border:1px solid #ffd600;color:#ffd600;background:#080808;padding:8px 14px;cursor:pointer}
+.landmark-study button:focus-visible{outline:2px solid #f5f1e8;outline-offset:3px}
+.landmark-study button:hover{color:#080808;background:#ffd600}
+.landmark-study input[type=range]{accent-color:#ffd600;max-width:100%;min-height:36px}
+.landmark-study [role=group]{display:flex;flex-wrap:wrap;align-items:center;gap:8px;padding:12px}
+.city-map-selected{flex-wrap:wrap}
+.city-map-selected .city-model-replay{color:#080808;background:#ffd600;border-color:#ffd600}
+.city-map-selected .city-model-replay:hover{color:#080808;background:#f5f1e8}
+.city-landmark-running .city-model-replay{border-color:#f5f1e8}
+.city-map-experience[data-landmark-models] .city-pin.is-selected .city-pin-label{top:52px;bottom:auto;transform:translate(-50%,0)}
+@media(max-width:600px){
+ .place-art-replay{top:8px;right:8px;padding:8px 10px;font-size:8px;min-height:36px}
+ .place-artwork .image-credit{font-size:7px;letter-spacing:.3px;padding:4px 7px}
+ .place-art-disclosure{font-size:10px}
+ .documentary-source{padding:0 12px 14px}
+ .documentary-source>summary{font-size:9px;letter-spacing:.5px}
+ .place-model-dialog{padding:23px 17px}
+ .landmark-study{min-height:300px}
+}

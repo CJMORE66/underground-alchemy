@@ -50,7 +50,7 @@ function loadLibrary() {
   return libraryPromise;
 }
 
-export function createCityExperience({host, fallbackElement, places = [], onSelect, onOpen, onFallback, onReady} = {}) {
+export function createCityExperience({host, fallbackElement, places = [], onSelect, onOpen, onFallback, onReady, landmarksLoader = () => import('./city-landmarks.js?v=3')} = {}) {
   if (!host || !fallbackElement) throw new TypeError('Map host and 2D fallback are required.');
   const doc = host.ownerDocument;
   const root = doc.documentElement;
@@ -60,6 +60,8 @@ export function createCityExperience({host, fallbackElement, places = [], onSele
   const reduced = window.matchMedia?.('(prefers-reduced-motion: reduce)');
   const pins = new Map();
   let map, gl, userMarker, route = null, selectedId = null, disposed = false;
+  let landmarks = null, landmarkMeta = null, landmarkFrame = 0, landmarkTween = null, landmarkLoad = null, landmarkFilterBuilder = null;
+  const buildingFilters = new Map();
   let mode = 'waiting', requestedMode = '3d', loading = false, ready = false;
   let nearby = false, visible = typeof IntersectionObserver === 'undefined', frame = 0, tween = null, loadTimer = 0, routeTimer = 0;
   let routeOrder = new Map(), pointerFrame = 0, resizeObserver, observer, viewportObserver, preferences;
@@ -110,7 +112,7 @@ export function createCityExperience({host, fallbackElement, places = [], onSele
   const zoomOut = button('Oddálit mapu', '−', () => map && ready && camera({zoom: map.getZoom() - 1, duration: 450}));
   controls.append(center, tilt, rotate, zoomIn, zoomOut);
   const replay = button('Přehrát krátké odhalení města', 'ODHALIT MĚSTO ↗', () => intro(true), 'city-map-replay');
-  const skip = button('Přeskočit odhalení města', 'PŘESKOČIT →', () => finishMotion(), 'city-map-skip');
+  const skip = button('Přeskočit odhalení města', 'PŘESKOČIT →', () => { finishMotion(); finishLandmarkMotion(); }, 'city-map-skip');
   skip.hidden = true;
   toolbar.append(mode3D, mode2D, controls, replay, skip);
   const status = element('p', 'city-map-status', '3D atlas se načte při přiblížení k mapě.');
@@ -120,7 +122,9 @@ export function createCityExperience({host, fallbackElement, places = [], onSele
   const selected = element('div', 'city-map-selected');
   const selectedLabel = element('span', 'city-map-selected-label', 'PAŘÍŽ / TVŮJ PRŮZKUM');
   const open = button('Otevřít vybrané místo', 'PROZKOUMAT ↗', () => selectedId && onOpen?.(selectedId));
-  selected.append(selectedLabel, open); open.hidden = true;
+  const modelReplay = button('Oživit prostorový model vybraného místa', 'OŽIVIT BUDOVU ↻', () => selectedId && revealLandmark(selectedId), 'city-model-replay');
+  modelReplay.hidden = true;
+  selected.append(selectedLabel, open, modelReplay); open.hidden = true;
   host.append(canvas, toolbar, status, selected, note, hint);
 
   function cleanPlaces(items) {
@@ -142,13 +146,14 @@ export function createCityExperience({host, fallbackElement, places = [], onSele
     mode2D.setAttribute('aria-pressed', String(mode === '2d'));
     for (const b of controls.querySelectorAll('button')) b.disabled = mode !== '3d' || !ready;
     replay.hidden = mode !== '3d' || !motionAllowed();
+    modelReplay.hidden = mode !== '3d' || !landmarks || !selectedId || !motionAllowed();
     note.hidden = mode !== '3d'; hint.hidden = mode !== '3d';
     selected.hidden = mode !== '3d';
   }
   function show2D(message = '2D mapa je připravená.', error = false) {
     if (disposed) return;
     requestedMode = '2d'; mode = '2d';
-    finishMotion(false); map?.stop();
+    finishMotion(false); finishLandmarkMotion(); map?.stop();
     canvas.hidden = true; fallbackElement.hidden = false; fallbackElement.inert = false;
     status.textContent = message; status.classList.toggle('is-error', error);
     updateModeUI(); onFallback?.({reason: message, error});
@@ -217,7 +222,8 @@ export function createCityExperience({host, fallbackElement, places = [], onSele
     show2D(message, true);
     for (const {marker} of pins.values()) marker.remove(); pins.clear();
     userMarker?.remove(); userMarker = null;
-    map?.remove(); map = null;
+    landmarks?.destroy(); landmarks = null; restoreBuildingFilters();
+    map?.remove(); map = null; landmarkLoad = null;
   }
   function mapLoaded() {
     if (disposed || !map) return;
@@ -228,7 +234,70 @@ export function createCityExperience({host, fallbackElement, places = [], onSele
     status.textContent = 'PROSTOROVÝ ATLAS / PARIS'; status.classList.remove('is-error');
     updateModeUI(); map.resize();
     if (!introPlayed && visible) intro();
+    loadLandmarks();
     onReady?.({mode: '3d'});
+  }
+  function restoreBuildingFilters() {
+    for (const [id, filter] of buildingFilters) if (map?.getLayer(id)) map.setFilter?.(id, filter);
+    buildingFilters.clear();
+  }
+  function applyLandmarkFilters() {
+    restoreBuildingFilters();
+    if (!landmarks || !map || !landmarkFilterBuilder) return;
+    const exclusion = landmarkFilterBuilder(currentPlaces);
+    for (const layer of map.getStyle().layers.filter(l => l['source-layer'] === 'building' && l.type === 'fill-extrusion')) {
+      const previous = layer.filter || null; buildingFilters.set(layer.id, previous);
+      map.setFilter?.(layer.id, ['all', ...(previous ? [previous] : []), exclusion]);
+    }
+  }
+  function loadLandmarks() {
+    if (landmarkLoad || !map || !ready) return;
+    const target = map;
+    landmarkLoad = Promise.resolve().then(landmarksLoader).then(module => {
+      if (disposed || map !== target || !ready) return;
+      const adapter = module.mountCityLandmarks(target, gl, {places: currentPlaces, onError: () => {
+        if (disposed || map !== target) return;
+        finishLandmarkMotion(); restoreBuildingFilters(); landmarks?.destroy(); landmarks = null;
+        delete host.dataset.landmarkModels; updateModeUI();
+        status.textContent = 'Mapa je připravená. Detailní modely nejsou na tomto zařízení dostupné.';
+      }});
+      if (adapter.getState?.().failed) { adapter.destroy(); return; }
+      landmarks = adapter;
+      host.dataset.landmarkModels = String(adapter.getState?.().count || 0);
+      landmarkFilterBuilder = module.getLandmarkExclusionFilter;
+      applyLandmarkFilters();
+      adapter.setPlaces(currentPlaces, selectedId);
+      landmarkMeta = adapter.select(selectedId);
+      note.textContent = 'Autorské 3D modely staveb a objektů. Přibližné proporce a umístění, nikoliv zaměření.';
+      updateModeUI();
+      if (visible && mode === '3d') select(selectedId, {fly: true});
+    }).catch(() => {
+      if (disposed || map !== target) return;
+      status.textContent = 'Mapa je připravená. Detailní modely se nepodařilo načíst.';
+    });
+  }
+  function finishLandmarkMotion() {
+    if (landmarkFrame) cancelAnimationFrame(landmarkFrame);
+    landmarkFrame = 0; landmarkTween = null;
+    landmarks?.setMotionProgress(1);
+    host.classList.remove('city-landmark-running');
+  }
+  function revealLandmark(id) {
+    finishLandmarkMotion();
+    if (!landmarks || !id) return;
+    landmarkMeta = landmarks.select(id, {animate: motionAllowed()});
+    if (!landmarkMeta || !motionAllowed()) return;
+    landmarkTween = {start: performance.now(), duration: landmarkMeta.duration || 3200};
+    host.classList.add('city-landmark-running');
+    landmarkFrame = requestAnimationFrame(animateLandmark);
+  }
+  function animateLandmark(now) {
+    landmarkFrame = 0;
+    if (!landmarkTween || !motionAllowed() || mode !== '3d') { finishLandmarkMotion(); return; }
+    const p = Math.min(1, Math.max(0, (now - landmarkTween.start) / landmarkTween.duration));
+    landmarks?.setMotionProgress(p);
+    if (p < 1) landmarkFrame = requestAnimationFrame(animateLandmark);
+    else finishLandmarkMotion();
   }
   function installBuildings() {
     if (map.getLayer('caisik-buildings')) return;
@@ -269,6 +338,7 @@ export function createCityExperience({host, fallbackElement, places = [], onSele
     finishMotion();
     const focus = currentPlaces.find(p => p.id === selectedId) || currentPlaces[0];
     if (!focus) { fitPlaces(); return; }
+    revealLandmark(focus.id);
     const end = {center: [focus.lng, focus.lat], zoom: 15.65, pitch: 58, bearing: -23};
     if (!motionAllowed()) { map.jumpTo(end); buildingAmount(1); return; }
     if (replayIntro) map.jumpTo({center: [focus.lng, focus.lat], zoom: 13.3, pitch: 35, bearing: -38});
@@ -324,13 +394,17 @@ export function createCityExperience({host, fallbackElement, places = [], onSele
     selectedId = place?.id || null;
     selectedLabel.textContent = place ? place.name : 'PAŘÍŽ / TVŮJ PRŮZKUM'; open.hidden = !place;
     if (place) open.setAttribute('aria-label', `Otevřít ${place.name}`);
+    finishLandmarkMotion();
+    landmarkMeta = landmarks?.select(selectedId) || null;
+    updateModeUI();
     for (const [pinId, {pin}] of pins) {
       pin.classList.toggle('is-selected', pinId === selectedId);
       pin.setAttribute('aria-pressed', String(pinId === selectedId));
     }
     if (place && fly && ready && mode === '3d') {
       finishMotion(false);
-      camera({center: [place.lng, place.lat], zoom: 16.1, pitch: 58, duration: 1350});
+      camera({center: [place.lng, place.lat], zoom: landmarkMeta?.focusZoom || 16.8, pitch: 58, duration: 1350});
+      revealLandmark(selectedId);
       if (motionAllowed()) {
         host.classList.remove('city-focus-enter');
         void selected.offsetWidth; host.classList.add('city-focus-enter');
@@ -344,6 +418,8 @@ export function createCityExperience({host, fallbackElement, places = [], onSele
       if (!placeNumbers.has(place.id)) placeNumbers.set(place.id, placeNumbers.size + 1);
     });
     syncPins(); select(id);
+    landmarks?.setPlaces(currentPlaces, selectedId);
+    applyLandmarkFilters();
   }
   function installRoute() {
     if (!map || !ready) return;
@@ -381,7 +457,7 @@ export function createCityExperience({host, fallbackElement, places = [], onSele
     userMarker = new gl.Marker({element: node}).setLngLat([userPosition.lng, userPosition.lat]).addTo(map);
   }
   function preferenceChanged() {
-    updateModeUI(); if (!motionAllowed()) { finishMotion(); map?.stop(); }
+    updateModeUI(); if (!motionAllowed()) { finishMotion(); finishLandmarkMotion(); map?.stop(); }
   }
   listen(doc, 'visibilitychange', preferenceChanged);
   listen(window, 'pagehide', event => {
@@ -429,16 +505,18 @@ export function createCityExperience({host, fallbackElement, places = [], onSele
   updateModeUI(); select(null);
   function destroy() {
     if (disposed) return;
-    finishMotion(); disposed = true; abort.abort();
+    finishMotion(); finishLandmarkMotion(); disposed = true; abort.abort();
     clearTimeout(loadTimer); clearTimeout(routeTimer);
     removers.forEach(remove => remove()); observer?.disconnect(); viewportObserver?.disconnect(); preferences?.disconnect(); resizeObserver?.disconnect();
     for (const {marker} of pins.values()) marker.remove(); pins.clear(); userMarker?.remove();
+    landmarks?.destroy(); landmarks = null; restoreBuildingFilters();
     map?.remove(); map = null;
     [canvas, toolbar, status, selected, note, hint].forEach(node => node.remove());
     fallbackElement.hidden = fallbackWasHidden; fallbackElement.inert = fallbackWasInert;
     if (!hostHadClass) host.classList.remove('city-map-experience');
-    host.classList.remove('city-intro-running', 'city-focus-enter', 'city-has-route', 'city-motion-paused');
+    host.classList.remove('city-intro-running', 'city-focus-enter', 'city-has-route', 'city-motion-paused', 'city-landmark-running');
     delete host.dataset.cityMode;
+    delete host.dataset.landmarkModels;
     ['--city-reveal', '--city-pointer-x', '--city-pointer-y'].forEach(key => host.style.removeProperty(key));
   }
   return {setPlaces, select, setRoute, setUserLocation, destroy};

@@ -1,0 +1,12 @@
+{
+  "id": "notre-dame",
+  "tool": "built-in image_gen",
+  "prompt": "Use case: stylized-concept. Asset type: premium CAISIK Paris location-card artwork, landscape 3:2. Create ONE original highly finished illustration of NOTRE-DAME DE PARIS. The supplied image is STYLE REFERENCE ONLY: match its saturated electric yellow #FFD600, obsidian #080808, bone highlights, tiny crimson accents, complex clean engraved black contours, adult underground graphic-novel / wildstyle architecture energy. Do not copy the person or the TRANSMUTE word. Main subject MUST be recognizable Notre-Dame cathedral, prominent three-quarter view from its west front: two broad square Gothic bell towers, three recessed portals, central rose window, the long pitched nave, transept and slender crossing spire, rhythm of flying buttresses. Compose cathedral monumental and sculptural with crisp yellow cel-shaded planes and strong black shadow, detailed carved ornament and visible architectural depth, thin astrolabe arcs/compass construction around it as explicitly artistic symbolism. A few purposeful original wildstyle abstract extensions around frame, keep building silhouette unmistakable. Architecture is the hero; no large lettering, NO text, NO labels or UI, no person, no invented extra cathedral towers, no vague generic castle, no photographic gray or sepia, no noisy grunge, no haze, no neon purple/green, no chrome. Black background with controlled gold linework and tiny red cuts. This is contemporary artistic interpretation, not a historical photograph or measured architectural drawing. Keep entire main cathedral within frame with 8% safe margins; dense premium detail and strong saturation.",
+  "reference": "dist/assets/style-reference/approved-caisik-graphic-novel.png",
+  "src": "/assets/places-caisik/notre-dame.webp",
+  "width": 1536,
+  "height": 1024,
+  "sha256": "cda912dc0c8981317acbf09cafef1c5084588b59851cd5d0707a65531953a824",
+  "originalSha256": "f8542bd98c0e6c5167f6bcfbd896832ad982ff5b2f429031b665beeed7784688",
+  "classification": "Contemporary generated CAISIK illustration, not documentary evidence or architectural survey"
+}

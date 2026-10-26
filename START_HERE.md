@@ -21,3 +21,11 @@ Nový hratelný vstup je `/play/`. Čti `docs/selfmade/README.md`, `PLAN.md` a `
 `dist/text-motion.js/css` přidává vratné vstupy a výstupy textu, reakce písmen na myš a přístupné reakce CTA. `dist/play/panel-motion.js` řídí krátké přerušitelné přechody pracovních prostorů. Čti `docs/selfmade/TEXT_MOTION_QA.md`.
 
 Hidden City používá volitelný `dist/city-map.js/css` nad skutečnými daty OpenFreeMap, s původním Leafletem jako 2D zálohou. Styl a jediný URL zdroje jsou v `dist/map-data/caisik-style.json`; po upgradu rendereru spusť `npm run build:map-vendor`. Čti `docs/atlas/CITY_MAP_DATA.md` a `CITY_MAP_QA.md`. Výšky jsou přibližné, spojnice zastávek není navigace. Pro rollback lze znovu nasadit verzi 24; nemaž uživatelská data.
+
+## Ilustrace a prostorové modely dvanácti lokací
+
+`dist/assets/places-caisik/manifest.json` propojuje jednotlivé autorské WebP ilustrace s trvalými ID původního atlasu. Přesné produkční prompty a hashe jsou v `docs/atlas/PLACE_ILLUSTRATION_PROMPTS.json`. Ilustrace vznikly jednotlivě vestavěným generátorem; nejsou dokumentárními fotografiemi. Původní fotografie a jejich licence zůstávají v rozbalovací části profilu. Neměň kvůli výtvarnému stylu historické zdroje ani údaje o přístupu.
+
+`dist/place-art-motion.js/css` obsahuje dvanáct individuálně komponovaných animací nad původními ilustracemi. Trasy oken, rozet a konstrukcí používají jejich skutečné obrazové souřadnice; při výměně WebP uprav i scénu. `src/city-landmarks/` obsahuje dvanáct zjednodušených vlastních 3D modelů a konečné časové posloupnosti. `node tools/build-city-landmarks.mjs` vytváří lazy bundle `dist/city-landmarks.js`. Stejné modely se zobrazují jako prostorová vrstva mapy a ve volitelném otáčecím prohlížeči s projekcí do SVG.
+
+Ověření: `node tests/city-landmarks.mjs`, `node tests/place-art-motion.mjs`, `node tests/place-visuals-integration.mjs` a původní testy atlasu. Podrobnosti a limity: `docs/atlas/LANDMARK_RELEASE_QA.md`, `LANDMARK_MODELS.md`, `PLACE_ART_MOTION.md`. Rollback této změny: znovu nasadit verzi 26, bez mazání lokálních poznámek či jiných uživatelských dat.

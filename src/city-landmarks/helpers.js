@@ -1,0 +1,20 @@
+import * as THREE from 'three';
+
+export const palette={bone:0xe6dfce,gold:0xffd600,ink:0x080808,roof:0x171915,glass:0x172d32,green:0x1b493a,crimson:0xe71932,stone:0xb6af96};
+const materials=new Map();
+function material(color){const value=palette[color]??color;if(!materials.has(value))materials.set(value,new THREE.MeshLambertMaterial({color:value,flatShading:true}));return materials.get(value);}
+const ink=new THREE.LineBasicMaterial({color:palette.ink});
+export function model(id,title){const g=new THREE.Group();g.name=id;g.userData={id,title,features:[],illustrative:true};return g;}
+export function feature(g,name){if(!g.userData.features.includes(name))g.userData.features.push(name);return g;}
+export function solid(g,name,geometry,color='bone',position=[0,0,0],outline=true){const m=new THREE.Mesh(geometry,material(color));m.name=name;m.position.set(...position);g.add(m);if(outline){const edge=new THREE.LineSegments(new THREE.EdgesGeometry(geometry,25),ink);edge.name=`${name}-ink`;m.add(edge);}return m;}
+export function box(g,name,w,d,h,x=0,y=0,z=0,color='bone'){return solid(g,name,new THREE.BoxGeometry(w,d,h),color,[x,y,z+h/2]);}
+export function cylinder(g,name,r,h,x=0,y=0,z=0,color='bone',segments=12){const geom=new THREE.CylinderGeometry(r,r,h,segments);geom.rotateX(Math.PI/2);return solid(g,name,geom,color,[x,y,z+h/2]);}
+export function cone(g,name,r,h,x=0,y=0,z=0,color='gold',segments=8){const geom=new THREE.ConeGeometry(r,h,segments);geom.rotateX(Math.PI/2);return solid(g,name,geom,color,[x,y,z+h/2]);}
+export function sphere(g,name,r,x=0,y=0,z=0,color='bone'){return solid(g,name,new THREE.IcosahedronGeometry(r,1),color,[x,y,z]);}
+export function beam(g,name,a,b,r=.3,color='bone'){const pa=new THREE.Vector3(...a),pb=new THREE.Vector3(...b),length=pa.distanceTo(pb);const m=solid(g,name,new THREE.CylinderGeometry(r,r,length,6),color,pa.add(pb).multiplyScalar(.5).toArray());m.quaternion.setFromUnitVectors(new THREE.Vector3(0,1,0),new THREE.Vector3(...b).sub(new THREE.Vector3(...a)).normalize());return m;}
+export function gable(g,name,w,d,h,x=0,y=0,z=0,color='roof'){const shape=new THREE.Shape();shape.moveTo(-w/2,0);shape.lineTo(w/2,0);shape.lineTo(0,h);shape.closePath();const geom=new THREE.ExtrudeGeometry(shape,{depth:d,bevelEnabled:false});geom.rotateX(Math.PI/2);geom.translate(0,d/2,0);return solid(g,name,geom,color,[x,y,z]);}
+export function torus(g,name,r,t,x=0,y=0,z=0,color='gold',plane='front'){const geom=new THREE.TorusGeometry(r,t,5,24);if(plane==='front')geom.rotateX(Math.PI/2);return solid(g,name,geom,color,[x,y,z],false);}
+export function windowGrid(g,name,{columns=3,rows=2,width=1.8,height=3,x=0,y=0,z=0,gapX=3,gapZ=5,color='glass'}={}){for(let row=0;row<rows;row++)for(let col=0;col<columns;col++)box(g,`${name}-${row}-${col}`,width,.22,height,x+(col-(columns-1)/2)*gapX,y,z+row*gapZ,color);}
+export function pointedWindow(g,name,w,h,x,y,z,color='glass'){const assembly=new THREE.Group();assembly.name=`${name}-assembly`;g.add(assembly);box(assembly,name,w,.25,h-w*.55,x,y,z,color);const shape=new THREE.Shape();shape.moveTo(-w/2,0);shape.lineTo(w/2,0);shape.quadraticCurveTo(w*.24,w*.8,0,w*.95);shape.quadraticCurveTo(-w*.24,w*.8,-w/2,0);const geom=new THREE.ExtrudeGeometry(shape,{depth:.25,bevelEnabled:false,curveSegments:4});geom.rotateX(Math.PI/2);solid(assembly,`${name}-arch`,geom,color,[x,y+.125,z+h-w*.55]);return assembly;}
+export function arch(g,name,w,h,depth,x,y,z,color='bone'){const shape=new THREE.Shape();shape.moveTo(-w/2,0);shape.lineTo(w/2,0);shape.lineTo(w/2,h-w/2);shape.absarc(0,h-w/2,w/2,0,Math.PI,false);shape.closePath();const geom=new THREE.ExtrudeGeometry(shape,{depth,bevelEnabled:false,curveSegments:8});geom.rotateX(Math.PI/2);return solid(g,name,geom,color,[x,y+depth/2,z]);}
+export function disposeScene(scene){const geometries=new Set(),mats=new Set();scene.traverse(o=>{if(o.geometry)geometries.add(o.geometry);for(const m of(Array.isArray(o.material)?o.material:[o.material]))if(m)mats.add(m);});geometries.forEach(g=>g.dispose());mats.forEach(m=>m.dispose());materials.clear();}

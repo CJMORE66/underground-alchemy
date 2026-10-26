@@ -1,0 +1,90 @@
+{
+  "version": 1,
+  "classification": "Contemporary generated CAISIK artwork; never documentary evidence or a measured architectural survey.",
+  "illustrations": [
+    {
+      "id": "notre-dame",
+      "src": "/assets/places-caisik/notre-dame.webp",
+      "width": 1536,
+      "height": 1024,
+      "alt": "Cathédrale Notre-Dame de Paris — autorská černožlutá komiksová ilustrace CAISIK, nikoli dokumentární fotografie"
+    },
+    {
+      "id": "sainte-chapelle",
+      "src": "/assets/places-caisik/sainte-chapelle.webp",
+      "width": 1536,
+      "height": 1024,
+      "alt": "Sainte-Chapelle — autorská černožlutá komiksová ilustrace CAISIK, nikoli dokumentární fotografie"
+    },
+    {
+      "id": "flamel-house",
+      "src": "/assets/places-caisik/flamel-house.webp",
+      "width": 1536,
+      "height": 1024,
+      "alt": "Maison de Nicolas Flamel — autorská černožlutá komiksová ilustrace CAISIK, nikoli dokumentární fotografie"
+    },
+    {
+      "id": "saint-sulpice",
+      "src": "/assets/places-caisik/saint-sulpice.webp",
+      "width": 1536,
+      "height": 1024,
+      "alt": "Saint-Sulpice — Gnomon — autorská černožlutá komiksová ilustrace CAISIK, nikoli dokumentární fotografie"
+    },
+    {
+      "id": "pere-lachaise",
+      "src": "/assets/places-caisik/pere-lachaise.webp",
+      "width": 1536,
+      "height": 1024,
+      "alt": "Cimetière du Père-Lachaise — autorská černožlutá komiksová ilustrace CAISIK, nikoli dokumentární fotografie"
+    },
+    {
+      "id": "republique",
+      "src": "/assets/places-caisik/republique.webp",
+      "width": 1536,
+      "height": 1024,
+      "alt": "Monument à la République — autorská černožlutá komiksová ilustrace CAISIK, nikoli dokumentární fotografie"
+    },
+    {
+      "id": "abbesses",
+      "src": "/assets/places-caisik/abbesses.webp",
+      "width": 1536,
+      "height": 1024,
+      "alt": "Abbesses — Guimard Entrance — autorská černožlutá komiksová ilustrace CAISIK, nikoli dokumentární fotografie"
+    },
+    {
+      "id": "mur-oberkampf",
+      "src": "/assets/places-caisik/mur-oberkampf.webp",
+      "width": 1536,
+      "height": 1024,
+      "alt": "Le M.U.R. Oberkampf — autorská černožlutá komiksová ilustrace CAISIK, nikoli dokumentární fotografie"
+    },
+    {
+      "id": "la-place",
+      "src": "/assets/places-caisik/la-place.webp",
+      "width": 1536,
+      "height": 1024,
+      "alt": "La Place — Centre culturel hip-hop — autorská černožlutá komiksová ilustrace CAISIK, nikoli dokumentární fotografie"
+    },
+    {
+      "id": "centquatre",
+      "src": "/assets/places-caisik/centquatre.webp",
+      "width": 1536,
+      "height": 1024,
+      "alt": "CENTQUATRE-PARIS — autorská černožlutá komiksová ilustrace CAISIK, nikoli dokumentární fotografie"
+    },
+    {
+      "id": "philharmonie",
+      "src": "/assets/places-caisik/philharmonie.webp",
+      "width": 1536,
+      "height": 1024,
+      "alt": "Philharmonie de Paris — autorská černožlutá komiksová ilustrace CAISIK, nikoli dokumentární fotografie"
+    },
+    {
+      "id": "shakespeare-company",
+      "src": "/assets/places-caisik/shakespeare-company.webp",
+      "width": 1536,
+      "height": 1024,
+      "alt": "Shakespeare and Company — autorská černožlutá komiksová ilustrace CAISIK, nikoli dokumentární fotografie"
+    }
+  ]
+}

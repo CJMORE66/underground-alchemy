@@ -46,3 +46,11 @@ for file in atlas_pages:
     data=data.replace('Map tiles from OpenStreetMap receive your IP and viewed map area.', 'Mapová data © OpenStreetMap; 3D dlaždice OpenFreeMap. Poskytovatel mapy přijímá IP adresu a zobrazenou oblast. Půdorysy vycházejí z mapových dat; dostupné výšky budov jsou orientační, chybějící výška je výtvarně doplněná. Nejde o přesný model památek.')
     file.write_text(data)
 print(f'Animated geographic city stage linked to {len(atlas_pages)} atlas routes.')
+
+# Individually generated, animated place artwork; documentary originals stay optional.
+for file in atlas_pages:
+    data=file.read_text().replace('/atlas.js?v=4','/atlas.js?v=7').replace('/atlas.js?v=5','/atlas.js?v=7').replace('/atlas.js?v=6','/atlas.js?v=7')
+    data=data.replace('/place-visuals.css?v=1','/place-visuals.css?v=3').replace('/place-visuals.css?v=2','/place-visuals.css?v=3')
+    if '/place-visuals.css' not in data:
+        data=data.replace('</head>','<link rel="stylesheet" href="/place-visuals.css?v=3"><link rel="stylesheet" href="/place-art-motion.css?v=1"><script src="/place-art-motion.js?v=1" defer></script></head>')
+    file.write_text(data)
