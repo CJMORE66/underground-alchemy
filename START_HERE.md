@@ -11,3 +11,7 @@ Projekt už obsahuje pět úplných expedic DJ, MC, Writer, Breaking a Knowledge
 5. Spusť `node tests/expeditions.mjs` a `npm test`; při zásahu do původního pohybu i testy art-scenes, art-motion, logo-motion a hero-motion. Ověř skutečné zobrazení a export, ne jen datové počty.
 
 Aktuální změny chrání poznámky při více otevřených kartách, zachovají poškozený originál pro obnovu a bezpečně aktualizují offline textový balíček. Výchozí bod pro rollback této úpravy je uložená verze 22. Přesný postup, nedodaná odborná média a meze ověření jsou v uvedených dokumentech.
+
+## SELFMADE / RPG
+
+Nový hratelný vstup je `/play/`. Čti `docs/selfmade/README.md`, `PLAN.md` a `QA_REPORT.md`; `coverage.json` poctivě rozlišuje všech 200 požadavků. Aktuální stav nepovažuj automaticky za dokončení lokální fronty RPG200. Po dalších generátorech spusť `python tools/wire-selfmade.py`; generátor expedic jej volá sám. Nové moduly používají pouze klíč `caisik-selfmade-v1`.

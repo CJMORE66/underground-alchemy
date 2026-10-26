@@ -1,0 +1,2483 @@
+{
+  "schemaVersion": 1,
+  "asOf": "2026-10-26",
+  "baselineCommit": "65b2f899af9326ec9f5f069288d34d04dac351f5",
+  "features": [
+    {
+      "id": "RPG-001",
+      "number": 1,
+      "group": "1–10 · Uživatel jako hlavní hrdina",
+      "title": "★ Vlastní alias probudí svět.",
+      "request": "Napíšeš svůj tag a jeho tahy otevřou vstupní scénu města.",
+      "status": "partial",
+      "evidence": [
+        "dist/play/app.js",
+        "dist/selfmade-motion.js"
+      ],
+      "note": "Alias pojmenuje živý svět; kreslené tahy vlastního tagu jako vstup zatím chybí."
+    },
+    {
+      "id": "RPG-002",
+      "number": 2,
+      "group": "1–10 · Uživatel jako hlavní hrdina",
+      "title": "Osobní začátek příběhu.",
+      "request": "Vybereš, co chceš vytvořit: první mix, vlastní sloku, piece, pohybovou frázi nebo manifest.",
+      "status": "implemented",
+      "evidence": [
+        "dist/play/app.js",
+        "dist/play/quests.js"
+      ],
+      "note": "Profil volí vlastní výstup a pět samostatných cest."
+    },
+    {
+      "id": "RPG-003",
+      "number": 3,
+      "group": "1–10 · Uživatel jako hlavní hrdina",
+      "title": "První pokus jako výchozí bod.",
+      "request": "Na začátku zachytíš svou současnou práci, ke které se budeš později vracet a porovnávat změny.",
+      "status": "implemented",
+      "evidence": [
+        "dist/play/workshops.js",
+        "dist/play/journal.js"
+      ],
+      "note": "První skutečná uložená verze zůstává při revizích zachovaná."
+    },
+    {
+      "id": "RPG-004",
+      "number": 4,
+      "group": "1–10 · Uživatel jako hlavní hrdina",
+      "title": "Volné kombinování disciplín.",
+      "request": "Můžeš být zároveň MC a Writer; jednotlivé cesty se propojí podle tvých zájmů.",
+      "status": "implemented",
+      "evidence": [
+        "dist/play/app.js",
+        "dist/play/workshops.js"
+      ],
+      "note": "Více disciplín lze zvolit současně a používat bez povinného pořadí."
+    },
+    {
+      "id": "RPG-005",
+      "number": 5,
+      "group": "1–10 · Uživatel jako hlavní hrdina",
+      "title": "Vlastní způsob hraní.",
+      "request": "Zvolíš si pozorování, experiment, studium nebo intenzivní tvorbu a podle toho dostaneš jinak sestavené úkoly.",
+      "status": "partial",
+      "evidence": [
+        "dist/play/app.js",
+        "dist/play/quests.js"
+      ],
+      "note": "Režim se uloží; automaticky odlišné sestavení celé výpravy zatím není."
+    },
+    {
+      "id": "RPG-006",
+      "number": 6,
+      "group": "1–10 · Uživatel jako hlavní hrdina",
+      "title": "Dobrodružství podle času.",
+      "request": "Zadáš dostupný čas a web nabídne smysluplnou krátkou výpravu nebo delší tvůrčí session.",
+      "status": "partial",
+      "evidence": [
+        "dist/play/app.js",
+        "dist/play/field.js"
+      ],
+      "note": "Časový rozpočet lze nastavit; nevypočítává ani automaticky nenabízí kompletní vhodnou trasu."
+    },
+    {
+      "id": "RPG-007",
+      "number": 7,
+      "group": "1–10 · Uživatel jako hlavní hrdina",
+      "title": "Avatar z vlastního symbolu.",
+      "request": "Tvoji postavu bude reprezentovat znak, který sám nakreslíš nebo sestavíš.",
+      "status": "partial",
+      "evidence": [
+        "dist/play/workshops.js",
+        "dist/play/app.js"
+      ],
+      "note": "Vlastní znak se uloží do profilu; plně kreslený sestavitelný avatar není."
+    },
+    {
+      "id": "RPG-008",
+      "number": 8,
+      "group": "1–10 · Uživatel jako hlavní hrdina",
+      "title": "Osobní kodex.",
+      "request": "Sepíšeš tři zásady své tvorby; budou se vracet při důležitých rozhodnutích.",
+      "status": "partial",
+      "evidence": [
+        "dist/play/app.js"
+      ],
+      "note": "Tři zásady se ukládají; kontextové připomínání při všech rozhodnutích chybí."
+    },
+    {
+      "id": "RPG-009",
+      "number": 9,
+      "group": "1–10 · Uživatel jako hlavní hrdina",
+      "title": "Zpráva budoucímu já.",
+      "request": "Na začátku uložíš očekávání a po dokončení projektu se ti otevře jejich porovnání se skutečností.",
+      "status": "partial",
+      "evidence": [
+        "dist/play/app.js",
+        "dist/play/journal.js"
+      ],
+      "note": "Zpráva budoucímu já je v profilu/záloze; zvláštní dokončovací porovnání chybí."
+    },
+    {
+      "id": "RPG-010",
+      "number": 10,
+      "group": "1–10 · Uživatel jako hlavní hrdina",
+      "title": "Vlastní zadání.",
+      "request": "Vedle připravených questů si založíš vlastní cíl, výstup a podmínky dokončení.",
+      "status": "implemented",
+      "evidence": [
+        "dist/play/app.js",
+        "dist/play/quests.js"
+      ],
+      "note": "Vlastní quest má otázku, výstup, kritérium a vazbu na konkrétní dílo."
+    },
+    {
+      "id": "RPG-011",
+      "number": 11,
+      "group": "11–20 · Svět, který tvoje práce proměňuje",
+      "title": "Město jako souvislé prostředí.",
+      "request": "Jednotlivé sekce spojí ulice, průchody, stanice, dílny a veřejná prostranství.",
+      "status": "partial",
+      "evidence": [
+        "dist/play/app.js",
+        "dist/selfmade-motion.js"
+      ],
+      "note": "Základna propojuje skutečné sekce; souvislý prostor ulic a průchodů není vyrobený."
+    },
+    {
+      "id": "RPG-012",
+      "number": 12,
+      "group": "11–20 · Svět, který tvoje práce proměňuje",
+      "title": "★ Osobní verze Paříže.",
+      "request": "Tvoje objevy a vlastní práce postupně vytvoří soukromou autorskou vrstvu nad skutečným městem.",
+      "status": "partial",
+      "evidence": [
+        "dist/play/field.js",
+        "dist/play/journal.js"
+      ],
+      "note": "Soukromá trasa a vlastní postřehy existují; vlastní geografická vrstva nad mapou Paříže chybí."
+    },
+    {
+      "id": "RPG-013",
+      "number": 13,
+      "group": "11–20 · Svět, který tvoje práce proměňuje",
+      "title": "Cesta mezi kapitolami.",
+      "request": "Scroll bude působit jako průchod prostředím: od ulice přes schodiště až do pracovny nebo studia.",
+      "status": "partial",
+      "evidence": [
+        "dist/play/app.js",
+        "dist/selfmade-motion.js"
+      ],
+      "note": "Nativní scroll a navazující prostory fungují; filmová cesta ulicí a schodištěm chybí."
+    },
+    {
+      "id": "RPG-014",
+      "number": 14,
+      "group": "11–20 · Svět, který tvoje práce proměňuje",
+      "title": "Volitelný den a noc.",
+      "request": "Stejná scéna dostane dvě atmosféry, které změní světlo, zvuk a způsob pozorování.",
+      "status": "partial",
+      "evidence": [
+        "dist/play/app.js",
+        "dist/selfmade-motion.js"
+      ],
+      "note": "Den/noc mění osobní scénu; zvukové a pozorovací varianty nejsou kompletní."
+    },
+    {
+      "id": "RPG-015",
+      "number": 15,
+      "group": "11–20 · Svět, který tvoje práce proměňuje",
+      "title": "Atmosféra podle tvého záměru.",
+      "request": "Zvolíš například soustředění, napětí nebo klid a upraví se výtvarné zpracování prostředí.",
+      "status": "partial",
+      "evidence": [
+        "dist/play/app.js"
+      ],
+      "note": "Záměr atmosféry mění vizuální akcent; nejde o kompletní alternativní scénu."
+    },
+    {
+      "id": "RPG-016",
+      "number": 16,
+      "group": "11–20 · Svět, který tvoje práce proměňuje",
+      "title": "Město získává tvoje stopy.",
+      "request": "Po dokončení práce se objeví tvůj znak, úryvek textu nebo část kompozice.",
+      "status": "implemented",
+      "evidence": [
+        "dist/play/journal.js",
+        "dist/selfmade-motion.js"
+      ],
+      "note": "Soukromá zeď ukazuje skutečné texty a skici; živý svět reaguje na vlastní uloženou práci."
+    },
+    {
+      "id": "RPG-017",
+      "number": 17,
+      "group": "11–20 · Svět, který tvoje práce proměňuje",
+      "title": "Vlastní výstupy jako součást prostředí.",
+      "request": "Mix může žít v osobním studiu, skica na stěně a manifest v knihovně.",
+      "status": "implemented",
+      "evidence": [
+        "dist/play/journal.js"
+      ],
+      "note": "Studio, dílna nebo knihovna zobrazí vlastní uložené výstupy."
+    },
+    {
+      "id": "RPG-018",
+      "number": 18,
+      "group": "11–20 · Svět, který tvoje práce proměňuje",
+      "title": "Soukromá virtuální zeď.",
+      "request": "Dostaneš vlastní plochu, na kterou skládáš pouze svoje návrhy a povolené materiály.",
+      "status": "implemented",
+      "evidence": [
+        "dist/play/journal.js"
+      ],
+      "note": "Soukromá virtuální zeď se skládá z vlastních verzovaných děl."
+    },
+    {
+      "id": "RPG-019",
+      "number": 19,
+      "group": "11–20 · Svět, který tvoje práce proměňuje",
+      "title": "Historie osobního světa.",
+      "request": "Přepneš si, jak tvoje prostředí vypadalo před prvním projektem a po dalších revizích.",
+      "status": "partial",
+      "evidence": [
+        "dist/play/journal.js"
+      ],
+      "note": "Posuvník ukáže prostor s různým počtem vlastních děl; nejde o historické snímky celé scény po každé revizi."
+    },
+    {
+      "id": "RPG-020",
+      "number": 20,
+      "group": "11–20 · Svět, který tvoje práce proměňuje",
+      "title": "Rozpracovaná místa.",
+      "request": "Nedokončené projekty zůstanou viditelné jako konkrétní dílny, do kterých se můžeš vrátit.",
+      "status": "implemented",
+      "evidence": [
+        "dist/play/app.js",
+        "dist/play/workshops.js"
+      ],
+      "note": "Rozpracované dílny a jejich aktivní obsah se obnoví z lokálního stavu."
+    },
+    {
+      "id": "RPG-021",
+      "number": 21,
+      "group": "21–30 · Rozhraní městského RPG",
+      "title": "Osobní herní panel.",
+      "request": "Vždy uvidíš aktuální záměr, rozpracovaný výstup a jeden další smysluplný krok.",
+      "status": "implemented",
+      "evidence": [
+        "dist/play/app.js",
+        "dist/play/quests.js"
+      ],
+      "note": "HUD ukáže alias, vlastní pokusy, revize a další smysluplný krok."
+    },
+    {
+      "id": "RPG-022",
+      "number": 22,
+      "group": "21–30 · Rozhraní městského RPG",
+      "title": "Deník questů.",
+      "request": "Přehledně oddělí hlavní výpravu, vedlejší experimenty a vlastní zadání.",
+      "status": "partial",
+      "evidence": [
+        "dist/play/app.js",
+        "dist/play/quests.js"
+      ],
+      "note": "Hlavní a vlastní questy jsou oddělené; adaptivní vedlejší experimenty nejsou samostatný systém."
+    },
+    {
+      "id": "RPG-023",
+      "number": 23,
+      "group": "21–30 · Rozhraní městského RPG",
+      "title": "Malá orientační mapa.",
+      "request": "Ukáže tvoji pozici v příběhu webu a dostupné návaznosti mezi disciplínami.",
+      "status": "partial",
+      "evidence": [
+        "dist/play/app.js"
+      ],
+      "note": "Pět prostorů má stálou navigaci; prostorová minimapa vazeb chybí."
+    },
+    {
+      "id": "RPG-024",
+      "number": 24,
+      "group": "21–30 · Rozhraní městského RPG",
+      "title": "Inventář materiálu.",
+      "request": "Slova, vlastní zvuky, barevné kombinace, skici a poznámky dostanou společné místo.",
+      "status": "partial",
+      "evidence": [
+        "dist/play/journal.js"
+      ],
+      "note": "Inventář ukládá slova, palety, reference a poznámky; zvukové binární přílohy nejsou trvale v inventáři."
+    },
+    {
+      "id": "RPG-025",
+      "number": 25,
+      "group": "21–30 · Rozhraní městského RPG",
+      "title": "★ Pracovní stůl.",
+      "request": "Přetáhneš materiál z inventáře do zadání a rovnou z něj začneš sestavovat vlastní výstup.",
+      "status": "partial",
+      "evidence": [
+        "dist/play/journal.js"
+      ],
+      "note": "Pracovní stůl řadí materiál tlačítky a sestaví vlastní dílo; přímé drag-and-drop chybí."
+    },
+    {
+      "id": "RPG-026",
+      "number": 26,
+      "group": "21–30 · Rozhraní městského RPG",
+      "title": "Vlastní základna.",
+      "request": "Domovskou scénu si poskládáš jako studio, dílnu, knihovnu nebo jejich kombinaci.",
+      "status": "partial",
+      "evidence": [
+        "dist/play/journal.js"
+      ],
+      "note": "Lze zvolit soukromé studio/dílnu/knihovnu; volné skládání jejich objektů chybí."
+    },
+    {
+      "id": "RPG-027",
+      "number": 27,
+      "group": "21–30 · Rozhraní městského RPG",
+      "title": "Předměty s funkcí.",
+      "request": "Gramofon otevře mix, sprej návrh, zápisník reflexi; každá interakce povede ke konkrétní činnosti.",
+      "status": "partial",
+      "evidence": [
+        "dist/play/app.js"
+      ],
+      "note": "Funkční odkazy vedou do tvůrčích prostorů; všechny prostorové předměty zatím nejsou ovladatelné."
+    },
+    {
+      "id": "RPG-028",
+      "number": 28,
+      "group": "21–30 · Rozhraní městského RPG",
+      "title": "Pokračování přesně tam, kde jsi skončil.",
+      "request": "Obnoví se otevřená lekce, rozepsaný text i stav pracovního nástroje.",
+      "status": "implemented",
+      "evidence": [
+        "dist/play/app.js",
+        "dist/play/workshops.js",
+        "dist/play/store.js"
+      ],
+      "note": "Obnoví se panel, aktivní disciplína, odpovědi a rozpracované nástroje."
+    },
+    {
+      "id": "RPG-029",
+      "number": 29,
+      "group": "21–30 · Rozhraní městského RPG",
+      "title": "Autorský průvodce světem.",
+      "request": "Jasně fiktivní postava nabídne otázku, nápovědu nebo kontext podle toho, co právě děláš.",
+      "status": "implemented",
+      "evidence": [
+        "dist/selfmade-motion.js"
+      ],
+      "note": "Jasně fiktivní průvodce nabízí otázku podle disciplíny a fáze osobní scény."
+    },
+    {
+      "id": "RPG-030",
+      "number": 30,
+      "group": "21–30 · Rozhraní městského RPG",
+      "title": "Rychlé přesuny po webu.",
+      "request": "Z kterékoliv scény se okamžitě dostaneš ke své trase, práci, zdrojům nebo Blackbooku.",
+      "status": "implemented",
+      "evidence": [
+        "dist/play/app.js"
+      ],
+      "note": "Stálé rychlé přesuny vedou k trase, tvorbě, Blackbooku a původním zdrojovým expedicím."
+    },
+    {
+      "id": "RPG-031",
+      "number": 31,
+      "group": "31–40 · Každý artwork jako živá scéna",
+      "title": "★ Rozebrat všechny obrazy na prvky.",
+      "request": "Písmena, oči, ornamenty, předměty a pozadí dostanou vlastní připravené vrstvy.",
+      "status": "partial",
+      "evidence": [
+        "dist/selfmade-motion.js",
+        "dist/art-motion.js"
+      ],
+      "note": "100 archivních obrazů má autorskou geometrickou vrstvu; úplné oddělené malované prvky všech obrazů nejsou dodané."
+    },
+    {
+      "id": "RPG-032",
+      "number": 32,
+      "group": "31–40 · Každý artwork jako živá scéna",
+      "title": "Každé dílo má vlastní pohybový charakter.",
+      "request": "Některé dýchá, jiné se skládá, otáčí nebo postupně odhaluje konstrukci.",
+      "status": "partial",
+      "evidence": [
+        "dist/selfmade-motion.js",
+        "dist/art-motion.js"
+      ],
+      "note": "Existují významové pohybové režimy a specializované původní scény; všech 100 děl nemá unikátně vyrobený pohyb každého prvku."
+    },
+    {
+      "id": "RPG-033",
+      "number": 33,
+      "group": "31–40 · Každý artwork jako živá scéna",
+      "title": "Oči reagují na hráče.",
+      "request": "Sledují vybraný detail, otevřou se při objevu a zavřou při přechodu do soustředěné práce.",
+      "status": "partial",
+      "evidence": [
+        "dist/selfmade-motion.js",
+        "dist/alchemy-hero.js"
+      ],
+      "note": "Oči původního hero a nové scény reagují; sledování vybraného detailu všech maleb není."
+    },
+    {
+      "id": "RPG-034",
+      "number": 34,
+      "group": "31–40 · Každý artwork jako živá scéna",
+      "title": "★ Skutečný oběh slunce a měsíce.",
+      "request": "Pohybují se kolem kompozice a mění osvětlení jednotlivých symbolů.",
+      "status": "implemented",
+      "evidence": [
+        "dist/alchemy-hero.js",
+        "dist/selfmade-motion.js"
+      ],
+      "note": "Původní skutečně oddělené slunce/měsíc a nová nativní scéna mají nezávislý oběh."
+    },
+    {
+      "id": "RPG-035",
+      "number": 35,
+      "group": "31–40 · Každý artwork jako živá scéna",
+      "title": "Písmena vznikají před očima.",
+      "request": "Nejdřív osa, potom objem, obrys, výplň a světelný akcent.",
+      "status": "partial",
+      "evidence": [
+        "dist/play/workshops.js",
+        "dist/selfmade-motion.js"
+      ],
+      "note": "Vlastní tahy lze přehrát a studovat konstrukci; malovaná písmena všech originálů nejsou rekonstruovaná po vrstvách."
+    },
+    {
+      "id": "RPG-036",
+      "number": 36,
+      "group": "31–40 · Každý artwork jako živá scéna",
+      "title": "Předměty ovlivňují ostatní části obrazu.",
+      "request": "Otočení klíče otevře ornament, posunutí faderu promění okolní strukturu.",
+      "status": "implemented",
+      "evidence": [
+        "dist/selfmade-motion.js"
+      ],
+      "note": "Ovládaný klíč otevře dvě křídla brány a změní navazující konstrukční geometrii."
+    },
+    {
+      "id": "RPG-037",
+      "number": 37,
+      "group": "31–40 · Každý artwork jako živá scéna",
+      "title": "Řízené kapky barvy.",
+      "request": "Objeví se při konkrétním tahu nebo změně kompozice a stanou se součástí výsledného obrazu.",
+      "status": "partial",
+      "evidence": [
+        "dist/selfmade-motion.js"
+      ],
+      "note": "Vlastní gesto vytvoří řízené omezené kapky v živé scéně; jejich trvalý export do výsledného vlastního díla chybí."
+    },
+    {
+      "id": "RPG-038",
+      "number": 38,
+      "group": "31–40 · Každý artwork jako živá scéna",
+      "title": "Geometrie ukazuje konstrukci.",
+      "request": "Kruhy, osy a proporce se kreslí při rozboru toho, jak obraz drží pohromadě.",
+      "status": "implemented",
+      "evidence": [
+        "dist/selfmade-motion.js"
+      ],
+      "note": "Ovládané fáze kreslí osy, kruhy a vztahy s výslovným autorským označením."
+    },
+    {
+      "id": "RPG-039",
+      "number": 39,
+      "group": "31–40 · Každý artwork jako živá scéna",
+      "title": "Odhalování vlastním tahem.",
+      "request": "Pohybem prstu nebo kurzoru odkryješ skrytou vrstvu a souvislost, kterou můžeš pojmenovat.",
+      "status": "implemented",
+      "evidence": [
+        "dist/selfmade-motion.js"
+      ],
+      "note": "Vlastní pohyb štětce nebo klávesnicový posuvník odkrývá autorskou konstrukční vrstvu."
+    },
+    {
+      "id": "RPG-040",
+      "number": 40,
+      "group": "31–40 · Každý artwork jako živá scéna",
+      "title": "Obraz má přístupný rozbor.",
+      "request": "Každý animovaný detail lze zastavit, označit a přečíst si, proč je v kompozici.",
+      "status": "implemented",
+      "evidence": [
+        "dist/selfmade-motion.js"
+      ],
+      "note": "Studijní dialog má pauzu, scrubber, tlačítka fází a textový výklad."
+    },
+    {
+      "id": "RPG-041",
+      "number": 41,
+      "group": "41–50 · Filmový pohyb a přechody",
+      "title": "Vlastní vstup do každé disciplíny.",
+      "request": "DJ otevře prostor zvukem, Writer konstrukcí písmene a Knowledge změnou pohledu.",
+      "status": "partial",
+      "evidence": [
+        "dist/play/app.js",
+        "dist/play/workshops.js"
+      ],
+      "note": "Každá disciplína má vlastní zadání a dílnu; všech pět filmových vstupů není vyrobených."
+    },
+    {
+      "id": "RPG-042",
+      "number": 42,
+      "group": "41–50 · Filmový pohyb a přechody",
+      "title": "Kabel se promění v obrys.",
+      "request": "Připravený vektorový přechod propojí studio s graffiti kompozicí.",
+      "status": "external",
+      "evidence": [],
+      "note": "Skutečný vektorový morph kabelu do obrysu potřebuje připravené produkční vrstvy."
+    },
+    {
+      "id": "RPG-043",
+      "number": 43,
+      "group": "41–50 · Filmový pohyb a přechody",
+      "title": "Písmena vytvoří architekturu.",
+      "request": "Tahy wildstylu přejdou do schodišť, ulic a staveb další scény.",
+      "status": "partial",
+      "evidence": [
+        "dist/selfmade-motion.js"
+      ],
+      "note": "Architektura vlastní scény se skládá; skutečný morph wildstyle tahů do staveb chybí."
+    },
+    {
+      "id": "RPG-044",
+      "number": 44,
+      "group": "41–50 · Filmový pohyb a přechody",
+      "title": "Předmět propojí dvě kapitoly.",
+      "request": "Stejný mikrofon nebo symbol přejde přes celý obraz a objeví se v novém prostředí.",
+      "status": "planned",
+      "evidence": [],
+      "note": "Kontinuální přenos stejného předmětu přes dvě scény chybí."
+    },
+    {
+      "id": "RPG-045",
+      "number": 45,
+      "group": "41–50 · Filmový pohyb a přechody",
+      "title": "Oddělená hloubka scén.",
+      "request": "Postava, písmena a pozadí se pohybují různou rychlostí podle skutečně připravených vrstev.",
+      "status": "partial",
+      "evidence": [
+        "dist/alchemy-hero.js",
+        "dist/art-motion.js"
+      ],
+      "note": "Původní hero má skutečné oddělené vrstvy; všechny postavy a obrazy takto připravené nejsou."
+    },
+    {
+      "id": "RPG-046",
+      "number": 46,
+      "group": "41–50 · Filmový pohyb a přechody",
+      "title": "Proměna podle vlastního rozhodnutí.",
+      "request": "Výběr jiného záměru změní uspořádání obrazu, světlo i dominantní objekt.",
+      "status": "partial",
+      "evidence": [
+        "dist/play/app.js",
+        "dist/selfmade-motion.js"
+      ],
+      "note": "Svět reaguje na světlo, atmosféru a vlastní práci; úplná kompozice podle všech záměrů není."
+    },
+    {
+      "id": "RPG-047",
+      "number": 47,
+      "group": "41–50 · Filmový pohyb a přechody",
+      "title": "Závěr scény reaguje na výstup.",
+      "request": "Po uložení práce se krátce představí to, co jsi právě vytvořil.",
+      "status": "partial",
+      "evidence": [
+        "dist/play/app.js",
+        "dist/play/journal.js",
+        "dist/selfmade-motion.js"
+      ],
+      "note": "Uložení promění počty/stopy a práci lze prohlédnout; speciální filmové představení konkrétního výstupu chybí."
+    },
+    {
+      "id": "RPG-048",
+      "number": 48,
+      "group": "41–50 · Filmový pohyb a přechody",
+      "title": "Hover odhalí význam detailu.",
+      "request": "Najetí, dotyk nebo fokus spustí krátkou lokální reakci konkrétního prvku.",
+      "status": "implemented",
+      "evidence": [
+        "dist/selfmade-motion.js"
+      ],
+      "note": "Hover, fokus a samostatná dotyková study akce odhalí význam a fáze."
+    },
+    {
+      "id": "RPG-049",
+      "number": 49,
+      "group": "41–50 · Filmový pohyb a přechody",
+      "title": "Obraz reaguje na vlastní přehrávaný zvuk.",
+      "request": "Vybrané vrstvy dostanou pohyb navázaný na rytmus nebo intenzitu nahrávky.",
+      "status": "implemented",
+      "evidence": [
+        "dist/play/sound.js",
+        "dist/selfmade-motion.js"
+      ],
+      "note": "Skutečný analyzér vlastního přehrávaného souboru řídí samostatnou vrstvu živého světa."
+    },
+    {
+      "id": "RPG-050",
+      "number": 50,
+      "group": "41–50 · Filmový pohyb a přechody",
+      "title": "Vratná proměna.",
+      "request": "Zpětným scrollem rozebereš hotovou scénu zpět na rozhodnutí, ze kterých vznikla.",
+      "status": "partial",
+      "evidence": [
+        "dist/expeditions/app.js",
+        "dist/selfmade-motion.js"
+      ],
+      "note": "Původní expedice mají vratný scroll a study vrstvy seek; úplná filmová rekonstrukce rozhodnutí chybí."
+    },
+    {
+      "id": "RPG-051",
+      "number": 51,
+      "group": "51–60 · Seven Principles jako ovladatelné zkušenosti",
+      "title": "★ Mentalismus: svět z prázdna.",
+      "request": "Z černé plochy začne podle tvých slov a rozhodnutí vyrůstat vlastní městská kompozice.",
+      "status": "partial",
+      "evidence": [
+        "dist/art-motion.js",
+        "dist/play/app.js"
+      ],
+      "note": "Původní Mentalism roste z černého prázdna; zatím jej negenerují vlastní slova a rozhodnutí uživatele."
+    },
+    {
+      "id": "RPG-052",
+      "number": 52,
+      "group": "51–60 · Seven Principles jako ovladatelné zkušenosti",
+      "title": "Korespondence: detail a celek.",
+      "request": "Přecházíš od konstrukce písmene k půdorysu čtvrti a hledáš podobnosti různých měřítek.",
+      "status": "partial",
+      "evidence": [
+        "dist/atlas-principles.js"
+      ],
+      "note": "Existuje ovládané srovnání měřítek vzoru a městské sítě; vlastní písmeno do skutečného půdorysu zatím ne."
+    },
+    {
+      "id": "RPG-053",
+      "number": 53,
+      "group": "51–60 · Seven Principles jako ovladatelné zkušenosti",
+      "title": "Vibrace: stejný tvar, jiné tempo.",
+      "request": "Ručně měníš puls a pozoruješ, jak promění dojem ze stejné kompozice.",
+      "status": "implemented",
+      "evidence": [
+        "dist/atlas-principles.js"
+      ],
+      "note": "Vlastní frekvence mění nativní vlnu a volitelný tón; bez automatického audia."
+    },
+    {
+      "id": "RPG-054",
+      "number": 54,
+      "group": "51–60 · Seven Principles jako ovladatelné zkušenosti",
+      "title": "Polarita: dvě čtení jednoho motivu.",
+      "request": "Posuvníkem přecházíš mezi dvěma výtvarnými řešeními a vysvětluješ změnu významu.",
+      "status": "implemented",
+      "evidence": [
+        "dist/atlas-principles.js"
+      ],
+      "note": "Posuvník ovládá vizuální kontrast stejného motivu s výslovným označením analogie."
+    },
+    {
+      "id": "RPG-055",
+      "number": 55,
+      "group": "51–60 · Seven Principles jako ovladatelné zkušenosti",
+      "title": "Rytmus: celé kyvadlo.",
+      "request": "Do jeho návratů rozmisťuješ vlastní slabiky, údery nebo vizuální akcenty.",
+      "status": "partial",
+      "evidence": [
+        "dist/art-motion.js",
+        "dist/atlas-principles.js"
+      ],
+      "note": "Celé původní kyvadlo se kýve a rytmické kroky lze měnit; vlastní slabiky nejsou svázané s jeho návraty."
+    },
+    {
+      "id": "RPG-056",
+      "number": 56,
+      "group": "51–60 · Seven Principles jako ovladatelné zkušenosti",
+      "title": "Příčina a následek: řetěz rozhodnutí.",
+      "request": "Změníš jeden prvek a sleduješ, které další části práce tím ovlivníš.",
+      "status": "partial",
+      "evidence": [
+        "dist/atlas-principles.js"
+      ],
+      "note": "Ovládaný model ukazuje změnu následku vstupu; není to graf vlastních tvůrčích rozhodnutí."
+    },
+    {
+      "id": "RPG-057",
+      "number": 57,
+      "group": "51–60 · Seven Principles jako ovladatelné zkušenosti",
+      "title": "Gender: souhra tvůrčích funkcí.",
+      "request": "Dvě doplňující se konstrukce vytvoří společný znak; jejich funkce se nebudou přiřazovat pohlavím.",
+      "status": "implemented",
+      "evidence": [
+        "dist/atlas-principles.js"
+      ],
+      "note": "Dvě ovládané tvůrčí funkce vytvoří společný tvar bez přiřazování pohlavím."
+    },
+    {
+      "id": "RPG-058",
+      "number": 58,
+      "group": "51–60 · Seven Principles jako ovladatelné zkušenosti",
+      "title": "Princip jako pracovní nástroj.",
+      "request": "Z každého rozboru přejdeš rovnou do konkrétního úkolu pro text, zvuk nebo obraz.",
+      "status": "implemented",
+      "evidence": [
+        "dist/atlas-principles.js",
+        "dist/play/app.js"
+      ],
+      "note": "Principy mají konkrétní cvičení, freestyle a návaznost na tvůrčí prostory."
+    },
+    {
+      "id": "RPG-059",
+      "number": 59,
+      "group": "51–60 · Seven Principles jako ovladatelné zkušenosti",
+      "title": "Vlastní výklad principu.",
+      "request": "Uložíš příklad ze své práce a označíš, kde jde o metaforu nebo osobní interpretaci.",
+      "status": "partial",
+      "evidence": [
+        "dist/atlas-principles.js"
+      ],
+      "note": "Vlastní pozorování se ukládá; vyhrazené typování vlastní metafory a vazba na dílo chybí."
+    },
+    {
+      "id": "RPG-060",
+      "number": 60,
+      "group": "51–60 · Seven Principles jako ovladatelné zkušenosti",
+      "title": "Osobní sedmidílná kompozice.",
+      "request": "Ze sedmi vlastních cvičení sestavíš jeden obraz s dohledatelným postupem jeho vzniku.",
+      "status": "implemented",
+      "evidence": [
+        "dist/play/practice.js"
+      ],
+      "note": "Sedm skutečných vlastních odpovědí vytvoří uloženou verzovanou kompozici a samostatný SVG export."
+    },
+    {
+      "id": "RPG-061",
+      "number": 61,
+      "group": "61–70 · Hidden City jako skutečná herní mapa",
+      "title": "★ Mapa podle toho, co chceš vytvořit.",
+      "request": "Nabídne místa vhodná pro poslech, konstrukci písmen, pozorování nebo psaní.",
+      "status": "partial",
+      "evidence": [
+        "dist/play/field.js"
+      ],
+      "note": "Místa lze filtrovat podle tvůrčího záměru; stejný filtr není přímo novou mapovou vrstvou."
+    },
+    {
+      "id": "RPG-062",
+      "number": 62,
+      "group": "61–70 · Hidden City jako skutečná herní mapa",
+      "title": "Dvě vrstvy stejného místa.",
+      "request": "Přepneš mezi doloženými informacemi a jasně označeným autorským čtením.",
+      "status": "implemented",
+      "evidence": [
+        "dist/play/field.js"
+      ],
+      "note": "Doložený kontext, dokumentované prvky a autorská interpretace jsou odděleně označené."
+    },
+    {
+      "id": "RPG-063",
+      "number": 63,
+      "group": "61–70 · Hidden City jako skutečná herní mapa",
+      "title": "Vlastní sestavení výpravy.",
+      "request": "Poskládáš si zastávky podle času, dopravy, dostupnosti a pracovního záměru.",
+      "status": "implemented",
+      "evidence": [
+        "dist/play/field.js"
+      ],
+      "note": "Vlastní pořadí zastávek, dopravní záměr a časový rozpočet mají ukládání a obnovu."
+    },
+    {
+      "id": "RPG-064",
+      "number": 64,
+      "group": "61–70 · Hidden City jako skutečná herní mapa",
+      "title": "Podmínky přímo v mapě.",
+      "request": "U místa uvidíš datum kontroly, omezení a to, co je potřeba znovu potvrdit.",
+      "status": "implemented",
+      "evidence": [
+        "dist/play/field.js"
+      ],
+      "note": "Místa ukazují podmínky, datum původní kontroly a skutečné zdroje."
+    },
+    {
+      "id": "RPG-065",
+      "number": 65,
+      "group": "61–70 · Hidden City jako skutečná herní mapa",
+      "title": "Místo otevře tvůrčí scénu.",
+      "request": "Skutečná lokalita nabídne odpovídající autorský artwork a konkrétní úkol.",
+      "status": "partial",
+      "evidence": [
+        "dist/play/field.js"
+      ],
+      "note": "Místo otevře konkrétní tvůrčí úkol; samostatná autorská malba každé lokality chybí."
+    },
+    {
+      "id": "RPG-066",
+      "number": 66,
+      "group": "61–70 · Hidden City jako skutečná herní mapa",
+      "title": "Historická paměť čtvrti.",
+      "request": "Otevřeš doložené události, zdroje a kulturní souvislosti bez vymyšlených příběhů.",
+      "status": "implemented",
+      "evidence": [
+        "dist/play/field.js"
+      ],
+      "note": "Převzatý doložený kontext a zdroje zůstávají dohledatelné."
+    },
+    {
+      "id": "RPG-067",
+      "number": 67,
+      "group": "61–70 · Hidden City jako skutečná herní mapa",
+      "title": "Rozlišení činností na místě.",
+      "request": "Mapa jasně ukáže, kde jde o pozorování, veřejnou návštěvu nebo samostatně povolenou tvorbu.",
+      "status": "partial",
+      "evidence": [
+        "dist/play/field.js"
+      ],
+      "note": "Pravidla návštěvy a tvorby jsou uvedená; plná strukturovaná mapa oprávnění činností chybí."
+    },
+    {
+      "id": "RPG-068",
+      "number": 68,
+      "group": "61–70 · Hidden City jako skutečná herní mapa",
+      "title": "Vlastní pozorovací body.",
+      "request": "Soukromě si uložíš místo, které tě inspirovalo, včetně poznámky, co na něm chceš studovat.",
+      "status": "implemented",
+      "evidence": [
+        "dist/play/field.js"
+      ],
+      "note": "Vlastní soukromý bod ukládá jméno, adresní popis a záměr bez vymyšleného pinu."
+    },
+    {
+      "id": "RPG-069",
+      "number": 69,
+      "group": "61–70 · Hidden City jako skutečná herní mapa",
+      "title": "Jedno místo, pět rozdílných úkolů.",
+      "request": "Stejný prostor otevře jinou činnost pro DJ, MC, Writera, Breaking a Knowledge.",
+      "status": "implemented",
+      "evidence": [
+        "dist/play/field.js"
+      ],
+      "note": "Každé místo nabídne pět odlišných disciplinárních tvůrčích zadání."
+    },
+    {
+      "id": "RPG-070",
+      "number": 70,
+      "group": "61–70 · Hidden City jako skutečná herní mapa",
+      "title": "Osobní roadbook.",
+      "request": "Vybraná trasa bude obsahovat tvoji přípravu, pracovní materiál a zamýšlené výstupy.",
+      "status": "implemented",
+      "evidence": [
+        "dist/play/field.js"
+      ],
+      "note": "TXT roadbook obsahuje vlastní trasu, podmínky, zdroje, zadání a vlastní postřehy."
+    },
+    {
+      "id": "RPG-071",
+      "number": 71,
+      "group": "71–80 · RPG použitelné venku",
+      "title": "Terénní obrazovka přes celý telefon.",
+      "request": "Ukáže aktuální místo, adresu, jeden úkol a velké ovládání dalšího kroku.",
+      "status": "implemented",
+      "evidence": [
+        "dist/play/field.js"
+      ],
+      "note": "Terénní část zobrazí adresu, navigaci, jeden úkol a předchozí/další místo bez čekání na animaci."
+    },
+    {
+      "id": "RPG-072",
+      "number": 72,
+      "group": "71–80 · RPG použitelné venku",
+      "title": "Krátké výpravy.",
+      "request": "Dostaneš sestavu úkolů na krátkou pauzu, volné odpoledne nebo celý tvůrčí den.",
+      "status": "partial",
+      "evidence": [
+        "dist/play/field.js",
+        "dist/play/app.js"
+      ],
+      "note": "Vlastní krátký časový rozpočet lze zadat; automaticky sestavené krátké expedice chybí."
+    },
+    {
+      "id": "RPG-073",
+      "number": 73,
+      "group": "71–80 · RPG použitelné venku",
+      "title": "Úkoly pro přesun.",
+      "request": "Během čekání si připravíš otázku, rytmickou strukturu nebo pozorovací zadání další zastávky.",
+      "status": "partial",
+      "evidence": [
+        "dist/play/quests.js",
+        "dist/play/field.js"
+      ],
+      "note": "Pozorovací podněty lze využít při přesunu; vyhrazené adaptivní úkoly během čekání chybí."
+    },
+    {
+      "id": "RPG-074",
+      "number": 74,
+      "group": "71–80 · RPG použitelné venku",
+      "title": "Namluvené zadání.",
+      "request": "Po vlastním spuštění si poslechneš stručný úkol a podmínky návštěvy.",
+      "status": "implemented",
+      "evidence": [
+        "dist/play/field.js"
+      ],
+      "note": "Výslovný stisk přečte úkol místním českým hlasem; chybějící hlas má textový fallback."
+    },
+    {
+      "id": "RPG-075",
+      "number": 75,
+      "group": "71–80 · RPG použitelné venku",
+      "title": "Náhradní větev výpravy.",
+      "request": "Zavřené místo nabídne jinou činnost se stejným vzdělávacím cílem.",
+      "status": "implemented",
+      "evidence": [
+        "dist/play/field.js"
+      ],
+      "note": "Zavřené místo má domácí alternativu se stejným tvůrčím záměrem."
+    },
+    {
+      "id": "RPG-076",
+      "number": 76,
+      "group": "71–80 · RPG použitelné venku",
+      "title": "Tři konkrétní postřehy.",
+      "request": "Na místě zachytíš například tvar, zvuk a gesto, které později použiješ ve vlastní práci.",
+      "status": "implemented",
+      "evidence": [
+        "dist/play/field.js"
+      ],
+      "note": "Tvar, zvuk, gesto a poznámka se ukládají soukromě po jednotlivých místech."
+    },
+    {
+      "id": "RPG-077",
+      "number": 77,
+      "group": "71–80 · RPG použitelné venku",
+      "title": "Vlastní tempo výpravy.",
+      "request": "Zaznamenáš, kolik času jsi skutečně potřeboval, a další plán tomu přizpůsobíš.",
+      "status": "implemented",
+      "evidence": [
+        "dist/play/field.js"
+      ],
+      "note": "Ruční start/pauza/ukončení zaznamená vlastní skutečný čas; srovnání s rozpočtem dovolí příští plán upravit podle zkušenosti."
+    },
+    {
+      "id": "RPG-078",
+      "number": 78,
+      "group": "71–80 · RPG použitelné venku",
+      "title": "Trasa podle potřeb.",
+      "request": "Vybereš vhodné přesuny, požadované přestávky a dostupnost míst podle ověřených podmínek.",
+      "status": "partial",
+      "evidence": [
+        "dist/play/field.js"
+      ],
+      "note": "Doprava a podmínky jsou vidět; automatické plánování přestávek a ověřené bezbariérové optimalizace není."
+    },
+    {
+      "id": "RPG-079",
+      "number": 79,
+      "group": "71–80 · RPG použitelné venku",
+      "title": "Tvorba bez veřejného odhalení polohy.",
+      "request": "Můžeš sdílet výstup bez přesného místa a času jeho vzniku.",
+      "status": "implemented",
+      "evidence": [
+        "dist/play/field.js",
+        "dist/play/journal.js"
+      ],
+      "note": "Veřejné odhalení polohy není vyžadované; vlastní díla lze exportovat bez přesných postřehových bodů."
+    },
+    {
+      "id": "RPG-080",
+      "number": 80,
+      "group": "71–80 · RPG použitelné venku",
+      "title": "Návratová session.",
+      "request": "Po cestě tě čeká krátký rozbor nasbíraného materiálu a volba toho, co opravdu dokončíš.",
+      "status": "implemented",
+      "evidence": [
+        "dist/play/field.js"
+      ],
+      "note": "Návratová session ukládá vybraný materiál a konkrétní další krok."
+    },
+    {
+      "id": "RPG-081",
+      "number": 81,
+      "group": "81–90 · Questy s opravdovým výsledkem",
+      "title": "★ Sedm kroků jedné lekce.",
+      "request": "Otázka, kontext, všímání, ukázka, pokus, zpětná vazba a přenos dostanou vlastní interaktivní průchod.",
+      "status": "implemented",
+      "evidence": [
+        "dist/play/quests.js",
+        "dist/play/app.js"
+      ],
+      "note": "Všech pět cest má sedm pedagogických kroků a vlastní uložené odpovědi."
+    },
+    {
+      "id": "RPG-082",
+      "number": 82,
+      "group": "81–90 · Questy s opravdovým výsledkem",
+      "title": "Hlavní příběh směřuje k dílu.",
+      "request": "Každá expedice končí konkrétním vlastním výstupem a jeho vysvětlením.",
+      "status": "partial",
+      "evidence": [
+        "dist/play/quests.js",
+        "dist/play/workshops.js"
+      ],
+      "note": "Cesty vedou k dílu a revizi; textový podklad sám nepotvrzuje hotový zvukový mix nebo odbornou taneční session."
+    },
+    {
+      "id": "RPG-083",
+      "number": 83,
+      "group": "81–90 · Questy s opravdovým výsledkem",
+      "title": "Vedlejší úkol podle zjištěného problému.",
+      "request": "Zvolíš, co potřebuješ zlepšit, a otevře se odpovídající experiment.",
+      "status": "partial",
+      "evidence": [
+        "dist/play/app.js"
+      ],
+      "note": "Vlastní navazující quest lze založit; automatická nabídka podle zjištěného problému není."
+    },
+    {
+      "id": "RPG-084",
+      "number": 84,
+      "group": "81–90 · Questy s opravdovým výsledkem",
+      "title": "Rozhodování mění pokračování.",
+      "request": "Jiný tvůrčí záměr povede k jiné variantě dalšího úkolu.",
+      "status": "partial",
+      "evidence": [
+        "dist/play/quests.js",
+        "dist/play/app.js"
+      ],
+      "note": "Lze měnit vybavení a omezení; adaptivní větvení celé další lekce není."
+    },
+    {
+      "id": "RPG-085",
+      "number": 85,
+      "group": "81–90 · Questy s opravdovým výsledkem",
+      "title": "★ Boss je vlastní první verze.",
+      "request": "Vrátíš se ke svému původnímu pokusu, přepracuješ ho a ukážeš konkrétní změnu.",
+      "status": "implemented",
+      "evidence": [
+        "dist/play/workshops.js",
+        "dist/play/journal.js"
+      ],
+      "note": "První a aktuální skutečnou verzi lze porovnat s vysvětleným rozhodnutím."
+    },
+    {
+      "id": "RPG-086",
+      "number": 86,
+      "group": "81–90 · Questy s opravdovým výsledkem",
+      "title": "Quest s omezením.",
+      "request": "Tvoříš například ze tří zvuků, dvou barev nebo čtyř pozorovaných detailů.",
+      "status": "implemented",
+      "evidence": [
+        "dist/play/app.js",
+        "dist/play/quests.js"
+      ],
+      "note": "Quest uchová vlastní tvůrčí omezení vedle pracovního zadání."
+    },
+    {
+      "id": "RPG-087",
+      "number": 87,
+      "group": "81–90 · Questy s opravdovým výsledkem",
+      "title": "Quest ze skutečné připomínky.",
+      "request": "Poznámku posluchače nebo lektora proměníš v jeden navazující pokus.",
+      "status": "partial",
+      "evidence": [
+        "dist/play/workshops.js",
+        "dist/play/app.js"
+      ],
+      "note": "Skutečnou připomínku a další quest lze zapsat; automatické propojení připomínky do nové úlohy chybí."
+    },
+    {
+      "id": "RPG-088",
+      "number": 88,
+      "group": "81–90 · Questy s opravdovým výsledkem",
+      "title": "Nápověda po vrstvách.",
+      "request": "Nejdřív otázka, potom návod k pozorování a nakonec vysvětlený příklad.",
+      "status": "implemented",
+      "evidence": [
+        "dist/play/app.js",
+        "dist/play/quests.js"
+      ],
+      "note": "Tři postupně otevírané podněty podporují pozorování, otázku a vysvětlení."
+    },
+    {
+      "id": "RPG-089",
+      "number": 89,
+      "group": "81–90 · Questy s opravdovým výsledkem",
+      "title": "Návrat k rozhodnutí.",
+      "request": "Můžeš se vrátit do bodu, kde práce začala ztrácet zamýšlený směr, a vyzkoušet jinou větev.",
+      "status": "partial",
+      "evidence": [
+        "dist/play/workshops.js",
+        "dist/play/journal.js"
+      ],
+      "note": "Verze lze prohlížet a porovnat; samostatná editovatelná větev libovolného starého stavu chybí."
+    },
+    {
+      "id": "RPG-090",
+      "number": 90,
+      "group": "81–90 · Questy s opravdovým výsledkem",
+      "title": "Varianty podle vybavení a zkušenosti.",
+      "request": "Stejný princip půjde prozkoumat s telefonem, skicákem i plně vybaveným studiem.",
+      "status": "implemented",
+      "evidence": [
+        "dist/play/app.js",
+        "dist/play/quests.js"
+      ],
+      "note": "Telefon, papír a studio mají odlišné konkrétní pracovní varianty."
+    },
+    {
+      "id": "RPG-091",
+      "number": 91,
+      "group": "91–100 · Postup založený na vlastní práci",
+      "title": "★ Strom schopností s důkazy.",
+      "request": "U každé větve bude tvoje konkrétní práce, revize a poznámka k tomu, co ses naučil.",
+      "status": "partial",
+      "evidence": [
+        "dist/play/quests.js",
+        "dist/play/journal.js"
+      ],
+      "note": "Postup se opírá o vlastní artefakty a revize; specifický důkaz jednotlivých dovedností není plný strom."
+    },
+    {
+      "id": "RPG-092",
+      "number": 92,
+      "group": "91–100 · Postup založený na vlastní práci",
+      "title": "Schopnosti propojují disciplíny.",
+      "request": "Práce s pauzou se propojí s negativním prostorem; rytmus s pohybem a kompozicí.",
+      "status": "partial",
+      "evidence": [
+        "dist/play/journal.js",
+        "dist/play/quests.js"
+      ],
+      "note": "Vlastní díla lze propojit; předem připravený strom souvislostí všech schopností chybí."
+    },
+    {
+      "id": "RPG-093",
+      "number": 93,
+      "group": "91–100 · Postup založený na vlastní práci",
+      "title": "Vizuální odměny z vlastních výstupů.",
+      "request": "Ornament nebo část základny vznikne z materiálu, který jsi skutečně vytvořil.",
+      "status": "implemented",
+      "evidence": [
+        "dist/play/journal.js",
+        "dist/selfmade-motion.js"
+      ],
+      "note": "Vlastní práce skutečně naplní soukromou zeď a promění osobní scénu."
+    },
+    {
+      "id": "RPG-094",
+      "number": 94,
+      "group": "91–100 · Postup založený na vlastní práci",
+      "title": "Historie použití schopnosti.",
+      "request": "Otevřeš si, kde jsi daný princip naposledy zkusil a s jakým výsledkem.",
+      "status": "partial",
+      "evidence": [
+        "dist/play/journal.js"
+      ],
+      "note": "Historie verzí a rozhodnutí existuje; dovednosti nemají vlastní přesné časové použití."
+    },
+    {
+      "id": "RPG-095",
+      "number": 95,
+      "group": "91–100 · Postup založený na vlastní práci",
+      "title": "Vlastní kritérium pokroku.",
+      "request": "Před pokusem pojmenuješ jednu věc, kterou chceš změnit, a později ji porovnáš.",
+      "status": "partial",
+      "evidence": [
+        "dist/play/app.js",
+        "dist/play/workshops.js"
+      ],
+      "note": "Vlastní kritérium questu a rozhodnutí se ukládá; zvláštní strukturované porovnání kritéria před/po chybí."
+    },
+    {
+      "id": "RPG-096",
+      "number": 96,
+      "group": "91–100 · Postup založený na vlastní práci",
+      "title": "Skutečná odborná reakce.",
+      "request": "Pokud ji získáš, připojíš ji ke konkrétní verzi práce včetně svého dalšího kroku.",
+      "status": "external",
+      "evidence": [
+        "dist/play/workshops.js"
+      ],
+      "note": "Pole přijme vlastní skutečně získanou reakci; skutečného odborníka ani jeho vyjádření projekt nedodává."
+    },
+    {
+      "id": "RPG-097",
+      "number": 97,
+      "group": "91–100 · Postup založený na vlastní práci",
+      "title": "Opakování s odstupem.",
+      "request": "Ke staršímu zadání se vrátíš později a porovnáš nový pokus s původním.",
+      "status": "implemented",
+      "evidence": [
+        "dist/play/workshops.js",
+        "dist/play/journal.js"
+      ],
+      "note": "Staré vlastní dílo zůstává přístupné pro nový pokus a porovnání."
+    },
+    {
+      "id": "RPG-098",
+      "number": 98,
+      "group": "91–100 · Postup založený na vlastní práci",
+      "title": "Odměny jako užitečné nástroje.",
+      "request": "Otevře se pracovní šablona, konstrukční pomůcka nebo další vysvětlený rozbor.",
+      "status": "implemented",
+      "evidence": [
+        "dist/play/practice.js"
+      ],
+      "note": "Skutečný vlastní pokus otevře použitelné šablony revize a omezení, které se vloží do vlastního inventáře."
+    },
+    {
+      "id": "RPG-099",
+      "number": 99,
+      "group": "91–100 · Postup založený na vlastní práci",
+      "title": "Výzvy z vlastního Blackbooku.",
+      "request": "Z dříve zapsaných otázek si vybereš téma příštího projektu.",
+      "status": "partial",
+      "evidence": [
+        "dist/play/journal.js",
+        "dist/play/app.js"
+      ],
+      "note": "Otevřený další krok zůstane u díla a vlastní quest lze vytvořit; přímý převod jedním tlačítkem chybí."
+    },
+    {
+      "id": "RPG-100",
+      "number": 100,
+      "group": "91–100 · Postup založený na vlastní práci",
+      "title": "Závěr kapitoly vlastními slovy.",
+      "request": "Pojmenuješ, co se změnilo v práci, a tato změna se projeví v osobním světě.",
+      "status": "partial",
+      "evidence": [
+        "dist/play/workshops.js",
+        "dist/play/journal.js",
+        "dist/selfmade-motion.js"
+      ],
+      "note": "Vysvětlená změna se uloží a svět reaguje; speciální závěrečný rituál se souhrnem chybí."
+    },
+    {
+      "id": "RPG-101",
+      "number": 101,
+      "group": "101–110 · DJ / SOUND ARCHAEOLOGY",
+      "title": "Digging podle hudební funkce.",
+      "request": "Hledáš skladbu kvůli konkrétnímu rytmu, náladě nebo místu v zamýšleném setu.",
+      "status": "implemented",
+      "evidence": [
+        "dist/play/workshops.js"
+      ],
+      "note": "DJ záměr a tracklist zaznamenávají vlastní výběr podle hudební funkce."
+    },
+    {
+      "id": "RPG-102",
+      "number": 102,
+      "group": "101–110 · DJ / SOUND ARCHAEOLOGY",
+      "title": "Ručně kreslená mapa energie.",
+      "request": "Před mixem navrhneš průběh a po poslechu zaznamenáš, co se skutečně podařilo.",
+      "status": "partial",
+      "evidence": [
+        "dist/play/workshops.js"
+      ],
+      "note": "Pětibodová mapa zamýšlené energie je ovladatelná; druhá skutečně dosažená křivka chybí."
+    },
+    {
+      "id": "RPG-103",
+      "number": 103,
+      "group": "101–110 · DJ / SOUND ARCHAEOLOGY",
+      "title": "Dva příběhy ze stejných skladeb.",
+      "request": "Ze stejného výběru vytvoříš dva odlišné sety a vysvětlíš rozhodnutí.",
+      "status": "implemented",
+      "evidence": [
+        "dist/play/workshops.js",
+        "dist/play/journal.js"
+      ],
+      "note": "Stejný tracklist lze přepracovat do druhé verzované dramaturgie a vysvětlit změnu."
+    },
+    {
+      "id": "RPG-104",
+      "number": 104,
+      "group": "101–110 · DJ / SOUND ARCHAEOLOGY",
+      "title": "Cue body jako herní značky.",
+      "request": "Do vlastního nebo oprávněně použitého audia umístíš plánované nástupy a výstupy.",
+      "status": "implemented",
+      "evidence": [
+        "dist/play/workshops.js"
+      ],
+      "note": "Vlastní soubor má přehrávání, zápis aktuálního času a vlastní cue poznámku."
+    },
+    {
+      "id": "RPG-105",
+      "number": 105,
+      "group": "101–110 · DJ / SOUND ARCHAEOLOGY",
+      "title": "Dílna jednoho přechodu.",
+      "request": "Přepínáš mezi první a upravenou verzí stejného místa v mixu.",
+      "status": "partial",
+      "evidence": [
+        "dist/play/workshops.js"
+      ],
+      "note": "A/B časové body dovolí opakovaný poslech; dvě oddělené nahrávky přechodu nejsou současný editor."
+    },
+    {
+      "id": "RPG-106",
+      "number": 106,
+      "group": "101–110 · DJ / SOUND ARCHAEOLOGY",
+      "title": "Rozbor vrstev při poslechu.",
+      "request": "Na připravených oprávněných ukázkách sleduješ vztah rytmu, basy a melodie.",
+      "status": "external",
+      "evidence": [],
+      "note": "Licencované připravené oddělené hudební vrstvy nejsou dodané."
+    },
+    {
+      "id": "RPG-107",
+      "number": 107,
+      "group": "101–110 · DJ / SOUND ARCHAEOLOGY",
+      "title": "Set pouze ze tří skladeb.",
+      "request": "Omezený výběr tě vede k promyšlení začátku, návaznosti a zakončení.",
+      "status": "implemented",
+      "evidence": [
+        "dist/play/workshops.js"
+      ],
+      "note": "Nástroj vyžaduje nejméně tři vlastní položky a podporuje kompaktní třískladbový set."
+    },
+    {
+      "id": "RPG-108",
+      "number": 108,
+      "group": "101–110 · DJ / SOUND ARCHAEOLOGY",
+      "title": "Osobní karta nalezené desky.",
+      "request": "Uložíš, co tě zaujalo, kde ji chceš použít a co si potřebuješ ověřit.",
+      "status": "partial",
+      "evidence": [
+        "dist/play/journal.js",
+        "dist/play/workshops.js"
+      ],
+      "note": "Inventář umí vlastní poznámku s původem; specializovaná karta desky s budoucím použitím chybí."
+    },
+    {
+      "id": "RPG-109",
+      "number": 109,
+      "group": "101–110 · DJ / SOUND ARCHAEOLOGY",
+      "title": "Mix s autorskými poznámkami.",
+      "request": "Ke konkrétním časům připojíš důvod výběru nebo změny.",
+      "status": "implemented",
+      "evidence": [
+        "dist/play/workshops.js"
+      ],
+      "note": "Časové body a důvody rozhodnutí patří k vlastnímu mixu a ukládané revizi."
+    },
+    {
+      "id": "RPG-110",
+      "number": 110,
+      "group": "101–110 · DJ / SOUND ARCHAEOLOGY",
+      "title": "Vlastní mixtape jako artefakt.",
+      "request": "Obal, tracklist a komentované rozhodnutí vytvoří dokončený osobní předmět ve světě CAISIK.",
+      "status": "partial",
+      "evidence": [
+        "dist/play/workshops.js",
+        "dist/play/journal.js"
+      ],
+      "note": "Tracklist a rozhodnutí vytvoří artefakt; kompletní obal a trvale přiložený zvukový mixtape chybí."
+    },
+    {
+      "id": "RPG-111",
+      "number": 111,
+      "group": "111–120 · MC / FIND YOUR OWN VOICE",
+      "title": "Lov konkrétního detailu.",
+      "request": "Z vlastních pozorování sestavíš obraz, který lze vidět nebo slyšet.",
+      "status": "implemented",
+      "evidence": [
+        "dist/play/workshops.js"
+      ],
+      "note": "MC má pozorovaný detail, asociaci a vlastní význam jako samostatná pracovní pole."
+    },
+    {
+      "id": "RPG-112",
+      "number": 112,
+      "group": "111–120 · MC / FIND YOUR OWN VOICE",
+      "title": "Dílna přesného vyjádření.",
+      "request": "Vybereš obecnou formulaci a nahradíš ji konkrétnějším vlastním řádkem.",
+      "status": "implemented",
+      "evidence": [
+        "dist/play/workshops.js"
+      ],
+      "note": "Přesný původní řádek lze nahradit konkrétnější vlastní variantou."
+    },
+    {
+      "id": "RPG-113",
+      "number": 113,
+      "group": "111–120 · MC / FIND YOUR OWN VOICE",
+      "title": "Asociační větvení.",
+      "request": "Ze slova otevřeš několik významových cest a sám vybereš, která slouží textu.",
+      "status": "partial",
+      "evidence": [
+        "dist/play/workshops.js"
+      ],
+      "note": "Tři metaforické kroky existují; volný větvený graf asociací chybí."
+    },
+    {
+      "id": "RPG-114",
+      "number": 114,
+      "group": "111–120 · MC / FIND YOUR OWN VOICE",
+      "title": "Mapa nádechů a pauz.",
+      "request": "Do vlastního textu ručně označíš místa přednesu a vyzkoušíš jejich změnu.",
+      "status": "implemented",
+      "evidence": [
+        "dist/play/workshops.js"
+      ],
+      "note": "Vlastní nádechy a důrazy lze označit v textu a zkusit v soukromém přednesu."
+    },
+    {
+      "id": "RPG-115",
+      "number": 115,
+      "group": "111–120 · MC / FIND YOUR OWN VOICE",
+      "title": "Důraz mění obraz.",
+      "request": "Zvýrazněná slabika nebo slovo vystoupí v animaci přesně podle tvého označení.",
+      "status": "implemented",
+      "evidence": [
+        "dist/play/workshops.js"
+      ],
+      "note": "Označené vlastní slovo dostává výrazný vizuální důraz."
+    },
+    {
+      "id": "RPG-116",
+      "number": 116,
+      "group": "111–120 · MC / FIND YOUR OWN VOICE",
+      "title": "★ Dvě verze přednesu vedle sebe.",
+      "request": "Stejný text propojíš se dvěma vlastními nahrávkami a konkrétním popisem rozdílu.",
+      "status": "implemented",
+      "evidence": [
+        "dist/play/workshops.js"
+      ],
+      "note": "Dva skutečné vlastní přednesy A/B lze nahrát nebo načíst, lokálně přehrát, stáhnout a smazat."
+    },
+    {
+      "id": "RPG-117",
+      "number": 117,
+      "group": "111–120 · MC / FIND YOUR OWN VOICE",
+      "title": "Freestyle z vlastního inventáře.",
+      "request": "Náhodně si vybereš tři dříve zachycená slova nebo obrazy a použiješ je ve čtyřech barech.",
+      "status": "implemented",
+      "evidence": [
+        "dist/play/workshops.js"
+      ],
+      "note": "Tři náhodné podněty se losují z uživatelova skutečného inventáře."
+    },
+    {
+      "id": "RPG-118",
+      "number": 118,
+      "group": "111–120 · MC / FIND YOUR OWN VOICE",
+      "title": "Metafora ve třech krocích.",
+      "request": "Spojíš pozorovaný detail, vzdálenou asociaci a vlastní význam.",
+      "status": "implemented",
+      "evidence": [
+        "dist/play/workshops.js"
+      ],
+      "note": "Pozorovaný detail, vzdálená asociace a vlastní význam mají vysvětlený tříkrokový postup."
+    },
+    {
+      "id": "RPG-119",
+      "number": 119,
+      "group": "111–120 · MC / FIND YOUR OWN VOICE",
+      "title": "Oprava jednoho řádku.",
+      "request": "Uchováš původní i novou podobu a připíšeš, co změna udělala s významem nebo rytmem.",
+      "status": "implemented",
+      "evidence": [
+        "dist/play/workshops.js",
+        "dist/play/journal.js"
+      ],
+      "note": "První i nový řádek a vysvětlení změny zůstávají v uložených verzích."
+    },
+    {
+      "id": "RPG-120",
+      "number": 120,
+      "group": "111–120 · MC / FIND YOUR OWN VOICE",
+      "title": "Vlastní textová scéna.",
+      "request": "Sloka, ověřené časování a zvolené symboly vytvoří osobní pohyblivou prezentaci přednesu.",
+      "status": "partial",
+      "evidence": [
+        "dist/play/workshops.js"
+      ],
+      "note": "Text má vlastní akcenty a symboly; synchronizované ověřené časování celého přednesu chybí."
+    },
+    {
+      "id": "RPG-121",
+      "number": 121,
+      "group": "121–130 · Writer / LETTERS INTO IDENTITY",
+      "title": "Vlastní abeceda.",
+      "request": "Konstrukční řešení písmen si ukládáš a znovu používáš při dalších návrzích.",
+      "status": "partial",
+      "evidence": [
+        "dist/play/workshops.js"
+      ],
+      "note": "Vlastní konstrukce se ukládají do abecedy; jejich plné opětovné skládání do dalších návrhů není."
+    },
+    {
+      "id": "RPG-122",
+      "number": 122,
+      "group": "121–130 · Writer / LETTERS INTO IDENTITY",
+      "title": "Stavba písmene.",
+      "request": "Samostatně ovládáš osu, hmotu, obrys a výplň a sleduješ jejich návaznost.",
+      "status": "implemented",
+      "evidence": [
+        "dist/play/workshops.js"
+      ],
+      "note": "Vlastní tahy mají ovládanou osu, obrys, výplň a zobrazení celku."
+    },
+    {
+      "id": "RPG-123",
+      "number": 123,
+      "group": "121–130 · Writer / LETTERS INTO IDENTITY",
+      "title": "Přepnutí negativního prostoru.",
+      "request": "Průhledy mezi písmeny se zvýrazní, abys mohl porovnat čitelnost variant.",
+      "status": "implemented",
+      "evidence": [
+        "dist/play/workshops.js"
+      ],
+      "note": "Přepnutí negativního prostoru zvýrazní vztah vlastní stopy a jejího okolí."
+    },
+    {
+      "id": "RPG-124",
+      "number": 124,
+      "group": "121–130 · Writer / LETTERS INTO IDENTITY",
+      "title": "Paleta jako pracovní recept.",
+      "request": "Barvy propojíš s jejich funkcí v návrhu a později s konkrétním materiálem.",
+      "status": "partial",
+      "evidence": [
+        "dist/play/workshops.js"
+      ],
+      "note": "Barvy mají vlastní funkci; katalog konkrétních sprejů nebo materiálový nákupní recept není."
+    },
+    {
+      "id": "RPG-125",
+      "number": 125,
+      "group": "121–130 · Writer / LETTERS INTO IDENTITY",
+      "title": "Návrh v kontextu plochy.",
+      "request": "Vlastní skicu zkusíš v ilustrativním měřítku konkrétního formátu.",
+      "status": "partial",
+      "evidence": [
+        "dist/play/workshops.js"
+      ],
+      "note": "Skica má jasný digitální formát; zasazení do kontextu skutečné zdi chybí."
+    },
+    {
+      "id": "RPG-126",
+      "number": 126,
+      "group": "121–130 · Writer / LETTERS INTO IDENTITY",
+      "title": "Tři měřítka stejného slova.",
+      "request": "Porovnáš detail, celek a vzdálený pohled a rozhodneš, co zjednodušit.",
+      "status": "implemented",
+      "evidence": [
+        "dist/play/workshops.js"
+      ],
+      "note": "Detail, celek a pohled z dálky jsou ovládané při stejné vlastní skice."
+    },
+    {
+      "id": "RPG-127",
+      "number": 127,
+      "group": "121–130 · Writer / LETTERS INTO IDENTITY",
+      "title": "Přehrání vlastních tahů.",
+      "request": "U digitální skici uvidíš skutečné pořadí, ve kterém vznikala.",
+      "status": "implemented",
+      "evidence": [
+        "dist/play/workshops.js"
+      ],
+      "note": "Replay používá skutečně zaznamenané pořadí vlastních tahů."
+    },
+    {
+      "id": "RPG-128",
+      "number": 128,
+      "group": "121–130 · Writer / LETTERS INTO IDENTITY",
+      "title": "Plán povolené realizace.",
+      "request": "K návrhu připojíš konkrétní plochu, podmínky, přípravu a pracovní postup.",
+      "status": "implemented",
+      "evidence": [
+        "dist/play/workshops.js"
+      ],
+      "note": "Vlastní plán zaznamená plochu, souhlas/podmínky, přípravu a pracovní čas bez předstírání povolení."
+    },
+    {
+      "id": "RPG-129",
+      "number": 129,
+      "group": "121–130 · Writer / LETTERS INTO IDENTITY",
+      "title": "Zkušební plocha pro nástroj.",
+      "request": "V digitálním cvičení prozkoumáš vztah šířky tahu, tempa a překrývání.",
+      "status": "partial",
+      "evidence": [
+        "dist/play/workshops.js"
+      ],
+      "note": "Šířka, tempo vlastního kreslení a překryv jdou zkoušet; nejde o simulaci konkrétního reálného spreje."
+    },
+    {
+      "id": "RPG-130",
+      "number": 130,
+      "group": "121–130 · Writer / LETTERS INTO IDENTITY",
+      "title": "★ Zeď si pamatuje proces.",
+      "request": "Vlastní uložené fáze návrhu přehraješ od kostry po dokončení, včetně slepých cest.",
+      "status": "partial",
+      "evidence": [
+        "dist/play/workshops.js",
+        "dist/play/journal.js"
+      ],
+      "note": "Uložené fáze skic a první/poslední verze jsou zachované; automatické přehrání celé historie fází chybí."
+    },
+    {
+      "id": "RPG-131",
+      "number": 131,
+      "group": "131–140 · Breaking / READ THE RHYTHM",
+      "title": "Výchozí úkol podle skutečné úrovně.",
+      "request": "Zadání naváže na zkušenost uživatele a dostupné odborné vedení.",
+      "status": "partial",
+      "evidence": [
+        "dist/play/workshops.js"
+      ],
+      "note": "Úroveň a přiměřený záměr lze zvolit; odborně přizpůsobená instruktáž není dodaná."
+    },
+    {
+      "id": "RPG-132",
+      "number": 132,
+      "group": "131–140 · Breaking / READ THE RHYTHM",
+      "title": "Označení hudebního podnětu.",
+      "request": "V připravené ukázce vybereš moment, na který chceš pohybem reagovat.",
+      "status": "partial",
+      "evidence": [
+        "dist/play/workshops.js"
+      ],
+      "note": "Vlastní hudební podnět lze zapsat časem; připravená odborná ukázka není."
+    },
+    {
+      "id": "RPG-133",
+      "number": 133,
+      "group": "131–140 · Breaking / READ THE RHYTHM",
+      "title": "Sestavení vlastní fráze.",
+      "request": "Z odborně připraveného materiálu si zvolíš přiměřené části a vysvětlíš jejich návaznost.",
+      "status": "external",
+      "evidence": [],
+      "note": "Odborně připravený materiál a schválení vhodnosti fráze vyžadují kvalifikovaného spoluautora."
+    },
+    {
+      "id": "RPG-134",
+      "number": 134,
+      "group": "131–140 · Breaking / READ THE RHYTHM",
+      "title": "Dvě vlastní provedení.",
+      "request": "Lokálně porovnáš první a upravenou frázi se stejným hudebním zadáním.",
+      "status": "implemented",
+      "evidence": [
+        "dist/play/workshops.js"
+      ],
+      "note": "Dvě vlastní videa A/B mají soukromé lokální přehrání a odstranění."
+    },
+    {
+      "id": "RPG-135",
+      "number": 135,
+      "group": "131–140 · Breaking / READ THE RHYTHM",
+      "title": "Záměr před pokusem.",
+      "request": "Předem zaznamenáš, na který hudební moment a jakou změnu soustředíš pozornost.",
+      "status": "implemented",
+      "evidence": [
+        "dist/play/workshops.js"
+      ],
+      "note": "Záměr a konkrétní hudební moment se zapisují před vlastní session."
+    },
+    {
+      "id": "RPG-136",
+      "number": 136,
+      "group": "131–140 · Breaking / READ THE RHYTHM",
+      "title": "Pozorování sdíleného prostoru.",
+      "request": "Quest se zaměří na role, střídání a komunikaci při skutečném setkání.",
+      "status": "partial",
+      "evidence": [
+        "dist/play/quests.js",
+        "dist/play/workshops.js"
+      ],
+      "note": "Pozorovací zadání a vlastní reflexe prostoru jsou dostupné; zvláštní cypher průchod chybí."
+    },
+    {
+      "id": "RPG-137",
+      "number": 137,
+      "group": "131–140 · Breaking / READ THE RHYTHM",
+      "title": "Reakce lektora u konkrétního momentu.",
+      "request": "Získanou připomínku připojíš k příslušné části vlastního záznamu.",
+      "status": "partial",
+      "evidence": [
+        "dist/play/workshops.js"
+      ],
+      "note": "Skutečně získanou reakci lze zapsat s momentem; nejde o dodanou reakci lektora ani časovou video anotaci."
+    },
+    {
+      "id": "RPG-138",
+      "number": 138,
+      "group": "131–140 · Breaking / READ THE RHYTHM",
+      "title": "Příprava konkrétní session.",
+      "request": "Zapíšeš potřebný prostor, hudbu, vybavení a domluvené podmínky.",
+      "status": "implemented",
+      "evidence": [
+        "dist/play/workshops.js"
+      ],
+      "note": "Příprava session má vlastní podmínky prostoru, vybavení, vedení a pauz."
+    },
+    {
+      "id": "RPG-139",
+      "number": 139,
+      "group": "131–140 · Breaking / READ THE RHYTHM",
+      "title": "Stejná fráze na dva hudební podněty.",
+      "request": "Porovnáš, co jsi musel změnit v načasování a záměru.",
+      "status": "implemented",
+      "evidence": [
+        "dist/play/workshops.js"
+      ],
+      "note": "Dvě vlastní provedení a textové vysvětlení rozdílu podporují porovnání různých podnětů."
+    },
+    {
+      "id": "RPG-140",
+      "number": 140,
+      "group": "131–140 · Breaking / READ THE RHYTHM",
+      "title": "Další krok z pozorování.",
+      "request": "Z výsledku session vybereš jeden konkrétní úkol pro příští trénink.",
+      "status": "implemented",
+      "evidence": [
+        "dist/play/workshops.js"
+      ],
+      "note": "Každá uložená práce vyžaduje jeden konkrétní další pokus."
+    },
+    {
+      "id": "RPG-141",
+      "number": 141,
+      "group": "141–150 · Knowledge of Self / Philosopher",
+      "title": "Tři přihrádky tvrzení.",
+      "request": "Interaktivně třídíš vlastní zápisky na pozorování, doloženou informaci a interpretaci.",
+      "status": "implemented",
+      "evidence": [
+        "dist/play/workshops.js"
+      ],
+      "note": "Pozorování, doložená informace se zdrojem a vlastní interpretace mají tři samostatná pole."
+    },
+    {
+      "id": "RPG-142",
+      "number": 142,
+      "group": "141–150 · Knowledge of Self / Philosopher",
+      "title": "Osobní archiv důkazů.",
+      "request": "Ke svým tvrzením ukládáš zdroje, citace a otázky, které zůstávají otevřené.",
+      "status": "implemented",
+      "evidence": [
+        "dist/play/workshops.js",
+        "dist/play/journal.js"
+      ],
+      "note": "Zdroje a vlastní tvrzení zůstávají s verzemi v osobním archivu a exportu."
+    },
+    {
+      "id": "RPG-143",
+      "number": 143,
+      "group": "141–150 · Knowledge of Self / Philosopher",
+      "title": "Dvě interpretace jednoho místa.",
+      "request": "Sestavíš rozdílná čtení a ukážeš, z čeho každé vychází.",
+      "status": "partial",
+      "evidence": [
+        "dist/play/workshops.js"
+      ],
+      "note": "Interpretaci lze postavit proti protiotázce; dvě úplná paralelní doložená čtení nemají samostatný editor."
+    },
+    {
+      "id": "RPG-144",
+      "number": 144,
+      "group": "141–150 · Knowledge of Self / Philosopher",
+      "title": "Vlastní symbol s vysvětlením.",
+      "request": "Každý prvek znaku dostane význam, který sám dokážeš popsat.",
+      "status": "partial",
+      "evidence": [
+        "dist/play/workshops.js"
+      ],
+      "note": "Vlastní znak a význam jsou uložené; samostatný geometrický sestavovač částí znaku chybí."
+    },
+    {
+      "id": "RPG-145",
+      "number": 145,
+      "group": "141–150 · Knowledge of Self / Philosopher",
+      "title": "Symbol projde protiotázkou.",
+      "request": "Zkusíš, jak ho může číst někdo jiný, a podle toho ho upravíš.",
+      "status": "implemented",
+      "evidence": [
+        "dist/play/workshops.js"
+      ],
+      "note": "Protiotázka jiného čtení je součástí uložené vlastní práce a revize."
+    },
+    {
+      "id": "RPG-146",
+      "number": 146,
+      "group": "141–150 · Knowledge of Self / Philosopher",
+      "title": "Manifest z deseti řádků na tři.",
+      "request": "Postupně zpřesňuješ, co skutečně chceš říct.",
+      "status": "implemented",
+      "evidence": [
+        "dist/play/workshops.js"
+      ],
+      "note": "První a zpřesněný manifest mají oddělená pole a počítadla řádků."
+    },
+    {
+      "id": "RPG-147",
+      "number": 147,
+      "group": "141–150 · Knowledge of Self / Philosopher",
+      "title": "Deník změněných názorů.",
+      "request": "Zachytíš původní myšlenku, nový podnět a důvod změny.",
+      "status": "implemented",
+      "evidence": [
+        "dist/play/workshops.js",
+        "dist/play/journal.js"
+      ],
+      "note": "První tvrzení, nová verze a vysvětlená změna zůstávají v kronice."
+    },
+    {
+      "id": "RPG-148",
+      "number": 148,
+      "group": "141–150 · Knowledge of Self / Philosopher",
+      "title": "Vlastní tvůrčí hranice.",
+      "request": "Pojmenuješ, co chceš ve své práci sdílet, chránit nebo ponechat nedokončené.",
+      "status": "implemented",
+      "evidence": [
+        "dist/play/workshops.js"
+      ],
+      "note": "Vlastní hranice sdílení a otevřená protiotázka se zapisují a ukládají soukromě."
+    },
+    {
+      "id": "RPG-149",
+      "number": 149,
+      "group": "141–150 · Knowledge of Self / Philosopher",
+      "title": "Dialog se skutečným člověkem.",
+      "request": "Se souhlasem zaznamenáš otázku a odpověď, která tvoji práci posunula.",
+      "status": "partial",
+      "evidence": [
+        "dist/play/workshops.js",
+        "dist/play/journal.js"
+      ],
+      "note": "Vlastní dialog lze zaznamenat textem; skutečná osoba ani správa jejího souhlasu nejsou součástí dodávky."
+    },
+    {
+      "id": "RPG-150",
+      "number": 150,
+      "group": "141–150 · Knowledge of Self / Philosopher",
+      "title": "Porovnání původního a zpřesněného tvrzení.",
+      "request": "Výsledná scéna ukáže konkrétní změnu v myšlence i symbolu.",
+      "status": "partial",
+      "evidence": [
+        "dist/play/workshops.js",
+        "dist/play/journal.js"
+      ],
+      "note": "Textové verze a metadata znaku lze porovnat; kompletní proměna symbolické scény podle tvrzení chybí."
+    },
+    {
+      "id": "RPG-151",
+      "number": 151,
+      "group": "151–160 · Propojení všech disciplín",
+      "title": "Rytmus z vlastního okolí.",
+      "request": "Z oprávněně pořízených zvuků nebo ručně zapsaného rytmu vytvoříš podklad pro další úkol.",
+      "status": "partial",
+      "evidence": [
+        "dist/play/field.js",
+        "dist/play/workshops.js"
+      ],
+      "note": "Vlastní rytmický postřeh a soubor lze použít; připravený field-recording sampler není."
+    },
+    {
+      "id": "RPG-152",
+      "number": 152,
+      "group": "151–160 · Propojení všech disciplín",
+      "title": "Čtyři bary z vlastní skici.",
+      "request": "Popíšeš svůj návrh tak, aby text přenesl jeho záměr do jiné disciplíny.",
+      "status": "partial",
+      "evidence": [
+        "dist/play/workshops.js",
+        "dist/play/journal.js"
+      ],
+      "note": "Vlastní skica a MC text mohou patřit do propojených děl; přímý specializovaný převodový quest chybí."
+    },
+    {
+      "id": "RPG-153",
+      "number": 153,
+      "group": "151–160 · Propojení všech disciplín",
+      "title": "Písmeno z kadence hlasu.",
+      "request": "Rytmus vlastního přednesu použiješ jako autorský podnět pro konstrukci tahu.",
+      "status": "implemented",
+      "evidence": [
+        "dist/play/sound.js",
+        "tests/play-sound.mjs"
+      ],
+      "note": "Výslovně spuštěný vlastní přednes poskytne nejvýše 12 sekund skutečné zvukové křivky; uživatel jí přiřadí vlastní písmeno a význam a uloží vlastní Writer tah. Jde o energii zvuku jako autorský podnět, nikoli rozpoznání řeči či automatickou tvorbu čitelného písmene."
+    },
+    {
+      "id": "RPG-154",
+      "number": 154,
+      "group": "151–160 · Propojení všech disciplín",
+      "title": "Pohyb podle dramaturgie setu.",
+      "request": "Propojíš zamýšlenou změnu energie mixu s pohybovou reakcí.",
+      "status": "partial",
+      "evidence": [
+        "dist/play/workshops.js",
+        "dist/play/journal.js"
+      ],
+      "note": "DJ dramaturgii a vlastní Breaking reflexi lze propojit; synchronizovaný nástroj není."
+    },
+    {
+      "id": "RPG-155",
+      "number": 155,
+      "group": "151–160 · Propojení všech disciplín",
+      "title": "Handstyle jako zvukové gesto.",
+      "request": "Vlastní tah ovládne připravený zvukový nástroj a vytvoří krátkou kompozici.",
+      "status": "implemented",
+      "evidence": [
+        "dist/play/sound.js"
+      ],
+      "note": "Vlastní tah ovládá výšku skutečně syntetizovaného tónu; vlastní časy a souřadnice lze uložit do inventáře."
+    },
+    {
+      "id": "RPG-156",
+      "number": 156,
+      "group": "151–160 · Propojení všech disciplín",
+      "title": "Architektura jako tvůrčí omezení.",
+      "request": "Tvar nebo rytmus pozorované stavby použiješ při návrhu obrazu, textu nebo setu.",
+      "status": "implemented",
+      "evidence": [
+        "dist/play/field.js",
+        "dist/play/quests.js"
+      ],
+      "note": "Pozorovaný tvar/negativní prostor stavby je konkrétní pracovní podnět pro vlastní písmeno nebo text."
+    },
+    {
+      "id": "RPG-157",
+      "number": 157,
+      "group": "151–160 · Propojení všech disciplín",
+      "title": "Jeden princip ve třech médiích.",
+      "request": "Stejné autorské zadání zpracuješ zvukem, písmem a krátkým textem.",
+      "status": "partial",
+      "evidence": [
+        "dist/play/workshops.js",
+        "dist/play/app.js"
+      ],
+      "note": "Stejný princip lze ručně použít v dílnách; společný třímédiový projektový průchod chybí."
+    },
+    {
+      "id": "RPG-158",
+      "number": 158,
+      "group": "151–160 · Propojení všech disciplín",
+      "title": "Jeden postřeh, pět odpovědí.",
+      "request": "Vybereš pozorovaný detail a zkusíš ho převést do všech pěti disciplín.",
+      "status": "implemented",
+      "evidence": [
+        "dist/play/field.js"
+      ],
+      "note": "Stejná reálná lokalita má pět odlišných zadání; soukromý postřeh lze použít ve všech dílnách."
+    },
+    {
+      "id": "RPG-159",
+      "number": 159,
+      "group": "151–160 · Propojení všech disciplín",
+      "title": "Materiál cestuje mezi dílnami.",
+      "request": "Slovo z MC úkolu použiješ ve Writer návrhu a jeho kompozici zase v obalu mixu.",
+      "status": "partial",
+      "evidence": [
+        "dist/play/journal.js",
+        "dist/play/workshops.js"
+      ],
+      "note": "Inventář a pracovní stůl materiál propojí; plně přenosné nástrojové vrstvy mezi médii nejsou."
+    },
+    {
+      "id": "RPG-160",
+      "number": 160,
+      "group": "151–160 · Propojení všech disciplín",
+      "title": "★ Dobrovolné velké finále.",
+      "request": "Mix, sloka, návrh, pohybová reflexe a manifest vytvoří tvoje vlastní vydání CAISIK.",
+      "status": "partial",
+      "evidence": [
+        "dist/play/journal.js"
+      ],
+      "note": "Vlastní vydání kurátoruje více disciplín; nezabaluje zvuk/video ani nevytváří celé multimediální finále."
+    },
+    {
+      "id": "RPG-161",
+      "number": 161,
+      "group": "161–170 · Blackbook jako skutečná osobní kronika",
+      "title": "Časová osa projektu.",
+      "request": "Uvidíš skutečné verze, rozhodnutí a návraty k rozpracované práci.",
+      "status": "implemented",
+      "evidence": [
+        "dist/play/journal.js"
+      ],
+      "note": "Kronika ukáže skutečné verze, časy a rozhodnutí konkrétní práce."
+    },
+    {
+      "id": "RPG-162",
+      "number": 162,
+      "group": "161–170 · Blackbook jako skutečná osobní kronika",
+      "title": "Volná pracovní plocha.",
+      "request": "Poskládáš texty, skici, odkazy a vlastní materiál podle svého způsobu přemýšlení.",
+      "status": "partial",
+      "evidence": [
+        "dist/play/journal.js"
+      ],
+      "note": "Pracovní stůl řadí vlastní materiál; libovolné rozmístění na volném plátně chybí."
+    },
+    {
+      "id": "RPG-163",
+      "number": 163,
+      "group": "161–170 · Blackbook jako skutečná osobní kronika",
+      "title": "Mapa souvislostí mezi díly.",
+      "request": "Propojíš projekty, které sdílejí motiv, otázku nebo konkrétní tvůrčí rozhodnutí.",
+      "status": "implemented",
+      "evidence": [
+        "dist/play/journal.js"
+      ],
+      "note": "Autor vytváří pojmenovaná propojení mezi konkrétními vlastními díly."
+    },
+    {
+      "id": "RPG-164",
+      "number": 164,
+      "group": "161–170 · Blackbook jako skutečná osobní kronika",
+      "title": "Moodboard s původem materiálu.",
+      "request": "Každá reference bude mít zdroj a poznámku, k čemu ji používáš.",
+      "status": "partial",
+      "evidence": [
+        "dist/play/journal.js"
+      ],
+      "note": "Reference s původem a použitím jsou v inventáři; obrazový prostorový moodboard není."
+    },
+    {
+      "id": "RPG-165",
+      "number": 165,
+      "group": "161–170 · Blackbook jako skutečná osobní kronika",
+      "title": "Zvýraznění skutečné revize.",
+      "request": "Označíš přesně ten řádek, tah nebo okamžik, který se mezi verzemi změnil.",
+      "status": "implemented",
+      "evidence": [
+        "dist/play/journal.js"
+      ],
+      "note": "Rozdílné řádky skutečných verzí se zvýrazní a zůstane textové vysvětlení změny."
+    },
+    {
+      "id": "RPG-166",
+      "number": 166,
+      "group": "161–170 · Blackbook jako skutečná osobní kronika",
+      "title": "★ Přenosný osobní sešit.",
+      "request": "Vyexportuješ vlastní projekty jako samostatně prohlížitelný balíček s texty a zvolenými přílohami.",
+      "status": "partial",
+      "evidence": [
+        "dist/play/journal.js"
+      ],
+      "note": "Samostatné bezpečné HTML obsahuje texty, palety a SVG skici; session audio/video do balíčku nepatří."
+    },
+    {
+      "id": "RPG-167",
+      "number": 167,
+      "group": "161–170 · Blackbook jako skutečná osobní kronika",
+      "title": "Vlastní slovník.",
+      "request": "Odborné pojmy doplníš vlastními příklady a odkazy na práci, kde jsi je použil.",
+      "status": "implemented",
+      "evidence": [
+        "dist/play/journal.js"
+      ],
+      "note": "Vlastní slovník propojí vlastní vysvětlení s konkrétním dílem."
+    },
+    {
+      "id": "RPG-168",
+      "number": 168,
+      "group": "161–170 · Blackbook jako skutečná osobní kronika",
+      "title": "Uložená podoba scény.",
+      "request": "K projektu zůstane paleta, rozmístění symbolů a stav autorské kompozice.",
+      "status": "partial",
+      "evidence": [
+        "dist/play/store.js",
+        "dist/play/workshops.js"
+      ],
+      "note": "Paleta, skica a pracovní metadata se uchovají; volně rozmístěná kompozice všech symbolů světa není."
+    },
+    {
+      "id": "RPG-169",
+      "number": 169,
+      "group": "161–170 · Blackbook jako skutečná osobní kronika",
+      "title": "Kurátorované vlastní portfolio.",
+      "request": "Vybereš, které verze chceš představit a co k jejich procesu vysvětlit.",
+      "status": "implemented",
+      "evidence": [
+        "dist/play/journal.js"
+      ],
+      "note": "Autor vybírá díla do vlastního kurátorovaného přenosného vydání."
+    },
+    {
+      "id": "RPG-170",
+      "number": 170,
+      "group": "161–170 · Blackbook jako skutečná osobní kronika",
+      "title": "Jeden otevřený další krok.",
+      "request": "Každý projekt může končit konkrétní otázkou nebo pokusem pro budoucí pokračování.",
+      "status": "implemented",
+      "evidence": [
+        "dist/play/workshops.js",
+        "dist/play/journal.js"
+      ],
+      "note": "Každá uložená verze obsahuje vlastní konkrétní další krok."
+    },
+    {
+      "id": "RPG-171",
+      "number": 171,
+      "group": "171–180 · Zvuk celého světa",
+      "title": "Osobní zvuková atmosféra.",
+      "request": "Uživatel si zapne a sestaví zvuk prostředí podle vlastního pracovního záměru.",
+      "status": "implemented",
+      "evidence": [
+        "dist/play/sound.js"
+      ],
+      "note": "Uživatel výslovně spouští vlastní procedurální atmosféru a ovládá její zónu, hlasitost i společný STOP."
+    },
+    {
+      "id": "RPG-172",
+      "number": 172,
+      "group": "171–180 · Zvuk celého světa",
+      "title": "Zvukové zóny.",
+      "request": "Studio, ulice a knihovna dostanou odlišnou, ovladatelnou zvukovou podobu.",
+      "status": "implemented",
+      "evidence": [
+        "dist/play/sound.js"
+      ],
+      "note": "Studio, ulice a knihovna mají odlišné autorské syntetické zóny bez předstírání terénních záznamů."
+    },
+    {
+      "id": "RPG-173",
+      "number": 173,
+      "group": "171–180 · Zvuk celého světa",
+      "title": "Plynulé zvukové přechody.",
+      "request": "Při změně scény navážou připravené vrstvy prostředí na sebe.",
+      "status": "implemented",
+      "evidence": [
+        "dist/play/sound.js"
+      ],
+      "note": "Po výslovném zapnutí se zóny plynule prolínají podle pracovního prostoru pomocí skutečných gain ramp."
+    },
+    {
+      "id": "RPG-174",
+      "number": 174,
+      "group": "171–180 · Zvuk celého světa",
+      "title": "Vlastní zvukový deník.",
+      "request": "Krátký osobní záznam propojíš s projektem, poznámkou a zvoleným způsobem ukládání.",
+      "status": "partial",
+      "evidence": [
+        "dist/play/workshops.js"
+      ],
+      "note": "Vlastní audio A/B lze nahrát a samostatně stáhnout; trvalý zvukový deník s přílohami chybí."
+    },
+    {
+      "id": "RPG-175",
+      "number": 175,
+      "group": "171–180 · Zvuk celého světa",
+      "title": "Zvuk jako paměť místa.",
+      "request": "K vlastnímu záznamu doplníš, co je slyšitelné a co už je tvoje interpretace.",
+      "status": "partial",
+      "evidence": [
+        "dist/play/field.js"
+      ],
+      "note": "Zvukový postřeh se oddělí od interpretace textem; trvalá zvuková příloha u místa není."
+    },
+    {
+      "id": "RPG-176",
+      "number": 176,
+      "group": "171–180 · Zvuk celého světa",
+      "title": "Rytmická odezva rozhraní.",
+      "request": "Vlastním poklepem nastavíš tempo vybraných pracovních nástrojů.",
+      "status": "implemented",
+      "evidence": [
+        "dist/play/sound.js"
+      ],
+      "note": "Tempo se vypočte ze skutečných časů vlastních poklepů a řídí pracovní motiv."
+    },
+    {
+      "id": "RPG-177",
+      "number": 177,
+      "group": "171–180 · Zvuk celého světa",
+      "title": "Knihovna oprávněných zvukových vrstev.",
+      "request": "Připravené stopy budou mít jasný původ a podmínky dalšího použití.",
+      "status": "external",
+      "evidence": [],
+      "note": "Připravená zvuková knihovna s doloženými právy není dodaná."
+    },
+    {
+      "id": "RPG-178",
+      "number": 178,
+      "group": "171–180 · Zvuk celého světa",
+      "title": "Quest ticha.",
+      "request": "Krátká zkušenost zaměří pozornost na pauzy, dozvuk a zvuky, kterých si běžně nevšimneš.",
+      "status": "partial",
+      "evidence": [
+        "dist/play/quests.js",
+        "dist/play/field.js"
+      ],
+      "note": "Vlastní pozorovací zadání může pracovat s tichem; samostatná vedená tichá zkušenost chybí."
+    },
+    {
+      "id": "RPG-179",
+      "number": 179,
+      "group": "171–180 · Zvuk celého světa",
+      "title": "Vlastní hudební motiv.",
+      "request": "Z připravených oprávněných částí nebo vlastního materiálu vytvoříš zvukový podpis.",
+      "status": "implemented",
+      "evidence": [
+        "dist/play/sound.js"
+      ],
+      "note": "Vlastní 4/8kroková posloupnost not a pauz vytvoří přehratelný osobní motiv se záznamem do inventáře."
+    },
+    {
+      "id": "RPG-180",
+      "number": 180,
+      "group": "171–180 · Zvuk celého světa",
+      "title": "Zvuk závěrečné prezentace.",
+      "request": "Pro dokončený projekt sám vybereš, kde má hudba podpořit obraz a kde má ustoupit.",
+      "status": "partial",
+      "evidence": [
+        "dist/play/workshops.js",
+        "dist/play/journal.js"
+      ],
+      "note": "Vlastní mix lze poslouchat; zvuková dramaturgie exportovaného závěrečného vydání není."
+    },
+    {
+      "id": "RPG-181",
+      "number": 181,
+      "group": "181–190 · Spolupráce, která podporuje selfmade cestu",
+      "title": "Volitelné setkání s odborným spoluautorem.",
+      "request": "Skutečný mentor může komentovat konkrétní práci v rámci jasně domluvené služby.",
+      "status": "external",
+      "evidence": [],
+      "note": "Skutečný mentor, dohoda o službě a jeho účast nejsou dodané."
+    },
+    {
+      "id": "RPG-182",
+      "number": 182,
+      "group": "181–190 · Spolupráce, která podporuje selfmade cestu",
+      "title": "Výprava ve dvojici.",
+      "request": "Dva lidé zpracují stejné místo rozdílně a pak si porovnají rozhodnutí.",
+      "status": "partial",
+      "evidence": [
+        "dist/play/field.js",
+        "dist/play/journal.js"
+      ],
+      "note": "Trasu a vlastní vydání lze soukromě předat druhému člověku; párový pracovní režim chybí."
+    },
+    {
+      "id": "RPG-183",
+      "number": 183,
+      "group": "181–190 · Spolupráce, která podporuje selfmade cestu",
+      "title": "Zpětná vazba pomocí tří otázek.",
+      "request": "Co je čitelné, co vyvolává otázku a co by autor chtěl dál ověřit.",
+      "status": "partial",
+      "evidence": [
+        "dist/play/quests.js",
+        "dist/play/workshops.js"
+      ],
+      "note": "Vlastní zpětná vazba a otázky mají prostor; samostatný řízený tříotázkový peer-review nástroj chybí."
+    },
+    {
+      "id": "RPG-184",
+      "number": 184,
+      "group": "181–190 · Spolupráce, která podporuje selfmade cestu",
+      "title": "Prezentace procesu.",
+      "request": "Sdílený projekt ukáže také první pokus a vysvětlenou změnu.",
+      "status": "partial",
+      "evidence": [
+        "dist/play/journal.js"
+      ],
+      "note": "Přenosné vydání ukáže skutečný proces; veřejné publikování s účty a souhlasy není."
+    },
+    {
+      "id": "RPG-185",
+      "number": 185,
+      "group": "181–190 · Spolupráce, která podporuje selfmade cestu",
+      "title": "Remix se svolením autora.",
+      "request": "Uživatel může nabídnout vlastní materiál k přesně vymezenému dalšímu zpracování.",
+      "status": "external",
+      "evidence": [],
+      "note": "Licenční svolení k remixu, jeho evidence a veřejný bezpečný sdílecí proces nejsou dodané."
+    },
+    {
+      "id": "RPG-186",
+      "number": 186,
+      "group": "181–190 · Spolupráce, která podporuje selfmade cestu",
+      "title": "Vlastní sada pracovních pomůcek.",
+      "request": "Vytvoříš šablonu, paletu nebo cvičení a rozhodneš o jeho sdílení.",
+      "status": "partial",
+      "evidence": [
+        "dist/play/journal.js",
+        "dist/play/workshops.js"
+      ],
+      "note": "Vlastní palety a skici lze exportovat; kompletní přenosný autorovaný balíček cvičení chybí."
+    },
+    {
+      "id": "RPG-187",
+      "number": 187,
+      "group": "181–190 · Spolupráce, která podporuje selfmade cestu",
+      "title": "Komunitní doplnění mapy.",
+      "request": "Návrhy míst projdou ověřením zdrojů a podmínek před veřejným zařazením.",
+      "status": "external",
+      "evidence": [],
+      "note": "Komunitní příjem, redakční ověřování a veřejné schválení nových míst nejsou provozované."
+    },
+    {
+      "id": "RPG-188",
+      "number": 188,
+      "group": "181–190 · Spolupráce, která podporuje selfmade cestu",
+      "title": "Dobrovolná výstava pod aliasem.",
+      "request": "Sám vybereš díla, doprovodné informace a rozsah zveřejnění.",
+      "status": "partial",
+      "evidence": [
+        "dist/play/journal.js"
+      ],
+      "note": "Alias a kurátorský výběr fungují v lokálním vydání; veřejná výstava není služba tohoto webu."
+    },
+    {
+      "id": "RPG-189",
+      "number": 189,
+      "group": "181–190 · Spolupráce, která podporuje selfmade cestu",
+      "title": "Skutečné příběhy autorů.",
+      "request": "Schválené rozhovory ukážou konkrétní postupy, chyby a rozhodnutí lidí z kultury.",
+      "status": "external",
+      "evidence": [],
+      "note": "Skutečné autorizované rozhovory a jejich souhlasy nejsou dodané."
+    },
+    {
+      "id": "RPG-190",
+      "number": 190,
+      "group": "181–190 · Spolupráce, která podporuje selfmade cestu",
+      "title": "Společná kompozice z jednotlivých příspěvků.",
+      "request": "Každý autor pozná vlastní stopu a uvidí, jak zapadá do celku.",
+      "status": "external",
+      "evidence": [],
+      "note": "Víceuživatelská kompozice potřebuje skutečný backend, autorizaci, souhlasy a řešení souběhu."
+    },
+    {
+      "id": "RPG-191",
+      "number": 191,
+      "group": "191–200 · Ovládání, výkon a vlastnictví zážitku",
+      "title": "Stejná hra různými způsoby.",
+      "request": "Důležité interakce půjdou ovládat dotykem, myší i klávesnicí.",
+      "status": "partial",
+      "evidence": [
+        "dist/play/workshops.js",
+        "dist/play/field.js",
+        "dist/play/app.js"
+      ],
+      "note": "Klávesnice má vlastní kreslení, nativní ovládání a navigaci; úplný audit všech zařízení není provedený."
+    },
+    {
+      "id": "RPG-192",
+      "number": 192,
+      "group": "191–200 · Ovládání, výkon a vlastnictví zážitku",
+      "title": "Klidný režim zachová význam animací.",
+      "request": "Proměnu si prohlédneš po jednotlivých komponovaných fázích s vysvětlením.",
+      "status": "implemented",
+      "evidence": [
+        "dist/selfmade-motion.js"
+      ],
+      "note": "Klidný režim nabídne významové statické fáze s vysvětlením."
+    },
+    {
+      "id": "RPG-193",
+      "number": 193,
+      "group": "191–200 · Ovládání, výkon a vlastnictví zážitku",
+      "title": "Intenzita pohybu podle uživatele.",
+      "request": "Samostatně omezíš parallax, automatické smyčky nebo reakce na kurzor.",
+      "status": "partial",
+      "evidence": [
+        "dist/play/app.js",
+        "dist/selfmade-motion.js"
+      ],
+      "note": "Plný/klidný/vypnutý režim funguje; samostatné přepínače parallax/kurzor/smyčky chybí."
+    },
+    {
+      "id": "RPG-194",
+      "number": 194,
+      "group": "191–200 · Ovládání, výkon a vlastnictví zážitku",
+      "title": "Pohyb podle možností zařízení.",
+      "request": "Množství efektů se přizpůsobí výkonu a neviditelné scény se pozastaví.",
+      "status": "partial",
+      "evidence": [
+        "dist/selfmade-motion.js",
+        "dist/alchemy-hero.js"
+      ],
+      "note": "Neviditelné scény a dokument se pozastavují; adaptivní GPU/performance kvalita není."
+    },
+    {
+      "id": "RPG-195",
+      "number": 195,
+      "group": "191–200 · Ovládání, výkon a vlastnictví zážitku",
+      "title": "Postupné načítání živých obrazů.",
+      "request": "Nejprve se zobrazí kvalitní statická kompozice, potřebné pohyblivé vrstvy se doplní při vstupu.",
+      "status": "partial",
+      "evidence": [
+        "dist/selfmade-motion.js",
+        "dist/play/app.js"
+      ],
+      "note": "Kvalitní originály zůstávají fallback a dílny se importují podle potřeby; všechny SVG překryvy nemají samostatný mediální loading budget."
+    },
+    {
+      "id": "RPG-196",
+      "number": 196,
+      "group": "191–200 · Ovládání, výkon a vlastnictví zážitku",
+      "title": "Jasná kontrola každé přílohy.",
+      "request": "U vlastního zvuku nebo fotografie uvidíš, kde je uložená, kdo k ní má přístup a jak ji smazat.",
+      "status": "implemented",
+      "evidence": [
+        "dist/play/workshops.js",
+        "dist/play/journal.js"
+      ],
+      "note": "Vlastní session média výslovně ukazují místní uložení, stažení a smazání bez uploadu."
+    },
+    {
+      "id": "RPG-197",
+      "number": 197,
+      "group": "191–200 · Ovládání, výkon a vlastnictví zážitku",
+      "title": "Offline výprava na míru.",
+      "request": "Vybereš konkrétní trasu, lekce a potřebná média a před cestou ověříš úplnost balíčku.",
+      "status": "partial",
+      "evidence": [
+        "dist/expeditions/sw.js",
+        "dist/play/field.js"
+      ],
+      "note": "Původní opt-in textové expedice zůstávají; nový vlastní výběrový offline RPG balíček chybí."
+    },
+    {
+      "id": "RPG-198",
+      "number": 198,
+      "group": "191–200 · Ovládání, výkon a vlastnictví zážitku",
+      "title": "Obnova vlastní práce.",
+      "request": "Zálohu si nejprve prohlédneš, vybereš projekty k obnovení a zachováš existující verze.",
+      "status": "implemented",
+      "evidence": [
+        "dist/play/store.js",
+        "dist/play/journal.js"
+      ],
+      "note": "Import má náhled a výběr projektů; sloučení zachová existující díla a rozdílné verze."
+    },
+    {
+      "id": "RPG-199",
+      "number": 199,
+      "group": "191–200 · Ovládání, výkon a vlastnictví zážitku",
+      "title": "Každá animace má sdělení.",
+      "request": "Její podstatná informace zůstane dostupná jako text, statický rozbor nebo ovladatelné kroky.",
+      "status": "implemented",
+      "evidence": [
+        "dist/selfmade-motion.js",
+        "dist/art-motion.js"
+      ],
+      "note": "Studijní pohyb má textové vysvětlení, statické fáze a ovladatelný průběh."
+    },
+    {
+      "id": "RPG-200",
+      "number": 200,
+      "group": "191–200 · Ovládání, výkon a vlastnictví zážitku",
+      "title": "★ Uživatel vytvoří vlastní expedici.",
+      "request": "Ze svých úkolů, materiálu a ověřených míst sestaví další hratelnou cestu s vlastními pravidly a výstupem.",
+      "status": "partial",
+      "evidence": [
+        "dist/play/app.js",
+        "dist/play/field.js",
+        "dist/play/journal.js"
+      ],
+      "note": "Vlastní quest, trasa a materiál existují; jediná exportovatelná kompletní vlastní expedice s pravidly a lekcemi zatím není."
+    }
+  ],
+  "statusCounts": {
+    "partial": 95,
+    "implemented": 94,
+    "external": 10,
+    "planned": 1
+  },
+  "reviewScope": "Independent source review and automated suites; browser review reported separately in QA_REPORT.md."
+}

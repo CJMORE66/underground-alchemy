@@ -278,6 +278,11 @@ def main():
     pages=[build_page(data)]
     for chapter in sorted(data['chapters'],key=lambda c:ORDER.index(c['id'])):
         pages.append(build_page(data,chapter))
+    # Preserve additive Selfmade navigation after regenerating expedition HTML.
+    import runpy
+    wiring = ROOT / 'tools/wire-selfmade.py'
+    if wiring.exists():
+        runpy.run_path(str(wiring), run_name='__main__')
     print(f'Built {len(pages)} static expedition pages: 15 complete lessons and 31 route stops; no runtime required for reading.')
 
 

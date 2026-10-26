@@ -1,0 +1,121 @@
+import assert from 'node:assert/strict';
+import {lineCount,markedText,normalizeStrokes,normalizeDraft,strokePath,buildWorkText,validateWork} from '../dist/play/workshops.js';
+assert.equal(lineCount('one\n\ntwo\r\nthree'),3);
+assert.equal(lineCount('  '),0);
+assert.ok(markedText('<img onerror=x> / |důraz|').includes('&lt;img onerror=x&gt;'));
+assert.ok(markedText('<img onerror=x> / |důraz|').includes('ws-accent'));
+assert.ok(!markedText('<script>alert(1)</script>').includes('<script>'));
+assert.deepEqual(normalizeStrokes([{points:[[20,30],[-5,450],[NaN,1]],color:'javascript:x',width:99}]),[{points:[[20,30],[0,440]],color:'#FFD600',width:32}]);
+assert.equal(strokePath([[1,2],[3.45,6.23]]),'M1.0 2.0 L3.5 6.2');
+const base={decision:'Zjednodušil jsem obrys.',nextStep:'Ověřím čitelnost z dálky.'};
+assert.equal(validateWork('writer',{...base,strokes:[{points:[[1,1]],color:'#FFD600',width:8}],palette:[{color:'#FFD600',purpose:'dominanta'}]}),null);
+assert.ok(validateWork('writer',{...base,strokes:[],palette:[]}));
+assert.ok(validateWork('mc',{...base,text:'jedna\ndvě\ntři'}));
+assert.equal(validateWork('mc',{...base,text:'jedna\ndvě\ntři\nčtyři'}),null);
+assert.ok(validateWork('dj',{...base,tracklist:'a\nb',cues:'00:10 — změna'}));
+assert.equal(validateWork('dj',{...base,tracklist:'a\nb\nc',cues:'00:10 — změna'}),null);
+assert.ok(validateWork('breaking',{...base,phrase:'Přiměřený známý pohyb',session:''}));
+assert.equal(validateWork('breaking',{...base,phrase:'Pouze známá bezpečná fráze',session:'Domluvený lektor a vhodný prostor'}),null);
+assert.equal(validateWork('knowledge',{...base,observation:'Vidím okno',interpretation:'Připomíná mi hranici',refined:'Můj pohled je omezený'}),null);
+assert.match(buildWorkText('knowledge',{observation:'Okno',fact:'Doloženo',source:'Primární zdroj',interpretation:'Metafora',text:'první',refined:'druhá',symbol:'◉',meaning:'pozornost'}),/Interpretace: Metafora/);
+assert.match(buildWorkText('breaking',{}),/Zatím nedodaná/);
+assert.equal(normalizeStrokes(Array.from({length:200},()=>({points:[[0,0]]}))).length,180);
+assert.equal(normalizeStrokes([{points:Array.from({length:20000},()=>[1,2])}])[0].points.length,12000);
+assert.deepEqual(normalizeDraft('writer',{palette:null,alphabet:'bad',strokes:'bad',layer:'x',scale:'Infinity'}).strokes,[]);
+assert.equal(normalizeDraft('writer',{palette:'bad'}).palette.length,3);
+assert.deepEqual(normalizeDraft('dj',{energy:'bad'}).energy,[2,4,6,8,5]);
+assert.equal(normalizeDraft('mc',{text:{bad:true}}).text,'');
+assert.ok(validateWork('mc',{...base,target:'16',text:'a\nb\nc\nd'}));
+assert.ok(validateWork('knowledge',{...base,fact:'Tvrzení',source:'',observation:'x',interpretation:'y',refined:'z'}));
+console.log('PASS play-workshops: text escaping, stroke bounds, replay geometry, meaningful evidence, five discipline validation.');
+
+// Exercise the real mounted keyboard/draft/save path, rather than a stand-in renderer.
+const {parseHTML}=await import('linkedom');
+const {window,document}=parseHTML('<html><body><main id="workshop"></main></body></html>');
+globalThis.window=window;globalThis.document=document;
+globalThis.matchMedia=()=>({matches:true});
+globalThis.requestAnimationFrame=()=>1;globalThis.cancelAnimationFrame=()=>{};
+globalThis.confirm=()=>true;
+const state={profile:{symbol:''},settings:{motion:'off'},drafts:{},artifacts:[],inventory:[],events:[],quests:[{id:'quest-writer',discipline:'writer',type:'main',status:'open',artifactId:''}]};
+const notices=[];
+const store={get:()=>structuredClone(state),update:fn=>{fn(state);return true;}};
+const {mountWorkshops}=await import('../dist/play/workshops.js');
+const root=document.getElementById('workshop');
+const unmount=mountWorkshops(root,{store,notify:text=>notices.push(text)});
+function click(selector){root.querySelector(selector).dispatchEvent(new window.Event('click',{bubbles:true}));}
+function value(name,text){const node=root.querySelector(`[data-field="${name}"]`);node.value=text;node.dispatchEvent(new window.Event('input',{bubbles:true}));}
+function key(key){const event=new window.Event('keydown',{bubbles:true});event.key=key;root.querySelector('.ws-sketch').dispatchEvent(event);}
+value('word','A');value('decision','Otevřel jsem průhled.');value('nextStep','Zkusím menší měřítko.');
+key(' ');key('ArrowRight');key('ArrowDown');key(' ');
+click('[data-action="save"]');
+assert.equal(state.artifacts.length,1);
+assert.equal(state.quests[0].artifactId,state.artifacts[0].id,'Saved work connects to the open discipline quest.');
+assert.equal(state.artifacts[0].versions[0].strokes[0].points.length,3,'Keyboard drawing stores the authored point order.');
+value('decision','Změnil jsem kontrast.');click('[data-action="save"]');
+assert.equal(state.artifacts.length,1,'Saving another version stays in the same project.');
+assert.equal(state.artifacts[0].versions.length,2,'First attempt is retained alongside revision.');
+click('[data-discipline="mc"]');
+value('text','Detail okna\nVede mě ven\nMěsto se ptá\nZměním svůj den');value('decision','Konkrétní okno místo obecného světa.');value('nextStep','Vyzkouším pauzu za druhým řádkem.');
+click('[data-action="save"]');
+assert.equal(state.artifacts.length,2);
+assert.equal(state.artifacts[1].discipline,'mc');
+assert.ok(state.artifacts[1].versions[0].text.includes('Detail okna'));
+unmount();
+assert.equal(state.drafts.workshops.active,'mc','Unmount flushes the actual open workbench.');
+const remount=mountWorkshops(root,{store});
+assert.equal(root.querySelector('[data-field="text"]').value,'Detail okna\nVede mě ven\nMěsto se ptá\nZměním svůj den');
+const switchEvent=new window.Event('caisik:discipline');switchEvent.detail={discipline:'dj'};window.dispatchEvent(switchEvent);
+assert.ok(root.querySelector('[data-field=tracklist]'),'A selected DJ quest opens the DJ workbench.');
+remount();
+const malformedStore={get:()=>({...state,drafts:{workshops:{active:'writer',writer:{palette:null,strokes:'bad',alphabet:null},dj:{energy:null}}}}),update:()=>true};
+const malformedUnmount=mountWorkshops(root,{store:malformedStore});assert.ok(root.querySelector('.ws-sketch'));malformedUnmount();
+console.log('PASS play-workshops runtime: keyboard stroke, preserved first/revised versions, MC work, persistent active draft, cleanup.');
+
+// A failed recorder must release a permission-granted microphone; cancellation must
+// also release a stream that resolves after the user has switched discipline.
+let stoppedTracks=0;
+const ownedStream={getTracks:()=>[{stop:()=>stoppedTracks++}]};
+Object.defineProperty(globalThis,'navigator',{configurable:true,value:{mediaDevices:{getUserMedia:async()=>ownedStream}}});
+globalThis.MediaRecorder=class { constructor(){throw new Error('unsupported recorder');} };
+state.drafts.workshops.active='mc';
+const mediaUnmount=mountWorkshops(root,{store,notify:text=>notices.push(text)});
+click('[data-action="record-A"]');
+await Promise.resolve();await Promise.resolve();
+assert.equal(stoppedTracks,1,'Constructor failure releases the microphone stream.');
+let resolvePermission;
+navigator.mediaDevices.getUserMedia=()=>new Promise(resolve=>{resolvePermission=resolve;});
+click('[data-action="record-A"]');
+const change=new window.Event('caisik:discipline');change.detail={discipline:'dj'};window.dispatchEvent(change);
+resolvePermission(ownedStream);await Promise.resolve();await Promise.resolve();
+assert.equal(stoppedTracks,2,'A delayed permission result is released after the user leaves the recording discipline.');
+mediaUnmount();
+console.log('PASS play-workshops media lifecycle: failed recorder and delayed permission release tracks.');
+
+// Two mounted tools may start from the same snapshot. Each must persist only its
+// authored delta, through the real storage module, preserving the other draft.
+const {createStore}=await import('../dist/play/store.js');
+const shared=new Map();const storage={getItem:key=>shared.get(key)||null,setItem:(key,value)=>shared.set(key,value)};
+const tabA=createStore({storage:()=>storage,eventTarget:window}),tabB=createStore({storage:()=>storage,eventTarget:window});
+const rootA=document.createElement('main'),rootB=document.createElement('main');document.body.append(rootA,rootB);
+const cleanupA=mountWorkshops(rootA,{store:tabA}),cleanupB=mountWorkshops(rootB,{store:tabB});
+const sendValue=(host,name,text)=>{const field=host.querySelector(`[data-field="${name}"]`);field.value=text;field.dispatchEvent(new window.Event('input',{bubbles:true}));};
+const sendClick=(host,selector)=>host.querySelector(selector).dispatchEvent(new window.Event('click',{bubbles:true}));
+sendClick(rootB,'[data-discipline="mc"]');
+sendValue(rootA,'word','W');sendValue(rootA,'decision','Otevřený průhled W.');sendValue(rootA,'nextStep','Zmenšit vlastní návrh.');
+const keyboard=new window.Event('keydown',{bubbles:true});keyboard.key=' ';rootA.querySelector('.ws-sketch').dispatchEvent(keyboard);
+const move=new window.Event('keydown',{bubbles:true});move.key='ArrowRight';rootA.querySelector('.ws-sketch').dispatchEvent(move);
+const finish=new window.Event('keydown',{bubbles:true});finish.key=' ';rootA.querySelector('.ws-sketch').dispatchEvent(finish);
+sendValue(rootB,'text','První vlastní řádek\nDruhý obraz z ulice\nTřetí návrat domů\nČtvrtý otevřený den');sendValue(rootB,'decision','Konkrétní detail místo obecnosti.');sendValue(rootB,'nextStep','Změnit druhý důraz.');
+window.dispatchEvent(new window.Event('pagehide'));
+let fresh=createStore({storage:()=>storage,eventTarget:window});
+assert.equal(fresh.get().drafts.workshops.writer.word,'W','A stale MC tool preserves the separately authored Writer draft.');
+assert.ok(fresh.get().drafts.workshops.mc.text.includes('První vlastní řádek'),'Writer and MC drafts survive concurrent mounted snapshots.');fresh.destroy();
+sendClick(rootA,'[data-action="save"]');sendClick(rootB,'[data-action="save"]');
+fresh=createStore({storage:()=>storage,eventTarget:window});
+assert.equal(fresh.get().artifacts.length,2,'Both first-version artifacts survive.');
+assert.equal(fresh.get().drafts.workshops.writer.word,'W');assert.ok(fresh.get().drafts.workshops.mc.text.includes('První vlastní řádek'));
+const writesBefore=fresh.get().revision;
+cleanupA();cleanupB();
+const stable=createStore({storage:()=>storage,eventTarget:window});assert.equal(stable.get().revision,writesBefore,'Unmount without actual edits does not write a stale snapshot.');
+fresh.destroy();stable.destroy();tabA.destroy();tabB.destroy();rootA.remove();rootB.remove();
+console.log('PASS play-workshops multi-tab: actual store preserves separate Writer/MC drafts and both first versions; clean unmount is read-only.');

@@ -1,0 +1,75 @@
+import assert from 'node:assert/strict';
+import {tapTempo,normalizeSound,midiFrequency,zoneForPanel,mountSound,cadenceStroke} from '../dist/play/sound.js';
+assert.deepEqual(cadenceStroke([{t:0,level:0},{t:6,level:.5},{t:12,level:1}]).points,[[0,220],[450,140],[900,60]]);
+assert.equal(tapTempo([0,500,1000,1500]),120);
+assert.equal(tapTempo([0,600,1200]),100);
+assert.equal(tapTempo([0,20,60]),null);
+assert.equal(tapTempo([0]),null);
+assert.equal(normalizeSound({volume:99,bpm:-10,zone:'__proto__',steps:null,gesture:'bad'}).volume,.5);
+assert.equal(normalizeSound({volume:99,bpm:-10,zone:'__proto__',steps:null}).zone,'studio');
+assert.equal(normalizeSound({gesture:[{x:-10,y:999,t:50000},{x:NaN,y:2,t:3}]}).gesture.length,1);
+assert.deepEqual(normalizeSound({gesture:[{x:-10,y:999,t:50000}]}).gesture,[{x:0,y:260,t:30000}]);
+assert.equal(Math.round(midiFrequency(69)),440);
+assert.equal(zoneForPanel('journal'),'library');assert.equal(zoneForPanel('field'),'street');
+const {parseHTML}=await import('linkedom');
+const {window,document}=parseHTML('<html><body><main id="sound"></main></body></html>');
+globalThis.window=window;globalThis.document=document;globalThis.CustomEvent=window.CustomEvent;
+globalThis.requestAnimationFrame=()=>1;globalThis.cancelAnimationFrame=()=>{};
+let contexts=0,resumes=0,suspends=0,closed=0,starts=0,stops=0;
+const param=()=>({value:0,setTargetAtTime(){},setValueAtTime(){},linearRampToValueAtTime(){},exponentialRampToValueAtTime(){},cancelScheduledValues(){}});
+const node=()=>({gain:param(),connect(){},disconnect(){}});
+window.AudioContext=class {constructor(){contexts++;this.state='suspended';this.currentTime=0;this.destination={};}createGain(){return node();}createOscillator(){return {...node(),frequency:param(),start(){starts++;},stop(){stops++;}};}async resume(){resumes++;this.state='running';}async suspend(){suspends++;this.state='suspended';}async close(){closed++;this.state='closed';}};
+const state={drafts:{},inventory:[],settings:{motion:'off'}};
+const store={get:()=>structuredClone(state),update:fn=>{fn(state);return true;}};
+const root=document.getElementById('sound'),notices=[];
+const cleanup=mountSound(root,{store,notify:x=>notices.push(x)});
+assert.equal(contexts,0,'Mounting never constructs or starts an AudioContext.');
+assert.equal(starts,0,'There is no autoplay oscillator.');
+const click=selector=>root.querySelector(selector).dispatchEvent(new window.Event('click',{bubbles:true}));
+click('[data-step="0"]');assert.equal(contexts,0,'Editing a note remains silent.');
+click('[data-sound="saveMotif"]');assert.equal(state.inventory.length,1);assert.match(state.inventory[0].metadata.provenance,/Procedurální/);
+click('[data-sound="zones"]');await Promise.resolve();await Promise.resolve();
+assert.equal(contexts,1);assert.equal(resumes,1);assert.equal(starts,9,'Only explicit Start creates procedural zones.');
+assert.equal(document.querySelector('.sound-floating').hidden,false,'Stop remains available outside the hidden base panel.');
+const panelEvent=new window.CustomEvent('caisik:panel',{detail:{panel:'field'}});window.dispatchEvent(panelEvent);
+assert.equal(root.querySelector('[data-zone-name]').textContent,'ULICE');
+click('[data-sound="stop"]');assert.ok(suspends>=1);assert.ok(stops>=9);assert.equal(document.querySelector('.sound-floating').hidden,true);
+cleanup();assert.equal(closed,1);assert.equal(document.querySelector('.sound-floating'),null);
+assert.ok(state.drafts.sound.steps.length===8);
+console.log('PASS play-sound: tempo from actual taps, bounded notes/gestures, silent load/edit, explicit procedural audio, zone navigation, global Stop, cleanup.');
+
+// STOP and page hiding must win over an outstanding AudioContext.resume promise.
+let resolveResume;
+window.AudioContext=class {constructor(){this.state='suspended';this.currentTime=0;this.destination={};}createGain(){return node();}createOscillator(){return {...node(),frequency:param(),start(){starts++;},stop(){stops++;}};}resume(){return new Promise(resolve=>{resolveResume=()=>{this.state='running';resolve();};});}async suspend(){this.state='suspended';}async close(){this.state='closed';}};
+const pendingCleanup=mountSound(root,{store});
+const beforePending=starts;
+click('[data-sound="zones"]');click('[data-sound="stop"]');resolveResume();await Promise.resolve();await Promise.resolve();await Promise.resolve();
+assert.equal(starts,beforePending,'A pending Start cannot revive oscillators after STOP.');
+click('[data-sound="motif"]');
+Object.defineProperty(document,'hidden',{configurable:true,value:true});document.dispatchEvent(new window.Event('visibilitychange'));
+resolveResume();await Promise.resolve();await Promise.resolve();await Promise.resolve();
+assert.equal(starts,beforePending,'A pending Start cannot revive audio after the page is hidden.');
+pendingCleanup();Object.defineProperty(document,'hidden',{configurable:true,value:false});
+console.log('PASS play-sound async lifecycle: STOP and hidden page cancel deferred unlock.');
+
+// Selecting a permitted local file stays silent; Pause wins over a delayed play.
+let plays=0,resolvePlay;const ownAudio=[];
+globalThis.Audio=class {constructor(){this.paused=true;this.currentTime=0;ownAudio.push(this);}load(){}removeAttribute(){}pause(){this.paused=true;}play(){plays++;return new Promise(resolve=>{resolvePlay=()=>{this.paused=false;resolve();};});}};
+window.AudioContext=class {constructor(){this.state='suspended';this.currentTime=0;this.destination={};}createGain(){return node();}createMediaElementSource(){return node();}createAnalyser(){return {...node(),frequencyBinCount:256,getByteFrequencyData(data){data.fill(120);}};}async resume(){this.state='running';}async suspend(){this.state='suspended';}async close(){this.state='closed';}};
+const fileCleanup=mountSound(root,{store});
+root.querySelector('[data-sound="rights"]').checked=true;
+const fileInput=root.querySelector('[data-sound="file"]');const audioBlob=new Blob(['own test sound'],{type:'audio/wav'});Object.defineProperty(audioBlob,'name',{value:'own-test.wav'});fileInput.files=[audioBlob];fileInput.dispatchEvent(new window.Event('change',{bubbles:true}));
+assert.equal(plays,0,'File selection never starts playback.');
+assert.equal(ownAudio.length,1);
+click('[data-sound="playFile"]');await Promise.resolve();await Promise.resolve();
+assert.equal(plays,1,'Only the explicit Play button starts the own file.');
+click('[data-sound="pauseFile"]');resolvePlay();await Promise.resolve();await Promise.resolve();
+assert.equal(ownAudio[0].paused,true,'A delayed play cannot override Pause.');
+let nextAnalysis;globalThis.requestAnimationFrame=fn=>{nextAnalysis=fn;return 1;};
+state.artifacts=[];click('[data-sound="playFile"]');await Promise.resolve();await Promise.resolve();resolvePlay();await Promise.resolve();await Promise.resolve();
+click('[data-sound="captureCadence"]');for(const t of [.1,.2,.3]){ownAudio[0].currentTime=t;nextAnalysis();}
+click('[data-sound="captureCadence"]');
+for(const [name,text] of [['cadenceLetter','A'],['cadenceMeaning','Silnější slabika vytvoří vyšší konstrukční tah.']]){const field=root.querySelector(`[data-sound="${name}"]`);field.value=text;field.dispatchEvent(new window.Event('input',{bubbles:true}));}
+click('[data-sound="saveCadence"]');assert.equal(state.artifacts.length,1);assert.equal(state.artifacts[0].versions[0].strokes[0].points.length,3,'Cadence stroke contains actual analyser samples at own audio times.');
+fileCleanup();
+console.log('PASS play-sound own-file privacy: selection silent, explicit Play, delayed Pause race, local-only cleanup.');
