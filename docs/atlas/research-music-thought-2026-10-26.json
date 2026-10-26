@@ -1,0 +1,311 @@
+{
+  "schemaVersion": 1,
+  "checkedAt": "2026-10-26",
+  "scope": "Paříž a blízké okolí — nové hudební a filozofické zastávky",
+  "method": "Přečtené zdroje provozovatelů, města a oficiální turistické kanceláře. Datum označuje kontrolu uvedených tvrzení, nikoli návštěvu nebo rezervaci. Souřadnice z adres nejsou odhadnuté.",
+  "global": {
+    "partnerConfirmed": false,
+    "bookingConfirmed": false,
+    "sourceMediaRightsGranted": false,
+    "automaticAudioRecording": false
+  },
+  "places": [
+    {
+      "id": "bellevilloise",
+      "name": "La Bellevilloise",
+      "address": "19–21 rue Boyer, 75020 Paris",
+      "category": "hiphop",
+      "facts": [
+        "Kulturní prostor s koncerty a klubovými večery. Program Musicology výslovně zahrnuje rap a hip-hop vedle soulu, funku, disca a house.",
+        "Jde o vícežánrové místo: hudební styl vybírej podle konkrétního večera, nikoli podle názvu budovy."
+      ],
+      "sources": [
+        {
+          "title": "La Bellevilloise — praktické informace a přístupnost",
+          "url": "https://www.labellevilloise.com/infos-pratiques/"
+        },
+        {
+          "title": "La Bellevilloise — Musicology, příklad doloženého hudebního zaměření",
+          "url": "https://www.labellevilloise.com/evenement/musicology-13/"
+        },
+        {
+          "title": "La Bellevilloise — aktuální program",
+          "url": "https://www.labellevilloise.com/agenda/"
+        }
+      ],
+      "access": "Vyber konkrétní akci v oficiálním programu a ověř vstupenku, věkovou hranici a otevřený sál. Klubové večery jsou pro dospělé. Provozovatel uvádí bezbariérový přístup a doporučuje potřeby při koncertu domluvit předem. Nemáš automaticky vstup na pódium ani oprávnění nahrávat účinkující.",
+      "checkedAt": "2026-10-26",
+      "lat": null,
+      "lng": null,
+      "coordinateStatus": "Adresa doložena provozovatelem. Přesný mapový bod není z uvedených zdrojů nezávisle ověřen.",
+      "task": {
+        "question": "Jak DJ mění energii sálu, když vystřídá žánr?",
+        "observe": "Po dohodě s pravidly místa poslouchej tři přechody. Sleduj délku frází, basovou linku a reakci lidí bez pořizování jejich záznamů.",
+        "try": "Doma sestav třískladbovou posloupnost ze své legální hudební knihovny: navázání, kontrast, návrat. Nákup ani zveřejnění nahrávky nejsou podmínkou.",
+        "review": "U každého přechodu napiš, co zůstalo společné a co se změnilo. Přepiš pořadí, pokud energie nemá čitelný směr.",
+        "output": "Tři skladby s autorem a názvem, náčrt energie a tři vysvětlená dramaturgická rozhodnutí."
+      },
+      "relatedExpedition": "dj"
+    },
+    {
+      "id": "fgo-barbara",
+      "name": "FGO-Barbara",
+      "address": "1 rue Fleury, 75018 Paris",
+      "category": "hiphop",
+      "facts": [
+        "FGO-Barbara se představuje jako víceoborový prostor Goutte d’Or pro tvorbu, podporu umělců, koncerty, studia a rezidence.",
+        "Oficiální web při kontrole odkazuje přesměrováním na vlastní profil pořadatele na Shotgun. Ten zveřejňuje i rapové a hip-hopové koncerty; nabídka není výhradně hip-hopová."
+      ],
+      "sources": [
+        {
+          "title": "FGO-Barbara — oficiální vstup do programu",
+          "url": "https://fgo-barbara.fr/"
+        },
+        {
+          "title": "FGO-Barbara — profil pořadatele a program, propojený oficiálním webem",
+          "url": "https://shotgun.live/en/venues/fgo-barbara"
+        }
+      ],
+      "access": "Před návštěvou otevři konkrétní koncert na oficiálně propojené stránce pořadatele. Ověř datum, podmínky vstupu a přístupnost. Koncertní lístek není rezervace studia, lektora ani open-mic slotu. Veřejné vystoupení ve vlastní režii tato zastávka neslibuje.",
+      "checkedAt": "2026-10-26",
+      "lat": null,
+      "lng": null,
+      "coordinateStatus": "Adresa doložena profilem pořadatele propojeným oficiálním webem. Číselné souřadnice nejsou potvrzené.",
+      "evidenceNote": "Oficiální doména při čtení přesměrovala na Shotgun; nejde o nezávislý redakční žebříček.",
+      "task": {
+        "question": "Co dělá z osobního textu sdělení, kterému rozumí celý sál?",
+        "observe": "Vyber jeden živý přednes. Zapiš, kde interpret nechá pauzu, zopakuje motiv nebo změní hlas. Neopisuj cizí sloku.",
+        "try": "Napiš osm vlastních řádků a připrav dvě a cappella verze: jednu intimní a druhou pro vzdáleného posluchače. Zkoušej v soukromí, bez automatického přístupu na pódium.",
+        "review": "Nech si od ochotného posluchače zopakovat hlavní myšlenku. Uprav jeden nesrozumitelný řádek a vysvětli důvod.",
+        "output": "Vlastní osmiverší, dva popisy přednesu a jedna doložená změna textu nebo frázování."
+      },
+      "relatedExpedition": "mc"
+    },
+    {
+      "id": "petit-bain",
+      "name": "Petit Bain",
+      "address": "7 Port de la Gare, 75013 Paris",
+      "category": "hiphop",
+      "facts": [
+        "Petit Bain je plovoucí kulturní prostor a družstevní podnik se společenským účelem. Má koncertní a klubový sál.",
+        "Program zahrnuje rap; příkladem je pořadatelem publikovaný koncert Pralines #2 se Zwangere Guy. To nedokládá hip-hopový program každý večer."
+      ],
+      "sources": [
+        {
+          "title": "Petit Bain — podmínky vstupu a praktické informace",
+          "url": "https://petitbain.org/infos-pratiques/"
+        },
+        {
+          "title": "Petit Bain — Pralines #2, doložený rapový program",
+          "url": "https://petitbain.org/evenement/pralines-2/"
+        },
+        {
+          "title": "Petit Bain — živý rozcestník a agenda",
+          "url": "https://petitbain.org/"
+        }
+      ],
+      "access": "Ověř konkrétní koncert či klub v programu a pravidla vstupenky. Pro osoby mladší 16 let provozovatel požaduje doprovod dospělého. Sál má výtah; specifické potřeby je vhodné domluvit předem. Foto a video technika během koncertů vyžaduje akreditaci; respektuj také omezení telefonu stanovená umělcem. Spreje jsou v sále zakázané.",
+      "checkedAt": "2026-10-26",
+      "lat": null,
+      "lng": null,
+      "coordinateStatus": "Adresa ověřena na oficiální stránce. Pin ani nástupní místo nejsou odhadnuté.",
+      "task": {
+        "question": "Jak se promění text, když musí nést hlas bez vizuální opory?",
+        "observe": "U jednoho vystoupení rozliš konkrétní hudební oporu, hlas a ticho. Zapiš dva pozorované momenty zpaměti po koncertu.",
+        "try": "Vytvoř vlastní čtyřbarový motiv. Přednes jej jednou v pravidelném pulsu a podruhé s vědomě zvolenou pauzou.",
+        "review": "Pojmenuj, která verze předala význam přesněji a proč. Převeď jeden slyšený princip do vlastní sloky, ne cizí formulaci.",
+        "output": "Vlastní motiv, dvě přednesové varianty a vysvětlené rozhodnutí o jedné pauze."
+      },
+      "relatedExpedition": "mc"
+    },
+    {
+      "id": "balades-sonores",
+      "name": "Balades Sonores",
+      "address": "8 rue Pierre Picard, 75018 Paris",
+      "category": "recordshop",
+      "facts": [
+        "Nezávislý disquaire sdružil dřívější obchody z avenue Trudaine na adresu 8 rue Pierre Picard v roce 2023; tuto adresu uvádí i současná stránka obchodu.",
+        "Vlastní popis výběru zahrnuje hip-hop, R&B, soul, jazz a funk. Pořádá také hudební setkání; konkrétní set ani poslech na vyžádání nejsou automaticky zaručené."
+      ],
+      "sources": [
+        {
+          "title": "Balades Sonores — současný obchod a adresa",
+          "url": "https://www.baladessonores.com/la-boutique/"
+        },
+        {
+          "title": "Balades Sonores — přestěhování a koncepce výběru",
+          "url": "https://www.baladessonores.com/news/la-renaissance-de-balades-sonores-un-seul-lieu-plus-grand-et-confortable/"
+        },
+        {
+          "title": "Balades Sonores — program",
+          "url": "https://www.baladessonores.com/events/"
+        }
+      ],
+      "access": "Před cestou zkontroluj provoz a případnou akci přímo u obchodu. Staré přehledy s 1–3 avenue Trudaine nepoužívej jako dnešní cíl. Na podmínky poslechu se zeptej; úkol nevyžaduje nákup. Fyzický stav skladu, osobní konzultace ani kapacita akce nejsou ověřené živě.",
+      "checkedAt": "2026-10-26",
+      "lat": null,
+      "lng": null,
+      "coordinateStatus": "Aktuálně publikovaná adresa ověřena. Přesný mapový vstup neověřen.",
+      "task": {
+        "question": "Dokážeš propojit dva odlišné groove bez nálepky „tohle se k sobě nehodí“?",
+        "observe": "Vyber dvě vlastní či legálně dostupné nahrávky z odlišných stylů. Pojmenuj rytmický prvek, který je skutečně spojuje.",
+        "try": "Sestav třípoložkový tracklist: první skladba, most, druhá skladba. Uveď autory a názvy. Můžeš pracovat jen na papíře.",
+        "review": "Vysvětli, proč prostřední skladba funguje jako most. Pokud argument stojí jen na společném žánru, najdi přesnější hudební důvod.",
+        "output": "Třípoložkový tracklist s konkrétní poznámkou ke groovu, barvě a přechodu."
+      },
+      "relatedExpedition": "dj"
+    },
+    {
+      "id": "superfly-records",
+      "name": "Superfly Records",
+      "address": "53 rue Notre-Dame de Nazareth, 75003 Paris",
+      "category": "recordshop",
+      "facts": [
+        "Vlastní web Superfly propojuje obchod, vydavatelství, radio a redakční blog a uvádí kamennou adresu v rue Notre-Dame de Nazareth.",
+        "Kategorie zahrnují soul/funk/disco, jazz, africkou a latinskoamerickou hudbu i New Grooves / Hip-Hop. Jde o mezižánrové hledání souvislostí, ne o tvrzení, že libovolná deska je doloženým rapovým samplem."
+      ],
+      "sources": [
+        {
+          "title": "Superfly Records — vlastní blog, katalogové kategorie a adresa",
+          "url": "https://blog.superflyrecords.com/"
+        },
+        {
+          "title": "Superfly Records — oficiální obchod",
+          "url": "https://www.superflyrecords.com/"
+        }
+      ],
+      "access": "Otevírací dobu, podmínky poslechu a dostupnost konkrétního titulu ověř u obchodu. Hlavní katalog při výzkumu omezoval automatické čtení; adresa a vazby obchodu jsou doložené jeho vlastním blogem. Nákup není podmínkou úkolu. Bez oprávnění nekopíruj ani veřejně nepublikuj zvuk.",
+      "checkedAt": "2026-10-26",
+      "lat": null,
+      "lng": null,
+      "coordinateStatus": "Adresa publikovaná vlastníkem na vlastním blogu. Číselný pin neověřen.",
+      "evidenceNote": "Hlavní katalog nebyl při čtení plně dostupný; nelze potvrdit živý sklad ani dnešní provozní dobu.",
+      "task": {
+        "question": "Jak odlišit slyšenou podobnost od doloženého původu samplu?",
+        "observe": "U jedné skladby popiš bicí, basu a frázování bez domněnek o tom, kdo ji samploval.",
+        "try": "Vytvoř kartu: co skutečně slyším, co si myslím, jaký zdroj by hypotézu ověřil. Zkus rytmus vlastními údery do stolu bez kopírování nahrávky.",
+        "review": "Označ jednu nepodloženou domněnku a nahraď ji pozorovatelným popisem. Autorské a právní svolení neposuzuj podle pouhé dostupnosti záznamu.",
+        "output": "Poslechová karta, vlastní čtyřdobý rytmický náčrt a seznam důkazů potřebných k tvrzení o samplu."
+      },
+      "relatedExpedition": "dj"
+    },
+    {
+      "id": "cafe-des-phares",
+      "name": "Café des Phares",
+      "address": "7 place de la Bastille, 75004 Paris",
+      "category": "philosophy",
+      "facts": [
+        "Oficiální pařížská turistická kancelář uvádí Café des Phares jako místo veřejných filozofických debat a jeho adresu na Bastille.",
+        "Zdroj popisuje nedělní dopolední setkávání. Jde o publikovaný pravidelný formát, nikoli o potvrzení konání v konkrétní den."
+      ],
+      "sources": [
+        {
+          "title": "Paris je t’aime — oficiální turistická kancelář, Café des Phares",
+          "url": "https://parisjetaime.com/restaurant/cafe-des-phares-p847"
+        }
+      ],
+      "access": "Před cestou si u podniku potvrď datum, jazyk, podmínky účasti a případnou konzumaci. Fyzická přístupnost nebyla ověřena. Nenahrávej účastníky bez souhlasu; můžeš poslouchat a pracovat jen s vlastními poznámkami. Starší webové adresy debatního okruhu neposkytly dostatečně spolehlivou současnou informaci a nejsou zde doporučeným rezervačním kanálem.",
+      "checkedAt": "2026-10-26",
+      "lat": null,
+      "lng": null,
+      "coordinateStatus": "Adresa doložena oficiální turistickou kanceláří. Přesný bod ani vstup neověřen.",
+      "evidenceNote": "Současný formát dokládá turistická kancelář, ne nezávislá návštěva. Termín není potvrzen přímo moderátorem.",
+      "task": {
+        "question": "Může se sebejistá věta stát přesnější, když vyslechneš její nejsilnější námitku?",
+        "observe": "Poslouchej, jak se odlišuje příklad, důvod a pouhé přesvědčení. Parafrázuj jednu myšlenku bez jména jejího autora.",
+        "try": "Napiš vlastní tezi ve dvou větách. Přidej nejsilnější námitku a jednu otázku, která by obě strany posunula.",
+        "review": "Změň v tezi konkrétní slovo nebo rozsah tvrzení. Vysvětli, jaká námitka tě k tomu vedla. Cílem není vyhrát debatu.",
+        "output": "Teze, poctivá protinámitka a zpřesněná myšlenka s důvodem změny."
+      },
+      "relatedExpedition": "knowledge"
+    },
+    {
+      "id": "forum104",
+      "name": "Forum104",
+      "address": "104 rue de Vaugirard, 75006 Paris",
+      "category": "philosophy",
+      "facts": [
+        "Forum104 publikuje program dílen, debat a přednášek s kulturními, společenskými a duchovními tématy. Není to výhradně akademický filozofický klub.",
+        "Archiv dokládá café-philo s Danielem Ramirezem; aktuální program září–prosinec 2026 je zveřejněný samostatně. Historický termín café-philo nepřebíráme jako současný rozvrh."
+      ],
+      "sources": [
+        {
+          "title": "Forum104 — současný program a adresa",
+          "url": "https://www.forum104.org/evenements"
+        },
+        {
+          "title": "Forum104 — doklad historického formátu café-philo, archiv 2021",
+          "url": "https://www.forum104.org/cafe-philo"
+        },
+        {
+          "title": "Forum104 — program září–prosinec 2026",
+          "url": "https://www.forum104.org/f/8ffb5be4580c014dc62183fa3329addc6bbeddf5/Flyer%20trimestriel%20setp-dec%202026.pdf"
+        }
+      ],
+      "access": "Vyber konkrétní současnou debatu nebo dílnu v programu. Každá má vlastní téma, cenu a případné přihlášení; návštěva budovy neznamená účast v libovolné skupině. Ověř jazyk, přístupnost a formát. Samostatně zveřejněné duchovní postoje jsou postoje řečníků, nikoli námi potvrzené historické či vědecké důkazy.",
+      "checkedAt": "2026-10-26",
+      "lat": null,
+      "lng": null,
+      "coordinateStatus": "Adresa potvrzena na webu provozovatele. Pin neověřen.",
+      "task": {
+        "question": "Kdy je věta osobní zkušeností, kdy interpretací a kdy ověřitelným tvrzením?",
+        "observe": "Při zvolené veřejné debatě si pro vlastní potřebu poznamenej tři anonymizované parafráze. Odděl zkušenost, argument a faktické tvrzení.",
+        "try": "Vytvoř vlastní znak ze tří oddělených linií. Každá označuje jeden typ výroku; doplň legendu a krátký text o tom, kde se tvé přesvědčení opírá o důkazy.",
+        "review": "Vyber jedno faktické tvrzení a napiš, jaký nezávislý důkaz by je mohl potvrdit nebo vyvrátit. Symbol tuto důkazní práci nenahrazuje.",
+        "output": "Vlastní znak, legenda tří způsobů řeči a jedna zpřesněná myšlenka."
+      },
+      "relatedExpedition": "knowledge"
+    },
+    {
+      "id": "maison-philo-romainville",
+      "name": "Maison de la Philo — Romainville",
+      "address": "28 avenue Paul-Vaillant-Couturier, 93230 Romainville",
+      "category": "philosophy",
+      "facts": [
+        "Městská Maison de la Philo nabízí filozofii pro různé věkové skupiny: café-philo, přednášky, knihovnu i klub mladých myslitelů.",
+        "Vlastní program 2026–2027 zahrnuje také café-philo musique a propojení obrazů, tvorby a společenských otázek. Některé akce probíhají v dalších místních kulturních budovách."
+      ],
+      "sources": [
+        {
+          "title": "Město Romainville — Maison de la Philo a adresa",
+          "url": "https://www.ville-romainville.fr/1056-maison-de-la-philo.htm"
+        },
+        {
+          "title": "Maison de la Philo — současný program a podmínky",
+          "url": "https://maisondelaphilo-romainville.org/"
+        },
+        {
+          "title": "Maison de la Philo — program 2026–2027",
+          "url": "https://maisondelaphilo-romainville.org/wp-content/uploads/2026/08/prog-maison-de-la-philo-2026-2027_VF-compresse.pdf"
+        }
+      ],
+      "access": "Program uvádí bezplatné aktivity bez předchozích znalostí, ale některé potřebují přihlášení a dětské skupiny mohou být plné. Zkontroluj konkrétní věkovou skupinu, jazyk, volné místo a přesnou budovu vybrané akce. Romainville je samostatná obec za hranicí Paříže; neplánuj ji jako sousední zastávku v centru. Přístupnost konkrétního prostoru ověř u pořadatele.",
+      "checkedAt": "2026-10-26",
+      "lat": null,
+      "lng": null,
+      "coordinateStatus": "Adresa ověřena v městském zdroji i programu 2026–2027. Souřadnice neodhadujeme.",
+      "task": {
+        "question": "Je svoboda tvorby jen možnost udělat cokoli, nebo i schopnost vysvětlit vlastní volbu?",
+        "observe": "Před diskusí si napiš definici svobody. Při setkání hledej konkrétní protipříklad, který tvou definici prověří.",
+        "try": "Vytvoř krátký vlastní text a jednoduchý znak pro jednu hranici, kterou přijímáš dobrovolně. Vysvětli vztah této hranice k tvé tvorbě.",
+        "review": "Po diskusi přepiš jednu větu tak, aby obstála i v nejsilnějším protipříkladu. Uveď, co se změnilo a co zůstává otevřené.",
+        "output": "Krátký text, vlastní znak a dvě verze myšlenky s vysvětlenou změnou."
+      },
+      "relatedExpedition": "knowledge"
+    }
+  ],
+  "excluded": [
+    {
+      "name": "Djoon",
+      "reason": "Oficiální prezentace je house/soulful. Nepopisovat jako vyhrazený hip-hopový klub."
+    },
+    {
+      "name": "Collège international de philosophie",
+      "reason": "Program rozděluje semináře do více budov. Bez výběru konkrétní současné akce nevytvářet jeden stálý návštěvní pin."
+    },
+    {
+      "name": "cafe-philo-des-phares.com",
+      "reason": "Při čtení domovské stránky se objevoval nesouvisející hazardní obsah. Nepoužito jako důvěryhodný současný zdroj ani rezervační kanál."
+    }
+  ]
+}

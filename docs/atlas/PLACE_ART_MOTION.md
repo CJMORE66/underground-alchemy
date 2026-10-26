@@ -8,22 +8,26 @@ The twelve new location posters are generated contemporary illustrations. Their 
 
 Every actual final WebP was visually inspected at 1536×1024 before drawing its source-space paths. The overlay uses the same viewBox and preserves the image frame. Do not reuse these coordinates if a poster is regenerated or cropped differently. Keep the frame at the original 3:2 ratio; the intact static image remains the source of truth.
 
-Native SVG paths redraw selected edges and progress through actual window or roof regions. A small number of painted details are duplicated from the original image and clipped to inspected interior ellipses; their movement stays small enough to preserve the silhouette and occlusion. This is not a fully separated or recovered 3D raster illustration. The whole image and card do not translate, tilt, scale, rotate or fade as a substitute for internal animation.
+Native SVG paths redraw selected edges and progress through actual window or roof regions. Each trace now has a dark source-aligned under-stroke, a yellow construction stroke and a separate bone-white travelling nib. This preserves contrast against the saturated illustration at mobile scale; the old 2.4-source-pixel strokes became subpixel lines in narrow profiles. Window lighting reaches a deliberate 48% rather than the previous barely visible 22%. A small number of painted details are duplicated from the original image and clipped to inspected interior ellipses; their movement preserves the silhouette and occlusion. Near-circular symbolic sun/star interiors rotate once per loop; other painted interiors rock within their inspected bounds. Architectural facades and the complete poster never rotate as a substitute for detail motion. This is not a fully separated or recovered 3D raster illustration. The whole image and card do not translate, tilt, scale, rotate or fade as a substitute for internal animation.
 
 | Place | Individual illustrated motion | Loop |
 |---|---|---:|
-| Notre-Dame | Interior rose-window tracery, separate painted halo, three portals, tower edges and crossing spire | 16 s |
-| Sainte-Chapelle | Western rose, tall glazing in sequence, roof edge and slender spire | 18 s |
-| Maison de Nicolas Flamel | Separate window bays, carved lintel bands, painted sun and moon | 15 s |
-| Saint-Sulpice | Unequal tower edges, individual colonnade strokes, portals and central light axis | 17 s |
-| Père-Lachaise | Tomb-chapel arches, successive stair treads, small painted leaf and star | 18 s |
-| République | Pedestal bands, branch/figure outline, shield and low-relief light | 17 s |
-| Abbesses | Individual canopy ribs, organic iron supports and separate kiosk lamps | 16 s |
-| Le M.U.R. Oberkampf | Original painted letter strokes, wall edges and separate lamp cones | 15 s |
-| La Place / Canopée | Left/right roof wings, structural ribs, passage glazing and painted compass | 18 s |
-| CENTQUATRE | Separate hall fronts, iron trusses, glazed roof panels and pendant lights | 18 s |
-| Philharmonie | Bird-pattern facet edges, rising roof/ribbon path and glazed recesses | 17 s |
-| Shakespeare and Company | Bookshop window bays, shelf lines, awning and separate interior lamps | 16 s |
+| Notre-Dame | Interior rose-window tracery, separate painted halo, three portals, tower edges and crossing spire | 9.28 s |
+| Sainte-Chapelle | Western rose, tall glazing in sequence, roof edge and slender spire | 10.44 s |
+| Maison de Nicolas Flamel | Separate window bays, carved lintel bands, painted sun and moon | 8.70 s |
+| Saint-Sulpice | Unequal tower edges, individual colonnade strokes, portals and central light axis | 9.86 s |
+| Père-Lachaise | Tomb-chapel arches, successive stair treads, small painted leaf and star | 10.44 s |
+| République | Pedestal bands, branch/figure outline, shield and low-relief light | 9.86 s |
+| Abbesses | Individual canopy ribs, organic iron supports and separate kiosk lamps | 9.28 s |
+| Le M.U.R. Oberkampf | Original painted letter strokes, wall edges and separate lamp cones | 8.70 s |
+| La Place / Canopée | Left/right roof wings, structural ribs, passage glazing and painted compass | 10.44 s |
+| CENTQUATRE | Separate hall fronts, iron trusses, glazed roof panels and pendant lights | 10.44 s |
+| Philharmonie | Bird-pattern facet edges, rising roof/ribbon path and glazed recesses | 9.86 s |
+| Shakespeare and Company | Bookshop window bays, shelf lines, awning and separate interior lamps | 9.28 s |
+
+The first construction becomes visibly readable in approximately two seconds. A compact HTML badge names the current phase (outline, light, detail), and explicit replay resets the sequence and announces the scene. A blocked replay explains the active global pause, calm mode or system reduced-motion setting in visible text and a live status region; it does not silently fail or override the visitor’s choice. The original global preference remains authoritative.
+
+Visibility uses the actual SVG `hidden` attribute, not the non-reflected `SVGElement.hidden` JavaScript expando. This fixes the discrepancy between a DOM test harness and browser rendering.
 
 Motion pauses immediately when a host leaves the viewport, the tab is hidden, reduced motion is requested, the global `data-motion="off"` preference is set, a quiet Selfmade mode is active, or simple mode is selected. An open modal pauses posters behind it. No audio, permissions, requests to remote services or storage writes are added.
 
@@ -42,4 +46,4 @@ node --check dist/place-art-motion.js
 node tests/place-art-motion.mjs
 ```
 
-The Node suite runs the actual runtime in a DOM/VM harness. It verifies internal animated changes for all twelve distinct scene paths, source-paint clipping, replay handler preservation, pointer changes, modal/offscreen/tab/reduced-motion pause, unique SVG references, dynamic cleanup, BFCache and static failure/API fallbacks. It does not claim physical-phone rendering or precise visual alignment without a separate browser review.
+The Node suite runs the actual runtime in a DOM/VM harness. It verifies internal animated changes for all twelve distinct scene paths, source-paint clipping, replay handler preservation, pointer changes, visible construction/light within the first seconds, per-trace contrast and moving nibs, explicit blocked-replay feedback, modal/offscreen/tab/reduced-motion pause, unique SVG references, dynamic cleanup, BFCache and static failure/API fallbacks. It does not claim physical-phone rendering or precise visual alignment without a separate browser review.

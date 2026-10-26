@@ -1,7 +1,5 @@
 # CAISIK / Underground Alchemy
 
-Lokální rozšíření na RPG: začni [RPG200 / Hermes](docs/rpg200/START_HERE.md). Obsahuje plán 200 vylepšení, technické předpoklady, trvalou frontu a protokol nativního Hermes loopu. Jde o implementační plán; nenahrazuje níže uvedený současný funkční stav webu.
-
 Projekt už obsahuje pět úplných expedic DJ, MC, Writer, Breaking a Knowledge. Nevytvářej duplicitní stránky ani novou značku. Závazná je schválená podrobná žlutozlatá grafika v `docs/atlas/APPROVED-STYLE.md`.
 
 1. Přečti aktuální `docs/expeditions/QA_REPORT.md` a `docs/expeditions/README.md`.
@@ -29,3 +27,13 @@ Hidden City používá volitelný `dist/city-map.js/css` nad skutečnými daty O
 `dist/place-art-motion.js/css` obsahuje dvanáct individuálně komponovaných animací nad původními ilustracemi. Trasy oken, rozet a konstrukcí používají jejich skutečné obrazové souřadnice; při výměně WebP uprav i scénu. `src/city-landmarks/` obsahuje dvanáct zjednodušených vlastních 3D modelů a konečné časové posloupnosti. `node tools/build-city-landmarks.mjs` vytváří lazy bundle `dist/city-landmarks.js`. Stejné modely se zobrazují jako prostorová vrstva mapy a ve volitelném otáčecím prohlížeči s projekcí do SVG.
 
 Ověření: `node tests/city-landmarks.mjs`, `node tests/place-art-motion.mjs`, `node tests/place-visuals-integration.mjs` a původní testy atlasu. Podrobnosti a limity: `docs/atlas/LANDMARK_RELEASE_QA.md`, `LANDMARK_MODELS.md`, `PLACE_ART_MOTION.md`. Rollback této změny: znovu nasadit verzi 26, bez mazání lokálních poznámek či jiných uživatelských dat.
+
+## STREET / SOUND / THOUGHT — živá kultura
+
+`dist/culture-data.json` přidává čtrnáct ověřovaných kulturních míst k původním dvanácti. Zdroje výzkumu z 26. října 2026 jsou v `docs/atlas/research-graffiti-shops-2026-10-26.json` a `research-music-thought-2026-10-26.json`. Spravuj kanonické JSON i výzkumný záznam společně; datum kontroly se týká přečtených zdrojů, nikoli osobní inspekce. Nepřebírej staré rozvrhy a ceny bez nové kontroly. Le Grand Jeu používá stejné ID jako ve Writer expedici. Souřadnice `null` zachovej, dokud nemáš konkrétní zdroj mapového bodu; adresa sama o sobě nedokládá přesný vstup.
+
+`dist/culture-data.js` validuje volitelný obsah, zachovává původní identity a připravuje tři nové tematické posloupnosti. `dist/culture-board.js/css` poskytuje kulturní rozcestník, vlastní praxi, terénní režim a animované autorské SVG symboly. Symboly nejsou rekonstrukce nových budov. Blackbook používá stávající `atlas-observations` a existující export; nepřidává účet ani uploady. Aktuální modely nadále patří jen původním dvanácti místům.
+
+U ilustrací jsou výraznější jednotlivé obrysy, světelné tahy a pohyb malovaných detailů. Ovládání pohybu přímo u mapy sdílí původní nastavení `atlas-motion`; vypnutí uživatelem nebo systémové omezení respektuj. Po generování starších stránek spusť `python tools/wire-selfmade.py`.
+
+Ověření: `node tests/culture-board.mjs`, `node tests/culture-integration.mjs`, `node tests/place-art-motion.mjs`, `node tests/place-visuals-integration.mjs`, `npm test`, `node tests/city-map.mjs` a `node tests/expeditions.mjs`. Skutečné výsledky, screenshoty a limity obsahuje `docs/atlas/CULTURE_RELEASE_QA.md`. Rollback: znovu nasadit uloženou verzi 27; nemaž žádná lokální uživatelská data.

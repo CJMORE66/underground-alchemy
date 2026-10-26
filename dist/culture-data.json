@@ -1,0 +1,518 @@
+{
+  "version": 1,
+  "checkedAt": "2026-10-26",
+  "method": "Primární zdroje provozovatelů, města a pořadatelů. Jde o kontrolu publikovaných informací, nikoli osobní inspekci nebo partnerství.",
+  "coordinatePolicy": "Bez doloženého mapového bodu zůstávají souřadnice null. Přesná adresa a externí navigace jsou k dispozici.",
+  "places": [
+    {
+      "id": "maquis-art-malik",
+      "name": "Maquis-Art / Banga Style — Marché Malik",
+      "address": "Marché Malik, stand Banga Style, 53 rue Jules Vallès, Saint-Ouen-sur-Seine",
+      "category": "artshop",
+      "facts": [
+        "Oficiální kontaktní stránka Maquis-Art uvádí pro prodej v okolí Paříže stánek Banga Style v Marché Malik na rue Jules Vallès v Saint-Ouen.",
+        "Maquis-Art svůj fotografický web popisuje jako pravidelný fanzin a uvádí, že funguje od roku 1997. Jde o dokumentační paměť scény vedle samotného prodeje materiálu."
+      ],
+      "legacy": "Rozliš archiv, autora snímku a výrobce materiálu: archiv uchovává stopu scény, ale jeho fotografie nejsou automaticky volné k převzetí.",
+      "sources": [
+        {
+          "title": "Maquis-Art — oficiální kontakty a prodejny",
+          "url": "https://www.maquis-art.com/shop/vitrines/modules/complement/contacteznous.php"
+        },
+        {
+          "title": "Maquis-Art — charakter a historie fotografického fanzinu",
+          "url": "https://www.maquis-art.com/"
+        }
+      ],
+      "access": "Před cestou potvrď otevření přímo u Maquis-Art: publikované rozvrhy webu a sociálních oznámení se rozcházejí. Starší adresy Quincampoix a Clignancourt nepoužívej jako dnešní cíl. Kontaktní web obsahuje i nesoulad v poštovním směrovacím čísle, proto zde není přepsán. Nákup spreje nezakládá povolení malovat v tržnici ani v okolí.",
+      "checkedAt": "2026-10-26",
+      "lat": null,
+      "lng": null,
+      "coordinateStatus": "Adresa a stánek doloženy provozovatelem; geografický pin neověřen.",
+      "task": {
+        "question": "Která volba nástroje skutečně mění tvoje písmo a která je jen zvyk?",
+        "observe": "Porovnej v nabídce dvě šířky hrotu nebo dvě varianty ventilu. Zapiš funkci, kterou potřebuješ: obrys, plocha nebo detail.",
+        "try": "Do vlastního Blackbooku nakresli stejné čtyři znaky se dvěma šířkami tahu. Ke každé verzi připiš, jakého nástroje by bylo potřeba; zkoušení zboží pouze se souhlasem obsluhy.",
+        "review": "Vyber čitelnější variantu a označ konkrétní spoj či mezeru, která rozhodla. Nákup není podmínkou úkolu.",
+        "output": "Dvě písmové studie + zdůvodněný výběr jednoho nástroje + odkaz na jednu archivní referenci."
+      },
+      "relatedExpedition": "writer"
+    },
+    {
+      "id": "le-lavomatik",
+      "name": "Le Lavo//Matik — Arts Urbains",
+      "address": "20 boulevard du Général d’Armée Jean Simon, 75013 Paris",
+      "category": "artshop",
+      "facts": [
+        "Provozovatel uvádí vznik Le Lavo//Matik v březnu 2014 a spojuje galerii městského umění s knihkupectvím a nezávislou tvorbou.",
+        "Na oficiální stránce popisuje střídání samostatných výstav a společných Murs Ouverts i tvůrčí využití přilehlých venkovních stěn. Ve stejném prostoru prodává také publikace a hudbu orientovanou na punk rock."
+      ],
+      "legacy": "Galerie, knihy a venkovní práce ukazují různé způsoby uchovávání pomíjivého umění. Punková diskografie obchodu není důkazem, že jde o hip-hopový klub.",
+      "sources": [
+        {
+          "title": "Le Lavo//Matik — vlastní historie, knihkupectví a venkovní tvorba",
+          "url": "https://lelavomatik.com/about/"
+        },
+        {
+          "title": "Le Lavo//Matik — oficiální adresa a kontakt",
+          "url": "https://lelavomatik.com/contact/"
+        }
+      ],
+      "access": "Návštěvu plánuj podle aktuálního kontaktního webu a výstavy. Pro malování, workshop, použití konkrétní přilehlé stěny i komerční aktivitu si předem domluv podmínky přímo se správcem. Popis venkovní tvorby není blanketní povolení přemalovat cizí dílo. Bezbariérovost nebyla doložena; ověř individuálně.",
+      "checkedAt": "2026-10-26",
+      "lat": null,
+      "lng": null,
+      "coordinateStatus": "Oficiální adresa ověřena; odkaz mapy obsahuje jen střed kamery, přesný pin nepřevzat.",
+      "task": {
+        "question": "Co se z písmové práce přenese ze stěny na stránku a co se ztratí?",
+        "observe": "Vyber jeden zveřejněný detail a rozliš tvar písmene, podklad a okolní měřítko. Zaznamenej autora a zdroj, pokud jsou uvedeni.",
+        "try": "Na vlastní papír navrhni dvě původní kompozice stejného slova: jednu pro dlouhou stěnu a druhou pro obálku zinu. Cizí dílo použij jako analyzovaný příklad, nikoli jako šablonu k obkreslení.",
+        "review": "U každé kompozice vysvětli změnu negativního prostoru a pořadí čtení. Nech druhého člověka říci, co přečetl jako první.",
+        "output": "Dvojice vlastních kompozic + popis přenosu měřítka + procesní poznámka do Blackbooku."
+      },
+      "relatedExpedition": "writer"
+    },
+    {
+      "id": "le-grand-jeu",
+      "name": "Le Grand Jeu",
+      "address": "15 passage de Ménilmontant, 75011 Paris",
+      "category": "artshop",
+      "facts": [
+        "Le Grand Jeu se na vlastním webu představuje jako nezávislé pařížské knihkupectví mezi Oberkampfem a Ménilmontantem zaměřené na street culture a DIY estetiku.",
+        "Výběr zahrnuje graffiti, street art, fotografii, skateboard i hudební kultury; obchod uvádí knihy, časopisy a ziny od zavedených i nezávislých vydavatelů."
+      ],
+      "legacy": "Zin nebo Blackbook není jen suvenýr. Zachovává pořadí pokusů, kredit autora a kontext, který se z přemalované stěny může ztratit.",
+      "sources": [
+        {
+          "title": "Le Grand Jeu — oficiální popis knihkupectví",
+          "url": "https://www.legrandj.eu/pages/the-bookstore"
+        },
+        {
+          "title": "Le Grand Jeu — aktuální adresa a návštěvní informace",
+          "url": "https://www.legrandj.eu/"
+        }
+      ],
+      "access": "Otevírací dobu a mimořádné uzavření ověř na webu obchodu. Workshop, rozhovor s autorem ani partnerství nejsou sjednány. Před focením stránek nebo interiéru požádej obsluhu; knihu nepovažuj za volnou banku reprodukcí. Úkol lze splnit bez nákupu.",
+      "checkedAt": "2026-10-26",
+      "lat": null,
+      "lng": null,
+      "coordinateStatus": "Oficiální adresa ověřena; přesná souřadnice vstupu nedodána.",
+      "linkExistingExpedition": true,
+      "task": {
+        "question": "Jak poznáš rozdíl mezi zdokumentovanou scénou a zkonstruovanou legendou?",
+        "observe": "U dvou publikací vyhledej autora, rok, způsob výběru materiálu a to, zda jmenují původní tvůrce.",
+        "try": "Na vlastním papíře vytvoř jednostránkový zin o dnešní procházce: jeden doložený fakt, vlastní kresba a jasně přiznaná osobní interpretace.",
+        "review": "Podtrhni věty, které by musely mít zdroj. Doplň chybějící kredit a jednu otázku, na kterou zatím nemáš doklad.",
+        "output": "Vlastní mini-zin + dva bibliografické záznamy + rozlišení faktu a osobního čtení."
+      },
+      "relatedExpedition": "writer"
+    },
+    {
+      "id": "fluctuart",
+      "name": "Fluctuart — Centre d’art urbain",
+      "address": "Port du Gros Caillou, u Pont des Invalides, 75007 Paris",
+      "category": "graffiti",
+      "facts": [
+        "Fluctuart je plovoucí centrum městského umění na levém břehu Seiny u Pont des Invalides. Provozovatel představuje historické i současné podoby street artu a pořádá výstavy a setkání.",
+        "Oficiální web uvádí volný a bezplatný vstup na výstavy. Výstavní sál má jiný konec otevírací doby než bar a sezónní provoz budovy."
+      ],
+      "legacy": "Přenos díla do instituce mění publikum a způsob péče o něj. Tato otázka je autorským námětem CAISIK, ne tvrzením, že všichni writeři muzealizaci vítají.",
+      "sources": [
+        {
+          "title": "Fluctuart — oficiální výstavní a návštěvní informace",
+          "url": "https://fluctuart.fr/"
+        },
+        {
+          "title": "Fluctuart — přehled výstav",
+          "url": "https://fluctuart.fr/agenda/exposition-temporaire/"
+        }
+      ],
+      "access": "Před návštěvou ověř výstavní i sezónní provoz. Upozornění webu při kontrole 26. 10. 2026: ve středu 28. 10. je výstavní sál celý den uzavřen a shop s barem mají jen 12:00–16:30. Web také hlásí dočasně nedostupný zdvihací výtah; bezbariérový přístup si potvrď. Bezplatná výstava nepovoluje vlastní malování ani placenou lekci.",
+      "serviceNotices": [
+        {
+          "kind": "temporary-closure",
+          "date": "2026-10-28",
+          "summary": "Výstavní sál zavřen celý den; bookshop a bar 12:00–16:30.",
+          "sourceUrl": "https://fluctuart.fr/",
+          "expiresAfter": "2026-10-28"
+        },
+        {
+          "kind": "accessibility",
+          "summary": "Provozovatel uvádí dočasně nedostupný zdvihací výtah; konec omezení nezveřejněn.",
+          "sourceUrl": "https://fluctuart.fr/"
+        }
+      ],
+      "checkedAt": "2026-10-26",
+      "lat": null,
+      "lng": null,
+      "coordinateStatus": "Přístav a most doloženy oficiálním webem; přesný vstupní pin neověřen.",
+      "task": {
+        "question": "Co se změní, když se gesto z ulice ocitne v kurátorském výběru?",
+        "observe": "U jednoho díla si všimni materiálu, měřítka a popisky. Odděl údaj z popisky od své reakce.",
+        "try": "Vytvoř vlastní znak ve dvou kontextech: na nákresu veřejné stěny a na stránce fiktivního katalogu. Jde o návrh na papíře.",
+        "review": "Napiš, kdo znak uvidí v každé variantě, co mu bude scházet a jak bys uvedl autora a podmínky reprodukce.",
+        "output": "Dvě kontextové studie vlastního znaku + 120 slov o změně publika."
+      },
+      "relatedExpedition": "writer"
+    },
+    {
+      "id": "art42",
+      "name": "ART42 — Urban Art Collection",
+      "address": "96 boulevard Bessières, 75017 Paris",
+      "category": "graffiti",
+      "facts": [
+        "ART42 zpřístupňuje sbírku městského umění v prostředí školy 42. Oficiální web uvádí adresu na boulevard Bessières a návštěvu s rezervací.",
+        "Aktuální rezervační stránka provozovatele uvádí bezplatnou vedenou návštěvu jednou měsíčně. Starší turistické údaje o pravidelném úterý a sobotě proto nejsou převzaty jako platný rozvrh."
+      ],
+      "legacy": "Sbírka a její prostředníci ukazují, kdo rozhoduje o zachování městského umění. Otázka výběru patří do tvého výzkumu; návštěva nemá nahrazovat vlastní práci.",
+      "sources": [
+        {
+          "title": "ART42 — oficiální rezervace a adresa",
+          "url": "https://www.art42.fr/fr/visites.html"
+        },
+        {
+          "title": "ART42 — škola, kurátoři a tým",
+          "url": "https://www.art42.fr/fr/informations.html"
+        },
+        {
+          "title": "ART42 — popis sbírky provozovatelem",
+          "url": "https://www.art42.fr/fr/collection.html"
+        }
+      ],
+      "access": "Vstup do školy není volná průchozí návštěva. Vyber skutečně vypsaný termín a rezervuj na webu provozovatele; žádná rezervace není součástí CAISIK. Skupiny mimo veřejné sloty mají samostatné podmínky a cenu, které je nutné ověřit. Přístupnost a pravidla fotografování potvrď předem. Bez přístupu pracuj s veřejnou stránkou sbírky a označ úkol jako vzdálené studium.",
+      "checkedAt": "2026-10-26",
+      "lat": null,
+      "lng": null,
+      "coordinateStatus": "Oficiální adresa ověřena; přesná souřadnice vstupu nedodána.",
+      "task": {
+        "question": "Podle jakých pravidel bys uchoval tvorbu své vlastní scény?",
+        "observe": "U dvou vystavených děl odděl techniku, autorství a tvoji domněnku o významu. Výklad průvodce zaznamenej jako jeho výklad.",
+        "try": "Sestav malý kurátorský návrh ze tří vlastních skic. Napiš každé popisku a vysvětli, co jsi záměrně nezařadil.",
+        "review": "Požádej druhého čtenáře, aby popsal pravidlo tvého výběru bez nápovědy. Podle jeho odpovědi jednu popisku zpřesni.",
+        "output": "Tři vlastní skici s popiskami + pravidlo výběru + jedna doložená úprava po zpětné vazbě."
+      },
+      "relatedExpedition": "writer"
+    },
+    {
+      "id": "spot13",
+      "name": "Spot 13 — řízené místo městského umění",
+      "address": "47 allée Paris-Ivry, 75013 Paris — adresa zveřejněné akce, aktuální přístup potvrdit se správcem",
+      "category": "graffiti",
+      "facts": [
+        "Městský adresář 13. obvodu aktualizovaný 9. října 2026 popisuje Spot 13 jako dočasné venkovní místo městského umění, které zve umělce k tvorbě.",
+        "Městský program festivalu mládeže doložil konkrétní graffiti workshop Spot 13 dne 30. května 2026 na 47 allée Paris-Ivry s povinnou registrací. Tato již proběhlá akce není aktuální nabídka termínu."
+      ],
+      "legacy": "Dočasné místo může zaniknout nebo změnit hranice. Zápis proto uchovává datum, autora a podmínky vzniku, nikoli slib věčně dostupné galerie.",
+      "sources": [
+        {
+          "title": "Mairie du 13e — aktuální adresář asociací, sekce Spot 13",
+          "url": "https://mairie13.paris.fr/pages/annuaire-des-associations-du-13e-33120"
+        },
+        {
+          "title": "Mairie du 13e — archiv festivalu a podmínky workshopu v květnu 2026",
+          "url": "https://mairie13.paris.fr/pages/festival-de-la-jeunesse-34978"
+        },
+        {
+          "title": "Spot 13 — vlastní asociace a kontaktní profil",
+          "url": "https://www.helloasso.com/associations/spot-13"
+        }
+      ],
+      "access": "Před cestou si od Spot 13 potvrď aktuální vstup, bezpečný veřejný přístup a případný termín vedené práce. Pozvání umělců neznamená právo kohokoli přemalovat libovolnou stěnu. Archivní květnový workshop byl pro 14–25 let a bez přístupu PMR; tyto podmínky se nepřenášejí na novou akci bez potvrzení. Adresa sídla spolku není vstupem do galerie. Komerční lekce vyžaduje výslovnou dohodu se správcem.",
+      "checkedAt": "2026-10-26",
+      "lat": null,
+      "lng": null,
+      "coordinateStatus": "Doložena adresa minulé akce, nikoli ověřený aktuální vstup; pin záměrně chybí.",
+      "task": {
+        "question": "Jak navrhnout práci, která respektuje předchozí vrstvu a může být sama dočasná?",
+        "observe": "Při potvrzené návštěvě pozoruj rozhraní dvou prací a podklad. Do poznámky uveď datum a autora pouze tehdy, pokud je skutečně doložen.",
+        "try": "Nejprve navrhni vlastní kus na papír. Realizuj jej jen v potvrzeném workshopu na výslovně přiděleném povrchu; bez souhlasu zůstaň u skici.",
+        "review": "Zapiš, kdo přidělil plochu, jaká pravidla platila a co se při přenosu z papíru změnilo. Skicu pravdivě označ jako skicu, nikoli realizaci.",
+        "output": "Skica + paleta + procesní záznam; realizace a zpětná vazba lektora jen při skutečném absolvování."
+      },
+      "relatedExpedition": "writer"
+    },
+    {
+      "id": "bellevilloise",
+      "name": "La Bellevilloise",
+      "address": "19–21 rue Boyer, 75020 Paris",
+      "category": "hiphop",
+      "facts": [
+        "Kulturní prostor s koncerty a klubovými večery. Program Musicology výslovně zahrnuje rap a hip-hop vedle soulu, funku, disca a house.",
+        "Jde o vícežánrové místo: hudební styl vybírej podle konkrétního večera, nikoli podle názvu budovy."
+      ],
+      "sources": [
+        {
+          "title": "La Bellevilloise — praktické informace a přístupnost",
+          "url": "https://www.labellevilloise.com/infos-pratiques/"
+        },
+        {
+          "title": "La Bellevilloise — Musicology, příklad doloženého hudebního zaměření",
+          "url": "https://www.labellevilloise.com/evenement/musicology-13/"
+        },
+        {
+          "title": "La Bellevilloise — aktuální program",
+          "url": "https://www.labellevilloise.com/agenda/"
+        }
+      ],
+      "access": "Vyber konkrétní akci v oficiálním programu a ověř vstupenku, věkovou hranici a otevřený sál. Klubové večery jsou pro dospělé. Provozovatel uvádí bezbariérový přístup a doporučuje potřeby při koncertu domluvit předem. Nemáš automaticky vstup na pódium ani oprávnění nahrávat účinkující.",
+      "checkedAt": "2026-10-26",
+      "lat": null,
+      "lng": null,
+      "coordinateStatus": "Adresa doložena provozovatelem. Přesný mapový bod není z uvedených zdrojů nezávisle ověřen.",
+      "task": {
+        "question": "Jak DJ mění energii sálu, když vystřídá žánr?",
+        "observe": "Po dohodě s pravidly místa poslouchej tři přechody. Sleduj délku frází, basovou linku a reakci lidí bez pořizování jejich záznamů.",
+        "try": "Doma sestav třískladbovou posloupnost ze své legální hudební knihovny: navázání, kontrast, návrat. Nákup ani zveřejnění nahrávky nejsou podmínkou.",
+        "review": "U každého přechodu napiš, co zůstalo společné a co se změnilo. Přepiš pořadí, pokud energie nemá čitelný směr.",
+        "output": "Tři skladby s autorem a názvem, náčrt energie a tři vysvětlená dramaturgická rozhodnutí."
+      },
+      "relatedExpedition": "dj"
+    },
+    {
+      "id": "fgo-barbara",
+      "name": "FGO-Barbara",
+      "address": "1 rue Fleury, 75018 Paris",
+      "category": "hiphop",
+      "facts": [
+        "FGO-Barbara se představuje jako víceoborový prostor Goutte d’Or pro tvorbu, podporu umělců, koncerty, studia a rezidence.",
+        "Oficiální web při kontrole odkazuje přesměrováním na vlastní profil pořadatele na Shotgun. Ten zveřejňuje i rapové a hip-hopové koncerty; nabídka není výhradně hip-hopová."
+      ],
+      "sources": [
+        {
+          "title": "FGO-Barbara — oficiální vstup do programu",
+          "url": "https://fgo-barbara.fr/"
+        },
+        {
+          "title": "FGO-Barbara — profil pořadatele a program, propojený oficiálním webem",
+          "url": "https://shotgun.live/en/venues/fgo-barbara"
+        }
+      ],
+      "access": "Před návštěvou otevři konkrétní koncert na oficiálně propojené stránce pořadatele. Ověř datum, podmínky vstupu a přístupnost. Koncertní lístek není rezervace studia, lektora ani open-mic slotu. Veřejné vystoupení ve vlastní režii tato zastávka neslibuje.",
+      "checkedAt": "2026-10-26",
+      "lat": null,
+      "lng": null,
+      "coordinateStatus": "Adresa doložena profilem pořadatele propojeným oficiálním webem. Číselné souřadnice nejsou potvrzené.",
+      "evidenceNote": "Oficiální doména při čtení přesměrovala na Shotgun; nejde o nezávislý redakční žebříček.",
+      "task": {
+        "question": "Co dělá z osobního textu sdělení, kterému rozumí celý sál?",
+        "observe": "Vyber jeden živý přednes. Zapiš, kde interpret nechá pauzu, zopakuje motiv nebo změní hlas. Neopisuj cizí sloku.",
+        "try": "Napiš osm vlastních řádků a připrav dvě a cappella verze: jednu intimní a druhou pro vzdáleného posluchače. Zkoušej v soukromí, bez automatického přístupu na pódium.",
+        "review": "Nech si od ochotného posluchače zopakovat hlavní myšlenku. Uprav jeden nesrozumitelný řádek a vysvětli důvod.",
+        "output": "Vlastní osmiverší, dva popisy přednesu a jedna doložená změna textu nebo frázování."
+      },
+      "relatedExpedition": "mc"
+    },
+    {
+      "id": "petit-bain",
+      "name": "Petit Bain",
+      "address": "7 Port de la Gare, 75013 Paris",
+      "category": "hiphop",
+      "facts": [
+        "Petit Bain je plovoucí kulturní prostor a družstevní podnik se společenským účelem. Má koncertní a klubový sál.",
+        "Program zahrnuje rap; příkladem je pořadatelem publikovaný koncert Pralines #2 se Zwangere Guy. To nedokládá hip-hopový program každý večer."
+      ],
+      "sources": [
+        {
+          "title": "Petit Bain — podmínky vstupu a praktické informace",
+          "url": "https://petitbain.org/infos-pratiques/"
+        },
+        {
+          "title": "Petit Bain — Pralines #2, doložený rapový program",
+          "url": "https://petitbain.org/evenement/pralines-2/"
+        },
+        {
+          "title": "Petit Bain — živý rozcestník a agenda",
+          "url": "https://petitbain.org/"
+        }
+      ],
+      "access": "Ověř konkrétní koncert či klub v programu a pravidla vstupenky. Pro osoby mladší 16 let provozovatel požaduje doprovod dospělého. Sál má výtah; specifické potřeby je vhodné domluvit předem. Foto a video technika během koncertů vyžaduje akreditaci; respektuj také omezení telefonu stanovená umělcem. Spreje jsou v sále zakázané.",
+      "checkedAt": "2026-10-26",
+      "lat": null,
+      "lng": null,
+      "coordinateStatus": "Adresa ověřena na oficiální stránce. Pin ani nástupní místo nejsou odhadnuté.",
+      "task": {
+        "question": "Jak se promění text, když musí nést hlas bez vizuální opory?",
+        "observe": "U jednoho vystoupení rozliš konkrétní hudební oporu, hlas a ticho. Zapiš dva pozorované momenty zpaměti po koncertu.",
+        "try": "Vytvoř vlastní čtyřbarový motiv. Přednes jej jednou v pravidelném pulsu a podruhé s vědomě zvolenou pauzou.",
+        "review": "Pojmenuj, která verze předala význam přesněji a proč. Převeď jeden slyšený princip do vlastní sloky, ne cizí formulaci.",
+        "output": "Vlastní motiv, dvě přednesové varianty a vysvětlené rozhodnutí o jedné pauze."
+      },
+      "relatedExpedition": "mc"
+    },
+    {
+      "id": "balades-sonores",
+      "name": "Balades Sonores",
+      "address": "8 rue Pierre Picard, 75018 Paris",
+      "category": "recordshop",
+      "facts": [
+        "Nezávislý disquaire sdružil dřívější obchody z avenue Trudaine na adresu 8 rue Pierre Picard v roce 2023; tuto adresu uvádí i současná stránka obchodu.",
+        "Vlastní popis výběru zahrnuje hip-hop, R&B, soul, jazz a funk. Pořádá také hudební setkání; konkrétní set ani poslech na vyžádání nejsou automaticky zaručené."
+      ],
+      "sources": [
+        {
+          "title": "Balades Sonores — současný obchod a adresa",
+          "url": "https://www.baladessonores.com/la-boutique/"
+        },
+        {
+          "title": "Balades Sonores — přestěhování a koncepce výběru",
+          "url": "https://www.baladessonores.com/news/la-renaissance-de-balades-sonores-un-seul-lieu-plus-grand-et-confortable/"
+        },
+        {
+          "title": "Balades Sonores — program",
+          "url": "https://www.baladessonores.com/events/"
+        }
+      ],
+      "access": "Před cestou zkontroluj provoz a případnou akci přímo u obchodu. Staré přehledy s 1–3 avenue Trudaine nepoužívej jako dnešní cíl. Na podmínky poslechu se zeptej; úkol nevyžaduje nákup. Fyzický stav skladu, osobní konzultace ani kapacita akce nejsou ověřené živě.",
+      "checkedAt": "2026-10-26",
+      "lat": null,
+      "lng": null,
+      "coordinateStatus": "Aktuálně publikovaná adresa ověřena. Přesný mapový vstup neověřen.",
+      "task": {
+        "question": "Dokážeš propojit dva odlišné groove bez nálepky „tohle se k sobě nehodí“?",
+        "observe": "Vyber dvě vlastní či legálně dostupné nahrávky z odlišných stylů. Pojmenuj rytmický prvek, který je skutečně spojuje.",
+        "try": "Sestav třípoložkový tracklist: první skladba, most, druhá skladba. Uveď autory a názvy. Můžeš pracovat jen na papíře.",
+        "review": "Vysvětli, proč prostřední skladba funguje jako most. Pokud argument stojí jen na společném žánru, najdi přesnější hudební důvod.",
+        "output": "Třípoložkový tracklist s konkrétní poznámkou ke groovu, barvě a přechodu."
+      },
+      "relatedExpedition": "dj"
+    },
+    {
+      "id": "superfly-records",
+      "name": "Superfly Records",
+      "address": "53 rue Notre-Dame de Nazareth, 75003 Paris",
+      "category": "recordshop",
+      "facts": [
+        "Vlastní web Superfly propojuje obchod, vydavatelství, radio a redakční blog a uvádí kamennou adresu v rue Notre-Dame de Nazareth.",
+        "Kategorie zahrnují soul/funk/disco, jazz, africkou a latinskoamerickou hudbu i New Grooves / Hip-Hop. Jde o mezižánrové hledání souvislostí, ne o tvrzení, že libovolná deska je doloženým rapovým samplem."
+      ],
+      "sources": [
+        {
+          "title": "Superfly Records — vlastní blog, katalogové kategorie a adresa",
+          "url": "https://blog.superflyrecords.com/"
+        },
+        {
+          "title": "Superfly Records — oficiální obchod",
+          "url": "https://www.superflyrecords.com/"
+        }
+      ],
+      "access": "Otevírací dobu, podmínky poslechu a dostupnost konkrétního titulu ověř u obchodu. Hlavní katalog při výzkumu omezoval automatické čtení; adresa a vazby obchodu jsou doložené jeho vlastním blogem. Nákup není podmínkou úkolu. Bez oprávnění nekopíruj ani veřejně nepublikuj zvuk.",
+      "checkedAt": "2026-10-26",
+      "lat": null,
+      "lng": null,
+      "coordinateStatus": "Adresa publikovaná vlastníkem na vlastním blogu. Číselný pin neověřen.",
+      "evidenceNote": "Hlavní katalog nebyl při čtení plně dostupný; nelze potvrdit živý sklad ani dnešní provozní dobu.",
+      "task": {
+        "question": "Jak odlišit slyšenou podobnost od doloženého původu samplu?",
+        "observe": "U jedné skladby popiš bicí, basu a frázování bez domněnek o tom, kdo ji samploval.",
+        "try": "Vytvoř kartu: co skutečně slyším, co si myslím, jaký zdroj by hypotézu ověřil. Zkus rytmus vlastními údery do stolu bez kopírování nahrávky.",
+        "review": "Označ jednu nepodloženou domněnku a nahraď ji pozorovatelným popisem. Autorské a právní svolení neposuzuj podle pouhé dostupnosti záznamu.",
+        "output": "Poslechová karta, vlastní čtyřdobý rytmický náčrt a seznam důkazů potřebných k tvrzení o samplu."
+      },
+      "relatedExpedition": "dj"
+    },
+    {
+      "id": "cafe-des-phares",
+      "name": "Café des Phares",
+      "address": "7 place de la Bastille, 75004 Paris",
+      "category": "philosophy",
+      "facts": [
+        "Oficiální pařížská turistická kancelář uvádí Café des Phares jako místo veřejných filozofických debat a jeho adresu na Bastille.",
+        "Zdroj popisuje nedělní dopolední setkávání. Jde o publikovaný pravidelný formát, nikoli o potvrzení konání v konkrétní den."
+      ],
+      "sources": [
+        {
+          "title": "Paris je t’aime — oficiální turistická kancelář, Café des Phares",
+          "url": "https://parisjetaime.com/restaurant/cafe-des-phares-p847"
+        }
+      ],
+      "access": "Před cestou si u podniku potvrď datum, jazyk, podmínky účasti a případnou konzumaci. Fyzická přístupnost nebyla ověřena. Nenahrávej účastníky bez souhlasu; můžeš poslouchat a pracovat jen s vlastními poznámkami. Starší webové adresy debatního okruhu neposkytly dostatečně spolehlivou současnou informaci a nejsou zde doporučeným rezervačním kanálem.",
+      "checkedAt": "2026-10-26",
+      "lat": null,
+      "lng": null,
+      "coordinateStatus": "Adresa doložena oficiální turistickou kanceláří. Přesný bod ani vstup neověřen.",
+      "evidenceNote": "Současný formát dokládá turistická kancelář, ne nezávislá návštěva. Termín není potvrzen přímo moderátorem.",
+      "task": {
+        "question": "Může se sebejistá věta stát přesnější, když vyslechneš její nejsilnější námitku?",
+        "observe": "Poslouchej, jak se odlišuje příklad, důvod a pouhé přesvědčení. Parafrázuj jednu myšlenku bez jména jejího autora.",
+        "try": "Napiš vlastní tezi ve dvou větách. Přidej nejsilnější námitku a jednu otázku, která by obě strany posunula.",
+        "review": "Změň v tezi konkrétní slovo nebo rozsah tvrzení. Vysvětli, jaká námitka tě k tomu vedla. Cílem není vyhrát debatu.",
+        "output": "Teze, poctivá protinámitka a zpřesněná myšlenka s důvodem změny."
+      },
+      "relatedExpedition": "knowledge"
+    },
+    {
+      "id": "forum104",
+      "name": "Forum104",
+      "address": "104 rue de Vaugirard, 75006 Paris",
+      "category": "philosophy",
+      "facts": [
+        "Forum104 publikuje program dílen, debat a přednášek s kulturními, společenskými a duchovními tématy. Není to výhradně akademický filozofický klub.",
+        "Archiv dokládá café-philo s Danielem Ramirezem; aktuální program září–prosinec 2026 je zveřejněný samostatně. Historický termín café-philo nepřebíráme jako současný rozvrh."
+      ],
+      "sources": [
+        {
+          "title": "Forum104 — současný program a adresa",
+          "url": "https://www.forum104.org/evenements"
+        },
+        {
+          "title": "Forum104 — doklad historického formátu café-philo, archiv 2021",
+          "url": "https://www.forum104.org/cafe-philo"
+        },
+        {
+          "title": "Forum104 — program září–prosinec 2026",
+          "url": "https://www.forum104.org/f/8ffb5be4580c014dc62183fa3329addc6bbeddf5/Flyer%20trimestriel%20setp-dec%202026.pdf"
+        }
+      ],
+      "access": "Vyber konkrétní současnou debatu nebo dílnu v programu. Každá má vlastní téma, cenu a případné přihlášení; návštěva budovy neznamená účast v libovolné skupině. Ověř jazyk, přístupnost a formát. Samostatně zveřejněné duchovní postoje jsou postoje řečníků, nikoli námi potvrzené historické či vědecké důkazy.",
+      "checkedAt": "2026-10-26",
+      "lat": null,
+      "lng": null,
+      "coordinateStatus": "Adresa potvrzena na webu provozovatele. Pin neověřen.",
+      "task": {
+        "question": "Kdy je věta osobní zkušeností, kdy interpretací a kdy ověřitelným tvrzením?",
+        "observe": "Při zvolené veřejné debatě si pro vlastní potřebu poznamenej tři anonymizované parafráze. Odděl zkušenost, argument a faktické tvrzení.",
+        "try": "Vytvoř vlastní znak ze tří oddělených linií. Každá označuje jeden typ výroku; doplň legendu a krátký text o tom, kde se tvé přesvědčení opírá o důkazy.",
+        "review": "Vyber jedno faktické tvrzení a napiš, jaký nezávislý důkaz by je mohl potvrdit nebo vyvrátit. Symbol tuto důkazní práci nenahrazuje.",
+        "output": "Vlastní znak, legenda tří způsobů řeči a jedna zpřesněná myšlenka."
+      },
+      "relatedExpedition": "knowledge"
+    },
+    {
+      "id": "maison-philo-romainville",
+      "name": "Maison de la Philo — Romainville",
+      "address": "28 avenue Paul-Vaillant-Couturier, 93230 Romainville",
+      "category": "philosophy",
+      "facts": [
+        "Městská Maison de la Philo nabízí filozofii pro různé věkové skupiny: café-philo, přednášky, knihovnu i klub mladých myslitelů.",
+        "Vlastní program 2026–2027 zahrnuje také café-philo musique a propojení obrazů, tvorby a společenských otázek. Některé akce probíhají v dalších místních kulturních budovách."
+      ],
+      "sources": [
+        {
+          "title": "Město Romainville — Maison de la Philo a adresa",
+          "url": "https://www.ville-romainville.fr/1056-maison-de-la-philo.htm"
+        },
+        {
+          "title": "Maison de la Philo — současný program a podmínky",
+          "url": "https://maisondelaphilo-romainville.org/"
+        },
+        {
+          "title": "Maison de la Philo — program 2026–2027",
+          "url": "https://maisondelaphilo-romainville.org/wp-content/uploads/2026/08/prog-maison-de-la-philo-2026-2027_VF-compresse.pdf"
+        }
+      ],
+      "access": "Program uvádí bezplatné aktivity bez předchozích znalostí, ale některé potřebují přihlášení a dětské skupiny mohou být plné. Zkontroluj konkrétní věkovou skupinu, jazyk, volné místo a přesnou budovu vybrané akce. Romainville je samostatná obec za hranicí Paříže; neplánuj ji jako sousední zastávku v centru. Přístupnost konkrétního prostoru ověř u pořadatele.",
+      "checkedAt": "2026-10-26",
+      "lat": null,
+      "lng": null,
+      "coordinateStatus": "Adresa ověřena v městském zdroji i programu 2026–2027. Souřadnice neodhadujeme.",
+      "task": {
+        "question": "Je svoboda tvorby jen možnost udělat cokoli, nebo i schopnost vysvětlit vlastní volbu?",
+        "observe": "Před diskusí si napiš definici svobody. Při setkání hledej konkrétní protipříklad, který tvou definici prověří.",
+        "try": "Vytvoř krátký vlastní text a jednoduchý znak pro jednu hranici, kterou přijímáš dobrovolně. Vysvětli vztah této hranice k tvé tvorbě.",
+        "review": "Po diskusi přepiš jednu větu tak, aby obstála i v nejsilnějším protipříkladu. Uveď, co se změnilo a co zůstává otevřené.",
+        "output": "Krátký text, vlastní znak a dvě verze myšlenky s vysvětlenou změnou."
+      },
+      "relatedExpedition": "knowledge"
+    }
+  ]
+}

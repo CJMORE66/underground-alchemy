@@ -1,3 +1,5 @@
+import {parseCultureData,culturePlace,cultureRoutes} from '../dist/culture-data.js';
+import {validCityPoint} from '../dist/city-map.js';
 /* Actual atlas DOM/data contracts. No claim about real GPU pixels is made here. */
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
@@ -100,6 +102,7 @@ async function bootAtlas({artManifest=manifest,manifestFails=false}={}){
   tileLayer:()=>({on(){return this;},addTo(){return this;}})};
  window.L=L;window.matchMedia=()=>({matches:false});window.location={pathname:'/',hash:''};
  const context=vm.createContext({window,document,L,location:window.location,URL,URLSearchParams,Blob,console,Map,Set,matchMedia:window.matchMedia,
+  parseCultureData,culturePlace,cultureRoutes,validCityPoint,
   requestAnimationFrame:()=>1,cancelAnimationFrame(){},setTimeout:()=>1,clearTimeout(){},
   localStorage:{getItem:key=>storage.get(key)??null,setItem:(key,value)=>storage.set(key,value),removeItem:key=>storage.delete(key)},
   navigator:{geolocation:{getCurrentPosition(){calls.geo++;}}},

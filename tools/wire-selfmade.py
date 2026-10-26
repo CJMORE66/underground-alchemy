@@ -54,3 +54,18 @@ for file in atlas_pages:
     if '/place-visuals.css' not in data:
         data=data.replace('</head>','<link rel="stylesheet" href="/place-visuals.css?v=3"><link rel="stylesheet" href="/place-art-motion.css?v=1"><script src="/place-art-motion.js?v=1" defer></script></head>')
     file.write_text(data)
+
+# Living culture is part of the same geographic atlas and field notebook.
+import re
+MOTION_TOOLS='<div class="atlas-motion-tools" lang="cs"><div><button type="button" class="small-button" data-atlas-motion aria-pressed="false">POZASTAVIT ANIMACE Ⅱ</button><p data-atlas-motion-state>Živé detaily jsou zapnuté.</p></div><a class="text-link" href="#culture-district">STREET / SOUND / THOUGHT · 14 NOVÝCH MÍST ↓</a></div>'
+CULTURE_HOST='<div id="culture-district" lang="cs" aria-label="Živá kultura Paříže — místa, vlastní praxe a Blackbook"><p class="status">Připravuji STREET / SOUND / THOUGHT…</p><a class="text-link" href="/expeditions/">Otevřít expedice ↗</a></div>'
+for file in atlas_pages:
+    data=file.read_text()
+    data=re.sub(r'/atlas\.js\?v=\d+','/atlas.js?v=8',data)
+    data=re.sub(r'/place-art-motion\.(js|css)\?v=\d+',r'/place-art-motion.\1?v=2',data)
+    if '/culture-board.css' not in data:data=data.replace('</head>','<link rel="stylesheet" href="/culture-board.css?v=1"></head>')
+    if 'data-atlas-motion ' not in data:data=data.replace('<div class="explorer-top">',MOTION_TOOLS+'<div class="explorer-top">',1)
+    if 'id="culture-district"' not in data:data=data.replace('<p class="privacy-line">Near Me',CULTURE_HOST+'<p class="privacy-line">Near Me',1)
+    data=data.replace('Published information was checked on <time datetime="2026-10-21">21 October 2026</time>', 'Original atlas information was checked on <time datetime="2026-10-21">21 October 2026</time>; cultural additions show their own research dates')
+    file.write_text(data)
+print(f'Visible motion controls and living-culture field desk linked to {len(atlas_pages)} atlas routes.')

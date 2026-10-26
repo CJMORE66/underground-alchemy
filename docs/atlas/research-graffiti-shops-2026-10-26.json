@@ -1,0 +1,189 @@
+{
+  "schemaVersion": 1,
+  "checkedAt": "2026-10-26",
+  "scope": "Paříž a blízké okolí / graffiti, publikační paměť, shopy a řízená tvůrčí místa",
+  "method": "Údaje byly porovnány s weby provozovatelů a městskými zdroji. Ověření veřejné stránky nepotvrzuje aktuální kapacitu, dnešní otevření ani právo uspořádat komerční lekci. Žádné místo zde není označeno za partnera CAISIK.",
+  "coordinatePolicy": "Souřadnice nejsou odhadnuty z adresy. Všechny nové záznamy mají null: případný přesný pin musí mít samostatně dohledatelný geografický zdroj. Souřadnice @ v odkazu Google mohou být pouze středem kamery, proto nebyly převzaty.",
+  "places": [
+    {
+      "id": "maquis-art-malik",
+      "name": "Maquis-Art / Banga Style — Marché Malik",
+      "address": "Marché Malik, stand Banga Style, 53 rue Jules Vallès, Saint-Ouen-sur-Seine",
+      "category": "artshop",
+      "facts": [
+        "Oficiální kontaktní stránka Maquis-Art uvádí pro prodej v okolí Paříže stánek Banga Style v Marché Malik na rue Jules Vallès v Saint-Ouen.",
+        "Maquis-Art svůj fotografický web popisuje jako pravidelný fanzin a uvádí, že funguje od roku 1997. Jde o dokumentační paměť scény vedle samotného prodeje materiálu."
+      ],
+      "legacy": "Rozliš archiv, autora snímku a výrobce materiálu: archiv uchovává stopu scény, ale jeho fotografie nejsou automaticky volné k převzetí.",
+      "sources": [
+        {"title": "Maquis-Art — oficiální kontakty a prodejny", "url": "https://www.maquis-art.com/shop/vitrines/modules/complement/contacteznous.php"},
+        {"title": "Maquis-Art — charakter a historie fotografického fanzinu", "url": "https://www.maquis-art.com/"}
+      ],
+      "access": "Před cestou potvrď otevření přímo u Maquis-Art: publikované rozvrhy webu a sociálních oznámení se rozcházejí. Starší adresy Quincampoix a Clignancourt nepoužívej jako dnešní cíl. Kontaktní web obsahuje i nesoulad v poštovním směrovacím čísle, proto zde není přepsán. Nákup spreje nezakládá povolení malovat v tržnici ani v okolí.",
+      "checkedAt": "2026-10-26",
+      "lat": null,
+      "lng": null,
+      "coordinateStatus": "Adresa a stánek doloženy provozovatelem; geografický pin neověřen.",
+      "task": {
+        "question": "Která volba nástroje skutečně mění tvoje písmo a která je jen zvyk?",
+        "observe": "Porovnej v nabídce dvě šířky hrotu nebo dvě varianty ventilu. Zapiš funkci, kterou potřebuješ: obrys, plocha nebo detail.",
+        "try": "Do vlastního Blackbooku nakresli stejné čtyři znaky se dvěma šířkami tahu. Ke každé verzi připiš, jakého nástroje by bylo potřeba; zkoušení zboží pouze se souhlasem obsluhy.",
+        "review": "Vyber čitelnější variantu a označ konkrétní spoj či mezeru, která rozhodla. Nákup není podmínkou úkolu.",
+        "output": "Dvě písmové studie + zdůvodněný výběr jednoho nástroje + odkaz na jednu archivní referenci."
+      },
+      "relatedExpedition": "writer"
+    },
+    {
+      "id": "le-lavomatik",
+      "name": "Le Lavo//Matik — Arts Urbains",
+      "address": "20 boulevard du Général d’Armée Jean Simon, 75013 Paris",
+      "category": "artshop",
+      "facts": [
+        "Provozovatel uvádí vznik Le Lavo//Matik v březnu 2014 a spojuje galerii městského umění s knihkupectvím a nezávislou tvorbou.",
+        "Na oficiální stránce popisuje střídání samostatných výstav a společných Murs Ouverts i tvůrčí využití přilehlých venkovních stěn. Ve stejném prostoru prodává také publikace a hudbu orientovanou na punk rock."
+      ],
+      "legacy": "Galerie, knihy a venkovní práce ukazují různé způsoby uchovávání pomíjivého umění. Punková diskografie obchodu není důkazem, že jde o hip-hopový klub.",
+      "sources": [
+        {"title": "Le Lavo//Matik — vlastní historie, knihkupectví a venkovní tvorba", "url": "https://lelavomatik.com/about/"},
+        {"title": "Le Lavo//Matik — oficiální adresa a kontakt", "url": "https://lelavomatik.com/contact/"}
+      ],
+      "access": "Návštěvu plánuj podle aktuálního kontaktního webu a výstavy. Pro malování, workshop, použití konkrétní přilehlé stěny i komerční aktivitu si předem domluv podmínky přímo se správcem. Popis venkovní tvorby není blanketní povolení přemalovat cizí dílo. Bezbariérovost nebyla doložena; ověř individuálně.",
+      "checkedAt": "2026-10-26",
+      "lat": null,
+      "lng": null,
+      "coordinateStatus": "Oficiální adresa ověřena; odkaz mapy obsahuje jen střed kamery, přesný pin nepřevzat.",
+      "task": {
+        "question": "Co se z písmové práce přenese ze stěny na stránku a co se ztratí?",
+        "observe": "Vyber jeden zveřejněný detail a rozliš tvar písmene, podklad a okolní měřítko. Zaznamenej autora a zdroj, pokud jsou uvedeni.",
+        "try": "Na vlastní papír navrhni dvě původní kompozice stejného slova: jednu pro dlouhou stěnu a druhou pro obálku zinu. Cizí dílo použij jako analyzovaný příklad, nikoli jako šablonu k obkreslení.",
+        "review": "U každé kompozice vysvětli změnu negativního prostoru a pořadí čtení. Nech druhého člověka říci, co přečetl jako první.",
+        "output": "Dvojice vlastních kompozic + popis přenosu měřítka + procesní poznámka do Blackbooku."
+      },
+      "relatedExpedition": "writer"
+    },
+    {
+      "id": "le-grand-jeu",
+      "name": "Le Grand Jeu",
+      "address": "15 passage de Ménilmontant, 75011 Paris",
+      "category": "artshop",
+      "facts": [
+        "Le Grand Jeu se na vlastním webu představuje jako nezávislé pařížské knihkupectví mezi Oberkampfem a Ménilmontantem zaměřené na street culture a DIY estetiku.",
+        "Výběr zahrnuje graffiti, street art, fotografii, skateboard i hudební kultury; obchod uvádí knihy, časopisy a ziny od zavedených i nezávislých vydavatelů."
+      ],
+      "legacy": "Zin nebo Blackbook není jen suvenýr. Zachovává pořadí pokusů, kredit autora a kontext, který se z přemalované stěny může ztratit.",
+      "sources": [
+        {"title": "Le Grand Jeu — oficiální popis knihkupectví", "url": "https://www.legrandj.eu/pages/the-bookstore"},
+        {"title": "Le Grand Jeu — aktuální adresa a návštěvní informace", "url": "https://www.legrandj.eu/"}
+      ],
+      "access": "Otevírací dobu a mimořádné uzavření ověř na webu obchodu. Workshop, rozhovor s autorem ani partnerství nejsou sjednány. Před focením stránek nebo interiéru požádej obsluhu; knihu nepovažuj za volnou banku reprodukcí. Úkol lze splnit bez nákupu.",
+      "checkedAt": "2026-10-26",
+      "lat": null,
+      "lng": null,
+      "coordinateStatus": "Oficiální adresa ověřena; přesná souřadnice vstupu nedodána.",
+      "linkExistingExpedition": true,
+      "task": {
+        "question": "Jak poznáš rozdíl mezi zdokumentovanou scénou a zkonstruovanou legendou?",
+        "observe": "U dvou publikací vyhledej autora, rok, způsob výběru materiálu a to, zda jmenují původní tvůrce.",
+        "try": "Na vlastním papíře vytvoř jednostránkový zin o dnešní procházce: jeden doložený fakt, vlastní kresba a jasně přiznaná osobní interpretace.",
+        "review": "Podtrhni věty, které by musely mít zdroj. Doplň chybějící kredit a jednu otázku, na kterou zatím nemáš doklad.",
+        "output": "Vlastní mini-zin + dva bibliografické záznamy + rozlišení faktu a osobního čtení."
+      },
+      "relatedExpedition": "writer"
+    },
+    {
+      "id": "fluctuart",
+      "name": "Fluctuart — Centre d’art urbain",
+      "address": "Port du Gros Caillou, u Pont des Invalides, 75007 Paris",
+      "category": "graffiti",
+      "facts": [
+        "Fluctuart je plovoucí centrum městského umění na levém břehu Seiny u Pont des Invalides. Provozovatel představuje historické i současné podoby street artu a pořádá výstavy a setkání.",
+        "Oficiální web uvádí volný a bezplatný vstup na výstavy. Výstavní sál má jiný konec otevírací doby než bar a sezónní provoz budovy."
+      ],
+      "legacy": "Přenos díla do instituce mění publikum a způsob péče o něj. Tato otázka je autorským námětem CAISIK, ne tvrzením, že všichni writeři muzealizaci vítají.",
+      "sources": [
+        {"title": "Fluctuart — oficiální výstavní a návštěvní informace", "url": "https://fluctuart.fr/"},
+        {"title": "Fluctuart — přehled výstav", "url": "https://fluctuart.fr/agenda/exposition-temporaire/"}
+      ],
+      "access": "Před návštěvou ověř výstavní i sezónní provoz. Upozornění webu při kontrole 26. 10. 2026: ve středu 28. 10. je výstavní sál celý den uzavřen a shop s barem mají jen 12:00–16:30. Web také hlásí dočasně nedostupný zdvihací výtah; bezbariérový přístup si potvrď. Bezplatná výstava nepovoluje vlastní malování ani placenou lekci.",
+      "serviceNotices": [
+        {"kind": "temporary-closure", "date": "2026-10-28", "summary": "Výstavní sál zavřen celý den; bookshop a bar 12:00–16:30.", "sourceUrl": "https://fluctuart.fr/", "expiresAfter": "2026-10-28"},
+        {"kind": "accessibility", "summary": "Provozovatel uvádí dočasně nedostupný zdvihací výtah; konec omezení nezveřejněn.", "sourceUrl": "https://fluctuart.fr/"}
+      ],
+      "checkedAt": "2026-10-26",
+      "lat": null,
+      "lng": null,
+      "coordinateStatus": "Přístav a most doloženy oficiálním webem; přesný vstupní pin neověřen.",
+      "task": {
+        "question": "Co se změní, když se gesto z ulice ocitne v kurátorském výběru?",
+        "observe": "U jednoho díla si všimni materiálu, měřítka a popisky. Odděl údaj z popisky od své reakce.",
+        "try": "Vytvoř vlastní znak ve dvou kontextech: na nákresu veřejné stěny a na stránce fiktivního katalogu. Jde o návrh na papíře.",
+        "review": "Napiš, kdo znak uvidí v každé variantě, co mu bude scházet a jak bys uvedl autora a podmínky reprodukce.",
+        "output": "Dvě kontextové studie vlastního znaku + 120 slov o změně publika."
+      },
+      "relatedExpedition": "writer"
+    },
+    {
+      "id": "art42",
+      "name": "ART42 — Urban Art Collection",
+      "address": "96 boulevard Bessières, 75017 Paris",
+      "category": "graffiti",
+      "facts": [
+        "ART42 zpřístupňuje sbírku městského umění v prostředí školy 42. Oficiální web uvádí adresu na boulevard Bessières a návštěvu s rezervací.",
+        "Aktuální rezervační stránka provozovatele uvádí bezplatnou vedenou návštěvu jednou měsíčně. Starší turistické údaje o pravidelném úterý a sobotě proto nejsou převzaty jako platný rozvrh."
+      ],
+      "legacy": "Sbírka a její prostředníci ukazují, kdo rozhoduje o zachování městského umění. Otázka výběru patří do tvého výzkumu; návštěva nemá nahrazovat vlastní práci.",
+      "sources": [
+        {"title": "ART42 — oficiální rezervace a adresa", "url": "https://www.art42.fr/fr/visites.html"},
+        {"title": "ART42 — škola, kurátoři a tým", "url": "https://www.art42.fr/fr/informations.html"},
+        {"title": "ART42 — popis sbírky provozovatelem", "url": "https://www.art42.fr/fr/collection.html"}
+      ],
+      "access": "Vstup do školy není volná průchozí návštěva. Vyber skutečně vypsaný termín a rezervuj na webu provozovatele; žádná rezervace není součástí CAISIK. Skupiny mimo veřejné sloty mají samostatné podmínky a cenu, které je nutné ověřit. Přístupnost a pravidla fotografování potvrď předem. Bez přístupu pracuj s veřejnou stránkou sbírky a označ úkol jako vzdálené studium.",
+      "checkedAt": "2026-10-26",
+      "lat": null,
+      "lng": null,
+      "coordinateStatus": "Oficiální adresa ověřena; přesná souřadnice vstupu nedodána.",
+      "task": {
+        "question": "Podle jakých pravidel bys uchoval tvorbu své vlastní scény?",
+        "observe": "U dvou vystavených děl odděl techniku, autorství a tvoji domněnku o významu. Výklad průvodce zaznamenej jako jeho výklad.",
+        "try": "Sestav malý kurátorský návrh ze tří vlastních skic. Napiš každé popisku a vysvětli, co jsi záměrně nezařadil.",
+        "review": "Požádej druhého čtenáře, aby popsal pravidlo tvého výběru bez nápovědy. Podle jeho odpovědi jednu popisku zpřesni.",
+        "output": "Tři vlastní skici s popiskami + pravidlo výběru + jedna doložená úprava po zpětné vazbě."
+      },
+      "relatedExpedition": "writer"
+    },
+    {
+      "id": "spot13",
+      "name": "Spot 13 — řízené místo městského umění",
+      "address": "47 allée Paris-Ivry, 75013 Paris — adresa zveřejněné akce, aktuální přístup potvrdit se správcem",
+      "category": "graffiti",
+      "facts": [
+        "Městský adresář 13. obvodu aktualizovaný 9. října 2026 popisuje Spot 13 jako dočasné venkovní místo městského umění, které zve umělce k tvorbě.",
+        "Městský program festivalu mládeže doložil konkrétní graffiti workshop Spot 13 dne 30. května 2026 na 47 allée Paris-Ivry s povinnou registrací. Tato již proběhlá akce není aktuální nabídka termínu."
+      ],
+      "legacy": "Dočasné místo může zaniknout nebo změnit hranice. Zápis proto uchovává datum, autora a podmínky vzniku, nikoli slib věčně dostupné galerie.",
+      "sources": [
+        {"title": "Mairie du 13e — aktuální adresář asociací, sekce Spot 13", "url": "https://mairie13.paris.fr/pages/annuaire-des-associations-du-13e-33120"},
+        {"title": "Mairie du 13e — archiv festivalu a podmínky workshopu v květnu 2026", "url": "https://mairie13.paris.fr/pages/festival-de-la-jeunesse-34978"},
+        {"title": "Spot 13 — vlastní asociace a kontaktní profil", "url": "https://www.helloasso.com/associations/spot-13"}
+      ],
+      "access": "Před cestou si od Spot 13 potvrď aktuální vstup, bezpečný veřejný přístup a případný termín vedené práce. Pozvání umělců neznamená právo kohokoli přemalovat libovolnou stěnu. Archivní květnový workshop byl pro 14–25 let a bez přístupu PMR; tyto podmínky se nepřenášejí na novou akci bez potvrzení. Adresa sídla spolku není vstupem do galerie. Komerční lekce vyžaduje výslovnou dohodu se správcem.",
+      "checkedAt": "2026-10-26",
+      "lat": null,
+      "lng": null,
+      "coordinateStatus": "Doložena adresa minulé akce, nikoli ověřený aktuální vstup; pin záměrně chybí.",
+      "task": {
+        "question": "Jak navrhnout práci, která respektuje předchozí vrstvu a může být sama dočasná?",
+        "observe": "Při potvrzené návštěvě pozoruj rozhraní dvou prací a podklad. Do poznámky uveď datum a autora pouze tehdy, pokud je skutečně doložen.",
+        "try": "Nejprve navrhni vlastní kus na papír. Realizuj jej jen v potvrzeném workshopu na výslovně přiděleném povrchu; bez souhlasu zůstaň u skici.",
+        "review": "Zapiš, kdo přidělil plochu, jaká pravidla platila a co se při přenosu z papíru změnilo. Skicu pravdivě označ jako skicu, nikoli realizaci.",
+        "output": "Skica + paleta + procesní záznam; realizace a zpětná vazba lektora jen při skutečném absolvování."
+      },
+      "relatedExpedition": "writer"
+    }
+  ],
+  "excludedOrLimited": [
+    {"name": "L’Aérosol / bývalé historické haly Maquis-Art", "reason": "Historická reportáž o dřívějším areálu není dokladem současného otevření. Není vložen jako aktivní návštěvní cíl."},
+    {"name": "Rue Dénoyez, skatepark Bercy, rue Ordener a jiné volně popisované graffiti plochy", "reason": "Existence maleb ani komunitní mapový záznam nejsou aktuálním primárním dokladem povolení malovat. Rue Dénoyez už je v expedici jako pozorovací zastávka; nevytváří se duplicitní ID ani obecné povolení."},
+    {"name": "Beyond the Streets Paris 2026", "reason": "Oficiální provozovatel uváděl konec 23. srpna 2026; říjnový katalog nesmí tuto výstavu slibovat jako otevřenou.", "sourceUrl": "https://beyondthestreets.com/fr/pages/beyond-the-streets-paris"}
+  ]
+}

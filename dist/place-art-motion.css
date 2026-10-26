@@ -3,13 +3,19 @@
 .place-artwork>img[data-place-illustration]{width:100%;height:100%;object-fit:cover;filter:none!important;opacity:1!important;transform:none!important}
 .place-artwork .place-art-motion-overlay{position:absolute;inset:0;width:100%;height:100%;display:block;pointer-events:none;z-index:1;overflow:hidden}
 .place-artwork .place-art-motion-overlay[hidden]{display:none!important}
-.place-artwork .place-art-ink-trace{fill:none;stroke:#fff2ca;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:1;opacity:0}
-.place-artwork .place-art-window-light{fill:#fff4bd;stroke:#ffd600;stroke-width:1;opacity:0;mix-blend-mode:screen}
+.place-artwork .place-art-ink-trace,.place-artwork .place-art-ink-underlay,.place-artwork .place-art-ink-runner{fill:none;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:1;opacity:0}
+.place-artwork .place-art-ink-underlay{stroke:#080808;stroke-width:11}
+.place-artwork .place-art-ink-trace{stroke:#ffe978;stroke-width:5.5}
+.place-artwork .place-art-ink-runner{stroke:#f5f1e8;stroke-width:7;stroke-dasharray:.045 .955}
+.place-artwork .place-art-window-light{fill:#fff4bd;stroke:#ffd600;stroke-width:2;opacity:0;mix-blend-mode:screen}
+.place-artwork .place-art-motion-phase{position:absolute;left:10px;bottom:29px;z-index:3;display:block;max-width:calc(100% - 20px);padding:5px 7px;border-left:3px solid #ffd600;background:#080808e8;color:#ffd600;font:700 8px/1.4 var(--sans,Arial,sans-serif);letter-spacing:.06em;pointer-events:none}
+.place-artwork .place-art-motion-status{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;clip-path:inset(50%)}
+.place-artwork .place-art-motion-status.is-feedback{left:10px;right:10px;bottom:58px;z-index:4;width:auto;height:auto;padding:8px 10px;background:#080808f5;border:1px solid #ffd600;color:#f5f1e8;font:600 11px/1.5 var(--sans,Arial,sans-serif);overflow:visible;clip:auto;clip-path:none;white-space:normal}
 .place-artwork>.image-credit{z-index:3;pointer-events:auto;font-size:9px;max-width:100%;padding-right:8px}
 .place-artwork .place-art-replay{position:absolute;right:10px;top:10px;z-index:4;max-width:calc(100% - 20px);min-height:38px;padding:8px 11px;border:1px solid #ffd600;background:#080808eb;color:#ffd600;font:700 9px/1.3 var(--sans,Arial,sans-serif);letter-spacing:.08em;cursor:pointer;box-shadow:3px 3px 0 #080808;text-align:center}
 .place-artwork .place-art-replay:hover{background:#ffd600;color:#080808}
 .place-artwork .place-art-replay:focus-visible{outline:2px solid #f5f1e8;outline-offset:3px}
 .place-artwork.place-art-playing{--place-art-energy:0}
-@media(max-width:600px){.place-artwork .place-art-replay{right:7px;top:7px;min-height:36px;padding:7px 8px;font-size:8px}.place-artwork>.image-credit{font-size:8px;line-height:1.5}}
+@media(max-width:600px){.place-artwork .place-art-replay{right:7px;top:7px;min-height:36px;padding:7px 8px;font-size:8px}.place-artwork>.image-credit{font-size:8px;line-height:1.5}.place-artwork .place-art-motion-phase{left:7px;bottom:34px;padding:4px 6px;font-size:7px}}
 @media(prefers-reduced-motion:reduce){.place-artwork .place-art-motion-overlay{display:none!important}}
 html[data-motion=off] .place-artwork .place-art-motion-overlay{display:none!important}
