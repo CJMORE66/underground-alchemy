@@ -1,0 +1,296 @@
+{
+  "version": 1,
+  "classification": "Original CAISIK practical language examples. They do not establish venue access, permission, bookings or historical facts.",
+  "languages": [
+    "cs",
+    "en",
+    "fr"
+  ],
+  "method": {
+    "cs": "Přečti zdrojovou větu, zkus překlad zpaměti, porovnej konkrétní slova a použij větu s vlastní změnou. Jiná platná formulace je možná.",
+    "en": "Read the source sentence, recall a translation, compare specific words, then use the sentence with a change of your own. Other valid wording is possible.",
+    "fr": "Lis la phrase source, essaie une traduction de mémoire, compare les mots précis, puis adapte la phrase à ta situation. Une autre formulation peut être valable."
+  },
+  "phrases": [
+    {
+      "id": "city-entrance",
+      "topic": "city",
+      "cs": "Kde je hlavní vchod?",
+      "en": "Where is the main entrance?",
+      "fr": "Où est l’entrée principale ?"
+    },
+    {
+      "id": "city-address",
+      "topic": "city",
+      "cs": "Můžeš mi prosím potvrdit tuto adresu?",
+      "en": "Can you confirm this address, please?",
+      "fr": "Tu peux me confirmer cette adresse, s’il te plaît ?"
+    },
+    {
+      "id": "city-walk",
+      "topic": "city",
+      "cs": "Dá se tam dojít pěšky?",
+      "en": "Can I get there on foot?",
+      "fr": "Est-ce que je peux y aller à pied ?"
+    },
+    {
+      "id": "city-public",
+      "topic": "city",
+      "cs": "Je tento prostor přístupný veřejnosti?",
+      "en": "Is this space open to the public?",
+      "fr": "Est-ce que cet espace est ouvert au public ?"
+    },
+    {
+      "id": "city-note",
+      "topic": "city",
+      "cs": "Chci si zapsat jeden detail, kterého jsem si všiml.",
+      "en": "I want to write down one detail I noticed.",
+      "fr": "Je veux noter un détail que j’ai remarqué."
+    },
+    {
+      "id": "city-observe",
+      "topic": "city",
+      "cs": "Nejdřív se podívám, potom si vytvořím vlastní názor.",
+      "en": "I will look first, then form my own view.",
+      "fr": "Je vais d’abord observer, puis me faire mon propre avis."
+    },
+    {
+      "id": "city-map",
+      "topic": "city",
+      "cs": "Bod ukazuje adresu, nemusí označovat přesný vchod.",
+      "en": "The pin shows the address; it may not mark the exact entrance.",
+      "fr": "Le point indique l’adresse ; ce n’est pas forcément l’entrée exacte."
+    },
+    {
+      "id": "city-slower",
+      "topic": "city",
+      "cs": "Můžeš to prosím říct pomaleji?",
+      "en": "Can you say that more slowly, please?",
+      "fr": "Tu peux le dire plus lentement, s’il te plaît ?"
+    },
+    {
+      "id": "graffiti-permission",
+      "topic": "graffiti",
+      "cs": "Smím tady malovat?",
+      "en": "May I paint here?",
+      "fr": "Est-ce que j’ai le droit de peindre ici ?"
+    },
+    {
+      "id": "graffiti-manager",
+      "topic": "graffiti",
+      "cs": "Kdo spravuje tuto zeď?",
+      "en": "Who manages this wall?",
+      "fr": "Qui gère ce mur ?"
+    },
+    {
+      "id": "graffiti-written",
+      "topic": "graffiti",
+      "cs": "Potřebuji předem písemné povolení?",
+      "en": "Do I need written permission in advance?",
+      "fr": "Est-ce qu’il me faut une autorisation écrite à l’avance ?"
+    },
+    {
+      "id": "graffiti-existing",
+      "topic": "graffiti",
+      "cs": "Nechci přemalovat cizí dílo.",
+      "en": "I do not want to paint over someone else’s work.",
+      "fr": "Je ne veux pas recouvrir l’œuvre de quelqu’un d’autre."
+    },
+    {
+      "id": "graffiti-sketch",
+      "topic": "graffiti",
+      "cs": "Nejdřív vytvořím skicu ve svém sešitu.",
+      "en": "I will make a sketch in my notebook first.",
+      "fr": "Je vais d’abord faire un croquis dans mon carnet."
+    },
+    {
+      "id": "graffiti-material",
+      "topic": "graffiti",
+      "cs": "Který hrot se hodí na tenký obrys?",
+      "en": "Which tip works for a thin outline?",
+      "fr": "Quelle pointe convient pour un contour fin ?"
+    },
+    {
+      "id": "graffiti-palette",
+      "topic": "graffiti",
+      "cs": "Používám černou, žlutou a jednu světlou barvu.",
+      "en": "I am using black, yellow and one light colour.",
+      "fr": "J’utilise du noir, du jaune et une couleur claire."
+    },
+    {
+      "id": "graffiti-credit",
+      "topic": "graffiti",
+      "cs": "Můžu si dílo vyfotit a uvést autora?",
+      "en": "May I photograph the work and credit the artist?",
+      "fr": "Est-ce que je peux photographier l’œuvre en citant l’artiste ?"
+    },
+    {
+      "id": "studio-engineer",
+      "topic": "studio",
+      "cs": "Je zvukař zahrnutý v rezervaci?",
+      "en": "Is an engineer included in the booking?",
+      "fr": "La réservation comprend un ingénieur du son ?"
+    },
+    {
+      "id": "studio-files",
+      "topic": "studio",
+      "cs": "Jaké soubory mám přinést?",
+      "en": "Which files should I bring?",
+      "fr": "Quels fichiers est-ce que je dois apporter ?"
+    },
+    {
+      "id": "studio-rights",
+      "topic": "studio",
+      "cs": "Mám povolení použít tento instrumentál.",
+      "en": "I have permission to use this instrumental.",
+      "fr": "J’ai l’autorisation d’utiliser cette instrumentale."
+    },
+    {
+      "id": "studio-take",
+      "topic": "studio",
+      "cs": "Nahrajme nejdřív jednu souvislou verzi.",
+      "en": "Let us record one continuous take first.",
+      "fr": "On enregistre d’abord une prise complète."
+    },
+    {
+      "id": "studio-breath",
+      "topic": "studio",
+      "cs": "V této části potřebuji víc místa na nádech.",
+      "en": "I need more room to breathe in this part.",
+      "fr": "J’ai besoin de plus de place pour respirer dans ce passage."
+    },
+    {
+      "id": "studio-playback",
+      "topic": "studio",
+      "cs": "Pusť mi prosím obě verze při stejné hlasitosti.",
+      "en": "Play both versions at the same loudness, please.",
+      "fr": "Fais-moi écouter les deux versions au même volume, s’il te plaît."
+    },
+    {
+      "id": "studio-dry",
+      "topic": "studio",
+      "cs": "Můžu dostat také hlas bez efektů?",
+      "en": "Can I also get the vocal without effects?",
+      "fr": "Est-ce que je peux aussi avoir la voix sans effets ?"
+    },
+    {
+      "id": "studio-export",
+      "topic": "studio",
+      "cs": "Nechme si čas na poslech a export souborů.",
+      "en": "Let us leave time for listening and exporting the files.",
+      "fr": "On garde du temps pour écouter et exporter les fichiers."
+    },
+    {
+      "id": "freestyle-detail",
+      "topic": "freestyle",
+      "cs": "Začnu jedním detailem, který právě vidím.",
+      "en": "I will start with one detail I can see right now.",
+      "fr": "Je vais commencer par un détail que je vois maintenant."
+    },
+    {
+      "id": "freestyle-four",
+      "topic": "freestyle",
+      "cs": "Zkusím čtyři takty bez zastavení.",
+      "en": "I will try four bars without stopping.",
+      "fr": "Je vais essayer quatre mesures sans m’arrêter."
+    },
+    {
+      "id": "freestyle-beat",
+      "topic": "freestyle",
+      "cs": "Poslouchám rytmus dřív, než začnu mluvit.",
+      "en": "I listen to the rhythm before I start speaking.",
+      "fr": "J’écoute le rythme avant de commencer à parler."
+    },
+    {
+      "id": "freestyle-change",
+      "topic": "freestyle",
+      "cs": "Ve druhé verzi změním důrazy.",
+      "en": "I will change the emphasis in the second version.",
+      "fr": "Dans la deuxième version, je vais changer les accents."
+    },
+    {
+      "id": "freestyle-metaphor",
+      "topic": "freestyle",
+      "cs": "Jakou metaforu v tobě toto místo vyvolává?",
+      "en": "What metaphor does this place suggest to you?",
+      "fr": "Quelle métaphore cet endroit t’inspire ?"
+    },
+    {
+      "id": "freestyle-repeat",
+      "topic": "freestyle",
+      "cs": "Opakování mi pomáhá najít vlastní flow.",
+      "en": "Repetition helps me find my own flow.",
+      "fr": "La répétition m’aide à trouver mon propre flow."
+    },
+    {
+      "id": "freestyle-line",
+      "topic": "freestyle",
+      "cs": "Zachovám jeden řádek, který zní přirozeně.",
+      "en": "I will keep one line that sounds natural.",
+      "fr": "Je vais garder une phrase qui sonne naturellement."
+    },
+    {
+      "id": "freestyle-feedback",
+      "topic": "freestyle",
+      "cs": "Řekni mi jednu konkrétní věc, kterou můžu změnit.",
+      "en": "Tell me one specific thing I can change.",
+      "fr": "Dis-moi une chose précise que je peux changer."
+    },
+    {
+      "id": "thought-meaning",
+      "topic": "philosophy",
+      "cs": "Co přesně myslíš tímto slovem?",
+      "en": "What exactly do you mean by this word?",
+      "fr": "Qu’est-ce que tu entends exactement par ce mot ?"
+    },
+    {
+      "id": "thought-example",
+      "topic": "philosophy",
+      "cs": "Můžeš uvést konkrétní příklad?",
+      "en": "Can you give a specific example?",
+      "fr": "Tu peux donner un exemple concret ?"
+    },
+    {
+      "id": "thought-evidence",
+      "topic": "philosophy",
+      "cs": "O jaký zdroj se toto tvrzení opírá?",
+      "en": "Which source supports this claim?",
+      "fr": "Sur quelle source cette affirmation s’appuie ?"
+    },
+    {
+      "id": "thought-interpretation",
+      "topic": "philosophy",
+      "cs": "Toto je moje interpretace toho, co jsem viděl.",
+      "en": "This is my interpretation of what I saw.",
+      "fr": "C’est mon interprétation de ce que j’ai vu."
+    },
+    {
+      "id": "thought-objection",
+      "topic": "philosophy",
+      "cs": "Jaká je nejsilnější námitka proti mé myšlence?",
+      "en": "What is the strongest objection to my idea?",
+      "fr": "Quelle est l’objection la plus forte à mon idée ?"
+    },
+    {
+      "id": "thought-listen",
+      "topic": "philosophy",
+      "cs": "Nejdřív chci pochopit tvůj důvod.",
+      "en": "I want to understand your reason first.",
+      "fr": "Je veux d’abord comprendre ton raisonnement."
+    },
+    {
+      "id": "thought-revise",
+      "topic": "philosophy",
+      "cs": "Po této námitce bych svoji větu zpřesnil.",
+      "en": "I would make my statement more precise after that objection.",
+      "fr": "Après cette objection, je préciserais mon affirmation."
+    },
+    {
+      "id": "thought-transfer",
+      "topic": "philosophy",
+      "cs": "Kde můžu tuto myšlenku vyzkoušet v běžném životě?",
+      "en": "Where can I try this idea in everyday life?",
+      "fr": "Où est-ce que je peux essayer cette idée dans la vie quotidienne ?"
+    }
+  ]
+}

@@ -54,3 +54,13 @@
 @media(max-width:390px){.city-map-toolbar .city-map-replay{flex-basis:auto}.city-map-camera{margin-left:0}.city-map-camera .city-map-button{min-width:32px}.city-map-selected-label{max-width:160px}.city-map-selected{gap:5px}.city-map-selected .city-map-button{font-size:7px}.city-map-toolbar{right:8px;left:8px;column-gap:2px}}
 @media(max-height:540px) and (orientation:landscape){.city-map-experience .city-canvas,.city-map-experience>#city-map{height:440px;min-height:380px}.city-map-experience{min-height:380px}.city-map-status{top:65px}.city-map-selected{bottom:91px}.city-map-note{bottom:35px}.city-map-hint{bottom:19px}}
 @media(prefers-reduced-motion:reduce){.city-map-experience *{animation:none!important;transition:none!important}.city-map-experience::after{display:none}}
+
+/* Geographic identity is the base layer. Authored geometry is an explicit study. */
+.city-building-modes{display:flex;gap:4px;flex-basis:100%;margin-top:3px;pointer-events:auto}
+.city-building-modes .city-map-button{font-size:9px;letter-spacing:.08em;min-height:34px;padding:8px 10px}
+.city-map-status{top:111px;max-width:min(550px,calc(100% - 38px));letter-spacing:.09em}
+.city-map-selected-copy{display:grid;gap:6px;min-width:0;max-width:360px}
+.city-map-selected-identity{display:block;color:#c8c2af;font:9px/1.5 var(--sans,Arial,sans-serif);overflow-wrap:anywhere;max-width:360px}
+.city-map-selected-label{display:block}
+@media(max-width:700px){.city-building-modes{gap:3px;margin-top:1px}.city-building-modes .city-map-button{font-size:8px;padding:7px 9px;min-height:33px}.city-map-status{top:151px;max-width:calc(100% - 26px);font-size:7px;letter-spacing:.06em}.city-map-selected{align-items:flex-start;flex-wrap:wrap;row-gap:8px}.city-map-selected-copy{flex-basis:100%;max-width:100%}.city-map-selected-label{max-width:100%;font-size:13px;line-height:1.25}.city-map-selected-identity{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:3;overflow:hidden;font-size:8px;line-height:1.45;max-width:100%}.city-map-selected .city-map-button{min-height:32px}.city-map-note{font-size:8px;line-height:1.5;max-width:calc(100% - 24px)}}
+@media(max-height:540px) and (orientation:landscape){.city-map-status{top:110px}.city-map-selected{max-width:calc(100% - 36px)}.city-map-selected-copy{max-width:360px}}

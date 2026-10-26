@@ -37,3 +37,14 @@ Ověření: `node tests/city-landmarks.mjs`, `node tests/place-art-motion.mjs`, 
 U ilustrací jsou výraznější jednotlivé obrysy, světelné tahy a pohyb malovaných detailů. Ovládání pohybu přímo u mapy sdílí původní nastavení `atlas-motion`; vypnutí uživatelem nebo systémové omezení respektuj. Po generování starších stránek spusť `python tools/wire-selfmade.py`.
 
 Ověření: `node tests/culture-board.mjs`, `node tests/culture-integration.mjs`, `node tests/place-art-motion.mjs`, `node tests/place-visuals-integration.mjs`, `npm test`, `node tests/city-map.mjs` a `node tests/expeditions.mjs`. Skutečné výsledky, screenshoty a limity obsahuje `docs/atlas/CULTURE_RELEASE_QA.md`. Rollback: znovu nasadit uloženou verzi 27; nemaž žádná lokální uživatelská data.
+
+
+## Aktuální rozšíření: jazyky, studia a cesta městem (27. října 2026)
+
+Tato úprava navazuje na uloženou verzi 28; to je její výchozí bod pro rollback. Zachovává schválené ilustrace, všechny původní routy i klíče poznámek. K předchozím 14 kulturním místům přidává šest studií: celkem 32 objevů, 31 doložených mapových bodů. Spot 13 zůstává bez ověřeného pinu. Spravuj `dist/culture-data.json` společně s `docs/atlas/research-studios-2026-10-26.json` a `PLACE_POSITION_REVIEW.json`; studiové ceny, termíny ani rezervace se nevymýšlejí. Třílekční FROM STREET TO SESSION je příprava vlastní session, nikoli sjednaná výuka.
+
+Mapa standardně používá skutečné půdorysy z mapových dat a jen dostupné orientační výšky. Vlastní zjednodušené modely jsou samostatná volba AUTORSKÉ MODELY; nejsou zaměřené rekonstrukce ani přesné vstupy. Údaje o geometrii a pramenech spravuj v `src/city-landmarks/registry.js`; po změně spusť `node tools/build-city-landmarks.mjs`. Čti `CITY_IDENTITY.md`, `LANDMARK_ACCURACY.md` a `JOURNEY_SCROLL.md` v `docs/atlas/`.
+
+`dist/languages.js/css`, `dist/language-lessons.json` a `dist/i18n/{cs,en,fr}.json` přidávají trvalé přepínání CZ/EN/FR, 40 frází, čtenářské porovnání a místní výslovnost na kliknutí. Zdrojové překlady jsou v `docs/i18n/*-translations.json`; výsledné slovníky vytváří `python tools/build-languages.py`. Nový veřejný text přelož ve všech třech jazycích. Vlastní text uživatele označ `data-i18n-user`; nikdy jej nepřidávej do sdíleného slovníku. `python tools/wire-selfmade.py` zachovává jazykové ovládání po starších generátorech. Oba skripty spusť před testy a balením.
+
+Čti `docs/atlas/LANGUAGES.md`, `LANGUAGES_RELEASE_QA.md` a `CITY_LANGUAGES_RELEASE.md`. Lokální jazyková praxe používá pouze dva nové klíče popsané v dokumentaci; při rollbacku nemaž žádná uživatelská data. Úspěšná explicitní volba „Uložit pro cestu bez připojení“ v expedicích zahrnuje také tři slovníky a fráze; celý web tím nezískává offline mapy ani externí stránky. Skutečné snímky jsou v `docs/qa/city-languages/`.

@@ -1,10 +1,13 @@
 /* Opt-in text cache. This worker is scoped to /expeditions/ only. */
-const CACHE = 'caisik-expeditions-v2-20261025';
-const CORE = ['/expeditions/expeditions.css?v=2', '/expeditions/app.js?v=2', '/expeditions/store.js?v=2', '/expeditions/schema.js?v=1', '/expeditions/data/expeditions.json?v=1'];
+const CACHE = 'caisik-expeditions-v3-20261027';
+// Saved only after the existing explicit offline action; no media library or uploads.
+const LANGUAGE = ['/languages.css?v=1', '/languages.js?v=1', '/language-lessons.json?v=1', ...['cs', 'en', 'fr'].map(lang => `/i18n/${lang}.json?v=1`)];
+const LANGUAGE_PATHS = new Set(LANGUAGE.map(path => new URL(path, self.location.origin).pathname));
+const CORE = ['/expeditions/expeditions.css?v=2', '/expeditions/app.js?v=2', '/expeditions/store.js?v=2', '/expeditions/schema.js?v=1', '/expeditions/data/expeditions.json?v=1', ...LANGUAGE];
 const PAGES = ['/expeditions/', ...['dj','mc','writer','breaking','knowledge'].map(id => `/expeditions/${id}/`)];
 const REQUIRED = [...CORE, ...PAGES];
 const LAYERS = ['dj','mc','writer','breaking','knowledge'].map(id => `/expeditions/assets/layers/${id}.svg`);
-const allowed = url => url.origin === self.location.origin && (url.pathname.startsWith('/expeditions/') || /^\/assets\/masterworks-v2\/[0-9]{3}\.webp$/.test(url.pathname));
+const allowed = url => url.origin === self.location.origin && (url.pathname.startsWith('/expeditions/') || LANGUAGE_PATHS.has(url.pathname) || /^\/assets\/masterworks-v2\/[0-9]{3}\.webp$/.test(url.pathname));
 async function openCache() { try { return await caches.open(CACHE); } catch { return null; } }
 async function readCache(cache, request, ignoreSearch = true) { try { return await cache?.match(request, {ignoreSearch}); } catch { return undefined; } }
 async function cacheFiles(paths) {

@@ -69,3 +69,32 @@ for file in atlas_pages:
     data=data.replace('Published information was checked on <time datetime="2026-10-21">21 October 2026</time>', 'Original atlas information was checked on <time datetime="2026-10-21">21 October 2026</time>; cultural additions show their own research dates')
     file.write_text(data)
 print(f'Visible motion controls and living-culture field desk linked to {len(atlas_pages)} atlas routes.')
+
+# Accuracy-first map and reversible chapter motion preserve native page scrolling.
+for file in atlas_pages:
+    data=file.read_text()
+    data=re.sub(r'/atlas\.js\?v=\d+','/atlas.js?v=9',data)
+    data=re.sub(r'/city-map\.css\?v=\d+','/city-map.css?v=3',data)
+    data=re.sub(r'/culture-board\.css\?v=\d+','/culture-board.css?v=2',data)
+    data=data.replace('STREET / SOUND / THOUGHT · 14 NOVÝCH MÍST ↓','STREET / SOUND / THOUGHT · 20 KULTURNÍCH MÍST ↓')
+    data=data.replace('chybějící výška je výtvarně doplněná','chybějící výška zůstává plochým půdorysem')
+    if '/journey-scroll.js' not in data:data=data.replace('</head>','<link rel="stylesheet" href="/journey-scroll.css?v=1"><script src="/journey-scroll.js?v=1" defer></script></head>')
+    file.write_text(data)
+
+# One persistent language preference across atlas, expeditions, workshops and gallery.
+LANGUAGE_HEAD='<link rel="stylesheet" href="/languages.css?v=1"><script src="/languages.js?v=1" defer></script>'
+for file in text_pages:
+    data=file.read_text()
+    if '/languages.js' not in data:
+        marker='<link rel="stylesheet" href="/text-motion.css'
+        if marker in data:data=data.replace(marker,LANGUAGE_HEAD+marker,1)
+        else:data=data.replace('</head>',LANGUAGE_HEAD+'</head>')
+    file.write_text(data)
+print(f'CZ / EN / FR language controls linked to {len(text_pages)} experience pages.')
+
+# Venue names and street addresses are authoritative identifiers, not prose.
+for file in atlas_pages:
+    data=file.read_text()
+    for name in ['Le M.U.R. Oberkampf · 107 rue Oberkampf','Vitry-sur-Seine · Mur/Murs']:
+        data=data.replace('<strong>'+name+'</strong>','<strong translate="no">'+name+'</strong>')
+    file.write_text(data)

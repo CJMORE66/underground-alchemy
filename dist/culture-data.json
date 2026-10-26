@@ -2,7 +2,7 @@
   "version": 1,
   "checkedAt": "2026-10-26",
   "method": "Primární zdroje provozovatelů, města a pořadatelů. Jde o kontrolu publikovaných informací, nikoli osobní inspekci nebo partnerství.",
-  "coordinatePolicy": "Bez doloženého mapového bodu zůstávají souřadnice null. Přesná adresa a externí navigace jsou k dispozici.",
+  "coordinatePolicy": "Doložené adresní a místní body mají uvedený zdroj a typ. Jde o orientační lokalizaci; nedokládají přesný vstup ani zaměřenou kotvu 3D modelu. Spot 13 zůstává bez pinu.",
   "places": [
     {
       "id": "maquis-art-malik",
@@ -26,9 +26,9 @@
       ],
       "access": "Před cestou potvrď otevření přímo u Maquis-Art: publikované rozvrhy webu a sociálních oznámení se rozcházejí. Starší adresy Quincampoix a Clignancourt nepoužívej jako dnešní cíl. Kontaktní web obsahuje i nesoulad v poštovním směrovacím čísle, proto zde není přepsán. Nákup spreje nezakládá povolení malovat v tržnici ani v okolí.",
       "checkedAt": "2026-10-26",
-      "lat": null,
-      "lng": null,
-      "coordinateStatus": "Adresa a stánek doloženy provozovatelem; geografický pin neověřen.",
+      "lat": 48.901441,
+      "lng": 2.339657,
+      "coordinateStatus": "Bod konkrétní adresy z IGN / Base Adresse Nationale; orientační lokalizace objektu, nikoli zaměřený vstup do provozovny.",
       "task": {
         "question": "Která volba nástroje skutečně mění tvoje písmo a která je jen zvyk?",
         "observe": "Porovnej v nabídce dvě šířky hrotu nebo dvě varianty ventilu. Zapiš funkci, kterou potřebuješ: obrys, plocha nebo detail.",
@@ -36,7 +36,14 @@
         "review": "Vyber čitelnější variantu a označ konkrétní spoj či mezeru, která rozhodla. Nákup není podmínkou úkolu.",
         "output": "Dvě písmové studie + zdůvodněný výběr jednoho nástroje + odkaz na jednu archivní referenci."
       },
-      "relatedExpedition": "writer"
+      "relatedExpedition": "writer",
+      "coordinateSource": "https://data.geopf.fr/geocodage/search?q=53+rue+Jules+Vall%C3%A8s+93400+Saint-Ouen-sur-Seine&limit=3",
+      "coordinateStatusI18n": {
+        "cs": "Bod konkrétní adresy z IGN / Base Adresse Nationale; orientační lokalizace objektu, nikoli zaměřený vstup do provozovny.",
+        "en": "Address point from IGN / Base Adresse Nationale; an approximate location, not a surveyed venue entrance.",
+        "fr": "Point adresse IGN / Base Adresse Nationale ; localisation indicative, pas un relevé de l’entrée de l’établissement."
+      },
+      "positionScope": "address-point"
     },
     {
       "id": "le-lavomatik",
@@ -60,9 +67,9 @@
       ],
       "access": "Návštěvu plánuj podle aktuálního kontaktního webu a výstavy. Pro malování, workshop, použití konkrétní přilehlé stěny i komerční aktivitu si předem domluv podmínky přímo se správcem. Popis venkovní tvorby není blanketní povolení přemalovat cizí dílo. Bezbariérovost nebyla doložena; ověř individuálně.",
       "checkedAt": "2026-10-26",
-      "lat": null,
-      "lng": null,
-      "coordinateStatus": "Oficiální adresa ověřena; odkaz mapy obsahuje jen střed kamery, přesný pin nepřevzat.",
+      "lat": 48.826535,
+      "lng": 2.383632,
+      "coordinateStatus": "Bod konkrétní adresy z IGN / Base Adresse Nationale; orientační lokalizace objektu, nikoli zaměřený vstup do provozovny.",
       "task": {
         "question": "Co se z písmové práce přenese ze stěny na stránku a co se ztratí?",
         "observe": "Vyber jeden zveřejněný detail a rozliš tvar písmene, podklad a okolní měřítko. Zaznamenej autora a zdroj, pokud jsou uvedeni.",
@@ -70,7 +77,14 @@
         "review": "U každé kompozice vysvětli změnu negativního prostoru a pořadí čtení. Nech druhého člověka říci, co přečetl jako první.",
         "output": "Dvojice vlastních kompozic + popis přenosu měřítka + procesní poznámka do Blackbooku."
       },
-      "relatedExpedition": "writer"
+      "relatedExpedition": "writer",
+      "coordinateSource": "https://data.geopf.fr/geocodage/search?q=20+boulevard+du+G%C3%A9n%C3%A9ral+Jean+Simon+75013+Paris&limit=3",
+      "coordinateStatusI18n": {
+        "cs": "Bod konkrétní adresy z IGN / Base Adresse Nationale; orientační lokalizace objektu, nikoli zaměřený vstup do provozovny.",
+        "en": "Address point from IGN / Base Adresse Nationale; an approximate location, not a surveyed venue entrance.",
+        "fr": "Point adresse IGN / Base Adresse Nationale ; localisation indicative, pas un relevé de l’entrée de l’établissement."
+      },
+      "positionScope": "address-point"
     },
     {
       "id": "le-grand-jeu",
@@ -94,9 +108,9 @@
       ],
       "access": "Otevírací dobu a mimořádné uzavření ověř na webu obchodu. Workshop, rozhovor s autorem ani partnerství nejsou sjednány. Před focením stránek nebo interiéru požádej obsluhu; knihu nepovažuj za volnou banku reprodukcí. Úkol lze splnit bez nákupu.",
       "checkedAt": "2026-10-26",
-      "lat": null,
-      "lng": null,
-      "coordinateStatus": "Oficiální adresa ověřena; přesná souřadnice vstupu nedodána.",
+      "lat": 48.864871,
+      "lng": 2.381967,
+      "coordinateStatus": "Bod konkrétní adresy z IGN / Base Adresse Nationale; orientační lokalizace objektu, nikoli zaměřený vstup do provozovny.",
       "linkExistingExpedition": true,
       "task": {
         "question": "Jak poznáš rozdíl mezi zdokumentovanou scénou a zkonstruovanou legendou?",
@@ -105,7 +119,14 @@
         "review": "Podtrhni věty, které by musely mít zdroj. Doplň chybějící kredit a jednu otázku, na kterou zatím nemáš doklad.",
         "output": "Vlastní mini-zin + dva bibliografické záznamy + rozlišení faktu a osobního čtení."
       },
-      "relatedExpedition": "writer"
+      "relatedExpedition": "writer",
+      "coordinateSource": "https://data.geopf.fr/geocodage/search?q=15+passage+de+M%C3%A9nilmontant%2C+75011+Paris&limit=3",
+      "coordinateStatusI18n": {
+        "cs": "Bod konkrétní adresy z IGN / Base Adresse Nationale; orientační lokalizace objektu, nikoli zaměřený vstup do provozovny.",
+        "en": "Address point from IGN / Base Adresse Nationale; an approximate location, not a surveyed venue entrance.",
+        "fr": "Point adresse IGN / Base Adresse Nationale ; localisation indicative, pas un relevé de l’entrée de l’établissement."
+      },
+      "positionScope": "address-point"
     },
     {
       "id": "fluctuart",
@@ -143,9 +164,9 @@
         }
       ],
       "checkedAt": "2026-10-26",
-      "lat": null,
-      "lng": null,
-      "coordinateStatus": "Přístav a most doloženy oficiálním webem; přesný vstupní pin neověřen.",
+      "lat": 48.8630329905371,
+      "lng": 2.30992997172751,
+      "coordinateStatus": "Orientační bod Fluctuart zveřejněný v mapě městského programu Paříže; není zaměřeným přístupem na plovoucí objekt.",
       "task": {
         "question": "Co se změní, když se gesto z ulice ocitne v kurátorském výběru?",
         "observe": "U jednoho díla si všimni materiálu, měřítka a popisky. Odděl údaj z popisky od své reakce.",
@@ -153,7 +174,14 @@
         "review": "Napiš, kdo znak uvidí v každé variantě, co mu bude scházet a jak bys uvedl autora a podmínky reprodukce.",
         "output": "Dvě kontextové studie vlastního znaku + 120 slov o změně publika."
       },
-      "relatedExpedition": "writer"
+      "relatedExpedition": "writer",
+      "coordinateSource": "https://www.paris.fr/evenements/in-imaginable-introduction-au-lowbrow-et-au-pop-surrealisme-117993",
+      "coordinateStatusI18n": {
+        "cs": "Orientační bod Fluctuart zveřejněný v mapě městského programu Paříže; není zaměřeným přístupem na plovoucí objekt.",
+        "en": "Approximate venue point published in the City of Paris event map; not a surveyed boarding entrance.",
+        "fr": "Point indicatif publié sur la carte de l’agenda de Paris ; pas un relevé précis de l’accès à la péniche."
+      },
+      "positionScope": "venue-map-point"
     },
     {
       "id": "art42",
@@ -181,9 +209,9 @@
       ],
       "access": "Vstup do školy není volná průchozí návštěva. Vyber skutečně vypsaný termín a rezervuj na webu provozovatele; žádná rezervace není součástí CAISIK. Skupiny mimo veřejné sloty mají samostatné podmínky a cenu, které je nutné ověřit. Přístupnost a pravidla fotografování potvrď předem. Bez přístupu pracuj s veřejnou stránkou sbírky a označ úkol jako vzdálené studium.",
       "checkedAt": "2026-10-26",
-      "lat": null,
-      "lng": null,
-      "coordinateStatus": "Oficiální adresa ověřena; přesná souřadnice vstupu nedodána.",
+      "lat": 48.896419,
+      "lng": 2.318504,
+      "coordinateStatus": "Bod konkrétní adresy z IGN / Base Adresse Nationale; orientační lokalizace objektu, nikoli zaměřený vstup do provozovny.",
       "task": {
         "question": "Podle jakých pravidel bys uchoval tvorbu své vlastní scény?",
         "observe": "U dvou vystavených děl odděl techniku, autorství a tvoji domněnku o významu. Výklad průvodce zaznamenej jako jeho výklad.",
@@ -191,7 +219,14 @@
         "review": "Požádej druhého čtenáře, aby popsal pravidlo tvého výběru bez nápovědy. Podle jeho odpovědi jednu popisku zpřesni.",
         "output": "Tři vlastní skici s popiskami + pravidlo výběru + jedna doložená úprava po zpětné vazbě."
       },
-      "relatedExpedition": "writer"
+      "relatedExpedition": "writer",
+      "coordinateSource": "https://data.geopf.fr/geocodage/search?q=96+boulevard+Bessi%C3%A8res%2C+75017+Paris&limit=3",
+      "coordinateStatusI18n": {
+        "cs": "Bod konkrétní adresy z IGN / Base Adresse Nationale; orientační lokalizace objektu, nikoli zaměřený vstup do provozovny.",
+        "en": "Address point from IGN / Base Adresse Nationale; an approximate location, not a surveyed venue entrance.",
+        "fr": "Point adresse IGN / Base Adresse Nationale ; localisation indicative, pas un relevé de l’entrée de l’établissement."
+      },
+      "positionScope": "address-point"
     },
     {
       "id": "spot13",
@@ -256,9 +291,9 @@
       ],
       "access": "Vyber konkrétní akci v oficiálním programu a ověř vstupenku, věkovou hranici a otevřený sál. Klubové večery jsou pro dospělé. Provozovatel uvádí bezbariérový přístup a doporučuje potřeby při koncertu domluvit předem. Nemáš automaticky vstup na pódium ani oprávnění nahrávat účinkující.",
       "checkedAt": "2026-10-26",
-      "lat": null,
-      "lng": null,
-      "coordinateStatus": "Adresa doložena provozovatelem. Přesný mapový bod není z uvedených zdrojů nezávisle ověřen.",
+      "lat": 48.868282,
+      "lng": 2.392217,
+      "coordinateStatus": "Bod konkrétní adresy z IGN / Base Adresse Nationale; orientační lokalizace objektu, nikoli zaměřený vstup do provozovny.",
       "task": {
         "question": "Jak DJ mění energii sálu, když vystřídá žánr?",
         "observe": "Po dohodě s pravidly místa poslouchej tři přechody. Sleduj délku frází, basovou linku a reakci lidí bez pořizování jejich záznamů.",
@@ -266,7 +301,14 @@
         "review": "U každého přechodu napiš, co zůstalo společné a co se změnilo. Přepiš pořadí, pokud energie nemá čitelný směr.",
         "output": "Tři skladby s autorem a názvem, náčrt energie a tři vysvětlená dramaturgická rozhodnutí."
       },
-      "relatedExpedition": "dj"
+      "relatedExpedition": "dj",
+      "coordinateSource": "https://data.geopf.fr/geocodage/search?q=19+rue+Boyer+75020+Paris&limit=3",
+      "coordinateStatusI18n": {
+        "cs": "Bod konkrétní adresy z IGN / Base Adresse Nationale; orientační lokalizace objektu, nikoli zaměřený vstup do provozovny.",
+        "en": "Address point from IGN / Base Adresse Nationale; an approximate location, not a surveyed venue entrance.",
+        "fr": "Point adresse IGN / Base Adresse Nationale ; localisation indicative, pas un relevé de l’entrée de l’établissement."
+      },
+      "positionScope": "address-point"
     },
     {
       "id": "fgo-barbara",
@@ -289,9 +331,9 @@
       ],
       "access": "Před návštěvou otevři konkrétní koncert na oficiálně propojené stránce pořadatele. Ověř datum, podmínky vstupu a přístupnost. Koncertní lístek není rezervace studia, lektora ani open-mic slotu. Veřejné vystoupení ve vlastní režii tato zastávka neslibuje.",
       "checkedAt": "2026-10-26",
-      "lat": null,
-      "lng": null,
-      "coordinateStatus": "Adresa doložena profilem pořadatele propojeným oficiálním webem. Číselné souřadnice nejsou potvrzené.",
+      "lat": 48.884338,
+      "lng": 2.354046,
+      "coordinateStatus": "Bod konkrétní adresy z IGN / Base Adresse Nationale; orientační lokalizace objektu, nikoli zaměřený vstup do provozovny.",
       "evidenceNote": "Oficiální doména při čtení přesměrovala na Shotgun; nejde o nezávislý redakční žebříček.",
       "task": {
         "question": "Co dělá z osobního textu sdělení, kterému rozumí celý sál?",
@@ -300,7 +342,14 @@
         "review": "Nech si od ochotného posluchače zopakovat hlavní myšlenku. Uprav jeden nesrozumitelný řádek a vysvětli důvod.",
         "output": "Vlastní osmiverší, dva popisy přednesu a jedna doložená změna textu nebo frázování."
       },
-      "relatedExpedition": "mc"
+      "relatedExpedition": "mc",
+      "coordinateSource": "https://data.geopf.fr/geocodage/search?q=1+rue+Fleury%2C+75018+Paris&limit=3",
+      "coordinateStatusI18n": {
+        "cs": "Bod konkrétní adresy z IGN / Base Adresse Nationale; orientační lokalizace objektu, nikoli zaměřený vstup do provozovny.",
+        "en": "Address point from IGN / Base Adresse Nationale; an approximate location, not a surveyed venue entrance.",
+        "fr": "Point adresse IGN / Base Adresse Nationale ; localisation indicative, pas un relevé de l’entrée de l’établissement."
+      },
+      "positionScope": "address-point"
     },
     {
       "id": "petit-bain",
@@ -327,9 +376,9 @@
       ],
       "access": "Ověř konkrétní koncert či klub v programu a pravidla vstupenky. Pro osoby mladší 16 let provozovatel požaduje doprovod dospělého. Sál má výtah; specifické potřeby je vhodné domluvit předem. Foto a video technika během koncertů vyžaduje akreditaci; respektuj také omezení telefonu stanovená umělcem. Spreje jsou v sále zakázané.",
       "checkedAt": "2026-10-26",
-      "lat": null,
-      "lng": null,
-      "coordinateStatus": "Adresa ověřena na oficiální stránce. Pin ani nástupní místo nejsou odhadnuté.",
+      "lat": 48.8349314335629,
+      "lng": 2.3767058313332,
+      "coordinateStatus": "Orientační bod Petit Bain zveřejněný v mapě městského programu Paříže; není zaměřeným přístupem na plovoucí objekt.",
       "task": {
         "question": "Jak se promění text, když musí nést hlas bez vizuální opory?",
         "observe": "U jednoho vystoupení rozliš konkrétní hudební oporu, hlas a ticho. Zapiš dva pozorované momenty zpaměti po koncertu.",
@@ -337,7 +386,14 @@
         "review": "Pojmenuj, která verze předala význam přesněji a proč. Převeď jeden slyšený princip do vlastní sloky, ne cizí formulaci.",
         "output": "Vlastní motiv, dvě přednesové varianty a vysvětlené rozhodnutí o jedné pauze."
       },
-      "relatedExpedition": "mc"
+      "relatedExpedition": "mc",
+      "coordinateSource": "https://www.paris.fr/evenements/take-me-out-lol-tolhurst-en-concert-a-paris-110780",
+      "coordinateStatusI18n": {
+        "cs": "Orientační bod Petit Bain zveřejněný v mapě městského programu Paříže; není zaměřeným přístupem na plovoucí objekt.",
+        "en": "Approximate venue point published in the City of Paris event map; not a surveyed boarding entrance.",
+        "fr": "Point indicatif publié sur la carte de l’agenda de Paris ; pas un relevé précis de l’accès à la péniche."
+      },
+      "positionScope": "venue-map-point"
     },
     {
       "id": "balades-sonores",
@@ -364,9 +420,9 @@
       ],
       "access": "Před cestou zkontroluj provoz a případnou akci přímo u obchodu. Staré přehledy s 1–3 avenue Trudaine nepoužívej jako dnešní cíl. Na podmínky poslechu se zeptej; úkol nevyžaduje nákup. Fyzický stav skladu, osobní konzultace ani kapacita akce nejsou ověřené živě.",
       "checkedAt": "2026-10-26",
-      "lat": null,
-      "lng": null,
-      "coordinateStatus": "Aktuálně publikovaná adresa ověřena. Přesný mapový vstup neověřen.",
+      "lat": 48.88475,
+      "lng": 2.346201,
+      "coordinateStatus": "Bod konkrétní adresy z IGN / Base Adresse Nationale; orientační lokalizace objektu, nikoli zaměřený vstup do provozovny.",
       "task": {
         "question": "Dokážeš propojit dva odlišné groove bez nálepky „tohle se k sobě nehodí“?",
         "observe": "Vyber dvě vlastní či legálně dostupné nahrávky z odlišných stylů. Pojmenuj rytmický prvek, který je skutečně spojuje.",
@@ -374,7 +430,14 @@
         "review": "Vysvětli, proč prostřední skladba funguje jako most. Pokud argument stojí jen na společném žánru, najdi přesnější hudební důvod.",
         "output": "Třípoložkový tracklist s konkrétní poznámkou ke groovu, barvě a přechodu."
       },
-      "relatedExpedition": "dj"
+      "relatedExpedition": "dj",
+      "coordinateSource": "https://data.geopf.fr/geocodage/search?q=8+rue+Pierre+Picard%2C+75018+Paris&limit=3",
+      "coordinateStatusI18n": {
+        "cs": "Bod konkrétní adresy z IGN / Base Adresse Nationale; orientační lokalizace objektu, nikoli zaměřený vstup do provozovny.",
+        "en": "Address point from IGN / Base Adresse Nationale; an approximate location, not a surveyed venue entrance.",
+        "fr": "Point adresse IGN / Base Adresse Nationale ; localisation indicative, pas un relevé de l’entrée de l’établissement."
+      },
+      "positionScope": "address-point"
     },
     {
       "id": "superfly-records",
@@ -397,9 +460,9 @@
       ],
       "access": "Otevírací dobu, podmínky poslechu a dostupnost konkrétního titulu ověř u obchodu. Hlavní katalog při výzkumu omezoval automatické čtení; adresa a vazby obchodu jsou doložené jeho vlastním blogem. Nákup není podmínkou úkolu. Bez oprávnění nekopíruj ani veřejně nepublikuj zvuk.",
       "checkedAt": "2026-10-26",
-      "lat": null,
-      "lng": null,
-      "coordinateStatus": "Adresa publikovaná vlastníkem na vlastním blogu. Číselný pin neověřen.",
+      "lat": 48.867638,
+      "lng": 2.356636,
+      "coordinateStatus": "Bod konkrétní adresy z IGN / Base Adresse Nationale; orientační lokalizace objektu, nikoli zaměřený vstup do provozovny.",
       "evidenceNote": "Hlavní katalog nebyl při čtení plně dostupný; nelze potvrdit živý sklad ani dnešní provozní dobu.",
       "task": {
         "question": "Jak odlišit slyšenou podobnost od doloženého původu samplu?",
@@ -408,7 +471,14 @@
         "review": "Označ jednu nepodloženou domněnku a nahraď ji pozorovatelným popisem. Autorské a právní svolení neposuzuj podle pouhé dostupnosti záznamu.",
         "output": "Poslechová karta, vlastní čtyřdobý rytmický náčrt a seznam důkazů potřebných k tvrzení o samplu."
       },
-      "relatedExpedition": "dj"
+      "relatedExpedition": "dj",
+      "coordinateSource": "https://data.geopf.fr/geocodage/search?q=53+rue+Notre-Dame+de+Nazareth%2C+75003+Paris&limit=3",
+      "coordinateStatusI18n": {
+        "cs": "Bod konkrétní adresy z IGN / Base Adresse Nationale; orientační lokalizace objektu, nikoli zaměřený vstup do provozovny.",
+        "en": "Address point from IGN / Base Adresse Nationale; an approximate location, not a surveyed venue entrance.",
+        "fr": "Point adresse IGN / Base Adresse Nationale ; localisation indicative, pas un relevé de l’entrée de l’établissement."
+      },
+      "positionScope": "address-point"
     },
     {
       "id": "cafe-des-phares",
@@ -427,9 +497,9 @@
       ],
       "access": "Před cestou si u podniku potvrď datum, jazyk, podmínky účasti a případnou konzumaci. Fyzická přístupnost nebyla ověřena. Nenahrávej účastníky bez souhlasu; můžeš poslouchat a pracovat jen s vlastními poznámkami. Starší webové adresy debatního okruhu neposkytly dostatečně spolehlivou současnou informaci a nejsou zde doporučeným rezervačním kanálem.",
       "checkedAt": "2026-10-26",
-      "lat": null,
-      "lng": null,
-      "coordinateStatus": "Adresa doložena oficiální turistickou kanceláří. Přesný bod ani vstup neověřen.",
+      "lat": 48.853654,
+      "lng": 2.368323,
+      "coordinateStatus": "Bod konkrétní adresy z IGN / Base Adresse Nationale; orientační lokalizace objektu, nikoli zaměřený vstup do provozovny.",
       "evidenceNote": "Současný formát dokládá turistická kancelář, ne nezávislá návštěva. Termín není potvrzen přímo moderátorem.",
       "task": {
         "question": "Může se sebejistá věta stát přesnější, když vyslechneš její nejsilnější námitku?",
@@ -438,7 +508,14 @@
         "review": "Změň v tezi konkrétní slovo nebo rozsah tvrzení. Vysvětli, jaká námitka tě k tomu vedla. Cílem není vyhrát debatu.",
         "output": "Teze, poctivá protinámitka a zpřesněná myšlenka s důvodem změny."
       },
-      "relatedExpedition": "knowledge"
+      "relatedExpedition": "knowledge",
+      "coordinateSource": "https://data.geopf.fr/geocodage/search?q=7+place+de+la+Bastille%2C+75004+Paris&limit=3",
+      "coordinateStatusI18n": {
+        "cs": "Bod konkrétní adresy z IGN / Base Adresse Nationale; orientační lokalizace objektu, nikoli zaměřený vstup do provozovny.",
+        "en": "Address point from IGN / Base Adresse Nationale; an approximate location, not a surveyed venue entrance.",
+        "fr": "Point adresse IGN / Base Adresse Nationale ; localisation indicative, pas un relevé de l’entrée de l’établissement."
+      },
+      "positionScope": "address-point"
     },
     {
       "id": "forum104",
@@ -465,9 +542,9 @@
       ],
       "access": "Vyber konkrétní současnou debatu nebo dílnu v programu. Každá má vlastní téma, cenu a případné přihlášení; návštěva budovy neznamená účast v libovolné skupině. Ověř jazyk, přístupnost a formát. Samostatně zveřejněné duchovní postoje jsou postoje řečníků, nikoli námi potvrzené historické či vědecké důkazy.",
       "checkedAt": "2026-10-26",
-      "lat": null,
-      "lng": null,
-      "coordinateStatus": "Adresa potvrzena na webu provozovatele. Pin neověřen.",
+      "lat": 48.84612,
+      "lng": 2.323474,
+      "coordinateStatus": "Bod konkrétní adresy z IGN / Base Adresse Nationale; orientační lokalizace objektu, nikoli zaměřený vstup do provozovny.",
       "task": {
         "question": "Kdy je věta osobní zkušeností, kdy interpretací a kdy ověřitelným tvrzením?",
         "observe": "Při zvolené veřejné debatě si pro vlastní potřebu poznamenej tři anonymizované parafráze. Odděl zkušenost, argument a faktické tvrzení.",
@@ -475,7 +552,14 @@
         "review": "Vyber jedno faktické tvrzení a napiš, jaký nezávislý důkaz by je mohl potvrdit nebo vyvrátit. Symbol tuto důkazní práci nenahrazuje.",
         "output": "Vlastní znak, legenda tří způsobů řeči a jedna zpřesněná myšlenka."
       },
-      "relatedExpedition": "knowledge"
+      "relatedExpedition": "knowledge",
+      "coordinateSource": "https://data.geopf.fr/geocodage/search?q=104+rue+de+Vaugirard%2C+75006+Paris&limit=3",
+      "coordinateStatusI18n": {
+        "cs": "Bod konkrétní adresy z IGN / Base Adresse Nationale; orientační lokalizace objektu, nikoli zaměřený vstup do provozovny.",
+        "en": "Address point from IGN / Base Adresse Nationale; an approximate location, not a surveyed venue entrance.",
+        "fr": "Point adresse IGN / Base Adresse Nationale ; localisation indicative, pas un relevé de l’entrée de l’établissement."
+      },
+      "positionScope": "address-point"
     },
     {
       "id": "maison-philo-romainville",
@@ -502,9 +586,9 @@
       ],
       "access": "Program uvádí bezplatné aktivity bez předchozích znalostí, ale některé potřebují přihlášení a dětské skupiny mohou být plné. Zkontroluj konkrétní věkovou skupinu, jazyk, volné místo a přesnou budovu vybrané akce. Romainville je samostatná obec za hranicí Paříže; neplánuj ji jako sousední zastávku v centru. Přístupnost konkrétního prostoru ověř u pořadatele.",
       "checkedAt": "2026-10-26",
-      "lat": null,
-      "lng": null,
-      "coordinateStatus": "Adresa ověřena v městském zdroji i programu 2026–2027. Souřadnice neodhadujeme.",
+      "lat": 48.884969,
+      "lng": 2.432956,
+      "coordinateStatus": "Bod konkrétní adresy z IGN / Base Adresse Nationale; orientační lokalizace objektu, nikoli zaměřený vstup do provozovny.",
       "task": {
         "question": "Je svoboda tvorby jen možnost udělat cokoli, nebo i schopnost vysvětlit vlastní volbu?",
         "observe": "Před diskusí si napiš definici svobody. Při setkání hledej konkrétní protipříklad, který tvou definici prověří.",
@@ -512,7 +596,1021 @@
         "review": "Po diskusi přepiš jednu větu tak, aby obstála i v nejsilnějším protipříkladu. Uveď, co se změnilo a co zůstává otevřené.",
         "output": "Krátký text, vlastní znak a dvě verze myšlenky s vysvětlenou změnou."
       },
-      "relatedExpedition": "knowledge"
+      "relatedExpedition": "knowledge",
+      "coordinateSource": "https://data.geopf.fr/geocodage/search?q=28+avenue+Paul-Vaillant-Couturier%2C+93230+Romainville&limit=3",
+      "coordinateStatusI18n": {
+        "cs": "Bod konkrétní adresy z IGN / Base Adresse Nationale; orientační lokalizace objektu, nikoli zaměřený vstup do provozovny.",
+        "en": "Address point from IGN / Base Adresse Nationale; an approximate location, not a surveyed venue entrance.",
+        "fr": "Point adresse IGN / Base Adresse Nationale ; localisation indicative, pas un relevé de l’entrée de l’établissement."
+      },
+      "positionScope": "address-point"
+    },
+    {
+      "category": "studio",
+      "checkedAt": "2026-10-26",
+      "lat": 48.873655,
+      "lng": 2.350387,
+      "coordinateStatus": "Bod konkrétní adresy z IGN / Base Adresse Nationale; orientační lokalizace objektu, nikoli zaměřený vstup do provozovny.",
+      "relatedExpedition": "mc",
+      "outdoorViewing": false,
+      "id": "urbe-studio",
+      "name": "Urbe Studio",
+      "address": "37 rue d’Hauteville, 75010 Paris",
+      "facts": [
+        "Urbe nabízí nahrávání, mixáž a mastering na 37 rue d’Hauteville v 10. obvodu.",
+        "Provozovatel rozlišuje session se zvukařem a samostatný pronájem bez zvukaře, pro který vyžaduje vlastní počítač. Prostor uvádí také pro rap."
+      ],
+      "sources": [
+        {
+          "title": "Urbe — služby a varianty session",
+          "url": "https://www.urbestudio.fr/"
+        },
+        {
+          "title": "Urbe — adresa a vlastní popis studia",
+          "url": "https://www.urbestudio.fr/blog/studio-enregistrement-paris"
+        }
+      ],
+      "access": "Pouze domluvená session. Předem potvrď variantu se zvukařem nebo bez něj, vybavení, minimální délku, cenu a exporty. Noční provoz neznamená volný termín. Samostatný pronájem automaticky nezahrnuje výuku. CAISIK žádnou rezervaci neprovedl.",
+      "task": {
+        "question": "Co potřebuješ od zvukaře a co už zvládneš samostatně?",
+        "observe": "Porovnej obě služby a napiš tři úkony, pro které chceš vedení. Připrav vlastní počítač jen podle vybrané a potvrzené varianty.",
+        "try": "Připrav šestnáct taktů a instrumentál s vyřešenými právy. V domluvené session nahraj dvě interpretace; ve druhé změň jeden konkrétní důraz nebo nádech.",
+        "review": "Při srovnatelné hlasitosti porovnej srozumitelnost a návaznost frází. Označ čas a vysvětli jednu volbu; hlasitější automaticky neznamená lepší.",
+        "output": "Dvě vlastní verze sloky, seznam vybraných záběrů a vysvětlená úprava."
+      },
+      "translations": {
+        "cs": {
+          "facts": [
+            "Urbe nabízí nahrávání, mixáž a mastering na 37 rue d’Hauteville v 10. obvodu.",
+            "Provozovatel rozlišuje session se zvukařem a samostatný pronájem bez zvukaře, pro který vyžaduje vlastní počítač. Prostor uvádí také pro rap."
+          ],
+          "access": "Pouze domluvená session. Předem potvrď variantu se zvukařem nebo bez něj, vybavení, minimální délku, cenu a exporty. Noční provoz neznamená volný termín. Samostatný pronájem automaticky nezahrnuje výuku. CAISIK žádnou rezervaci neprovedl.",
+          "task": {
+            "question": "Co potřebuješ od zvukaře a co už zvládneš samostatně?",
+            "observe": "Porovnej obě služby a napiš tři úkony, pro které chceš vedení. Připrav vlastní počítač jen podle vybrané a potvrzené varianty.",
+            "try": "Připrav šestnáct taktů a instrumentál s vyřešenými právy. V domluvené session nahraj dvě interpretace; ve druhé změň jeden konkrétní důraz nebo nádech.",
+            "review": "Při srovnatelné hlasitosti porovnej srozumitelnost a návaznost frází. Označ čas a vysvětli jednu volbu; hlasitější automaticky neznamená lepší.",
+            "output": "Dvě vlastní verze sloky, seznam vybraných záběrů a vysvětlená úprava."
+          },
+          "name": "Urbe Studio",
+          "address": "37 rue d’Hauteville, 75010 Paris",
+          "sources": [
+            {
+              "url": "https://www.urbestudio.fr/",
+              "title": "Urbe — služby a varianty session"
+            },
+            {
+              "url": "https://www.urbestudio.fr/blog/studio-enregistrement-paris",
+              "title": "Urbe — adresa a vlastní popis studia"
+            }
+          ],
+          "coordinateStatus": "Adresa doložena provozovatelem; přesný geografický bod nebyl doložen."
+        },
+        "en": {
+          "facts": [
+            "Urbe offers recording, mixing and mastering at 37 rue d’Hauteville in Paris’s 10th arrondissement.",
+            "The operator distinguishes sessions with an engineer from self-service hire without one, for which a personal computer is required. Rap is among the stated uses."
+          ],
+          "access": "Access is for an agreed session. Confirm whether an engineer is included, the equipment, minimum duration, price and exports. Night-time operation does not establish availability. Self-service hire does not automatically include tuition. CAISIK has made no booking.",
+          "task": {
+            "question": "What do you need an engineer for, and what can you already manage independently?",
+            "observe": "Compare the two services and list three tasks for which you want guidance. Bring your own computer only as required by the option you have chosen and confirmed.",
+            "try": "Prepare sixteen bars and an instrumental whose usage rights are settled. In an agreed session, record two interpretations; change one specific emphasis or breath in the second.",
+            "review": "At comparable playback levels, compare intelligibility and the connection between phrases. Mark a time and explain one choice; louder does not automatically mean better.",
+            "output": "Two versions of your own verse, a list of selected takes and an explained revision."
+          },
+          "name": "Urbe Studio",
+          "address": "37 rue d’Hauteville, 75010 Paris",
+          "sources": [
+            {
+              "url": "https://www.urbestudio.fr/",
+              "title": "Urbe — services and session options"
+            },
+            {
+              "url": "https://www.urbestudio.fr/blog/studio-enregistrement-paris",
+              "title": "Urbe — address and studio description"
+            }
+          ],
+          "coordinateStatus": "Address published by the operator; no precise geographic point has been verified."
+        },
+        "fr": {
+          "facts": [
+            "Urbe propose enregistrement, mixage et mastering au 37 rue d’Hauteville, dans le 10e arrondissement de Paris.",
+            "L’exploitant distingue les séances avec ingénieur du son de la location autonome sans ingénieur, qui nécessite un ordinateur personnel. Le rap fait partie des usages annoncés."
+          ],
+          "access": "L’accès correspond à une séance convenue. Confirme la présence ou non d’un ingénieur, le matériel, la durée minimale, le prix et les exports. Une ouverture nocturne ne garantit pas un créneau libre. La location autonome n’inclut pas automatiquement un cours. CAISIK n’a effectué aucune réservation.",
+          "task": {
+            "question": "Pour quelles tâches as-tu besoin d’un ingénieur, et que sais-tu déjà faire seul ?",
+            "observe": "Compare les deux formules et note trois tâches pour lesquelles tu souhaites être accompagné. Apporte ton ordinateur uniquement selon la formule choisie et confirmée.",
+            "try": "Prépare seize mesures et une instrumentale dont les droits d’utilisation sont réglés. Lors d’une séance convenue, enregistre deux interprétations ; dans la seconde, change un accent ou une respiration précise.",
+            "review": "À niveau d’écoute comparable, évalue l’intelligibilité et l’enchaînement des phrases. Repère un moment et explique un choix ; plus fort ne signifie pas automatiquement meilleur.",
+            "output": "Deux versions de ton propre couplet, une liste des prises retenues et une modification expliquée."
+          },
+          "name": "Urbe Studio",
+          "address": "37 rue d’Hauteville, 75010 Paris",
+          "sources": [
+            {
+              "url": "https://www.urbestudio.fr/",
+              "title": "Urbe — services et formules de séance"
+            },
+            {
+              "url": "https://www.urbestudio.fr/blog/studio-enregistrement-paris",
+              "title": "Urbe — adresse et présentation du studio"
+            }
+          ],
+          "coordinateStatus": "Adresse publiée par l’exploitant ; aucun point géographique précis n’a été vérifié."
+        }
+      },
+      "coordinateSource": "https://data.geopf.fr/geocodage/search?q=37+rue+d+Hauteville+75010+Paris&limit=3",
+      "coordinateStatusI18n": {
+        "cs": "Bod konkrétní adresy z IGN / Base Adresse Nationale; orientační lokalizace objektu, nikoli zaměřený vstup do provozovny.",
+        "en": "Address point from IGN / Base Adresse Nationale; an approximate location, not a surveyed venue entrance.",
+        "fr": "Point adresse IGN / Base Adresse Nationale ; localisation indicative, pas un relevé de l’entrée de l’établissement."
+      },
+      "positionScope": "address-point"
+    },
+    {
+      "category": "studio",
+      "checkedAt": "2026-10-26",
+      "lat": 48.870948,
+      "lng": 2.400144,
+      "coordinateStatus": "Bod konkrétní adresy z IGN / Base Adresse Nationale; orientační lokalizace objektu, nikoli zaměřený vstup do provozovny.",
+      "relatedExpedition": "mc",
+      "outdoorViewing": false,
+      "id": "leizart-audio-saint-fargeau",
+      "name": "Leizart — Studio Audio Saint-Fargeau",
+      "address": "8 rue Saint-Fargeau, 75020 Paris",
+      "facts": [
+        "Oficiální stránka Leizart označuje nahrávací Studio Audio na 8 rue Saint-Fargeau. Další provozovny značky jsou odlišná místa.",
+        "Nabídka zahrnuje zvukaře, nahrávání hlasu a zpracování. Provozovatel rozlišuje stereo instrumentál a jednotlivé stopy, jejichž mix vyžaduje další čas."
+      ],
+      "sources": [
+        {
+          "title": "Leizart — konkrétní Studio Audio a průběh session",
+          "url": "https://leizart.com/studio-d-enregistrement"
+        },
+        {
+          "title": "Leizart — příprava před nahráváním",
+          "url": "https://leizart.com/studio-enregistrement"
+        }
+      ],
+      "access": "Potvrď konkrétně Studio Audio Saint-Fargeau, termín, zvukaře a rozsah mixu/masteringu. Jiná video či foto místnost není nahrávací session. Vyhraď skutečný čas na instalaci, poslech a export; nic zde není zaplacené ani rezervované.",
+      "task": {
+        "question": "Který detail přednesu zlepší výsledek ještě před použitím efektů?",
+        "observe": "Zvýrazni důrazy a nádechy v textu. Rozliš stereo beat a jednotlivé stopy; poznamenej BPM a strukturu.",
+        "try": "V domluvené session nahraj refrén dvakrát, s přirozeným a vědomě změněným důrazem. Ad-lib nahraj odděleně podle domluveného rozsahu.",
+        "review": "Pojmenuj frázi, kde podání změnilo význam. Pracovní předmix nezaměňuj za hotový master.",
+        "output": "Lead ve dvou verzích, samostatný ad-lib a tři poznámky k finálnímu přednesu."
+      },
+      "translations": {
+        "cs": {
+          "facts": [
+            "Oficiální stránka Leizart označuje nahrávací Studio Audio na 8 rue Saint-Fargeau. Další provozovny značky jsou odlišná místa.",
+            "Nabídka zahrnuje zvukaře, nahrávání hlasu a zpracování. Provozovatel rozlišuje stereo instrumentál a jednotlivé stopy, jejichž mix vyžaduje další čas."
+          ],
+          "access": "Potvrď konkrétně Studio Audio Saint-Fargeau, termín, zvukaře a rozsah mixu/masteringu. Jiná video či foto místnost není nahrávací session. Vyhraď skutečný čas na instalaci, poslech a export; nic zde není zaplacené ani rezervované.",
+          "task": {
+            "question": "Který detail přednesu zlepší výsledek ještě před použitím efektů?",
+            "observe": "Zvýrazni důrazy a nádechy v textu. Rozliš stereo beat a jednotlivé stopy; poznamenej BPM a strukturu.",
+            "try": "V domluvené session nahraj refrén dvakrát, s přirozeným a vědomě změněným důrazem. Ad-lib nahraj odděleně podle domluveného rozsahu.",
+            "review": "Pojmenuj frázi, kde podání změnilo význam. Pracovní předmix nezaměňuj za hotový master.",
+            "output": "Lead ve dvou verzích, samostatný ad-lib a tři poznámky k finálnímu přednesu."
+          },
+          "name": "Leizart — Studio Audio Saint-Fargeau",
+          "address": "8 rue Saint-Fargeau, 75020 Paris",
+          "sources": [
+            {
+              "url": "https://leizart.com/studio-d-enregistrement",
+              "title": "Leizart — konkrétní Studio Audio a průběh session"
+            },
+            {
+              "url": "https://leizart.com/studio-enregistrement",
+              "title": "Leizart — příprava před nahráváním"
+            }
+          ],
+          "coordinateStatus": "Adresa doložena provozovatelem; přesný geografický bod nebyl doložen."
+        },
+        "en": {
+          "facts": [
+            "Leizart’s official page identifies its recording Studio Audio at 8 rue Saint-Fargeau. Other locations operated by the brand are separate places.",
+            "The offer includes an engineer, vocal recording and processing. The operator distinguishes a stereo instrumental from separate tracks, which require additional mixing time."
+          ],
+          "access": "Confirm Studio Audio Saint-Fargeau specifically, the appointment, engineer and scope of mixing/mastering. A different video or photography room is not a recording session. Allow actual time for setup, listening and export; nothing here has been paid for or booked.",
+          "task": {
+            "question": "Which detail of delivery could improve the result before any effects are applied?",
+            "observe": "Mark emphases and breaths in your lyrics. Distinguish a stereo beat from separate tracks; note the BPM and structure.",
+            "try": "In an agreed session, record the chorus twice, first naturally and then with deliberately changed emphasis. Record an ad-lib separately within the agreed scope.",
+            "review": "Identify a phrase whose meaning changed through delivery. Do not mistake a working premix for a finished master.",
+            "output": "Two versions of the lead, a separate ad-lib and three notes about the final delivery."
+          },
+          "name": "Leizart — Studio Audio Saint-Fargeau",
+          "address": "8 rue Saint-Fargeau, 75020 Paris",
+          "sources": [
+            {
+              "url": "https://leizart.com/studio-d-enregistrement",
+              "title": "Leizart — Studio Audio and session process"
+            },
+            {
+              "url": "https://leizart.com/studio-enregistrement",
+              "title": "Leizart — preparation before recording"
+            }
+          ],
+          "coordinateStatus": "Address published by the operator; no precise geographic point has been verified."
+        },
+        "fr": {
+          "facts": [
+            "La page officielle de Leizart situe le Studio Audio d’enregistrement au 8 rue Saint-Fargeau. Les autres sites de la marque sont des lieux distincts.",
+            "L’offre comprend un ingénieur du son, la prise de voix et son traitement. L’exploitant distingue une instrumentale stéréo des pistes séparées, dont le mixage demande davantage de temps."
+          ],
+          "access": "Confirme précisément le Studio Audio Saint-Fargeau, le créneau, l’ingénieur et le périmètre du mixage/mastering. Une autre salle vidéo ou photo ne constitue pas une séance d’enregistrement. Prévois du temps réel pour l’installation, l’écoute et les exports ; rien n’est payé ni réservé ici.",
+          "task": {
+            "question": "Quel détail d’interprétation pourrait améliorer le résultat avant d’ajouter des effets ?",
+            "observe": "Marque les accents et les respirations dans ton texte. Distingue un beat stéréo des pistes séparées ; note le BPM et la structure.",
+            "try": "Lors d’une séance convenue, enregistre le refrain deux fois : avec ton interprétation naturelle, puis en modifiant consciemment les accents. Enregistre un ad-lib séparément selon le périmètre convenu.",
+            "review": "Repère une phrase dont le sens change avec l’interprétation. Ne confonds pas un prémix de travail avec un master terminé.",
+            "output": "Deux versions de la voix principale, un ad-lib séparé et trois notes sur l’interprétation finale."
+          },
+          "name": "Leizart — Studio Audio Saint-Fargeau",
+          "address": "8 rue Saint-Fargeau, 75020 Paris",
+          "sources": [
+            {
+              "url": "https://leizart.com/studio-d-enregistrement",
+              "title": "Leizart — Studio Audio et déroulement d’une séance"
+            },
+            {
+              "url": "https://leizart.com/studio-enregistrement",
+              "title": "Leizart — préparation avant l’enregistrement"
+            }
+          ],
+          "coordinateStatus": "Adresse publiée par l’exploitant ; aucun point géographique précis n’a été vérifié."
+        }
+      },
+      "coordinateSource": "https://data.geopf.fr/geocodage/search?q=8+rue+Saint+Fargeau+75020+Paris&limit=3",
+      "coordinateStatusI18n": {
+        "cs": "Bod konkrétní adresy z IGN / Base Adresse Nationale; orientační lokalizace objektu, nikoli zaměřený vstup do provozovny.",
+        "en": "Address point from IGN / Base Adresse Nationale; an approximate location, not a surveyed venue entrance.",
+        "fr": "Point adresse IGN / Base Adresse Nationale ; localisation indicative, pas un relevé de l’entrée de l’établissement."
+      },
+      "positionScope": "address-point"
+    },
+    {
+      "category": "studio",
+      "checkedAt": "2026-10-26",
+      "lat": 48.887258,
+      "lng": 2.333909,
+      "coordinateStatus": "Bod konkrétní adresy z IGN / Base Adresse Nationale; orientační lokalizace objektu, nikoli zaměřený vstup do provozovny.",
+      "relatedExpedition": "mc",
+      "outdoorViewing": false,
+      "id": "montmartre-recording",
+      "name": "Montmartre Recording",
+      "address": "49 rue Lepic / 2 rue Tourlaque, 75018 Paris",
+      "facts": [
+        "Oficiální kontakt uvádí 49 rue Lepic / 2 rue Tourlaque: jednu provozovnu se dvěma uličními adresami. Který vstup použít je nutné potvrdit.",
+        "Studio nabízí hlas i nástroje, živé nahrávání a práci stopu po stopě, dále mixáž, mastering a aranžování."
+      ],
+      "sources": [
+        {
+          "title": "Montmartre Recording — kontaktní adresa",
+          "url": "https://montmartrerecording.com/contact/"
+        },
+        {
+          "title": "Montmartre Recording — živé nahrávání a práce po stopách",
+          "url": "https://montmartrerecording.com/nos-services/enregistrer-a-montmartre-recording/"
+        }
+      ],
+      "access": "Session a správný vstup domluv s týmem. Živá sestava, hlas na beat a vícestopý projekt vyžadují jiné podmínky; vyjasni zvukaře, soubory, délku a nabídku. Nejde o volně přístupnou prohlídku ani sjednaný kurz.",
+      "task": {
+        "question": "Potřebuje skladba energii společného záběru, nebo přesnost jednotlivých vrstev?",
+        "observe": "V demu označ části vhodné pro souvislý take a pro vrstvení. Ke každé přidej umělecký důvod.",
+        "try": "Po dohodě nahraj vlastní sloku souvisle a potom po úsecích. Sleduj návaznost frází a dechu; neměň současně všechny podmínky.",
+        "review": "Označ místo, kde střih pomohl, a kde ubral napětí. Vyžádej jednu konkrétní připomínku a napiš další krok nácviku.",
+        "output": "Dvě verze vlastní sloky, označený střih a zdůvodněná volba postupu."
+      },
+      "translations": {
+        "cs": {
+          "facts": [
+            "Oficiální kontakt uvádí 49 rue Lepic / 2 rue Tourlaque: jednu provozovnu se dvěma uličními adresami. Který vstup použít je nutné potvrdit.",
+            "Studio nabízí hlas i nástroje, živé nahrávání a práci stopu po stopě, dále mixáž, mastering a aranžování."
+          ],
+          "access": "Session a správný vstup domluv s týmem. Živá sestava, hlas na beat a vícestopý projekt vyžadují jiné podmínky; vyjasni zvukaře, soubory, délku a nabídku. Nejde o volně přístupnou prohlídku ani sjednaný kurz.",
+          "task": {
+            "question": "Potřebuje skladba energii společného záběru, nebo přesnost jednotlivých vrstev?",
+            "observe": "V demu označ části vhodné pro souvislý take a pro vrstvení. Ke každé přidej umělecký důvod.",
+            "try": "Po dohodě nahraj vlastní sloku souvisle a potom po úsecích. Sleduj návaznost frází a dechu; neměň současně všechny podmínky.",
+            "review": "Označ místo, kde střih pomohl, a kde ubral napětí. Vyžádej jednu konkrétní připomínku a napiš další krok nácviku.",
+            "output": "Dvě verze vlastní sloky, označený střih a zdůvodněná volba postupu."
+          },
+          "name": "Montmartre Recording",
+          "address": "49 rue Lepic / 2 rue Tourlaque, 75018 Paris",
+          "sources": [
+            {
+              "url": "https://montmartrerecording.com/contact/",
+              "title": "Montmartre Recording — kontaktní adresa"
+            },
+            {
+              "url": "https://montmartrerecording.com/nos-services/enregistrer-a-montmartre-recording/",
+              "title": "Montmartre Recording — živé nahrávání a práce po stopách"
+            }
+          ],
+          "coordinateStatus": "Adresa doložena provozovatelem; přesný geografický bod nebyl doložen."
+        },
+        "en": {
+          "facts": [
+            "The official contact page lists 49 rue Lepic / 2 rue Tourlaque: one premises with two street addresses. The entrance to use must be confirmed.",
+            "The studio offers voice and instrument recording, live sessions and track-by-track work, as well as mixing, mastering and arrangements."
+          ],
+          "access": "Arrange the session and correct entrance with the team. A live ensemble, vocals over a beat and a multitrack project require different conditions; clarify the engineer, files, duration and quote. This is not an open public tour or an arranged course.",
+          "task": {
+            "question": "Does the piece need the energy of a continuous take or the precision of separate layers?",
+            "observe": "Mark parts of your demo that suit a continuous take and parts that suit layering. Give an artistic reason for each.",
+            "try": "By agreement, record your own verse continuously and then in sections. Listen to phrase and breath continuity; do not change every condition at once.",
+            "review": "Mark a point where editing helped and one where it reduced tension. Ask for one specific comment and write down the next rehearsal step.",
+            "output": "Two versions of your own verse, an identified edit and a justified choice of method."
+          },
+          "name": "Montmartre Recording",
+          "address": "49 rue Lepic / 2 rue Tourlaque, 75018 Paris",
+          "sources": [
+            {
+              "url": "https://montmartrerecording.com/contact/",
+              "title": "Montmartre Recording — contact address"
+            },
+            {
+              "url": "https://montmartrerecording.com/nos-services/enregistrer-a-montmartre-recording/",
+              "title": "Montmartre Recording — live and track-by-track recording"
+            }
+          ],
+          "coordinateStatus": "Address published by the operator; no precise geographic point has been verified."
+        },
+        "fr": {
+          "facts": [
+            "Le contact officiel indique 49 rue Lepic / 2 rue Tourlaque : un seul établissement avec deux adresses sur rue. L’entrée à utiliser reste à confirmer.",
+            "Le studio propose la prise de voix et d’instruments, l’enregistrement en live et piste par piste, ainsi que le mixage, le mastering et les arrangements."
+          ],
+          "access": "Conviens de la séance et de la bonne entrée avec l’équipe. Une formation live, une voix sur un beat et un projet multipiste ont des besoins différents ; précise l’ingénieur, les fichiers, la durée et le devis. Il ne s’agit pas d’une visite libre ni d’un cours déjà organisé.",
+          "task": {
+            "question": "Le morceau a-t-il besoin de l’énergie d’une prise continue ou de la précision de couches séparées ?",
+            "observe": "Dans ta maquette, repère les passages adaptés à une prise continue et ceux qui gagnent à être superposés. Donne une raison artistique pour chacun.",
+            "try": "Après accord, enregistre ton propre couplet d’une traite, puis par sections. Écoute la continuité des phrases et du souffle ; ne change pas toutes les conditions en même temps.",
+            "review": "Repère un endroit où le montage aide et un autre où il réduit la tension. Demande une remarque précise et note la prochaine étape de répétition.",
+            "output": "Deux versions de ton propre couplet, un montage repéré et un choix de méthode justifié."
+          },
+          "name": "Montmartre Recording",
+          "address": "49 rue Lepic / 2 rue Tourlaque, 75018 Paris",
+          "sources": [
+            {
+              "url": "https://montmartrerecording.com/contact/",
+              "title": "Montmartre Recording — adresse de contact"
+            },
+            {
+              "url": "https://montmartrerecording.com/nos-services/enregistrer-a-montmartre-recording/",
+              "title": "Montmartre Recording — enregistrement live et piste par piste"
+            }
+          ],
+          "coordinateStatus": "Adresse publiée par l’exploitant ; aucun point géographique précis n’a été vérifié."
+        }
+      },
+      "coordinateSource": "https://data.geopf.fr/geocodage/search?q=49+rue+Lepic+75018+Paris&limit=3",
+      "coordinateStatusI18n": {
+        "cs": "Bod konkrétní adresy z IGN / Base Adresse Nationale; orientační lokalizace objektu, nikoli zaměřený vstup do provozovny.",
+        "en": "Address point from IGN / Base Adresse Nationale; an approximate location, not a surveyed venue entrance.",
+        "fr": "Point adresse IGN / Base Adresse Nationale ; localisation indicative, pas un relevé de l’entrée de l’établissement."
+      },
+      "positionScope": "address-point"
+    },
+    {
+      "category": "studio",
+      "checkedAt": "2026-10-26",
+      "lat": 48.860977,
+      "lng": 2.350429,
+      "coordinateStatus": "Bod konkrétní adresy z IGN / Base Adresse Nationale; orientační lokalizace objektu, nikoli zaměřený vstup do provozovny.",
+      "relatedExpedition": "mc",
+      "outdoorViewing": false,
+      "id": "wacked-recording",
+      "name": "Studio Wacked — nahrávání",
+      "address": "43 rue Quincampoix, 75004 Paris",
+      "facts": [
+        "Aktuální kontaktní stránka Wacked uvádí 43 rue Quincampoix. Nahrávací nabídka zahrnuje hlas, nástroje, aranžování, mixáž a mastering.",
+        "Nahrávací termíny se podle provozovatele potvrzují přímo s týmem. Rezervace zkušebny či podcastu není stejná služba."
+      ],
+      "sources": [
+        {
+          "title": "Wacked — nahrávání a potvrzování session",
+          "url": "https://wacked.fr/enregistrement/"
+        },
+        {
+          "title": "Wacked — oficiální kontaktní adresa",
+          "url": "https://wacked.fr/contact/"
+        }
+      ],
+      "access": "Nahrávání domluv přímo s týmem a potvrď budovu i vstup. Starší samostatný web Wacked Live uvádí zkušebny na boulevard Sébastopol; s touto kontaktní adresou je nezaměňuj. Rozsah doprovodu, cenu a výstupy potvrzuje studio. Žádný slot není sjednaný.",
+      "task": {
+        "question": "Dokážeš svůj záměr popsat tak, aby spolupracovník nemusel hádat?",
+        "observe": "Napiš téma jednou větou, dvě požadované zvukové vlastnosti a jeden prvek, který chceš nechat syrový.",
+        "try": "V domluvené session vyzkoušej tři krátké varianty refrénu: soustředěnou, naléhavou a střídmou. Každou označ podle záměru.",
+        "review": "Vyžádej konkrétní popis rozdílu, nikoli skóre talentu. Podle slyšitelného výsledku zpřesni své původní zadání.",
+        "output": "Krátký session brief, tři pracovní interpretace a vysvětlená změna zadání."
+      },
+      "translations": {
+        "cs": {
+          "facts": [
+            "Aktuální kontaktní stránka Wacked uvádí 43 rue Quincampoix. Nahrávací nabídka zahrnuje hlas, nástroje, aranžování, mixáž a mastering.",
+            "Nahrávací termíny se podle provozovatele potvrzují přímo s týmem. Rezervace zkušebny či podcastu není stejná služba."
+          ],
+          "access": "Nahrávání domluv přímo s týmem a potvrď budovu i vstup. Starší samostatný web Wacked Live uvádí zkušebny na boulevard Sébastopol; s touto kontaktní adresou je nezaměňuj. Rozsah doprovodu, cenu a výstupy potvrzuje studio. Žádný slot není sjednaný.",
+          "task": {
+            "question": "Dokážeš svůj záměr popsat tak, aby spolupracovník nemusel hádat?",
+            "observe": "Napiš téma jednou větou, dvě požadované zvukové vlastnosti a jeden prvek, který chceš nechat syrový.",
+            "try": "V domluvené session vyzkoušej tři krátké varianty refrénu: soustředěnou, naléhavou a střídmou. Každou označ podle záměru.",
+            "review": "Vyžádej konkrétní popis rozdílu, nikoli skóre talentu. Podle slyšitelného výsledku zpřesni své původní zadání.",
+            "output": "Krátký session brief, tři pracovní interpretace a vysvětlená změna zadání."
+          },
+          "name": "Studio Wacked — nahrávání",
+          "address": "43 rue Quincampoix, 75004 Paris",
+          "sources": [
+            {
+              "url": "https://wacked.fr/enregistrement/",
+              "title": "Wacked — nahrávání a potvrzování session"
+            },
+            {
+              "url": "https://wacked.fr/contact/",
+              "title": "Wacked — oficiální kontaktní adresa"
+            }
+          ],
+          "coordinateStatus": "Adresa doložena provozovatelem; přesný geografický bod nebyl doložen."
+        },
+        "en": {
+          "facts": [
+            "Wacked’s current contact page lists 43 rue Quincampoix. Its recording offer covers voice, instruments, arrangements, mixing and mastering.",
+            "According to the operator, recording appointments are confirmed directly with the team. A rehearsal-room or podcast reservation is a different service."
+          ],
+          "access": "Arrange recording directly with the team and confirm the building and entrance. The older separate Wacked Live site lists rehearsal rooms on boulevard Sébastopol; do not confuse them with this contact address. The studio confirms support, pricing and deliverables. No slot has been arranged.",
+          "task": {
+            "question": "Can you describe your intention without making your collaborator guess?",
+            "observe": "Write the theme in one sentence, two desired sonic qualities and one element you want to keep raw.",
+            "try": "In an agreed session, try three short chorus versions: focused, urgent and restrained. Label each according to its intention.",
+            "review": "Ask for a concrete description of the differences rather than a talent score. Refine your original brief using what can actually be heard.",
+            "output": "A short session brief, three working interpretations and an explained revision to the brief."
+          },
+          "name": "Studio Wacked — nahrávání",
+          "address": "43 rue Quincampoix, 75004 Paris",
+          "sources": [
+            {
+              "url": "https://wacked.fr/enregistrement/",
+              "title": "Wacked — recording and session confirmation"
+            },
+            {
+              "url": "https://wacked.fr/contact/",
+              "title": "Wacked — official contact address"
+            }
+          ],
+          "coordinateStatus": "Address published by the operator; no precise geographic point has been verified."
+        },
+        "fr": {
+          "facts": [
+            "La page de contact actuelle de Wacked indique le 43 rue Quincampoix. L’offre d’enregistrement couvre les voix, les instruments, les arrangements, le mixage et le mastering.",
+            "Selon l’exploitant, les créneaux d’enregistrement sont confirmés directement avec l’équipe. Une réservation de répétition ou de podcast correspond à un autre service."
+          ],
+          "access": "Organise l’enregistrement directement avec l’équipe et confirme le bâtiment et l’entrée. L’ancien site distinct Wacked Live indique des salles de répétition boulevard Sébastopol ; ne les confonds pas avec cette adresse de contact. Le studio confirme l’accompagnement, le prix et les livrables. Aucun créneau n’est fixé.",
+          "task": {
+            "question": "Sais-tu décrire ton intention sans obliger la personne qui t’accompagne à deviner ?",
+            "observe": "Écris le thème en une phrase, deux qualités sonores recherchées et un élément que tu souhaites garder brut.",
+            "try": "Lors d’une séance convenue, essaie trois courtes versions de refrain : concentrée, urgente et retenue. Identifie chacune selon son intention.",
+            "review": "Demande une description concrète des différences plutôt qu’une note de talent. Précise ton brief initial à partir de ce qui s’entend réellement.",
+            "output": "Un brief de séance court, trois interprétations de travail et une modification expliquée du brief."
+          },
+          "name": "Studio Wacked — nahrávání",
+          "address": "43 rue Quincampoix, 75004 Paris",
+          "sources": [
+            {
+              "url": "https://wacked.fr/enregistrement/",
+              "title": "Wacked — enregistrement et confirmation de séance"
+            },
+            {
+              "url": "https://wacked.fr/contact/",
+              "title": "Wacked — adresse de contact officielle"
+            }
+          ],
+          "coordinateStatus": "Adresse publiée par l’exploitant ; aucun point géographique précis n’a été vérifié."
+        }
+      },
+      "coordinateSource": "https://data.geopf.fr/geocodage/search?q=43+rue+Quincampoix+75004+Paris&limit=3",
+      "coordinateStatusI18n": {
+        "cs": "Bod konkrétní adresy z IGN / Base Adresse Nationale; orientační lokalizace objektu, nikoli zaměřený vstup do provozovny.",
+        "en": "Address point from IGN / Base Adresse Nationale; an approximate location, not a surveyed venue entrance.",
+        "fr": "Point adresse IGN / Base Adresse Nationale ; localisation indicative, pas un relevé de l’entrée de l’établissement."
+      },
+      "positionScope": "address-point"
+    },
+    {
+      "category": "studio",
+      "checkedAt": "2026-10-26",
+      "lat": 48.8874678,
+      "lng": 2.3517524,
+      "coordinateStatus": "Přibližný bod z mapy Google vložené a odkazované oficiální kontaktní stránkou; není zaměřeným vstupem.",
+      "relatedExpedition": "mc",
+      "outdoorViewing": false,
+      "id": "poisson-barbu",
+      "name": "Le Studio du Poisson Barbu",
+      "address": "10 rue de Suez, 75018 Paris",
+      "facts": [
+        "Oficiální kontakt umísťuje Studio du Poisson Barbu na 10 rue de Suez v 18. obvodu.",
+        "Provozovatel nabízí hlas na stereo instrumentál i úplný single s jednotlivými stopami; zmiňuje zvukaře, ale formáty vstupů a rozsah zpracování se liší."
+      ],
+      "sources": [
+        {
+          "title": "Poisson Barbu — oficiální kontakt a mapa",
+          "url": "https://www.poissonbarbu.com/contact-plan-acces.htm"
+        },
+        {
+          "title": "Poisson Barbu — stereo instrumentál a vícestopý single",
+          "url": "https://www.poissonbarbu.com/enregistrement-single-rap.htm"
+        },
+        {
+          "title": "Město Paříž — publikované podmínky a přístupnost",
+          "url": "https://www.paris.fr/activites/enregistrez-et-mixez-votre-single-ep-ou-album-en-studio-124242"
+        }
+      ],
+      "access": "Termín, formát souborů a rozsah potvrď s týmem. Přízemí samo neprokazuje bezbariérovost: městská nabídka uvádí omezení PMR, proto konkrétní potřeby předem prober. Nejde o veřejnou prohlídku ani potvrzenou rezervaci.",
+      "task": {
+        "question": "Co změníš v hotovém stereo beatu a co vyžaduje jednotlivé stopy?",
+        "observe": "Odliš instrumentál, vlastní vokální stopy a poslechovou referenci. Zapiš, co lze ovládat samostatně.",
+        "try": "V domluvené session nahraj osm až šestnáct taktů s vlastním leadem a jednou podpůrnou vrstvou. Exporty domluv předem.",
+        "review": "Při stejné hlasitosti srovnej vokál s podpůrnou vrstvou a bez ní. Uveď místo, kde vrstva pomohla významu nebo zakryla důležité slovo.",
+        "output": "Vlastní lead, podpůrná vrstva, seznam exportů a jedna konkrétní poslechová poznámka."
+      },
+      "coordinateSource": "https://www.poissonbarbu.com/contact-plan-acces.htm",
+      "accessibility": "Vlastní web uvádí přízemí, městská nabídka však omezení PMR. Bezbariérová trasa není potvrzena; prober konkrétní potřeby se studiem.",
+      "translations": {
+        "cs": {
+          "facts": [
+            "Oficiální kontakt umísťuje Studio du Poisson Barbu na 10 rue de Suez v 18. obvodu.",
+            "Provozovatel nabízí hlas na stereo instrumentál i úplný single s jednotlivými stopami; zmiňuje zvukaře, ale formáty vstupů a rozsah zpracování se liší."
+          ],
+          "access": "Termín, formát souborů a rozsah potvrď s týmem. Přízemí samo neprokazuje bezbariérovost: městská nabídka uvádí omezení PMR, proto konkrétní potřeby předem prober. Nejde o veřejnou prohlídku ani potvrzenou rezervaci.",
+          "task": {
+            "question": "Co změníš v hotovém stereo beatu a co vyžaduje jednotlivé stopy?",
+            "observe": "Odliš instrumentál, vlastní vokální stopy a poslechovou referenci. Zapiš, co lze ovládat samostatně.",
+            "try": "V domluvené session nahraj osm až šestnáct taktů s vlastním leadem a jednou podpůrnou vrstvou. Exporty domluv předem.",
+            "review": "Při stejné hlasitosti srovnej vokál s podpůrnou vrstvou a bez ní. Uveď místo, kde vrstva pomohla významu nebo zakryla důležité slovo.",
+            "output": "Vlastní lead, podpůrná vrstva, seznam exportů a jedna konkrétní poslechová poznámka."
+          },
+          "name": "Le Studio du Poisson Barbu",
+          "address": "10 rue de Suez, 75018 Paris",
+          "accessibility": "Vlastní web uvádí přízemí, městská nabídka však omezení PMR. Bezbariérová trasa není potvrzena; prober konkrétní potřeby se studiem.",
+          "sources": [
+            {
+              "url": "https://www.poissonbarbu.com/contact-plan-acces.htm",
+              "title": "Poisson Barbu — oficiální kontakt a mapa"
+            },
+            {
+              "url": "https://www.poissonbarbu.com/enregistrement-single-rap.htm",
+              "title": "Poisson Barbu — stereo instrumentál a vícestopý single"
+            },
+            {
+              "url": "https://www.paris.fr/activites/enregistrez-et-mixez-votre-single-ep-ou-album-en-studio-124242",
+              "title": "Město Paříž — publikované podmínky a přístupnost"
+            }
+          ],
+          "coordinateStatus": "Přibližný bod z mapy vložené oficiální kontaktní stránkou; není zaměřeným vstupem."
+        },
+        "en": {
+          "facts": [
+            "The official contact page places Le Studio du Poisson Barbu at 10 rue de Suez in Paris’s 18th arrondissement.",
+            "The operator offers vocals over a stereo instrumental or a complete single using separate tracks; an engineer is mentioned, while input formats and processing scope differ."
+          ],
+          "access": "Confirm the appointment, file format and scope with the team. Ground-floor access alone does not establish step-free accessibility: the municipal listing states reduced-mobility restrictions, so discuss specific needs in advance. This is not a public tour or a confirmed booking.",
+          "task": {
+            "question": "What can you change in a finished stereo beat, and what requires separate tracks?",
+            "observe": "Distinguish the instrumental, your vocal tracks and the listening reference. Note what can be controlled independently.",
+            "try": "In an agreed session, record eight to sixteen bars with your own lead and one supporting layer. Agree exports in advance.",
+            "review": "At the same playback level, compare the vocal with and without the supporting layer. Identify where it helped the meaning or obscured an important word.",
+            "output": "Your own lead, a supporting layer, an export list and one specific listening note."
+          },
+          "name": "Le Studio du Poisson Barbu",
+          "address": "10 rue de Suez, 75018 Paris",
+          "accessibility": "The studio’s own site mentions ground-floor access, while the municipal listing states reduced-mobility restrictions. A step-free route is not confirmed; discuss your specific needs with the studio.",
+          "sources": [
+            {
+              "url": "https://www.poissonbarbu.com/contact-plan-acces.htm",
+              "title": "Poisson Barbu — official contact and map"
+            },
+            {
+              "url": "https://www.poissonbarbu.com/enregistrement-single-rap.htm",
+              "title": "Poisson Barbu — stereo instrumental and multitrack single"
+            },
+            {
+              "url": "https://www.paris.fr/activites/enregistrez-et-mixez-votre-single-ep-ou-album-en-studio-124242",
+              "title": "City of Paris — published conditions and accessibility"
+            }
+          ],
+          "coordinateStatus": "Approximate point from the map embedded on the official contact page; not a surveyed entrance."
+        },
+        "fr": {
+          "facts": [
+            "Le contact officiel situe le Studio du Poisson Barbu au 10 rue de Suez, dans le 18e arrondissement de Paris.",
+            "L’exploitant propose une voix sur instrumentale stéréo ou un single complet avec pistes séparées ; un ingénieur est mentionné, mais les formats d’entrée et le périmètre du traitement diffèrent."
+          ],
+          "access": "Confirme le créneau, le format des fichiers et le périmètre avec l’équipe. Le rez-de-chaussée ne prouve pas à lui seul l’accessibilité : la fiche municipale signale des restrictions PMR, donc parle de tes besoins précis en amont. Ce n’est ni une visite publique ni une réservation confirmée.",
+          "task": {
+            "question": "Que peux-tu modifier dans un beat stéréo terminé, et que faut-il pouvoir traiter en pistes séparées ?",
+            "observe": "Distingue l’instrumentale, tes pistes vocales et la référence d’écoute. Note ce qui peut être contrôlé indépendamment.",
+            "try": "Lors d’une séance convenue, enregistre huit à seize mesures avec ta voix principale et une couche de soutien. Conviens des exports à l’avance.",
+            "review": "À niveau d’écoute égal, compare la voix avec et sans la couche de soutien. Repère où elle renforce le sens ou masque un mot important.",
+            "output": "Ta voix principale, une couche de soutien, une liste des exports et une remarque d’écoute précise."
+          },
+          "name": "Le Studio du Poisson Barbu",
+          "address": "10 rue de Suez, 75018 Paris",
+          "accessibility": "Le site du studio mentionne le rez-de-chaussée, mais la fiche municipale signale des restrictions PMR. Un parcours sans obstacle n’est pas confirmé ; précise tes besoins auprès du studio.",
+          "sources": [
+            {
+              "url": "https://www.poissonbarbu.com/contact-plan-acces.htm",
+              "title": "Poisson Barbu — contact officiel et plan"
+            },
+            {
+              "url": "https://www.poissonbarbu.com/enregistrement-single-rap.htm",
+              "title": "Poisson Barbu — instrumentale stéréo et single multipiste"
+            },
+            {
+              "url": "https://www.paris.fr/activites/enregistrez-et-mixez-votre-single-ep-ou-album-en-studio-124242",
+              "title": "Ville de Paris — conditions publiées et accessibilité"
+            }
+          ],
+          "coordinateStatus": "Point approximatif issu du plan intégré à la page de contact officielle ; ce n’est pas une entrée relevée sur place."
+        }
+      },
+      "coordinateStatusI18n": {
+        "cs": "Přibližný bod z mapy Google vložené a odkazované oficiální kontaktní stránkou; není zaměřeným vstupem.",
+        "en": "Approximate venue point published by the operator’s contact map; not a surveyed entrance.",
+        "fr": "Point indicatif publié sur le plan d’accès de l’établissement ; pas un relevé précis de l’entrée."
+      },
+      "positionScope": "venue-map-point"
+    },
+    {
+      "category": "studio",
+      "checkedAt": "2026-10-26",
+      "lat": 48.867199,
+      "lng": 2.408241,
+      "coordinateStatus": "Přibližný bod z oficiálně vloženého mapového odkazu; další odkaz stejné stránky má blízký odlišný bod. Nejde o zaměření dveří.",
+      "relatedExpedition": "mc",
+      "outdoorViewing": false,
+      "id": "studios-ferber",
+      "name": "Studios Ferber",
+      "address": "56 rue du Capitaine Ferber, 75020 Paris",
+      "facts": [
+        "Oficiální kontakt Studios Ferber uvádí 56 rue du Capitaine Ferber; web představuje studia A, B a D.",
+        "Stránka Studia A popisuje velký nahrávací prostor, izolační kabiny a analogovou režii pro hlas, kapely i orchestry. Nejde o výhradně hip-hopový prostor."
+      ],
+      "sources": [
+        {
+          "title": "Ferber — oficiální kontakt a mapové odkazy",
+          "url": "https://studios-ferber.com/contact/"
+        },
+        {
+          "title": "Ferber — Studio A, prostor a technika",
+          "url": "https://studios-ferber.com/studio-a/"
+        },
+        {
+          "title": "Ferber — přehled studií",
+          "url": "https://studios-ferber.com/"
+        }
+      ],
+      "access": "Profesionální pracoviště na domluvu: potvrď projekt, místnost, tým a nabídku. Volnou prohlídku ani přítomnost známého umělce neslibujeme. Bez skutečně sjednané session proveď úkol jako vzdálené studium zveřejněného plánu a tak jej označ.",
+      "task": {
+        "question": "Kdy je velký prostor tvůrčí volba a kdy zbytečná komplikace?",
+        "observe": "Na zveřejněném plánu odliš místo zdroje, izolaci a režii. Nakresli vlastní signálovou cestu a označ neznámé údaje.",
+        "try": "Navrhni situaci pro vlastní hlas a jeden nástroj: jejich vztah, oddělení a druh společného záběru. Plán prober s týmem jen při skutečně domluvené session; jinak jde o studii.",
+        "review": "Uveď dvě rozhodnutí podložená plánem a otázku pro tým. Drahá technika sama není důkazem umělecké kvality.",
+        "output": "Vlastní náčrt studia, produkční brief a dvě rozhodnutí s jednou otevřenou otázkou."
+      },
+      "coordinateSource": "https://studios-ferber.com/contact/",
+      "translations": {
+        "cs": {
+          "facts": [
+            "Oficiální kontakt Studios Ferber uvádí 56 rue du Capitaine Ferber; web představuje studia A, B a D.",
+            "Stránka Studia A popisuje velký nahrávací prostor, izolační kabiny a analogovou režii pro hlas, kapely i orchestry. Nejde o výhradně hip-hopový prostor."
+          ],
+          "access": "Profesionální pracoviště na domluvu: potvrď projekt, místnost, tým a nabídku. Volnou prohlídku ani přítomnost známého umělce neslibujeme. Bez skutečně sjednané session proveď úkol jako vzdálené studium zveřejněného plánu a tak jej označ.",
+          "task": {
+            "question": "Kdy je velký prostor tvůrčí volba a kdy zbytečná komplikace?",
+            "observe": "Na zveřejněném plánu odliš místo zdroje, izolaci a režii. Nakresli vlastní signálovou cestu a označ neznámé údaje.",
+            "try": "Navrhni situaci pro vlastní hlas a jeden nástroj: jejich vztah, oddělení a druh společného záběru. Plán prober s týmem jen při skutečně domluvené session; jinak jde o studii.",
+            "review": "Uveď dvě rozhodnutí podložená plánem a otázku pro tým. Drahá technika sama není důkazem umělecké kvality.",
+            "output": "Vlastní náčrt studia, produkční brief a dvě rozhodnutí s jednou otevřenou otázkou."
+          },
+          "name": "Studios Ferber",
+          "address": "56 rue du Capitaine Ferber, 75020 Paris",
+          "sources": [
+            {
+              "url": "https://studios-ferber.com/contact/",
+              "title": "Ferber — oficiální kontakt a mapové odkazy"
+            },
+            {
+              "url": "https://studios-ferber.com/studio-a/",
+              "title": "Ferber — Studio A, prostor a technika"
+            },
+            {
+              "url": "https://studios-ferber.com/",
+              "title": "Ferber — přehled studií"
+            }
+          ],
+          "coordinateStatus": "Přibližný bod z oficiálně vloženého mapového odkazu; další odkaz stránky vede na blízký odlišný bod. Nejde o zaměření dveří."
+        },
+        "en": {
+          "facts": [
+            "Studios Ferber’s official contact lists 56 rue du Capitaine Ferber; the website presents Studios A, B and D.",
+            "The Studio A page describes a large recording space, isolation booths and an analogue control room for voice, bands and orchestras. It is not exclusively a hip-hop venue."
+          ],
+          "access": "This is a professional workplace by arrangement: confirm the project, room, team and quote. No open tour or presence of a known artist is promised. Without an agreed session, do the task remotely using the published plan and label it as a study.",
+          "task": {
+            "question": "When is a large room an artistic choice, and when is it an unnecessary complication?",
+            "observe": "On the published plan, distinguish the source position, isolation and control room. Draw your own signal path and mark unknown details.",
+            "try": "Design a recording situation for your own voice and one instrument: their relationship, separation and type of shared take. Discuss it with the team only during an agreed session; otherwise it remains a study.",
+            "review": "Give two decisions supported by the plan and a question for the team. Expensive equipment alone is not evidence of artistic quality.",
+            "output": "Your own studio sketch, a production brief and two decisions with one open question."
+          },
+          "name": "Studios Ferber",
+          "address": "56 rue du Capitaine Ferber, 75020 Paris",
+          "sources": [
+            {
+              "url": "https://studios-ferber.com/contact/",
+              "title": "Ferber — official contact and map links"
+            },
+            {
+              "url": "https://studios-ferber.com/studio-a/",
+              "title": "Ferber — Studio A, space and equipment"
+            },
+            {
+              "url": "https://studios-ferber.com/",
+              "title": "Ferber — studio overview"
+            }
+          ],
+          "coordinateStatus": "Approximate point from the operator’s embedded map link; another link on the page gives a nearby different point. This is not a surveyed doorway."
+        },
+        "fr": {
+          "facts": [
+            "Le contact officiel des Studios Ferber indique le 56 rue du Capitaine Ferber ; le site présente les studios A, B et D.",
+            "La page du Studio A décrit une grande salle de prise, des cabines d’isolation et une régie analogique pour les voix, les groupes et les orchestres. Le lieu n’est pas exclusivement consacré au hip-hop."
+          ],
+          "access": "Ce lieu professionnel se fréquente sur rendez-vous : confirme le projet, la salle, l’équipe et le devis. Aucune visite libre ni présence d’un artiste connu n’est promise. Sans séance réellement convenue, réalise l’exercice à distance à partir du plan publié et indique qu’il s’agit d’une étude.",
+          "task": {
+            "question": "Quand une grande salle est-elle un choix artistique, et quand devient-elle une complication inutile ?",
+            "observe": "Sur le plan publié, distingue la position de la source, l’isolation et la régie. Dessine ton propre trajet du signal et marque les informations inconnues.",
+            "try": "Conçois une situation pour ta propre voix et un instrument : leur relation, leur séparation et le type de prise commune. Discutes-en avec l’équipe uniquement lors d’une séance convenue ; sinon, cela reste une étude.",
+            "review": "Présente deux décisions appuyées sur le plan et une question pour l’équipe. Un matériel coûteux n’est pas, à lui seul, une preuve de qualité artistique.",
+            "output": "Ton propre croquis de studio, un brief de production et deux décisions accompagnées d’une question ouverte."
+          },
+          "name": "Studios Ferber",
+          "address": "56 rue du Capitaine Ferber, 75020 Paris",
+          "sources": [
+            {
+              "url": "https://studios-ferber.com/contact/",
+              "title": "Ferber — contact officiel et liens cartographiques"
+            },
+            {
+              "url": "https://studios-ferber.com/studio-a/",
+              "title": "Ferber — Studio A, espace et matériel"
+            },
+            {
+              "url": "https://studios-ferber.com/",
+              "title": "Ferber — présentation des studios"
+            }
+          ],
+          "coordinateStatus": "Point approximatif issu du lien cartographique intégré par l’exploitant ; un autre lien de la page donne un point voisin différent. Il ne s’agit pas d’un relevé de porte."
+        }
+      },
+      "coordinateStatusI18n": {
+        "cs": "Přibližný bod z oficiálně vloženého mapového odkazu; další odkaz stejné stránky má blízký odlišný bod. Nejde o zaměření dveří.",
+        "en": "Approximate venue point published by the operator’s contact map; not a surveyed entrance.",
+        "fr": "Point indicatif publié sur le plan d’accès de l’établissement ; pas un relevé précis de l’entrée."
+      },
+      "positionScope": "venue-map-point"
     }
-  ]
+  ],
+  "sessionBrief": {
+    "id": "from-street-to-session",
+    "title": "FROM STREET TO SESSION",
+    "classification": "Autorská vedená praxe CAISIK; není součástí potvrzené služby studia.",
+    "goals": [
+      "Rozlišit práci se zvukařem od samostatného pronájmu a vymezit rozsah session.",
+      "Připravit text, instrumentál s vyřešenými právy a označené soubory.",
+      "Porovnat dvě vlastní interpretace a zdůvodnit jednu úpravu bez smyšleného skóre."
+    ],
+    "lessons": [
+      {
+        "title": "01 / Připrav zadání",
+        "question": "Co má být po session opravdu hotové?",
+        "context": "Nahrávání, předmix, úplný mix a mastering nejsou totožné výstupy.",
+        "observe": "V nabídce vyznač zahrnuté služby a co musí studio ještě potvrdit.",
+        "example": "Autorský vzor: „Mám šestnáct taktů na stereo beat. Chci dvě verze leadu a pracovní poslech; mastering nyní nepotřebuji.“",
+        "try": "Napiš svůj brief: struktura, BPM, soubory, výstupy a jedna zvuková reference.",
+        "review": "Zkontroluj, zda spolupracovník pozná rozsah a otevřené otázky.",
+        "transfer": "Stejný brief použij při domácím nahrávání nebo spolupráci s beatmakerem."
+      },
+      {
+        "title": "02 / Nahraj záměrně",
+        "question": "Co má druhý take konkrétně změnit?",
+        "context": "Srovnání vyžaduje, aby se neměnily současně všechny podmínky.",
+        "observe": "Vyber jednu frázi, důraz a nádech. Poslouchej výsledek, nikoli jen tvar waveformy.",
+        "example": "Autorský příklad: druhá verze mění důraz posledního slova, ostatní podmínky drží co nejpodobnější.",
+        "try": "V potvrzené session nahraj dvě verze vlastní pasáže a označ jejich záměr.",
+        "review": "Uveď konkrétní slyšitelný detail. O technickou práci s mikrofonem požádej zvukaře.",
+        "transfer": "Jedno zjištění přenes do dalšího domácího nácviku."
+      },
+      {
+        "title": "03 / Odnes si rozhodnutí",
+        "question": "Co potřebuješ uchovat, aby šlo za týden pokračovat?",
+        "context": "Pracovní poslech není automaticky hotový mix či master; exporty potvrď předem.",
+        "observe": "Ověř názvy verzí, úplnost a shodu s domluveným rozsahem.",
+        "example": "Autorská poznámka: „V take B je v 00:18 slovo srozumitelnější, ale před další větou je pozdní nádech.“",
+        "try": "Do Blackbooku napiš seznam záběrů a jednu vysvětlenou úpravu; vlastní exporty zálohuj.",
+        "review": "Otevři každý export a ověř, že funguje a poznáš jeho účel.",
+        "transfer": "Další session plánuj podle skutečného zjištění, nikoli počtu absolvovaných hodin."
+      }
+    ],
+    "planningNote": "Příprava, zkouška a poslech mají vlastní čas. Délku placené session určuje skutečně potvrzený rozsah; tento průvodce nic neobjednává.",
+    "sources": [
+      {
+        "title": "Leizart — průběh a příprava",
+        "url": "https://leizart.com/studio-d-enregistrement"
+      },
+      {
+        "title": "Poisson Barbu — formáty a rozsah",
+        "url": "https://www.poissonbarbu.com/enregistrement-single-rap.htm"
+      },
+      {
+        "title": "Wacked — domluva cíle projektu",
+        "url": "https://wacked.fr/enregistrement/"
+      }
+    ],
+    "translations": {
+      "cs": {
+        "title": "FROM STREET TO SESSION",
+        "classification": "Autorská vedená praxe CAISIK; není součástí potvrzené služby studia.",
+        "goals": [
+          "Rozlišit práci se zvukařem od samostatného pronájmu a vymezit rozsah session.",
+          "Připravit text, instrumentál s vyřešenými právy a označené soubory.",
+          "Porovnat dvě vlastní interpretace a zdůvodnit jednu úpravu bez smyšleného skóre."
+        ],
+        "lessons": [
+          {
+            "title": "01 / Připrav zadání",
+            "question": "Co má být po session opravdu hotové?",
+            "context": "Nahrávání, předmix, úplný mix a mastering nejsou totožné výstupy.",
+            "observe": "V nabídce vyznač zahrnuté služby a co musí studio ještě potvrdit.",
+            "example": "Autorský vzor: „Mám šestnáct taktů na stereo beat. Chci dvě verze leadu a pracovní poslech; mastering nyní nepotřebuji.“",
+            "try": "Napiš svůj brief: struktura, BPM, soubory, výstupy a jedna zvuková reference.",
+            "review": "Zkontroluj, zda spolupracovník pozná rozsah a otevřené otázky.",
+            "transfer": "Stejný brief použij při domácím nahrávání nebo spolupráci s beatmakerem."
+          },
+          {
+            "title": "02 / Nahraj záměrně",
+            "question": "Co má druhý take konkrétně změnit?",
+            "context": "Srovnání vyžaduje, aby se neměnily současně všechny podmínky.",
+            "observe": "Vyber jednu frázi, důraz a nádech. Poslouchej výsledek, nikoli jen tvar waveformy.",
+            "example": "Autorský příklad: druhá verze mění důraz posledního slova, ostatní podmínky drží co nejpodobnější.",
+            "try": "V potvrzené session nahraj dvě verze vlastní pasáže a označ jejich záměr.",
+            "review": "Uveď konkrétní slyšitelný detail. O technickou práci s mikrofonem požádej zvukaře.",
+            "transfer": "Jedno zjištění přenes do dalšího domácího nácviku."
+          },
+          {
+            "title": "03 / Odnes si rozhodnutí",
+            "question": "Co potřebuješ uchovat, aby šlo za týden pokračovat?",
+            "context": "Pracovní poslech není automaticky hotový mix či master; exporty potvrď předem.",
+            "observe": "Ověř názvy verzí, úplnost a shodu s domluveným rozsahem.",
+            "example": "Autorská poznámka: „V take B je v 00:18 slovo srozumitelnější, ale před další větou je pozdní nádech.“",
+            "try": "Do Blackbooku napiš seznam záběrů a jednu vysvětlenou úpravu; vlastní exporty zálohuj.",
+            "review": "Otevři každý export a ověř, že funguje a poznáš jeho účel.",
+            "transfer": "Další session plánuj podle skutečného zjištění, nikoli počtu absolvovaných hodin."
+          }
+        ],
+        "planningNote": "Příprava, zkouška a poslech mají vlastní čas. Délku placené session určuje skutečně potvrzený rozsah; tento průvodce nic neobjednává.",
+        "sources": [
+          {
+            "url": "https://leizart.com/studio-d-enregistrement",
+            "title": "Leizart — průběh a příprava"
+          },
+          {
+            "url": "https://www.poissonbarbu.com/enregistrement-single-rap.htm",
+            "title": "Poisson Barbu — formáty a rozsah"
+          },
+          {
+            "url": "https://wacked.fr/enregistrement/",
+            "title": "Wacked — domluva cíle projektu"
+          }
+        ]
+      },
+      "en": {
+        "title": "FROM STREET TO SESSION",
+        "classification": "Original guided CAISIK practice; it is not part of a confirmed studio service.",
+        "goals": [
+          "Distinguish an engineer-led session from self-service hire and define the scope of work.",
+          "Prepare lyrics, an instrumental with settled usage rights and clearly labelled files.",
+          "Compare two original interpretations and explain one revision without an invented artistic score."
+        ],
+        "lessons": [
+          {
+            "title": "01 / Prepare the brief",
+            "question": "What should actually be finished when the session ends?",
+            "context": "Recording, a premix, a full mix and mastering are different deliverables.",
+            "observe": "Mark what the offer includes and what still needs the studio’s confirmation.",
+            "example": "Original example: “I have sixteen bars over a stereo beat. I want two lead versions and a working playback; I do not need mastering yet.”",
+            "try": "Write your own brief: structure, BPM, files, deliverables and one sound reference.",
+            "review": "Check whether a collaborator can understand the scope and open questions.",
+            "transfer": "Use the same brief for home recording or working with a beatmaker."
+          },
+          {
+            "title": "02 / Record with intention",
+            "question": "What specifically should the second take change?",
+            "context": "A useful comparison requires that not every condition changes at once.",
+            "observe": "Choose one phrase, emphasis and breath. Listen to the result rather than only looking at the waveform.",
+            "example": "Original example: the second version changes the emphasis on the last word while keeping other conditions as similar as possible.",
+            "try": "In a confirmed session, record two versions of your own passage and label their intention.",
+            "review": "Name one specific audible detail. Ask the engineer for technical guidance on microphone use.",
+            "transfer": "Carry one finding into your next home rehearsal."
+          },
+          {
+            "title": "03 / Leave with a decision",
+            "question": "What do you need to keep so you can continue next week?",
+            "context": "A working playback is not automatically a finished mix or master; agree exports beforehand.",
+            "observe": "Check version names, completeness and agreement with the confirmed scope.",
+            "example": "Original note: “In take B the word at 00:18 is clearer, but there is a late breath before the next sentence.”",
+            "try": "Write the take list and one explained revision in your Blackbook; back up your own exports.",
+            "review": "Open each export and check that it works and you can identify its purpose.",
+            "transfer": "Plan the next session around a real finding rather than the number of hours attended."
+          }
+        ],
+        "planningNote": "Preparation, rehearsal and listening need their own time. The confirmed scope determines the length of a paid session; this guide orders nothing.",
+        "sources": [
+          {
+            "url": "https://leizart.com/studio-d-enregistrement",
+            "title": "Leizart — session process and preparation"
+          },
+          {
+            "url": "https://www.poissonbarbu.com/enregistrement-single-rap.htm",
+            "title": "Poisson Barbu — formats and scope"
+          },
+          {
+            "url": "https://wacked.fr/enregistrement/",
+            "title": "Wacked — agreeing the project’s objective"
+          }
+        ]
+      },
+      "fr": {
+        "title": "FROM STREET TO SESSION",
+        "classification": "Pratique guidée originale de CAISIK ; elle ne fait pas partie d’une prestation de studio confirmée.",
+        "goals": [
+          "Distinguer une séance avec ingénieur de la location autonome et définir le périmètre de travail.",
+          "Préparer un texte, une instrumentale aux droits d’utilisation réglés et des fichiers clairement identifiés.",
+          "Comparer deux interprétations personnelles et expliquer une modification sans note artistique inventée."
+        ],
+        "lessons": [
+          {
+            "title": "01 / Préparer le brief",
+            "question": "Que doit-il rester de vraiment terminé à la fin de la séance ?",
+            "context": "Prise de son, prémix, mixage complet et mastering sont des livrables distincts.",
+            "observe": "Repère ce que l’offre comprend et ce que le studio doit encore confirmer.",
+            "example": "Exemple original : « J’ai seize mesures sur un beat stéréo. Je souhaite deux versions de la voix principale et une écoute de travail ; je n’ai pas encore besoin de mastering. »",
+            "try": "Rédige ton propre brief : structure, BPM, fichiers, livrables et une référence sonore.",
+            "review": "Vérifie qu’une personne qui t’accompagne comprend le périmètre et les questions ouvertes.",
+            "transfer": "Réutilise ce brief pour enregistrer chez toi ou travailler avec un beatmaker."
+          },
+          {
+            "title": "02 / Enregistrer avec une intention",
+            "question": "Que doit précisément changer la deuxième prise ?",
+            "context": "Pour comparer utilement, toutes les conditions ne doivent pas changer en même temps.",
+            "observe": "Choisis une phrase, un accent et une respiration. Écoute le résultat au lieu de regarder seulement la forme d’onde.",
+            "example": "Exemple original : la deuxième version modifie l’accent du dernier mot en conservant les autres conditions aussi proches que possible.",
+            "try": "Lors d’une séance confirmée, enregistre deux versions de ton propre passage et indique leur intention.",
+            "review": "Nomme un détail audible précis. Demande à l’ingénieur de te guider sur l’utilisation technique du micro.",
+            "transfer": "Applique une observation à ta prochaine répétition chez toi."
+          },
+          {
+            "title": "03 / Repartir avec une décision",
+            "question": "Que dois-tu conserver pour pouvoir reprendre la semaine prochaine ?",
+            "context": "Une écoute de travail n’est pas automatiquement un mix ou un master terminé ; conviens des exports avant la séance.",
+            "observe": "Contrôle les noms des versions, leur intégralité et leur conformité au périmètre confirmé.",
+            "example": "Note originale : « Dans la prise B, le mot à 00:18 est plus clair, mais la respiration avant la phrase suivante arrive tard. »",
+            "try": "Note les prises et une modification expliquée dans ton Blackbook ; sauvegarde tes propres exports.",
+            "review": "Ouvre chaque export et vérifie qu’il fonctionne et que tu sais à quoi il sert.",
+            "transfer": "Prépare la séance suivante à partir d’un constat réel plutôt que du nombre d’heures passées au studio."
+          }
+        ],
+        "planningNote": "Préparation, répétition et écoute demandent du temps. Le périmètre réellement confirmé détermine la durée d’une séance payante ; ce guide ne commande rien.",
+        "sources": [
+          {
+            "url": "https://leizart.com/studio-d-enregistrement",
+            "title": "Leizart — déroulement et préparation"
+          },
+          {
+            "url": "https://www.poissonbarbu.com/enregistrement-single-rap.htm",
+            "title": "Poisson Barbu — formats et périmètre"
+          },
+          {
+            "url": "https://wacked.fr/enregistrement/",
+            "title": "Wacked — définir l’objectif du projet"
+          }
+        ]
+      }
+    }
+  }
 }

@@ -219,7 +219,7 @@ function cityModelHarness({reduced=false,loadRejects=false,deferred=false}={}){
  const h=cityModelHarness();assert.equal(h.calls.loads,0);assert.equal(h.maps.length,0,'no GL map or model bundle before viewport discovery');
  h.observers[0].show();h.observers[1].show();await h.tick();
  assert.equal(h.maps.length,1);assert.equal(h.calls.loads,0,'model bundle waits for a ready map style');
- const map=h.maps[0];map.emit('load');await h.tick();
+ const map=h.maps[0];map.emit('load');await h.tick();assert.equal(h.calls.loads,0,'authored overlay remains opt-in');h.event(h.host.querySelector('.city-building-mode:last-child'),'click');await h.tick();
  assert.equal(h.calls.loads,1);assert.equal(h.calls.mounts.length,1);
  assert.equal(h.calls.mounts[0].map,map,'models share the original geographic map instance');
  assert.deepEqual(h.calls.mounts[0].options.places.map(p=>p.id),expectedIds);
@@ -238,13 +238,13 @@ function cityModelHarness({reduced=false,loadRejects=false,deferred=false}={}){
  h.api.destroy();assert.equal(h.frames.size,0);assert(h.observers.every(o=>!o.connected));
 }
 {
- const h=cityModelHarness({loadRejects:true});h.observers[0].show();h.observers[1].show();await h.tick();h.maps[0].emit('load');await h.tick();
+ const h=cityModelHarness({loadRejects:true});h.observers[0].show();h.observers[1].show();await h.tick();h.maps[0].emit('load');await h.tick();h.event(h.host.querySelector('.city-building-mode:last-child'),'click');await h.tick();
  assert.equal(h.host.dataset.cityMode,'3d','optional model failure retains the working real-geography map');assert.equal(h.calls.mounts.length,0);
  assert.match(h.host.querySelector('.city-map-status').textContent,/modely.*nepodařilo načíst/);
  h.flush();h.api.destroy();
 }
 {
- const h=cityModelHarness({deferred:true});h.observers[0].show();h.observers[1].show();await h.tick();h.maps[0].emit('load');await h.tick();
+ const h=cityModelHarness({deferred:true});h.observers[0].show();h.observers[1].show();await h.tick();h.maps[0].emit('load');await h.tick();h.event(h.host.querySelector('.city-building-mode:last-child'),'click');await h.tick();
  assert.equal(h.calls.loads,1);h.api.destroy();h.resolve();await h.tick();assert.equal(h.calls.mounts.length,0,'late model import never resurrects a destroyed map');assert.equal(h.frames.size,0);
 }
 console.log('PASS place visuals integration: 12 distinct genuine WebP assets; actual atlas default artwork and documentary credits; original actions/notes/bookmarks/routes; manifest and image failure recovery; 13 alias motion links.');

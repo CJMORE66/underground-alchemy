@@ -1,0 +1,935 @@
+{
+  "version": 1,
+  "entries": {
+    "Prodejna uvádí po–so 11:00–19:00. Oficiální nabídka kurzu s Hitchem zveřejňuje 69 € za 1 hodinu. Konkrétní lekci, jazyk a vinylové vybavení domluv předem; návštěva prodejny není potvrzená lekce.": {
+      "cs": "Prodejna uvádí po–so 11:00–19:00. Oficiální nabídka kurzu s Hitchem zveřejňuje 69 € za 1 hodinu. Konkrétní lekci, jazyk a vinylové vybavení domluv předem; návštěva prodejny není potvrzená lekce.",
+      "en": "The shop lists Monday–Saturday, 11:00–19:00. The official course offer with Hitch publishes €69 for 1 hour. Arrange the specific lesson, language and vinyl equipment in advance; visiting the shop does not confirm a lesson.",
+      "fr": "La boutique annonce une ouverture du lundi au samedi de 11:00 à 19:00. L’offre officielle du cours avec Hitch affiche 69 € pour 1 heure. Confirme à l’avance la séance, la langue et le matériel vinyle ; une visite en boutique ne vaut pas confirmation d’un cours."
+    },
+    "Termín a volné místo": {
+      "cs": "Termín a volné místo",
+      "en": "Date and available place",
+      "fr": "Date et place disponible"
+    },
+    "Jazyk výuky": {
+      "cs": "Jazyk výuky",
+      "en": "Teaching language",
+      "fr": "Langue du cours"
+    },
+    "Gramofony, přenosky, scratch/DVS a obsah konkrétní lekce": {
+      "cs": "Gramofony, přenosky, scratch/DVS a obsah konkrétní lekce",
+      "en": "Turntables, cartridges, scratch/DVS and the content of the specific lesson",
+      "fr": "Platines, cellules, scratch/DVS et contenu de la séance choisie"
+    },
+    "Oficiální stránka uvádí pondělí–sobota 13:00–20:00. Poslech a konkrétní dostupnost desek ověř v obchodě.": {
+      "cs": "Oficiální stránka uvádí pondělí–sobota 13:00–20:00. Poslech a konkrétní dostupnost desek ověř v obchodě.",
+      "en": "The official page lists Monday–Saturday, 13:00–20:00. Check listening arrangements and the availability of particular records with the shop.",
+      "fr": "La page officielle indique une ouverture du lundi au samedi de 13:00 à 20:00. Vérifie en boutique les possibilités d’écoute et la disponibilité des disques recherchés."
+    },
+    "Sváteční změny otevírání": {
+      "cs": "Sváteční změny otevírání",
+      "en": "Changes to opening hours on public holidays",
+      "fr": "Modifications des horaires les jours fériés"
+    },
+    "Možnost a podmínky poslechu": {
+      "cs": "Možnost a podmínky poslechu",
+      "en": "Whether listening is available and under what conditions",
+      "fr": "Possibilités et conditions d’écoute"
+    },
+    "Publikované hodiny: po–st 14:00–19:00, čt–pá 14:00–20:00, so 11:00–20:00; v neděli zavřeno. Knihkupectví je místem pro práci s referencemi. Workshop ani setkání s autorem nejsou sjednány.": {
+      "cs": "Publikované hodiny: po–st 14:00–19:00, čt–pá 14:00–20:00, so 11:00–20:00; v neděli zavřeno. Knihkupectví je místem pro práci s referencemi. Workshop ani setkání s autorem nejsou sjednány.",
+      "en": "Published hours: Monday–Wednesday 14:00–19:00, Thursday–Friday 14:00–20:00, Saturday 11:00–20:00; closed on Sunday. The bookshop is a place to study references. No workshop or meeting with an author has been arranged.",
+      "fr": "Horaires publiés : du lundi au mercredi de 14:00 à 19:00, jeudi et vendredi de 14:00 à 20:00, samedi de 11:00 à 20:00 ; fermé le dimanche. La librairie sert ici à étudier des références. Aucun atelier ni rendez-vous avec un auteur n’a été convenu."
+    },
+    "Případné mimořádné uzavření a dostupnost konkrétní publikace.": {
+      "cs": "Případné mimořádné uzavření a dostupnost konkrétní publikace.",
+      "en": "Any exceptional closure and the availability of a particular publication.",
+      "fr": "Une éventuelle fermeture exceptionnelle et la disponibilité de la publication recherchée."
+    },
+    "Adresa je převzatá z roadbooku. Oficiální web se při kontrole nenačetl, proto zde nejsou potvrzené hodiny. Před přesunem si provoz ověř; při nedostupnosti pokračuj poslechovým úkolem z vlastních nahrávek.": {
+      "cs": "Adresa je převzatá z roadbooku. Oficiální web se při kontrole nenačetl, proto zde nejsou potvrzené hodiny. Před přesunem si provoz ověř; při nedostupnosti pokračuj poslechovým úkolem z vlastních nahrávek.",
+      "en": "The address comes from the roadbook. The official website could not be loaded during the check, so opening hours are not confirmed here. Verify that the shop is operating before travelling; if it is unavailable, continue the listening task with your own recordings.",
+      "fr": "L’adresse provient du roadbook. Le site officiel n’a pas pu être chargé lors de la vérification ; les horaires ne sont donc pas confirmés ici. Vérifie l’ouverture avant de te déplacer ; si la boutique est indisponible, poursuis l’exercice d’écoute avec tes propres enregistrements."
+    },
+    "Fyzický provoz, přesná adresa a aktuální otevírání": {
+      "cs": "Fyzický provoz, přesná adresa a aktuální otevírání",
+      "en": "Whether the physical shop is operating, its exact address and current opening hours",
+      "fr": "Ouverture effective de la boutique, adresse exacte et horaires du moment"
+    },
+    "Podmínky poslechu": {
+      "cs": "Podmínky poslechu",
+      "en": "Listening conditions",
+      "fr": "Conditions d’écoute"
+    },
+    "Studia jsou na rezervaci. Provozovatel odkazuje na Quickstudio; při kontrole zveřejňuje pro studia 4/5/6/7 sazbu 18 €/h pro jednotlivce a asociativní kulturní projekty. Studia 6 a 7 mají DJ vybavení s možností vinylových gramofonů. Konkrétní sestavu a záznam potvrď předem; pronájem není automaticky vedená lekce ani služba zvukaře.": {
+      "cs": "Studia jsou na rezervaci. Provozovatel odkazuje na Quickstudio; při kontrole zveřejňuje pro studia 4/5/6/7 sazbu 18 €/h pro jednotlivce a asociativní kulturní projekty. Studia 6 a 7 mají DJ vybavení s možností vinylových gramofonů. Konkrétní sestavu a záznam potvrď předem; pronájem není automaticky vedená lekce ani služba zvukaře.",
+      "en": "The studios require a reservation. The operator links to Quickstudio; at the time of checking, it publishes a rate of €18/hour for studios 4/5/6/7 for individuals and cultural projects run by associations. Studios 6 and 7 have DJ equipment, with vinyl turntables available as an option. Confirm the specific setup and recording arrangements in advance; room hire does not automatically include a guided lesson or a sound engineer.",
+      "fr": "Les studios sont accessibles sur réservation. Le lieu renvoie vers Quickstudio ; lors de la vérification, il affiche 18 €/h pour les studios 4/5/6/7 à destination des particuliers et des projets culturels associatifs. Les studios 6 et 7 disposent d’équipement DJ, avec une possibilité de platines vinyles. Confirme à l’avance la configuration exacte et l’enregistrement ; la location n’inclut pas automatiquement un cours accompagné ni un ingénieur du son."
+    },
+    "Termín, sazba pro tvůj účel a podmínky pronájmu": {
+      "cs": "Termín, sazba pro tvůj účel a podmínky pronájmu",
+      "en": "Date, rate for your intended use and hire conditions",
+      "fr": "Date, tarif correspondant à ton usage et conditions de location"
+    },
+    "Mikrofon, interface, DAW, technik a export": {
+      "cs": "Mikrofon, interface, DAW, technik a export",
+      "en": "Microphone, audio interface, DAW, technician and export",
+      "fr": "Microphone, interface audio, DAW, technicien et export"
+    },
+    "Vinylové gramofony, přenosky a záznam": {
+      "cs": "Vinylové gramofony, přenosky a záznam",
+      "en": "Vinyl turntables, cartridges and recording",
+      "fr": "Platines vinyles, cellules et enregistrement"
+    },
+    "Volitelný poslechový závěr z roadbooku. Oficiální program se nepodařilo přečíst; konkrétní DJ set ani jeho čas nejsou potvrzené. Zkontroluj program podniku před přesunem.": {
+      "cs": "Volitelný poslechový závěr z roadbooku. Oficiální program se nepodařilo přečíst; konkrétní DJ set ani jeho čas nejsou potvrzené. Zkontroluj program podniku před přesunem.",
+      "en": "An optional final listening stop from the roadbook. The official programme could not be read; no particular DJ set or time is confirmed. Check the venue’s programme before travelling.",
+      "fr": "Une dernière étape d’écoute facultative, issue du roadbook. Le programme officiel n’a pas pu être consulté ; aucun DJ set précis ni horaire n’est confirmé. Consulte le programme du lieu avant de te déplacer."
+    },
+    "Adresa, aktuální provoz a konkrétní hudební program": {
+      "cs": "Adresa, aktuální provoz a konkrétní hudební program",
+      "en": "Address, current operation and the specific music programme",
+      "fr": "Adresse, ouverture effective et programmation musicale précise"
+    },
+    "Čas DJ setu a podmínky vstupu": {
+      "cs": "Čas DJ setu a podmínky vstupu",
+      "en": "DJ set time and entry conditions",
+      "fr": "Horaire du DJ set et conditions d’entrée"
+    },
+    "Oficiální podmínky publikují tuto adresu a telefon 01 42 64 31 78. Web zároveň uvádí servisní hodiny po–so 10–19; to samo nepotvrzuje otevírání fyzické prodejny. Návštěvu nejdřív potvrď.": {
+      "cs": "Oficiální podmínky publikují tuto adresu a telefon 01 42 64 31 78. Web zároveň uvádí servisní hodiny po–so 10–19; to samo nepotvrzuje otevírání fyzické prodejny. Návštěvu nejdřív potvrď.",
+      "en": "The official terms publish this address and the telephone number 01 42 64 31 78. The website also lists customer-service hours of Monday–Saturday, 10:00–19:00; this alone does not confirm the physical shop’s opening hours. Confirm your visit first.",
+      "fr": "Les conditions officielles publient cette adresse et le numéro 01 42 64 31 78. Le site indique aussi des horaires de service client du lundi au samedi de 10:00 à 19:00 ; cela ne confirme pas, à lui seul, l’ouverture de la boutique physique. Fais confirmer ta visite au préalable."
+    },
+    "Aktuální fyzické otevírání a možnost návštěvy": {
+      "cs": "Aktuální fyzické otevírání a možnost návštěvy",
+      "en": "Current physical-shop opening hours and whether a visit is possible",
+      "fr": "Horaires actuels de la boutique physique et possibilité de visite"
+    },
+    "Případná veřejná session": {
+      "cs": "Případná veřejná session",
+      "en": "Any public session",
+      "fr": "Éventuelle session ouverte au public"
+    },
+    "Orientační bod pro pozorování veřejného prostoru, nikoli rezervovaná aktivita. RATP potvrzuje stanici linek 2 a 4 a její vstupy. Úkol nevyžaduje nahrávání cizích rozhovorů ani tváří.": {
+      "cs": "Orientační bod pro pozorování veřejného prostoru, nikoli rezervovaná aktivita. RATP potvrzuje stanici linek 2 a 4 a její vstupy. Úkol nevyžaduje nahrávání cizích rozhovorů ani tváří.",
+      "en": "A reference point for observing public space, not a booked activity. RATP confirms the station on lines 2 and 4 and its entrances. The task does not require recording other people’s conversations or faces.",
+      "fr": "Un point de repère pour observer l’espace public, pas une activité réservée. La RATP confirme la station des lignes 2 et 4 ainsi que ses accès. L’exercice ne demande pas d’enregistrer les conversations ou les visages d’autres personnes."
+    },
+    "Dopravní omezení v den návštěvy": {
+      "cs": "Dopravní omezení v den návštěvy",
+      "en": "Transport restrictions on the day of your visit",
+      "fr": "Perturbations des transports le jour de ta visite"
+    },
+    "Orientační zastávka u metra a v okolní čtvrti. Historický terrain vague je doloženým místem setkávání různých hiphopových disciplín; není zde potvrzený dnešní tréninkový areál ani veřejný vstup na původní parcelu.": {
+      "cs": "Orientační zastávka u metra a v okolní čtvrti. Historický terrain vague je doloženým místem setkávání různých hiphopových disciplín; není zde potvrzený dnešní tréninkový areál ani veřejný vstup na původní parcelu.",
+      "en": "An approximate stop around the metro station and the surrounding neighbourhood. The historic terrain vague is a documented meeting place for different hip-hop disciplines; no present-day training site or public access to the original plot is confirmed here.",
+      "fr": "Une étape indicative autour du métro et dans le quartier. Le terrain vague historique est un lieu documenté de rencontre entre plusieurs disciplines hip-hop ; aucun espace d’entraînement actuel ni accès public à la parcelle d’origine n’est confirmé ici."
+    },
+    "Přesné vymezení bývalé parcely a dnešní vlastnický či přístupový režim.": {
+      "cs": "Přesné vymezení bývalé parcely a dnešní vlastnický či přístupový režim.",
+      "en": "The exact boundaries of the former plot and its current ownership or access arrangements.",
+      "fr": "Les limites exactes de l’ancienne parcelle, son statut foncier actuel et les conditions d’accès."
+    },
+    "Kurátorovaná stěna asociace Le M.U.R. na rohu rue Oberkampf a rue Saint-Maur. Zastávka je pozorovací; vlastní malování vyžaduje dohodu se správcem.": {
+      "cs": "Kurátorovaná stěna asociace Le M.U.R. na rohu rue Oberkampf a rue Saint-Maur. Zastávka je pozorovací; vlastní malování vyžaduje dohodu se správcem.",
+      "en": "A wall curated by the Le M.U.R. association at the corner of rue Oberkampf and rue Saint-Maur. This is an observation stop; painting there yourself requires an agreement with the manager.",
+      "fr": "Un mur programmé par l’association Le M.U.R., à l’angle de la rue Oberkampf et de la rue Saint-Maur. Cette étape est consacrée à l’observation ; y peindre toi-même nécessite l’accord du gestionnaire."
+    },
+    "Konkrétní program a případné autorské svolení pro další komerční užití fotografií díla.": {
+      "cs": "Konkrétní program a případné autorské svolení pro další komerční užití fotografií díla.",
+      "en": "The specific programme and any copyright permission needed for further commercial use of photographs of the artwork.",
+      "fr": "La programmation précise et les éventuelles autorisations d’auteur nécessaires à une utilisation commerciale ultérieure des photographies de l’œuvre."
+    },
+    "Organizátor uvádí pravidelný pondělní SpokenWord: zápis 20:00, začátek 20:45 (mimo srpen). AWOL je obvykle v neděli 17:15–19:15 a zdarma. To není potvrzení konkrétního dne ani slotu; před cestou zkontroluj aktuality.": {
+      "cs": "Organizátor uvádí pravidelný pondělní SpokenWord: zápis 20:00, začátek 20:45 (mimo srpen). AWOL je obvykle v neděli 17:15–19:15 a zdarma. To není potvrzení konkrétního dne ani slotu; před cestou zkontroluj aktuality.",
+      "en": "The organiser lists a regular Monday SpokenWord event: sign-up at 20:00, start at 20:45, except in August. AWOL is usually free on Sundays, 17:15–19:15. This does not confirm a particular date or performance slot; check the latest information before travelling.",
+      "fr": "L’organisateur annonce un SpokenWord régulier le lundi : inscriptions à 20:00, début à 20:45, hors août. AWOL a habituellement lieu le dimanche de 17:15 à 19:15 et est gratuit. Cela ne confirme ni une date précise ni un créneau de passage ; consulte les dernières informations avant de te déplacer."
+    },
+    "Konkrétní datum, změny programu a jazyk skupiny": {
+      "cs": "Konkrétní datum, změny programu a jazyk skupiny",
+      "en": "Specific date, programme changes and the group’s language",
+      "fr": "Date précise, changements de programme et langue du groupe"
+    },
+    "Slot, délka a podmínky vystoupení": {
+      "cs": "Slot, délka a podmínky vystoupení",
+      "en": "Performance slot, duration and conditions",
+      "fr": "Créneau de passage, durée et conditions de participation"
+    },
+    "Veřejná ulice v Belleville s proměnlivou street-artovou tvorbou. Zastávka slouží k pozorování; turistický popis ani přítomnost graffiti nejsou povolením k vlastnímu malování.": {
+      "cs": "Veřejná ulice v Belleville s proměnlivou street-artovou tvorbou. Zastávka slouží k pozorování; turistický popis ani přítomnost graffiti nejsou povolením k vlastnímu malování.",
+      "en": "A public street in Belleville with changing street art. This stop is for observation; a tourist description or the presence of graffiti does not give permission to paint there yourself.",
+      "fr": "Une rue publique de Belleville dont les œuvres de street art évoluent. Cette étape sert à observer ; ni une présentation touristique ni la présence de graffiti ne t’autorisent à y peindre."
+    },
+    "Případná místní omezení a aktuální stav děl.": {
+      "cs": "Případná místní omezení a aktuální stav děl.",
+      "en": "Any local restrictions and the current condition of the artworks.",
+      "fr": "Les éventuelles restrictions locales et l’état actuel des œuvres."
+    },
+    "Adresa je potvrzená. Oficiální web uvádí rozdílné zavírání v 18:00 a 20:00; před pozdní návštěvou potvrď provoz. Navržená sobotní polední návštěva leží v obou zveřejněných intervalech. Ceny a skladové zásoby nejsou potvrzené.": {
+      "cs": "Adresa je potvrzená. Oficiální web uvádí rozdílné zavírání v 18:00 a 20:00; před pozdní návštěvou potvrď provoz. Navržená sobotní polední návštěva leží v obou zveřejněných intervalech. Ceny a skladové zásoby nejsou potvrzené.",
+      "en": "The address is confirmed. The official website gives conflicting closing times of 18:00 and 20:00; confirm opening before a late visit. The proposed Saturday lunchtime visit falls within both published time ranges. Prices and stock are not confirmed.",
+      "fr": "L’adresse est confirmée. Le site officiel affiche deux heures de fermeture différentes, 18:00 et 20:00 ; confirme l’ouverture avant une visite tardive. La visite proposée le samedi à midi entre dans les deux plages publiées. Les prix et les stocks ne sont pas confirmés."
+    },
+    "Zavírací hodina konkrétního dne.": {
+      "cs": "Zavírací hodina konkrétního dne.",
+      "en": "Closing time on the particular day.",
+      "fr": "Heure de fermeture le jour choisi."
+    },
+    "Cena a dostupnost vybraných barev, caps a ochranných prostředků.": {
+      "cs": "Cena a dostupnost vybraných barev, caps a ochranných prostředků.",
+      "en": "Price and availability of the selected colours, caps and protective equipment.",
+      "fr": "Prix et disponibilité des couleurs, caps et protections choisis."
+    },
+    "Správce rozlišuje 50 m pozvaných autorů, 15 m vedené výuky a 135 m cihlového úseku pro volné legální malování bez žádosti Acaci’Art. Vymezení a aktuální značení ověř na místě. Komerční workshop CAISIK nemá potvrzené oprávnění.": {
+      "cs": "Správce rozlišuje 50 m pozvaných autorů, 15 m vedené výuky a 135 m cihlového úseku pro volné legální malování bez žádosti Acaci’Art. Vymezení a aktuální značení ověř na místě. Komerční workshop CAISIK nemá potvrzené oprávnění.",
+      "en": "The manager distinguishes 50 m for invited artists, 15 m for supervised teaching and a 135 m brick section for independent legal painting without applying to Acaci’Art. Check the boundaries and current signs on site. No permission for a commercial CAISIK workshop has been confirmed.",
+      "fr": "Le gestionnaire distingue 50 m réservés aux artistes invités, 15 m pour les cours encadrés et une section en briques de 135 m où la peinture libre est autorisée sans demande auprès d’Acaci’Art. Vérifie les limites et la signalétique sur place. Aucune autorisation n’a été confirmée pour un atelier commercial CAISIK."
+    },
+    "Aktuální značení, volná část a případné místní uzavření.": {
+      "cs": "Aktuální značení, volná část a případné místní uzavření.",
+      "en": "Current signs, the freely available section and any local closure.",
+      "fr": "Signalétique actuelle, section libre et éventuelle fermeture locale."
+    },
+    "Před placenou organizovanou výukou kontaktovat správce.": {
+      "cs": "Před placenou organizovanou výukou kontaktovat správce.",
+      "en": "Contact the manager before organising paid teaching.",
+      "fr": "Contacter le gestionnaire avant d’organiser un cours payant."
+    },
+    "Volná samostatná umělecká praxe zdarma a bez rezervace. Út–pá 12:00–19:00, so–ne 11:00–19:00; v pondělí zavřeno. Prostor se mění podle programu. Placené lekce jsou zakázané; nejsou šatny ani úschova. Cypher ani účast dalších tanečníků nejsou slíbené.": {
+      "cs": "Volná samostatná umělecká praxe zdarma a bez rezervace. Út–pá 12:00–19:00, so–ne 11:00–19:00; v pondělí zavřeno. Prostor se mění podle programu. Placené lekce jsou zakázané; nejsou šatny ani úschova. Cypher ani účast dalších tanečníků nejsou slíbené.",
+      "en": "Independent artistic practice is free and does not require a reservation. Tuesday–Friday 12:00–19:00, Saturday–Sunday 11:00–19:00; closed on Monday. Available space changes with the programme. Paid lessons are prohibited; there are no changing rooms or storage facilities. No cypher or participation by other dancers is promised.",
+      "fr": "La pratique artistique autonome est gratuite et sans réservation. Du mardi au vendredi de 12:00 à 19:00, samedi et dimanche de 11:00 à 19:00 ; fermé le lundi. Les espaces disponibles varient selon le programme. Les cours payants sont interdits ; il n’y a ni vestiaires ni consigne. Aucun cypher ni participation d’autres danseurs n’est promis."
+    },
+    "Aktuální denní program a dostupná plocha.": {
+      "cs": "Aktuální denní program a dostupná plocha.",
+      "en": "The day’s current programme and available floor space.",
+      "fr": "Programme du jour et espace disponible."
+    },
+    "Pozorovací zastávka v proměnlivém veřejném prostoru. Oficiální turistický zdroj dokumentuje místní street art a dAcRuZ. Žádný cypher ani taneční lekce nejsou potvrzené. Pokud není vhodná volná plocha, splň úkol pozorováním a poznámkou.": {
+      "cs": "Pozorovací zastávka v proměnlivém veřejném prostoru. Oficiální turistický zdroj dokumentuje místní street art a dAcRuZ. Žádný cypher ani taneční lekce nejsou potvrzené. Pokud není vhodná volná plocha, splň úkol pozorováním a poznámkou.",
+      "en": "An observation stop in a changing public space. The official tourist source documents local street art and dAcRuZ. No cypher or dance lesson is confirmed. If there is no suitable free space, complete the task through observation and a note.",
+      "fr": "Une étape d’observation dans un espace public en évolution. La source touristique officielle documente le street art local et dAcRuZ. Aucun cypher ni cours de danse n’est confirmé. Si tu ne trouves pas d’espace libre adapté, réalise l’exercice par l’observation et une note."
+    },
+    "Místní průchodnost a vhodné podmínky pro krátký vlastní pohyb.": {
+      "cs": "Místní průchodnost a vhodné podmínky pro krátký vlastní pohyb.",
+      "en": "Local access and suitable conditions for a short movement exercise of your own.",
+      "fr": "Passage possible et conditions adaptées à un bref exercice de mouvement personnel."
+    },
+    "Město potvrzuje Belvédère Willy-Ronis nad parkem Belleville na adrese 27 rue Piat. Místo slouží k pozorování a odpočinku; taneční plocha ani lekce nejsou rezervované. Vlastní frázi zvol jen z pohybů, které bezpečně ovládáš.": {
+      "cs": "Město potvrzuje Belvédère Willy-Ronis nad parkem Belleville na adrese 27 rue Piat. Místo slouží k pozorování a odpočinku; taneční plocha ani lekce nejsou rezervované. Vlastní frázi zvol jen z pohybů, které bezpečně ovládáš.",
+      "en": "The city confirms Belvédère Willy-Ronis above parc de Belleville at 27 rue Piat. The place is intended here for observation and rest; no dance space or lesson has been booked. Build your own phrase only from movements you can perform safely.",
+      "fr": "La Ville confirme le Belvédère Willy-Ronis au-dessus du parc de Belleville, au 27 rue Piat. Cette étape sert à observer et à te reposer ; aucun espace de danse ni cours n’est réservé. Compose ta phrase uniquement avec des mouvements que tu maîtrises en sécurité."
+    },
+    "Aktuální povrch, přístup, omezení a vhodnost místa pro krátký pohyb.": {
+      "cs": "Aktuální povrch, přístup, omezení a vhodnost místa pro krátký pohyb.",
+      "en": "Current surface, access, restrictions and suitability for a short movement exercise.",
+      "fr": "État du sol, accès, restrictions et conditions adaptées à un bref exercice de mouvement."
+    },
+    "Publikovaný týdenní rozvrh uvádí Bboying s DysDys ve středu 19:00–20:30 v CORE, 3 rue de l’Est. Před konkrétní návštěvou potvrď cenu, volné místo a konání během prázdnin. Publikovaný rozvrh není rezervace; telefon +33 9 84 05 50 75.": {
+      "cs": "Publikovaný týdenní rozvrh uvádí Bboying s DysDys ve středu 19:00–20:30 v CORE, 3 rue de l’Est. Před konkrétní návštěvou potvrď cenu, volné místo a konání během prázdnin. Publikovaný rozvrh není rezervace; telefon +33 9 84 05 50 75.",
+      "en": "The published weekly timetable lists Bboying with DysDys on Wednesdays, 19:00–20:30, at CORE, 3 rue de l’Est. Before a particular visit, confirm the price, availability and whether the lesson runs during school holidays. A published timetable is not a reservation; telephone +33 9 84 05 50 75.",
+      "fr": "Le planning hebdomadaire publié annonce du Bboying avec DysDys le mercredi de 19:00 à 20:30 à CORE, 3 rue de l’Est. Avant de venir, confirme le prix, les places disponibles et le maintien du cours pendant les vacances. Un horaire publié ne vaut pas réservation ; téléphone : +33 9 84 05 50 75."
+    },
+    "Konání ve vybraný den včetně prázdninového provozu.": {
+      "cs": "Konání ve vybraný den včetně prázdninového provozu.",
+      "en": "Whether it runs on your chosen day, including during school holidays.",
+      "fr": "Maintien de la séance le jour choisi, y compris pendant les vacances."
+    },
+    "Jednorázová cena, přijímaná úroveň, volná kapacita a způsob rezervace.": {
+      "cs": "Jednorázová cena, přijímaná úroveň, volná kapacita a způsob rezervace.",
+      "en": "Drop-in price, accepted level, available capacity and booking method.",
+      "fr": "Tarif à l’unité, niveau accepté, places disponibles et modalités de réservation."
+    },
+    "Venkovní dílo pozoruj z veřejného prostoru. Autorův přehled zaznamenává realizaci fresky na Place Stravinsky v roce 2011. Aktuální viditelnost může ovlivnit provoz nebo práce na místě.": {
+      "cs": "Venkovní dílo pozoruj z veřejného prostoru. Autorův přehled zaznamenává realizaci fresky na Place Stravinsky v roce 2011. Aktuální viditelnost může ovlivnit provoz nebo práce na místě.",
+      "en": "Observe the outdoor artwork from public space. The artist’s overview records the mural on Place Stravinsky in 2011. Current visibility may be affected by activity or works on site.",
+      "fr": "Observe cette œuvre extérieure depuis l’espace public. Le parcours de l’artiste mentionne la réalisation de la fresque sur la Place Stravinsky en 2011. L’activité du lieu ou des travaux sur place peuvent en modifier la visibilité."
+    },
+    "Aktuální přístup a viditelnost na místě": {
+      "cs": "Aktuální přístup a viditelnost na místě",
+      "en": "Current access and visibility on site",
+      "fr": "Accès et visibilité sur place au moment de la visite"
+    },
+    "Nedělní zastávka je pozorování fasády. Galerie spojuje kaligrafii s textem Williama Saroyana. Knihkupectví na oficiálním webu uvádí neděli zavřenou; návštěvu interiéru proto tato varianta neslibuje.": {
+      "cs": "Nedělní zastávka je pozorování fasády. Galerie spojuje kaligrafii s textem Williama Saroyana. Knihkupectví na oficiálním webu uvádí neděli zavřenou; návštěvu interiéru proto tato varianta neslibuje.",
+      "en": "The Sunday stop is an observation of the façade. The gallery links the calligraphy to a text by William Saroyan. The bookshop’s official website lists it as closed on Sundays, so this version does not promise an interior visit.",
+      "fr": "L’étape du dimanche consiste à observer la façade. La galerie relie la calligraphie à un texte de William Saroyan. La librairie annonce sa fermeture le dimanche sur son site officiel ; cette variante ne prévoit donc pas de visite intérieure."
+    },
+    "Aktuální viditelnost fasády a případné změny provozu": {
+      "cs": "Aktuální viditelnost fasády a případné změny provozu",
+      "en": "Current visibility of the façade and any changes in opening arrangements",
+      "fr": "Visibilité actuelle de la façade et éventuels changements d’ouverture"
+    },
+    "Dílo se studuje z veřejného prostoru. Projekt Boulevard Paris 13 jej vysvětluje jako Marianne s francouzskou vlajkou a projev solidarity po útoku na Bataclan 13. listopadu 2015. Vlastní čtení sloganu je zvlášť označené tvůrčí zadání.": {
+      "cs": "Dílo se studuje z veřejného prostoru. Projekt Boulevard Paris 13 jej vysvětluje jako Marianne s francouzskou vlajkou a projev solidarity po útoku na Bataclan 13. listopadu 2015. Vlastní čtení sloganu je zvlášť označené tvůrčí zadání.",
+      "en": "Study the artwork from public space. The Boulevard Paris 13 project describes it as Marianne with the French flag and an expression of solidarity following the Bataclan attack on 13 November 2015. Your own reading of the slogan is a separately labelled creative assignment.",
+      "fr": "Étudie l’œuvre depuis l’espace public. Le projet Boulevard Paris 13 la présente comme une Marianne accompagnée du drapeau français et comme un geste de solidarité après l’attentat du Bataclan du 13 novembre 2015. Ta lecture personnelle du slogan fait l’objet d’un exercice créatif clairement distinct."
+    },
+    "Aktuální viditelnost a přístup na místě": {
+      "cs": "Aktuální viditelnost a přístup na místě",
+      "en": "Current visibility and access on site",
+      "fr": "Visibilité et accès sur place au moment de la visite"
+    },
+    "Pozorování z veřejného prostoru. Projekt popisuje světskou Madonu a Newtonovo jablko jako motiv vědění a skepticismu. Vlastní znak důvěry či pochybnosti je současný tvůrčí úkol, nikoli doložený univerzální význam symbolů.": {
+      "cs": "Pozorování z veřejného prostoru. Projekt popisuje světskou Madonu a Newtonovo jablko jako motiv vědění a skepticismu. Vlastní znak důvěry či pochybnosti je současný tvůrčí úkol, nikoli doložený univerzální význam symbolů.",
+      "en": "Observation from public space. The project describes a secular Madonna and Newton’s apple as motifs of knowledge and scepticism. Your own sign of trust or doubt is a contemporary creative exercise, not a documented universal meaning of the symbols.",
+      "fr": "Observation depuis l’espace public. Le projet décrit une Madone laïque et la pomme de Newton comme des motifs du savoir et du scepticisme. Ton propre signe de confiance ou de doute relève d’un exercice créatif contemporain, pas d’une signification universelle attestée des symboles."
+    },
+    "Městská část popisuje náměstí na křížení rue Julien-Lacroix a rue de Belleville a Benovo dílo s nápisem Il faut se méfier des mots. Pozoruj veřejné dílo a odděl jeho popis od vlastní interpretace.": {
+      "cs": "Městská část popisuje náměstí na křížení rue Julien-Lacroix a rue de Belleville a Benovo dílo s nápisem Il faut se méfier des mots. Pozoruj veřejné dílo a odděl jeho popis od vlastní interpretace.",
+      "en": "The local council describes the square at the junction of rue Julien-Lacroix and rue de Belleville and Ben’s work bearing the words Il faut se méfier des mots. Observe the public artwork and separate its description from your own interpretation.",
+      "fr": "La mairie d’arrondissement décrit la place à l’angle de la rue Julien-Lacroix et de la rue de Belleville, ainsi que l’œuvre de Ben portant l’inscription Il faut se méfier des mots. Observe cette œuvre publique et distingue sa description de ton interprétation personnelle."
+    },
+    "Aktuální viditelnost a podmínky průchodu": {
+      "cs": "Aktuální viditelnost a podmínky průchodu",
+      "en": "Current visibility and conditions for passing through",
+      "fr": "Visibilité actuelle et conditions de passage"
+    },
+    "DJ — Od prvního breaku k vlastnímu mixu": {
+      "cs": "DJ — Od prvního breaku k vlastnímu mixu",
+      "en": "DJ — From your first break to your own mix",
+      "fr": "DJ — Du premier break à ton propre mix"
+    },
+    "Od cíleného poslechu přes dvě zkoušky návaznosti k vlastnímu krátkému mixu. Obchody a večerní poslech jsou volitelné; na vlastní práci ponech souvislý blok. Lekci, studio a vybavení potvrzuje jejich provozovatel.": {
+      "cs": "Od cíleného poslechu přes dvě zkoušky návaznosti k vlastnímu krátkému mixu. Obchody a večerní poslech jsou volitelné; na vlastní práci ponech souvislý blok. Lekci, studio a vybavení potvrzuje jejich provozovatel.",
+      "en": "Move from focused listening through two transition tests to a short mix of your own. Shops and evening listening are optional; leave an uninterrupted block for your own work. The operator must confirm any lesson, studio and equipment.",
+      "fr": "Passe d’une écoute ciblée à deux essais d’enchaînement, puis à un court mix personnel. Les boutiques et l’écoute du soir restent facultatives ; garde un vrai bloc de temps pour ta pratique. Le cours, le studio et le matériel doivent être confirmés par leur prestataire."
+    },
+    "Univers Sons — lekce s Hitchem": {
+      "cs": "Univers Sons — lekce s Hitchem",
+      "en": "Univers Sons — a lesson with Hitch",
+      "fr": "Univers Sons — cours avec Hitch"
+    },
+    "Domluv si hip-hopové cueing, baby scratch a jeden přechod. Přines dva vlastní tracky a sluchátka; jazyk i vybavení potvrď předem.": {
+      "cs": "Domluv si hip-hopové cueing, baby scratch a jeden přechod. Přines dva vlastní tracky a sluchátka; jazyk i vybavení potvrď předem.",
+      "en": "Arrange to practise hip-hop cueing, a baby scratch and one transition. Bring two tracks of your own and headphones; confirm the language and equipment in advance.",
+      "fr": "Prévois du cueing hip-hop, un baby scratch et un enchaînement. Apporte deux morceaux à toi et un casque ; confirme à l’avance la langue et le matériel."
+    },
+    "Start; metro Oberkampf (5/9) nebo République.": {
+      "cs": "Start; metro Oberkampf (5/9) nebo République.",
+      "en": "Start: Oberkampf metro, lines 5/9, or République.",
+      "fr": "Départ : métro Oberkampf, lignes 5/9, ou République."
+    },
+    "Konkrétní čas je návrh itineráře, nikoli rezervace. Kurz musí potvrdit pořadatel.": {
+      "cs": "Konkrétní čas je návrh itineráře, nikoli rezervace. Kurz musí potvrdit pořadatel.",
+      "en": "The specific time is an itinerary suggestion, not a reservation. The organiser must confirm the course.",
+      "fr": "L’horaire précis est une proposition d’itinéraire, pas une réservation. Le cours doit être confirmé par l’organisateur."
+    },
+    "Betino’s Record Shop": {
+      "cs": "Betino’s Record Shop",
+      "en": "Betino’s Record Shop",
+      "fr": "Betino’s Record Shop"
+    },
+    "Vyber jeden drum break, jednu basovou linku a jeden melodický motiv. Ptej se na poslech desek, neber jej automaticky jako službu bez podmínek.": {
+      "cs": "Vyber jeden drum break, jednu basovou linku a jeden melodický motiv. Ptej se na poslech desek, neber jej automaticky jako službu bez podmínek.",
+      "en": "Choose one drum break, one bass line and one melodic motif. Ask about listening to records; do not assume that listening is an unconditional service.",
+      "fr": "Choisis un drum break, une ligne de basse et un motif mélodique. Renseigne-toi sur l’écoute des disques ; ne la considère pas comme un service automatiquement proposé sans conditions."
+    },
+    "Pěšky přibližně 10–15 min.": {
+      "cs": "Pěšky přibližně 10–15 min.",
+      "en": "Approximately 10–15 minutes on foot.",
+      "fr": "Environ 10 à 15 minutes à pied."
+    },
+    "Poslech desek ani konkrétní skladová nabídka nejsou automaticky slíbená služba. Nákup není podmínkou úkolu.": {
+      "cs": "Poslech desek ani konkrétní skladová nabídka nejsou automaticky slíbená služba. Nákup není podmínkou úkolu.",
+      "en": "Record listening and particular stock are not automatically guaranteed services. A purchase is not required for the task.",
+      "fr": "L’écoute des disques et la disponibilité d’une référence précise ne sont pas garanties automatiquement. L’exercice ne nécessite aucun achat."
+    },
+    "Le Grand Jeu — vizuální jazyk desek": {
+      "cs": "Le Grand Jeu — vizuální jazyk desek",
+      "en": "Le Grand Jeu — the visual language of records",
+      "fr": "Le Grand Jeu — le langage visuel des disques"
+    },
+    "Najdi jeden zin nebo fotografickou knihu. Do skicáku navrhni obal pro mix, který dnes nahraješ.": {
+      "cs": "Najdi jeden zin nebo fotografickou knihu. Do skicáku navrhni obal pro mix, který dnes nahraješ.",
+      "en": "Find a zine or a photography book. Sketch a cover for the mix you will record today.",
+      "fr": "Trouve un fanzine ou un livre de photographie. Dessine dans ton carnet une pochette pour le mix que tu enregistreras aujourd’hui."
+    },
+    "Kolo asi 10 min nebo pěšky 25–30 min.": {
+      "cs": "Kolo asi 10 min nebo pěšky 25–30 min.",
+      "en": "About 10 minutes by bike or 25–30 minutes on foot.",
+      "fr": "Environ 10 minutes à vélo ou 25 à 30 minutes à pied."
+    },
+    "Volitelná práce s referencemi; ověř aktuální fyzický provoz. Vlastní výsledek musí jít dokončit i bez nákupu.": {
+      "cs": "Volitelná práce s referencemi; ověř aktuální fyzický provoz. Vlastní výsledek musí jít dokončit i bez nákupu.",
+      "en": "Optional reference study; check that the physical venue is currently open. You must be able to complete your own output without buying anything.",
+      "fr": "Étude de références facultative ; vérifie l’ouverture effective du lieu. Tu dois pouvoir terminer ta création sans rien acheter."
+    },
+    "Heartbeat Vinyl — druhý digging": {
+      "cs": "Heartbeat Vinyl — druhý digging",
+      "en": "Heartbeat Vinyl — a second digging session",
+      "fr": "Heartbeat Vinyl — deuxième session de digging"
+    },
+    "Hledej kontrast k prvnímu nákupu: jinou dekádu, groove nebo instrumentál. Nejvýš dvě věci, které opravdu využiješ.": {
+      "cs": "Hledej kontrast k prvnímu nákupu: jinou dekádu, groove nebo instrumentál. Nejvýš dvě věci, které opravdu využiješ.",
+      "en": "Look for a contrast with your first purchase: another decade, groove or instrumental. No more than two items you will actually use.",
+      "fr": "Cherche un contraste avec ton premier achat : une autre décennie, un autre groove ou un autre instrumental. Limite-toi à deux références que tu utiliseras vraiment."
+    },
+    "Kolo asi 10–15 min; pěšky 25–30 min.": {
+      "cs": "Kolo asi 10–15 min; pěšky 25–30 min.",
+      "en": "About 10–15 minutes by bike or 25–30 minutes on foot.",
+      "fr": "Environ 10 à 15 minutes à vélo ou 25 à 30 minutes à pied."
+    },
+    "Aktuální hodiny nejsou znovu ověřené. Před přesunem potvrď provoz u obchodu; při nedostupnosti použij vlastní legální nahrávky.": {
+      "cs": "Aktuální hodiny nejsou znovu ověřené. Před přesunem potvrď provoz u obchodu; při nedostupnosti použij vlastní legální nahrávky.",
+      "en": "Current opening hours have not been rechecked. Confirm opening with the shop before travelling; if it is unavailable, use your own legally usable recordings.",
+      "fr": "Les horaires actuels n’ont pas été revérifiés. Confirme l’ouverture auprès de la boutique avant de te déplacer ; si elle est indisponible, utilise tes propres enregistrements dont l’usage est autorisé."
+    },
+    "La Place — studio 6 nebo 7": {
+      "cs": "La Place — studio 6 nebo 7",
+      "en": "La Place — studio 6 or 7",
+      "fr": "La Place — studio 6 ou 7"
+    },
+    "Vyhraď dvě hodiny na zkoušku záznamu, 15–20minutový mix, kontrolu a export. Požadavek na vinylové gramofony potvrď při rezervaci.": {
+      "cs": "Vyhraď dvě hodiny na zkoušku záznamu, 15–20minutový mix, kontrolu a export. Požadavek na vinylové gramofony potvrď při rezervaci.",
+      "en": "Set aside two hours to test the recording setup, record a 15–20-minute mix, check it and export it. Confirm the need for vinyl turntables when booking.",
+      "fr": "Prévois deux heures pour tester l’enregistrement, réaliser un mix de 15 à 20 minutes, le vérifier et l’exporter. Confirme ton besoin de platines vinyles au moment de réserver."
+    },
+    "Kolo asi 20–30 min; metrem přes Voltaire (9) → Strasbourg–Saint-Denis, poté 4 → Les Halles a pěšky.": {
+      "cs": "Kolo asi 20–30 min; metrem přes Voltaire (9) → Strasbourg–Saint-Denis, poté 4 → Les Halles a pěšky.",
+      "en": "About 20–30 minutes by bike; by metro, take line 9 from Voltaire to Strasbourg–Saint-Denis, then line 4 to Les Halles and continue on foot.",
+      "fr": "Environ 20 à 30 minutes à vélo ; en métro, pars de Voltaire par la ligne 9 jusqu’à Strasbourg–Saint-Denis, puis prends la ligne 4 jusqu’aux Halles et termine à pied."
+    },
+    "Sazbu a vybavení sleduj u společného záznamu La Place. Pronájem sám nezahrnuje lektora.": {
+      "cs": "Sazbu a vybavení sleduj u společného záznamu La Place. Pronájem sám nezahrnuje lektora.",
+      "en": "See the shared La Place record for the rate and equipment. Room hire alone does not include an instructor.",
+      "fr": "Consulte la fiche commune de La Place pour le tarif et le matériel. La location seule n’inclut pas de professeur."
+    },
+    "Fréquence — vinylový poslechový bar": {
+      "cs": "Fréquence — vinylový poslechový bar",
+      "en": "Fréquence — a vinyl listening bar",
+      "fr": "Fréquence — bar d’écoute vinyle"
+    },
+    "Poslouchej práci se stranami desek, pořadím a energií. Zapiš tři přechody, které tě zaujmou.": {
+      "cs": "Poslouchej práci se stranami desek, pořadím a energií. Zapiš tři přechody, které tě zaujmou.",
+      "en": "Listen to how record sides, running order and energy are handled. Note three transitions that catch your attention.",
+      "fr": "Écoute comment sont travaillés les faces des disques, l’ordre des morceaux et l’énergie. Note trois transitions qui retiennent ton attention."
+    },
+    "Kolo asi 20–25 min; nebo Châtelet (1 směr Château de Vincennes) → Bastille + pěšky.": {
+      "cs": "Kolo asi 20–25 min; nebo Châtelet (1 směr Château de Vincennes) → Bastille + pěšky.",
+      "en": "About 20–25 minutes by bike; or take line 1 from Châtelet towards Château de Vincennes to Bastille, then walk.",
+      "fr": "Environ 20 à 25 minutes à vélo ; ou prends la ligne 1 à Châtelet, direction Château de Vincennes, jusqu’à Bastille, puis marche."
+    },
+    "Volitelná zastávka pouze podle skutečně potvrzeného programu. Není potvrzen open-decks ani hip-hopový set. Po alkoholu nepokračuj na kole.": {
+      "cs": "Volitelná zastávka pouze podle skutečně potvrzeného programu. Není potvrzen open-decks ani hip-hopový set. Po alkoholu nepokračuj na kole.",
+      "en": "An optional stop only if the programme is actually confirmed. Neither open decks nor a hip-hop set is confirmed. Do not continue cycling after drinking alcohol.",
+      "fr": "Une étape facultative, uniquement selon un programme effectivement confirmé. Ni open decks ni set hip-hop ne sont confirmés. Ne reprends pas le vélo après avoir bu de l’alcool."
+    },
+    "Večer podle potvrzeného programu": {
+      "cs": "Večer podle potvrzeného programu",
+      "en": "Evening, according to the confirmed programme",
+      "fr": "Le soir, selon le programme confirmé"
+    },
+    "MC — Od čtvrti přes studio až k mikrofonu": {
+      "cs": "MC — Od čtvrti přes studio až k mikrofonu",
+      "en": "MC — From the neighbourhood through the studio to the microphone",
+      "fr": "MC — Du quartier au studio, puis au micro"
+    },
+    "Z konkrétních detailů čtvrti vznikne vlastní sloka, dvě verze přednesu a vysvětlená revize. Na nahrávání a poslech vyhraď skutečný čas. Veřejný mikrofon je volitelný a závisí na aktuálním programu i pořadateli.": {
+      "cs": "Z konkrétních detailů čtvrti vznikne vlastní sloka, dvě verze přednesu a vysvětlená revize. Na nahrávání a poslech vyhraď skutečný čas. Veřejný mikrofon je volitelný a závisí na aktuálním programu i pořadateli.",
+      "en": "Turn specific neighbourhood details into your own verse, two deliveries and an explained revision. Allow real time for recording and listening back. A public microphone is optional and depends on the current programme and organiser.",
+      "fr": "À partir de détails précis du quartier, crée ton couplet, deux versions d’interprétation et une révision expliquée. Garde du temps réel pour enregistrer et réécouter. Le passage à un micro public est facultatif et dépend du programme et de l’organisateur."
+    },
+    "Scred Boutique": {
+      "cs": "Scred Boutique",
+      "en": "Scred Boutique",
+      "fr": "Scred Boutique"
+    },
+    "Objev nezávislý francouzský rap a zeptej se na nejbližší veřejně přístupnou rapovou session. Nečekej automaticky přítomnost členů Scred Connexion.": {
+      "cs": "Objev nezávislý francouzský rap a zeptej se na nejbližší veřejně přístupnou rapovou session. Nečekej automaticky přítomnost členů Scred Connexion.",
+      "en": "Explore independent French rap and ask about the next rap session open to the public. Do not assume members of Scred Connexion will be there.",
+      "fr": "Découvre le rap français indépendant et renseigne-toi sur la prochaine session rap ouverte au public. Ne t’attends pas automatiquement à rencontrer des membres de Scred Connexion."
+    },
+    "Start; od metra Château Rouge nebo Marcadet–Poissonniers pěšky.": {
+      "cs": "Start; od metra Château Rouge nebo Marcadet–Poissonniers pěšky.",
+      "en": "Start: walk from Château Rouge or Marcadet–Poissonniers metro.",
+      "fr": "Départ : à pied depuis le métro Château Rouge ou Marcadet–Poissonniers."
+    },
+    "Potvrď fyzické otevření před odjezdem. Servisní hodiny webu nejsou potvrzené hodiny prodejny; setkání s členy skupiny není slíbené.": {
+      "cs": "Potvrď fyzické otevření před odjezdem. Servisní hodiny webu nejsou potvrzené hodiny prodejny; setkání s členy skupiny není slíbené.",
+      "en": "Confirm the physical shop is open before setting out. Website customer-service hours are not confirmed shop opening hours; meeting members of the group is not promised.",
+      "fr": "Confirme l’ouverture de la boutique physique avant de partir. Les horaires du service client du site ne sont pas des horaires de boutique confirmés ; aucune rencontre avec les membres du groupe n’est promise."
+    },
+    "Barbès — pozorování bez klišé": {
+      "cs": "Barbès — pozorování bez klišé",
+      "en": "Barbès — observation without clichés",
+      "fr": "Barbès — observer sans clichés"
+    },
+    "Zapiš pět konkrétních detailů, nikoli soudy o obyvatelích. Udělej z nich čtyři řádky. Cizí rozhovory a tváře nenahrávej bez svolení.": {
+      "cs": "Zapiš pět konkrétních detailů, nikoli soudy o obyvatelích. Udělej z nich čtyři řádky. Cizí rozhovory a tváře nenahrávej bez svolení.",
+      "en": "Write down five concrete details, not judgments about residents. Turn them into four lines. Do not record other people’s conversations or faces without permission.",
+      "fr": "Note cinq détails concrets, pas des jugements sur les habitants. Transforme-les en quatre lignes. N’enregistre pas les conversations ni les visages d’autres personnes sans leur accord."
+    },
+    "Pěšky asi 15–20 min.": {
+      "cs": "Pěšky asi 15–20 min.",
+      "en": "About 15–20 minutes on foot.",
+      "fr": "Environ 15 à 20 minutes à pied."
+    },
+    "Nezaznamenávej cizí rozhovory nebo rozpoznatelné osoby bez souhlasu; neblokuj průchod.": {
+      "cs": "Nezaznamenávej cizí rozhovory nebo rozpoznatelné osoby bez souhlasu; neblokuj průchod.",
+      "en": "Do not record other people’s conversations or identifiable people without consent; keep the way clear.",
+      "fr": "N’enregistre pas les conversations d’autrui ni des personnes identifiables sans leur consentement ; ne bloque pas le passage."
+    },
+    "La Chapelle — historický kontext": {
+      "cs": "La Chapelle — historický kontext",
+      "en": "La Chapelle — historical context",
+      "fr": "La Chapelle — contexte historique"
+    },
+    "Z doloženého historického zdroje si připrav poznámku o raných společných jams. Porovnej popsané setkání s dnešní kulturní infrastrukturou; orientační stanice není přesný vstup na zaniklou lokalitu.": {
+      "cs": "Z doloženého historického zdroje si připrav poznámku o raných společných jams. Porovnej popsané setkání s dnešní kulturní infrastrukturou; orientační stanice není přesný vstup na zaniklou lokalitu.",
+      "en": "Use a documented historical source to prepare a note about early shared jams. Compare that gathering with today’s cultural infrastructure; the station is an approximate reference point, not an exact entrance to the former site.",
+      "fr": "À partir d’une source historique documentée, prépare une note sur les premières jams communes. Compare ces rencontres aux infrastructures culturelles actuelles ; la station sert de repère, elle n’indique pas un accès précis à l’ancien terrain."
+    },
+    "Pěšky asi 15 min podél boulevard de la Chapelle.": {
+      "cs": "Pěšky asi 15 min podél boulevard de la Chapelle.",
+      "en": "About 15 minutes on foot along boulevard de la Chapelle.",
+      "fr": "Environ 15 minutes à pied le long du boulevard de la Chapelle."
+    },
+    "Jde o orientační čtvrť a stanici. Zaniklá historická lokalita není dnešní slíbený tréninkový areál ani přesný vstup.": {
+      "cs": "Jde o orientační čtvrť a stanici. Zaniklá historická lokalita není dnešní slíbený tréninkový areál ani přesný vstup.",
+      "en": "This is an approximate neighbourhood and station stop. The former historic site is not a promised present-day training space or an exact entrance.",
+      "fr": "Il s’agit d’une étape indicative dans le quartier et autour de la station. L’ancien site historique n’est ni un espace d’entraînement actuel promis ni un point d’entrée précis."
+    },
+    "Le Grand Jeu — nezávislé publikace": {
+      "cs": "Le Grand Jeu — nezávislé publikace",
+      "en": "Le Grand Jeu — independent publications",
+      "fr": "Le Grand Jeu — publications indépendantes"
+    },
+    "Vyber motiv pro sloku: paměť místa, vlastní reprezentace nebo nezávislost. Napiš pracovní refrén.": {
+      "cs": "Vyber motiv pro sloku: paměť místa, vlastní reprezentace nebo nezávislost. Napiš pracovní refrén.",
+      "en": "Choose a theme for your verse: the memory of a place, how you represent yourself or independence. Write a draft hook.",
+      "fr": "Choisis un thème pour ton couplet : la mémoire d’un lieu, la façon dont tu te représentes ou l’indépendance. Écris une première version de refrain."
+    },
+    "La Chapelle (2 směr Nation) → Couronnes; potom pěšky.": {
+      "cs": "La Chapelle (2 směr Nation) → Couronnes; potom pěšky.",
+      "en": "Take line 2 from La Chapelle towards Nation to Couronnes, then walk.",
+      "fr": "Prends la ligne 2 à La Chapelle, direction Nation, jusqu’à Couronnes, puis marche."
+    },
+    "Le M.U.R. Oberkampf — text z obrazu": {
+      "cs": "Le M.U.R. Oberkampf — text z obrazu",
+      "en": "Le M.U.R. Oberkampf — writing from an image",
+      "fr": "Le M.U.R. Oberkampf — écrire à partir d’une image"
+    },
+    "Napiš čtyři řádky popisu obrazu bez vysvětlení jeho smyslu a čtyři řádky vlastní interpretace. Odděl pozorování od domněnky.": {
+      "cs": "Napiš čtyři řádky popisu obrazu bez vysvětlení jeho smyslu a čtyři řádky vlastní interpretace. Odděl pozorování od domněnky.",
+      "en": "Write four lines describing the image without explaining its meaning, then four lines of your own interpretation. Separate observation from assumption.",
+      "fr": "Écris quatre lignes décrivant l’image sans en expliquer le sens, puis quatre lignes d’interprétation personnelle. Distingue l’observation de la supposition."
+    },
+    "Pěšky asi 10–15 min.": {
+      "cs": "Pěšky asi 10–15 min.",
+      "en": "About 10–15 minutes on foot.",
+      "fr": "Environ 10 à 15 minutes à pied."
+    },
+    "Kurátorované dílo studuj z veřejného prostoru. Tato expedice neuděluje souhlas k malování na stěnu.": {
+      "cs": "Kurátorované dílo studuj z veřejného prostoru. Tato expedice neuděluje souhlas k malování na stěnu.",
+      "en": "Study the curated artwork from public space. This expedition does not give permission to paint on the wall.",
+      "fr": "Étudie l’œuvre programmée depuis l’espace public. Cette expédition ne donne aucune autorisation de peindre sur le mur."
+    },
+    "La Place — vlastní demo": {
+      "cs": "La Place — vlastní demo",
+      "en": "La Place — your own demo",
+      "fr": "La Place — ta propre démo"
+    },
+    "Nahraj pracovní sloku, druhý take a čistý export. Přines vlastní nebo oprávněně použitý beat a kopii textu.": {
+      "cs": "Nahraj pracovní sloku, druhý take a čistý export. Přines vlastní nebo oprávněně použitý beat a kopii textu.",
+      "en": "Record a working verse, a second take and a clean export. Bring your own beat or one you are authorised to use, plus a copy of your lyrics.",
+      "fr": "Enregistre un couplet de travail, une deuxième prise et un export propre. Apporte ton propre beat ou un beat que tu as le droit d’utiliser, ainsi qu’une copie du texte."
+    },
+    "Kolo asi 20 min; nebo k République a 11 směr Châtelet → Châtelet, pak pěšky.": {
+      "cs": "Kolo asi 20 min; nebo k République a 11 směr Châtelet → Châtelet, pak pěšky.",
+      "en": "About 20 minutes by bike; or head to République, take line 11 towards Châtelet to Châtelet, then walk.",
+      "fr": "Environ 20 minutes à vélo ; ou rejoins République, prends la ligne 11 direction Châtelet jusqu’à Châtelet, puis termine à pied."
+    },
+    "Mikrofon, interface, DAW, obsluhu i technika domluv předem. Zveřejněná sazba je pro prostor v určené kategorii klientů; hotový mix není součástí příslibu.": {
+      "cs": "Mikrofon, interface, DAW, obsluhu i technika domluv předem. Zveřejněná sazba je pro prostor v určené kategorii klientů; hotový mix není součástí příslibu.",
+      "en": "Arrange the microphone, audio interface, DAW, operation and technician in advance. The published rate covers the space for specified client categories; a finished mix is not promised.",
+      "fr": "Conviens à l’avance du microphone, de l’interface audio, du DAW, de leur utilisation et de la présence d’un technicien. Le tarif publié concerne l’espace pour des catégories de clients définies ; il ne promet pas un mix finalisé."
+    },
+    "Au Chat Noir — SpokenWord Paris": {
+      "cs": "Au Chat Noir — SpokenWord Paris",
+      "en": "Au Chat Noir — SpokenWord Paris",
+      "fr": "Au Chat Noir — SpokenWord Paris"
+    },
+    "Pokud pořadatel potvrdí prostor pro přednes, připrav krátký vlastní text i a cappella variantu. Bez slotu dokonči stejný výstup vlastním záznamem.": {
+      "cs": "Pokud pořadatel potvrdí prostor pro přednes, připrav krátký vlastní text i a cappella variantu. Bez slotu dokonči stejný výstup vlastním záznamem.",
+      "en": "If the organiser confirms a performance opportunity, prepare a short text of your own and an a cappella version. Without a slot, complete the same output as your own recording.",
+      "fr": "Si l’organisateur confirme une possibilité de passage, prépare un court texte personnel et une version a cappella. Sans créneau, réalise le même travail sous la forme d’un enregistrement personnel."
+    },
+    "Châtelet (11 směr Rosny–Bois-Perrier) → Belleville + asi 10–15 min pěšky. Přijď dřív na jídlo a zkoušku textu.": {
+      "cs": "Châtelet (11 směr Rosny–Bois-Perrier) → Belleville + asi 10–15 min pěšky. Přijď dřív na jídlo a zkoušku textu.",
+      "en": "Take line 11 from Châtelet towards Rosny–Bois-Perrier to Belleville, then walk about 10–15 minutes. Arrive early for food and to rehearse your text.",
+      "fr": "Prends la ligne 11 à Châtelet, direction Rosny–Bois-Perrier, jusqu’à Belleville, puis marche environ 10 à 15 minutes. Arrive plus tôt pour manger et répéter ton texte."
+    },
+    "Jde o pravidelný spoken word, nikoli potvrzený rap battle nebo zaručený slot. Konkrétní termín, délku a podmínky ověř u organizátora.": {
+      "cs": "Jde o pravidelný spoken word, nikoli potvrzený rap battle nebo zaručený slot. Konkrétní termín, délku a podmínky ověř u organizátora.",
+      "en": "This is a regular spoken-word event, not a confirmed rap battle or a guaranteed slot. Check the particular date, duration and conditions with the organiser.",
+      "fr": "Il s’agit d’un rendez-vous régulier de spoken word, pas d’un rap battle confirmé ni d’un passage garanti. Vérifie la date précise, la durée et les conditions auprès de l’organisateur."
+    },
+    "WRITER — Návrh, vlastní paleta, skutečný legál": {
+      "cs": "WRITER — Návrh, vlastní paleta, skutečný legál",
+      "en": "WRITER — A design, your own palette and a genuinely legal wall",
+      "fr": "WRITER — Un dessin, ta palette et un vrai mur autorisé"
+    },
+    "Od čtení písmen přes vlastní konstrukci a paletu k realizaci na skutečně povoleném úseku. Nákup vychází ze skici; na malování, dokumentaci a úklid zůstává samostatný blok. Nepotvrzené podmínky znamenají variantu na papíře.": {
+      "cs": "Od čtení písmen přes vlastní konstrukci a paletu k realizaci na skutečně povoleném úseku. Nákup vychází ze skici; na malování, dokumentaci a úklid zůstává samostatný blok. Nepotvrzené podmínky znamenají variantu na papíře.",
+      "en": "Move from reading letters through your own construction and palette to painting on a genuinely permitted section. Buy according to your sketch; keep a separate block for painting, documentation and cleanup. If conditions are not confirmed, work on paper instead.",
+      "fr": "Passe de la lecture des lettres à ta propre construction et à ta palette, puis à une réalisation sur une section réellement autorisée. Tes achats découlent de ton croquis ; réserve un bloc distinct pour peindre, documenter et nettoyer. Si les conditions ne sont pas confirmées, choisis la version sur papier."
+    },
+    "Rue Dénoyez — čtení písmen": {
+      "cs": "Rue Dénoyez — čtení písmen",
+      "en": "Rue Dénoyez — reading letters",
+      "fr": "Rue Dénoyez — lire les lettres"
+    },
+    "Vyber tři odlišné konstrukce písmen. Zaznamenej jejich princip, ne cizí podpis jako vlastní návrh.": {
+      "cs": "Vyber tři odlišné konstrukce písmen. Zaznamenej jejich princip, ne cizí podpis jako vlastní návrh.",
+      "en": "Choose three different letter constructions. Record the principle behind them; do not use someone else’s signature as your own design.",
+      "fr": "Choisis trois constructions de lettres différentes. Note leur principe ; ne reprends pas la signature d’un autre comme ton propre dessin."
+    },
+    "Start: Belleville (2/11), pak pěšky.": {
+      "cs": "Start: Belleville (2/11), pak pěšky.",
+      "en": "Start: Belleville metro, lines 2/11, then walk.",
+      "fr": "Départ : métro Belleville, lignes 2/11, puis à pied."
+    },
+    "Existence graffiti není souhlas k vlastnímu malování. Díla se mění; pozoruj a respektuj okolí.": {
+      "cs": "Existence graffiti není souhlas k vlastnímu malování. Díla se mění; pozoruj a respektuj okolí.",
+      "en": "The presence of graffiti is not permission to paint there yourself. The works change; observe and respect the surroundings.",
+      "fr": "La présence de graffiti ne t’autorise pas à peindre. Les œuvres changent ; observe-les et respecte les lieux."
+    },
+    "Le Grand Jeu — skicák a reference": {
+      "cs": "Le Grand Jeu — skicák a reference",
+      "en": "Le Grand Jeu — sketchbook and references",
+      "fr": "Le Grand Jeu — carnet de croquis et références"
+    },
+    "Nakresli jednoduchý pětipísmenný až šestipísmenný návrh. Zvol dvě výplňové barvy, obrys, světlo a jednoduché pozadí.": {
+      "cs": "Nakresli jednoduchý pětipísmenný až šestipísmenný návrh. Zvol dvě výplňové barvy, obrys, světlo a jednoduché pozadí.",
+      "en": "Sketch a simple five- or six-letter design. Choose two fill colours, an outline, highlights and a simple background.",
+      "fr": "Dessine une composition simple de cinq à six lettres. Choisis deux couleurs de remplissage, un contour, des lumières et un fond simple."
+    },
+    "Le M.U.R. Oberkampf — studium hotového díla": {
+      "cs": "Le M.U.R. Oberkampf — studium hotového díla",
+      "en": "Le M.U.R. Oberkampf — studying a completed work",
+      "fr": "Le M.U.R. Oberkampf — étudier une œuvre achevée"
+    },
+    "Sleduj negativní prostor, pozadí a čitelnost z dálky. Dnešní malbu jen fotografuj a studuj.": {
+      "cs": "Sleduj negativní prostor, pozadí a čitelnost z dálky. Dnešní malbu jen fotografuj a studuj.",
+      "en": "Observe negative space, the background and legibility from a distance. Today, only photograph and study the painting.",
+      "fr": "Observe les espaces négatifs, le fond et la lisibilité à distance. Aujourd’hui, contente-toi de photographier et d’étudier la peinture."
+    },
+    "Pěšky asi 10 min.": {
+      "cs": "Pěšky asi 10 min.",
+      "en": "About 10 minutes on foot.",
+      "fr": "Environ 10 minutes à pied."
+    },
+    "75Shop & Gallery — nákup podle návrhu": {
+      "cs": "75Shop & Gallery — nákup podle návrhu",
+      "en": "75Shop & Gallery — buying for your design",
+      "fr": "75Shop & Gallery — acheter en fonction de ton dessin"
+    },
+    "Kup pouze materiál pro svůj náčrt. Nech si sladit low-pressure barvy, caps a ochranné prostředky; řekni, že jdeš na cihlovou venkovní stěnu.": {
+      "cs": "Kup pouze materiál pro svůj náčrt. Nech si sladit low-pressure barvy, caps a ochranné prostředky; řekni, že jdeš na cihlovou venkovní stěnu.",
+      "en": "Buy only the materials your sketch needs. Ask for help matching low-pressure paint, caps and protective equipment; explain that you are heading to an outdoor brick wall.",
+      "fr": "Achète uniquement le matériel nécessaire à ton croquis. Fais-toi conseiller pour associer peintures basse pression, caps et protections ; précise que tu vas travailler sur un mur extérieur en briques."
+    },
+    "Kolo asi 10 min; pěšky 20–25 min.": {
+      "cs": "Kolo asi 10 min; pěšky 20–25 min.",
+      "en": "About 10 minutes by bike or 20–25 minutes on foot.",
+      "fr": "Environ 10 minutes à vélo ou 20 à 25 minutes à pied."
+    },
+    "Oficiální web uvádí rozdílné zavírání v 18:00/20:00. Navržené sobotní poledne je v obou rozvrzích. Cenu a dostupnost konkrétního materiálu potvrď přímo v obchodě.": {
+      "cs": "Oficiální web uvádí rozdílné zavírání v 18:00/20:00. Navržené sobotní poledne je v obou rozvrzích. Cenu a dostupnost konkrétního materiálu potvrď přímo v obchodě.",
+      "en": "The official website gives conflicting closing times of 18:00/20:00. The proposed Saturday lunchtime falls within both schedules. Confirm the price and availability of particular materials directly with the shop.",
+      "fr": "Le site officiel affiche deux heures de fermeture différentes, 18:00 et 20:00. Le créneau proposé le samedi à midi entre dans les deux horaires. Confirme directement en boutique le prix et la disponibilité du matériel choisi."
+    },
+    "Le Mur de Boulogne — nejdřív orientace": {
+      "cs": "Le Mur de Boulogne — nejdřív orientace",
+      "en": "Le Mur de Boulogne — find the right section first",
+      "fr": "Le Mur de Boulogne — repère d’abord les différentes sections"
+    },
+    "Podle aktuálních informací správce a značení rozliš pozvané autory, pedagogickou sekci a volný úsek. Vyber vhodnou povolenou část; úvodní kurátorovaná stěna není náhradní plocha.": {
+      "cs": "Podle aktuálních informací správce a značení rozliš pozvané autory, pedagogickou sekci a volný úsek. Vyber vhodnou povolenou část; úvodní kurátorovaná stěna není náhradní plocha.",
+      "en": "Use the manager’s current information and the signs to distinguish the invited-artist area, teaching section and free section. Choose a suitable permitted part; the first curated wall is not an alternative painting space.",
+      "fr": "À partir des informations actuelles du gestionnaire et de la signalétique, distingue la partie réservée aux artistes invités, la section pédagogique et la partie libre. Choisis une zone adaptée et autorisée ; le premier mur programmé n’est pas une surface de remplacement."
+    },
+    "Kolo z centra přibližně 60–85 min, dle bezpečně zvolené trasy. Metro alternativa: M9 → Porte de Saint-Cloud, pěšky, s materiálem předem zajištěným na místě.": {
+      "cs": "Kolo z centra přibližně 60–85 min, dle bezpečně zvolené trasy. Metro alternativa: M9 → Porte de Saint-Cloud, pěšky, s materiálem předem zajištěným na místě.",
+      "en": "Approximately 60–85 minutes by bike from central Paris, depending on a safely chosen route. Metro alternative: line M9 to Porte de Saint-Cloud, then walk, with materials arranged on site in advance.",
+      "fr": "Environ 60 à 85 minutes à vélo depuis le centre, selon un itinéraire choisi pour sa sécurité. Autre option : métro M9 jusqu’à Porte de Saint-Cloud, puis à pied, avec le matériel prévu sur place à l’avance."
+    },
+    "Adresní navigace míří k ulici, nikoli k ověřenému vstupnímu bodu. Na místě rozliš 50m kurátorovaný, 15m výukový a 135m volný úsek podle značení.": {
+      "cs": "Adresní navigace míří k ulici, nikoli k ověřenému vstupnímu bodu. Na místě rozliš 50m kurátorovaný, 15m výukový a 135m volný úsek podle značení.",
+      "en": "Address navigation leads to the street, not to a verified entrance point. On site, use the signs to distinguish the 50 m curated section, 15 m teaching section and 135 m free section.",
+      "fr": "La navigation par adresse mène à la rue, pas à un point d’entrée vérifié. Sur place, distingue grâce aux panneaux les 50 m programmés, les 15 m pédagogiques et les 135 m de section libre."
+    },
+    "135m volný úsek — vlastní piece": {
+      "cs": "135m volný úsek — vlastní piece",
+      "en": "135 m free section — your own piece",
+      "fr": "Section libre de 135 m — ta propre pièce"
+    },
+    "Vyhraď 20 minut na výběr povoleného místa a přípravu, 20 na skicu, 45 na výplně, 35 na obrysy a světla, 20 na opravy a 10 na dokumentaci a úklid.": {
+      "cs": "Vyhraď 20 minut na výběr povoleného místa a přípravu, 20 na skicu, 45 na výplně, 35 na obrysy a světla, 20 na opravy a 10 na dokumentaci a úklid.",
+      "en": "Allow 20 minutes to select a permitted spot and prepare, 20 for the sketch, 45 for fills, 35 for outlines and highlights, 20 for corrections and 10 for documentation and cleanup.",
+      "fr": "Prévois 20 minutes pour choisir un emplacement autorisé et te préparer, 20 pour le croquis, 45 pour les remplissages, 35 pour les contours et les lumières, 20 pour les corrections et 10 pour la documentation et le nettoyage."
+    },
+    "Na místě, dále do volné cihlové části.": {
+      "cs": "Na místě, dále do volné cihlové části.",
+      "en": "Remain on site and continue into the free brick section.",
+      "fr": "Sur place, poursuis vers la section libre en briques."
+    },
+    "Správce dovoluje vlastní malování bez žádosti na 135m volném úseku. Respektuj jeho vymezení, aktuální značení a ostatní writery. Souhlas pro placený organizovaný workshop není potvrzen; před takovým využitím kontaktuj správce. Při nevhodném počasí dokonči skicu a realizaci odlož.": {
+      "cs": "Správce dovoluje vlastní malování bez žádosti na 135m volném úseku. Respektuj jeho vymezení, aktuální značení a ostatní writery. Souhlas pro placený organizovaný workshop není potvrzen; před takovým využitím kontaktuj správce. Při nevhodném počasí dokonči skicu a realizaci odlož.",
+      "en": "The manager permits painting without an application on the 135 m free section. Respect its boundaries, current signs and other writers. Permission for a paid organised workshop is not confirmed; contact the manager before using it that way. In unsuitable weather, finish the sketch and postpone painting.",
+      "fr": "Le gestionnaire autorise la peinture sans demande préalable sur les 135 m de section libre. Respecte ses limites, la signalétique actuelle et les autres writers. L’autorisation d’y organiser un atelier payant n’est pas confirmée ; contacte le gestionnaire avant ce type d’utilisation. Si la météo ne convient pas, termine ton croquis et reporte la réalisation."
+    },
+    "B-BOY / B-GIRL — Živý trénink, kultura cypheru a lekce breakingu": {
+      "cs": "B-BOY / B-GIRL — Živý trénink, kultura cypheru a lekce breakingu",
+      "en": "B-BOY / B-GIRL — Live practice, cypher culture and a breaking lesson",
+      "fr": "B-BOY / B-GIRL — Pratique sur place, culture du cypher et cours de breaking"
+    },
+    "Od poslechu hudebního podnětu přes respektovanou volnou praxi ke skutečné lekci podle potvrzení školy. Součástí dne jsou pauzy. Cílem je přiměřená vlastní fráze, konkrétní reakce lektora a další krok.": {
+      "cs": "Od poslechu hudebního podnětu přes respektovanou volnou praxi ke skutečné lekci podle potvrzení školy. Součástí dne jsou pauzy. Cílem je přiměřená vlastní fráze, konkrétní reakce lektora a další krok.",
+      "en": "Move from listening for a musical cue through respectful independent practice to an actual lesson confirmed by the school. Include breaks in the day. The goal is a suitable movement phrase of your own, specific instructor feedback and a next step.",
+      "fr": "Passe de l’écoute d’un signal musical à une pratique libre respectueuse, puis à un véritable cours confirmé par l’école. Prévois des pauses dans ta journée. L’objectif : une phrase personnelle adaptée à ton niveau, un retour précis du professeur et une prochaine étape."
+    },
+    "La Chapelle — společné kořeny elementů": {
+      "cs": "La Chapelle — společné kořeny elementů",
+      "en": "La Chapelle — the elements’ shared roots",
+      "fr": "La Chapelle — les racines communes des éléments"
+    },
+    "Porovnej doloženou historii setkávání DJů, MCs, writerů a tanečníků s pozdějším mýtem jediného místa zrodu. Zapiš, co se společným prostorem získávaly jednotlivé disciplíny.": {
+      "cs": "Porovnej doloženou historii setkávání DJů, MCs, writerů a tanečníků s pozdějším mýtem jediného místa zrodu. Zapiš, co se společným prostorem získávaly jednotlivé disciplíny.",
+      "en": "Compare documented encounters between DJs, MCs, writers and dancers with the later myth of one single birthplace. Note what each discipline gained from sharing a space.",
+      "fr": "Compare l’histoire documentée des rencontres entre DJs, MCs, writers et danseurs au mythe ultérieur d’un unique lieu de naissance. Note ce que chaque discipline gagnait à partager un même espace."
+    },
+    "Start: metro La Chapelle (2).": {
+      "cs": "Start: metro La Chapelle (2).",
+      "en": "Start: La Chapelle metro, line 2.",
+      "fr": "Départ : métro La Chapelle, ligne 2."
+    },
+    "Jde o orientační historickou zastávku u metra. Současný přístup na původní parcelu není ověřený; nevstupuj kvůli trase na soukromé pozemky.": {
+      "cs": "Jde o orientační historickou zastávku u metra. Současný přístup na původní parcelu není ověřený; nevstupuj kvůli trase na soukromé pozemky.",
+      "en": "An approximate historical stop near the metro station. Current access to the original plot is unverified; do not enter private property for the route.",
+      "fr": "Une étape historique indicative près du métro. L’accès actuel à la parcelle d’origine n’est pas vérifié ; n’entre pas sur un terrain privé pour suivre le parcours."
+    },
+    "CENTQUATRE-PARIS — skutečný volný trénink": {
+      "cs": "CENTQUATRE-PARIS — skutečný volný trénink",
+      "en": "CENTQUATRE-PARIS — genuine independent practice",
+      "fr": "CENTQUATRE-PARIS — une vraie pratique libre"
+    },
+    "V dostupném prostoru zvol přiměřenou přípravu a jednoduchou známou reakci na rytmus. Před připojením ke skupině se zeptej; respektuj odmítnutí i prostor ostatních.": {
+      "cs": "V dostupném prostoru zvol přiměřenou přípravu a jednoduchou známou reakci na rytmus. Před připojením ke skupině se zeptej; respektuj odmítnutí i prostor ostatních.",
+      "en": "In the available space, choose an appropriate warm-up and a simple response to the rhythm that you already know. Ask before joining a group; respect a refusal and everyone else’s space.",
+      "fr": "Dans l’espace disponible, choisis une préparation adaptée et une réponse simple au rythme que tu connais déjà. Demande avant de rejoindre un groupe ; respecte un refus et l’espace des autres."
+    },
+    "Pěšky asi 25–35 min nebo kolo asi 15 min.": {
+      "cs": "Pěšky asi 25–35 min nebo kolo asi 15 min.",
+      "en": "About 25–35 minutes on foot or 15 minutes by bike.",
+      "fr": "Environ 25 à 35 minutes à pied ou 15 minutes à vélo."
+    },
+    "Volná samostatná praxe zdarma a bez rezervace: út–pá 12–19, so–ne 11–19; pondělí zavřeno. Bez šaten a úschovy. Placené lekce jsou zakázané. Dostupná plocha se mění podle programu.": {
+      "cs": "Volná samostatná praxe zdarma a bez rezervace: út–pá 12–19, so–ne 11–19; pondělí zavřeno. Bez šaten a úschovy. Placené lekce jsou zakázané. Dostupná plocha se mění podle programu.",
+      "en": "Independent practice is free and does not require a reservation: Tuesday–Friday 12:00–19:00, Saturday–Sunday 11:00–19:00; closed on Monday. No changing rooms or storage facilities. Paid lessons are prohibited. Available space changes with the programme.",
+      "fr": "La pratique autonome est gratuite et sans réservation : du mardi au vendredi de 12:00 à 19:00, samedi et dimanche de 11:00 à 19:00 ; fermé le lundi. Ni vestiaires ni consigne. Les cours payants sont interdits. L’espace disponible varie selon le programme."
+    },
+    "Rue de l’Ourcq — vizuální rytmus a pauza": {
+      "cs": "Rue de l’Ourcq — vizuální rytmus a pauza",
+      "en": "Rue de l’Ourcq — visual rhythm and a break",
+      "fr": "Rue de l’Ourcq — rythme visuel et pause"
+    },
+    "Hledej opakování, rytmus a přerušení v muralech. Převáděj jeden vizuální princip do osmitaktové pohybové fráze; natáčej jen sebe.": {
+      "cs": "Hledej opakování, rytmus a přerušení v muralech. Převáděj jeden vizuální princip do osmitaktové pohybové fráze; natáčej jen sebe.",
+      "en": "Look for repetition, rhythm and interruption in the murals. Translate one visual principle into an eight-bar movement phrase; film only yourself.",
+      "fr": "Cherche la répétition, le rythme et les ruptures dans les fresques. Transpose un principe visuel en une phrase de mouvement de huit mesures ; filme uniquement ta propre pratique."
+    },
+    "Pěšky asi 15–20 min k okolí kanálu.": {
+      "cs": "Pěšky asi 15–20 min k okolí kanálu.",
+      "en": "About 15–20 minutes on foot towards the canal.",
+      "fr": "Environ 15 à 20 minutes à pied vers les abords du canal."
+    },
+    "Není slíbený organizovaný cypher. Vyber vhodný neblokující prostor a jen známou bezpečnou variantu pohybu.": {
+      "cs": "Není slíbený organizovaný cypher. Vyber vhodný neblokující prostor a jen známou bezpečnou variantu pohybu.",
+      "en": "No organised cypher is promised. Choose a suitable space where you will not obstruct others, and only a familiar movement variation you can perform safely.",
+      "fr": "Aucun cypher organisé n’est promis. Choisis un espace adapté sans gêner le passage et seulement une variante de mouvement connue que tu maîtrises en sécurité."
+    },
+    "Le Grand Jeu — taneční publikace": {
+      "cs": "Le Grand Jeu — taneční publikace",
+      "en": "Le Grand Jeu — dance publications",
+      "fr": "Le Grand Jeu — publications sur la danse"
+    },
+    "Hledej záznamy starších stylů, fotografie postojů a kontext. Vyber jeden princip, který se večer zeptáš instruktora.": {
+      "cs": "Hledej záznamy starších stylů, fotografie postojů a kontext. Vyber jeden princip, který se večer zeptáš instruktora.",
+      "en": "Look for records of older styles, photographs of stances and their context. Choose one principle to ask the instructor about that evening.",
+      "fr": "Cherche des traces de styles plus anciens, des photos de postures et leur contexte. Choisis un principe sur lequel tu interrogeras le professeur le soir."
+    },
+    "Ourcq (5 směr Place d’Italie) → République; 11 směr Rosny–Bois-Perrier → Belleville; pak pěšky.": {
+      "cs": "Ourcq (5 směr Place d’Italie) → République; 11 směr Rosny–Bois-Perrier → Belleville; pak pěšky.",
+      "en": "Take line 5 from Ourcq towards Place d’Italie to République; then line 11 towards Rosny–Bois-Perrier to Belleville, and walk.",
+      "fr": "Prends la ligne 5 à Ourcq, direction Place d’Italie, jusqu’à République ; puis la ligne 11 direction Rosny–Bois-Perrier jusqu’à Belleville et termine à pied."
+    },
+    "Belvédère de Belleville — odpočinek a vlastní fráze": {
+      "cs": "Belvédère de Belleville — odpočinek a vlastní fráze",
+      "en": "Belvédère de Belleville — rest and your own phrase",
+      "fr": "Belvédère de Belleville — repos et phrase personnelle"
+    },
+    "Odpočiň si a sestav osm taktů, které bezpečně zvládáš. Požádej kamaráda o krátký záznam; netoč cizí lidi bez souhlasu.": {
+      "cs": "Odpočiň si a sestav osm taktů, které bezpečně zvládáš. Požádej kamaráda o krátký záznam; netoč cizí lidi bez souhlasu.",
+      "en": "Rest and put together eight bars of movement you can perform safely. Ask a friend for a short recording; do not film other people without consent.",
+      "fr": "Repose-toi et compose huit mesures avec des mouvements que tu maîtrises en sécurité. Demande à un ami de faire une courte vidéo ; ne filme pas les autres sans leur accord."
+    },
+    "Pěšky asi 20–25 min do kopce.": {
+      "cs": "Pěšky asi 20–25 min do kopce.",
+      "en": "About 20–25 minutes uphill on foot.",
+      "fr": "Environ 20 à 25 minutes à pied, en montée."
+    },
+    "Odpočinek a dobrovolná fráze z bezpečně zvládnutých pohybů podle aktuálních podmínek. Na betonu nezkoušej první power moves. Taneční plocha není rezervovaná.": {
+      "cs": "Odpočinek a dobrovolná fráze z bezpečně zvládnutých pohybů podle aktuálních podmínek. Na betonu nezkoušej první power moves. Taneční plocha není rezervovaná.",
+      "en": "Rest, with an optional phrase made from safely mastered movements if current conditions allow. Do not try your first power moves on concrete. No dance space has been reserved.",
+      "fr": "Du repos, avec une phrase facultative composée de mouvements maîtrisés en sécurité si les conditions le permettent. N’essaie pas tes premiers power moves sur le béton. Aucun espace de danse n’est réservé."
+    },
+    "Juste Debout School CORE — Bboying s Dys Dys": {
+      "cs": "Juste Debout School CORE — Bboying s Dys Dys",
+      "en": "Juste Debout School CORE — Bboying with Dys Dys",
+      "fr": "Juste Debout School CORE — Bboying avec Dys Dys"
+    },
+    "Na skutečně potvrzené lekci řekni svoji úroveň a požádej o reakci na jednu jednoduchou sekvenci. Zapiš doporučení i přiměřený další krok.": {
+      "cs": "Na skutečně potvrzené lekci řekni svoji úroveň a požádej o reakci na jednu jednoduchou sekvenci. Zapiš doporučení i přiměřený další krok.",
+      "en": "At a genuinely confirmed lesson, explain your level and ask for feedback on one simple sequence. Note the recommendation and an appropriate next step.",
+      "fr": "Lors d’un cours réellement confirmé, indique ton niveau et demande un retour sur une séquence simple. Note le conseil reçu et une prochaine étape adaptée."
+    },
+    "Pěšky asi 20–25 min; před lekcí přijď s rezervou.": {
+      "cs": "Pěšky asi 20–25 min; před lekcí přijď s rezervou.",
+      "en": "About 20–25 minutes on foot; arrive with time to spare before the lesson.",
+      "fr": "Environ 20 à 25 minutes à pied ; prévois une marge avant le cours."
+    },
+    "Publikovaný rozvrh uvádí středu 19–20:30. Na +33 9 84 05 50 75 potvrď konkrétní termín, prázdninový provoz, cenu a kapacitu. Rezervace ani reakce lektora nejsou zajištěné. Není-li lekce dostupná, pracuj s dosavadní poznámkou a zaznamenej otázku pro budoucího lektora; 104 nelze nabízet jako večerní náhradu po jeho zavření.": {
+      "cs": "Publikovaný rozvrh uvádí středu 19–20:30. Na +33 9 84 05 50 75 potvrď konkrétní termín, prázdninový provoz, cenu a kapacitu. Rezervace ani reakce lektora nejsou zajištěné. Není-li lekce dostupná, pracuj s dosavadní poznámkou a zaznamenej otázku pro budoucího lektora; 104 nelze nabízet jako večerní náhradu po jeho zavření.",
+      "en": "The published timetable lists Wednesday, 19:00–20:30. Call +33 9 84 05 50 75 to confirm the specific date, holiday operation, price and capacity. Neither a booking nor instructor feedback has been arranged. If the lesson is unavailable, use your existing notes and record a question for a future instructor; the 104 venue cannot be offered as an evening replacement after it closes.",
+      "fr": "Le planning publié indique le mercredi de 19:00 à 20:30. Appelle le +33 9 84 05 50 75 pour confirmer la date, le fonctionnement pendant les vacances, le prix et les places disponibles. Ni réservation ni retour du professeur ne sont assurés. Si le cours est indisponible, travaille à partir de tes notes et formule une question pour un futur professeur ; le 104 ne peut pas servir de remplacement en soirée après sa fermeture."
+    },
+    "PHILOSOPHER — Knowledge of self: od symbolu k vlastnímu sdělení": {
+      "cs": "PHILOSOPHER — Knowledge of self: od symbolu k vlastnímu sdělení",
+      "en": "PHILOSOPHER — Knowledge of self: from a symbol to your own message",
+      "fr": "PHILOSOPHER — Knowledge of self : du symbole à ton propre message"
+    },
+    "Veřejná díla otevírají otázky pozorování, interpretace a přesnosti vlastních slov. Vyhraď samostatný klidný blok na text a znak; dobrovolnou diskusi podle aktuálního programu lze nahradit vlastní reflexí.": {
+      "cs": "Veřejná díla otevírají otázky pozorování, interpretace a přesnosti vlastních slov. Vyhraď samostatný klidný blok na text a znak; dobrovolnou diskusi podle aktuálního programu lze nahradit vlastní reflexí.",
+      "en": "Public artworks open questions about observation, interpretation and the precision of your own words. Set aside a separate, quiet block for writing and designing a sign; an optional discussion, subject to the current programme, can be replaced by your own reflection.",
+      "fr": "Les œuvres publiques ouvrent des questions sur l’observation, l’interprétation et la précision de tes mots. Garde un moment calme distinct pour écrire et créer un signe ; une discussion facultative, selon le programme du moment, peut être remplacée par une réflexion personnelle."
+    },
+    "Jef Aérosol — Chuuut!!!": {
+      "cs": "Jef Aérosol — Chuuut!!!",
+      "en": "Jef Aérosol — Chuuut!!!",
+      "fr": "Jef Aérosol — Chuuut!!!"
+    },
+    "Pět minut bez hudby a telefonu. Rozděl poznámky na „co jsem skutečně vnímal“ a „co jsem si k tomu doplnil“.": {
+      "cs": "Pět minut bez hudby a telefonu. Rozděl poznámky na „co jsem skutečně vnímal“ a „co jsem si k tomu doplnil“.",
+      "en": "Spend five minutes without music or your phone. Divide your notes into “what I actually perceived” and “what I added to it”.",
+      "fr": "Passe cinq minutes sans musique ni téléphone. Répartis tes notes entre : « ce que j’ai réellement perçu » et « ce que j’y ai ajouté »."
+    },
+    "Start: Châtelet / Rambuteau a pěšky.": {
+      "cs": "Start: Châtelet / Rambuteau a pěšky.",
+      "en": "Start: Châtelet / Rambuteau, then walk.",
+      "fr": "Départ : Châtelet / Rambuteau, puis à pied."
+    },
+    "Jde o vlastní cvičení pozornosti z veřejného prostoru, nikoli tvrzení o léčebném účinku díla.": {
+      "cs": "Jde o vlastní cvičení pozornosti z veřejného prostoru, nikoli tvrzení o léčebném účinku díla.",
+      "en": "This is a personal attention exercise in public space, not a claim that the artwork has a therapeutic effect.",
+      "fr": "Il s’agit d’un exercice personnel d’attention dans l’espace public, pas d’une affirmation d’effet thérapeutique de l’œuvre."
+    },
+    "Cryptik — kaligrafie nad knihkupectvím": {
+      "cs": "Cryptik — kaligrafie nad knihkupectvím",
+      "en": "Cryptik — calligraphy above the bookshop",
+      "fr": "Cryptik — calligraphie au-dessus de la librairie"
+    },
+    "Nejdřív prohlédni formu kaligrafie a potom ji porovnej s vysvětlením galerie. Navrhni vlastní krátkou větu a označ, co je doložený výklad a co tvoje asociace.": {
+      "cs": "Nejdřív prohlédni formu kaligrafie a potom ji porovnej s vysvětlením galerie. Navrhni vlastní krátkou větu a označ, co je doložený výklad a co tvoje asociace.",
+      "en": "First observe the form of the calligraphy, then compare it with the gallery’s explanation. Propose a short sentence of your own and label what is documented interpretation and what is your own association.",
+      "fr": "Observe d’abord la forme de la calligraphie, puis compare-la à l’explication de la galerie. Propose une courte phrase personnelle et indique ce qui relève d’une interprétation documentée ou de ton association d’idées."
+    },
+    "Châtelet (7 směr Villejuif / Mairie d’Ivry) → Place d’Italie, pak pěšky. Celkem plánuj asi 35–45 min.": {
+      "cs": "Châtelet (7 směr Villejuif / Mairie d’Ivry) → Place d’Italie, pak pěšky. Celkem plánuj asi 35–45 min.",
+      "en": "Take line 7 from Châtelet towards Villejuif / Mairie d’Ivry to Place d’Italie, then walk. Allow about 35–45 minutes in total.",
+      "fr": "Prends la ligne 7 à Châtelet, direction Villejuif / Mairie d’Ivry, jusqu’à Place d’Italie, puis marche. Prévois environ 35 à 45 minutes au total."
+    },
+    "Nedělní varianta zůstává venku: knihkupectví uvádí neděli zavřenou. Uvnitř není domluvená návštěva.": {
+      "cs": "Nedělní varianta zůstává venku: knihkupectví uvádí neděli zavřenou. Uvnitř není domluvená návštěva.",
+      "en": "The Sunday version stays outside: the bookshop lists Sunday as closed. No interior visit has been arranged.",
+      "fr": "La variante du dimanche reste à l’extérieur : la librairie annonce sa fermeture le dimanche. Aucune visite intérieure n’est convenue."
+    },
+    "Shepard Fairey — Liberté, Égalité, Fraternité": {
+      "cs": "Shepard Fairey — Liberté, Égalité, Fraternité",
+      "en": "Shepard Fairey — Liberté, Égalité, Fraternité",
+      "fr": "Shepard Fairey — Liberté, Égalité, Fraternité"
+    },
+    "Popiš slova a obraz, potom napiš, kde pro tebe končí hodnota a začíná slogan. Svůj výklad odliš od kontextu doloženého projektem.": {
+      "cs": "Popiš slova a obraz, potom napiš, kde pro tebe končí hodnota a začíná slogan. Svůj výklad odliš od kontextu doloženého projektem.",
+      "en": "Describe the words and image, then write where, for you, a value ends and a slogan begins. Distinguish your reading from the context documented by the project.",
+      "fr": "Décris les mots et l’image, puis écris où, pour toi, une valeur s’arrête et où un slogan commence. Distingue ta lecture du contexte documenté par le projet."
+    },
+    "Pěšky přibližně 5–10 min.": {
+      "cs": "Pěšky přibližně 5–10 min.",
+      "en": "Approximately 5–10 minutes on foot.",
+      "fr": "Environ 5 à 10 minutes à pied."
+    },
+    "Prohlížej z veřejného prostoru. Odděl doložený autorův záměr od vlastního čtení díla.": {
+      "cs": "Prohlížej z veřejného prostoru. Odděl doložený autorův záměr od vlastního čtení díla.",
+      "en": "View it from public space. Separate the artist’s documented intention from your own reading of the work.",
+      "fr": "Observe depuis l’espace public. Distingue l’intention documentée de l’artiste de ta propre lecture de l’œuvre."
+    },
+    "INTI — La Madre Secular 2": {
+      "cs": "INTI — La Madre Secular 2",
+      "en": "INTI — La Madre Secular 2",
+      "fr": "INTI — La Madre Secular 2"
+    },
+    "Porovnej svůj první popis s vysvětlením projektu: sekulární Madona, Newtonovo jablko, vědění a skepse. Nakresli vlastní znak pochybnosti a důvěry.": {
+      "cs": "Porovnej svůj první popis s vysvětlením projektu: sekulární Madona, Newtonovo jablko, vědění a skepse. Nakresli vlastní znak pochybnosti a důvěry.",
+      "en": "Compare your first description with the project’s explanation: a secular Madonna, Newton’s apple, knowledge and scepticism. Draw your own sign of doubt and trust.",
+      "fr": "Compare ta première description à l’explication du projet : une Madone laïque, la pomme de Newton, le savoir et le scepticisme. Dessine ton propre signe du doute et de la confiance."
+    },
+    "Ponech si klidný čas na jídlo a vlastní psaní. Symbolické čtení není důkaz nadpřirozených vlastností umění.": {
+      "cs": "Ponech si klidný čas na jídlo a vlastní psaní. Symbolické čtení není důkaz nadpřirozených vlastností umění.",
+      "en": "Keep some quiet time for food and your own writing. A symbolic reading is not evidence of supernatural properties in art.",
+      "fr": "Garde un moment calme pour manger et écrire. Une lecture symbolique ne constitue pas une preuve de propriétés surnaturelles de l’art."
+    },
+    "Place Fréhel — Ben a moc slov": {
+      "cs": "Place Fréhel — Ben a moc slov",
+      "en": "Place Fréhel — Ben and the power of words",
+      "fr": "Place Fréhel — Ben et le pouvoir des mots"
+    },
+    "Benovo dílo Il faut se méfier des mots použij jako test vlastního textu. Které tvrzení umíš obhájit? Které jen působí přesvědčivě? Vytvoř druhou, přesnější verzi.": {
+      "cs": "Benovo dílo Il faut se méfier des mots použij jako test vlastního textu. Které tvrzení umíš obhájit? Které jen působí přesvědčivě? Vytvoř druhou, přesnější verzi.",
+      "en": "Use Ben’s Il faut se méfier des mots to test your own text. Which claim can you defend? Which one merely sounds convincing? Create a second, more precise version.",
+      "fr": "Utilise l’œuvre de Ben, Il faut se méfier des mots, pour mettre ton propre texte à l’épreuve. Quelle affirmation peux-tu défendre ? Laquelle semble seulement convaincante ? Produis une deuxième version plus précise."
+    },
+    "Z okolí Place d’Italie: 5 směr Bobigny → République; 11 směr Rosny–Bois-Perrier → Belleville + pěšky. Nebo kolo asi 40–55 min.": {
+      "cs": "Z okolí Place d’Italie: 5 směr Bobigny → République; 11 směr Rosny–Bois-Perrier → Belleville + pěšky. Nebo kolo asi 40–55 min.",
+      "en": "From the Place d’Italie area: take line 5 towards Bobigny to République, then line 11 towards Rosny–Bois-Perrier to Belleville and walk. Or allow about 40–55 minutes by bike.",
+      "fr": "Depuis les environs de Place d’Italie : prends la ligne 5 direction Bobigny jusqu’à République, puis la ligne 11 direction Rosny–Bois-Perrier jusqu’à Belleville et termine à pied. Ou prévois environ 40 à 55 minutes à vélo."
+    },
+    "Veřejné dílo použij jako podnět pro vlastní revizi; neslibuje individuální setkání s autorem.": {
+      "cs": "Veřejné dílo použij jako podnět pro vlastní revizi; neslibuje individuální setkání s autorem.",
+      "en": "Use the public artwork as a prompt to revise your own work; no individual meeting with the artist is promised.",
+      "fr": "Utilise l’œuvre publique pour nourrir ta propre révision ; aucune rencontre individuelle avec l’artiste n’est promise."
+    },
+    "Au Chat Noir — AWOL writers’ workshop": {
+      "cs": "Au Chat Noir — AWOL writers’ workshop",
+      "en": "Au Chat Noir — AWOL writers’ workshop",
+      "fr": "Au Chat Noir — atelier d’écriture AWOL"
+    },
+    "Přines svůj text a jednu konkrétní otázku. Požádej o reakci na srozumitelnost a přesnost, ne jen o pochvalu. Poskytni stejně konkrétní zpětnou vazbu někomu dalšímu.": {
+      "cs": "Přines svůj text a jednu konkrétní otázku. Požádej o reakci na srozumitelnost a přesnost, ne jen o pochvalu. Poskytni stejně konkrétní zpětnou vazbu někomu dalšímu.",
+      "en": "Bring your text and one specific question. Ask for feedback on clarity and precision, not just praise. Give someone else equally specific feedback.",
+      "fr": "Apporte ton texte et une question précise. Demande un retour sur la clarté et la précision, pas seulement des compliments. Offre à quelqu’un d’autre un retour tout aussi concret."
+    },
+    "Pořadatel uvádí obvyklou neděli a bezplatný workshop, konkrétní den je třeba ověřit. Není zaměřený výlučně na rap nebo filozofii.": {
+      "cs": "Pořadatel uvádí obvyklou neděli a bezplatný workshop, konkrétní den je třeba ověřit. Není zaměřený výlučně na rap nebo filozofii.",
+      "en": "The organiser lists a usual Sunday slot and a free workshop; the particular day must be checked. It is not devoted exclusively to rap or philosophy.",
+      "fr": "L’organisateur annonce habituellement le dimanche et un atelier gratuit ; la date précise reste à vérifier. Il n’est pas consacré exclusivement au rap ou à la philosophie."
+    },
+    "Cryptik — Untitled nad Librairie Maruani": {
+      "cs": "Cryptik — Untitled nad Librairie Maruani",
+      "en": "Cryptik — Untitled above Librairie Maruani",
+      "fr": "Cryptik — Untitled au-dessus de Librairie Maruani"
+    }
+  }
+}

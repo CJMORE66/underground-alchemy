@@ -67,8 +67,27 @@ export function initFrequency(container, {data, read, write, notify = () => {}, 
   const updatePrompt = () => {
     $('fl-place').textContent = inspiration?.name || 'The city around you';
     const selected = modes.find(m => m[0] === mode);
-    const locationPrompt = inspiration?.challenge ? ` ${inspiration.challenge}` : '';
-    $('fl-prompt').textContent = variant === 0 ? selected[2] + locationPrompt : `${selected[1]}. ${angles[(variant-1)%angles.length]}${inspiration ? ` Begin at ${inspiration.name}.` : ''}`;
+    const prompt = $('fl-prompt');
+    prompt.replaceChildren();
+    // Keep each authored prompt independently translatable, regardless of place or mode.
+    const appendPart = (text, preserveName = false) => {
+      const part = document.createElement('span');
+      part.textContent = text;
+      if (preserveName) part.setAttribute('translate', 'no');
+      prompt.append(part);
+    };
+    if (variant === 0) {
+      appendPart(selected[2]);
+      if (inspiration?.challenge) { prompt.append(' '); appendPart(inspiration.challenge); }
+    } else {
+      appendPart(selected[1]);
+      prompt.append('. ');
+      appendPart(angles[(variant-1)%angles.length]);
+      if (inspiration) {
+        prompt.append(' '); appendPart('Begin at'); prompt.append(' ');
+        appendPart(inspiration.name, true); prompt.append('.');
+      }
+    }
     container.querySelectorAll('[data-fl-mode]').forEach(b => b.setAttribute('aria-pressed',String(b.dataset.flMode===mode)));
   };
   const updateExercise = () => { $('fl-exercise-copy').textContent = exercises[exerciseIndex]?.instruction || ''; };

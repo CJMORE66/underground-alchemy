@@ -93,6 +93,7 @@ function republique(){
  sphere(g,'lion-face',.58,-2.0,-8.3,3.9,'green');
  for(const x of[-1.2,1.15])for(const y of[-8.6,-7.45])cylinder(g,`lion-leg-${x}-${y}`,.21,.9,x,y,2.1,'green',6);
  beam(g,'lion-tail',[1.7,-8,3.2],[2.8,-8.3,3.5],.14,'green');
+ const figure=new THREE.Group();figure.name='marianne-height-register';g.add(figure);const figureParts=[];g.traverse(o=>{if(o.isMesh&&/^(marianne|raised|olive|left-arm|declaration-tablet)/.test(o.name))figureParts.push(o);});figureParts.forEach(o=>figure.add(o));figure.updateMatrixWorld(true);const register=new THREE.Box3().setFromObject(figure),k=9.5/(register.max.z-register.min.z);figure.scale.z=k;figure.position.z=15.5-register.min.z*k;g.userData.documentedDimensions={pedestalHeight:15.5,figureHeight:9.5};
  return g;
 }
 
@@ -226,6 +227,7 @@ function philharmonie(){
   const left=box(g,`bird-fold-left-${row}-${col}`,3.9,.55,.52,x-1.5,y,z,'gold');left.rotation.y=.23;
   const right=box(g,`bird-fold-right-${row}-${col}`,3.9,.55,.52,x+1.5,y,z,'gold');right.rotation.y=-.23;
  }
+ g.updateMatrixWorld(true);const envelope=new THREE.Box3().setFromObject(g);g.scale.z=52/envelope.max.z;g.userData.documentedDimensions={height:52};
  return g;
 }
 

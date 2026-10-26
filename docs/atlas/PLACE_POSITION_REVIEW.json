@@ -1,0 +1,763 @@
+{
+  "version": 1,
+  "checkedAt": "2026-10-26",
+  "method": "Přímé veřejné čtení oficiálního IGN Géoplateforme geocoderu pro již doložené adresy. Přijaty pouze shody konkrétního čísla domu a obce; u plovoucích míst přímý mapový bod městské agendy, potvrzený identitou a adresou provozovatele. Bez účtů, rezervací či soukromých dat.",
+  "geocoderDocumentation": "https://cartes.gouv.fr/aide/fr/guides-utilisateur/utiliser-les-services-de-la-geoplateforme/geocodage/",
+  "geocoderCapabilities": "https://data.geopf.fr/geocodage/getcapabilities",
+  "coordinatePolicy": "Souřadnice jsou doložené adresní či zveřejněné body místa, nikoli zaměřené vstupy nebo zaměřené kotvy 3D modelů. Podoba domu vyžaduje samostatnou ověřenou geometrii. Každý uvedený bod je ručně přijat z odpovědi zdroje; indexové výsledky s jinou identitou byly odmítnuty.",
+  "positions": {
+    "maquis-art-malik": {
+      "lat": 48.901441,
+      "lng": 2.339657,
+      "coordinateSource": "https://data.geopf.fr/geocodage/search?q=53+rue+Jules+Vall%C3%A8s+93400+Saint-Ouen-sur-Seine&limit=3",
+      "coordinateStatus": "Bod konkrétní adresy z IGN / Base Adresse Nationale; orientační lokalizace objektu, nikoli zaměřený vstup do provozovny.",
+      "coordinateStatusI18n": {
+        "cs": "Bod konkrétní adresy z IGN / Base Adresse Nationale; orientační lokalizace objektu, nikoli zaměřený vstup do provozovny.",
+        "en": "Address point from IGN / Base Adresse Nationale; an approximate location, not a surveyed venue entrance.",
+        "fr": "Point adresse IGN / Base Adresse Nationale ; localisation indicative, pas un relevé de l’entrée de l’établissement."
+      },
+      "sourceType": "ign-ban-address",
+      "checkedAt": "2026-10-26",
+      "evidence": {
+        "matchedLabel": "53 Rue Jules Vallès 93400 Saint-Ouen-sur-Seine",
+        "matchType": "housenumber",
+        "score": 0.9702481818181816,
+        "addressId": "93070_4785_00053",
+        "banId": "8733d90c-44bf-49ff-899a-a8832c9e25f9",
+        "operatorAddressSource": "https://www.maquis-art.com/shop/vitrines/modules/complement/contacteznous.php"
+      },
+      "scope": "address-point",
+      "modelAnchorVerified": false
+    },
+    "le-lavomatik": {
+      "lat": 48.826535,
+      "lng": 2.383632,
+      "coordinateSource": "https://data.geopf.fr/geocodage/search?q=20+boulevard+du+G%C3%A9n%C3%A9ral+Jean+Simon+75013+Paris&limit=3",
+      "coordinateStatus": "Bod konkrétní adresy z IGN / Base Adresse Nationale; orientační lokalizace objektu, nikoli zaměřený vstup do provozovny.",
+      "coordinateStatusI18n": {
+        "cs": "Bod konkrétní adresy z IGN / Base Adresse Nationale; orientační lokalizace objektu, nikoli zaměřený vstup do provozovny.",
+        "en": "Address point from IGN / Base Adresse Nationale; an approximate location, not a surveyed venue entrance.",
+        "fr": "Point adresse IGN / Base Adresse Nationale ; localisation indicative, pas un relevé de l’entrée de l’établissement."
+      },
+      "sourceType": "ign-ban-address",
+      "checkedAt": "2026-10-26",
+      "evidence": {
+        "matchedLabel": "20 Boulevard du Général Jean Simon 75013 Paris",
+        "matchType": "housenumber",
+        "score": 0.9798318181818181,
+        "addressId": "75113_4034_00020",
+        "banId": "a365c748-491e-4c9f-bc99-675d6c0832ab",
+        "operatorAddressSource": "https://lelavomatik.com/about/"
+      },
+      "scope": "address-point",
+      "modelAnchorVerified": false
+    },
+    "le-grand-jeu": {
+      "lat": 48.864871,
+      "lng": 2.381967,
+      "coordinateSource": "https://data.geopf.fr/geocodage/search?q=15+passage+de+M%C3%A9nilmontant%2C+75011+Paris&limit=3",
+      "coordinateStatus": "Bod konkrétní adresy z IGN / Base Adresse Nationale; orientační lokalizace objektu, nikoli zaměřený vstup do provozovny.",
+      "coordinateStatusI18n": {
+        "cs": "Bod konkrétní adresy z IGN / Base Adresse Nationale; orientační lokalizace objektu, nikoli zaměřený vstup do provozovny.",
+        "en": "Address point from IGN / Base Adresse Nationale; an approximate location, not a surveyed venue entrance.",
+        "fr": "Point adresse IGN / Base Adresse Nationale ; localisation indicative, pas un relevé de l’entrée de l’établissement."
+      },
+      "sourceType": "ign-ban-address",
+      "checkedAt": "2026-10-26",
+      "evidence": {
+        "matchedLabel": "15 Passage de Ménilmontant 75011 Paris",
+        "matchType": "housenumber",
+        "score": 0.9721509090909091,
+        "addressId": "75111_6268_00015",
+        "banId": "2618db15-4b85-4a5e-86b2-d611713728b6",
+        "operatorAddressSource": "https://www.legrandj.eu/pages/the-bookstore"
+      },
+      "scope": "address-point",
+      "modelAnchorVerified": false
+    },
+    "art42": {
+      "lat": 48.896419,
+      "lng": 2.318504,
+      "coordinateSource": "https://data.geopf.fr/geocodage/search?q=96+boulevard+Bessi%C3%A8res%2C+75017+Paris&limit=3",
+      "coordinateStatus": "Bod konkrétní adresy z IGN / Base Adresse Nationale; orientační lokalizace objektu, nikoli zaměřený vstup do provozovny.",
+      "coordinateStatusI18n": {
+        "cs": "Bod konkrétní adresy z IGN / Base Adresse Nationale; orientační lokalizace objektu, nikoli zaměřený vstup do provozovny.",
+        "en": "Address point from IGN / Base Adresse Nationale; an approximate location, not a surveyed venue entrance.",
+        "fr": "Point adresse IGN / Base Adresse Nationale ; localisation indicative, pas un relevé de l’entrée de l’établissement."
+      },
+      "sourceType": "ign-ban-address",
+      "checkedAt": "2026-10-26",
+      "evidence": {
+        "matchedLabel": "96 Boulevard Bessières 75017 Paris",
+        "matchType": "housenumber",
+        "score": 0.9805618181818182,
+        "addressId": "75117_0935_00096",
+        "banId": "e8cdf4a2-8c25-466c-81df-027384311d1f",
+        "operatorAddressSource": "https://www.art42.fr/fr/visites.html"
+      },
+      "scope": "address-point",
+      "modelAnchorVerified": false
+    },
+    "bellevilloise": {
+      "lat": 48.868282,
+      "lng": 2.392217,
+      "coordinateSource": "https://data.geopf.fr/geocodage/search?q=19+rue+Boyer+75020+Paris&limit=3",
+      "coordinateStatus": "Bod konkrétní adresy z IGN / Base Adresse Nationale; orientační lokalizace objektu, nikoli zaměřený vstup do provozovny.",
+      "coordinateStatusI18n": {
+        "cs": "Bod konkrétní adresy z IGN / Base Adresse Nationale; orientační lokalizace objektu, nikoli zaměřený vstup do provozovny.",
+        "en": "Address point from IGN / Base Adresse Nationale; an approximate location, not a surveyed venue entrance.",
+        "fr": "Point adresse IGN / Base Adresse Nationale ; localisation indicative, pas un relevé de l’entrée de l’établissement."
+      },
+      "sourceType": "ign-ban-address",
+      "checkedAt": "2026-10-26",
+      "evidence": {
+        "matchedLabel": "19 Rue Boyer 75020 Paris",
+        "matchType": "housenumber",
+        "score": 0.9764290909090908,
+        "addressId": "75120_1240_00019",
+        "banId": "226510c4-8f05-4909-9738-c33f61835f16",
+        "operatorAddressSource": "https://www.labellevilloise.com/infos-pratiques/"
+      },
+      "scope": "address-point",
+      "modelAnchorVerified": false
+    },
+    "fgo-barbara": {
+      "lat": 48.884338,
+      "lng": 2.354046,
+      "coordinateSource": "https://data.geopf.fr/geocodage/search?q=1+rue+Fleury%2C+75018+Paris&limit=3",
+      "coordinateStatus": "Bod konkrétní adresy z IGN / Base Adresse Nationale; orientační lokalizace objektu, nikoli zaměřený vstup do provozovny.",
+      "coordinateStatusI18n": {
+        "cs": "Bod konkrétní adresy z IGN / Base Adresse Nationale; orientační lokalizace objektu, nikoli zaměřený vstup do provozovny.",
+        "en": "Address point from IGN / Base Adresse Nationale; an approximate location, not a surveyed venue entrance.",
+        "fr": "Point adresse IGN / Base Adresse Nationale ; localisation indicative, pas un relevé de l’entrée de l’établissement."
+      },
+      "sourceType": "ign-ban-address",
+      "checkedAt": "2026-10-26",
+      "evidence": {
+        "matchedLabel": "1 Rue Fleury 75018 Paris",
+        "matchType": "housenumber",
+        "score": 0.9664945454545455,
+        "addressId": "75118_3676_00001",
+        "banId": "c9896d60-eb80-4a56-8e57-770969356fea",
+        "operatorAddressSource": "https://fgo-barbara.fr/"
+      },
+      "scope": "address-point",
+      "modelAnchorVerified": false
+    },
+    "balades-sonores": {
+      "lat": 48.88475,
+      "lng": 2.346201,
+      "coordinateSource": "https://data.geopf.fr/geocodage/search?q=8+rue+Pierre+Picard%2C+75018+Paris&limit=3",
+      "coordinateStatus": "Bod konkrétní adresy z IGN / Base Adresse Nationale; orientační lokalizace objektu, nikoli zaměřený vstup do provozovny.",
+      "coordinateStatusI18n": {
+        "cs": "Bod konkrétní adresy z IGN / Base Adresse Nationale; orientační lokalizace objektu, nikoli zaměřený vstup do provozovny.",
+        "en": "Address point from IGN / Base Adresse Nationale; an approximate location, not a surveyed venue entrance.",
+        "fr": "Point adresse IGN / Base Adresse Nationale ; localisation indicative, pas un relevé de l’entrée de l’établissement."
+      },
+      "sourceType": "ign-ban-address",
+      "checkedAt": "2026-10-26",
+      "evidence": {
+        "matchedLabel": "8 Rue Pierre Picard 75018 Paris",
+        "matchType": "housenumber",
+        "score": 0.9732290909090908,
+        "addressId": "75118_7469_00008",
+        "banId": "0fcae8f1-14c9-4497-a2ed-53471c187c84",
+        "operatorAddressSource": "https://www.baladessonores.com/la-boutique/"
+      },
+      "scope": "address-point",
+      "modelAnchorVerified": false
+    },
+    "superfly-records": {
+      "lat": 48.867638,
+      "lng": 2.356636,
+      "coordinateSource": "https://data.geopf.fr/geocodage/search?q=53+rue+Notre-Dame+de+Nazareth%2C+75003+Paris&limit=3",
+      "coordinateStatus": "Bod konkrétní adresy z IGN / Base Adresse Nationale; orientační lokalizace objektu, nikoli zaměřený vstup do provozovny.",
+      "coordinateStatusI18n": {
+        "cs": "Bod konkrétní adresy z IGN / Base Adresse Nationale; orientační lokalizace objektu, nikoli zaměřený vstup do provozovny.",
+        "en": "Address point from IGN / Base Adresse Nationale; an approximate location, not a surveyed venue entrance.",
+        "fr": "Point adresse IGN / Base Adresse Nationale ; localisation indicative, pas un relevé de l’entrée de l’établissement."
+      },
+      "sourceType": "ign-ban-address",
+      "checkedAt": "2026-10-26",
+      "evidence": {
+        "matchedLabel": "53 Rue Notre-Dame de Nazareth 75003 Paris",
+        "matchType": "housenumber",
+        "score": 0.9715745454545454,
+        "addressId": "75103_6834_00053",
+        "banId": "94d44e97-2a69-4bb4-a597-7b0277db0cec",
+        "operatorAddressSource": "https://blog.superflyrecords.com/"
+      },
+      "scope": "address-point",
+      "modelAnchorVerified": false
+    },
+    "cafe-des-phares": {
+      "lat": 48.853654,
+      "lng": 2.368323,
+      "coordinateSource": "https://data.geopf.fr/geocodage/search?q=7+place+de+la+Bastille%2C+75004+Paris&limit=3",
+      "coordinateStatus": "Bod konkrétní adresy z IGN / Base Adresse Nationale; orientační lokalizace objektu, nikoli zaměřený vstup do provozovny.",
+      "coordinateStatusI18n": {
+        "cs": "Bod konkrétní adresy z IGN / Base Adresse Nationale; orientační lokalizace objektu, nikoli zaměřený vstup do provozovny.",
+        "en": "Address point from IGN / Base Adresse Nationale; an approximate location, not a surveyed venue entrance.",
+        "fr": "Point adresse IGN / Base Adresse Nationale ; localisation indicative, pas un relevé de l’entrée de l’établissement."
+      },
+      "sourceType": "ign-ban-address",
+      "checkedAt": "2026-10-26",
+      "evidence": {
+        "matchedLabel": "7 Place de la Bastille 75004 Paris",
+        "matchType": "housenumber",
+        "score": 0.9586772727272727,
+        "addressId": "75104_0714_00007",
+        "banId": "4b28ea54-ba58-4a61-b6d5-7f0cf5c53082",
+        "operatorAddressSource": "https://parisjetaime.com/restaurant/cafe-des-phares-p847"
+      },
+      "scope": "address-point",
+      "modelAnchorVerified": false
+    },
+    "forum104": {
+      "lat": 48.84612,
+      "lng": 2.323474,
+      "coordinateSource": "https://data.geopf.fr/geocodage/search?q=104+rue+de+Vaugirard%2C+75006+Paris&limit=3",
+      "coordinateStatus": "Bod konkrétní adresy z IGN / Base Adresse Nationale; orientační lokalizace objektu, nikoli zaměřený vstup do provozovny.",
+      "coordinateStatusI18n": {
+        "cs": "Bod konkrétní adresy z IGN / Base Adresse Nationale; orientační lokalizace objektu, nikoli zaměřený vstup do provozovny.",
+        "en": "Address point from IGN / Base Adresse Nationale; an approximate location, not a surveyed venue entrance.",
+        "fr": "Point adresse IGN / Base Adresse Nationale ; localisation indicative, pas un relevé de l’entrée de l’établissement."
+      },
+      "sourceType": "ign-ban-address",
+      "checkedAt": "2026-10-26",
+      "evidence": {
+        "matchedLabel": "104 Rue de Vaugirard 75006 Paris",
+        "matchType": "housenumber",
+        "score": 0.9747045454545454,
+        "addressId": "75106_9624_00104",
+        "banId": "edfef75d-df49-4cda-b4e2-b2ed0ed71e31",
+        "operatorAddressSource": "https://www.forum104.org/evenements"
+      },
+      "scope": "address-point",
+      "modelAnchorVerified": false
+    },
+    "maison-philo-romainville": {
+      "lat": 48.884969,
+      "lng": 2.432956,
+      "coordinateSource": "https://data.geopf.fr/geocodage/search?q=28+avenue+Paul-Vaillant-Couturier%2C+93230+Romainville&limit=3",
+      "coordinateStatus": "Bod konkrétní adresy z IGN / Base Adresse Nationale; orientační lokalizace objektu, nikoli zaměřený vstup do provozovny.",
+      "coordinateStatusI18n": {
+        "cs": "Bod konkrétní adresy z IGN / Base Adresse Nationale; orientační lokalizace objektu, nikoli zaměřený vstup do provozovny.",
+        "en": "Address point from IGN / Base Adresse Nationale; an approximate location, not a surveyed venue entrance.",
+        "fr": "Point adresse IGN / Base Adresse Nationale ; localisation indicative, pas un relevé de l’entrée de l’établissement."
+      },
+      "sourceType": "ign-ban-address",
+      "checkedAt": "2026-10-26",
+      "evidence": {
+        "matchedLabel": "28 Avenue Paul Vaillant - Couturier 93230 Romainville",
+        "matchType": "housenumber",
+        "score": 0.9673881818181818,
+        "addressId": "93063_7140_00028",
+        "banId": "4746fe0e-ec7f-47b3-82a3-1fcd5e2d0d7e",
+        "operatorAddressSource": "https://www.ville-romainville.fr/1056-maison-de-la-philo.htm"
+      },
+      "scope": "address-point",
+      "modelAnchorVerified": false
+    },
+    "urbe-studio": {
+      "lat": 48.873655,
+      "lng": 2.350387,
+      "coordinateSource": "https://data.geopf.fr/geocodage/search?q=37+rue+d+Hauteville+75010+Paris&limit=3",
+      "coordinateStatus": "Bod konkrétní adresy z IGN / Base Adresse Nationale; orientační lokalizace objektu, nikoli zaměřený vstup do provozovny.",
+      "coordinateStatusI18n": {
+        "cs": "Bod konkrétní adresy z IGN / Base Adresse Nationale; orientační lokalizace objektu, nikoli zaměřený vstup do provozovny.",
+        "en": "Address point from IGN / Base Adresse Nationale; an approximate location, not a surveyed venue entrance.",
+        "fr": "Point adresse IGN / Base Adresse Nationale ; localisation indicative, pas un relevé de l’entrée de l’établissement."
+      },
+      "sourceType": "ign-ban-address",
+      "checkedAt": "2026-10-26",
+      "evidence": {
+        "matchedLabel": "37 Rue d'Hauteville 75010 Paris",
+        "matchType": "housenumber",
+        "score": 0.9764236363636363,
+        "addressId": "75110_4497_00037",
+        "banId": "1c22f44b-72db-4eec-a6c6-4823ecd15c71",
+        "operatorAddressSource": "https://www.urbestudio.fr/"
+      },
+      "scope": "address-point",
+      "modelAnchorVerified": false
+    },
+    "leizart-audio-saint-fargeau": {
+      "lat": 48.870948,
+      "lng": 2.400144,
+      "coordinateSource": "https://data.geopf.fr/geocodage/search?q=8+rue+Saint+Fargeau+75020+Paris&limit=3",
+      "coordinateStatus": "Bod konkrétní adresy z IGN / Base Adresse Nationale; orientační lokalizace objektu, nikoli zaměřený vstup do provozovny.",
+      "coordinateStatusI18n": {
+        "cs": "Bod konkrétní adresy z IGN / Base Adresse Nationale; orientační lokalizace objektu, nikoli zaměřený vstup do provozovny.",
+        "en": "Address point from IGN / Base Adresse Nationale; an approximate location, not a surveyed venue entrance.",
+        "fr": "Point adresse IGN / Base Adresse Nationale ; localisation indicative, pas un relevé de l’entrée de l’établissement."
+      },
+      "sourceType": "ign-ban-address",
+      "checkedAt": "2026-10-26",
+      "evidence": {
+        "matchedLabel": "8 Rue Saint-Fargeau 75020 Paris",
+        "matchType": "housenumber",
+        "score": 0.9804263636363637,
+        "addressId": "75120_8603_00008",
+        "banId": "f81c3265-5167-434a-882d-c8de7f4bea83",
+        "operatorAddressSource": "https://leizart.com/studio-d-enregistrement"
+      },
+      "scope": "address-point",
+      "modelAnchorVerified": false
+    },
+    "montmartre-recording": {
+      "lat": 48.887258,
+      "lng": 2.333909,
+      "coordinateSource": "https://data.geopf.fr/geocodage/search?q=49+rue+Lepic+75018+Paris&limit=3",
+      "coordinateStatus": "Bod konkrétní adresy z IGN / Base Adresse Nationale; orientační lokalizace objektu, nikoli zaměřený vstup do provozovny.",
+      "coordinateStatusI18n": {
+        "cs": "Bod konkrétní adresy z IGN / Base Adresse Nationale; orientační lokalizace objektu, nikoli zaměřený vstup do provozovny.",
+        "en": "Address point from IGN / Base Adresse Nationale; an approximate location, not a surveyed venue entrance.",
+        "fr": "Point adresse IGN / Base Adresse Nationale ; localisation indicative, pas un relevé de l’entrée de l’établissement."
+      },
+      "sourceType": "ign-ban-address",
+      "checkedAt": "2026-10-26",
+      "evidence": {
+        "matchedLabel": "49 Rue Lepic 75018 Paris",
+        "matchType": "housenumber",
+        "score": 0.9807463636363636,
+        "addressId": "75118_5595_00049",
+        "banId": "6f0dc9d6-70aa-4721-936b-284a73eb09c6",
+        "operatorAddressSource": "https://montmartrerecording.com/contact/"
+      },
+      "scope": "address-point",
+      "modelAnchorVerified": false
+    },
+    "wacked-recording": {
+      "lat": 48.860977,
+      "lng": 2.350429,
+      "coordinateSource": "https://data.geopf.fr/geocodage/search?q=43+rue+Quincampoix+75004+Paris&limit=3",
+      "coordinateStatus": "Bod konkrétní adresy z IGN / Base Adresse Nationale; orientační lokalizace objektu, nikoli zaměřený vstup do provozovny.",
+      "coordinateStatusI18n": {
+        "cs": "Bod konkrétní adresy z IGN / Base Adresse Nationale; orientační lokalizace objektu, nikoli zaměřený vstup do provozovny.",
+        "en": "Address point from IGN / Base Adresse Nationale; an approximate location, not a surveyed venue entrance.",
+        "fr": "Point adresse IGN / Base Adresse Nationale ; localisation indicative, pas un relevé de l’entrée de l’établissement."
+      },
+      "sourceType": "ign-ban-address",
+      "checkedAt": "2026-10-26",
+      "evidence": {
+        "matchedLabel": "43 Rue Quincampoix 75004 Paris",
+        "matchType": "housenumber",
+        "score": 0.9692190909090909,
+        "addressId": "75104_7970_00043",
+        "banId": "86e69ef4-3d9f-424c-9757-2bce5f95ff4b",
+        "operatorAddressSource": "https://wacked.fr/contact/"
+      },
+      "scope": "address-point",
+      "modelAnchorVerified": false
+    },
+    "poisson-barbu": {
+      "lat": 48.8874678,
+      "lng": 2.3517524,
+      "coordinateSource": "https://www.poissonbarbu.com/contact-plan-acces.htm",
+      "coordinateStatus": "Přibližný bod z mapy Google vložené a odkazované oficiální kontaktní stránkou; není zaměřeným vstupem.",
+      "coordinateStatusI18n": {
+        "cs": "Přibližný bod z mapy Google vložené a odkazované oficiální kontaktní stránkou; není zaměřeným vstupem.",
+        "en": "Approximate venue point published by the operator’s contact map; not a surveyed entrance.",
+        "fr": "Point indicatif publié sur le plan d’accès de l’établissement ; pas un relevé précis de l’entrée."
+      },
+      "sourceType": "operator-published-map-point",
+      "checkedAt": "2026-10-26",
+      "scope": "venue-map-point",
+      "modelAnchorVerified": false,
+      "evidence": {
+        "corroboratingBan": {
+          "lat": 48.887433,
+          "lng": 2.351749,
+          "coordinateSource": "https://data.geopf.fr/geocodage/search?q=10+rue+de+Suez+75018+Paris&limit=3",
+          "coordinateStatus": "Bod konkrétní adresy z IGN / Base Adresse Nationale; orientační lokalizace objektu, nikoli zaměřený vstup do provozovny.",
+          "coordinateStatusI18n": {
+            "cs": "Bod konkrétní adresy z IGN / Base Adresse Nationale; orientační lokalizace objektu, nikoli zaměřený vstup do provozovny.",
+            "en": "Address point from IGN / Base Adresse Nationale; an approximate location, not a surveyed venue entrance.",
+            "fr": "Point adresse IGN / Base Adresse Nationale ; localisation indicative, pas un relevé de l’entrée de l’établissement."
+          },
+          "sourceType": "ign-ban-address",
+          "checkedAt": "2026-10-26",
+          "evidence": {
+            "matchedLabel": "10 Rue de Suez 75018 Paris",
+            "matchType": "housenumber",
+            "score": 0.9727954545454546,
+            "addressId": "75118_9112_00010",
+            "banId": "8bb54843-2070-4486-a9a5-2dc08ba55af9",
+            "operatorAddressSource": "https://www.poissonbarbu.com/contact-plan-acces.htm"
+          },
+          "scope": "address-point",
+          "modelAnchorVerified": false
+        }
+      }
+    },
+    "studios-ferber": {
+      "lat": 48.867199,
+      "lng": 2.408241,
+      "coordinateSource": "https://studios-ferber.com/contact/",
+      "coordinateStatus": "Přibližný bod z oficiálně vloženého mapového odkazu; další odkaz stejné stránky má blízký odlišný bod. Nejde o zaměření dveří.",
+      "coordinateStatusI18n": {
+        "cs": "Přibližný bod z oficiálně vloženého mapového odkazu; další odkaz stejné stránky má blízký odlišný bod. Nejde o zaměření dveří.",
+        "en": "Approximate venue point published by the operator’s contact map; not a surveyed entrance.",
+        "fr": "Point indicatif publié sur le plan d’accès de l’établissement ; pas un relevé précis de l’entrée."
+      },
+      "sourceType": "operator-published-map-point",
+      "checkedAt": "2026-10-26",
+      "scope": "venue-map-point",
+      "modelAnchorVerified": false,
+      "evidence": {
+        "corroboratingBan": {
+          "lat": 48.867433,
+          "lng": 2.408026,
+          "coordinateSource": "https://data.geopf.fr/geocodage/search?q=56+rue+du+Capitaine+Ferber+75020+Paris&limit=3",
+          "coordinateStatus": "Bod konkrétní adresy z IGN / Base Adresse Nationale; orientační lokalizace objektu, nikoli zaměřený vstup do provozovny.",
+          "coordinateStatusI18n": {
+            "cs": "Bod konkrétní adresy z IGN / Base Adresse Nationale; orientační lokalizace objektu, nikoli zaměřený vstup do provozovny.",
+            "en": "Address point from IGN / Base Adresse Nationale; an approximate location, not a surveyed venue entrance.",
+            "fr": "Point adresse IGN / Base Adresse Nationale ; localisation indicative, pas un relevé de l’entrée de l’établissement."
+          },
+          "sourceType": "ign-ban-address",
+          "checkedAt": "2026-10-26",
+          "evidence": {
+            "matchedLabel": "56 Rue du Capitaine Ferber 75020 Paris",
+            "matchType": "housenumber",
+            "score": 0.9779881818181818,
+            "addressId": "75120_1500_00056",
+            "banId": "d9301042-de3d-43d5-86ad-c805c3a66301",
+            "operatorAddressSource": "https://studios-ferber.com/contact/"
+          },
+          "scope": "address-point",
+          "modelAnchorVerified": false
+        }
+      }
+    },
+    "fluctuart": {
+      "lat": 48.8630329905371,
+      "lng": 2.30992997172751,
+      "coordinateSource": "https://www.paris.fr/evenements/in-imaginable-introduction-au-lowbrow-et-au-pop-surrealisme-117993",
+      "coordinateStatus": "Orientační bod Fluctuart zveřejněný v mapě městského programu Paříže; není zaměřeným přístupem na plovoucí objekt.",
+      "sourceType": "paris-municipal-event-map",
+      "checkedAt": "2026-10-26",
+      "scope": "venue-map-point",
+      "modelAnchorVerified": false,
+      "recommendedAddress": "2 port du Gros Caillou, 75007 Paris",
+      "evidence": {
+        "attribute": "data-map-markers",
+        "rawValue": "[[48.8630329905371,2.30992997172751]]",
+        "matchedName": "FLUCTUART, Centre d’art urbain",
+        "matchedAddress": "2 port du Gros Caillou, Paris 7e",
+        "operatorConfirmation": "https://fluctuart.fr/",
+        "note": "Městský program je participativní agenda, nikoli katastr. Souřadnice slouží k orientaci k danému místu."
+      },
+      "coordinateStatusI18n": {
+        "cs": "Orientační bod Fluctuart zveřejněný v mapě městského programu Paříže; není zaměřeným přístupem na plovoucí objekt.",
+        "en": "Approximate venue point published in the City of Paris event map; not a surveyed boarding entrance.",
+        "fr": "Point indicatif publié sur la carte de l’agenda de Paris ; pas un relevé précis de l’accès à la péniche."
+      }
+    },
+    "petit-bain": {
+      "lat": 48.8349314335629,
+      "lng": 2.3767058313332,
+      "coordinateSource": "https://www.paris.fr/evenements/take-me-out-lol-tolhurst-en-concert-a-paris-110780",
+      "coordinateStatus": "Orientační bod Petit Bain zveřejněný v mapě městského programu Paříže; není zaměřeným přístupem na plovoucí objekt.",
+      "sourceType": "paris-municipal-event-map",
+      "checkedAt": "2026-10-26",
+      "scope": "venue-map-point",
+      "modelAnchorVerified": false,
+      "evidence": {
+        "attribute": "data-map-markers",
+        "rawValue": "[[48.8349314335629,2.3767058313332]]",
+        "matchedName": "Petit Bain",
+        "matchedAddress": "7 port de la Gare, Paris 13e",
+        "corroboratingPage": "https://www.paris.fr/evenements/take-me-out-au-pairs-en-concert-a-paris-les-femmes-s-en-melent-116206",
+        "operatorConfirmation": "https://petitbain.org/infos-pratiques/",
+        "note": "Obě městské akce vracejí totožný bod; nedokládá to konání koncertu ani vstupenku."
+      },
+      "coordinateStatusI18n": {
+        "cs": "Orientační bod Petit Bain zveřejněný v mapě městského programu Paříže; není zaměřeným přístupem na plovoucí objekt.",
+        "en": "Approximate venue point published in the City of Paris event map; not a surveyed boarding entrance.",
+        "fr": "Point indicatif publié sur la carte de l’agenda de Paris ; pas un relevé précis de l’accès à la péniche."
+      }
+    }
+  },
+  "unresolved": {
+    "spot13": {
+      "lat": null,
+      "lng": null,
+      "coordinateSource": null,
+      "reason": "IGN sice přesně geokóduje 47 allée Paris-Ivry, ale dodaná adresa dokládá již proběhlý workshop. Bez potvrzení současného veřejného vstupu by nový pin mohl navigovat na neověřené místo. Souřadnice proto zůstávají null.",
+      "addressGeocodeCandidate": {
+        "query": "47 allée Paris-Ivry 75013 Paris",
+        "source": "https://data.geopf.fr/geocodage/search?q=47+all%C3%A9e+Paris-Ivry+75013+Paris&limit=3",
+        "features": [
+          {
+            "type": "Feature",
+            "geometry": {
+              "type": "Point",
+              "coordinates": [
+                2.384346,
+                48.826227
+              ]
+            },
+            "properties": {
+              "label": "47 Allée Paris-Ivry 75013 Paris",
+              "score": 0.9790509090909091,
+              "housenumber": "47",
+              "id": "75113_7064_00047",
+              "banId": "1515c596-905b-44d5-9f9a-13c1b630b6c1",
+              "name": "47 Allée Paris-Ivry",
+              "postcode": "75013",
+              "citycode": "75113",
+              "x": 654801.29,
+              "y": 6858639.21,
+              "city": "Paris",
+              "district": "Paris 13e Arrondissement",
+              "context": "75, Paris, Île-de-France",
+              "type": "housenumber",
+              "importance": 0.76956,
+              "depcode": "75",
+              "street": "Allée Paris-Ivry",
+              "_type": "address"
+            }
+          },
+          {
+            "type": "Feature",
+            "geometry": {
+              "type": "Point",
+              "coordinates": [
+                2.365782,
+                48.82306
+              ]
+            },
+            "properties": {
+              "label": "47 Avenue d'Ivry 75013 Paris",
+              "score": 0.5143922604422604,
+              "housenumber": "47",
+              "id": "75113_4763_00047",
+              "banId": "8c220447-a984-4b71-9034-f50096fbfa2a",
+              "name": "47 Avenue d'Ivry",
+              "postcode": "75013",
+              "citycode": "75113",
+              "x": 653435.6,
+              "y": 6858297.87,
+              "city": "Paris",
+              "district": "Paris 13e Arrondissement",
+              "context": "75, Paris, Île-de-France",
+              "type": "housenumber",
+              "importance": 0.79345,
+              "depcode": "75",
+              "street": "Avenue d'Ivry",
+              "_type": "address"
+            }
+          },
+          {
+            "type": "Feature",
+            "geometry": {
+              "type": "Point",
+              "coordinates": [
+                2.387171,
+                48.826022
+              ]
+            },
+            "properties": {
+              "label": "Quai d'Ivry 75013 Paris",
+              "score": 0.4275163636363636,
+              "id": "75113_4764",
+              "banId": "67b03b9e-dd2d-4055-be81-910b7449476d",
+              "name": "Quai d'Ivry",
+              "postcode": "75013",
+              "citycode": "75113",
+              "x": 655008.51,
+              "y": 6858614.8,
+              "city": "Paris",
+              "district": "Paris 13e Arrondissement",
+              "context": "75, Paris, Île-de-France",
+              "type": "street",
+              "importance": 0.70268,
+              "depcode": "75",
+              "street": "Quai d'Ivry",
+              "_type": "address"
+            }
+          }
+        ]
+      },
+      "operatorOrCitySources": [
+        {
+          "title": "Mairie du 13e — aktuální adresář asociací, sekce Spot 13",
+          "url": "https://mairie13.paris.fr/pages/annuaire-des-associations-du-13e-33120"
+        },
+        {
+          "title": "Mairie du 13e — archiv festivalu a podmínky workshopu v květnu 2026",
+          "url": "https://mairie13.paris.fr/pages/festival-de-la-jeunesse-34978"
+        },
+        {
+          "title": "Spot 13 — vlastní asociace a kontaktní profil",
+          "url": "https://www.helloasso.com/associations/spot-13"
+        }
+      ]
+    }
+  },
+  "originalReview": [
+    {
+      "id": "notre-dame",
+      "currentLat": 48.853,
+      "currentLng": 2.3499,
+      "currentCoordinateStatus": "Approximate building centre",
+      "recommendation": "retain-existing-approximate-point",
+      "note": "Původní bod nepřepisovat na dveřní geokód bez samostatného posouzení kotvy modelu.",
+      "verificationType": "ign-bdtopo-place-point",
+      "geographicFeatureId": "SURFACTI0000000211444144",
+      "verificationLat": 48.852993,
+      "verificationLng": 2.349889,
+      "verificationSource": "https://data.geopf.fr/geocodage/search?q=Cath%C3%A9drale+Notre-Dame+de+Paris&limit=1&index=poi&lon=2.35&lat=48.86&returntruegeometry=true",
+      "distanceFromCurrentMetres": 1.1
+    },
+    {
+      "id": "sainte-chapelle",
+      "currentLat": 48.855375,
+      "currentLng": 2.3449609,
+      "currentCoordinateStatus": "Official site's linked map destination",
+      "recommendation": "retain-existing-approximate-point",
+      "note": "Původní bod nepřepisovat na dveřní geokód bez samostatného posouzení kotvy modelu.",
+      "verificationType": "ign-bdtopo-place-point",
+      "geographicFeatureId": "SURFACTI0000000000140877",
+      "verificationLat": 48.855374,
+      "verificationLng": 2.34502,
+      "verificationSource": "https://data.geopf.fr/geocodage/search?q=Sainte-Chapelle+Paris&limit=1&index=poi&lon=2.35&lat=48.86&returntruegeometry=true",
+      "distanceFromCurrentMetres": 4.3
+    },
+    {
+      "id": "flamel-house",
+      "currentLat": 48.86361,
+      "currentLng": 2.35306,
+      "currentCoordinateStatus": "Approximate building position",
+      "recommendation": "retain-existing-approximate-point",
+      "note": "Původní bod nepřepisovat na dveřní geokód bez samostatného posouzení kotvy modelu.",
+      "verificationType": "ign-ban-address",
+      "verificationLat": 48.863568,
+      "verificationLng": 2.353155,
+      "verificationSource": "https://data.geopf.fr/geocodage/search?q=51+rue+de+Montmorency+75003+Paris&limit=1&index=address&lon=2.35&lat=48.86&returntruegeometry=true",
+      "distanceFromCurrentMetres": 8.4
+    },
+    {
+      "id": "saint-sulpice",
+      "currentLat": 48.8509,
+      "currentLng": 2.3349,
+      "currentCoordinateStatus": "Approximate building centre",
+      "recommendation": "retain-existing-approximate-point",
+      "note": "Původní bod nepřepisovat na dveřní geokód bez samostatného posouzení kotvy modelu.",
+      "verificationType": "ign-bdtopo-place-point",
+      "geographicFeatureId": "SURFACTI0000000211455990",
+      "verificationLat": 48.85101,
+      "verificationLng": 2.335156,
+      "verificationSource": "https://data.geopf.fr/geocodage/search?q=%C3%89glise+Saint-Sulpice+Paris&limit=1&index=poi&lon=2.35&lat=48.86&returntruegeometry=true",
+      "distanceFromCurrentMetres": 22.4
+    },
+    {
+      "id": "pere-lachaise",
+      "currentLat": 48.8594,
+      "currentLng": 2.3909,
+      "currentCoordinateStatus": "Approximate rue du Repos entrance area",
+      "recommendation": "retain-existing-approximate-point",
+      "note": "IGN bod označuje těžiště celého hřbitova, zatímco atlas pracuje s přístupovou oblastí. Nejde o opravu vstupu; model hřbitovní scény nesmí být vydáván za zaměření celého areálu.",
+      "verificationType": "ign-bdtopo-place-point",
+      "verificationLat": 48.860534,
+      "verificationLng": 2.394287,
+      "verificationSource": "https://data.geopf.fr/geocodage/search?q=Cimeti%C3%A8re+du+P%C3%A8re-Lachaise+Paris&limit=3&index=poi&lon=2.35&lat=48.86",
+      "distanceFromCurrentMetres": 278.0
+    },
+    {
+      "id": "republique",
+      "currentLat": 48.8675,
+      "currentLng": 2.3638,
+      "currentCoordinateStatus": "Approximate monument centre",
+      "recommendation": "retain-existing-approximate-point",
+      "note": "Vyhledávání IGN vrací stanice metra République, ne samotný pomník. Tyto kandidáty jsme odmítli; původní orientační bod pomníku se proto nemění."
+    },
+    {
+      "id": "abbesses",
+      "currentLat": 48.88444,
+      "currentLng": 2.33889,
+      "currentCoordinateStatus": "Approximate heritage-entrance position",
+      "recommendation": "retain-existing-approximate-point",
+      "note": "IGN bod označuje stanici Abbesses. Dokládá správnou stanici, nikoli přesnou polohu Guimardova édiculu; původní bod se nemění na domnělý vstup.",
+      "verificationType": "ign-bdtopo-place-point",
+      "verificationLat": 48.884453,
+      "verificationLng": 2.33865,
+      "verificationSource": "https://data.geopf.fr/geocodage/search?q=Abbesses+Paris&limit=3&index=poi&lon=2.35&lat=48.86",
+      "distanceFromCurrentMetres": 17.6
+    },
+    {
+      "id": "mur-oberkampf",
+      "currentLat": 48.8659,
+      "currentLng": 2.3777,
+      "currentCoordinateStatus": "Approximate wall position corroborated by published coordinates",
+      "recommendation": "retain-existing-approximate-point",
+      "note": "Původní bod nepřepisovat na dveřní geokód bez samostatného posouzení kotvy modelu.",
+      "verificationType": "ign-ban-address",
+      "verificationLat": 48.865915,
+      "verificationLng": 2.377633,
+      "verificationSource": "https://data.geopf.fr/geocodage/search?q=107+rue+Oberkampf+75011+Paris&limit=3&index=address&lon=2.35&lat=48.86",
+      "distanceFromCurrentMetres": 5.2
+    },
+    {
+      "id": "la-place",
+      "currentLat": 48.8622635,
+      "currentLng": 2.347373,
+      "currentCoordinateStatus": "Verified destination coordinates in official La Place site Google Maps link",
+      "recommendation": "retain-existing-approximate-point",
+      "note": "BAN bod 10 passage de la Canopée je adresa provozovny, původní atlasový bod pochází z oficiálního mapového odkazu areálu. Rozlišit centrum střechy Canopée, centrum provozovny a vstup; neumisťovat model střechy podle bodu dveří.",
+      "verificationType": "ign-ban-address",
+      "verificationLat": 48.861819,
+      "verificationLng": 2.347644,
+      "verificationSource": "https://data.geopf.fr/geocodage/search?q=10+passage+de+la+Canop%C3%A9e+75001+Paris&limit=1&index=address&lon=2.35&lat=48.86&returntruegeometry=true",
+      "distanceFromCurrentMetres": 53.3
+    },
+    {
+      "id": "centquatre",
+      "currentLat": 48.89,
+      "currentLng": 2.3708,
+      "currentCoordinateStatus": "Approximate venue centre; official site links OpenStreetMap way 278632326",
+      "recommendation": "retain-existing-approximate-point",
+      "note": "BAN bod je východní adresa 5 rue Curial. Provozovatel současně uvádí západní vstup 104 rue d’Aubervilliers 48.890507,2.368605 a vnitřní Maison des Petits 48.890228,2.370064. Výchozí 0,0 v jeho Nuxt datech je chybný a byl odmítnut. Kotvu rozlehlých hal neodvozovat z jediných dveří.",
+      "verificationType": "ign-ban-address",
+      "verificationLat": 48.889983,
+      "verificationLng": 2.371506,
+      "verificationSource": "https://data.geopf.fr/geocodage/search?q=5+rue+Curial+75019+Paris&limit=1&index=address&lon=2.35&lat=48.86&returntruegeometry=true",
+      "distanceFromCurrentMetres": 51.7
+    },
+    {
+      "id": "philharmonie",
+      "currentLat": 48.891,
+      "currentLng": 2.3941,
+      "currentCoordinateStatus": "Approximate building centre",
+      "recommendation": "retain-existing-approximate-point",
+      "note": "Oficiální mapa označuje areál Philharmonie, ne nutně střed samostatné Nouvelovy budovy. Nezaměnit s parkingovým POI, který IGN vrací při hledání názvu.",
+      "verificationType": "operator-published-map-point",
+      "verificationLat": 48.891277,
+      "verificationLng": 2.39385,
+      "verificationSource": "https://philharmoniedeparis.fr/fr/informations-pratiques/comment-venir",
+      "distanceFromCurrentMetres": 35.8
+    },
+    {
+      "id": "shakespeare-company",
+      "currentLat": 48.8526,
+      "currentLng": 2.3471,
+      "currentCoordinateStatus": "Approximate storefront position",
+      "recommendation": "retain-existing-approximate-point",
+      "note": "Původní bod nepřepisovat na dveřní geokód bez samostatného posouzení kotvy modelu.",
+      "verificationType": "ign-ban-address",
+      "verificationLat": 48.852589,
+      "verificationLng": 2.347107,
+      "verificationSource": "https://data.geopf.fr/geocodage/search?q=37+rue+de+la+B%C3%BBcherie+75005+Paris&limit=1&index=address&lon=2.35&lat=48.86&returntruegeometry=true",
+      "distanceFromCurrentMetres": 1.3
+    }
+  ],
+  "primarySourceCaveats": [
+    "POI truegeometry je polygon zájmového místa a může zahrnovat náměstí či areál; není automaticky půdorysem budovy.",
+    "Piny a kotvy architektonických modelů jsou různé údaje. Posun na číslo domu nesmí automaticky posunout velký model střechy nebo areálu.",
+    "Stanice metra není bod pomníku ani zaměřený historický přístřešek.",
+    "Mapový bod městské participativní agendy neslibuje konání akce, kapacitu nebo zpřístupněný vstup."
+  ],
+  "recoveryNote": "Obnoveno po automatickém úklidu pracovního prostoru z uchovaných úplných odpovědí primárních zdrojů načtených ve stejné relaci dne 26. října 2026. Číselné body nebyly odhadovány z paměti."
+}

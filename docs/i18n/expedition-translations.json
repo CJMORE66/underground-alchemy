@@ -1,0 +1,1405 @@
+{
+  "version": 1,
+  "entries": {
+    "Nauč se slyšet rozhodnutí. Nejen skladby.": {
+      "cs": "Nauč se slyšet rozhodnutí. Nejen skladby.",
+      "en": "Learn to hear decisions, not just tracks.",
+      "fr": "Apprends à entendre des choix, pas seulement des morceaux."
+    },
+    "Tři poslechy. Jeden záměr. Tvůj vlastní mix.": {
+      "cs": "Tři poslechy. Jeden záměr. Tvůj vlastní mix.",
+      "en": "Three listens. One intention. Your own mix.",
+      "fr": "Trois écoutes. Une intention. Ton propre mix."
+    },
+    "Mix + tracklist + tři rozhodnutí": {
+      "cs": "Mix + tracklist + tři rozhodnutí",
+      "en": "Mix + tracklist + three decisions",
+      "fr": "Mix + tracklist + trois choix expliqués"
+    },
+    "Oddělit rytmickou, basovou a melodickou funkci v poslechu.": {
+      "cs": "Oddělit rytmickou, basovou a melodickou funkci v poslechu.",
+      "en": "Distinguish rhythmic, bass and melodic functions when listening.",
+      "fr": "Distinguer les fonctions rythmiques, graves et mélodiques à l’écoute."
+    },
+    "Zdůvodnit a vyzkoušet jednu návaznost.": {
+      "cs": "Zdůvodnit a vyzkoušet jednu návaznost.",
+      "en": "Explain and try out one transition.",
+      "fr": "Justifier et essayer un enchaînement."
+    },
+    "Sestavit a zreflektovat krátký vlastní set.": {
+      "cs": "Sestavit a zreflektovat krátký vlastní set.",
+      "en": "Build and reflect on a short set of your own.",
+      "fr": "Construire un court set personnel et prendre du recul sur tes choix."
+    },
+    "Sluchátka, zápisník a dvě vlastní nebo oprávněně použité nahrávky.": {
+      "cs": "Sluchátka, zápisník a dvě vlastní nebo oprávněně použité nahrávky.",
+      "en": "Headphones, a notebook and two recordings you own or are entitled to use.",
+      "fr": "Un casque, un carnet et deux enregistrements personnels ou que tu as le droit d’utiliser."
+    },
+    "Předem napiš, jaké gramofony či kontroler potřebuješ a jak nahraješ vlastní výstup.": {
+      "cs": "Předem napiš, jaké gramofony či kontroler potřebuješ a jak nahraješ vlastní výstup.",
+      "en": "Write down beforehand which turntables or controller you need and how you will record your output.",
+      "fr": "Note à l’avance les platines ou le contrôleur nécessaires et la manière d’enregistrer ton résultat."
+    },
+    "Ověř konkrétní datum lekce, studio, vybavení, cenu a podmínky exportu přímo u provozovatele.": {
+      "cs": "Ověř konkrétní datum lekce, studio, vybavení, cenu a podmínky exportu přímo u provozovatele.",
+      "en": "Confirm the specific lesson date, studio, equipment, price and export conditions directly with the operator.",
+      "fr": "Confirme directement auprès du prestataire la date du cours, le studio, le matériel, le prix et les conditions d’export."
+    },
+    "Ponech souvislý blok nejméně dvou hodin na poslech, nahrání a export; obchody jsou volitelné odbočky.": {
+      "cs": "Ponech souvislý blok nejméně dvou hodin na poslech, nahrání a export; obchody jsou volitelné odbočky.",
+      "en": "Keep an uninterrupted block of at least two hours for listening, recording and exporting; shops are optional detours.",
+      "fr": "Garde un créneau continu d’au moins deux heures pour écouter, enregistrer et exporter ; les boutiques sont des détours facultatifs."
+    },
+    "Použij dvě vlastní nebo oprávněně použité skladby a dostupný přehrávač či DAW. Dokonči krátký mix, tracklist a tři rozhodnutí doma; nevydávej jej za absolvovanou lekci v pařížském studiu.": {
+      "cs": "Použij dvě vlastní nebo oprávněně použité skladby a dostupný přehrávač či DAW. Dokonči krátký mix, tracklist a tři rozhodnutí doma; nevydávej jej za absolvovanou lekci v pařížském studiu.",
+      "en": "Use two tracks you own or are entitled to use and an available player or DAW. Finish a short mix, tracklist and three decisions at home; do not present it as a completed lesson in a Paris studio.",
+      "fr": "Utilise deux morceaux personnels ou que tu as le droit d’utiliser, avec un lecteur ou une station audionumérique disponible. Termine chez toi un court mix, une tracklist et trois choix expliqués ; ne le présente pas comme un cours suivi dans un studio parisien."
+    },
+    "Než začneš mluvit, všimni si.": {
+      "cs": "Než začneš mluvit, všimni si.",
+      "en": "Notice before you speak.",
+      "fr": "Observe avant de prendre la parole."
+    },
+    "Z jednoho skutečného detailu do vlastní sloky.": {
+      "cs": "Z jednoho skutečného detailu do vlastní sloky.",
+      "en": "From one real detail to a verse of your own.",
+      "fr": "D’un détail réel à ta propre strophe."
+    },
+    "Text + dvě verze přednesu": {
+      "cs": "Text + dvě verze přednesu",
+      "en": "Lyrics + two versions of your delivery",
+      "fr": "Texte + deux versions d’interprétation"
+    },
+    "Napsat čtyři řádky z konkrétních pozorování.": {
+      "cs": "Napsat čtyři řádky z konkrétních pozorování.",
+      "en": "Write four lines from concrete observations.",
+      "fr": "Écrire quatre lignes à partir d’observations concrètes."
+    },
+    "Vyzkoušet dvě odlišná umístění důrazu a pauzy.": {
+      "cs": "Vyzkoušet dvě odlišná umístění důrazu a pauzy.",
+      "en": "Try two different placements of emphasis and pauses.",
+      "fr": "Essayer deux placements différents des accents et des pauses."
+    },
+    "Dokončit pracovní sloku a vědomou revizi.": {
+      "cs": "Dokončit pracovní sloku a vědomou revizi.",
+      "en": "Finish a working verse and a deliberate revision.",
+      "fr": "Terminer une strophe de travail et une révision réfléchie."
+    },
+    "Zápisník, vlastní text, sluchátka a telefon nebo jiný přístroj pro vlastní záznam.": {
+      "cs": "Zápisník, vlastní text, sluchátka a telefon nebo jiný přístroj pro vlastní záznam.",
+      "en": "A notebook, your own lyrics, headphones and a phone or another device for recording yourself.",
+      "fr": "Un carnet, ton propre texte, un casque et un téléphone ou un autre appareil pour t’enregistrer."
+    },
+    "Použij vlastní nebo licencovaný beat a měj zálohu textu.": {
+      "cs": "Použij vlastní nebo licencovaný beat a měj zálohu textu.",
+      "en": "Use your own or a licensed beat and keep a backup of your lyrics.",
+      "fr": "Utilise ton propre beat ou un beat sous licence, et conserve une copie de ton texte."
+    },
+    "Před studiem potvrď techniku a případnou přítomnost technika; pronájem prostoru není hotová produkce.": {
+      "cs": "Před studiem potvrď techniku a případnou přítomnost technika; pronájem prostoru není hotová produkce.",
+      "en": "Confirm the equipment and any engineer before the studio session; renting a room does not include a finished production.",
+      "fr": "Avant la session, confirme le matériel et la présence éventuelle d’un ingénieur du son ; louer un espace ne fournit pas une production finalisée."
+    },
+    "Ponech dvě hodiny na dvě verze přednesu a jejich poslech. Veřejný open mic je dobrovolný bonus.": {
+      "cs": "Ponech dvě hodiny na dvě verze přednesu a jejich poslech. Veřejný open mic je dobrovolný bonus.",
+      "en": "Keep two hours for two versions of your delivery and listening back. A public open mic is an optional bonus.",
+      "fr": "Garde deux heures pour enregistrer deux interprétations et les réécouter. Un open mic public reste un bonus facultatif."
+    },
+    "Pozoruj vlastní okolí, napiš sloku a nahraj dvě verze přednesu dostupným přístrojem. Vysvětli jednu změnu; vystoupení ani placené studio nejsou podmínkou výstupu.": {
+      "cs": "Pozoruj vlastní okolí, napiš sloku a nahraj dvě verze přednesu dostupným přístrojem. Vysvětli jednu změnu; vystoupení ani placené studio nejsou podmínkou výstupu.",
+      "en": "Observe your surroundings, write a verse and record two versions of your delivery with an available device. Explain one change; performing publicly or paying for a studio is not required for the output.",
+      "fr": "Observe ce qui t’entoure, écris une strophe et enregistre deux interprétations avec un appareil disponible. Explique un changement ; une scène publique ou un studio payant ne sont pas nécessaires pour produire ce résultat."
+    },
+    "Neodnášej si jen fotku. Vytvoř svoji stopu.": {
+      "cs": "Neodnášej si jen fotku. Vytvoř svoji stopu.",
+      "en": "Bring back more than a photo. Make your own mark.",
+      "fr": "Ne rapporte pas seulement une photo. Crée ta propre trace."
+    },
+    "Kostra. Prostor. Barva. Legální realizace.": {
+      "cs": "Kostra. Prostor. Barva. Legální realizace.",
+      "en": "Structure. Space. Colour. An authorised piece.",
+      "fr": "Structure. Espace. Couleur. Réalisation autorisée."
+    },
+    "Skica + paleta + procesní Blackbook": {
+      "cs": "Skica + paleta + procesní Blackbook",
+      "en": "Sketch + palette + process Blackbook",
+      "fr": "Esquisse + palette + Blackbook de processus"
+    },
+    "Vytvořit čitelnou konstrukci vlastních písmen.": {
+      "cs": "Vytvořit čitelnou konstrukci vlastních písmen.",
+      "en": "Build legible letter structures of your own.",
+      "fr": "Construire des lettres personnelles et lisibles."
+    },
+    "Vědomě rozhodnout o rozestupech, překryvech a kontrastu.": {
+      "cs": "Vědomě rozhodnout o rozestupech, překryvech a kontrastu.",
+      "en": "Make deliberate decisions about spacing, overlaps and contrast.",
+      "fr": "Choisir consciemment les espacements, les superpositions et le contraste."
+    },
+    "Realizovat menší vlastní práci a zdokumentovat postup.": {
+      "cs": "Realizovat menší vlastní práci a zdokumentovat postup.",
+      "en": "Make a small original piece and document the process.",
+      "fr": "Réaliser une petite création personnelle et en documenter les étapes."
+    },
+    "Skicák, tužka a vlastní slovo; nejdřív navrhni konstrukci a až potom materiál.": {
+      "cs": "Skicák, tužka a vlastní slovo; nejdřív navrhni konstrukci a až potom materiál.",
+      "en": "A sketchbook, pencil and your own word; design the structure before choosing materials.",
+      "fr": "Un carnet de croquis, un crayon et ton propre mot ; conçois d’abord la structure, puis choisis le matériel."
+    },
+    "Připrav paletu dvou výplní, obrysu a jednoho akcentu podle svého návrhu.": {
+      "cs": "Připrav paletu dvou výplní, obrysu a jednoho akcentu podle svého návrhu.",
+      "en": "Prepare two fill colours, an outline colour and one accent to suit your design.",
+      "fr": "Prépare deux couleurs de remplissage, une couleur de contour et un accent adaptés à ton projet."
+    },
+    "Před cestou ověř povolený úsek, počasí, pravidla správce a bezpečný převoz materiálu.": {
+      "cs": "Před cestou ověř povolený úsek, počasí, pravidla správce a bezpečný převoz materiálu.",
+      "en": "Before travelling, check the authorised section, weather, site rules and safe transport of materials.",
+      "fr": "Avant de partir, vérifie la portion autorisée, la météo, le règlement du gestionnaire et le transport sûr du matériel."
+    },
+    "Ochranu a použití materiálů zvol podle výrobce. Na realizaci, dokumentaci a úklid si ponech dvě a půl hodiny.": {
+      "cs": "Ochranu a použití materiálů zvol podle výrobce. Na realizaci, dokumentaci a úklid si ponech dvě a půl hodiny.",
+      "en": "Choose protection and material use according to the manufacturer. Allow two and a half hours for making the piece, documenting it and cleaning up.",
+      "fr": "Choisis les protections et l’usage des produits selon les consignes du fabricant. Prévois deux heures et demie pour réaliser, documenter et nettoyer."
+    },
+    "Pokud nejsou potvrzené podmínky malování, dokonči na papíře nebo ve vlastním editoru kostru, dvě prostorové varianty, paletu a procesní Blackbook. Venkovní realizaci odlož, nevytvářej náhradní nepovolenou plochu.": {
+      "cs": "Pokud nejsou potvrzené podmínky malování, dokonči na papíře nebo ve vlastním editoru kostru, dvě prostorové varianty, paletu a procesní Blackbook. Venkovní realizaci odlož, nevytvářej náhradní nepovolenou plochu.",
+      "en": "If permission to paint has not been confirmed, finish the structure, two spatial variants, palette and process Blackbook on paper or in your own editor. Postpone the outdoor piece; do not substitute an unauthorised surface.",
+      "fr": "Si les conditions de peinture ne sont pas confirmées, termine sur papier ou dans ton propre logiciel la structure, deux variantes spatiales, la palette et le Blackbook de processus. Reporte la réalisation extérieure ; ne la remplace pas par une surface non autorisée."
+    },
+    "Tělo v dialogu s hudbou.": {
+      "cs": "Tělo v dialogu s hudbou.",
+      "en": "Your body in dialogue with music.",
+      "fr": "Ton corps en dialogue avec la musique."
+    },
+    "Pozornost, respekt a jedna vědomá oprava.": {
+      "cs": "Pozornost, respekt a jedna vědomá oprava.",
+      "en": "Attention, respect and one deliberate correction.",
+      "fr": "Attention, respect et une correction réfléchie."
+    },
+    "Krátká fráze + zpětná vazba": {
+      "cs": "Krátká fráze + zpětná vazba",
+      "en": "Short phrase + feedback",
+      "fr": "Courte phrase dansée + retour"
+    },
+    "Rozpoznat hudební podnět a navrhnout vlastní jednoduchou reakci.": {
+      "cs": "Rozpoznat hudební podnět a navrhnout vlastní jednoduchou reakci.",
+      "en": "Recognise a musical cue and propose a simple response of your own.",
+      "fr": "Reconnaître un signal musical et proposer une réponse personnelle simple."
+    },
+    "Vstoupit do sdíleného prostoru s respektem.": {
+      "cs": "Vstoupit do sdíleného prostoru s respektem.",
+      "en": "Enter a shared space respectfully.",
+      "fr": "Entrer dans un espace partagé avec respect."
+    },
+    "Porovnat dvě bezpečně provedené verze krátké fráze.": {
+      "cs": "Porovnat dvě bezpečně provedené verze krátké fráze.",
+      "en": "Compare two safely performed versions of a short phrase.",
+      "fr": "Comparer deux versions d’une courte phrase exécutées en sécurité."
+    },
+    "Čisté boty vhodné pro potvrzený povrch, pohodlné oblečení, voda a pauzy.": {
+      "cs": "Čisté boty vhodné pro potvrzený povrch, pohodlné oblečení, voda a pauzy.",
+      "en": "Clean shoes suitable for the confirmed surface, comfortable clothes, water and breaks.",
+      "fr": "Des chaussures propres adaptées au sol confirmé, une tenue confortable, de l’eau et des pauses."
+    },
+    "Před lekcí potvrď datum, úroveň, přístupnost, cenu a volné místo přímo se školou.": {
+      "cs": "Před lekcí potvrď datum, úroveň, přístupnost, cenu a volné místo přímo se školou.",
+      "en": "Confirm the date, level, accessibility, price and available place directly with the school before the lesson.",
+      "fr": "Avant le cours, confirme directement avec l’école la date, le niveau, l’accessibilité, le prix et la disponibilité."
+    },
+    "Připrav jednu otázku a jednoduchou frázi, kterou už bezpečně zvládáš; ilustrace není návod techniky.": {
+      "cs": "Připrav jednu otázku a jednoduchou frázi, kterou už bezpečně zvládáš; ilustrace není návod techniky.",
+      "en": "Prepare one question and a simple phrase you can already perform safely; the illustration does not teach technique.",
+      "fr": "Prépare une question et une phrase simple que tu maîtrises déjà en sécurité ; l’illustration n’est pas un enseignement technique."
+    },
+    "Žádej souhlas před připojením ke skupině i před natáčením. Doporučení k pohybu má dát skutečný lektor.": {
+      "cs": "Žádej souhlas před připojením ke skupině i před natáčením. Doporučení k pohybu má dát skutečný lektor.",
+      "en": "Ask permission before joining a group or filming. Movement guidance must come from a real instructor.",
+      "fr": "Demande l’accord avant de rejoindre un groupe ou de filmer. Les conseils de mouvement doivent venir d’un véritable professeur."
+    },
+    "Bez potvrzené lekce pracuj s poslechem hudby, poznámkou o rytmickém podnětu a jednoduchou známou reakcí, kterou bezpečně zvládáš. Odbornou reakci lektora označ jako čekající, nikdy ji nenahrazuj AI skóre.": {
+      "cs": "Bez potvrzené lekce pracuj s poslechem hudby, poznámkou o rytmickém podnětu a jednoduchou známou reakcí, kterou bezpečně zvládáš. Odbornou reakci lektora označ jako čekající, nikdy ji nenahrazuj AI skóre.",
+      "en": "Without a confirmed lesson, listen to the music, note a rhythmic cue and use a simple familiar response you can perform safely. Mark professional instructor feedback as pending; never replace it with an AI score.",
+      "fr": "Sans cours confirmé, travaille l’écoute, note un signal rythmique et utilise une réponse simple et connue que tu maîtrises en sécurité. Indique que le retour professionnel du professeur reste à obtenir ; ne le remplace jamais par une note d’IA."
+    },
+    "Co skutečně vidíš — a co si přidáváš?": {
+      "cs": "Co skutečně vidíš — a co si přidáváš?",
+      "en": "What do you actually see—and what do you add?",
+      "fr": "Que vois-tu réellement, et qu’ajoutes-tu ?"
+    },
+    "Symbol není odpověď. Je to začátek otázky.": {
+      "cs": "Symbol není odpověď. Je to začátek otázky.",
+      "en": "A symbol is not an answer. It starts a question.",
+      "fr": "Un symbole n’est pas une réponse. Il ouvre une question."
+    },
+    "Manifest + vlastní znak + revize": {
+      "cs": "Manifest + vlastní znak + revize",
+      "en": "Manifesto + personal symbol + revision",
+      "fr": "Manifeste + signe personnel + révision"
+    },
+    "Oddělit pozorování od výkladu.": {
+      "cs": "Oddělit pozorování od výkladu.",
+      "en": "Separate observation from interpretation.",
+      "fr": "Séparer l’observation de l’interprétation."
+    },
+    "Převést abstraktní slovo na konkrétní tvrzení nebo čin.": {
+      "cs": "Převést abstraktní slovo na konkrétní tvrzení nebo čin.",
+      "en": "Turn an abstract word into a concrete claim or action.",
+      "fr": "Transformer un mot abstrait en affirmation ou en acte concret."
+    },
+    "Vytvořit symbol s vysvětlením a přijmout konkrétní zpětnou vazbu.": {
+      "cs": "Vytvořit symbol s vysvětlením a přijmout konkrétní zpětnou vazbu.",
+      "en": "Create a symbol with an explanation and receive specific feedback.",
+      "fr": "Créer un symbole accompagné d’une explication et accueillir un retour précis."
+    },
+    "Zápisník pro oddělené poznámky pozorování, výkladu a vlastního záměru.": {
+      "cs": "Zápisník pro oddělené poznámky pozorování, výkladu a vlastního záměru.",
+      "en": "A notebook with separate notes for observation, interpretation and your own intention.",
+      "fr": "Un carnet séparant les notes d’observation, d’interprétation et d’intention personnelle."
+    },
+    "Vyber vlastní text v rozsahu 150–250 slov a připrav konkrétní otázku pro dobrovolnou zpětnou vazbu.": {
+      "cs": "Vyber vlastní text v rozsahu 150–250 slov a připrav konkrétní otázku pro dobrovolnou zpětnou vazbu.",
+      "en": "Choose a personal text of 150–250 words and prepare a specific question for voluntary feedback.",
+      "fr": "Choisis un texte personnel de 150 à 250 mots et prépare une question précise pour un retour volontaire."
+    },
+    "Před návštěvou skupiny ověř aktuální termín a jazyk. Veřejné dílo prohlížej ze zpřístupněného prostoru.": {
+      "cs": "Před návštěvou skupiny ověř aktuální termín a jazyk. Veřejné dílo prohlížej ze zpřístupněného prostoru.",
+      "en": "Check the current date and language before visiting a group. View public artwork from an area open to visitors.",
+      "fr": "Avant de rejoindre un groupe, vérifie la date actuelle et la langue. Observe les œuvres publiques depuis un espace accessible."
+    },
+    "Ponech nejméně 90 minut v klidu na vlastní text, znak a jejich revizi.": {
+      "cs": "Ponech nejméně 90 minut v klidu na vlastní text, znak a jejich revizi.",
+      "en": "Keep at least 90 quiet minutes for your own text, symbol and revision.",
+      "fr": "Garde au moins 90 minutes au calme pour ton texte, ton signe et leur révision."
+    },
+    "Vyber vlastní dílo nebo legálně zpřístupněnou reprodukci, odděl pozorování od výkladu a vytvoř text i znak. Dobrovolnou reakci může dát známý; neoznačuj ji za uskutečněný pařížský workshop.": {
+      "cs": "Vyber vlastní dílo nebo legálně zpřístupněnou reprodukci, odděl pozorování od výkladu a vytvoř text i znak. Dobrovolnou reakci může dát známý; neoznačuj ji za uskutečněný pařížský workshop.",
+      "en": "Choose your own work or a reproduction made legally available, separate observation from interpretation and create a text and symbol. A friend may give voluntary feedback; do not call it a completed Paris workshop.",
+      "fr": "Choisis une œuvre personnelle ou une reproduction légalement accessible, sépare l’observation de l’interprétation et crée un texte et un signe. Un proche peut donner un retour volontaire ; ne le présente pas comme un atelier parisien suivi."
+    },
+    "Raný hip-hop vyrůstal ze setkávání afroamerických, latinskoamerických a karibských komunit v Bronxu. Smithsonian popisuje DJe hledající na deskách break: úsek, v němž vystoupí synkopovaný rytmus a perkuse. Salsa, disco, funk i rock tak nebyly jen oddělené police v obchodě, ale dostupný materiál pro nový způsob poslechu a společné tancování.": {
+      "cs": "Raný hip-hop vyrůstal ze setkávání afroamerických, latinskoamerických a karibských komunit v Bronxu. Smithsonian popisuje DJe hledající na deskách break: úsek, v němž vystoupí synkopovaný rytmus a perkuse. Salsa, disco, funk i rock tak nebyly jen oddělené police v obchodě, ale dostupný materiál pro nový způsob poslechu a společné tancování.",
+      "en": "Early hip-hop grew out of gatherings of African American, Latin American and Caribbean communities in the Bronx. The Smithsonian describes DJs searching records for the break: a section where syncopated rhythm and percussion come forward. Salsa, disco, funk and rock were therefore more than separate shop shelves; they were available material for a new way of listening and dancing together.",
+      "fr": "Le hip-hop des débuts s’est développé lors de rassemblements de communautés afro-américaines, latino-américaines et caribéennes dans le Bronx. Le Smithsonian décrit des DJs cherchant sur les disques le break : un passage où ressortent le rythme syncopé et les percussions. Salsa, disco, funk et rock ne constituaient donc pas seulement des rayons séparés, mais une matière disponible pour une nouvelle manière d’écouter et de danser ensemble."
+    },
+    "Výběr konkrétního úseku měnil funkci už existující nahrávky; kulturní souvislost neleží pouze v názvu skladby nebo ve značce gramofonu. V této expedici proto ber výběr jako rozhodnutí, které umíš vysvětlit druhému člověku. Nejdřív pojmenuj slyšený detail, potom zkus návaznost a teprve následně hodnoť, zda plní tvůj záměr. Vlastní mapa energie setu je naše tvůrčí pomůcka, nikoli historické pravidlo DJingu. Stejnou dvojici skladeb můžeš použít k různým účinkům; dolož změnu konkrétním místem v poslechu.": {
+      "cs": "Výběr konkrétního úseku měnil funkci už existující nahrávky; kulturní souvislost neleží pouze v názvu skladby nebo ve značce gramofonu. V této expedici proto ber výběr jako rozhodnutí, které umíš vysvětlit druhému člověku. Nejdřív pojmenuj slyšený detail, potom zkus návaznost a teprve následně hodnoť, zda plní tvůj záměr. Vlastní mapa energie setu je naše tvůrčí pomůcka, nikoli historické pravidlo DJingu. Stejnou dvojici skladeb můžeš použít k různým účinkům; dolož změnu konkrétním místem v poslechu.",
+      "en": "Choosing a particular passage changed the function of an existing recording; the cultural connection lies in more than a track title or turntable brand. In this expedition, treat selection as a decision you can explain to someone else. Name the audible detail first, try the transition next, then judge whether it serves your intention. Your own map of a set’s energy is our creative aid, not a historical rule of DJing. The same two tracks can create different effects; demonstrate the change at a specific moment in the recording.",
+      "fr": "Choisir un passage précis transformait la fonction d’un enregistrement existant ; le lien culturel ne réside pas seulement dans le titre d’un morceau ou la marque d’une platine. Dans cette expédition, considère la sélection comme un choix que tu peux expliquer à quelqu’un. Nomme d’abord le détail entendu, essaie l’enchaînement, puis juge s’il sert ton intention. Ta carte personnelle de l’énergie du set est notre outil créatif, pas une règle historique du DJing. Les deux mêmes morceaux peuvent produire différents effets ; montre le changement à un moment précis de l’écoute."
+    },
+    "Ilustrační grafická scéna pro DJ; není fotografií skutečného místa. Schválená autorská ilustrace CAISIK.": {
+      "cs": "Ilustrační grafická scéna pro DJ; není fotografií skutečného místa. Schválená autorská ilustrace CAISIK.",
+      "en": "Illustrative graphic scene for DJ; not a photograph of a real place. Approved original CAISIK illustration.",
+      "fr": "Scène graphique illustrative pour DJ ; ce n’est pas la photographie d’un lieu réel. Illustration originale CAISIK approuvée."
+    },
+    "Francouzský hip-hop se šířil také mimo hlavní hudební průmysl. Philharmonie de Paris připomíná dráhu Dee Nastyho, asociativní rádia, pozdější celostátní vysílání a oběh mixtapů. Její archiv uvádí La Chapelle jako jedno z pařížských míst, kde se propojovali DJs, rappeři, breakeři a graffeři. Jde o historický kontext vztahů a přenosu, nikoli dnešní příslib session na dané adrese.": {
+      "cs": "Francouzský hip-hop se šířil také mimo hlavní hudební průmysl. Philharmonie de Paris připomíná dráhu Dee Nastyho, asociativní rádia, pozdější celostátní vysílání a oběh mixtapů. Její archiv uvádí La Chapelle jako jedno z pařížských míst, kde se propojovali DJs, rappeři, breakeři a graffeři. Jde o historický kontext vztahů a přenosu, nikoli dnešní příslib session na dané adrese.",
+      "en": "French hip-hop also spread outside the mainstream music industry. The Philharmonie de Paris recalls Dee Nasty’s trajectory, community radio, later national broadcasts and the circulation of mixtapes. Its archive identifies La Chapelle as one of the Paris places connecting DJs, rappers, breakers and graffiti writers. This is historical context about relationships and transmission, not a current promise of a session at that address.",
+      "fr": "Le hip-hop français s’est également diffusé hors de l’industrie musicale dominante. La Philharmonie de Paris retrace le parcours de Dee Nasty, les radios associatives, les diffusions nationales ultérieures et la circulation des mixtapes. Son archive cite La Chapelle parmi les lieux parisiens où se rencontraient DJs, rappeurs, breakers et graffeurs. Il s’agit d’un contexte historique de relations et de transmission, pas d’une promesse actuelle de session à cette adresse."
+    },
+    "Vlastní hlas tedy vstupuje do konkrétního prostředí posluchačů, médií a dalších autorů. Na trase zkoumej, komu a proč svůj text říkáš. Rozdíl mezi prvním a druhým přednesem nemá být jen hlasitost: můžeš změnit pauzu, místo důrazu nebo přejít od obecného soudu k pozorovanému detailu. Naše vymyšlené textové ukázky ukazují takové rozhodování; nejsou výpověďmi obyvatel Barbès. Zpětnou vazbu formuluj otázkou na srozumitelnost konkrétního řádku a pak zapiš, co jsi podle reakce skutečně upravil.": {
+      "cs": "Vlastní hlas tedy vstupuje do konkrétního prostředí posluchačů, médií a dalších autorů. Na trase zkoumej, komu a proč svůj text říkáš. Rozdíl mezi prvním a druhým přednesem nemá být jen hlasitost: můžeš změnit pauzu, místo důrazu nebo přejít od obecného soudu k pozorovanému detailu. Naše vymyšlené textové ukázky ukazují takové rozhodování; nejsou výpověďmi obyvatel Barbès. Zpětnou vazbu formuluj otázkou na srozumitelnost konkrétního řádku a pak zapiš, co jsi podle reakce skutečně upravil.",
+      "en": "Your own voice enters a specific environment of listeners, media and other creators. Along the route, explore whom you address and why. The difference between your first and second delivery should be more than volume: change a pause, move an emphasis or replace a general judgement with an observed detail. Our invented lyric examples illustrate these decisions; they are not testimonies from Barbès residents. Ask for feedback about the clarity of one specific line, then record what you actually revised in response.",
+      "fr": "Ta propre voix s’inscrit dans un environnement concret d’auditeurs, de médias et d’autres créateurs. Sur le parcours, interroge-toi sur la personne à qui tu t’adresses et sur ta raison de parler. Entre deux interprétations, le changement ne doit pas porter seulement sur le volume : déplace une pause, un accent, ou remplace un jugement général par un détail observé. Nos exemples de textes inventés illustrent ces choix ; ce ne sont pas des témoignages d’habitants de Barbès. Demande un retour sur la clarté d’une ligne précise, puis note ce que tu as réellement modifié grâce à la réponse."
+    },
+    "Ilustrační grafická scéna pro MC; není fotografií skutečného místa. Schválená autorská ilustrace CAISIK.": {
+      "cs": "Ilustrační grafická scéna pro MC; není fotografií skutečného místa. Schválená autorská ilustrace CAISIK.",
+      "en": "Illustrative graphic scene for MC; not a photograph of a real place. Approved original CAISIK illustration.",
+      "fr": "Scène graphique illustrative pour MC ; ce n’est pas la photographie d’un lieu réel. Illustration originale CAISIK approuvée."
+    },
+    "Když Smithsonian v roce 2006 vyhlásil sběratelskou iniciativu Hip-Hop Won’t Stop, zahrnul vedle nahrávek a DJ vybavení také graffiti, fotografie, oděvy a ručně psané texty. Takový archiv ukazuje kulturu prostřednictvím věcí, způsobů jejich použití a stop konkrétních autorů.": {
+      "cs": "Když Smithsonian v roce 2006 vyhlásil sběratelskou iniciativu Hip-Hop Won’t Stop, zahrnul vedle nahrávek a DJ vybavení také graffiti, fotografie, oděvy a ručně psané texty. Takový archiv ukazuje kulturu prostřednictvím věcí, způsobů jejich použití a stop konkrétních autorů.",
+      "en": "When the Smithsonian launched its Hip-Hop Won’t Stop collecting initiative in 2006, it included graffiti, photographs, clothing and handwritten lyrics alongside recordings and DJ equipment. Such an archive shows a culture through objects, how they are used and traces left by specific creators.",
+      "fr": "Lorsque le Smithsonian a lancé son initiative de collecte Hip-Hop Won’t Stop en 2006, il a inclus le graffiti, les photographies, les vêtements et les textes manuscrits aux côtés des enregistrements et du matériel de DJ. Une telle archive montre une culture à travers les objets, leurs usages et les traces de créateurs identifiables."
+    },
+    "Graffiti zde má doloženou vazbu na hip-hop; z této vazby ale nelze odvodit, že každý nápis ve městě má stejný původ, význam nebo souhlas vlastníka plochy. Pro vlastní práci proto odděl studium principu od převzetí cizího podpisu. Zaznamenej osu, mezeru, překrytí a rozhodnutí o kontrastu; až potom sestav vlastní tvar a paletu. Procesní Blackbook má ukázat také neúspěšný pokus a opravu. Návštěva shopu slouží realizaci návrhu a fotografie hotové stěny je zdrojem otázek, nikoli potvrzením oprávnění malovat. Vlastní realizaci plánuj výhradně pro konkrétní povolený úsek.": {
+      "cs": "Graffiti zde má doloženou vazbu na hip-hop; z této vazby ale nelze odvodit, že každý nápis ve městě má stejný původ, význam nebo souhlas vlastníka plochy. Pro vlastní práci proto odděl studium principu od převzetí cizího podpisu. Zaznamenej osu, mezeru, překrytí a rozhodnutí o kontrastu; až potom sestav vlastní tvar a paletu. Procesní Blackbook má ukázat také neúspěšný pokus a opravu. Návštěva shopu slouží realizaci návrhu a fotografie hotové stěny je zdrojem otázek, nikoli potvrzením oprávnění malovat. Vlastní realizaci plánuj výhradně pro konkrétní povolený úsek.",
+      "en": "Graffiti has a documented connection to hip-hop here, but that connection does not mean every inscription in the city shares the same origin, meaning or owner’s permission. In your work, separate studying a principle from taking someone else’s signature. Record an axis, gap, overlap and contrast decision; then build your own form and palette. Your process Blackbook should also show a failed attempt and a correction. A shop visit serves the design’s realisation, while a finished-wall photograph provides questions, not proof of permission to paint. Plan your piece only for a specific authorised section.",
+      "fr": "Le lien entre graffiti et hip-hop est ici documenté ; cela ne signifie pas que chaque inscription de la ville possède la même origine, le même sens ou l’accord du propriétaire. Pour ton travail, distingue l’étude d’un principe de la reprise d’une signature. Relève un axe, un vide, une superposition et un choix de contraste ; construis ensuite ta propre forme et ta palette. Ton Blackbook de processus doit aussi montrer un essai raté et sa correction. La visite d’un shop sert à réaliser le projet, tandis que la photographie d’un mur terminé suscite des questions sans prouver une autorisation de peindre. Prévois ta réalisation uniquement sur une portion précisément autorisée."
+    },
+    "Ilustrační grafická scéna pro WRITER; není fotografií skutečného místa. Schválená autorská ilustrace CAISIK.": {
+      "cs": "Ilustrační grafická scéna pro WRITER; není fotografií skutečného místa. Schválená autorská ilustrace CAISIK.",
+      "en": "Illustrative graphic scene for WRITER; not a photograph of a real place. Approved original CAISIK illustration.",
+      "fr": "Scène graphique illustrative pour WRITER ; ce n’est pas la photographie d’un lieu réel. Illustration originale CAISIK approuvée."
+    },
+    "Philharmonie de Paris při výkladu Hip-Hop 360 zdůrazňuje kruh jako prostor tanečních battlů a rapového freestylu: diváci jsou nablízku a tvoří součást události. Její historický přehled sleduje breaking od francouzských průkopníků Aktuel Force k dalším generacím. Smithsonian současně popisuje breaking jako tanec b-boys a b-girls na opakované synkopované breakbeaty.": {
+      "cs": "Philharmonie de Paris při výkladu Hip-Hop 360 zdůrazňuje kruh jako prostor tanečních battlů a rapového freestylu: diváci jsou nablízku a tvoří součást události. Její historický přehled sleduje breaking od francouzských průkopníků Aktuel Force k dalším generacím. Smithsonian současně popisuje breaking jako tanec b-boys a b-girls na opakované synkopované breakbeaty.",
+      "en": "In its presentation of Hip-Hop 360, the Philharmonie de Paris highlights the circle as a space for dance battles and rap freestyle: spectators are close and form part of the event. Its historical overview follows breaking from French pioneers Aktuel Force to later generations. The Smithsonian also describes breaking as b-boys and b-girls dancing to repeated syncopated breakbeats.",
+      "fr": "Dans sa présentation de Hip-Hop 360, la Philharmonie de Paris souligne le cercle comme espace des battles de danse et du freestyle rap : les spectateurs sont proches et participent à l’événement. Son panorama historique suit le breaking des pionniers français Aktuel Force aux générations suivantes. Le Smithsonian décrit aussi le breaking comme la danse des b-boys et b-girls sur des breakbeats syncopés répétés."
+    },
+    "Hudba, prostor a vzájemná přítomnost tak patří do kulturního kontextu vedle jednotlivých pohybových prvků. Náš animovaný kruh ukazuje pozornost k rytmu, ne správnou polohu těla. Sleduj, na jaký zvuk někdo reaguje, kde nechává pauzu a jak sdílí prostor; nevydávej pozorování za odborné posouzení techniky. Vlastní frázi vybírej pouze z pohybů, které bezpečně ovládáš. Konkrétní opravu a další postup řeš s kvalifikovaným lektorem. Ilustrace tenisky ani generovaná postava jeho demonstraci nebo zpětnou vazbu nenahrazují.": {
+      "cs": "Hudba, prostor a vzájemná přítomnost tak patří do kulturního kontextu vedle jednotlivých pohybových prvků. Náš animovaný kruh ukazuje pozornost k rytmu, ne správnou polohu těla. Sleduj, na jaký zvuk někdo reaguje, kde nechává pauzu a jak sdílí prostor; nevydávej pozorování za odborné posouzení techniky. Vlastní frázi vybírej pouze z pohybů, které bezpečně ovládáš. Konkrétní opravu a další postup řeš s kvalifikovaným lektorem. Ilustrace tenisky ani generovaná postava jeho demonstraci nebo zpětnou vazbu nenahrazují.",
+      "en": "Music, space and being present together belong to the cultural context alongside individual movement elements. Our animated circle illustrates attention to rhythm, not correct body positioning. Notice the sound someone responds to, where they pause and how they share space; do not present observation as an expert assessment of technique. Choose your own phrase only from movements you can perform safely. Discuss a specific correction and next steps with a qualified instructor. An illustrated trainer or generated figure cannot replace their demonstration or feedback.",
+      "fr": "La musique, l’espace et la présence partagée font partie du contexte culturel au même titre que les mouvements. Notre cercle animé illustre l’attention au rythme, pas une position correcte du corps. Observe le son auquel une personne répond, ses pauses et sa manière de partager l’espace ; ne présente pas cette observation comme une expertise technique. Compose ta phrase uniquement avec des mouvements que tu maîtrises en sécurité. Discute d’une correction précise et de la suite avec un professeur qualifié. Une basket illustrée ou un personnage généré ne remplacent ni sa démonstration ni son retour."
+    },
+    "Ilustrační grafická scéna pro B-BOY / B-GIRL; není fotografií skutečného místa. Schválená autorská ilustrace CAISIK; nejde o odbornou pohybovou demonstraci.": {
+      "cs": "Ilustrační grafická scéna pro B-BOY / B-GIRL; není fotografií skutečného místa. Schválená autorská ilustrace CAISIK; nejde o odbornou pohybovou demonstraci.",
+      "en": "Illustrative graphic scene for B-BOY / B-GIRL; not a photograph of a real place. Approved original CAISIK illustration. This is not a professional movement demonstration.",
+      "fr": "Scène graphique illustrative pour B-BOY / B-GIRL ; ce n’est pas la photographie d’un lieu réel. Illustration originale CAISIK approuvée. Il ne s’agit pas d’une démonstration technique professionnelle."
+    },
+    "Kulturní paměť hip-hopu se neopírá jen o hotové skladby. Smithsonian ve svém sběratelském projektu zahrnul rozhovory, korespondenci, fotografie a ručně psané texty. Pařížský přehled La Place zase spojuje tvorbu s předáváním znalostí, setkáváním a pamětí místa; Les Halles popisuje jako důležité prostředí francouzského hip-hopu.": {
+      "cs": "Kulturní paměť hip-hopu se neopírá jen o hotové skladby. Smithsonian ve svém sběratelském projektu zahrnul rozhovory, korespondenci, fotografie a ručně psané texty. Pařížský přehled La Place zase spojuje tvorbu s předáváním znalostí, setkáváním a pamětí místa; Les Halles popisuje jako důležité prostředí francouzského hip-hopu.",
+      "en": "Hip-hop’s cultural memory rests on more than finished tracks. The Smithsonian’s collecting project included interviews, correspondence, photographs and handwritten lyrics. The Paris overview by La Place connects creation with sharing knowledge, encounters and the memory of place, describing Les Halles as an important environment for French hip-hop.",
+      "fr": "La mémoire culturelle du hip-hop ne repose pas seulement sur les morceaux terminés. Le projet de collecte du Smithsonian comprenait des entretiens, des correspondances, des photographies et des textes manuscrits. Le panorama parisien de La Place relie la création à la transmission des savoirs, aux rencontres et à la mémoire des lieux, présentant Les Halles comme un environnement important du hip-hop français."
+    },
+    "Tyto zdroje ukazují různé druhy svědectví. Historické tvrzení proto potřebuje určit, kdo něco zaznamenal, v jakém kontextu a o čem daný záznam skutečně vypovídá. Knowledge of Self zde používáme jako autorský rámec kritického čtení a vlastní tvorby. Odděluj, co vidíš, co doložíš zdrojem a co si k obrazu přidáváš. Vlastní znak nemusí skrývat univerzální tajemství; měl by mít význam, který dokážeš obhájit a případně zpřesnit. Alchymistické motivy a Seven Principles jsou současné tvůrčí propojení CAISIK, nikoli doložený starověký původ hip-hopu ani důkaz nadpřirozeného působení města.": {
+      "cs": "Tyto zdroje ukazují různé druhy svědectví. Historické tvrzení proto potřebuje určit, kdo něco zaznamenal, v jakém kontextu a o čem daný záznam skutečně vypovídá. Knowledge of Self zde používáme jako autorský rámec kritického čtení a vlastní tvorby. Odděluj, co vidíš, co doložíš zdrojem a co si k obrazu přidáváš. Vlastní znak nemusí skrývat univerzální tajemství; měl by mít význam, který dokážeš obhájit a případně zpřesnit. Alchymistické motivy a Seven Principles jsou současné tvůrčí propojení CAISIK, nikoli doložený starověký původ hip-hopu ani důkaz nadpřirozeného působení města.",
+      "en": "These sources show different types of testimony. A historical claim therefore needs to identify who recorded something, in what context and what the record actually establishes. We use Knowledge of Self here as an editorial framework for critical reading and personal creation. Separate what you see, what you can support with a source and what you add to an image. Your symbol need not conceal a universal secret; it should carry a meaning you can defend and, if necessary, refine. Alchemical imagery and the Seven Principles are contemporary CAISIK creative connections, not an established ancient origin of hip-hop or proof of supernatural effects in the city.",
+      "fr": "Ces sources présentent différents types de témoignages. Une affirmation historique doit donc préciser qui a consigné un élément, dans quel contexte et ce que le document établit réellement. Nous utilisons ici Knowledge of Self comme cadre éditorial de lecture critique et de création personnelle. Sépare ce que tu vois, ce que tu peux étayer par une source et ce que tu ajoutes à l’image. Ton signe n’a pas besoin de cacher un secret universel ; il doit porter un sens que tu peux défendre et, au besoin, préciser. Les motifs alchimiques et les Seven Principles sont des rapprochements créatifs contemporains de CAISIK, pas une origine antique attestée du hip-hop ni une preuve d’effets surnaturels dans la ville."
+    },
+    "Ilustrační grafická scéna pro KNOWLEDGE; není fotografií skutečného místa. Schválená autorská ilustrace CAISIK.": {
+      "cs": "Ilustrační grafická scéna pro KNOWLEDGE; není fotografií skutečného místa. Schválená autorská ilustrace CAISIK.",
+      "en": "Illustrative graphic scene for KNOWLEDGE; not a photograph of a real place. Approved original CAISIK illustration.",
+      "fr": "Scène graphique illustrative pour KNOWLEDGE ; ce n’est pas la photographie d’un lieu réel. Illustration originale CAISIK approuvée."
+    },
+    "Slyš vrstvy, ne jen název skladby.": {
+      "cs": "Slyš vrstvy, ne jen název skladby.",
+      "en": "Hear the layers, not just the track title.",
+      "fr": "Entends les couches, pas seulement le titre du morceau."
+    },
+    "Dnes nehledáš nejdražší desku. Hledáš zvuk, pro který dokážeš popsat konkrétní roli. Pozornost zaměřujeme postupně; nejde o jediný správný způsob poslechu.": {
+      "cs": "Dnes nehledáš nejdražší desku. Hledáš zvuk, pro který dokážeš popsat konkrétní roli. Pozornost zaměřujeme postupně; nejde o jediný správný způsob poslechu.",
+      "en": "Today you are not hunting for the most expensive record. You are looking for a sound whose specific role you can describe. We focus attention in stages; this is not the only correct way to listen.",
+      "fr": "Aujourd’hui, tu ne cherches pas le disque le plus cher. Tu cherches un son dont tu peux décrire le rôle précis. Nous orientons progressivement l’attention ; ce n’est pas l’unique manière correcte d’écouter."
+    },
+    "Autorský příklad: první poslech zachytí pouze silný groove. Při druhém si poznamenáš pravidelný kopák a mezeru před dalším úderem. Ve třetím sleduješ, kdy do ní vstupuje basa. Z pocitu vzniká popsatelná volba.": {
+      "cs": "Autorský příklad: první poslech zachytí pouze silný groove. Při druhém si poznamenáš pravidelný kopák a mezeru před dalším úderem. Ve třetím sleduješ, kdy do ní vstupuje basa. Z pocitu vzniká popsatelná volba.",
+      "en": "Original example: the first listen catches only a strong groove. On the second, you note a steady kick and the gap before the next hit. On the third, you follow when the bass enters that gap. A feeling becomes a choice you can describe.",
+      "fr": "Exemple original : la première écoute retient seulement un groove puissant. À la deuxième, tu notes une grosse caisse régulière et l’espace avant le coup suivant. À la troisième, tu suis le moment où la basse entre dans cet espace. Une sensation devient un choix descriptible."
+    },
+    "Vyber skladbu, kterou smíš přehrát. Poslouchej krátký úsek bez čtení názvu.": {
+      "cs": "Vyber skladbu, kterou smíš přehrát. Poslouchej krátký úsek bez čtení názvu.",
+      "en": "Choose a track you are allowed to play. Listen to a short passage without reading its title.",
+      "fr": "Choisis un morceau que tu as le droit de diffuser. Écoute un court passage sans lire son titre."
+    },
+    "Zapiš zvlášť rytmus, basu a výrazný motiv. Nevíš-li, jak se nástroj jmenuje, popiš zvuk vlastními slovy.": {
+      "cs": "Zapiš zvlášť rytmus, basu a výrazný motiv. Nevíš-li, jak se nástroj jmenuje, popiš zvuk vlastními slovy.",
+      "en": "Note the rhythm, bass and a prominent motif separately. If you do not know an instrument’s name, describe the sound in your own words.",
+      "fr": "Note séparément le rythme, la basse et un motif marquant. Si tu ignores le nom d’un instrument, décris le son avec tes propres mots."
+    },
+    "Pusť úsek znovu a oprav jednu první domněnku.": {
+      "cs": "Pusť úsek znovu a oprav jednu první domněnku.",
+      "en": "Replay the passage and correct one initial assumption.",
+      "fr": "Réécoute le passage et corrige une première supposition."
+    },
+    "V obchodě požádej o doporučení podle konkrétního zvuku, ne pouze podle žánru.": {
+      "cs": "V obchodě požádej o doporučení podle konkrétního zvuku, ne pouze podle žánru.",
+      "en": "In the shop, ask for a recommendation based on a specific sound, not only a genre.",
+      "fr": "Dans la boutique, demande une recommandation fondée sur un son précis, pas seulement sur un genre."
+    },
+    "Dokážeš ukázat čas, kdy se něco mění?": {
+      "cs": "Dokážeš ukázat čas, kdy se něco mění?",
+      "en": "Can you point to the time when something changes?",
+      "fr": "Peux-tu indiquer le moment où quelque chose change ?"
+    },
+    "Rozlišuješ slyšený detail od předpokladu o jeho původu?": {
+      "cs": "Rozlišuješ slyšený detail od předpokladu o jeho původu?",
+      "en": "Do you distinguish an audible detail from an assumption about its origin?",
+      "fr": "Distingues-tu un détail entendu d’une supposition sur son origine ?"
+    },
+    "Tři poslechové poznámky a jedna oprava.": {
+      "cs": "Tři poslechové poznámky a jedna oprava.",
+      "en": "Three listening notes and one correction.",
+      "fr": "Trois notes d’écoute et une correction."
+    },
+    "Porovnej dva odlišné tracky a najdi společnou zvukovou funkci, ne nutně shodný styl.": {
+      "cs": "Porovnej dva odlišné tracky a najdi společnou zvukovou funkci, ne nutně shodný styl.",
+      "en": "Compare two different tracks and find a shared sonic function, not necessarily the same style.",
+      "fr": "Compare deux morceaux différents et trouve une fonction sonore commune, pas nécessairement le même style."
+    },
+    "Co ve skladbě opravdu slyším, když na chvíli schovám její název?": {
+      "cs": "Co ve skladbě opravdu slyším, když na chvíli schovám její název?",
+      "en": "What do I actually hear in a track when I hide its title for a moment?",
+      "fr": "Qu’est-ce que j’entends vraiment dans un morceau quand je cache un instant son titre ?"
+    },
+    "Sleduj nástup rytmu, basy a jednoho motivu; zapisuj konkrétní okamžiky.": {
+      "cs": "Sleduj nástup rytmu, basy a jednoho motivu; zapisuj konkrétní okamžiky.",
+      "en": "Follow the entry of the rhythm, bass and one motif; note specific moments.",
+      "fr": "Suis l’arrivée du rythme, de la basse et d’un motif ; note des moments précis."
+    },
+    "Příště použij stejný třívrstvý poslech u skladby jiného stylu a oprav první domněnku.": {
+      "cs": "Příště použij stejný třívrstvý poslech u skladby jiného stylu a oprav první domněnku.",
+      "en": "Next time, use the same three-layer listening method on a different style of track and correct your first assumption.",
+      "fr": "La prochaine fois, applique la même écoute en trois couches à un morceau d’un autre style et corrige ta première supposition."
+    },
+    "Proč patří tyto dvě věci za sebe?": {
+      "cs": "Proč patří tyto dvě věci za sebe?",
+      "en": "Why do these two belong in sequence?",
+      "fr": "Pourquoi enchaîner précisément ces deux morceaux ?"
+    },
+    "Přechod může pracovat s podobností i kontrastem. Pro tuto lekci vyber pouze jeden záměr: udržet energii, změnit prostor nebo zvýraznit překvapení.": {
+      "cs": "Přechod může pracovat s podobností i kontrastem. Pro tuto lekci vyber pouze jeden záměr: udržet energii, změnit prostor nebo zvýraznit překvapení.",
+      "en": "A transition can work with similarity or contrast. For this lesson, choose just one intention: sustain energy, change the space or bring out a surprise.",
+      "fr": "Un enchaînement peut jouer sur la ressemblance ou le contraste. Pour cette leçon, choisis une seule intention : maintenir l’énergie, changer l’espace ou faire ressortir une surprise."
+    },
+    "A je hutný rytmus, B má delší tiché začátky. Původní pokus pustí obě věci přes sebe a záměr se ztratí. Opravený pokus nechá před B krátký prostor. Neříkáme, že druhý je univerzálně lepší; hodnotíme, zda plní zadaný záměr.": {
+      "cs": "A je hutný rytmus, B má delší tiché začátky. Původní pokus pustí obě věci přes sebe a záměr se ztratí. Opravený pokus nechá před B krátký prostor. Neříkáme, že druhý je univerzálně lepší; hodnotíme, zda plní zadaný záměr.",
+      "en": "A has a dense rhythm; B has longer quiet openings. The first attempt overlaps both and loses the intention. The revised attempt leaves a short space before B. We are not saying the second is universally better; we judge whether it fulfils the chosen intention.",
+      "fr": "A possède un rythme dense ; B présente des débuts plus longs et silencieux. Le premier essai superpose les deux et perd l’intention. L’essai corrigé laisse un court espace avant B. Nous ne disons pas que le second est toujours meilleur ; nous évaluons s’il répond à l’intention choisie."
+    },
+    "Vyber dvě vlastní nebo oprávněně použité nahrávky.": {
+      "cs": "Vyber dvě vlastní nebo oprávněně použité nahrávky.",
+      "en": "Choose two recordings you own or are entitled to use.",
+      "fr": "Choisis deux enregistrements personnels ou que tu as le droit d’utiliser."
+    },
+    "Napiš jednou větou záměr návaznosti.": {
+      "cs": "Napiš jednou větou záměr návaznosti.",
+      "en": "State the intention of the transition in one sentence.",
+      "fr": "Formule l’intention de l’enchaînement en une phrase."
+    },
+    "Na skutečně potvrzeném vybavení zkus dvě verze. Nezaměňuj pronájem studia za automatickou přítomnost lektora.": {
+      "cs": "Na skutečně potvrzeném vybavení zkus dvě verze. Nezaměňuj pronájem studia za automatickou přítomnost lektora.",
+      "en": "Try two versions on equipment whose availability has actually been confirmed. Studio rental does not automatically include an instructor.",
+      "fr": "Essaie deux versions sur du matériel dont la disponibilité est réellement confirmée. La location d’un studio n’inclut pas automatiquement un professeur."
+    },
+    "Poslechni si záznam bez sledování rukou. Označ okamžik, který odpovídá záměru.": {
+      "cs": "Poslechni si záznam bez sledování rukou. Označ okamžik, který odpovídá záměru.",
+      "en": "Listen to the recording without watching your hands. Mark a moment that matches the intention.",
+      "fr": "Écoute l’enregistrement sans regarder tes mains. Repère un moment qui correspond à l’intention."
+    },
+    "Je rozdíl mezi verzemi slyšitelný?": {
+      "cs": "Je rozdíl mezi verzemi slyšitelný?",
+      "en": "Can you hear a difference between the versions?",
+      "fr": "La différence entre les versions est-elle audible ?"
+    },
+    "Máš pojmenované rozhodnutí, nejen oblíbenou skladbu?": {
+      "cs": "Máš pojmenované rozhodnutí, nejen oblíbenou skladbu?",
+      "en": "Have you named a decision, rather than just a favourite track?",
+      "fr": "As-tu nommé un choix plutôt que simplement un morceau préféré ?"
+    },
+    "Dva pokusy a krátké zdůvodnění.": {
+      "cs": "Dva pokusy a krátké zdůvodnění.",
+      "en": "Two attempts and a short explanation.",
+      "fr": "Deux essais et une courte justification."
+    },
+    "Postav návaznost, která funguje bez shodné nálady obou skladeb.": {
+      "cs": "Postav návaznost, která funguje bez shodné nálady obou skladeb.",
+      "en": "Build a transition that works without both tracks sharing the same mood.",
+      "fr": "Construis un enchaînement qui fonctionne sans que les deux morceaux partagent la même ambiance."
+    },
+    "Jakou změnu má tato konkrétní návaznost vyvolat?": {
+      "cs": "Jakou změnu má tato konkrétní návaznost vyvolat?",
+      "en": "What change should this particular transition produce?",
+      "fr": "Quel changement cet enchaînement précis doit-il produire ?"
+    },
+    "Všímej si začátků, konců a prostoru mezi nahrávkami, nikoli jen shodného tempa.": {
+      "cs": "Všímej si začátků, konců a prostoru mezi nahrávkami, nikoli jen shodného tempa.",
+      "en": "Notice beginnings, endings and the space between recordings, rather than only a matching tempo.",
+      "fr": "Observe les débuts, les fins et l’espace entre les enregistrements, pas seulement un tempo identique."
+    },
+    "Zkus stejný záměr na jiné dvojici nahrávek a vysvětli, které rozhodnutí bylo třeba změnit.": {
+      "cs": "Zkus stejný záměr na jiné dvojici nahrávek a vysvětli, které rozhodnutí bylo třeba změnit.",
+      "en": "Try the same intention with another pair of recordings and explain which decision needed to change.",
+      "fr": "Essaie la même intention avec deux autres enregistrements et explique quel choix il a fallu modifier."
+    },
+    "Z výběru vytvoř příběh.": {
+      "cs": "Z výběru vytvoř příběh.",
+      "en": "Turn a selection into a story.",
+      "fr": "Transforme une sélection en récit."
+    },
+    "Větší počet skladeb nemusí znamenat lepší celek. Ve studiu rezervuj čas na zkoušku záznamu a export. Večer pak porovnej svoje rozhodnutí s tím, čeho si všimneš u jiného DJ.": {
+      "cs": "Větší počet skladeb nemusí znamenat lepší celek. Ve studiu rezervuj čas na zkoušku záznamu a export. Večer pak porovnej svoje rozhodnutí s tím, čeho si všimneš u jiného DJ.",
+      "en": "More tracks do not necessarily make a better whole. In the studio, allow time to test the recording and export it. Later that evening, compare your decisions with what you notice in another DJ’s work.",
+      "fr": "Davantage de morceaux ne rendent pas forcément l’ensemble meilleur. Au studio, prévois du temps pour tester l’enregistrement et l’exporter. Le soir, compare tes choix avec ce que tu remarques chez un autre DJ."
+    },
+    "Osnova: uvedení tématu → první změna → kontrast → návrat či otevřený konec. Je to pracovní pomůcka, ne povinná forma každého setu.": {
+      "cs": "Osnova: uvedení tématu → první změna → kontrast → návrat či otevřený konec. Je to pracovní pomůcka, ne povinná forma každého setu.",
+      "en": "Working outline: introduce a theme → first change → contrast → return or an open ending. This is a practical aid, not a compulsory form for every set.",
+      "fr": "Trame de travail : introduction d’un thème → premier changement → contraste → retour ou fin ouverte. C’est un outil pratique, pas une forme obligatoire pour tous les sets."
+    },
+    "Připrav pořadí a označ tři přechody se zamýšlenou funkcí.": {
+      "cs": "Připrav pořadí a označ tři přechody se zamýšlenou funkcí.",
+      "en": "Prepare the running order and mark three transitions with their intended functions.",
+      "fr": "Prépare l’ordre des morceaux et repère trois transitions avec leur fonction souhaitée."
+    },
+    "Otestuj úroveň záznamu a způsob exportu ještě před hlavním pokusem.": {
+      "cs": "Otestuj úroveň záznamu a způsob exportu ještě před hlavním pokusem.",
+      "en": "Test the recording level and export method before the main attempt.",
+      "fr": "Teste le niveau d’enregistrement et la méthode d’export avant l’essai principal."
+    },
+    "Nahraj 15–20 minut nebo kratší úsek podle možností.": {
+      "cs": "Nahraj 15–20 minut nebo kratší úsek podle možností.",
+      "en": "Record 15–20 minutes, or a shorter passage according to your circumstances.",
+      "fr": "Enregistre 15 à 20 minutes, ou un passage plus court selon tes possibilités."
+    },
+    "Zapiš jednu věc, kterou ponecháš, a jednu, kterou příště změníš.": {
+      "cs": "Zapiš jednu věc, kterou ponecháš, a jednu, kterou příště změníš.",
+      "en": "Write down one thing you will keep and one you will change next time.",
+      "fr": "Note une chose que tu conserveras et une autre que tu modifieras la prochaine fois."
+    },
+    "Má export skutečný zvuk a lze ho přehrát?": {
+      "cs": "Má export skutečný zvuk a lze ho přehrát?",
+      "en": "Does the exported file contain real audio, and can it be played?",
+      "fr": "Le fichier exporté contient-il réellement du son et peut-il être lu ?"
+    },
+    "Jsou poznámky spojeny s konkrétními místy?": {
+      "cs": "Jsou poznámky spojeny s konkrétními místy?",
+      "en": "Are your notes tied to specific moments?",
+      "fr": "Tes notes sont-elles liées à des moments précis ?"
+    },
+    "Mix, tracklist a tři komentovaná rozhodnutí.": {
+      "cs": "Mix, tracklist a tři komentovaná rozhodnutí.",
+      "en": "A mix, tracklist and three explained decisions.",
+      "fr": "Un mix, une tracklist et trois choix commentés."
+    },
+    "Vytvoř alternativní pořadí stejných skladeb a popiš jiný účinek.": {
+      "cs": "Vytvoř alternativní pořadí stejných skladeb a popiš jiný účinek.",
+      "en": "Create a different running order with the same tracks and describe its different effect.",
+      "fr": "Crée un autre ordre avec les mêmes morceaux et décris son effet différent."
+    },
+    "Která tři rozhodnutí drží můj mix pohromadě?": {
+      "cs": "Která tři rozhodnutí drží můj mix pohromadě?",
+      "en": "Which three decisions hold my mix together?",
+      "fr": "Quels sont les trois choix qui donnent sa cohérence à mon mix ?"
+    },
+    "Označ vstup, změnu energie a konec; porovnej plán se skutečným záznamem.": {
+      "cs": "Označ vstup, změnu energie a konec; porovnej plán se skutečným záznamem.",
+      "en": "Mark the opening, energy change and ending; compare the plan with the actual recording.",
+      "fr": "Repère l’entrée, le changement d’énergie et la fin ; compare le plan à l’enregistrement réel."
+    },
+    "Ze stejných tracků postav jinou posloupnost. Porovnej její účinek se svými třemi původními rozhodnutími.": {
+      "cs": "Ze stejných tracků postav jinou posloupnost. Porovnej její účinek se svými třemi původními rozhodnutími.",
+      "en": "Build another sequence from the same tracks. Compare its effect with your three original decisions.",
+      "fr": "Construis une autre succession avec les mêmes morceaux. Compare son effet à tes trois choix initiaux."
+    },
+    "Od pozorování k vlastnímu obrazu.": {
+      "cs": "Od pozorování k vlastnímu obrazu.",
+      "en": "From observation to an image of your own.",
+      "fr": "De l’observation à ton propre imaginaire."
+    },
+    "Čtvrť není kulisa pro převzaté soudy o jejích obyvatelích. Nejdřív zachyť viditelné nebo slyšitelné detaily, teprve potom je proměň v autorský obraz.": {
+      "cs": "Čtvrť není kulisa pro převzaté soudy o jejích obyvatelích. Nejdřív zachyť viditelné nebo slyšitelné detaily, teprve potom je proměň v autorský obraz.",
+      "en": "A neighbourhood is not scenery for borrowed judgements about its residents. Capture visible or audible details first, then turn them into an original image.",
+      "fr": "Un quartier n’est pas un décor pour des jugements empruntés sur ses habitants. Relève d’abord des détails visibles ou audibles, puis transforme-les en une image personnelle."
+    },
+    "Obecné: „Město je tvrdý a lidi se honí za penězi.“ Konkrétní: „Roleta ještě spí, první mince už cinká do šálku.“ Druhá věta je vymyšlená výuková ukázka, ne reportáž z Barbès.": {
+      "cs": "Obecné: „Město je tvrdý a lidi se honí za penězi.“ Konkrétní: „Roleta ještě spí, první mince už cinká do šálku.“ Druhá věta je vymyšlená výuková ukázka, ne reportáž z Barbès.",
+      "en": "General: “The city is hard and people chase money.” Specific: “The shutter still sleeps; the first coin already rings in a cup.” The second sentence is an invented teaching example, not reporting from Barbès.",
+      "fr": "Général : « La ville est dure et les gens courent après l’argent. » Concret : « Le rideau dort encore ; la première pièce tinte déjà dans une tasse. » La deuxième phrase est un exemple pédagogique inventé, pas un reportage à Barbès."
+    },
+    "Pět minut pozoruj bez nahrávání cizích rozhovorů.": {
+      "cs": "Pět minut pozoruj bez nahrávání cizích rozhovorů.",
+      "en": "Observe for five minutes without recording other people’s conversations.",
+      "fr": "Observe pendant cinq minutes sans enregistrer les conversations d’autrui."
+    },
+    "Zapiš zvuk, gesto a předmět. Označ, co jsi skutečně vnímal.": {
+      "cs": "Zapiš zvuk, gesto a předmět. Označ, co jsi skutečně vnímal.",
+      "en": "Note a sound, a gesture and an object. Mark what you actually perceived.",
+      "fr": "Note un son, un geste et un objet. Distingue ce que tu as réellement perçu."
+    },
+    "Napiš čtyři řádky. Pro první pokus vynech slova systém, realita, osud a ulice.": {
+      "cs": "Napiš čtyři řádky. Pro první pokus vynech slova systém, realita, osud a ulice.",
+      "en": "Write four lines. For the first attempt, leave out the words system, reality, fate and street.",
+      "fr": "Écris quatre lignes. Pour le premier essai, évite les mots système, réalité, destin et rue."
+    },
+    "Přečti text nahlas a změň nejméně konkrétní řádek.": {
+      "cs": "Přečti text nahlas a změň nejméně konkrétní řádek.",
+      "en": "Read the text aloud and change the least concrete line.",
+      "fr": "Lis le texte à voix haute et modifie la ligne la moins concrète."
+    },
+    "Který detail může druhý člověk uvidět nebo slyšet?": {
+      "cs": "Který detail může druhý člověk uvidět nebo slyšet?",
+      "en": "Which detail could someone else see or hear?",
+      "fr": "Quel détail une autre personne pourrait-elle voir ou entendre ?"
+    },
+    "Kde začíná tvoje interpretace?": {
+      "cs": "Kde začíná tvoje interpretace?",
+      "en": "Where does your interpretation begin?",
+      "fr": "Où commence ton interprétation ?"
+    },
+    "Poznámky, čtyři řádky a jedna vysvětlená změna.": {
+      "cs": "Poznámky, čtyři řádky a jedna vysvětlená změna.",
+      "en": "Notes, four lines and one explained change.",
+      "fr": "Des notes, quatre lignes et un changement expliqué."
+    },
+    "Udrž stejný význam při dvou rozdílných perspektivách vypravěče.": {
+      "cs": "Udrž stejný význam při dvou rozdílných perspektivách vypravěče.",
+      "en": "Keep the same meaning through two different narrator perspectives.",
+      "fr": "Conserve le même sens avec deux points de vue de narration différents."
+    },
+    "Který vlastní detail nahradí obecný soud o městě?": {
+      "cs": "Který vlastní detail nahradí obecný soud o městě?",
+      "en": "Which personal detail can replace a general judgement about the city?",
+      "fr": "Quel détail personnel peut remplacer un jugement général sur la ville ?"
+    },
+    "Zapiš zvuk, gesto a předmět, aniž bys lidem přisuzoval motivy.": {
+      "cs": "Zapiš zvuk, gesto a předmět, aniž bys lidem přisuzoval motivy.",
+      "en": "Note a sound, gesture and object without assigning motives to people.",
+      "fr": "Note un son, un geste et un objet sans attribuer d’intentions aux personnes."
+    },
+    "V jiném místě napiš čtyři nové řádky podle stejné metody a porovnej konkrétnost.": {
+      "cs": "V jiném místě napiš čtyři nové řádky podle stejné metody a porovnej konkrétnost.",
+      "en": "Write four new lines elsewhere using the same method, and compare how concrete they are.",
+      "fr": "Ailleurs, écris quatre nouvelles lignes avec la même méthode et compare leur précision."
+    },
+    "Pauza také něco říká.": {
+      "cs": "Pauza také něco říká.",
+      "en": "A pause says something too.",
+      "fr": "Une pause dit aussi quelque chose."
+    },
+    "Psaný text a přednes nejsou stejná věc. Pro tento pokus neměň slova; změň pouze místa důrazů a pauz. Není předepsaná jedna správná flow.": {
+      "cs": "Psaný text a přednes nejsou stejná věc. Pro tento pokus neměň slova; změň pouze místa důrazů a pauz. Není předepsaná jedna správná flow.",
+      "en": "Written lyrics and delivery are different things. For this experiment, keep the words and change only emphasis and pauses. There is no prescribed correct flow.",
+      "fr": "Le texte écrit et l’interprétation sont deux choses différentes. Pour cet essai, garde les mots et change uniquement les accents et les pauses. Aucun flow unique n’est imposé."
+    },
+    "Větu „Dnes mluvím já, ne hlasy kolem“ přečti nejprve s pauzou za „já“, potom s důrazem na „dnes“. Zhodnoť, zda změna slouží záměru. Ukázka je původní výukový text.": {
+      "cs": "Větu „Dnes mluvím já, ne hlasy kolem“ přečti nejprve s pauzou za „já“, potom s důrazem na „dnes“. Zhodnoť, zda změna slouží záměru. Ukázka je původní výukový text.",
+      "en": "Read “Today I speak, not the voices around me” first with a pause after “I”, then with emphasis on “today”. Judge whether the change serves your intention. The example is original teaching material.",
+      "fr": "Lis « Aujourd’hui, c’est moi qui parle, pas les voix autour » d’abord avec une pause après « moi », puis en accentuant « aujourd’hui ». Évalue si le changement sert ton intention. Cet exemple est un texte pédagogique original."
+    },
+    "Vyber vlastní čtyři řádky.": {
+      "cs": "Vyber vlastní čtyři řádky.",
+      "en": "Choose four lines of your own.",
+      "fr": "Choisis quatre lignes personnelles."
+    },
+    "Označ svislicí dvě možné pauzy a podtrhni jedno důležité slovo.": {
+      "cs": "Označ svislicí dvě možné pauzy a podtrhni jedno důležité slovo.",
+      "en": "Mark two possible pauses with vertical lines and underline one important word.",
+      "fr": "Marque deux pauses possibles par des traits verticaux et souligne un mot important."
+    },
+    "Nahraj dvě krátké verze stejným přístrojem ze stejné vzdálenosti.": {
+      "cs": "Nahraj dvě krátké verze stejným přístrojem ze stejné vzdálenosti.",
+      "en": "Record two short versions with the same device at the same distance.",
+      "fr": "Enregistre deux courtes versions avec le même appareil et à la même distance."
+    },
+    "Poslechni bez čtení textu a popiš rozdíl.": {
+      "cs": "Poslechni bez čtení textu a popiš rozdíl.",
+      "en": "Listen without reading the lyrics and describe the difference.",
+      "fr": "Écoute sans lire le texte et décris la différence."
+    },
+    "Je význam srozumitelný bez doprovodného vysvětlení?": {
+      "cs": "Je význam srozumitelný bez doprovodného vysvětlení?",
+      "en": "Is the meaning understandable without an added explanation?",
+      "fr": "Le sens est-il compréhensible sans explication supplémentaire ?"
+    },
+    "Změnil jsi přednes, nebo jen hlasitost nahrávky?": {
+      "cs": "Změnil jsi přednes, nebo jen hlasitost nahrávky?",
+      "en": "Did you change the delivery, or only the recording’s volume?",
+      "fr": "As-tu changé l’interprétation ou seulement le volume de l’enregistrement ?"
+    },
+    "Dvě nahrávky a popis jednoho rozdílu.": {
+      "cs": "Dvě nahrávky a popis jednoho rozdílu.",
+      "en": "Two recordings and a description of one difference.",
+      "fr": "Deux enregistrements et la description d’une différence."
+    },
+    "Vyzkoušej tentýž text a cappella i na vlastním beatu, který smíš používat.": {
+      "cs": "Vyzkoušej tentýž text a cappella i na vlastním beatu, který smíš používat.",
+      "en": "Try the same text a cappella and over a beat you own and are allowed to use.",
+      "fr": "Essaie le même texte a cappella et sur un beat personnel que tu as le droit d’utiliser."
+    },
+    "Co v mém textu změní místo pauzy a důrazu?": {
+      "cs": "Co v mém textu změní místo pauzy a důrazu?",
+      "en": "What changes in my lyrics when I move a pause or emphasis?",
+      "fr": "Que change dans mon texte le déplacement d’une pause ou d’un accent ?"
+    },
+    "Sleduj místo nádechu, důležité slovo a srozumitelnost stejného textu.": {
+      "cs": "Sleduj místo nádechu, důležité slovo a srozumitelnost stejného textu.",
+      "en": "Follow breathing points, important words and the clarity of the same text.",
+      "fr": "Observe les endroits où tu respires, le mot important et la clarté du même texte."
+    },
+    "Přenes zvolenou práci s pauzou do další vlastní sloky, ne jen do stejné věty.": {
+      "cs": "Přenes zvolenou práci s pauzou do další vlastní sloky, ne jen do stejné věty.",
+      "en": "Carry your chosen use of pauses into another verse of your own, not only the same sentence.",
+      "fr": "Transfère ton travail sur les pauses dans une autre strophe personnelle, pas seulement dans la même phrase."
+    },
+    "Demo je pokus, ne rozsudek.": {
+      "cs": "Demo je pokus, ne rozsudek.",
+      "en": "A demo is an experiment, not a verdict.",
+      "fr": "Une démo est un essai, pas un verdict."
+    },
+    "První nahrávka má odhalit, co text potřebuje. Hodnotíme konkrétní záměr a změnu, ne automatické procentní skóre kvality rapu. Open mic je dobrovolný bonus závislý na pořadateli.": {
+      "cs": "První nahrávka má odhalit, co text potřebuje. Hodnotíme konkrétní záměr a změnu, ne automatické procentní skóre kvality rapu. Open mic je dobrovolný bonus závislý na pořadateli.",
+      "en": "A first recording should reveal what the lyrics need. We assess a specific intention and change, not an automatic percentage score for rap quality. An open mic is an optional bonus that depends on its organiser.",
+      "fr": "Un premier enregistrement doit révéler ce dont le texte a besoin. Nous évaluons une intention et un changement précis, pas un pourcentage automatique de qualité du rap. Un open mic reste un bonus facultatif qui dépend de son organisateur."
+    },
+    "První verze obsahuje řádek, který potřebuje vysvětlovat. Ve druhé vyměníš abstraktní formulaci za vlastní detail a upravíš pauzu. V Blackbooku uložíš obě, ne pouze „dokonalou“.": {
+      "cs": "První verze obsahuje řádek, který potřebuje vysvětlovat. Ve druhé vyměníš abstraktní formulaci za vlastní detail a upravíš pauzu. V Blackbooku uložíš obě, ne pouze „dokonalou“.",
+      "en": "The first version contains a line that needs explaining. In the second, you replace an abstract phrase with a personal detail and adjust a pause. Save both in your Blackbook, not only the “perfect” version.",
+      "fr": "La première version contient une ligne qu’il faut expliquer. Dans la deuxième, tu remplaces une formulation abstraite par un détail personnel et ajustes une pause. Garde les deux dans ton Blackbook, pas seulement la version « parfaite »."
+    },
+    "Před rezervací potvrď technika, mikrofon, DAW a export.": {
+      "cs": "Před rezervací potvrď technika, mikrofon, DAW a export.",
+      "en": "Confirm the engineer, microphone, DAW and export before booking.",
+      "fr": "Avant de réserver, confirme l’ingénieur du son, le microphone, la station audionumérique et l’export."
+    },
+    "Připrav beat s vyjasněnými právy a zálohu textu.": {
+      "cs": "Připrav beat s vyjasněnými právy a zálohu textu.",
+      "en": "Prepare a beat with clear usage rights and a backup of your lyrics.",
+      "fr": "Prépare un beat dont les droits sont clarifiés et une copie de ton texte."
+    },
+    "Nahraj první take, vyber jeden problém a oprav jej.": {
+      "cs": "Nahraj první take, vyber jeden problém a oprav jej.",
+      "en": "Record the first take, choose one problem and correct it.",
+      "fr": "Enregistre une première prise, choisis un problème et corrige-le."
+    },
+    "Ulož dvě verze; pro případný open mic připrav i krátkou a cappella variantu.": {
+      "cs": "Ulož dvě verze; pro případný open mic připrav i krátkou a cappella variantu.",
+      "en": "Save two versions; prepare a short a cappella alternative for any possible open mic.",
+      "fr": "Conserve deux versions ; prépare aussi une courte variante a cappella pour un éventuel open mic."
+    },
+    "Umíš vysvětlit jednu slyšitelnou změnu?": {
+      "cs": "Umíš vysvětlit jednu slyšitelnou změnu?",
+      "en": "Can you explain one audible change?",
+      "fr": "Peux-tu expliquer un changement audible ?"
+    },
+    "Nezaměňuješ možný slot za potvrzené vystoupení?": {
+      "cs": "Nezaměňuješ možný slot za potvrzené vystoupení?",
+      "en": "Are you mistaking a possible slot for a confirmed performance?",
+      "fr": "Ne confonds-tu pas un créneau possible avec une prestation confirmée ?"
+    },
+    "Pracovní sloka, dvě verze a poznámka o revizi.": {
+      "cs": "Pracovní sloka, dvě verze a poznámka o revizi.",
+      "en": "A working verse, two versions and a revision note.",
+      "fr": "Une strophe de travail, deux versions et une note de révision."
+    },
+    "Požádej posluchače o reakci na jednu konkrétní otázku a vyhodnoť ji bez nutnosti slepě přijmout každý názor.": {
+      "cs": "Požádej posluchače o reakci na jednu konkrétní otázku a vyhodnoť ji bez nutnosti slepě přijmout každý názor.",
+      "en": "Ask a listener to respond to one specific question, and assess the response without having to accept every opinion blindly.",
+      "fr": "Demande à une personne de répondre à une question précise, puis évalue son retour sans devoir accepter aveuglément tous les avis."
+    },
+    "Který jeden slyšitelný problém chci druhým pokusem opravit?": {
+      "cs": "Který jeden slyšitelný problém chci druhým pokusem opravit?",
+      "en": "Which single audible problem do I want to correct in a second attempt?",
+      "fr": "Quel problème audible précis veux-je corriger au deuxième essai ?"
+    },
+    "Při poslechu ukaž konkrétní řádek a čas změny, ne obecný dojem vlastní kvality.": {
+      "cs": "Při poslechu ukaž konkrétní řádek a čas změny, ne obecný dojem vlastní kvality.",
+      "en": "When listening back, point to a specific line and time of change, rather than a general impression of your own quality.",
+      "fr": "À la réécoute, indique une ligne précise et le moment du changement, plutôt qu’une impression générale sur ta propre qualité."
+    },
+    "U další sloky si předem zvol jedno kritérium revize a ulož obě verze i důvod změny.": {
+      "cs": "U další sloky si předem zvol jedno kritérium revize a ulož obě verze i důvod změny.",
+      "en": "For the next verse, choose one revision criterion in advance and save both versions and the reason for the change.",
+      "fr": "Pour la strophe suivante, choisis à l’avance un critère de révision et conserve les deux versions avec la raison du changement."
+    },
+    "Nejdřív kostra. Potom efekt.": {
+      "cs": "Nejdřív kostra. Potom efekt.",
+      "en": "Structure first. Effects later.",
+      "fr": "D’abord la structure. Ensuite les effets."
+    },
+    "Dnes trénujeme konstrukci, ne napodobení cizího podpisu. Barevné výplně mohou přitáhnout pozornost, ale pro tuto lekci je schováme a prohlédneme samotné proporce.": {
+      "cs": "Dnes trénujeme konstrukci, ne napodobení cizího podpisu. Barevné výplně mohou přitáhnout pozornost, ale pro tuto lekci je schováme a prohlédneme samotné proporce.",
+      "en": "Today we practise construction, not imitation of someone else’s signature. Colour fills can attract attention, but for this lesson we hide them and examine the proportions alone.",
+      "fr": "Aujourd’hui, nous travaillons la construction, pas l’imitation d’une signature. Les remplissages colorés peuvent attirer l’attention, mais pour cette leçon nous les masquons afin d’examiner uniquement les proportions."
+    },
+    "Tři stavy stejného pracovního písmene: osa a hlavní tahy → objem → obrys. SVG v demu je zjednodušený výukový diagram, ne hotový graffiti styl ani šablona cizího writera.": {
+      "cs": "Tři stavy stejného pracovního písmene: osa a hlavní tahy → objem → obrys. SVG v demu je zjednodušený výukový diagram, ne hotový graffiti styl ani šablona cizího writera.",
+      "en": "Three stages of the same working letter: axis and main strokes → volume → outline. The demo SVG is a simplified teaching diagram, not a finished graffiti style or a template of another writer’s work.",
+      "fr": "Trois états de la même lettre de travail : axe et traits principaux → volume → contour. Le SVG de la démo est un schéma pédagogique simplifié, pas un style graffiti abouti ni le modèle d’un autre writer."
+    },
+    "Na ulici vyber tři odlišné konstrukční principy. Fotografuj respektujíc okolí.": {
+      "cs": "Na ulici vyber tři odlišné konstrukční principy. Fotografuj respektujíc okolí.",
+      "en": "Choose three different construction principles in the street. Photograph with respect for your surroundings.",
+      "fr": "Dans la rue, repère trois principes de construction différents. Photographie en respectant ton environnement."
+    },
+    "Do skicáku nakresli své jméno pouze osami hlavních tahů.": {
+      "cs": "Do skicáku nakresli své jméno pouze osami hlavních tahů.",
+      "en": "Draw your name in your sketchbook using only the axes of the main strokes.",
+      "fr": "Dans ton carnet, dessine ton nom uniquement avec les axes des traits principaux."
+    },
+    "Přidej objem a zkontroluj prázdná místa.": {
+      "cs": "Přidej objem a zkontroluj prázdná místa.",
+      "en": "Add volume and check the empty spaces.",
+      "fr": "Ajoute du volume et vérifie les espaces vides."
+    },
+    "Zmenši náhled nebo se na něj podívej z dálky; uprav nejasné spojení.": {
+      "cs": "Zmenši náhled nebo se na něj podívej z dálky; uprav nejasné spojení.",
+      "en": "Reduce the preview or view it from a distance; adjust an unclear connection.",
+      "fr": "Réduis l’aperçu ou regarde-le de loin ; corrige une liaison peu claire."
+    },
+    "Rozlišíš jednotlivá písmena bez barvy?": {
+      "cs": "Rozlišíš jednotlivá písmena bez barvy?",
+      "en": "Can you distinguish individual letters without colour?",
+      "fr": "Distingues-tu les lettres sans couleur ?"
+    },
+    "Je inspirací princip, ne převzatý podpis?": {
+      "cs": "Je inspirací princip, ne převzatý podpis?",
+      "en": "Is a principle your inspiration, rather than a borrowed signature?",
+      "fr": "T’inspires-tu d’un principe plutôt que d’une signature reprise ?"
+    },
+    "První skica a opravená konstrukce.": {
+      "cs": "První skica a opravená konstrukce.",
+      "en": "A first sketch and a corrected construction.",
+      "fr": "Une première esquisse et une construction corrigée."
+    },
+    "Navrhni tři konstrukčně odlišné podoby stejného slova.": {
+      "cs": "Navrhni tři konstrukčně odlišné podoby stejného slova.",
+      "en": "Design three structurally different versions of the same word.",
+      "fr": "Conçois trois versions du même mot avec des constructions différentes."
+    },
+    "Je moje slovo čitelné ještě před barvou a efekty?": {
+      "cs": "Je moje slovo čitelné ještě před barvou a efekty?",
+      "en": "Is my word legible before colour and effects?",
+      "fr": "Mon mot est-il lisible avant la couleur et les effets ?"
+    },
+    "Hledej osy tahů, šířky, mezery a to, co zůstane čitelné z dálky.": {
+      "cs": "Hledej osy tahů, šířky, mezery a to, co zůstane čitelné z dálky.",
+      "en": "Look for stroke axes, widths, gaps and what remains legible at a distance.",
+      "fr": "Observe les axes des traits, les largeurs, les vides et ce qui reste lisible de loin."
+    },
+    "Přenes vybraný konstrukční princip na jiné vlastní slovo bez kopírování cizího podpisu.": {
+      "cs": "Přenes vybraný konstrukční princip na jiné vlastní slovo bez kopírování cizího podpisu.",
+      "en": "Apply your chosen construction principle to another word of your own without copying someone else’s signature.",
+      "fr": "Applique le principe de construction choisi à un autre mot personnel sans copier une signature."
+    },
+    "Prázdné místo je součást písmene.": {
+      "cs": "Prázdné místo je součást písmene.",
+      "en": "Empty space is part of the letter.",
+      "fr": "Le vide fait partie de la lettre."
+    },
+    "V tomhle cvičení omezíme paletu a zkoumáme vztahy mezi tvary. Omezení není obecný zákon graffiti, ale způsob, jak lépe vidět vlastní rozhodnutí.": {
+      "cs": "V tomhle cvičení omezíme paletu a zkoumáme vztahy mezi tvary. Omezení není obecný zákon graffiti, ale způsob, jak lépe vidět vlastní rozhodnutí.",
+      "en": "In this exercise, we limit the palette and explore relationships between shapes. The limit is not a general law of graffiti; it helps you see your own decisions more clearly.",
+      "fr": "Dans cet exercice, nous limitons la palette et étudions les relations entre les formes. Cette limite n’est pas une loi générale du graffiti ; elle permet de mieux voir tes propres choix."
+    },
+    "Dvě stejné výplně mohou při jiném rozestupu působit jako jedna hmota. Porovnej verzi s velkým překryvem a verzi s otevřeným průhledem. Popiš, co se změnilo v čitelnosti.": {
+      "cs": "Dvě stejné výplně mohou při jiném rozestupu působit jako jedna hmota. Porovnej verzi s velkým překryvem a verzi s otevřeným průhledem. Popiš, co se změnilo v čitelnosti.",
+      "en": "Two identical fills can merge into one mass when their spacing changes. Compare a heavily overlapping version with one that leaves an open gap. Describe what changed in legibility.",
+      "fr": "Deux remplissages identiques peuvent sembler former une seule masse lorsque leur espacement change. Compare une version très superposée à une version qui laisse une ouverture. Décris ce qui a changé dans la lisibilité."
+    },
+    "Vytvoř kopii své skici.": {
+      "cs": "Vytvoř kopii své skici.",
+      "en": "Make a copy of your sketch.",
+      "fr": "Fais une copie de ton esquisse."
+    },
+    "Na první změň jen mezery, na druhé jen překryvy.": {
+      "cs": "Na první změň jen mezery, na druhé jen překryvy.",
+      "en": "In the first, change only the gaps; in the second, only the overlaps.",
+      "fr": "Sur la première, change uniquement les espaces ; sur la deuxième, uniquement les superpositions."
+    },
+    "Vyber dvě výplně, obrys a jeden světelný akcent.": {
+      "cs": "Vyber dvě výplně, obrys a jeden světelný akcent.",
+      "en": "Choose two fill colours, an outline and one highlight accent.",
+      "fr": "Choisis deux couleurs de remplissage, un contour et un accent lumineux."
+    },
+    "Materiál kup podle vybrané skici; ověř vhodnost povrchu a podmínky u výrobce nebo prodejce.": {
+      "cs": "Materiál kup podle vybrané skici; ověř vhodnost povrchu a podmínky u výrobce nebo prodejce.",
+      "en": "Buy materials according to the selected sketch; check surface suitability and conditions with the manufacturer or seller.",
+      "fr": "Achète le matériel en fonction de l’esquisse choisie ; vérifie sa compatibilité avec le support et les conditions auprès du fabricant ou du vendeur."
+    },
+    "Umíš ukázat jednu změnu, která zlepšila tvůj záměr?": {
+      "cs": "Umíš ukázat jednu změnu, která zlepšila tvůj záměr?",
+      "en": "Can you point to one change that better served your intention?",
+      "fr": "Peux-tu montrer un changement qui a mieux servi ton intention ?"
+    },
+    "Máš plán a materiál pro konkrétní formát?": {
+      "cs": "Máš plán a materiál pro konkrétní formát?",
+      "en": "Do you have a plan and materials for a specific format?",
+      "fr": "As-tu un plan et le matériel adaptés à un format précis ?"
+    },
+    "Dvě varianty kompozice a paleta.": {
+      "cs": "Dvě varianty kompozice a paleta.",
+      "en": "Two composition variants and a palette.",
+      "fr": "Deux variantes de composition et une palette."
+    },
+    "Zachovej čitelnost při výrazně omezené paletě a asymetrické kompozici.": {
+      "cs": "Zachovej čitelnost při výrazně omezené paletě a asymetrické kompozici.",
+      "en": "Maintain legibility with a strongly restricted palette and an asymmetrical composition.",
+      "fr": "Préserve la lisibilité avec une palette très limitée et une composition asymétrique."
+    },
+    "Co se stane, když změním pouze mezeru nebo překryv?": {
+      "cs": "Co se stane, když změním pouze mezeru nebo překryv?",
+      "en": "What happens if I change only a gap or an overlap?",
+      "fr": "Que se passe-t-il si je change uniquement un espace ou une superposition ?"
+    },
+    "Zakryj efekty a porovnej průhledy, překryvy a kontrast jednotlivých hmot.": {
+      "cs": "Zakryj efekty a porovnej průhledy, překryvy a kontrast jednotlivých hmot.",
+      "en": "Hide the effects and compare openings, overlaps and contrast between the individual masses.",
+      "fr": "Masque les effets et compare les ouvertures, les superpositions et le contraste entre les masses."
+    },
+    "Zkus zachovat záměr v jiném formátu a s jinou omezenou paletou.": {
+      "cs": "Zkus zachovat záměr v jiném formátu a s jinou omezenou paletou.",
+      "en": "Try to preserve your intention in another format and with a different limited palette.",
+      "fr": "Essaie de conserver ton intention dans un autre format et avec une autre palette limitée."
+    },
+    "Ze skicáku na povolenou plochu.": {
+      "cs": "Ze skicáku na povolenou plochu.",
+      "en": "From sketchbook to an authorised surface.",
+      "fr": "Du carnet à une surface autorisée."
+    },
+    "Povolení se vztahuje na konkrétní úsek. Kurátorovaná stěna není automaticky legál. Před cestou znovu ověř pravidla, počasí a vybavení; pro organizovanou komerční činnost vyjasni souhlas správce.": {
+      "cs": "Povolení se vztahuje na konkrétní úsek. Kurátorovaná stěna není automaticky legál. Před cestou znovu ověř pravidla, počasí a vybavení; pro organizovanou komerční činnost vyjasni souhlas správce.",
+      "en": "Permission applies to a specific section. A curated wall is not automatically a free-paint wall. Before travelling, check the rules, weather and equipment again; obtain the manager’s agreement for organised commercial activity.",
+      "fr": "L’autorisation porte sur une portion précise. Un mur organisé par un curateur n’est pas automatiquement un mur de libre expression. Avant de partir, vérifie à nouveau le règlement, la météo et le matériel ; clarifie l’accord du gestionnaire pour une activité commerciale organisée."
+    },
+    "Dokumentace: skica → první rozvržení → výplně → obrys → závěr. Neslibujeme, že jedna odpolední session vyřeší techniku nebo vytvoří profesionální masterpiece.": {
+      "cs": "Dokumentace: skica → první rozvržení → výplně → obrys → závěr. Neslibujeme, že jedna odpolední session vyřeší techniku nebo vytvoří profesionální masterpiece.",
+      "en": "Documentation: sketch → initial layout → fills → outline → finish. We do not promise that one afternoon session will solve technique or produce a professional masterpiece.",
+      "fr": "Documentation : esquisse → première mise en place → remplissages → contour → finition. Nous ne promettons pas qu’une session d’un après-midi suffise à maîtriser la technique ou à produire une masterpiece professionnelle."
+    },
+    "Na místě identifikuj povolenou část a aktuální značení.": {
+      "cs": "Na místě identifikuj povolenou část a aktuální značení.",
+      "en": "Identify the authorised section and current signs on site.",
+      "fr": "Sur place, identifie la portion autorisée et la signalétique actuelle."
+    },
+    "Respektuj pracující lidi, průchod a pravidla správce. Použij ochranu podle pokynů výrobce.": {
+      "cs": "Respektuj pracující lidi, průchod a pravidla správce. Použij ochranu podle pokynů výrobce.",
+      "en": "Respect people working, passageways and site rules. Use protection according to the manufacturer’s instructions.",
+      "fr": "Respecte les personnes qui travaillent, les passages et le règlement du gestionnaire. Utilise les protections selon les consignes du fabricant."
+    },
+    "Přenášej návrh po etapách a průběžně kontroluj proporce.": {
+      "cs": "Přenášej návrh po etapách a průběžně kontroluj proporce.",
+      "en": "Transfer your design in stages and check proportions as you go.",
+      "fr": "Reporte ton projet par étapes et vérifie régulièrement les proportions."
+    },
+    "Dokumentuj jednotlivé kroky, ukliď a zapiš jednu změnu pro příště.": {
+      "cs": "Dokumentuj jednotlivé kroky, ukliď a zapiš jednu změnu pro příště.",
+      "en": "Document the stages, clean up and note one change for next time.",
+      "fr": "Documente les différentes étapes, nettoie et note un changement pour la prochaine fois."
+    },
+    "Je použitá plocha skutečně povolená právě pro tuto aktivitu?": {
+      "cs": "Je použitá plocha skutečně povolená právě pro tuto aktivitu?",
+      "en": "Is this surface actually authorised for this particular activity?",
+      "fr": "Cette surface est-elle réellement autorisée pour cette activité précise ?"
+    },
+    "Ukazuje dokumentace tvoje rozhodnutí, ne jen hotovou fotku?": {
+      "cs": "Ukazuje dokumentace tvoje rozhodnutí, ne jen hotovou fotku?",
+      "en": "Does the documentation show your decisions, rather than only a finished photograph?",
+      "fr": "La documentation montre-t-elle tes choix, et pas seulement une photo finale ?"
+    },
+    "Procesní Blackbook: skica, paleta, vrstvy a reflexe.": {
+      "cs": "Procesní Blackbook: skica, paleta, vrstvy a reflexe.",
+      "en": "Process Blackbook: sketch, palette, layers and reflection.",
+      "fr": "Blackbook de processus : esquisse, palette, couches et réflexion."
+    },
+    "Přepracuj návrh podle skutečných omezení povrchu, aniž bys ztratil hlavní myšlenku.": {
+      "cs": "Přepracuj návrh podle skutečných omezení povrchu, aniž bys ztratil hlavní myšlenku.",
+      "en": "Rework the design around the surface’s real constraints without losing its central idea.",
+      "fr": "Retravaille le projet selon les contraintes réelles du support sans perdre l’idée principale."
+    },
+    "Jak přizpůsobím návrh skutečné povolené ploše?": {
+      "cs": "Jak přizpůsobím návrh skutečné povolené ploše?",
+      "en": "How will I adapt my design to the actual authorised surface?",
+      "fr": "Comment adapter mon projet à la véritable surface autorisée ?"
+    },
+    "Sleduj skutečný rozměr, povrch, povolený úsek, průchod a pořadí vrstev.": {
+      "cs": "Sleduj skutečný rozměr, povrch, povolený úsek, průchod a pořadí vrstev.",
+      "en": "Check actual dimensions, surface, authorised section, passageways and layer order.",
+      "fr": "Observe les dimensions réelles, le support, la portion autorisée, les passages et l’ordre des couches."
+    },
+    "Navrhni další verzi podle jednoho konkrétního omezení, které ukázala reálná realizace.": {
+      "cs": "Navrhni další verzi podle jednoho konkrétního omezení, které ukázala reálná realizace.",
+      "en": "Design another version around one specific constraint revealed by the actual realisation.",
+      "fr": "Conçois une autre version à partir d’une contrainte précise révélée par la réalisation réelle."
+    },
+    "Nejdřív poslouchej změnu.": {
+      "cs": "Nejdřív poslouchej změnu.",
+      "en": "First, listen for the change.",
+      "fr": "Commence par écouter le changement."
+    },
+    "Ilustrace na webu není technický návod. Bezpečnou pohybovou variantu přizpůsob své úrovni a konzultuj lektora; náročné prvky a první power moves do samostatné terénní lekce nepatří.": {
+      "cs": "Ilustrace na webu není technický návod. Bezpečnou pohybovou variantu přizpůsob své úrovni a konzultuj lektora; náročné prvky a první power moves do samostatné terénní lekce nepatří.",
+      "en": "The website illustration is not a technical guide. Adapt a safe movement option to your level and consult an instructor; demanding elements and first power moves do not belong in an independent field lesson.",
+      "fr": "L’illustration du site n’est pas un guide technique. Adapte une variante sûre à ton niveau et consulte un professeur ; les éléments exigeants et les premiers power moves n’ont pas leur place dans une leçon autonome sur le terrain."
+    },
+    "Zvol jednoduchou sekvenci, kterou už bezpečně zvládáš. V jednom pokusu opakuješ automaticky, ve druhém vědomě reaguješ na jeden konkrétní hudební moment. Porovnáváš záměr, ne obtížnost.": {
+      "cs": "Zvol jednoduchou sekvenci, kterou už bezpečně zvládáš. V jednom pokusu opakuješ automaticky, ve druhém vědomě reaguješ na jeden konkrétní hudební moment. Porovnáváš záměr, ne obtížnost.",
+      "en": "Choose a simple sequence you can already perform safely. In one attempt you repeat it automatically; in the second you deliberately respond to one specific musical moment. Compare intention, not difficulty.",
+      "fr": "Choisis une séquence simple que tu maîtrises déjà en sécurité. Dans un essai, tu la répètes automatiquement ; dans le second, tu réponds consciemment à un moment musical précis. Compare l’intention, pas la difficulté."
+    },
+    "Vyber hudbu, kterou můžeš použít. Nejprve ji jen poslouchej.": {
+      "cs": "Vyber hudbu, kterou můžeš použít. Nejprve ji jen poslouchej.",
+      "en": "Choose music you are allowed to use. First, simply listen.",
+      "fr": "Choisis une musique que tu peux utiliser. Commence simplement par l’écouter."
+    },
+    "Označ jeden zřetelný hudební moment.": {
+      "cs": "Označ jeden zřetelný hudební moment.",
+      "en": "Mark one clear musical moment.",
+      "fr": "Repère un moment musical clair."
+    },
+    "Po přiměřené přípravě zvol známý jednoduchý pohyb jako reakci.": {
+      "cs": "Po přiměřené přípravě zvol známý jednoduchý pohyb jako reakci.",
+      "en": "After appropriate preparation, choose a familiar simple movement as a response.",
+      "fr": "Après une préparation adaptée, choisis comme réponse un mouvement simple et connu."
+    },
+    "Poznamenej si, co bys chtěl večer probrat s lektorem.": {
+      "cs": "Poznamenej si, co bys chtěl večer probrat s lektorem.",
+      "en": "Note what you would like to discuss with the instructor that evening.",
+      "fr": "Note ce que tu aimerais aborder avec le professeur le soir."
+    },
+    "Dokážeš označit hudební moment, na který reaguješ?": {
+      "cs": "Dokážeš označit hudební moment, na který reaguješ?",
+      "en": "Can you identify the musical moment you are responding to?",
+      "fr": "Peux-tu identifier le moment musical auquel tu réponds ?"
+    },
+    "Je zvolená varianta přiměřená tvým schopnostem a povrchu?": {
+      "cs": "Je zvolená varianta přiměřená tvým schopnostem a povrchu?",
+      "en": "Is your chosen version appropriate to your abilities and the surface?",
+      "fr": "La variante choisie est-elle adaptée à tes capacités et au sol ?"
+    },
+    "Jedna hudební poznámka a otázka pro lektora.": {
+      "cs": "Jedna hudební poznámka a otázka pro lektora.",
+      "en": "One musical observation and a question for the instructor.",
+      "fr": "Une observation musicale et une question pour le professeur."
+    },
+    "Použij stejnou známou frázi se dvěma rozdílnými hudebními podněty.": {
+      "cs": "Použij stejnou známou frázi se dvěma rozdílnými hudebními podněty.",
+      "en": "Use the same familiar phrase with two different musical cues.",
+      "fr": "Utilise la même phrase connue avec deux signaux musicaux différents."
+    },
+    "Na který hudební okamžik dokážu vědomě reagovat?": {
+      "cs": "Na který hudební okamžik dokážu vědomě reagovat?",
+      "en": "Which musical moment can I deliberately respond to?",
+      "fr": "À quel moment musical puis-je répondre consciemment ?"
+    },
+    "Nejdřív označ hudební změnu; obtížnost pohybu není měřítkem tohoto úkolu.": {
+      "cs": "Nejdřív označ hudební změnu; obtížnost pohybu není měřítkem tohoto úkolu.",
+      "en": "Identify the musical change first; movement difficulty is not the measure of this task.",
+      "fr": "Repère d’abord le changement musical ; la difficulté du mouvement n’est pas la mesure de cet exercice."
+    },
+    "U jiné skladby najdi nový podnět a prober vhodnou reakci s lektorem.": {
+      "cs": "U jiné skladby najdi nový podnět a prober vhodnou reakci s lektorem.",
+      "en": "Find a new cue in another track and discuss a suitable response with the instructor.",
+      "fr": "Trouve un nouveau signal dans un autre morceau et discute d’une réponse adaptée avec le professeur."
+    },
+    "Cypher není turistická atrakce.": {
+      "cs": "Cypher není turistická atrakce.",
+      "en": "A cypher is not a tourist attraction.",
+      "fr": "Un cypher n’est pas une attraction touristique."
+    },
+    "Volná tréninková hala nezaručuje vedenou lekci ani přijetí do konkrétní skupiny. Komunitu nelze prodávat jako automatickou součást vstupenky. Sleduj místní pravidla a souhlas lidí.": {
+      "cs": "Volná tréninková hala nezaručuje vedenou lekci ani přijetí do konkrétní skupiny. Komunitu nelze prodávat jako automatickou součást vstupenky. Sleduj místní pravidla a souhlas lidí.",
+      "en": "An open practice hall does not guarantee a guided lesson or acceptance into a particular group. A community cannot be sold as an automatic part of a ticket. Respect local rules and people’s consent.",
+      "fr": "Une salle d’entraînement ouverte ne garantit ni un cours encadré ni l’accueil dans un groupe particulier. Une communauté ne peut pas être vendue comme une composante automatique d’un billet. Respecte les règles du lieu et l’accord des personnes."
+    },
+    "Místo automatického vstupu mezi tanečníky: krátce se představíš, zeptáš se, zda se můžeš přidat, a respektuješ i odmítnutí. Kamera zůstává vypnutá, dokud nemáš souhlas.": {
+      "cs": "Místo automatického vstupu mezi tanečníky: krátce se představíš, zeptáš se, zda se můžeš přidat, a respektuješ i odmítnutí. Kamera zůstává vypnutá, dokud nemáš souhlas.",
+      "en": "Instead of stepping straight in among dancers, briefly introduce yourself, ask whether you can join and respect a refusal too. Keep the camera off until you have permission.",
+      "fr": "Au lieu d’entrer directement parmi les danseurs, présente-toi brièvement, demande si tu peux participer et respecte aussi un refus. Garde la caméra éteinte tant que tu n’as pas d’accord."
+    },
+    "Přečti pravidla místa a zjisti dostupný prostor.": {
+      "cs": "Přečti pravidla místa a zjisti dostupný prostor.",
+      "en": "Read the venue rules and find out which space is available.",
+      "fr": "Lis le règlement du lieu et renseigne-toi sur l’espace disponible."
+    },
+    "Začni vlastní klidnou přípravou; nepřekážej ostatním.": {
+      "cs": "Začni vlastní klidnou přípravou; nepřekážej ostatním.",
+      "en": "Begin with your own calm preparation; do not obstruct others.",
+      "fr": "Commence tranquillement ta propre préparation sans gêner les autres."
+    },
+    "Ptej se před připojením i před natáčením.": {
+      "cs": "Ptej se před připojením i před natáčením.",
+      "en": "Ask before joining and before filming.",
+      "fr": "Demande avant de participer et avant de filmer."
+    },
+    "Na bezplatné otevřené ploše neorganizuj placenou lekci v rozporu s pravidly.": {
+      "cs": "Na bezplatné otevřené ploše neorganizuj placenou lekci v rozporu s pravidly.",
+      "en": "Do not organise a paid lesson on a free open floor contrary to its rules.",
+      "fr": "N’organise pas de cours payant sur un espace ouvert gratuit en contradiction avec son règlement."
+    },
+    "Rozlišuješ společný prostor od rezervované služby?": {
+      "cs": "Rozlišuješ společný prostor od rezervované služby?",
+      "en": "Do you distinguish shared space from a reserved service?",
+      "fr": "Distingues-tu un espace partagé d’un service réservé ?"
+    },
+    "Máš souhlas pro záznam ostatních?": {
+      "cs": "Máš souhlas pro záznam ostatních?",
+      "en": "Do you have permission to record others?",
+      "fr": "As-tu l’accord pour enregistrer les autres ?"
+    },
+    "Krátká poznámka: co jsi pozoroval a jak ses zapojil.": {
+      "cs": "Krátká poznámka: co jsi pozoroval a jak ses zapojil.",
+      "en": "A short note: what you observed and how you took part.",
+      "fr": "Une courte note : ce que tu as observé et comment tu as participé."
+    },
+    "Poskytni druhému člověku konkrétní respektující zpětnou vazbu, pouze když ji chce.": {
+      "cs": "Poskytni druhému člověku konkrétní respektující zpětnou vazbu, pouze když ji chce.",
+      "en": "Offer someone specific, respectful feedback only when they want it.",
+      "fr": "Propose à une personne un retour précis et respectueux uniquement si elle le souhaite."
+    },
+    "Jak poznám, že v tomto prostoru mohu začít a připojit se?": {
+      "cs": "Jak poznám, že v tomto prostoru mohu začít a připojit se?",
+      "en": "How do I know I can start and join in this space?",
+      "fr": "Comment savoir si je peux commencer et participer dans cet espace ?"
+    },
+    "Všímej si značení, využití prostoru a toho, zda ostatní chtějí sdílet praxi.": {
+      "cs": "Všímej si značení, využití prostoru a toho, zda ostatní chtějí sdílet praxi.",
+      "en": "Notice signs, how the space is used and whether others want to share their practice.",
+      "fr": "Observe la signalétique, l’usage de l’espace et l’envie éventuelle des autres de partager leur pratique."
+    },
+    "Stejný postup otázky a souhlasu použij v jiném sdíleném tvůrčím prostoru.": {
+      "cs": "Stejný postup otázky a souhlasu použij v jiném sdíleném tvůrčím prostoru.",
+      "en": "Use the same process of asking and gaining consent in another shared creative space.",
+      "fr": "Applique la même démarche de question et d’accord dans un autre espace créatif partagé."
+    },
+    "Vlastní fráze, jedna vědomá oprava.": {
+      "cs": "Vlastní fráze, jedna vědomá oprava.",
+      "en": "Your own phrase, one deliberate correction.",
+      "fr": "Ta propre phrase, une correction réfléchie."
+    },
+    "Lektor má posoudit konkrétní provedení. Na web nepatří AI hodnocení techniky z efektního obrázku. Výukové demonstrace lidí vyžadují skutečného tanečního spoluautora a souhlas se zveřejněním.": {
+      "cs": "Lektor má posoudit konkrétní provedení. Na web nepatří AI hodnocení techniky z efektního obrázku. Výukové demonstrace lidí vyžadují skutečného tanečního spoluautora a souhlas se zveřejněním.",
+      "en": "An instructor should assess the actual execution. The website must not offer AI technique ratings based on a striking illustration. Human teaching demonstrations require a real dance collaborator and consent for publication.",
+      "fr": "C’est à un professeur d’évaluer l’exécution réelle. Le site ne doit pas proposer de notes techniques d’IA à partir d’une image spectaculaire. Des démonstrations pédagogiques humaines nécessitent un véritable collaborateur danseur et un accord de publication."
+    },
+    "Před lekcí zaznamenáš krátkou známou frázi. Po konzultaci opravíš jedinou věc. Výstupem není počet triků, ale pojmenovaná a proveditelná změna.": {
+      "cs": "Před lekcí zaznamenáš krátkou známou frázi. Po konzultaci opravíš jedinou věc. Výstupem není počet triků, ale pojmenovaná a proveditelná změna.",
+      "en": "Record a short, familiar phrase before the lesson. After consultation, correct just one thing. The output is not a trick count, but a named, practicable change.",
+      "fr": "Avant le cours, enregistre une courte phrase connue. Après échange avec le professeur, corrige une seule chose. Le résultat n’est pas un nombre de figures, mais un changement nommé et réalisable."
+    },
+    "Potvrď jednorázový vstup, úroveň a aktuální konání lekce.": {
+      "cs": "Potvrď jednorázový vstup, úroveň a aktuální konání lekce.",
+      "en": "Confirm single-session entry, level and whether the lesson is actually taking place.",
+      "fr": "Confirme l’accès à une séance, le niveau et la tenue effective du cours."
+    },
+    "Přines otázku z prvního úkolu.": {
+      "cs": "Přines otázku z prvního úkolu.",
+      "en": "Bring the question from your first task.",
+      "fr": "Apporte la question de ton premier exercice."
+    },
+    "Po lekci si poznamenej konkrétní doporučení a bezpečný způsob dalšího tréninku.": {
+      "cs": "Po lekci si poznamenej konkrétní doporučení a bezpečný způsob dalšího tréninku.",
+      "en": "After the lesson, note a specific recommendation and a safe way to continue training.",
+      "fr": "Après le cours, note une recommandation précise et une manière sûre de poursuivre l’entraînement."
+    },
+    "Se svolením a v odpovídajícím prostoru zaznamenej druhou verzi.": {
+      "cs": "Se svolením a v odpovídajícím prostoru zaznamenej druhou verzi.",
+      "en": "With permission and in an appropriate space, record a second version.",
+      "fr": "Avec accord et dans un espace adapté, enregistre une deuxième version."
+    },
+    "Dokážeš vysvětlit, co změnil lektor a proč?": {
+      "cs": "Dokážeš vysvětlit, co změnil lektor a proč?",
+      "en": "Can you explain what the instructor changed and why?",
+      "fr": "Peux-tu expliquer ce que le professeur a changé et pourquoi ?"
+    },
+    "Není úspěch závislý na soutěži s ostatními?": {
+      "cs": "Není úspěch závislý na soutěži s ostatními?",
+      "en": "Is success independent of competing with others?",
+      "fr": "La réussite est-elle indépendante d’une compétition avec les autres ?"
+    },
+    "Dvě krátké verze a další tréninkový krok.": {
+      "cs": "Dvě krátké verze a další tréninkový krok.",
+      "en": "Two short versions and a next training step.",
+      "fr": "Deux courtes versions et une prochaine étape d’entraînement."
+    },
+    "Ověř, zda stejná úprava funguje také při jiném hudebním tempu; případné limity řeš s lektorem.": {
+      "cs": "Ověř, zda stejná úprava funguje také při jiném hudebním tempu; případné limity řeš s lektorem.",
+      "en": "Check whether the same adjustment works at another musical tempo; discuss any limits with the instructor.",
+      "fr": "Vérifie si le même ajustement fonctionne avec un autre tempo musical ; aborde les limites éventuelles avec le professeur."
+    },
+    "Jakou jednu změnu dokážu po lekci bezpečně zopakovat?": {
+      "cs": "Jakou jednu změnu dokážu po lekci bezpečně zopakovat?",
+      "en": "Which single change can I safely repeat after the lesson?",
+      "fr": "Quel changement précis puis-je répéter en sécurité après le cours ?"
+    },
+    "Zaznamenej přesná slova lektorova doporučení a rozdíl mezi dvěma vlastními pokusy.": {
+      "cs": "Zaznamenej přesná slova lektorova doporučení a rozdíl mezi dvěma vlastními pokusy.",
+      "en": "Record the instructor’s exact recommendation and the difference between your two attempts.",
+      "fr": "Note précisément la recommandation du professeur et la différence entre tes deux essais."
+    },
+    "Naplánuj další přiměřený tréninkový krok podle doporučení lektora; limity neřeš obtížnějším trikem.": {
+      "cs": "Naplánuj další přiměřený tréninkový krok podle doporučení lektora; limity neřeš obtížnějším trikem.",
+      "en": "Plan the next appropriate training step according to the instructor’s advice; do not address limitations by attempting a harder trick.",
+      "fr": "Prévois une prochaine étape adaptée selon les conseils du professeur ; ne réponds pas à une limite en essayant une figure plus difficile."
+    },
+    "Co vidím. Co si přidávám.": {
+      "cs": "Co vidím. Co si přidávám.",
+      "en": "What I see. What I add.",
+      "fr": "Ce que je vois. Ce que j’ajoute."
+    },
+    "Tato kapitola je současná autorská interpretace knowledge of self. Neprohlašuje hermetiku za původ hip-hopu a nenabízí léčebný nebo nadpřirozený účinek.": {
+      "cs": "Tato kapitola je současná autorská interpretace knowledge of self. Neprohlašuje hermetiku za původ hip-hopu a nenabízí léčebný nebo nadpřirozený účinek.",
+      "en": "This chapter is a contemporary editorial interpretation of knowledge of self. It does not claim Hermeticism as the origin of hip-hop or offer therapeutic or supernatural effects.",
+      "fr": "Ce chapitre est une interprétation éditoriale contemporaine de la connaissance de soi. Il ne présente pas l’hermétisme comme l’origine du hip-hop et ne promet aucun effet thérapeutique ou surnaturel."
+    },
+    "„Na zdi je oko“ je popis viditelného motivu. „Autor tím myslí univerzální vědomí“ už je výklad, který potřebuje zdroj nebo označení jako domněnka.": {
+      "cs": "„Na zdi je oko“ je popis viditelného motivu. „Autor tím myslí univerzální vědomí“ už je výklad, který potřebuje zdroj nebo označení jako domněnka.",
+      "en": "“There is an eye on the wall” describes a visible motif. “The artist means universal consciousness” is an interpretation that needs a source or must be labelled a hypothesis.",
+      "fr": "« Il y a un œil sur le mur » décrit un motif visible. « L’artiste évoque la conscience universelle » est déjà une interprétation qui demande une source ou doit être présentée comme une hypothèse."
+    },
+    "Pět minut sleduj jedno dílo bez poslechu komentáře.": {
+      "cs": "Pět minut sleduj jedno dílo bez poslechu komentáře.",
+      "en": "Look at one work for five minutes without listening to commentary.",
+      "fr": "Observe une œuvre pendant cinq minutes sans écouter de commentaire."
+    },
+    "Napiš tři viditelné detaily a tři svoje interpretace.": {
+      "cs": "Napiš tři viditelné detaily a tři svoje interpretace.",
+      "en": "Write down three visible details and three interpretations of your own.",
+      "fr": "Note trois détails visibles et trois interprétations personnelles."
+    },
+    "Přečti doložené vyjádření autora či instituce, pokud existuje.": {
+      "cs": "Přečti doložené vyjádření autora či instituce, pokud existuje.",
+      "en": "Read a documented statement from the artist or institution, if one exists.",
+      "fr": "Lis une déclaration documentée de l’artiste ou de l’institution, si elle existe."
+    },
+    "Označ, co se po přečtení změnilo a co stále nevíš.": {
+      "cs": "Označ, co se po přečtení změnilo a co stále nevíš.",
+      "en": "Mark what changed after reading it and what you still do not know.",
+      "fr": "Indique ce qui a changé après cette lecture et ce que tu ignores encore."
+    },
+    "Nezaměňuješ symbol za důkaz tvrzení?": {
+      "cs": "Nezaměňuješ symbol za důkaz tvrzení?",
+      "en": "Are you mistaking a symbol for evidence of a claim?",
+      "fr": "Ne confonds-tu pas un symbole avec la preuve d’une affirmation ?"
+    },
+    "Dokážeš ukázat zdroj autorova vysvětlení?": {
+      "cs": "Dokážeš ukázat zdroj autorova vysvětlení?",
+      "en": "Can you point to the source of the artist’s explanation?",
+      "fr": "Peux-tu indiquer la source de l’explication de l’artiste ?"
+    },
+    "Dvojice sloupců: pozorování a interpretace.": {
+      "cs": "Dvojice sloupců: pozorování a interpretace.",
+      "en": "Two columns: observation and interpretation.",
+      "fr": "Deux colonnes : observation et interprétation."
+    },
+    "Najdi dvě obhajitelné interpretace a u každé pojmenuj oporu i omezení.": {
+      "cs": "Najdi dvě obhajitelné interpretace a u každé pojmenuj oporu i omezení.",
+      "en": "Find two defensible interpretations and name the support and limits of each.",
+      "fr": "Trouve deux interprétations défendables et précise les appuis et les limites de chacune."
+    },
+    "Co na díle vidím a co už je moje přidané vysvětlení?": {
+      "cs": "Co na díle vidím a co už je moje přidané vysvětlení?",
+      "en": "What do I see in the work, and what is an explanation I have added?",
+      "fr": "Que vois-je dans l’œuvre, et qu’est-ce qui relève déjà d’une explication que j’ajoute ?"
+    },
+    "Odděl viditelný tvar, vlastní asociaci a doložené autorovo vyjádření.": {
+      "cs": "Odděl viditelný tvar, vlastní asociaci a doložené autorovo vyjádření.",
+      "en": "Separate the visible shape, your own association and a documented statement by the artist.",
+      "fr": "Sépare la forme visible, ton association personnelle et une déclaration documentée de l’artiste."
+    },
+    "U dalšího obrazu zopakuj dvě oddělené kolonky a vyhledej oporu nejistého výkladu.": {
+      "cs": "U dalšího obrazu zopakuj dvě oddělené kolonky a vyhledej oporu nejistého výkladu.",
+      "en": "For another image, use the two separate columns again and look for support for an uncertain interpretation.",
+      "fr": "Pour une autre image, reprends les deux colonnes séparées et cherche un appui à une interprétation incertaine."
+    },
+    "Hodnota, nebo jen slogan?": {
+      "cs": "Hodnota, nebo jen slogan?",
+      "en": "A value, or just a slogan?",
+      "fr": "Une valeur, ou seulement un slogan ?"
+    },
+    "Efektní věta může vytvářet dojem jasnosti, aniž něco přesně říká. Cílem není zakázat metaforu, ale poznat, kdy ji používáš místo argumentu.": {
+      "cs": "Efektní věta může vytvářet dojem jasnosti, aniž něco přesně říká. Cílem není zakázat metaforu, ale poznat, kdy ji používáš místo argumentu.",
+      "en": "A striking sentence can create an impression of clarity without saying anything precise. The aim is not to ban metaphor, but to recognise when you use it in place of an argument.",
+      "fr": "Une phrase marquante peut donner une impression de clarté sans rien dire de précis. Le but n’est pas d’interdire la métaphore, mais de reconnaître quand tu l’utilises à la place d’un argument."
+    },
+    "„Jsem nezávislý“ doplň otázkou „Na čem konkrétně?“ Potom napiš jeden ověřitelný závazek, například jak zkontroluješ zdroj informace před sdílením. Jde o výukový příklad, ne osobní hodnocení návštěvníka.": {
+      "cs": "„Jsem nezávislý“ doplň otázkou „Na čem konkrétně?“ Potom napiš jeden ověřitelný závazek, například jak zkontroluješ zdroj informace před sdílením. Jde o výukový příklad, ne osobní hodnocení návštěvníka.",
+      "en": "Follow “I am independent” with “Independent of what, specifically?” Then write one verifiable commitment, such as how you will check an information source before sharing it. This is a teaching example, not a personal judgement of the visitor.",
+      "fr": "Complète « Je suis indépendant » par « De quoi, précisément ? » Écris ensuite un engagement vérifiable, par exemple la manière dont tu contrôleras une source avant de partager une information. C’est un exemple pédagogique, pas un jugement personnel sur le visiteur."
+    },
+    "Vyber tři slova ze svého pracovního textu.": {
+      "cs": "Vyber tři slova ze svého pracovního textu.",
+      "en": "Choose three words from your working text.",
+      "fr": "Choisis trois mots dans ton texte de travail."
+    },
+    "Ke každému napiš konkrétní význam v této situaci.": {
+      "cs": "Ke každému napiš konkrétní význam v této situaci.",
+      "en": "For each, state its concrete meaning in this situation.",
+      "fr": "Pour chacun, écris son sens concret dans cette situation."
+    },
+    "Označ větu, kterou neumíš obhájit nebo vysvětlit.": {
+      "cs": "Označ větu, kterou neumíš obhájit nebo vysvětlit.",
+      "en": "Mark a sentence you cannot defend or explain.",
+      "fr": "Repère une phrase que tu ne sais ni défendre ni expliquer."
+    },
+    "Přepiš ji přesněji a zachovej vlastní hlas.": {
+      "cs": "Přepiš ji přesněji a zachovej vlastní hlas.",
+      "en": "Rewrite it more precisely while keeping your own voice.",
+      "fr": "Réécris-la avec plus de précision tout en gardant ta propre voix."
+    },
+    "Je poznat, co tvrdíš a co pouze navrhuješ?": {
+      "cs": "Je poznat, co tvrdíš a co pouze navrhuješ?",
+      "en": "Is it clear what you assert and what you merely propose?",
+      "fr": "Voit-on clairement ce que tu affirmes et ce que tu proposes seulement ?"
+    },
+    "Neztrácí metafora smysl po jednoduchém vysvětlení?": {
+      "cs": "Neztrácí metafora smysl po jednoduchém vysvětlení?",
+      "en": "Does your metaphor retain meaning after a simple explanation?",
+      "fr": "Ta métaphore conserve-t-elle son sens après une explication simple ?"
+    },
+    "Druhá verze krátkého manifestu.": {
+      "cs": "Druhá verze krátkého manifestu.",
+      "en": "A second version of a short manifesto.",
+      "fr": "Une deuxième version d’un court manifeste."
+    },
+    "Sepiš nejsilnější rozumnou námitku proti svému postoji a zkus ji poctivě zohlednit.": {
+      "cs": "Sepiš nejsilnější rozumnou námitku proti svému postoji a zkus ji poctivě zohlednit.",
+      "en": "State the strongest reasonable objection to your position and try honestly to take it into account.",
+      "fr": "Formule l’objection raisonnable la plus forte à ta position et essaie honnêtement d’en tenir compte."
+    },
+    "Co přesně moje silné slovo znamená v této situaci?": {
+      "cs": "Co přesně moje silné slovo znamená v této situaci?",
+      "en": "What exactly does my powerful word mean in this situation?",
+      "fr": "Que signifie précisément mon mot fort dans cette situation ?"
+    },
+    "Všímej si slov, která působí silně, ale neumíš je vysvětlit konkrétně.": {
+      "cs": "Všímej si slov, která působí silně, ale neumíš je vysvětlit konkrétně.",
+      "en": "Notice words that seem powerful but that you cannot explain concretely.",
+      "fr": "Repère les mots qui semblent forts mais que tu ne sais pas expliquer concrètement."
+    },
+    "Před sdílením dalšího tvrzení doplň konkrétní význam, zdroj nebo jasné označení domněnky.": {
+      "cs": "Před sdílením dalšího tvrzení doplň konkrétní význam, zdroj nebo jasné označení domněnky.",
+      "en": "Before sharing another claim, add a concrete meaning, a source or a clear indication that it is a hypothesis.",
+      "fr": "Avant de partager une autre affirmation, précise le sens concret, ajoute une source ou indique clairement qu’il s’agit d’une hypothèse."
+    },
+    "Vlastní znak. Otevřený dialog.": {
+      "cs": "Vlastní znak. Otevřený dialog.",
+      "en": "Your own symbol. An open dialogue.",
+      "fr": "Ton propre signe. Un dialogue ouvert."
+    },
+    "Autorský symbol nemusí mít jediný výklad. Rozlišuj svůj záměr od toho, co v něm čte druhý člověk. Diskuse není soutěž o potvrzení vlastní výjimečnosti.": {
+      "cs": "Autorský symbol nemusí mít jediný výklad. Rozlišuj svůj záměr od toho, co v něm čte druhý člověk. Diskuse není soutěž o potvrzení vlastní výjimečnosti.",
+      "en": "An original symbol need not have a single interpretation. Distinguish your intention from what someone else reads in it. Discussion is not a contest to confirm your own exceptional status.",
+      "fr": "Un symbole personnel n’a pas besoin d’une interprétation unique. Distingue ton intention de ce qu’une autre personne y lit. La discussion n’est pas une compétition destinée à confirmer ton caractère exceptionnel."
+    },
+    "Spoj motiv pochybnosti s motivem důvěry. Ukaž znak bez vysvětlení, vyslechni čtení druhého a teprve potom doplň záměr. Zapiš rozdíl.": {
+      "cs": "Spoj motiv pochybnosti s motivem důvěry. Ukaž znak bez vysvětlení, vyslechni čtení druhého a teprve potom doplň záměr. Zapiš rozdíl.",
+      "en": "Combine a motif of doubt with a motif of trust. Show the symbol without explanation, listen to the other person’s reading, and only then add your intention. Note the difference.",
+      "fr": "Associe un motif de doute à un motif de confiance. Montre le signe sans explication, écoute la lecture de l’autre personne, puis précise ton intention. Note la différence."
+    },
+    "Nakresli jednoduchý znak a napiš dvě věty o záměru.": {
+      "cs": "Nakresli jednoduchý znak a napiš dvě věty o záměru.",
+      "en": "Draw a simple symbol and write two sentences about your intention.",
+      "fr": "Dessine un signe simple et écris deux phrases sur ton intention."
+    },
+    "Připrav 150–250 slov vlastního textu pro diskusi.": {
+      "cs": "Připrav 150–250 slov vlastního textu pro diskusi.",
+      "en": "Prepare 150–250 words of your own text for discussion.",
+      "fr": "Prépare un texte personnel de 150 à 250 mots pour la discussion."
+    },
+    "Ptej se na jednu konkrétní věc, například srozumitelnost hlavního tvrzení.": {
+      "cs": "Ptej se na jednu konkrétní věc, například srozumitelnost hlavního tvrzení.",
+      "en": "Ask about one specific thing, such as the clarity of the main claim.",
+      "fr": "Pose une question sur un point précis, par exemple la clarté de l’affirmation principale."
+    },
+    "Vytvoř další verzi nebo vysvětli, proč konkrétní připomínku nepřijímáš.": {
+      "cs": "Vytvoř další verzi nebo vysvětli, proč konkrétní připomínku nepřijímáš.",
+      "en": "Create another version, or explain why you do not accept a particular comment.",
+      "fr": "Crée une autre version, ou explique pourquoi tu ne retiens pas une remarque précise."
+    },
+    "Dokážeš přiznat nejasnost, aniž vymýšlíš historický původ znaku?": {
+      "cs": "Dokážeš přiznat nejasnost, aniž vymýšlíš historický původ znaku?",
+      "en": "Can you acknowledge ambiguity without inventing a historical origin for your symbol?",
+      "fr": "Peux-tu reconnaître une ambiguïté sans inventer une origine historique à ton signe ?"
+    },
+    "Je zpětná vazba dobrovolná a vzájemná?": {
+      "cs": "Je zpětná vazba dobrovolná a vzájemná?",
+      "en": "Is feedback voluntary and mutual?",
+      "fr": "Le retour est-il volontaire et réciproque ?"
+    },
+    "Znak, krátký text a jedna zpřesněná myšlenka.": {
+      "cs": "Znak, krátký text a jedna zpřesněná myšlenka.",
+      "en": "A symbol, short text and one refined thought.",
+      "fr": "Un signe, un court texte et une idée précisée."
+    },
+    "Porovnej úvodní a konečnou interpretaci bez potřeby tvrdit, že každá změna byla nutně zlepšení.": {
+      "cs": "Porovnej úvodní a konečnou interpretaci bez potřeby tvrdit, že každá změna byla nutně zlepšení.",
+      "en": "Compare the initial and final interpretations without needing to claim that every change was necessarily an improvement.",
+      "fr": "Compare les interprétations initiale et finale sans devoir affirmer que chaque changement constitue nécessairement une amélioration."
+    },
+    "Co z mého záměru druhý člověk přečte i bez vysvětlování?": {
+      "cs": "Co z mého záměru druhý člověk přečte i bez vysvětlování?",
+      "en": "What can someone else read of my intention without an explanation?",
+      "fr": "Que peut lire une autre personne de mon intention sans explication ?"
+    },
+    "Porovnej cizí čtení znaku s vlastním záměrem; rozdíl nemusí být chyba.": {
+      "cs": "Porovnej cizí čtení znaku s vlastním záměrem; rozdíl nemusí být chyba.",
+      "en": "Compare another person’s reading of the symbol with your intention; a difference is not necessarily an error.",
+      "fr": "Compare la lecture du signe par une autre personne à ton intention ; une différence n’est pas forcément une erreur."
+    },
+    "Znak nebo text po čase znovu ukaž jinému dobrovolnému čtenáři a zapiš, co přetrvalo a co se změnilo.": {
+      "cs": "Znak nebo text po čase znovu ukaž jinému dobrovolnému čtenáři a zapiš, co přetrvalo a co se změnilo.",
+      "en": "After some time, show the symbol or text to another willing reader and note what has persisted and what has changed.",
+      "fr": "Après quelque temps, montre de nouveau le signe ou le texte à une autre personne volontaire et note ce qui a persisté et ce qui a changé."
+    }
+  }
+}

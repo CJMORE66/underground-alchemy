@@ -2,7 +2,7 @@ import * as THREE from 'three';
 import {primaryBuilders} from './primary.js';
 import {secondaryBuilders} from './secondary.js';
 import {LANDMARKS,LANDMARK_IDS,registryById,validPoint,localMeters,exclusionPolygons,exclusionFilter} from './registry.js';
-import {disposeScene} from './helpers.js';
+import {disposeScene,prepareRevealParts,applyRevealParts} from './helpers.js';
 
 export {LANDMARKS,LANDMARK_IDS,localMeters};
 export {mountLandmarkStudy} from './study.js';
@@ -22,10 +22,10 @@ export function mountCityLandmarks(map,maplibregl,{places=[],onReady,onError}={}
  const key=new THREE.DirectionalLight(0xfff3c7,.6);key.position.set(-250,-200,400);scene.add(key);
  const fill=new THREE.DirectionalLight(0xe3f0ff,.18);fill.position.set(200,200,120);scene.add(fill);
  function report(error){if(failed||disposed)return;failed=true;queueMicrotask(()=>onError?.(error));}
- function prepare(group){group.userData.animated=[];const def=registryById.get(group.name);group.traverse(obj=>{if(!obj.isMesh)return;const index=Math.max(0,def.phases.findIndex(pattern=>new RegExp(pattern,'i').test(obj.name)));obj.material=obj.material.clone();obj.geometry.computeBoundingBox();group.userData.animated.push({node:obj,phase:index,position:obj.position.clone(),scale:obj.scale.clone(),base:obj.geometry.boundingBox.min.z});});}
+ function prepare(group){group.userData.animated=prepareRevealParts(group,registryById.get(group.name).phases);}
  function addPlaces(items){for(const place of items){if(!validPoint(place)||!BUILDERS[place.id]||models.has(place.id))continue;const g=createLandmarkModel(place.id),point=maplibregl.MercatorCoordinate.fromLngLat([place.lng,place.lat],0),offset=localMeters(origin,point,scale);g.position.set(offset.x,offset.y,.7);g.rotation.z=-registryById.get(place.id).heading*Math.PI/180;prepare(g);scene.add(g);models.set(place.id,g);}}
  addPlaces(places);
- function applyReveal(group,p){const def=registryById.get(group.name),count=def.phases.length;for(const item of group.userData.animated){const start=item.phase/count*.72,span=.28;const v=Math.max(0,Math.min(1,(p-start)/span)),e=1-Math.pow(1-v,3);item.node.visible=v>0;item.node.scale.copy(item.scale);item.node.scale.z*=Math.max(.001,e);item.node.position.copy(item.position);item.node.position.z+=(1-e)*item.base;item.node.material.transparent=v<1;item.node.material.opacity=v;item.node.material.depthWrite=v>.45;}group.userData.revealProgress=p;}
+ function applyReveal(group,p){group.userData.revealProgress=applyRevealParts(group.userData.animated,p,registryById.get(group.name).phases.length);}
  function setPlaces(items,id=selectedId){if(disposed)return;addPlaces(items);visibleIds.clear();for(const p of items||[])if(validPoint(p))visibleIds.add(p.id);for(const [key,g]of models)g.visible=visibleIds.has(key);select(id);}
  function select(id,{animate=false}={}){if(disposed)return;selectedId=models.has(id)?id:null;for(const [key,g]of models){g.userData.selected=key===selectedId;applyReveal(g,key===selectedId&&animate?0:1);}progress=animate?0:1;map.triggerRepaint?.();return selectedId?registryById.get(selectedId):null;}
  function setMotionProgress(value){if(disposed)return;const p=Number.isFinite(value)?Math.max(0,Math.min(1,value)):1;progress=p;const group=models.get(selectedId);if(group)applyReveal(group,p);map.triggerRepaint?.();}

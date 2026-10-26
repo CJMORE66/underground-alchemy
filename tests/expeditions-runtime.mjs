@@ -177,10 +177,21 @@ let receipt;
 await event('message',{data:{type:'SAVE_EXPEDITIONS',art:'/assets/masterworks-v2/044.webp'},ports:[{postMessage(value){receipt=value;}}]});
 assert.equal(receipt.ok,true);assert.equal(receipt.textReady,true);
 for(const id of ['dj','mc','writer','breaking','knowledge'])assert(cacheMap.has(`https://caisik.test/expeditions/${id}/`));
+const languagePaths = ['/languages.css?v=1', '/languages.js?v=1', '/language-lessons.json?v=1', ...['cs','en','fr'].map(lang=>`/i18n/${lang}.json?v=1`)];
+for(const path of languagePaths)assert(cacheMap.has(`https://caisik.test${path}`), 'Explicit offline save contains language controls, practice cards and all three dictionaries');
 assert(requests.every(url=>url.startsWith('https://caisik.test/')),'Offline save never contacts a third party');
 networkDown=true;
 const offline=await event('fetch',{request:{method:'GET',url:'https://caisik.test/expeditions/writer/?mode=field',mode:'navigate'}});
 assert.equal(offline.status,200);assert((await offline.text()).includes('/expeditions/writer/'),'A saved full expedition is served while the network is unavailable');
+for(const path of languagePaths){
+ const savedLanguage=await event('fetch',{request:{method:'GET',url:`https://caisik.test${path}`,mode:'cors'}});
+ assert.equal(savedLanguage.status,200,'Saved language assets remain available with the network down');
+ assert.equal(await savedLanguage.text(),`resource:${new URL(path,'https://caisik.test').pathname}`);
+}
+for(const url of ['https://caisik.test/i18n/private.json','https://caisik.test/play/store.js','https://other.test/i18n/fr.json?v=1']){
+ assert.equal(await event('fetch',{request:{method:'GET',url,mode:'cors'}}),undefined,'Only the exact same-origin language allowlist extends the expedition boundary');
+}
+assert.equal(await event('fetch',{request:{method:'POST',url:'https://caisik.test/i18n/fr.json?v=1',mode:'cors'}}),undefined,'The offline worker never handles a write or upload');
 const outside=await event('fetch',{request:{method:'GET',url:'https://caisik.test/locations-data.json',mode:'cors'}});
 assert.equal(outside,undefined,'The expedition worker does not intercept the existing atlas');
 networkDown=false;failingAsset=true;cacheMap.delete('https://caisik.test/assets/masterworks-v2/044.webp');
@@ -242,7 +253,7 @@ function upgradeFixture(failure = null) {
     async run(type) {let completion; handlers.get(type)({waitUntil(promise) {completion = promise;}}); await completion;}
   };
 }
-for (const failure of ['/expeditions/knowledge/', 'all']) {
+for (const failure of ['/expeditions/knowledge/', '/i18n/fr.json?v=1', '/language-lessons.json?v=1', 'all']) {
   const upgrade = upgradeFixture(failure);
   await assert.rejects(upgrade.run('install'), /Incomplete offline text package/, 'Incomplete mandatory text rejects installation');
   assert.equal(upgrade.skipped, 0, 'Failed install never replaces the old active worker');
@@ -265,7 +276,8 @@ for (const path of ['/expeditions/', ...['dj', 'mc', 'writer', 'breaking', 'know
 }
 assert.equal(completeUpgrade.skipped, 1);
 assert(completeUpgrade.stores.has(previousCacheName), 'Installation leaves cleanup to verified activation');
-assert(completeUpgrade.requested.every(url => url.startsWith('https://caisik.test/expeditions/')), 'Mandatory install never downloads external media or the art library');
+assert(completeUpgrade.requested.every(url => url.startsWith('https://caisik.test/expeditions/') || languagePaths.includes(url.replace('https://caisik.test',''))), 'Mandatory install only downloads expedition text and exact same-origin language assets');
+for (const path of languagePaths) assert(completeUpgrade.newFiles.has(`https://caisik.test${path}`), 'A verified upgrade contains every language control, card set and dictionary');
 await completeUpgrade.run('activate');
 assert.equal(completeUpgrade.claimed, 1);
 assert.equal(completeUpgrade.stores.has(previousCacheName), false);
@@ -279,4 +291,4 @@ await assert.rejects(evictedUpgrade.run('activate'), /Offline text package unava
 assert(evictedUpgrade.stores.has(previousCacheName));
 assert.deepEqual(evictedUpgrade.deleted, []);
 
-console.log('PASS: isolated and multi-tab note persistence/failure/export; corrupt-data recovery; full offline guide; identity namespaces; reversible scroll/scene semantics; field route progression; same-origin opt-in offline text; quota/open/read failure resilience; complete offline upgrade and previous-cache retention.');
+console.log('PASS: isolated and multi-tab note persistence/failure/export; corrupt-data recovery; full offline guide; identity namespaces; reversible scroll/scene semantics; field route progression; same-origin opt-in offline text and CS/EN/FR practice; exact language asset allowlist; quota/open/read failure resilience; complete offline upgrade and previous-cache retention.');

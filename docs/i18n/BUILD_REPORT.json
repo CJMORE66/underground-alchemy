@@ -1,0 +1,858 @@
+{
+  "entries": 2825,
+  "languages": [
+    "cs",
+    "en",
+    "fr"
+  ],
+  "conflicts": [
+    {
+      "source": "Gender",
+      "language": "cs",
+      "previous": "Rod (Gender)",
+      "selected": "Gender",
+      "origin": "selfmade-translations.json"
+    },
+    {
+      "source": "Symbolism",
+      "language": "fr",
+      "previous": "Symbolisme",
+      "selected": "Symboles",
+      "origin": "ui-translations.json"
+    },
+    {
+      "source": "Word chain",
+      "language": "cs",
+      "previous": "Řetězec slov",
+      "selected": "Řetěz slov",
+      "origin": "ui-translations.json"
+    },
+    {
+      "source": "Stav popisuje uloženou práci, ne odborné zvládnutí disciplíny.",
+      "language": "en",
+      "previous": "The status describes saved work, not expert mastery of a discipline.",
+      "selected": "The status describes saved work, not professional mastery of a discipline.",
+      "origin": "ui-translations.json"
+    },
+    {
+      "source": "Stav popisuje uloženou práci, ne odborné zvládnutí disciplíny.",
+      "language": "fr",
+      "previous": "Le statut décrit le travail enregistré, pas la maîtrise experte d’une discipline.",
+      "selected": "L’état décrit le travail enregistré, pas la maîtrise professionnelle d’une discipline.",
+      "origin": "ui-translations.json"
+    },
+    {
+      "source": "Prostor se nepodařilo načíst. Tvoje data zůstávají zachovaná.",
+      "language": "en",
+      "previous": "The space could not be loaded. Your data remains intact.",
+      "selected": "The workspace could not load. Your data is preserved.",
+      "origin": "ui-translations.json"
+    },
+    {
+      "source": "Prostor se nepodařilo načíst. Tvoje data zůstávají zachovaná.",
+      "language": "fr",
+      "previous": "L’espace n’a pas pu être chargé. Tes données sont conservées.",
+      "selected": "Impossible de charger cet espace. Tes données sont conservées.",
+      "origin": "ui-translations.json"
+    },
+    {
+      "source": "Zvuková dílna se nenačetla. Textová tvorba zůstává dostupná.",
+      "language": "en",
+      "previous": "The sound workshop did not load. Writing remains available.",
+      "selected": "The sound workshop could not load. Text creation remains available.",
+      "origin": "ui-translations.json"
+    },
+    {
+      "source": "Zvuková dílna se nenačetla. Textová tvorba zůstává dostupná.",
+      "language": "fr",
+      "previous": "L’atelier sonore n’a pas été chargé. La création écrite reste disponible.",
+      "selected": "L’atelier sonore n’a pas pu se charger. L’écriture reste accessible.",
+      "origin": "ui-translations.json"
+    },
+    {
+      "source": "Změna zůstává v paměti. Exportuj ji v Blackbooku; úložiště nepotvrdilo zápis.",
+      "language": "en",
+      "previous": "The change remains in memory. Export it in your Blackbook; storage has not confirmed saving.",
+      "selected": "The change remains in memory. Export it in Blackbook; storage did not confirm the write.",
+      "origin": "ui-translations.json"
+    },
+    {
+      "source": "Změna zůstává v paměti. Exportuj ji v Blackbooku; úložiště nepotvrdilo zápis.",
+      "language": "fr",
+      "previous": "La modification reste en mémoire. Exporte-la dans ton Blackbook ; le stockage n’a pas confirmé l’enregistrement.",
+      "selected": "La modification reste en mémoire. Exporte-la dans le Blackbook ; le stockage n’a pas confirmé l’enregistrement.",
+      "origin": "ui-translations.json"
+    },
+    {
+      "source": "Architecture & Geometry",
+      "language": "cs",
+      "previous": "Architektura & Geometrie",
+      "selected": "Architektura a geometrie",
+      "origin": "ui-translations.json"
+    },
+    {
+      "source": "Architecture & Geometry",
+      "language": "fr",
+      "previous": "Architecture & Géométrie",
+      "selected": "Architecture et géométrie",
+      "origin": "ui-translations.json"
+    },
+    {
+      "source": "CAISIK / UNDERGROUND ALCHEMY / VLASTNÍ VYDÁNÍ",
+      "language": "en",
+      "previous": "CAISIK / UNDERGROUND ALCHEMY / YOUR OWN EDITION",
+      "selected": "CAISIK / UNDERGROUND ALCHEMY / PERSONAL EDITION",
+      "origin": "ui-translations.json"
+    },
+    {
+      "source": "CAISIK / UNDERGROUND ALCHEMY / VLASTNÍ VYDÁNÍ",
+      "language": "fr",
+      "previous": "CAISIK / UNDERGROUND ALCHEMY / TON ÉDITION PERSONNELLE",
+      "selected": "CAISIK / UNDERGROUND ALCHEMY / ÉDITION PERSONNELLE",
+      "origin": "ui-translations.json"
+    },
+    {
+      "source": "První pokus má stejnou hodnotu jako poslední. Tady vidíš, co se opravdu změnilo.",
+      "language": "en",
+      "previous": "Your first attempt matters as much as your latest one. Here you can see what actually changed.",
+      "selected": "The first attempt matters as much as the latest. Here you can see what actually changed.",
+      "origin": "ui-translations.json"
+    },
+    {
+      "source": "První pokus má stejnou hodnotu jako poslední. Tady vidíš, co se opravdu změnilo.",
+      "language": "fr",
+      "previous": "Ton premier essai compte autant que le dernier. Ici, tu vois ce qui a réellement changé.",
+      "selected": "Le premier essai compte autant que le dernier. Ici, tu vois ce qui a réellement changé.",
+      "origin": "ui-translations.json"
+    },
+    {
+      "source": "Vlastní díla a rozpracovaný materiál jsou tvoje stopy ve světě. Základna patří tobě.",
+      "language": "en",
+      "previous": "Your creations and work in progress are your traces in the world. This base belongs to you.",
+      "selected": "Your works and material in progress are your marks in the world. The base belongs to you.",
+      "origin": "ui-translations.json"
+    },
+    {
+      "source": "Vlastní díla a rozpracovaný materiál jsou tvoje stopy ve světě. Základna patří tobě.",
+      "language": "fr",
+      "previous": "Tes créations et tes projets en cours sont tes traces dans le monde. Cette base t’appartient.",
+      "selected": "Tes créations et tes travaux en cours sont tes traces dans le monde. Cette base t’appartient.",
+      "origin": "ui-translations.json"
+    },
+    {
+      "source": "Ulož v dílně první verzi. Pak ji přepracuj a vysvětli změnu.",
+      "language": "fr",
+      "previous": "Enregistre une première version dans l’atelier. Retravaille-la ensuite et explique la modification.",
+      "selected": "Enregistre une première version dans l’atelier. Puis retravaille-la et explique le changement.",
+      "origin": "ui-translations.json"
+    },
+    {
+      "source": "Materiál sbíráš ty. Archiv ti žádné cizí reference nevymýšlí.",
+      "language": "en",
+      "previous": "You collect the material yourself. The archive does not invent other people’s references for you.",
+      "selected": "You collect the material. The archive does not invent third-party references for you.",
+      "origin": "ui-translations.json"
+    },
+    {
+      "source": "Materiál sbíráš ty. Archiv ti žádné cizí reference nevymýšlí.",
+      "language": "fr",
+      "previous": "C’est toi qui collectes le matériau. Les archives n’inventent pas de références extérieures pour toi.",
+      "selected": "C’est toi qui collectes les matériaux. Les archives n’inventent aucune référence extérieure à ta place.",
+      "origin": "ui-translations.json"
+    },
+    {
+      "source": "Vyber položky vlevo. Šipkami sestavíš pořadí; funguje i bez přetahování.",
+      "language": "en",
+      "previous": "Select items on the left. Use the arrows to arrange them; dragging is optional.",
+      "selected": "Choose items on the left. Use the arrows to order them; dragging is optional.",
+      "origin": "ui-translations.json"
+    },
+    {
+      "source": "Vyber položky vlevo. Šipkami sestavíš pořadí; funguje i bez přetahování.",
+      "language": "fr",
+      "previous": "Sélectionne des éléments à gauche. Organise-les avec les flèches ; le glisser-déposer est facultatif.",
+      "selected": "Choisis les éléments à gauche. Utilise les flèches pour les ordonner ; le glisser-déposer reste facultatif.",
+      "origin": "ui-translations.json"
+    },
+    {
+      "source": "Propojení pojmenuj ty. Žádné automaticky vymyšlené příbuznosti.",
+      "language": "en",
+      "previous": "Name the connection yourself. No automatically invented relationships.",
+      "selected": "Name the connections yourself. No automatically invented relationships.",
+      "origin": "ui-translations.json"
+    },
+    {
+      "source": "Propojení pojmenuj ty. Žádné automaticky vymyšlené příbuznosti.",
+      "language": "fr",
+      "previous": "Nomme toi-même le lien. Aucun rapprochement n’est inventé automatiquement.",
+      "selected": "Nomme toi-même les liens. Aucune relation n’est inventée automatiquement.",
+      "origin": "ui-translations.json"
+    },
+    {
+      "source": "V kronice vyber díla pro vlastní vydání. HTML obsahuje všechny jejich skutečné verze, palety a uložené tahy; nic nenahrává na server.",
+      "language": "en",
+      "previous": "In the chronicle, select works for your own edition. The HTML includes all their actual versions, palettes and saved strokes; nothing is uploaded to a server.",
+      "selected": "Choose works from the chronicle for your personal edition. The HTML includes all their actual versions, palettes and saved strokes; it uploads nothing to a server.",
+      "origin": "ui-translations.json"
+    },
+    {
+      "source": "V kronice vyber díla pro vlastní vydání. HTML obsahuje všechny jejich skutečné verze, palety a uložené tahy; nic nenahrává na server.",
+      "language": "fr",
+      "previous": "Dans la chronique, sélectionne les créations de ton édition personnelle. Le fichier HTML contient toutes leurs versions réelles, leurs palettes et leurs traits enregistrés ; rien n’est envoyé sur un serveur.",
+      "selected": "Choisis les créations de la chronique pour ton édition personnelle. Le HTML contient toutes leurs véritables versions, palettes et tracés enregistrés ; rien n’est envoyé à un serveur.",
+      "origin": "ui-translations.json"
+    },
+    {
+      "source": "Neobsahuje session audio/video. Jejich vlastní stažené soubory uchovej samostatně. HTML můžeš prohlížet offline; veřejné portfolio ani účet tím nevzniká.",
+      "language": "en",
+      "previous": "Session audio/video is not included. Keep your own downloaded files separately. You can view the HTML offline; this does not create a public portfolio or account.",
+      "selected": "Session audio/video is not included. Keep your downloaded media separately. You can view the HTML offline; this does not create a public portfolio or account.",
+      "origin": "ui-translations.json"
+    },
+    {
+      "source": "Neobsahuje session audio/video. Jejich vlastní stažené soubory uchovej samostatně. HTML můžeš prohlížet offline; veřejné portfolio ani účet tím nevzniká.",
+      "language": "fr",
+      "previous": "L’audio et la vidéo de session ne sont pas inclus. Garde séparément les fichiers que tu as téléchargés. Tu peux consulter le HTML hors ligne ; cela ne crée ni portfolio public ni compte.",
+      "selected": "L’audio et la vidéo de session ne sont pas inclus. Garde séparément les fichiers que tu as téléchargés. Le HTML se consulte hors ligne ; cela ne crée ni portfolio public ni compte.",
+      "origin": "ui-translations.json"
+    },
+    {
+      "source": "JSON obsahuje lokální profil, díla, verze, inventář a rozpracované zápisky. Uchovej jej soukromě.",
+      "language": "en",
+      "previous": "The JSON includes your local profile, works, versions, inventory and draft notes. Keep it private.",
+      "selected": "The JSON contains your local profile, works, versions, inventory and drafts. Keep it private.",
+      "origin": "ui-translations.json"
+    },
+    {
+      "source": "JSON obsahuje lokální profil, díla, verze, inventář a rozpracované zápisky. Uchovej jej soukromě.",
+      "language": "fr",
+      "previous": "Le JSON contient ton profil local, tes créations, leurs versions, ton inventaire et tes notes en cours. Garde-le privé.",
+      "selected": "Le JSON contient ton profil local, tes créations, versions, inventaire et brouillons. Garde-le privé.",
+      "origin": "ui-translations.json"
+    },
+    {
+      "source": "Texty, palety a uložené tahy: úložiště tohoto prohlížeče. Audio/video v dílně: pouze aktuální karta, pokud je samostatně nestáhneš. Serverový účet ani synchronizace mezi zařízeními nejsou zapnuté.",
+      "language": "en",
+      "previous": "Texts, palettes and saved strokes: this browser’s storage. Audio/video in the workshop: the current tab only, unless downloaded separately. No server account or cross-device synchronisation is enabled.",
+      "selected": "Texts, palettes and saved strokes: this browser’s storage. Workshop audio/video: only the current tab unless downloaded separately. No server account or cross-device synchronisation is enabled.",
+      "origin": "ui-translations.json"
+    },
+    {
+      "source": "Texty, palety a uložené tahy: úložiště tohoto prohlížeče. Audio/video v dílně: pouze aktuální karta, pokud je samostatně nestáhneš. Serverový účet ani synchronizace mezi zařízeními nejsou zapnuté.",
+      "language": "fr",
+      "previous": "Textes, palettes et traits enregistrés : le stockage de ce navigateur. Audio et vidéo dans l’atelier : uniquement l’onglet actuel, sauf téléchargement séparé. Aucun compte serveur ni synchronisation entre appareils n’est activé.",
+      "selected": "Textes, palettes et tracés enregistrés : stockage de ce navigateur. Audio/vidéo de l’atelier : uniquement l’onglet actuel, sauf téléchargement séparé. Aucun compte serveur ni synchronisation entre appareils n’est activé.",
+      "origin": "ui-translations.json"
+    },
+    {
+      "source": "Smaže místní díla, inventář, slovník, propojení a kurátorský výběr. Profil, ostatní questy a původní atlas zůstanou.",
+      "language": "en",
+      "previous": "Deletes local works, inventory, vocabulary, connections and your curated selection. Your profile, other quests and the original atlas will stay.",
+      "selected": "Deletes local works, inventory, glossary, connections and curated selection. Your profile, other quests and the original atlas remain.",
+      "origin": "ui-translations.json"
+    },
+    {
+      "source": "Smaže místní díla, inventář, slovník, propojení a kurátorský výběr. Profil, ostatní questy a původní atlas zůstanou.",
+      "language": "fr",
+      "previous": "Supprime les créations locales, l’inventaire, le vocabulaire, les liens et ta sélection éditoriale. Ton profil, les autres quêtes et l’atlas d’origine resteront.",
+      "selected": "Supprime les créations locales, l’inventaire, le glossaire, les liens et la sélection éditoriale. Ton profil, les autres quêtes et l’atlas d’origine restent conservés.",
+      "origin": "ui-translations.json"
+    },
+    {
+      "source": "Žlutá čára označuje řádek odlišný od předchozí verze. Posunuté řádky mohou být také zvýrazněné; nejde o hodnocení kvality.",
+      "language": "en",
+      "previous": "A yellow line marks a line that differs from the previous version. Moved lines may also be highlighted; this does not judge quality.",
+      "selected": "A yellow line marks a line that differs from the previous version. Moved lines may also be highlighted; this is not a quality assessment.",
+      "origin": "ui-translations.json"
+    },
+    {
+      "source": "Žlutá čára označuje řádek odlišný od předchozí verze. Posunuté řádky mohou být také zvýrazněné; nejde o hodnocení kvality.",
+      "language": "fr",
+      "previous": "Un trait jaune indique une ligne différente de la version précédente. Les lignes déplacées peuvent aussi être mises en évidence ; ce n’est pas un jugement de qualité.",
+      "selected": "Un trait jaune indique une ligne différente de la version précédente. Les lignes déplacées peuvent aussi être surlignées ; il ne s’agit pas d’une évaluation de qualité.",
+      "origin": "ui-translations.json"
+    },
+    {
+      "source": "Formát byl ověřen. Vyber projekty k přidání; jejich verze se sloučí podle trvalých ID. Inventář, slovník a další platná data zálohy se také sloučí.",
+      "language": "en",
+      "previous": "The format has been validated. Choose projects to add; their versions will be merged using permanent IDs. Inventory, vocabulary and other valid backup data will also be merged.",
+      "selected": "The format has been validated. Choose projects to add; their versions merge using stable IDs. Inventory, glossary and other valid backup data also merge.",
+      "origin": "ui-translations.json"
+    },
+    {
+      "source": "Formát byl ověřen. Vyber projekty k přidání; jejich verze se sloučí podle trvalých ID. Inventář, slovník a další platná data zálohy se také sloučí.",
+      "language": "fr",
+      "previous": "Le format a été vérifié. Choisis les projets à ajouter ; leurs versions seront fusionnées à partir de leurs identifiants permanents. L’inventaire, le vocabulaire et les autres données valides de la sauvegarde seront aussi fusionnés.",
+      "selected": "Le format a été validé. Choisis les projets à ajouter ; leurs versions sont fusionnées selon leurs identifiants permanents. L’inventaire, le glossaire et les autres données valides sont également fusionnés.",
+      "origin": "ui-translations.json"
+    },
+    {
+      "source": "Vyber skutečná místa. Vytvoř vlastní pořadí. Odnes si materiál pro vlastní práci.",
+      "language": "en",
+      "previous": "Choose real places. Put them in your own order. Bring back material for your own work.",
+      "selected": "Choose real places. Set your own order. Bring back material for your own work.",
+      "origin": "ui-translations.json"
+    },
+    {
+      "source": "Vyber skutečná místa. Vytvoř vlastní pořadí. Odnes si materiál pro vlastní práci.",
+      "language": "fr",
+      "previous": "Choisis de vrais lieux. Compose ton propre parcours. Rapporte du matériau pour ta propre création.",
+      "selected": "Choisis des lieux réels. Définis ton ordre. Rapporte de la matière pour ton travail.",
+      "origin": "ui-translations.json"
+    },
+    {
+      "source": "Podmínky jsou převzaté z existujícího ověřeného archivu, většinou z 21. 10. 2026. Před návštěvou zkontroluj oficiální zdroj. Veřejná návštěva neopravňuje k malování, placené lekci ani nahrávání jiných lidí.",
+      "language": "en",
+      "previous": "Conditions come from the existing verified archive, mostly dated 21 October 2026. Check the official source before visiting. A public visit does not authorise painting, paid lessons or recording other people.",
+      "selected": "Conditions come from the existing verified archive, mostly dated 21 October 2026. Check the official source before visiting. Public access does not grant permission to paint, run a paid lesson or record other people.",
+      "origin": "ui-translations.json"
+    },
+    {
+      "source": "Podmínky jsou převzaté z existujícího ověřeného archivu, většinou z 21. 10. 2026. Před návštěvou zkontroluj oficiální zdroj. Veřejná návštěva neopravňuje k malování, placené lekci ani nahrávání jiných lidí.",
+      "language": "fr",
+      "previous": "Les conditions proviennent des archives vérifiées existantes, le plus souvent datées du 21 octobre 2026. Consulte la source officielle avant ta visite. L’accès public n’autorise ni la peinture, ni un cours payant, ni l’enregistrement d’autres personnes.",
+      "selected": "Les conditions proviennent de l’archive vérifiée existante, principalement du 21 octobre 2026. Consulte la source officielle avant ta visite. L’accès public n’autorise ni la peinture, ni un cours payant, ni l’enregistrement d’autres personnes.",
+      "origin": "ui-translations.json"
+    },
+    {
+      "source": "Adresa nevytváří ověřený mapový pin. Záznam zůstává jen v tomto prohlížeči.",
+      "language": "en",
+      "previous": "An address does not create a verified map pin. This entry stays only in this browser.",
+      "selected": "An address does not create a verified map pin. This entry stays in this browser only.",
+      "origin": "ui-translations.json"
+    },
+    {
+      "source": "Adresa nevytváří ověřený mapový pin. Záznam zůstává jen v tomto prohlížeči.",
+      "language": "fr",
+      "previous": "Une adresse ne crée pas un repère cartographique vérifié. Cette note reste uniquement dans ce navigateur.",
+      "selected": "Une adresse ne crée pas de repère cartographique vérifié. Cette note reste dans ce navigateur.",
+      "origin": "ui-translations.json"
+    },
+    {
+      "source": "Čas zahrnuje tvoji práci a pauzy. Délku přesunů nevypočítáváme; ověř ji v navigaci. Při nejisté dostupnosti zvol domácí větev.",
+      "language": "en",
+      "previous": "The time includes your work and breaks. We do not calculate travel time; check it in your navigation app. If access is uncertain, choose the at-home option.",
+      "selected": "The time includes your work and breaks. Travel times are not calculated; check them in your navigation app. If access is uncertain, choose the home alternative.",
+      "origin": "ui-translations.json"
+    },
+    {
+      "source": "Čas zahrnuje tvoji práci a pauzy. Délku přesunů nevypočítáváme; ověř ji v navigaci. Při nejisté dostupnosti zvol domácí větev.",
+      "language": "fr",
+      "previous": "Le temps comprend ton travail et tes pauses. Nous ne calculons pas les déplacements ; vérifie-les dans ton application de navigation. Si l’accès est incertain, choisis la variante à la maison.",
+      "selected": "Le temps inclut ton travail et tes pauses. Les durées de trajet ne sont pas calculées : vérifie-les dans ton application de navigation. Si l’accès est incertain, choisis la variante à la maison.",
+      "origin": "ui-translations.json"
+    },
+    {
+      "source": "Některá importovaná trasa nemá platný seznam zastávek. Původní data zůstávají v záloze; neplatný záznam zde neotevíráme.",
+      "language": "en",
+      "previous": "An imported route has an invalid stop list. The original data remains in the backup; we do not open the invalid entry here.",
+      "selected": "An imported route has an invalid stop list. The original data remains in the backup; this invalid entry cannot be opened here.",
+      "origin": "ui-translations.json"
+    },
+    {
+      "source": "Některá importovaná trasa nemá platný seznam zastávek. Původní data zůstávají v záloze; neplatný záznam zde neotevíráme.",
+      "language": "fr",
+      "previous": "Un parcours importé ne possède pas de liste d’étapes valide. Les données d’origine restent dans la sauvegarde ; nous n’ouvrons pas cette entrée invalide ici.",
+      "selected": "Un parcours importé contient une liste d’étapes non valide. Les données d’origine restent dans la sauvegarde ; cette entrée ne peut pas être ouverte ici.",
+      "origin": "ui-translations.json"
+    },
+    {
+      "source": "Přidej zastávku. Přesná adresa, podmínky a jeden úkol se objeví přímo tady.",
+      "language": "fr",
+      "previous": "Ajoute une étape. Son adresse exacte, ses conditions et une consigne apparaîtront ici.",
+      "selected": "Ajoute une étape. Son adresse exacte, ses conditions d’accès et un exercice apparaîtront ici.",
+      "origin": "ui-translations.json"
+    },
+    {
+      "source": "Co z cesty opravdu použiji?",
+      "language": "en",
+      "previous": "What will I actually use from this trip?",
+      "selected": "What will I actually use from this journey?",
+      "origin": "ui-translations.json"
+    },
+    {
+      "source": "Co z cesty opravdu použiji?",
+      "language": "fr",
+      "previous": "Qu’est-ce que je vais vraiment utiliser de cette sortie ?",
+      "selected": "Qu’est-ce que je vais vraiment utiliser de cette exploration ?",
+      "origin": "ui-translations.json"
+    },
+    {
+      "source": "Od ručního startu do pauzy či ukončení, včetně přestávek a času mimo tuto kartu i po zavření stránky. Není to délka cesty ani důkaz znalosti.",
+      "language": "en",
+      "previous": "From your manual start until you pause or finish, including breaks and time outside this tab, even after closing the page. This is neither travel time nor proof of learning.",
+      "selected": "From manual start to pause or finish, including breaks and time outside this tab or after closing the page. This is neither travel duration nor evidence of learning.",
+      "origin": "ui-translations.json"
+    },
+    {
+      "source": "Od ručního startu do pauzy či ukončení, včetně přestávek a času mimo tuto kartu i po zavření stránky. Není to délka cesty ani důkaz znalosti.",
+      "language": "fr",
+      "previous": "Depuis ton démarrage manuel jusqu’à la pause ou la fin, y compris les pauses et le temps passé hors de cet onglet, même après fermeture de la page. Ce n’est ni une durée de trajet ni une preuve d’apprentissage.",
+      "selected": "Du démarrage manuel à la pause ou à l’arrêt, y compris les pauses et le temps hors de cet onglet ou après fermeture de la page. Ce temps ne mesure ni la durée du trajet ni les connaissances acquises.",
+      "origin": "ui-translations.json"
+    },
+    {
+      "source": "Konkrétní úkol původní expedice",
+      "language": "fr",
+      "previous": "Consigne précise de l’expédition d’origine",
+      "selected": "Exercice précis de l’expédition d’origine",
+      "origin": "ui-translations.json"
+    },
+    {
+      "source": "Hlas se spouští jen tvojí volbou, používá pouze dostupný místní hlas zařízení.",
+      "language": "en",
+      "previous": "Speech starts only when you choose it and uses only an available local voice on your device.",
+      "selected": "Voice starts only when you choose it, using an available local voice on your device.",
+      "origin": "ui-translations.json"
+    },
+    {
+      "source": "Hlas se spouští jen tvojí volbou, používá pouze dostupný místní hlas zařízení.",
+      "language": "fr",
+      "previous": "La lecture vocale démarre uniquement à ta demande et utilise seulement une voix locale disponible sur ton appareil.",
+      "selected": "La voix démarre uniquement à ta demande et utilise une voix locale disponible sur ton appareil.",
+      "origin": "ui-translations.json"
+    },
+    {
+      "source": "Ukládá se soukromě do tohoto prohlížeče. Zálohu vytvoříš v Blackbooku.",
+      "language": "en",
+      "previous": "Saved privately in this browser. Create a backup in your Blackbook.",
+      "selected": "Saved privately in this browser. Create a backup in Blackbook.",
+      "origin": "ui-translations.json"
+    },
+    {
+      "source": "Ukládá se soukromě do tohoto prohlížeče. Zálohu vytvoříš v Blackbooku.",
+      "language": "fr",
+      "previous": "Enregistré en privé dans ce navigateur. Crée une sauvegarde dans ton Blackbook.",
+      "selected": "Enregistré en privé dans ce navigateur. Crée une sauvegarde dans Blackbook.",
+      "origin": "ui-translations.json"
+    },
+    {
+      "source": "THE FREQUENCY / TVŮJ VLASTNÍ NÁSTROJ",
+      "language": "fr",
+      "previous": "THE FREQUENCY / TON PROPRE INSTRUMENT",
+      "selected": "THE FREQUENCY / TON INSTRUMENT",
+      "origin": "ui-translations.json"
+    },
+    {
+      "source": "Procedurální vlastní nástroj: tóny vznikají až tady v prohlížeči. Nejde o terénní nahrávky ani archivní hudbu. Zvuk spouštíš výhradně ty.",
+      "language": "en",
+      "previous": "An original procedural instrument: the tones are generated right here in your browser. These are not field recordings or archival music. Only you can start the sound.",
+      "selected": "Your own procedural instrument: tones are generated here in the browser. These are not field recordings or archival music. Only you can start the sound.",
+      "origin": "ui-translations.json"
+    },
+    {
+      "source": "Procedurální vlastní nástroj: tóny vznikají až tady v prohlížeči. Nejde o terénní nahrávky ani archivní hudbu. Zvuk spouštíš výhradně ty.",
+      "language": "fr",
+      "previous": "Un instrument procédural original : les sons sont générés ici, dans ton navigateur. Ce ne sont ni des enregistrements de terrain ni de la musique d’archives. C’est toi seul qui déclenches le son.",
+      "selected": "Ton instrument procédural : les sons sont générés ici, dans le navigateur. Ce ne sont ni des enregistrements de terrain ni de la musique d’archive. Toi seul déclenches le son.",
+      "origin": "ui-translations.json"
+    },
+    {
+      "source": "Vlastní atmosféra",
+      "language": "en",
+      "previous": "Your own atmosphere",
+      "selected": "Your atmosphere",
+      "origin": "ui-translations.json"
+    },
+    {
+      "source": "Vlastní atmosféra",
+      "language": "fr",
+      "previous": "Ta propre atmosphère",
+      "selected": "Ton ambiance",
+      "origin": "ui-translations.json"
+    },
+    {
+      "source": "Po zapnutí prolínat zóny podle pracovního prostoru",
+      "language": "en",
+      "previous": "When enabled, blend zones according to the workspace",
+      "selected": "Once enabled, blend zones to follow your workspace",
+      "origin": "ui-translations.json"
+    },
+    {
+      "source": "Po zapnutí prolínat zóny podle pracovního prostoru",
+      "language": "fr",
+      "previous": "Une fois activé, enchaîner les zones selon l’espace de travail",
+      "selected": "Une fois activées, faire évoluer les zones selon ton espace de travail",
+      "origin": "ui-translations.json"
+    },
+    {
+      "source": "Studio: hluboká harmonie. Ulice: otevřené intervaly. Knihovna: lehčí souzvuk. Přechod trvá 1,2 s. Žádné zvuky skutečných míst se nepředstírají.",
+      "language": "en",
+      "previous": "Studio: deep harmony. Street: open intervals. Library: lighter chords. The transition takes 1.2 seconds. No sounds are presented as recordings of real places.",
+      "selected": "Studio: deep harmony. Street: open intervals. Library: lighter consonance. Transitions last 1.2 seconds. These are not presented as sounds recorded at real places.",
+      "origin": "ui-translations.json"
+    },
+    {
+      "source": "Studio: hluboká harmonie. Ulice: otevřené intervaly. Knihovna: lehčí souzvuk. Přechod trvá 1,2 s. Žádné zvuky skutečných míst se nepředstírají.",
+      "language": "fr",
+      "previous": "Studio : harmonie profonde. Rue : intervalles ouverts. Bibliothèque : accords plus légers. La transition dure 1,2 seconde. Aucun son n’est présenté comme l’enregistrement d’un vrai lieu.",
+      "selected": "Studio : harmonie grave. Rue : intervalles ouverts. Bibliothèque : consonance légère. La transition dure 1,2 seconde. Ces sons ne sont pas présentés comme des enregistrements de lieux réels.",
+      "origin": "ui-translations.json"
+    },
+    {
+      "source": "02 / RYTMUS Z TVÉHO POKLEPU",
+      "language": "fr",
+      "previous": "02 / LE RYTHME DE TES FRAPPES",
+      "selected": "02 / LE RYTHME DE TES TAPOTEMENTS",
+      "origin": "ui-translations.json"
+    },
+    {
+      "source": "Nejméně tři rovnoměrné poklepy. Tempo se počítá ze skutečných časů, bez hodnocení kvality.",
+      "language": "en",
+      "previous": "At least three evenly spaced taps. Tempo is calculated from the actual timings, without judging quality.",
+      "selected": "Tap evenly at least three times. Tempo is calculated from actual timings, without a quality score.",
+      "origin": "ui-translations.json"
+    },
+    {
+      "source": "Nejméně tři rovnoměrné poklepy. Tempo se počítá ze skutečných časů, bez hodnocení kvality.",
+      "language": "fr",
+      "previous": "Au moins trois frappes régulières. Le tempo est calculé à partir des temps réels, sans jugement de qualité.",
+      "selected": "Tapote régulièrement au moins trois fois. Le tempo est calculé à partir des temps réels, sans note de qualité.",
+      "origin": "ui-translations.json"
+    },
+    {
+      "source": "Klepnutím měníš konkrétní tón nebo pauzu. Motiv je tvoje vlastní osmiprvková sekvence; neobsahuje cizí sample.",
+      "language": "en",
+      "previous": "Tap to change a specific note or rest. The motif is your own eight-part sequence; it contains no third-party sample.",
+      "selected": "Tap to change an individual note or rest. The motif is your own eight-step sequence; it contains no third-party sample.",
+      "origin": "ui-translations.json"
+    },
+    {
+      "source": "Klepnutím měníš konkrétní tón nebo pauzu. Motiv je tvoje vlastní osmiprvková sekvence; neobsahuje cizí sample.",
+      "language": "fr",
+      "previous": "Touche une case pour modifier une note ou un silence. Le motif est ta propre séquence de huit éléments ; il ne contient aucun sample d’un tiers.",
+      "selected": "Appuie pour modifier une note ou un silence. Le motif est ta séquence de huit pas ; il ne contient aucun sample tiers.",
+      "origin": "ui-translations.json"
+    },
+    {
+      "source": "Po zapnutí posun nahoru mění výšku tónu. Vodorovný tah nese skutečný čas tvého pohybu. Uchová se záznam souřadnic, ne zvuková nahrávka.",
+      "language": "en",
+      "previous": "Once enabled, moving up changes the pitch. A horizontal stroke carries the actual timing of your movement. Coordinates are saved, not an audio recording.",
+      "selected": "Once enabled, moving upwards changes pitch. The horizontal stroke carries the actual timing of your movement. Coordinates are retained, not an audio recording.",
+      "origin": "ui-translations.json"
+    },
+    {
+      "source": "Po zapnutí posun nahoru mění výšku tónu. Vodorovný tah nese skutečný čas tvého pohybu. Uchová se záznam souřadnic, ne zvuková nahrávka.",
+      "language": "fr",
+      "previous": "Une fois la fonction activée, le déplacement vers le haut modifie la hauteur du son. Le trait horizontal conserve le temps réel de ton mouvement. Ce sont les coordonnées qui sont enregistrées, pas le son.",
+      "selected": "Une fois activé, le déplacement vers le haut change la hauteur du son. Le trait horizontal suit le temps réel de ton mouvement. Seules les coordonnées sont conservées, pas un enregistrement audio.",
+      "origin": "ui-translations.json"
+    },
+    {
+      "source": "04 / VLASTNÍ AUDIO → SKUTEČNÁ ODEZVA OBRAZU",
+      "language": "en",
+      "previous": "04 / YOUR OWN AUDIO → A REAL VISUAL RESPONSE",
+      "selected": "04 / YOUR AUDIO → REAL VISUAL RESPONSE",
+      "origin": "ui-translations.json"
+    },
+    {
+      "source": "04 / VLASTNÍ AUDIO → SKUTEČNÁ ODEZVA OBRAZU",
+      "language": "fr",
+      "previous": "04 / TON PROPRE AUDIO → UNE RÉACTION VISUELLE RÉELLE",
+      "selected": "04 / TON AUDIO → UNE RÉACTION VISUELLE RÉELLE",
+      "origin": "ui-translations.json"
+    },
+    {
+      "source": "Potvrzuji, že je to můj nebo oprávněně použitý soubor pro tuto soukromou práci.",
+      "language": "en",
+      "previous": "I confirm that this is my own file or one I am authorised to use for this private work.",
+      "selected": "I confirm this is my file or that I am authorised to use it for this private work.",
+      "origin": "ui-translations.json"
+    },
+    {
+      "source": "Potvrzuji, že je to můj nebo oprávněně použitý soubor pro tuto soukromou práci.",
+      "language": "fr",
+      "previous": "Je confirme qu’il s’agit de mon propre fichier ou d’un fichier que j’ai le droit d’utiliser pour ce travail privé.",
+      "selected": "Je confirme que ce fichier m’appartient ou que je suis autorisé à l’utiliser pour ce travail privé.",
+      "origin": "ui-translations.json"
+    },
+    {
+      "source": "KADENCE VLASTNÍHO HLASU → AUTORSKÝ TAH",
+      "language": "en",
+      "previous": "THE CADENCE OF YOUR VOICE → AN ORIGINAL STROKE",
+      "selected": "YOUR VOICE’S CADENCE → AN ORIGINAL STROKE",
+      "origin": "ui-translations.json"
+    },
+    {
+      "source": "KADENCE VLASTNÍHO HLASU → AUTORSKÝ TAH",
+      "language": "fr",
+      "previous": "LA CADENCE DE TA VOIX → UN TRAIT PERSONNEL",
+      "selected": "LA CADENCE DE TA VOIX → TON TRAIT ORIGINAL",
+      "origin": "ui-translations.json"
+    },
+    {
+      "source": "Pusť vlastní přednes a zachyť až 12 sekund jeho skutečné zvukové energie. Z křivky sám vytvoříš podnět pro písmeno. Není to rozpoznání řeči ani automatický přepis výslovnosti.",
+      "language": "en",
+      "previous": "Play your own delivery and capture up to 12 seconds of its actual audio energy. Use the curve yourself to inspire a letter. This is neither speech recognition nor an automatic transcription of pronunciation.",
+      "selected": "Play your own delivery and capture up to 12 seconds of its actual sound energy. Use the curve yourself as inspiration for a letter. This is not speech recognition or automatic pronunciation transcription.",
+      "origin": "ui-translations.json"
+    },
+    {
+      "source": "Pusť vlastní přednes a zachyť až 12 sekund jeho skutečné zvukové energie. Z křivky sám vytvoříš podnět pro písmeno. Není to rozpoznání řeči ani automatický přepis výslovnosti.",
+      "language": "fr",
+      "previous": "Fais jouer ton propre flow et capture jusqu’à 12 secondes de son énergie sonore réelle. À partir de la courbe, imagine toi-même une lettre. Ce n’est ni de la reconnaissance vocale ni une transcription automatique de la prononciation.",
+      "selected": "Lance ton interprétation et capte jusqu’à 12 secondes de son énergie sonore réelle. Utilise toi-même la courbe pour inspirer une lettre. Ce n’est ni de la reconnaissance vocale ni une transcription de la prononciation.",
+      "origin": "ui-translations.json"
+    },
+    {
+      "source": "Vlastní písmeno / znak",
+      "language": "en",
+      "previous": "Your own letter / symbol",
+      "selected": "Your letter / sign",
+      "origin": "ui-translations.json"
+    },
+    {
+      "source": "Vlastní písmeno / znak",
+      "language": "fr",
+      "previous": "Ta propre lettre / ton propre signe",
+      "selected": "Ta lettre / ton signe",
+      "origin": "ui-translations.json"
+    },
+    {
+      "source": "Co z rytmu přenesu do své konstrukce?",
+      "language": "en",
+      "previous": "What will I carry from the rhythm into my letter structure?",
+      "selected": "What will I take from the rhythm into my construction?",
+      "origin": "ui-translations.json"
+    },
+    {
+      "source": "Co z rytmu přenesu do své konstrukce?",
+      "language": "fr",
+      "previous": "Que vais-je transposer du rythme dans ma construction ?",
+      "selected": "Que vais-je reprendre du rythme dans ma construction ?",
+      "origin": "ui-translations.json"
+    },
+    {
+      "source": "Soubor je pouze v paměti této relace. Žádný upload ani mikrofon. Měřidlo a obraz reagují na skutečná frekvenční data přehrávání; není to skóre kvality. Před zavřením si zachovej originál.",
+      "language": "en",
+      "previous": "The file stays only in this session’s memory. No upload or microphone. The meter and visuals respond to actual playback frequency data; this is not a quality score. Keep your original file before closing.",
+      "selected": "The file stays in this session’s memory only. No upload or microphone. The meter and visuals respond to real playback frequency data; this is not a quality score. Keep the original before closing.",
+      "origin": "ui-translations.json"
+    },
+    {
+      "source": "Soubor je pouze v paměti této relace. Žádný upload ani mikrofon. Měřidlo a obraz reagují na skutečná frekvenční data přehrávání; není to skóre kvality. Před zavřením si zachovej originál.",
+      "language": "fr",
+      "previous": "Le fichier reste uniquement dans la mémoire de cette session. Aucun envoi ni micro. La jauge et l’image réagissent aux données de fréquence réelles de la lecture ; ce n’est pas une note de qualité. Garde ton fichier original avant de fermer.",
+      "selected": "Le fichier reste uniquement dans la mémoire de cette session. Aucun envoi ni microphone. La jauge et l’image réagissent aux données fréquentielles réelles de la lecture ; ce n’est pas une note de qualité. Garde l’original avant de fermer.",
+      "origin": "ui-translations.json"
+    },
+    {
+      "source": "ZVUK JE VYPNUTÝ. Načtení stránky jej nikdy nespouští.",
+      "language": "fr",
+      "previous": "LE SON EST COUPÉ. Le chargement de la page ne le déclenche jamais.",
+      "selected": "LE SON EST DÉSACTIVÉ. Le chargement de la page ne le lance jamais.",
+      "origin": "ui-translations.json"
+    },
+    {
+      "source": "Nejdřív potvrď vlastní soubor nebo oprávnění k soukromému použití. Nic se nenačetlo.",
+      "language": "en",
+      "previous": "First, confirm that the file is yours or that you have permission for private use. Nothing has been loaded.",
+      "selected": "First confirm ownership or permission for private use. Nothing was loaded.",
+      "origin": "ui-translations.json"
+    },
+    {
+      "source": "Nejdřív potvrď vlastní soubor nebo oprávnění k soukromému použití. Nic se nenačetlo.",
+      "language": "fr",
+      "previous": "Confirme d’abord que le fichier t’appartient ou que tu as le droit de l’utiliser à titre privé. Rien n’a été chargé.",
+      "selected": "Confirme d’abord que le fichier t’appartient ou que son utilisation privée est autorisée. Rien n’a été chargé.",
+      "origin": "ui-translations.json"
+    },
+    {
+      "source": "Gesto je připravené. Zvuk zazní až při kreslení nebo stisku tónu.",
+      "language": "en",
+      "previous": "The gesture is ready. Sound plays only when you draw or press a note.",
+      "selected": "The gesture is ready. Sound starts only when you draw or press a note.",
+      "origin": "ui-translations.json"
+    },
+    {
+      "source": "Gesto je připravené. Zvuk zazní až při kreslení nebo stisku tónu.",
+      "language": "fr",
+      "previous": "Le geste est prêt. Le son ne joue que lorsque tu dessines ou appuies sur une note.",
+      "selected": "Le geste est prêt. Le son ne démarre que si tu dessines ou appuies sur une note.",
+      "origin": "ui-translations.json"
+    },
+    {
+      "source": "Potvrď oprávnění k soukromému použití souboru.",
+      "language": "en",
+      "previous": "Confirm permission to use the file privately.",
+      "selected": "Confirm permission for private use of the file.",
+      "origin": "ui-translations.json"
+    },
+    {
+      "source": "Potvrď oprávnění k soukromému použití souboru.",
+      "language": "fr",
+      "previous": "Confirme que tu as le droit d’utiliser ce fichier à titre privé.",
+      "selected": "Confirme l’autorisation d’utiliser ce fichier en privé.",
+      "origin": "ui-translations.json"
+    },
+    {
+      "source": "Hraje tvůj soubor. Obraz dostává skutečná frekvenční data; nic se neodesílá.",
+      "language": "en",
+      "previous": "Your file is playing. The visuals receive actual frequency data; nothing is uploaded.",
+      "selected": "Your file is playing. The visuals receive real frequency data; nothing is sent.",
+      "origin": "ui-translations.json"
+    },
+    {
+      "source": "Hraje tvůj soubor. Obraz dostává skutečná frekvenční data; nic se neodesílá.",
+      "language": "fr",
+      "previous": "Ton fichier est en cours de lecture. L’image reçoit de vraies données de fréquence ; rien n’est envoyé.",
+      "selected": "Ton fichier joue. L’image reçoit les données fréquentielles réelles ; rien n’est envoyé.",
+      "origin": "ui-translations.json"
+    },
+    {
+      "source": "Zachytávám skutečnou energii přednesu, nejvýše 12 sekund.",
+      "language": "en",
+      "previous": "Capturing the actual energy of your delivery, for up to 12 seconds.",
+      "selected": "Capturing the actual energy of your delivery, up to 12 seconds.",
+      "origin": "ui-translations.json"
+    },
+    {
+      "source": "Zachytávám skutečnou energii přednesu, nejvýše 12 sekund.",
+      "language": "fr",
+      "previous": "Capture de l’énergie réelle de ton flow, pendant 12 secondes au maximum.",
+      "selected": "Capture de l’énergie réelle de ton interprétation, pendant 12 secondes maximum.",
+      "origin": "ui-translations.json"
+    },
+    {
+      "source": "Soubor odebrán z relace. Originál v zařízení zůstává.",
+      "language": "en",
+      "previous": "The file has been removed from the session. The original stays on your device.",
+      "selected": "File removed from the session. The original stays on your device.",
+      "origin": "ui-translations.json"
+    },
+    {
+      "source": "Soubor odebrán z relace. Originál v zařízení zůstává.",
+      "language": "fr",
+      "previous": "Le fichier a été retiré de la session. L’original reste sur ton appareil.",
+      "selected": "Fichier retiré de la session. L’original reste sur ton appareil.",
+      "origin": "ui-translations.json"
+    },
+    {
+      "source": "Nejdřív povol hlas gesta. Plocha jinak zůstává tichá.",
+      "language": "en",
+      "previous": "Enable gesture sound first. Otherwise the drawing surface stays silent.",
+      "selected": "Enable gesture sound first. Otherwise the pad stays silent.",
+      "origin": "ui-translations.json"
+    },
+    {
+      "source": "Nejdřív povol hlas gesta. Plocha jinak zůstává tichá.",
+      "language": "fr",
+      "previous": "Active d’abord le son du geste. Sinon, la surface de dessin reste silencieuse.",
+      "selected": "Active d’abord le son du geste. Sinon, la surface reste silencieuse.",
+      "origin": "ui-translations.json"
+    },
+    {
+      "source": "Ilustrační grafická scéna pro B-BOY / B-GIRL; není fotografií skutečného místa. Schválená autorská ilustrace CAISIK; nejde o odbornou pohybovou demonstraci.",
+      "language": "en",
+      "previous": "Illustrative graphic scene for B-BOY / B-GIRL; not a photograph of a real place. Approved original CAISIK illustration. This is not a professional movement demonstration.",
+      "selected": "Illustrative graphic scene for B-BOY / B-GIRL; not a photograph of a real place. Approved original CAISIK illustration; not an expert movement demonstration.",
+      "origin": "ui-translations.json"
+    },
+    {
+      "source": "Ilustrační grafická scéna pro B-BOY / B-GIRL; není fotografií skutečného místa. Schválená autorská ilustrace CAISIK; nejde o odbornou pohybovou demonstraci.",
+      "language": "fr",
+      "previous": "Scène graphique illustrative pour B-BOY / B-GIRL ; ce n’est pas la photographie d’un lieu réel. Illustration originale CAISIK approuvée. Il ne s’agit pas d’une démonstration technique professionnelle.",
+      "selected": "Scène graphique illustrative pour B-BOY / B-GIRL ; ce n’est pas une photographie d’un lieu réel. Illustration originale CAISIK approuvée ; ce n’est pas une démonstration technique professionnelle.",
+      "origin": "ui-translations.json"
+    },
+    {
+      "source": "Ilustrační grafická scéna pro DJ; není fotografií skutečného místa. Schválená autorská ilustrace CAISIK.",
+      "language": "fr",
+      "previous": "Scène graphique illustrative pour DJ ; ce n’est pas la photographie d’un lieu réel. Illustration originale CAISIK approuvée.",
+      "selected": "Scène graphique illustrative pour DJ ; ce n’est pas une photographie d’un lieu réel. Illustration originale CAISIK approuvée.",
+      "origin": "ui-translations.json"
+    },
+    {
+      "source": "Ilustrační grafická scéna pro KNOWLEDGE; není fotografií skutečného místa. Schválená autorská ilustrace CAISIK.",
+      "language": "fr",
+      "previous": "Scène graphique illustrative pour KNOWLEDGE ; ce n’est pas la photographie d’un lieu réel. Illustration originale CAISIK approuvée.",
+      "selected": "Scène graphique illustrative pour KNOWLEDGE ; ce n’est pas une photographie d’un lieu réel. Illustration originale CAISIK approuvée.",
+      "origin": "ui-translations.json"
+    },
+    {
+      "source": "Ilustrační grafická scéna pro MC; není fotografií skutečného místa. Schválená autorská ilustrace CAISIK.",
+      "language": "fr",
+      "previous": "Scène graphique illustrative pour MC ; ce n’est pas la photographie d’un lieu réel. Illustration originale CAISIK approuvée.",
+      "selected": "Scène graphique illustrative pour MC ; ce n’est pas une photographie d’un lieu réel. Illustration originale CAISIK approuvée.",
+      "origin": "ui-translations.json"
+    },
+    {
+      "source": "Ilustrační grafická scéna pro WRITER; není fotografií skutečného místa. Schválená autorská ilustrace CAISIK.",
+      "language": "fr",
+      "previous": "Scène graphique illustrative pour WRITER ; ce n’est pas la photographie d’un lieu réel. Illustration originale CAISIK approuvée.",
+      "selected": "Scène graphique illustrative pour WRITER ; ce n’est pas une photographie d’un lieu réel. Illustration originale CAISIK approuvée.",
+      "origin": "ui-translations.json"
+    },
+    {
+      "source": "Official site's linked map destination",
+      "language": "cs",
+      "previous": "Mapový cíl odkazovaný oficiálním webem",
+      "selected": "Cíl mapového odkazu na oficiálním webu",
+      "origin": "ui-translations.json"
+    },
+    {
+      "source": "Official site's linked map destination",
+      "language": "fr",
+      "previous": "Destination cartographique indiquée par le site officiel",
+      "selected": "Destination du lien cartographique du site officiel",
+      "origin": "ui-translations.json"
+    },
+    {
+      "source": "Approximate rue du Repos entrance area",
+      "language": "cs",
+      "previous": "Přibližné okolí vstupu z rue du Repos",
+      "selected": "Přibližná oblast vstupu z rue du Repos",
+      "origin": "ui-translations.json"
+    },
+    {
+      "source": "Approximate rue du Repos entrance area",
+      "language": "fr",
+      "previous": "Abords approximatifs de l’entrée rue du Repos",
+      "selected": "Zone approximative de l’entrée rue du Repos",
+      "origin": "ui-translations.json"
+    },
+    {
+      "source": "Approximate heritage-entrance position",
+      "language": "cs",
+      "previous": "Přibližná poloha památkově chráněného vstupu",
+      "selected": "Přibližná poloha historického vstupu",
+      "origin": "ui-translations.json"
+    },
+    {
+      "source": "Approximate heritage-entrance position",
+      "language": "fr",
+      "previous": "Position approximative de l’entrée patrimoniale",
+      "selected": "Position approximative de l’entrée historique",
+      "origin": "ui-translations.json"
+    },
+    {
+      "source": "Approximate wall position corroborated by published coordinates",
+      "language": "fr",
+      "previous": "Position approximative du mur, corroborée par des coordonnées publiées",
+      "selected": "Position approximative du mur corroborée par des coordonnées publiées",
+      "origin": "ui-translations.json"
+    },
+    {
+      "source": "Verified destination coordinates in official La Place site Google Maps link",
+      "language": "cs",
+      "previous": "Ověřené souřadnice cíle v odkazu na Google Maps z oficiálního webu La Place",
+      "selected": "Ověřené souřadnice cíle v odkazu Google Maps na oficiálním webu La Place",
+      "origin": "ui-translations.json"
+    },
+    {
+      "source": "Approximate venue centre; official site links OpenStreetMap way 278632326",
+      "language": "cs",
+      "previous": "Přibližný střed areálu; oficiální web odkazuje na objekt OpenStreetMap 278632326",
+      "selected": "Přibližný střed areálu; oficiální web odkazuje na objekt OpenStreetMap way 278632326",
+      "origin": "ui-translations.json"
+    },
+    {
+      "source": "Approximate venue centre; official site links OpenStreetMap way 278632326",
+      "language": "fr",
+      "previous": "Centre approximatif du lieu ; le site officiel renvoie à l’objet OpenStreetMap 278632326",
+      "selected": "Centre approximatif du lieu ; le site officiel renvoie à l’objet OpenStreetMap way 278632326",
+      "origin": "ui-translations.json"
+    }
+  ],
+  "note": "Later reviewed catalogues deterministically override equivalent wording. No remote translation, notes or recordings are used."
+}

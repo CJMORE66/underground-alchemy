@@ -1,5 +1,5 @@
 /* Optional, source-backed field research. Never manufacture a map point. */
-export const CULTURE_CATEGORIES={graffiti:'Graffiti',artshop:'Graffiti shop',hiphop:'Music',recordshop:'Record shop',philosophy:'Philosophy'};
+export const CULTURE_CATEGORIES={graffiti:'Graffiti',artshop:'Graffiti shop',hiphop:'Music',recordshop:'Record shop',philosophy:'Philosophy',studio:'Recording studio'};
 const text=(value,max=6000)=>typeof value==='string'&&value.trim().length>2&&value.length<=max;
 const https=value=>{try{const u=new URL(value);return u.protocol==='https:'&&!u.username&&!u.password;}catch{return false;}};
 const date=value=>/^\d{4}-\d{2}-\d{2}$/.test(value||'')&&Number.isFinite(Date.parse(value))&&new Date(value).toISOString().slice(0,10)===value;
@@ -17,7 +17,7 @@ export function parseCultureData(data,knownIds=[]){
  return {places,warnings};
 }
 export function culturePlace(p){
- return {...p,culture:true,categories:[CULTURE_CATEGORIES[p.category],...(p.category==='artshop'?['Graffiti']:p.category==='recordshop'?['Music']:[])],period:'Současná kulturní místa',accessVerified:false,outdoorViewing:p.outdoorViewing===true,history:p.facts.join(' '),symbols:'Doložený kulturní kontext: '+p.facts[0],interpretation:p.interpretation||'Autorská perspektiva CAISIK: místo je podnětem k vlastní tvorbě a pozornému poslouchání. Nejde o tvrzení provozovatele.',observe:p.task.observe,reflection:p.task.question,challenge:p.task.try+' Výstup: '+p.task.output,accessibility:p.accessibility||'Podrobnou bezbariérovou trasu a vybavení ověř přímo u provozovatele. Přístup nebyl osobně prověřen.'};
+ return {...p,culture:true,categories:[CULTURE_CATEGORIES[p.category],...(p.category==='artshop'?['Graffiti']:['recordshop','studio'].includes(p.category)?['Music']:[])],period:'Současná kulturní místa',accessVerified:false,outdoorViewing:p.outdoorViewing===true,history:p.facts.join(' '),symbols:'Doložený kulturní kontext: '+p.facts[0],interpretation:p.interpretation||'Autorská perspektiva CAISIK: místo je podnětem k vlastní tvorbě a pozornému poslouchání. Nejde o tvrzení provozovatele.',observe:p.task.observe,reflection:p.task.question,challenge:p.task.try+' Výstup: '+p.task.output,accessibility:p.accessibility||'Podrobnou bezbariérovou trasu a vybavení ověř přímo u provozovatele. Přístup nebyl osobně prověřen.'};
 }
 export function cultureRoutes(entries){
  const ids=new Set(entries.map(p=>p.id));

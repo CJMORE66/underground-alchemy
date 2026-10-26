@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import {parseHTML} from 'linkedom';
 import {validCityPoint, cityRouteData, createCityExperience} from '../dist/city-map.js';
 
-const places = [
+export const places = [
   {id: 'first', name: 'První místo', lat: 48.8566, lng: 2.3522},
   {id: 'second', name: 'Druhé místo', lat: 48.861, lng: 2.36},
   {id: 'third', name: 'Třetí místo', lat: 48.872, lng: 2.38}
@@ -17,7 +17,7 @@ assert.equal(interrupted.features.length, 1, 'missing coordinate interrupts rout
 assert.deepEqual(interrupted.features[0].geometry.coordinates, [[2.36, 48.861], [2.38, 48.872]], 'GeoJSON uses lng,lat in original order');
 assert.equal(cityRouteData([]).features.length, 0);
 
-function harness({reduced = false, observer = true} = {}) {
+export function harness({reduced = false, observer = true, landmarksLoader} = {}) {
   const {document, window} = parseHTML('<!doctype html><html data-motion="on"><head></head><body><div class="map-wrap"><div id="city-map"></div></div></body></html>');
   const maps = [], markers = [], observers = [], mutations = [], frames = new Map();
   const mediaHandlers = new Set(); let frameId = 0, clock = 0;
@@ -51,9 +51,11 @@ function harness({reduced = false, observer = true} = {}) {
     once(name, fn) {return this.on(name, fn);}
     emit(name, event = {}) {for (const fn of this.handlers[name] || []) fn(event);}
     getCanvas() {return this.canvas;}
-    getStyle() {return {layers: [{id: 'footprints', type: 'fill', source: 'openmaptiles', 'source-layer': 'building'}]};}
+    getStyle() {return {layers: [{id: 'footprints', type: 'fill', source: 'openmaptiles', 'source-layer': 'building'}, ...this.layers.values()]};}
     getLayer(id) {return this.layers.get(id);}
     addLayer(layer) {this.layers.set(layer.id, layer);}
+    removeLayer(id) {this.layers.delete(id);}
+    setFilter(id, filter) {const layer=this.layers.get(id);if(layer)layer.filter=filter;}
     getSource(id) {return this.sources[id];}
     addSource(id, source) {this.sources[id] = {...source, setData(data) {this.data = data;}};}
     setPaintProperty(...args) {this.paint.push(args);}
@@ -75,7 +77,7 @@ function harness({reduced = false, observer = true} = {}) {
   if (observer) globalThis.IntersectionObserver = IO; else delete globalThis.IntersectionObserver;
   const selections = [], openings = [], fallbacks = [], readies = [];
   const host = document.querySelector('.map-wrap'), fallbackElement = document.querySelector('#city-map');
-  const api = createCityExperience({host, fallbackElement, places,
+  const api = createCityExperience({host, fallbackElement, places, landmarksLoader,
     onSelect: (...args) => selections.push(args), onOpen: id => openings.push(id),
     onFallback: reason => fallbacks.push(reason), onReady: info => readies.push(info)});
   const event = (target, name, props = {}) => {const e = new window.Event(name, {bubbles: true, cancelable: true}); Object.assign(e, props); target.dispatchEvent(e); return e;};
@@ -98,6 +100,8 @@ function harness({reduced = false, observer = true} = {}) {
   assert.deepEqual(h.markers[0].point, [2.3522, 48.8566]);
   const layer = map.getLayer('caisik-buildings');
   assert.equal(layer['source-layer'], 'building', 'buildings use real tile footprint source');
+  assert.deepEqual(layer.paint['fill-extrusion-height'], ['max',0,['to-number',['get','render_height'],0]], 'unknown height remains flat rather than a fabricated12mvolume');
+  assert.equal(h.host.dataset.cityBuildingMode,'map','actual map building geometry is the default');
   assert.deepEqual(layer.filter, ['!', ['has', 'hide_3d']], 'source rules suppress hidden 3D footprints');
   h.flush(); assert.equal(h.frames.size, 0, 'finite reveal settles without idle RAF');
   h.event(h.host.querySelector('.city-map-replay'), 'click');
