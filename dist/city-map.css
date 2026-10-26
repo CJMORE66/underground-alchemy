@@ -1,0 +1,56 @@
+/* Original geographic stage: black ink, signal yellow, bone. */
+.city-map-experience{position:relative;isolation:isolate;min-height:460px;overflow:hidden;background:#080808;color:#f5f1e8;--city-reveal:1;--city-pointer-x:-600px;--city-pointer-y:-600px;--city-stage-height:clamp(460px,65vh,720px)}
+.city-map-experience [hidden]{display:none!important}
+.city-map-experience .city-canvas{position:relative;width:100%;height:var(--city-stage-height);min-height:460px;z-index:1;background:#080808}
+.city-map-experience>#city-map{height:var(--city-stage-height);min-height:460px;z-index:1}
+.city-map-experience .maplibregl-canvas{outline-offset:-5px}
+.city-map-experience .maplibregl-canvas:focus-visible{outline:2px solid #ffd600}
+.city-map-experience[data-city-mode="3d"]::after{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;background:radial-gradient(circle 185px at var(--city-pointer-x) var(--city-pointer-y),#ffd6000b,transparent 100%);mix-blend-mode:screen}
+.city-map-toolbar{position:absolute;z-index:5;top:18px;left:18px;right:18px;display:flex;align-items:center;gap:4px;pointer-events:none;flex-wrap:wrap}
+.city-map-toolbar>*{pointer-events:auto}
+.city-map-button{appearance:none;display:inline-flex;align-items:center;justify-content:center;min-width:40px;min-height:40px;margin:0;padding:8px 12px;border:1px solid #f5f1e849;background:#080808f5;color:#f5f1e8;border-radius:0;font:700 11px/1.2 var(--sans,Arial,sans-serif);letter-spacing:.08em;cursor:pointer;touch-action:manipulation;box-shadow:2px 2px 0 #080808;transition:background-color .16s,color .16s,border-color .16s,transform .16s}
+.city-map-button:hover{color:#080808;background:#ffd600;border-color:#ffd600;transform:translateY(-2px)}
+.city-map-button:focus-visible,.city-pin:focus-visible{outline:3px solid #f5f1e8;outline-offset:4px}
+.city-map-button[aria-pressed="true"]{background:#ffd600;color:#080808;border-color:#ffd600}
+.city-map-button:disabled{opacity:.35;cursor:default;transform:none}
+.city-map-camera{display:flex;gap:4px;margin-left:8px;pointer-events:auto}
+.city-map-camera .city-map-button{font-size:20px;letter-spacing:0;min-width:40px;padding:5px}
+.city-map-toolbar .city-map-replay,.city-map-toolbar .city-map-skip{margin-left:auto;font-size:9px;letter-spacing:.12em}
+.city-map-status{position:absolute;z-index:4;left:19px;top:66px;max-width:calc(100% - 38px);margin:0;padding:7px 9px;background:#080808e8;border-left:2px solid #ffd600;color:#ffd600;font:700 9px/1.55 var(--sans,Arial,sans-serif);letter-spacing:.14em;pointer-events:none;text-transform:uppercase}
+.city-map-status.is-error{color:#f5f1e8;max-width:min(480px,calc(100% - 38px));letter-spacing:.06em;text-transform:none}
+.city-map-note{position:absolute;z-index:4;left:18px;bottom:33px;max-width:calc(100% - 170px);margin:0;padding:6px 8px;background:#080808ed;color:#ddd8cc;font:10px/1.5 var(--sans,Arial,sans-serif);pointer-events:none}
+.city-map-hint{position:absolute;z-index:4;left:24px;bottom:18px;color:#f5f1e8b3;font:700 8px/1 var(--sans,Arial,sans-serif);letter-spacing:.1em;pointer-events:none}
+.city-map-selected{position:absolute;z-index:4;left:18px;bottom:99px;display:flex;align-items:center;gap:14px;padding:10px 12px;max-width:calc(100% - 36px);border-left:3px solid #ffd600;background:#080808f0;box-shadow:4px 4px 0 #0007}
+.city-map-selected-label{color:#f5f1e8;font:700 clamp(13px,1.4vw,19px)/1.2 var(--sans,Arial,sans-serif);max-width:340px;text-wrap:balance}
+.city-map-selected .city-map-button{font-size:9px;color:#ffd600;border-color:#ffd6008c;flex-shrink:0;min-height:34px}
+.city-map-selected .city-map-button:hover{color:#080808}
+.city-map-experience .maplibregl-ctrl-attrib{font:9px/1.7 var(--sans,Arial,sans-serif);background:#080808e8;color:#f5f1e8;max-width:210px}
+.city-map-experience .maplibregl-ctrl-attrib a{color:#f5f1e8}
+.city-map-experience .maplibregl-ctrl-attrib.maplibregl-compact{background:#080808ed;color:#f5f1e8;border:1px solid #ffd60080;border-radius:0}
+.city-map-experience .maplibregl-ctrl-attrib .maplibregl-ctrl-attrib-inner{color:#f5f1e8}
+.city-map-experience .maplibregl-ctrl-attrib-button{filter:invert(1)}
+.city-map-experience .maplibregl-ctrl-bottom-right{right:8px;bottom:6px}
+.city-pin{position:relative;appearance:none;border:0;background:transparent;padding:0 0 11px;color:#080808;cursor:pointer;min-width:44px;min-height:52px;transform-origin:50% 100%;-webkit-tap-highlight-color:transparent;z-index:1}
+.city-pin::after{position:absolute;content:"";width:10px;height:10px;bottom:7px;left:calc(50% - 5px);background:#ffd600;transform:rotate(45deg);border-right:2px solid #080808;border-bottom:2px solid #080808;z-index:-1}
+.city-pin-number{display:flex;align-items:center;justify-content:center;width:36px;height:36px;margin:0 auto;background:#ffd600;border:2px solid #080808;box-shadow:3px 3px 0 #080808;font:900 12px/1 var(--sans,Arial,sans-serif);transition:transform .2s,background-color .2s,box-shadow .2s}
+.city-pin-label{position:absolute;left:50%;bottom:58px;max-width:220px;width:max-content;padding:8px 11px;background:#080808;border:1px solid #ffd600;box-shadow:4px 4px 0 #080808;transform:translate(-50%,8px);opacity:0;visibility:hidden;color:#f5f1e8;font:700 11px/1.4 var(--sans,Arial,sans-serif);pointer-events:none;transition:transform .2s,opacity .2s,visibility .2s}
+.city-pin:hover,.city-pin:focus-visible,.city-pin.is-selected{z-index:10}
+.city-pin:hover .city-pin-number,.city-pin:focus-visible .city-pin-number{transform:translateY(-5px) rotate(-5deg);box-shadow:5px 7px 0 #080808}
+.city-pin:hover .city-pin-label,.city-pin:focus-visible .city-pin-label,.city-pin.is-selected .city-pin-label{opacity:1;visibility:visible;transform:translate(-50%,0)}
+.city-pin.is-selected .city-pin-number{background:#f5f1e8;outline:2px solid #ffd600;outline-offset:3px;transform:translateY(-3px)}
+.city-pin.is-selected::before{content:"";position:absolute;width:50px;height:16px;left:calc(50% - 25px);bottom:-7px;border:2px solid #ffd600;border-radius:50%;box-shadow:0 0 0 7px #ffd60016;pointer-events:none}
+.city-pin.is-route-stop .city-pin-number{border-color:#f5f1e8}
+.city-user-location{width:15px;height:15px;border:3px solid #080808;background:#f5f1e8;border-radius:50%;outline:2px solid #ffd600;box-shadow:0 0 0 8px #ffd60020}
+.city-intro-running .city-map-status{border-color:#f5f1e8}
+.city-focus-enter .city-map-selected{animation:city-card-enter .65s cubic-bezier(.16,1,.3,1) both}
+.city-focus-enter .city-pin.is-selected .city-pin-number{animation:city-pin-arrive .8s cubic-bezier(.16,1,.3,1) both}
+@keyframes city-card-enter{from{opacity:0;transform:translateY(12px);clip-path:inset(0 100% 0 0)}to{opacity:1;transform:translateY(0);clip-path:inset(0)}}
+@keyframes city-pin-arrive{0%{transform:translateY(-18px) scale(.65)}55%{transform:translateY(-2px) scale(1.1)}100%{transform:translateY(-3px) scale(1)}}
+.city-motion-paused .city-map-button,.city-motion-paused .city-pin-number,.city-motion-paused .city-pin-label{transition:none}
+.city-motion-paused .city-map-selected,.city-motion-paused .city-pin-number{animation:none!important}
+.city-motion-paused::after{display:none}
+@media(min-width:1500px){.city-map-experience{--city-stage-height:clamp(460px,70vh,720px)}}
+@media(max-width:700px){.city-map-experience{min-height:460px}.city-map-experience .city-canvas,.city-map-experience>#city-map{height:460px;min-height:460px}.city-map-toolbar{top:12px;left:12px;right:12px;gap:3px}.city-map-button{min-width:37px;min-height:40px;padding:7px 9px}.city-map-camera{gap:3px;margin-left:4px}.city-map-camera .city-map-button{min-width:36px}.city-map-toolbar .city-map-replay,.city-map-toolbar .city-map-skip{font-size:8px;margin-left:0}.city-map-status{left:13px;top:105px;font-size:8px;letter-spacing:.1em;max-width:calc(100% - 26px)}.city-map-selected{left:12px;bottom:109px;max-width:calc(100% - 24px);gap:8px;padding:9px}.city-map-selected-label{max-width:210px}.city-map-selected .city-map-button{padding:6px;min-width:0;font-size:8px}.city-map-note{left:12px;bottom:44px;max-width:calc(100% - 24px);font-size:9px}.city-map-hint{left:18px;bottom:28px;font-size:7px}.city-map-experience .maplibregl-ctrl-attrib{font-size:8px;max-width:220px}.city-pin-number{width:32px;height:32px;font-size:10px}.city-pin-label{max-width:170px;font-size:10px}}
+@media(max-width:390px){.city-map-toolbar .city-map-replay{flex-basis:auto}.city-map-camera{margin-left:0}.city-map-camera .city-map-button{min-width:32px}.city-map-selected-label{max-width:160px}.city-map-selected{gap:5px}.city-map-selected .city-map-button{font-size:7px}.city-map-toolbar{right:8px;left:8px;column-gap:2px}}
+@media(max-height:540px) and (orientation:landscape){.city-map-experience .city-canvas,.city-map-experience>#city-map{height:440px;min-height:380px}.city-map-experience{min-height:380px}.city-map-status{top:65px}.city-map-selected{bottom:91px}.city-map-note{bottom:35px}.city-map-hint{bottom:19px}}
+@media(prefers-reduced-motion:reduce){.city-map-experience *{animation:none!important;transition:none!important}.city-map-experience::after{display:none}}

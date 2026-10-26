@@ -1,0 +1,40 @@
+{
+  "version": 8,
+  "name": "CAISIK — Paris / The Hidden City",
+  "metadata": {
+    "caisik:version": 1,
+    "caisik:data": "Actual OpenStreetMap geometries served by OpenFreeMap, using the OpenMapTiles schema.",
+    "caisik:height-note": "render_height and render_min_height are approximations from map data. Missing height uses an illustrative 12 m extrusion. This is a stylized map, not a surveyed model.",
+    "caisik:source-documentation": "https://github.com/hyperknot/openfreemap#tile-versions"
+  },
+  "center": [2.3508, 48.8607],
+  "zoom": 14,
+  "bearing": -23,
+  "pitch": 55,
+  "glyphs": "https://tiles.openfreemap.org/fonts/{fontstack}/{range}.pbf",
+  "sources": {
+    "openmaptiles": {
+      "type": "vector",
+      "url": "https://tiles.openfreemap.org/planet/latest",
+      "attribution": "<a href=\"https://openfreemap.org/\" target=\"_blank\" rel=\"noopener\">OpenFreeMap</a> · <a href=\"https://openmaptiles.org/\" target=\"_blank\" rel=\"noopener\">© OpenMapTiles</a> · <a href=\"https://www.openstreetmap.org/copyright\" target=\"_blank\" rel=\"noopener\">© OpenStreetMap contributors</a>"
+    }
+  },
+  "light": {"anchor": "viewport", "color": "#fff5ce", "intensity": 0.48, "position": [1.5, 175, 42]},
+  "layers": [
+    {"id": "caisik-background", "type": "background", "paint": {"background-color": "#080808"}},
+    {"id": "caisik-landuse", "type": "fill", "source": "openmaptiles", "source-layer": "landuse", "paint": {"fill-color": "#11110e", "fill-opacity": 0.65}},
+    {"id": "caisik-parks", "type": "fill", "source": "openmaptiles", "source-layer": "park", "paint": {"fill-color": "#151d16", "fill-opacity": 0.65}},
+    {"id": "caisik-water", "type": "fill", "source": "openmaptiles", "source-layer": "water", "paint": {"fill-color": "#142123", "fill-outline-color": "#64715e", "fill-opacity": 1}},
+    {"id": "caisik-waterways", "type": "line", "source": "openmaptiles", "source-layer": "waterway", "paint": {"line-color": "#627466", "line-opacity": 0.7, "line-width": ["interpolate", ["linear"], ["zoom"], 11, 0.4, 16, 2]}},
+    {"id": "caisik-road-casing", "type": "line", "source": "openmaptiles", "source-layer": "transportation", "filter": ["match", ["get", "class"], ["motorway", "trunk", "primary", "secondary", "tertiary", "minor", "service"], true, false], "layout": {"line-cap": "round", "line-join": "round"}, "paint": {"line-color": "#080808", "line-width": ["interpolate", ["linear"], ["zoom"], 10, 1, 14, 3, 18, 15]}},
+    {"id": "caisik-road-grid", "type": "line", "source": "openmaptiles", "source-layer": "transportation", "filter": ["match", ["get", "class"], ["motorway", "trunk", "primary", "secondary", "tertiary", "minor", "service"], true, false], "layout": {"line-cap": "round", "line-join": "round"}, "paint": {"line-color": "#f5f1e8", "line-opacity": ["interpolate", ["linear"], ["zoom"], 10, 0.14, 14, 0.38, 18, 0.55], "line-width": ["interpolate", ["linear"], ["zoom"], 10, 0.3, 14, 0.8, 18, 3]}},
+    {"id": "caisik-main-roads", "type": "line", "source": "openmaptiles", "source-layer": "transportation", "filter": ["match", ["get", "class"], ["motorway", "trunk", "primary", "secondary"], true, false], "layout": {"line-cap": "round", "line-join": "round"}, "paint": {"line-color": "#ffe78b", "line-opacity": 0.42, "line-width": ["interpolate", ["linear"], ["zoom"], 10, 0.5, 14, 1.2, 18, 4]}},
+    {"id": "caisik-rail", "type": "line", "source": "openmaptiles", "source-layer": "transportation", "filter": ["match", ["get", "class"], ["rail", "transit"], true, false], "paint": {"line-color": "#bca452", "line-width": 0.8, "line-opacity": 0.4, "line-dasharray": [3, 3]}},
+    {"id": "caisik-footpaths", "type": "line", "source": "openmaptiles", "source-layer": "transportation", "minzoom": 15, "filter": ["match", ["get", "class"], ["path", "track"], true, false], "paint": {"line-color": "#b2ad9b", "line-width": 0.65, "line-opacity": 0.45, "line-dasharray": [1.5, 2]}},
+    {"id": "caisik-building-footprints", "type": "fill", "source": "openmaptiles", "source-layer": "building", "minzoom": 13, "paint": {"fill-color": "#413a17", "fill-opacity": 0.45, "fill-outline-color": "#b49b25"}},
+    {"id": "caisik-buildings", "type": "fill-extrusion", "source": "openmaptiles", "source-layer": "building", "minzoom": 13, "filter": ["!", ["has", "hide_3d"]], "paint": {"fill-extrusion-color": ["interpolate", ["linear"], ["to-number", ["get", "render_height"], 12], 0, "#967a13", 22, "#dbb62c", 55, "#ffd600", 120, "#ffe994"], "fill-extrusion-height": ["to-number", ["get", "render_height"], 12], "fill-extrusion-base": ["to-number", ["get", "render_min_height"], 0], "fill-extrusion-opacity": 0.97, "fill-extrusion-vertical-gradient": true}},
+    {"id": "caisik-water-labels", "type": "symbol", "source": "openmaptiles", "source-layer": "water_name", "minzoom": 12, "layout": {"symbol-placement": "line", "text-field": ["coalesce", ["get", "name"], ["get", "name:latin"]], "text-font": ["Noto Sans Regular"], "text-size": 11, "text-letter-spacing": 0.16, "text-max-width": 8}, "paint": {"text-color": "#abbdb4", "text-halo-color": "#080808", "text-halo-width": 1.5}},
+    {"id": "caisik-road-labels", "type": "symbol", "source": "openmaptiles", "source-layer": "transportation_name", "minzoom": 15, "layout": {"symbol-placement": "line", "text-field": ["coalesce", ["get", "name"], ["get", "name:latin"]], "text-font": ["Noto Sans Regular"], "text-size": ["interpolate", ["linear"], ["zoom"], 15, 10, 18, 12], "text-letter-spacing": 0.035, "text-padding": 8, "symbol-spacing": 320}, "paint": {"text-color": "#ded9c9", "text-halo-color": "#080808", "text-halo-width": 2}},
+    {"id": "caisik-district-labels", "type": "symbol", "source": "openmaptiles", "source-layer": "place", "minzoom": 11, "maxzoom": 16, "filter": ["match", ["get", "class"], ["suburb", "quarter", "neighbourhood", "city", "town"], true, false], "layout": {"text-field": ["coalesce", ["get", "name"], ["get", "name:latin"]], "text-font": ["Noto Sans Regular"], "text-size": ["interpolate", ["linear"], ["zoom"], 11, 11, 15, 14], "text-letter-spacing": 0.12, "text-transform": "uppercase", "text-max-width": 9, "text-padding": 12}, "paint": {"text-color": "#f5f1e8", "text-halo-color": "#080808", "text-halo-width": 2}}
+  ]
+}

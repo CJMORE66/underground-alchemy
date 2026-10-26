@@ -15,3 +15,9 @@ Aktuální změny chrání poznámky při více otevřených kartách, zachovaj�
 ## SELFMADE / RPG
 
 Nový hratelný vstup je `/play/`. Čti `docs/selfmade/README.md`, `PLAN.md` a `QA_REPORT.md`; `coverage.json` poctivě rozlišuje všech 200 požadavků. Aktuální stav nepovažuj automaticky za dokončení lokální fronty RPG200. Po dalších generátorech spusť `python tools/wire-selfmade.py`; generátor expedic jej volá sám. Nové moduly používají pouze klíč `caisik-selfmade-v1`.
+
+## Živá typografie a prostorový atlas
+
+`dist/text-motion.js/css` přidává vratné vstupy a výstupy textu, reakce písmen na myš a přístupné reakce CTA. `dist/play/panel-motion.js` řídí krátké přerušitelné přechody pracovních prostorů. Čti `docs/selfmade/TEXT_MOTION_QA.md`.
+
+Hidden City používá volitelný `dist/city-map.js/css` nad skutečnými daty OpenFreeMap, s původním Leafletem jako 2D zálohou. Styl a jediný URL zdroje jsou v `dist/map-data/caisik-style.json`; po upgradu rendereru spusť `npm run build:map-vendor`. Čti `docs/atlas/CITY_MAP_DATA.md` a `CITY_MAP_QA.md`. Výšky jsou přibližné, spojnice zastávek není navigace. Pro rollback lze znovu nasadit verzi 24; nemaž uživatelská data.
