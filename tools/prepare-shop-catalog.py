@@ -1,4 +1,4 @@
-"""Publish only original public product identities; never turn old prices into a checkout."""
+"""Preserve public source identities and dated prices; never turn snapshots into checkout quotes."""
 from pathlib import Path
 from urllib.parse import urlparse
 import json
@@ -31,12 +31,15 @@ def prepare(source):
         variants = [{
             "id": item["id"], "sku": item["sku"], "title": item["title"],
             "options": item["options"],
+            "sourcePrice": {"amount": item["calculatedAmount"], "currency": item["currency"].upper(),
+                            "taxInclusive": item.get("priceTaxInclusive"),
+                            "checkedAt": product.get("checkedAt", source["checkedAt"])},
             "printfulSyncVariantId": item["printfulSyncVariantId"],
             "printfulCatalogVariantId": item["printfulCatalogVariantId"],
         } for item in product["variants"]]
         products.append({
             "id": product["productId"], "productId": product["productId"],
-            "handle": product["handle"], "name": product["name"],
+            "handle": product["handle"], "sourceUrl": product["url"], "name": product["name"],
             "originalName": product.get("originalName", product["name"]),
             "displayName": product.get("displayName", product["name"]),
             "category": product.get("category", "other"),

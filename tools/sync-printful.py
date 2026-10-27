@@ -133,15 +133,18 @@ def local_image(value):
 
 
 class PrintfulClient:
-    def __init__(self, token):
+    def __init__(self, token, platform="api"):
         if (not isinstance(token, str) or not 8 <= len(token) <= 4096
                 or not re.fullmatch(r"[!-~]+", token)):
             raise SyncError("PRINTFUL_API_TOKEN is missing or has an invalid format. Set it only in the process environment.")
+        if platform not in ("api", "ecommerce"):
+            raise SyncError("Choose the existing store platform: api or ecommerce.")
         self.token = token
+        self.product_path = "/store/products" if platform == "api" else "/sync/products"
         self.opener = build_opener(NoRedirect(), HTTPSHandler(context=ssl.create_default_context()))
 
     def get(self, path, query=None):
-        if not (path == "/stores" or path == "/store/products" or re.fullmatch(r"/store/products/[1-9][0-9]{0,15}", path)):
+        if not (path == "/stores" or path == self.product_path or re.fullmatch(re.escape(self.product_path) + r"/[1-9][0-9]{0,15}", path)):
             raise SyncError("This synchronizer permits only store identity and catalogue GET requests.")
         url = API_ORIGIN + path + ("?" + urlencode(query) if query else "")
         request = Request(url, headers={"Authorization": "Bearer " + self.token,
@@ -178,7 +181,7 @@ class PrintfulClient:
             raise SyncError("Use a token limited to the expected CAISIK store 18912189; store identity did not match.")
         seen, offset, total = set(), 0, None
         for _ in range(MAX_PAGES):
-            page = self.get("/store/products", {"status": "synced", "offset": offset, "limit": PAGE_SIZE})
+            page = self.get(self.product_path, {"status": "synced", "offset": offset, "limit": PAGE_SIZE})
             batch, paging = page["result"], page.get("paging")
             if not isinstance(batch, list) or not isinstance(paging, dict):
                 raise SyncError("Printful product pagination is malformed.")
@@ -199,7 +202,7 @@ class PrintfulClient:
                 if product_id in seen:
                     raise SyncError("Printful returned a duplicate product identifier.")
                 seen.add(product_id)
-                yield product_id, self.get("/store/products/" + str(product_id))["result"]
+                yield product_id, self.get(self.product_path + "/" + str(product_id))["result"]
             offset += len(batch)
             if offset == total:
                 return
@@ -256,6 +259,26 @@ def variant_options(variant, previous):
     return result
 
 
+def historical_source_price(value):
+    """Retain only a previously documented storefront quote, never Printful costs."""
+    if value is None:
+        return None
+    if (not isinstance(value, dict) or type(value.get("amount")) not in (int, float)
+            or not 0 <= value["amount"] < float("inf")
+            or not isinstance(value.get("currency"), str)
+            or not re.fullmatch(r"[A-Z]{3}", value["currency"])
+            or not isinstance(value.get("checkedAt"), str)
+            or not re.match(r"^\d{4}-\d{2}-\d{2}T", value["checkedAt"])):
+        raise SyncError("A retained source price is invalid; review it before synchronization.")
+    try:
+        dt.datetime.fromisoformat(value["checkedAt"].replace("Z", "+00:00"))
+    except ValueError:
+        raise SyncError("A retained source price date is invalid.") from None
+    return {"amount": value["amount"], "currency": value["currency"],
+            "taxInclusive": value.get("taxInclusive") if type(value.get("taxInclusive")) is bool else None,
+            "checkedAt": value["checkedAt"]}
+
+
 def public_product(product_id, detail, previous):
     if not isinstance(detail, dict) or not isinstance(detail.get("sync_product"), dict) or not isinstance(detail.get("sync_variants"), list):
         raise SyncError("Printful returned malformed product details.")
@@ -292,16 +315,23 @@ def public_product(product_id, detail, previous):
             continue
         catalog_id = identifier(variant.get("variant_id"))
         old = previous_variants.get(variant_id, {})
+        sku = text(variant.get("sku"), 200)
+        if old and ((old.get("sku") and old["sku"] != sku)
+                    or old.get("printfulCatalogVariantId") != catalog_id):
+            raise SyncError("A retained SKU or catalog variant changed; review identity mapping before import.")
         values = variant_options(variant, old)
         for option in values:
             options.setdefault(option["title"], [])
             if option["value"] not in options[option["title"]]:
                 options[option["title"]].append(option["value"])
         variants.append({"id": stable_id(old.get("id"), "pfv-" + str(variant_id)),
-                         "sku": text(variant.get("sku"), 200),
+                         "sku": sku,
                          "title": text(old.get("title") or variant.get("name"), 300, required=True),
                          "options": values, "printfulSyncVariantId": variant_id,
                          "printfulCatalogVariantId": catalog_id})
+        saved_price = historical_source_price(old.get("sourcePrice"))
+        if saved_price is not None:
+            variants[-1]["sourcePrice"] = saved_price
         # Only designated preview mockups, never front/back print files or their original URLs.
         files = variant.get("files", [])
         if isinstance(files, list):
@@ -313,7 +343,7 @@ def public_product(product_id, detail, previous):
     if not variants or not images:
         raise SyncError("A synced product has no exportable variants or safe preview image.")
     public_id = stable_id(previous.get("id") or previous.get("productId"), "pf-" + str(product_id))
-    return {"id": public_id, "productId": stable_id(previous.get("productId"), public_id),
+    result = {"id": public_id, "productId": stable_id(previous.get("productId"), public_id),
             "handle": stable_id(previous.get("handle"), "printful-" + str(STORE_ID) + "-" + str(product_id)),
             "name": name, "originalName": name,
             "displayName": text(previous.get("displayName") or name, 300, required=True),
@@ -322,6 +352,12 @@ def public_product(product_id, detail, previous):
             "localImage": local, "image": local or images[0], "images": images,
             "options": [{"title": key, "values": values} for key, values in options.items()],
             "variants": variants, "printfulSyncProductId": product_id, "printfulStoreId": str(STORE_ID)}
+    original_url = "https://hiphop.caisik.i234.me/dk/products/" + result["handle"]
+    if (re.fullmatch(r"prod_[A-Za-z0-9]+", result["productId"])
+            and re.fullmatch(r"printful-18912189-[0-9]+", result["handle"])
+            and previous.get("sourceUrl") == original_url):
+        result["sourceUrl"] = original_url
+    return result
 
 
 def sync_catalogue(output, client):
@@ -374,15 +410,17 @@ def sync_catalogue(output, client):
 class SafeArguments(argparse.ArgumentParser):
     def error(self, message):
         # argparse normally echoes unknown arguments; a mistakenly supplied token must not leak.
-        self.exit(2, "Invalid arguments. Use --output PATH; supply the token only through PRINTFUL_API_TOKEN.\n")
+        self.exit(2, "Invalid arguments. Use --output PATH and --platform api|ecommerce; supply the token only through PRINTFUL_API_TOKEN.\n")
 
 
 def main(argv=None):
     parser = SafeArguments(description=__doc__)
     parser.add_argument("--output", type=Path, default=DEFAULT_OUTPUT, help="Public JSON output; defaults to dist/shop/catalog.json")
+    parser.add_argument("--platform", choices=("api", "ecommerce"), default="api",
+                        help="Existing Printful store type: manual/API or ecommerce integration. Verify in the account first.")
     args = parser.parse_args(argv)
     try:
-        client = PrintfulClient(os.environ.get("PRINTFUL_API_TOKEN", ""))
+        client = PrintfulClient(os.environ.get("PRINTFUL_API_TOKEN", ""), args.platform)
         products, variants = sync_catalogue(args.output, client)
     except SyncError as error:
         print(str(error), file=sys.stderr)

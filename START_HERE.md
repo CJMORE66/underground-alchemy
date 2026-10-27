@@ -57,3 +57,20 @@ Nejnovější změna vychází z uložené verze 29. Čti `docs/commerce/RELEASE
 `/shop/` zpřístupňuje původní kolekci 20 návrhů / 86 variant; starý externí checkout se nenabízí. Jde o prohlížení kolekce s přesnými SKU, nikoli dokončený prodej. Pro přípravu historického veřejného katalogu slouží `tools/prepare-shop-catalog.py`; živý čtecí import připravuje `tools/sync-printful.py` podle `docs/commerce/PRINTFUL_CONNECT.md`. Nikdy nepředstírej autentizaci, aktuální ceny, objednávku nebo produkční Printful napojení bez skutečného ověření. Stávající Printful store je 18912189; nevytvářej náhradní účet nebo nové fiktivní produkty. Tajemství patří pouze do lokálního prostředí či správce tajemství. Připojení účtu, platební brána a objednávkový provoz zůstávají samostatné nedokončené kroky.
 
 Nové testy: `node tests/atlas-place-browser.mjs`, `node tests/shop.mjs`, `python tests/printful-sync.py`. Po generátorech spusť oba jazykové/wiring skripty. Nové screenshoty jsou v `docs/qa/mobile-shop/`. Rollback: znovu nasadit verzi 29, bez mazání lokálních dat.
+
+
+## Obchod: aktuální audit nákupní cesty
+
+Viz `docs/COMMERCE.md` a `docs/commerce/SHOP_REPAIR.md`. SHOP již byl na `main`;
+nová zkratka v mobilní hlavičce jej zpřístupní i při zavřeném menu. Historické
+ceny všech 86 variant se zachovávají jako datované `sourcePrice`, nikoli aktuální
+nabídka. Původní katalog i doložený produktový odkaz nyní v cloudovém prohlížeči
+vracejí chybovou stránku Synology. Staré úspěšné ověření košíku proto neplatí jako
+doklad dnešního provozu. Checkout se nezapíná a nevzniká druhý obchod.
+
+Importér rozlišuje `--platform api` a `--platform ecommerce`; typ existujícího
+Printful store nejdřív ověř v účtu. Čerstvé čtení Printful nesmí přepsat datum
+historické prodejní ceny ani potichu změnit stávající SKU / katalogovou variantu.
+Nové texty jsou ve všech třech jazycích. Po úpravách generátorů běžně spusť oba
+jazykové/wiring skripty a `node tests/shop.mjs`, `python tests/printful-sync.py`,
+`npm test` a jazykové integrační testy. GitHub oprava sama není nasazení Sites.

@@ -13,6 +13,7 @@
       "id": "prod_01M51CDX7WSP5QPMME938D6PHZ",
       "productId": "prod_01M51CDX7WSP5QPMME938D6PHZ",
       "handle": "printful-18912189-482100507",
+      "sourceUrl": "https://hiphop.caisik.i234.me/dk/products/printful-18912189-482100507",
       "name": "Unisex max heavyweight short sleeve copy",
       "originalName": "Unisex max heavyweight short sleeve copy",
       "displayName": "Unisex max heavyweight short sleeve",
@@ -53,6 +54,12 @@
               "value": "3XL"
             }
           ],
+          "sourcePrice": {
+            "amount": 26.65,
+            "currency": "EUR",
+            "taxInclusive": false,
+            "checkedAt": "2026-10-16T04:52:09.112019+00:00"
+          },
           "printfulSyncVariantId": 5577001692,
           "printfulCatalogVariantId": 51734
         }
@@ -64,6 +71,7 @@
       "id": "prod_01M51CDVGWV789E6ANBP93XBA7",
       "productId": "prod_01M51CDVGWV789E6ANBP93XBA7",
       "handle": "printful-18912189-482100511",
+      "sourceUrl": "https://hiphop.caisik.i234.me/dk/products/printful-18912189-482100511",
       "name": "Unisex Champion hoodie",
       "originalName": "Unisex Champion hoodie",
       "displayName": "Unisex Champion hoodie",
@@ -104,6 +112,12 @@
               "value": "3XL"
             }
           ],
+          "sourcePrice": {
+            "amount": 47.13,
+            "currency": "EUR",
+            "taxInclusive": false,
+            "checkedAt": "2026-10-16T04:52:09.112047+00:00"
+          },
           "printfulSyncVariantId": 5577001696,
           "printfulCatalogVariantId": 22310
         }
@@ -115,6 +129,7 @@
       "id": "prod_01M51CDST2TG72WG16YEHMRXRC",
       "productId": "prod_01M51CDST2TG72WG16YEHMRXRC",
       "handle": "printful-18912189-482100516",
+      "sourceUrl": "https://hiphop.caisik.i234.me/dk/products/printful-18912189-482100516",
       "name": "Unisex garment dye heavyweight long sleeve tee",
       "originalName": "Unisex garment dye heavyweight long sleeve tee",
       "displayName": "Unisex garment dye heavyweight long sleeve tee",
@@ -160,6 +175,12 @@
               "value": "XS"
             }
           ],
+          "sourcePrice": {
+            "amount": 27.24,
+            "currency": "EUR",
+            "taxInclusive": false,
+            "checkedAt": "2026-10-16T04:52:09.112065+00:00"
+          },
           "printfulSyncVariantId": 5577001721,
           "printfulCatalogVariantId": 49817
         },
@@ -177,6 +198,12 @@
               "value": "S"
             }
           ],
+          "sourcePrice": {
+            "amount": 27.24,
+            "currency": "EUR",
+            "taxInclusive": false,
+            "checkedAt": "2026-10-16T04:52:09.112065+00:00"
+          },
           "printfulSyncVariantId": 5577001722,
           "printfulCatalogVariantId": 49822
         },
@@ -194,6 +221,12 @@
               "value": "M"
             }
           ],
+          "sourcePrice": {
+            "amount": 27.24,
+            "currency": "EUR",
+            "taxInclusive": false,
+            "checkedAt": "2026-10-16T04:52:09.112065+00:00"
+          },
           "printfulSyncVariantId": 5577001723,
           "printfulCatalogVariantId": 49827
         },
@@ -211,6 +244,12 @@
               "value": "L"
             }
           ],
+          "sourcePrice": {
+            "amount": 27.24,
+            "currency": "EUR",
+            "taxInclusive": false,
+            "checkedAt": "2026-10-16T04:52:09.112065+00:00"
+          },
           "printfulSyncVariantId": 5577001724,
           "printfulCatalogVariantId": 49832
         },
@@ -228,6 +267,12 @@
               "value": "XL"
             }
           ],
+          "sourcePrice": {
+            "amount": 27.24,
+            "currency": "EUR",
+            "taxInclusive": false,
+            "checkedAt": "2026-10-16T04:52:09.112065+00:00"
+          },
           "printfulSyncVariantId": 5577001725,
           "printfulCatalogVariantId": 49837
         },
@@ -245,6 +290,12 @@
               "value": "2XL"
             }
           ],
+          "sourcePrice": {
+            "amount": 29.58,
+            "currency": "EUR",
+            "taxInclusive": false,
+            "checkedAt": "2026-10-16T04:52:09.112065+00:00"
+          },
           "printfulSyncVariantId": 5577001726,
           "printfulCatalogVariantId": 49842
         },
@@ -262,6 +313,12 @@
               "value": "3XL"
             }
           ],
+          "sourcePrice": {
+            "amount": 31.85,
+            "currency": "EUR",
+            "taxInclusive": false,
+            "checkedAt": "2026-10-16T04:52:09.112065+00:00"
+          },
           "printfulSyncVariantId": 5577001727,
           "printfulCatalogVariantId": 49847
         }
@@ -273,6 +330,7 @@
       "id": "prod_01M51CDQFYEKMW6BN522Y2SJN1",
       "productId": "prod_01M51CDQFYEKMW6BN522Y2SJN1",
       "handle": "printful-18912189-482100520",
+      "sourceUrl": "https://hiphop.caisik.i234.me/dk/products/printful-18912189-482100520",
       "name": "Oversized faded t-shirt",
       "originalName": "Oversized faded t-shirt",
       "displayName": "Oversized faded t-shirt",
@@ -318,6 +376,12 @@
               "value": "S"
             }
           ],
+          "sourcePrice": {
+            "amount": 27.95,
+            "currency": "EUR",
+            "taxInclusive": false,
+            "checkedAt": "2026-10-16T04:52:09.112082+00:00"
+          },
           "printfulSyncVariantId": 5577001756,
           "printfulCatalogVariantId": 17572
         },
@@ -335,6 +399,12 @@
               "value": "M"
             }
           ],
+          "sourcePrice": {
+            "amount": 27.95,
+            "currency": "EUR",
+            "taxInclusive": false,
+            "checkedAt": "2026-10-16T04:52:09.112082+00:00"
+          },
           "printfulSyncVariantId": 5577001757,
           "printfulCatalogVariantId": 17577
         },
@@ -352,6 +422,12 @@
               "value": "L"
             }
           ],
+          "sourcePrice": {
+            "amount": 27.95,
+            "currency": "EUR",
+            "taxInclusive": false,
+            "checkedAt": "2026-10-16T04:52:09.112082+00:00"
+          },
           "printfulSyncVariantId": 5577001758,
           "printfulCatalogVariantId": 17582
         },
@@ -369,6 +445,12 @@
               "value": "XL"
             }
           ],
+          "sourcePrice": {
+            "amount": 27.95,
+            "currency": "EUR",
+            "taxInclusive": false,
+            "checkedAt": "2026-10-16T04:52:09.112082+00:00"
+          },
           "printfulSyncVariantId": 5577001759,
           "printfulCatalogVariantId": 17587
         },
@@ -386,6 +468,12 @@
               "value": "2XL"
             }
           ],
+          "sourcePrice": {
+            "amount": 30.23,
+            "currency": "EUR",
+            "taxInclusive": false,
+            "checkedAt": "2026-10-16T04:52:09.112082+00:00"
+          },
           "printfulSyncVariantId": 5577001760,
           "printfulCatalogVariantId": 17592
         },
@@ -403,6 +491,12 @@
               "value": "3XL"
             }
           ],
+          "sourcePrice": {
+            "amount": 32.83,
+            "currency": "EUR",
+            "taxInclusive": false,
+            "checkedAt": "2026-10-16T04:52:09.112082+00:00"
+          },
           "printfulSyncVariantId": 5577001761,
           "printfulCatalogVariantId": 17597
         }
@@ -414,6 +508,7 @@
       "id": "prod_01M51CDMQKJM6CTEB6XKTQNMWQ",
       "productId": "prod_01M51CDMQKJM6CTEB6XKTQNMWQ",
       "handle": "printful-18912189-482100561",
+      "sourceUrl": "https://hiphop.caisik.i234.me/dk/products/printful-18912189-482100561",
       "name": "Unisex Champion hoodie",
       "originalName": "Unisex Champion hoodie",
       "displayName": "Unisex Champion hoodie",
@@ -460,6 +555,12 @@
               "value": "3XL"
             }
           ],
+          "sourcePrice": {
+            "amount": 48.04,
+            "currency": "EUR",
+            "taxInclusive": false,
+            "checkedAt": "2026-10-16T04:52:09.112096+00:00"
+          },
           "printfulSyncVariantId": 5577002178,
           "printfulCatalogVariantId": 22309
         },
@@ -477,6 +578,12 @@
               "value": "S"
             }
           ],
+          "sourcePrice": {
+            "amount": 76,
+            "currency": "EUR",
+            "taxInclusive": false,
+            "checkedAt": "2026-10-16T04:52:09.112096+00:00"
+          },
           "printfulSyncVariantId": 5577028752,
           "printfulCatalogVariantId": 22299
         },
@@ -494,6 +601,12 @@
               "value": "M"
             }
           ],
+          "sourcePrice": {
+            "amount": 76,
+            "currency": "EUR",
+            "taxInclusive": false,
+            "checkedAt": "2026-10-16T04:52:09.112096+00:00"
+          },
           "printfulSyncVariantId": 5577028753,
           "printfulCatalogVariantId": 22301
         },
@@ -511,6 +624,12 @@
               "value": "L"
             }
           ],
+          "sourcePrice": {
+            "amount": 76,
+            "currency": "EUR",
+            "taxInclusive": false,
+            "checkedAt": "2026-10-16T04:52:09.112096+00:00"
+          },
           "printfulSyncVariantId": 5577028754,
           "printfulCatalogVariantId": 22303
         },
@@ -528,6 +647,12 @@
               "value": "XL"
             }
           ],
+          "sourcePrice": {
+            "amount": 76,
+            "currency": "EUR",
+            "taxInclusive": false,
+            "checkedAt": "2026-10-16T04:52:09.112096+00:00"
+          },
           "printfulSyncVariantId": 5577028755,
           "printfulCatalogVariantId": 22305
         },
@@ -545,6 +670,12 @@
               "value": "2XL"
             }
           ],
+          "sourcePrice": {
+            "amount": 78.5,
+            "currency": "EUR",
+            "taxInclusive": false,
+            "checkedAt": "2026-10-16T04:52:09.112096+00:00"
+          },
           "printfulSyncVariantId": 5577028756,
           "printfulCatalogVariantId": 22307
         }
@@ -556,6 +687,7 @@
       "id": "prod_01M51CDJ44VKB3MVZ00XWQQCPP",
       "productId": "prod_01M51CDJ44VKB3MVZ00XWQQCPP",
       "handle": "printful-18912189-482104116",
+      "sourceUrl": "https://hiphop.caisik.i234.me/dk/products/printful-18912189-482104116",
       "name": "MagSafe® clear case for iPhone®",
       "originalName": "MagSafe® clear case for iPhone®",
       "displayName": "MagSafe® clear case for iPhone®",
@@ -595,6 +727,12 @@
               "value": "iPhone 17 Pro Max"
             }
           ],
+          "sourcePrice": {
+            "amount": 16,
+            "currency": "EUR",
+            "taxInclusive": false,
+            "checkedAt": "2026-10-16T04:52:09.112109+00:00"
+          },
           "printfulSyncVariantId": 5577025493,
           "printfulCatalogVariantId": 34000
         }
@@ -606,6 +744,7 @@
       "id": "prod_01M51CDGEA1182P8SZJPAYK27R",
       "productId": "prod_01M51CDGEA1182P8SZJPAYK27R",
       "handle": "printful-18912189-482104768",
+      "sourceUrl": "https://hiphop.caisik.i234.me/dk/products/printful-18912189-482104768",
       "name": "OMERTA WITH EGO",
       "originalName": "OMERTA WITH EGO",
       "displayName": "OMERTA WITH EGO",
@@ -650,6 +789,12 @@
               "value": "S"
             }
           ],
+          "sourcePrice": {
+            "amount": 54.5,
+            "currency": "EUR",
+            "taxInclusive": false,
+            "checkedAt": "2026-10-16T04:52:09.112124+00:00"
+          },
           "printfulSyncVariantId": 5577030790,
           "printfulCatalogVariantId": 22299
         },
@@ -667,6 +812,12 @@
               "value": "M"
             }
           ],
+          "sourcePrice": {
+            "amount": 54.5,
+            "currency": "EUR",
+            "taxInclusive": false,
+            "checkedAt": "2026-10-16T04:52:09.112124+00:00"
+          },
           "printfulSyncVariantId": 5577030791,
           "printfulCatalogVariantId": 22301
         },
@@ -684,6 +835,12 @@
               "value": "L"
             }
           ],
+          "sourcePrice": {
+            "amount": 54.5,
+            "currency": "EUR",
+            "taxInclusive": false,
+            "checkedAt": "2026-10-16T04:52:09.112124+00:00"
+          },
           "printfulSyncVariantId": 5577030792,
           "printfulCatalogVariantId": 22303
         },
@@ -701,6 +858,12 @@
               "value": "XL"
             }
           ],
+          "sourcePrice": {
+            "amount": 54.5,
+            "currency": "EUR",
+            "taxInclusive": false,
+            "checkedAt": "2026-10-16T04:52:09.112124+00:00"
+          },
           "printfulSyncVariantId": 5577030793,
           "printfulCatalogVariantId": 22305
         },
@@ -718,6 +881,12 @@
               "value": "2XL"
             }
           ],
+          "sourcePrice": {
+            "amount": 56.5,
+            "currency": "EUR",
+            "taxInclusive": false,
+            "checkedAt": "2026-10-16T04:52:09.112124+00:00"
+          },
           "printfulSyncVariantId": 5577030794,
           "printfulCatalogVariantId": 22307
         },
@@ -735,6 +904,12 @@
               "value": "3XL"
             }
           ],
+          "sourcePrice": {
+            "amount": 58.5,
+            "currency": "EUR",
+            "taxInclusive": false,
+            "checkedAt": "2026-10-16T04:52:09.112124+00:00"
+          },
           "printfulSyncVariantId": 5577030795,
           "printfulCatalogVariantId": 22309
         }
@@ -746,6 +921,7 @@
       "id": "prod_01M514QTJQ2M2A1ZM4ERG521FJ",
       "productId": "prod_01M514QTJQ2M2A1ZM4ERG521FJ",
       "handle": "printful-18912189-482072983",
+      "sourceUrl": "https://hiphop.caisik.i234.me/dk/products/printful-18912189-482072983",
       "name": "WU TANG - forever - limited ed.",
       "originalName": "WU TANG - forever - limited ed.",
       "displayName": "WU TANG - forever - limited ed.",
@@ -789,6 +965,12 @@
               "value": "S"
             }
           ],
+          "sourcePrice": {
+            "amount": 34.5,
+            "currency": "EUR",
+            "taxInclusive": false,
+            "checkedAt": "2026-10-16T04:52:09.112135+00:00"
+          },
           "printfulSyncVariantId": 5576810041,
           "printfulCatalogVariantId": 21221
         },
@@ -806,6 +988,12 @@
               "value": "M"
             }
           ],
+          "sourcePrice": {
+            "amount": 34.5,
+            "currency": "EUR",
+            "taxInclusive": false,
+            "checkedAt": "2026-10-16T04:52:09.112135+00:00"
+          },
           "printfulSyncVariantId": 5576810042,
           "printfulCatalogVariantId": 21222
         },
@@ -823,6 +1011,12 @@
               "value": "L"
             }
           ],
+          "sourcePrice": {
+            "amount": 34.5,
+            "currency": "EUR",
+            "taxInclusive": false,
+            "checkedAt": "2026-10-16T04:52:09.112135+00:00"
+          },
           "printfulSyncVariantId": 5576810043,
           "printfulCatalogVariantId": 21223
         },
@@ -840,6 +1034,12 @@
               "value": "XL"
             }
           ],
+          "sourcePrice": {
+            "amount": 34.5,
+            "currency": "EUR",
+            "taxInclusive": false,
+            "checkedAt": "2026-10-16T04:52:09.112135+00:00"
+          },
           "printfulSyncVariantId": 5576810044,
           "printfulCatalogVariantId": 21224
         },
@@ -857,6 +1057,12 @@
               "value": "2XL"
             }
           ],
+          "sourcePrice": {
+            "amount": 36.5,
+            "currency": "EUR",
+            "taxInclusive": false,
+            "checkedAt": "2026-10-16T04:52:09.112135+00:00"
+          },
           "printfulSyncVariantId": 5576810045,
           "printfulCatalogVariantId": 21225
         }
@@ -868,6 +1074,7 @@
       "id": "prod_01M514QREFQAAZJATACW14BX6Q",
       "productId": "prod_01M514QREFQAAZJATACW14BX6Q",
       "handle": "printful-18912189-482088042",
+      "sourceUrl": "https://hiphop.caisik.i234.me/dk/products/printful-18912189-482088042",
       "name": "Men's Oversized Faded T-Shirt | AS Colour 5082 copy",
       "originalName": "Men's Oversized Faded T-Shirt | AS Colour 5082 copy",
       "displayName": "Men's Oversized Faded T-Shirt | AS Colour 5082",
@@ -912,6 +1119,12 @@
               "value": "S"
             }
           ],
+          "sourcePrice": {
+            "amount": 41,
+            "currency": "EUR",
+            "taxInclusive": false,
+            "checkedAt": "2026-10-16T04:52:09.112151+00:00"
+          },
           "printfulSyncVariantId": 5576894806,
           "printfulCatalogVariantId": 17572
         },
@@ -929,6 +1142,12 @@
               "value": "M"
             }
           ],
+          "sourcePrice": {
+            "amount": 41,
+            "currency": "EUR",
+            "taxInclusive": false,
+            "checkedAt": "2026-10-16T04:52:09.112151+00:00"
+          },
           "printfulSyncVariantId": 5576894807,
           "printfulCatalogVariantId": 17577
         },
@@ -946,6 +1165,12 @@
               "value": "L"
             }
           ],
+          "sourcePrice": {
+            "amount": 41,
+            "currency": "EUR",
+            "taxInclusive": false,
+            "checkedAt": "2026-10-16T04:52:09.112151+00:00"
+          },
           "printfulSyncVariantId": 5576894808,
           "printfulCatalogVariantId": 17582
         },
@@ -963,6 +1188,12 @@
               "value": "XL"
             }
           ],
+          "sourcePrice": {
+            "amount": 41,
+            "currency": "EUR",
+            "taxInclusive": false,
+            "checkedAt": "2026-10-16T04:52:09.112151+00:00"
+          },
           "printfulSyncVariantId": 5576894809,
           "printfulCatalogVariantId": 17587
         },
@@ -980,6 +1211,12 @@
               "value": "2XL"
             }
           ],
+          "sourcePrice": {
+            "amount": 43,
+            "currency": "EUR",
+            "taxInclusive": false,
+            "checkedAt": "2026-10-16T04:52:09.112151+00:00"
+          },
           "printfulSyncVariantId": 5576894810,
           "printfulCatalogVariantId": 17592
         },
@@ -997,6 +1234,12 @@
               "value": "3XL"
             }
           ],
+          "sourcePrice": {
+            "amount": 45,
+            "currency": "EUR",
+            "taxInclusive": false,
+            "checkedAt": "2026-10-16T04:52:09.112151+00:00"
+          },
           "printfulSyncVariantId": 5576894811,
           "printfulCatalogVariantId": 17597
         }
@@ -1008,6 +1251,7 @@
       "id": "prod_01M514QQK596QC43KXDCWB0G8X",
       "productId": "prod_01M514QQK596QC43KXDCWB0G8X",
       "handle": "printful-18912189-482088808",
+      "sourceUrl": "https://hiphop.caisik.i234.me/dk/products/printful-18912189-482088808",
       "name": "Snapback Hat copy",
       "originalName": "Snapback Hat copy",
       "displayName": "Snapback Hat",
@@ -1048,6 +1292,12 @@
               "value": "One size"
             }
           ],
+          "sourcePrice": {
+            "amount": 19.18,
+            "currency": "EUR",
+            "taxInclusive": false,
+            "checkedAt": "2026-10-16T04:52:09.112158+00:00"
+          },
           "printfulSyncVariantId": 5576898508,
           "printfulCatalogVariantId": 4481
         }
@@ -1059,6 +1309,7 @@
       "id": "prod_01M514QNQ6YTZ05KFGMR5RS2NG",
       "productId": "prod_01M514QNQ6YTZ05KFGMR5RS2NG",
       "handle": "printful-18912189-482088834",
+      "sourceUrl": "https://hiphop.caisik.i234.me/dk/products/printful-18912189-482088834",
       "name": "Men's Oversized Faded T-Shirt | AS Colour 5082 copy",
       "originalName": "Men's Oversized Faded T-Shirt | AS Colour 5082 copy",
       "displayName": "Men's Oversized Faded T-Shirt | AS Colour 5082",
@@ -1104,6 +1355,12 @@
               "value": "S"
             }
           ],
+          "sourcePrice": {
+            "amount": 29.58,
+            "currency": "EUR",
+            "taxInclusive": false,
+            "checkedAt": "2026-10-16T04:52:09.112172+00:00"
+          },
           "printfulSyncVariantId": 5576898542,
           "printfulCatalogVariantId": 17572
         },
@@ -1121,6 +1378,12 @@
               "value": "M"
             }
           ],
+          "sourcePrice": {
+            "amount": 29.58,
+            "currency": "EUR",
+            "taxInclusive": false,
+            "checkedAt": "2026-10-16T04:52:09.112172+00:00"
+          },
           "printfulSyncVariantId": 5576898543,
           "printfulCatalogVariantId": 17577
         },
@@ -1138,6 +1401,12 @@
               "value": "L"
             }
           ],
+          "sourcePrice": {
+            "amount": 29.58,
+            "currency": "EUR",
+            "taxInclusive": false,
+            "checkedAt": "2026-10-16T04:52:09.112172+00:00"
+          },
           "printfulSyncVariantId": 5576898544,
           "printfulCatalogVariantId": 17582
         },
@@ -1155,6 +1424,12 @@
               "value": "XL"
             }
           ],
+          "sourcePrice": {
+            "amount": 29.58,
+            "currency": "EUR",
+            "taxInclusive": false,
+            "checkedAt": "2026-10-16T04:52:09.112172+00:00"
+          },
           "printfulSyncVariantId": 5576898545,
           "printfulCatalogVariantId": 17587
         },
@@ -1172,6 +1447,12 @@
               "value": "2XL"
             }
           ],
+          "sourcePrice": {
+            "amount": 31.85,
+            "currency": "EUR",
+            "taxInclusive": false,
+            "checkedAt": "2026-10-16T04:52:09.112172+00:00"
+          },
           "printfulSyncVariantId": 5576898546,
           "printfulCatalogVariantId": 17592
         },
@@ -1189,6 +1470,12 @@
               "value": "3XL"
             }
           ],
+          "sourcePrice": {
+            "amount": 34.13,
+            "currency": "EUR",
+            "taxInclusive": false,
+            "checkedAt": "2026-10-16T04:52:09.112172+00:00"
+          },
           "printfulSyncVariantId": 5576898547,
           "printfulCatalogVariantId": 17597
         }
@@ -1200,6 +1487,7 @@
       "id": "prod_01M514QM1KD2M5M73SXQ2D5R97",
       "productId": "prod_01M514QM1KD2M5M73SXQ2D5R97",
       "handle": "printful-18912189-482088871",
+      "sourceUrl": "https://hiphop.caisik.i234.me/dk/products/printful-18912189-482088871",
       "name": "Urban garment-dyed hoodie copy",
       "originalName": "Urban garment-dyed hoodie copy",
       "displayName": "Urban garment-dyed hoodie",
@@ -1245,6 +1533,12 @@
               "value": "S"
             }
           ],
+          "sourcePrice": {
+            "amount": 42.25,
+            "currency": "EUR",
+            "taxInclusive": false,
+            "checkedAt": "2026-10-16T04:52:09.112185+00:00"
+          },
           "printfulSyncVariantId": 5576898589,
           "printfulCatalogVariantId": 34362
         },
@@ -1262,6 +1556,12 @@
               "value": "M"
             }
           ],
+          "sourcePrice": {
+            "amount": 42.25,
+            "currency": "EUR",
+            "taxInclusive": false,
+            "checkedAt": "2026-10-16T04:52:09.112185+00:00"
+          },
           "printfulSyncVariantId": 5576898590,
           "printfulCatalogVariantId": 34365
         },
@@ -1279,6 +1579,12 @@
               "value": "L"
             }
           ],
+          "sourcePrice": {
+            "amount": 42.25,
+            "currency": "EUR",
+            "taxInclusive": false,
+            "checkedAt": "2026-10-16T04:52:09.112185+00:00"
+          },
           "printfulSyncVariantId": 5576898591,
           "printfulCatalogVariantId": 34368
         },
@@ -1296,6 +1602,12 @@
               "value": "XL"
             }
           ],
+          "sourcePrice": {
+            "amount": 42.25,
+            "currency": "EUR",
+            "taxInclusive": false,
+            "checkedAt": "2026-10-16T04:52:09.112185+00:00"
+          },
           "printfulSyncVariantId": 5576898593,
           "printfulCatalogVariantId": 34371
         },
@@ -1313,6 +1625,12 @@
               "value": "2XL"
             }
           ],
+          "sourcePrice": {
+            "amount": 44.53,
+            "currency": "EUR",
+            "taxInclusive": false,
+            "checkedAt": "2026-10-16T04:52:09.112185+00:00"
+          },
           "printfulSyncVariantId": 5576898594,
           "printfulCatalogVariantId": 34374
         },
@@ -1330,6 +1648,12 @@
               "value": "3XL"
             }
           ],
+          "sourcePrice": {
+            "amount": 46.74,
+            "currency": "EUR",
+            "taxInclusive": false,
+            "checkedAt": "2026-10-16T04:52:09.112185+00:00"
+          },
           "printfulSyncVariantId": 5576898595,
           "printfulCatalogVariantId": 34377
         }
@@ -1341,6 +1665,7 @@
       "id": "prod_01M514QJV90TMT3K7YQNTQSGK9",
       "productId": "prod_01M514QJV90TMT3K7YQNTQSGK9",
       "handle": "printful-18912189-482088888",
+      "sourceUrl": "https://hiphop.caisik.i234.me/dk/products/printful-18912189-482088888",
       "name": "Men's heavyweight long sleeve t-shirt copy",
       "originalName": "Men's heavyweight long sleeve t-shirt copy",
       "displayName": "Men's heavyweight long sleeve t-shirt",
@@ -1386,6 +1711,12 @@
               "value": "S"
             }
           ],
+          "sourcePrice": {
+            "amount": 20.15,
+            "currency": "EUR",
+            "taxInclusive": false,
+            "checkedAt": "2026-10-16T04:52:09.112198+00:00"
+          },
           "printfulSyncVariantId": 5576898634,
           "printfulCatalogVariantId": 24428
         },
@@ -1403,6 +1734,12 @@
               "value": "M"
             }
           ],
+          "sourcePrice": {
+            "amount": 20.15,
+            "currency": "EUR",
+            "taxInclusive": false,
+            "checkedAt": "2026-10-16T04:52:09.112198+00:00"
+          },
           "printfulSyncVariantId": 5576898635,
           "printfulCatalogVariantId": 24423
         },
@@ -1420,6 +1757,12 @@
               "value": "L"
             }
           ],
+          "sourcePrice": {
+            "amount": 20.15,
+            "currency": "EUR",
+            "taxInclusive": false,
+            "checkedAt": "2026-10-16T04:52:09.112198+00:00"
+          },
           "printfulSyncVariantId": 5576898636,
           "printfulCatalogVariantId": 24433
         },
@@ -1437,6 +1780,12 @@
               "value": "XL"
             }
           ],
+          "sourcePrice": {
+            "amount": 20.15,
+            "currency": "EUR",
+            "taxInclusive": false,
+            "checkedAt": "2026-10-16T04:52:09.112198+00:00"
+          },
           "printfulSyncVariantId": 5576898637,
           "printfulCatalogVariantId": 24438
         },
@@ -1454,6 +1803,12 @@
               "value": "2XL"
             }
           ],
+          "sourcePrice": {
+            "amount": 22.43,
+            "currency": "EUR",
+            "taxInclusive": false,
+            "checkedAt": "2026-10-16T04:52:09.112198+00:00"
+          },
           "printfulSyncVariantId": 5576898638,
           "printfulCatalogVariantId": 24443
         },
@@ -1471,6 +1826,12 @@
               "value": "3XL"
             }
           ],
+          "sourcePrice": {
+            "amount": 25.03,
+            "currency": "EUR",
+            "taxInclusive": false,
+            "checkedAt": "2026-10-16T04:52:09.112198+00:00"
+          },
           "printfulSyncVariantId": 5576898639,
           "printfulCatalogVariantId": 24448
         }
@@ -1482,6 +1843,7 @@
       "id": "prod_01M514QHVEGA719NQ56EF9S7HW",
       "productId": "prod_01M514QHVEGA719NQ56EF9S7HW",
       "handle": "printful-18912189-482088891",
+      "sourceUrl": "https://hiphop.caisik.i234.me/dk/products/printful-18912189-482088891",
       "name": "Men's heavyweight long sleeve t-shirt copy",
       "originalName": "Men's heavyweight long sleeve t-shirt copy",
       "displayName": "Men's heavyweight long sleeve t-shirt",
@@ -1527,6 +1889,12 @@
               "value": "S"
             }
           ],
+          "sourcePrice": {
+            "amount": 18.85,
+            "currency": "EUR",
+            "taxInclusive": false,
+            "checkedAt": "2026-10-16T04:52:09.112214+00:00"
+          },
           "printfulSyncVariantId": 5576898687,
           "printfulCatalogVariantId": 24428
         },
@@ -1544,6 +1912,12 @@
               "value": "M"
             }
           ],
+          "sourcePrice": {
+            "amount": 18.85,
+            "currency": "EUR",
+            "taxInclusive": false,
+            "checkedAt": "2026-10-16T04:52:09.112214+00:00"
+          },
           "printfulSyncVariantId": 5576898688,
           "printfulCatalogVariantId": 24423
         },
@@ -1561,6 +1935,12 @@
               "value": "L"
             }
           ],
+          "sourcePrice": {
+            "amount": 18.85,
+            "currency": "EUR",
+            "taxInclusive": false,
+            "checkedAt": "2026-10-16T04:52:09.112214+00:00"
+          },
           "printfulSyncVariantId": 5576898689,
           "printfulCatalogVariantId": 24433
         },
@@ -1578,6 +1958,12 @@
               "value": "XL"
             }
           ],
+          "sourcePrice": {
+            "amount": 18.85,
+            "currency": "EUR",
+            "taxInclusive": false,
+            "checkedAt": "2026-10-16T04:52:09.112214+00:00"
+          },
           "printfulSyncVariantId": 5576898690,
           "printfulCatalogVariantId": 24438
         },
@@ -1595,6 +1981,12 @@
               "value": "2XL"
             }
           ],
+          "sourcePrice": {
+            "amount": 21.13,
+            "currency": "EUR",
+            "taxInclusive": false,
+            "checkedAt": "2026-10-16T04:52:09.112214+00:00"
+          },
           "printfulSyncVariantId": 5576898691,
           "printfulCatalogVariantId": 24443
         },
@@ -1612,6 +2004,12 @@
               "value": "3XL"
             }
           ],
+          "sourcePrice": {
+            "amount": 23.34,
+            "currency": "EUR",
+            "taxInclusive": false,
+            "checkedAt": "2026-10-16T04:52:09.112214+00:00"
+          },
           "printfulSyncVariantId": 5576898692,
           "printfulCatalogVariantId": 24448
         }
@@ -1623,6 +2021,7 @@
       "id": "prod_01M514QGX6424S1KASGR1YCTHJ",
       "productId": "prod_01M514QGX6424S1KASGR1YCTHJ",
       "handle": "printful-18912189-482088894",
+      "sourceUrl": "https://hiphop.caisik.i234.me/dk/products/printful-18912189-482088894",
       "name": "Unisex organic ribbed neck t-shirt copy",
       "originalName": "Unisex organic ribbed neck t-shirt copy",
       "displayName": "Unisex organic ribbed neck t-shirt",
@@ -1669,6 +2068,12 @@
               "value": "S"
             }
           ],
+          "sourcePrice": {
+            "amount": 19.83,
+            "currency": "EUR",
+            "taxInclusive": false,
+            "checkedAt": "2026-10-16T04:52:09.112229+00:00"
+          },
           "printfulSyncVariantId": 5576898697,
           "printfulCatalogVariantId": 20716
         },
@@ -1686,6 +2091,12 @@
               "value": "M"
             }
           ],
+          "sourcePrice": {
+            "amount": 19.83,
+            "currency": "EUR",
+            "taxInclusive": false,
+            "checkedAt": "2026-10-16T04:52:09.112229+00:00"
+          },
           "printfulSyncVariantId": 5576898698,
           "printfulCatalogVariantId": 20717
         },
@@ -1703,6 +2114,12 @@
               "value": "L"
             }
           ],
+          "sourcePrice": {
+            "amount": 19.83,
+            "currency": "EUR",
+            "taxInclusive": false,
+            "checkedAt": "2026-10-16T04:52:09.112229+00:00"
+          },
           "printfulSyncVariantId": 5576898699,
           "printfulCatalogVariantId": 20718
         },
@@ -1720,6 +2137,12 @@
               "value": "XL"
             }
           ],
+          "sourcePrice": {
+            "amount": 19.83,
+            "currency": "EUR",
+            "taxInclusive": false,
+            "checkedAt": "2026-10-16T04:52:09.112229+00:00"
+          },
           "printfulSyncVariantId": 5576898700,
           "printfulCatalogVariantId": 20719
         },
@@ -1737,6 +2160,12 @@
               "value": "2XL"
             }
           ],
+          "sourcePrice": {
+            "amount": 22.04,
+            "currency": "EUR",
+            "taxInclusive": false,
+            "checkedAt": "2026-10-16T04:52:09.112229+00:00"
+          },
           "printfulSyncVariantId": 5576898701,
           "printfulCatalogVariantId": 20720
         },
@@ -1754,6 +2183,12 @@
               "value": "3XL"
             }
           ],
+          "sourcePrice": {
+            "amount": 24.38,
+            "currency": "EUR",
+            "taxInclusive": false,
+            "checkedAt": "2026-10-16T04:52:09.112229+00:00"
+          },
           "printfulSyncVariantId": 5576898702,
           "printfulCatalogVariantId": 21231
         },
@@ -1771,6 +2206,12 @@
               "value": "4XL"
             }
           ],
+          "sourcePrice": {
+            "amount": 26.65,
+            "currency": "EUR",
+            "taxInclusive": false,
+            "checkedAt": "2026-10-16T04:52:09.112229+00:00"
+          },
           "printfulSyncVariantId": 5576898703,
           "printfulCatalogVariantId": 21232
         },
@@ -1788,6 +2229,12 @@
               "value": "5XL"
             }
           ],
+          "sourcePrice": {
+            "amount": 28.93,
+            "currency": "EUR",
+            "taxInclusive": false,
+            "checkedAt": "2026-10-16T04:52:09.112229+00:00"
+          },
           "printfulSyncVariantId": 5576898704,
           "printfulCatalogVariantId": 21233
         }
@@ -1799,6 +2246,7 @@
       "id": "prod_01M514QG3RBA8VXG5NW50WJHA8",
       "productId": "prod_01M514QG3RBA8VXG5NW50WJHA8",
       "handle": "printful-18912189-482088895",
+      "sourceUrl": "https://hiphop.caisik.i234.me/dk/products/printful-18912189-482088895",
       "name": "Unisex Sculpted Heavyweight Hoodie | Stanley/Stella SASU057 / STSU278 copy",
       "originalName": "Unisex Sculpted Heavyweight Hoodie | Stanley/Stella SASU057 / STSU278 copy",
       "displayName": "Unisex Sculpted Heavyweight Hoodie | Stanley/Stella SASU057 / STSU278",
@@ -1838,6 +2286,12 @@
               "value": "3XL"
             }
           ],
+          "sourcePrice": {
+            "amount": 74.04,
+            "currency": "EUR",
+            "taxInclusive": false,
+            "checkedAt": "2026-10-16T04:52:09.112237+00:00"
+          },
           "printfulSyncVariantId": 5576898707,
           "printfulCatalogVariantId": 52451
         }
@@ -1849,6 +2303,7 @@
       "id": "prod_01M514QF7DKVGYDSZGQDQN3539",
       "productId": "prod_01M514QF7DKVGYDSZGQDQN3539",
       "handle": "printful-18912189-482088896",
+      "sourceUrl": "https://hiphop.caisik.i234.me/dk/products/printful-18912189-482088896",
       "name": "Unisex organic ribbed neck t-shirt copy",
       "originalName": "Unisex organic ribbed neck t-shirt copy",
       "displayName": "Unisex organic ribbed neck t-shirt",
@@ -1893,6 +2348,12 @@
               "value": "S"
             }
           ],
+          "sourcePrice": {
+            "amount": 19.83,
+            "currency": "EUR",
+            "taxInclusive": false,
+            "checkedAt": "2026-10-16T04:52:09.112249+00:00"
+          },
           "printfulSyncVariantId": 5576898709,
           "printfulCatalogVariantId": 21221
         },
@@ -1910,6 +2371,12 @@
               "value": "M"
             }
           ],
+          "sourcePrice": {
+            "amount": 19.83,
+            "currency": "EUR",
+            "taxInclusive": false,
+            "checkedAt": "2026-10-16T04:52:09.112249+00:00"
+          },
           "printfulSyncVariantId": 5576898710,
           "printfulCatalogVariantId": 21222
         },
@@ -1927,6 +2394,12 @@
               "value": "L"
             }
           ],
+          "sourcePrice": {
+            "amount": 19.83,
+            "currency": "EUR",
+            "taxInclusive": false,
+            "checkedAt": "2026-10-16T04:52:09.112249+00:00"
+          },
           "printfulSyncVariantId": 5576898711,
           "printfulCatalogVariantId": 21223
         },
@@ -1944,6 +2417,12 @@
               "value": "XL"
             }
           ],
+          "sourcePrice": {
+            "amount": 19.83,
+            "currency": "EUR",
+            "taxInclusive": false,
+            "checkedAt": "2026-10-16T04:52:09.112249+00:00"
+          },
           "printfulSyncVariantId": 5576898712,
           "printfulCatalogVariantId": 21224
         },
@@ -1961,6 +2440,12 @@
               "value": "2XL"
             }
           ],
+          "sourcePrice": {
+            "amount": 22.04,
+            "currency": "EUR",
+            "taxInclusive": false,
+            "checkedAt": "2026-10-16T04:52:09.112249+00:00"
+          },
           "printfulSyncVariantId": 5576898713,
           "printfulCatalogVariantId": 21225
         }
@@ -1972,6 +2457,7 @@
       "id": "prod_01M514QE9WA20R72AP8SN0G5AC",
       "productId": "prod_01M514QE9WA20R72AP8SN0G5AC",
       "handle": "printful-18912189-482088898",
+      "sourceUrl": "https://hiphop.caisik.i234.me/dk/products/printful-18912189-482088898",
       "name": "Men’s cotton crew neck t-shirt copy",
       "originalName": "Men’s cotton crew neck t-shirt copy",
       "displayName": "Men’s cotton crew neck t-shirt",
@@ -2016,6 +2502,12 @@
               "value": "XS"
             }
           ],
+          "sourcePrice": {
+            "amount": 29.25,
+            "currency": "EUR",
+            "taxInclusive": false,
+            "checkedAt": "2026-10-16T04:52:09.112267+00:00"
+          },
           "printfulSyncVariantId": 5576898719,
           "printfulCatalogVariantId": 33937
         },
@@ -2033,6 +2525,12 @@
               "value": "S"
             }
           ],
+          "sourcePrice": {
+            "amount": 29.25,
+            "currency": "EUR",
+            "taxInclusive": false,
+            "checkedAt": "2026-10-16T04:52:09.112267+00:00"
+          },
           "printfulSyncVariantId": 5576898720,
           "printfulCatalogVariantId": 33938
         },
@@ -2050,6 +2548,12 @@
               "value": "M"
             }
           ],
+          "sourcePrice": {
+            "amount": 29.25,
+            "currency": "EUR",
+            "taxInclusive": false,
+            "checkedAt": "2026-10-16T04:52:09.112267+00:00"
+          },
           "printfulSyncVariantId": 5576898721,
           "printfulCatalogVariantId": 33939
         },
@@ -2067,6 +2571,12 @@
               "value": "L"
             }
           ],
+          "sourcePrice": {
+            "amount": 29.25,
+            "currency": "EUR",
+            "taxInclusive": false,
+            "checkedAt": "2026-10-16T04:52:09.112267+00:00"
+          },
           "printfulSyncVariantId": 5576898722,
           "printfulCatalogVariantId": 33940
         },
@@ -2084,6 +2594,12 @@
               "value": "XL"
             }
           ],
+          "sourcePrice": {
+            "amount": 29.25,
+            "currency": "EUR",
+            "taxInclusive": false,
+            "checkedAt": "2026-10-16T04:52:09.112267+00:00"
+          },
           "printfulSyncVariantId": 5576898723,
           "printfulCatalogVariantId": 33941
         },
@@ -2101,6 +2617,12 @@
               "value": "2XL"
             }
           ],
+          "sourcePrice": {
+            "amount": 31.53,
+            "currency": "EUR",
+            "taxInclusive": false,
+            "checkedAt": "2026-10-16T04:52:09.112267+00:00"
+          },
           "printfulSyncVariantId": 5576898724,
           "printfulCatalogVariantId": 33942
         }
@@ -2112,6 +2634,7 @@
       "id": "prod_01M514QDGVMPMZSAP5YKD0RZJQ",
       "productId": "prod_01M514QDGVMPMZSAP5YKD0RZJQ",
       "handle": "printful-18912189-482088957",
+      "sourceUrl": "https://hiphop.caisik.i234.me/dk/products/printful-18912189-482088957",
       "name": "Flat Bill Cap copy",
       "originalName": "Flat Bill Cap copy",
       "displayName": "Flat Bill Cap",
@@ -2151,6 +2674,12 @@
               "value": "One size"
             }
           ],
+          "sourcePrice": {
+            "amount": 15.93,
+            "currency": "EUR",
+            "taxInclusive": false,
+            "checkedAt": "2026-10-16T04:52:09.112275+00:00"
+          },
           "printfulSyncVariantId": 5576898951,
           "printfulCatalogVariantId": 4614
         }
@@ -2162,6 +2691,7 @@
       "id": "prod_01M514QCQYPTB4SMJWZHGRBRTS",
       "productId": "prod_01M514QCQYPTB4SMJWZHGRBRTS",
       "handle": "printful-18912189-482088999",
+      "sourceUrl": "https://hiphop.caisik.i234.me/dk/products/printful-18912189-482088999",
       "name": "Unisex Heavy Blend Zip Hoodie | Gildan 18600 copy",
       "originalName": "Unisex Heavy Blend Zip Hoodie | Gildan 18600 copy",
       "displayName": "Unisex Heavy Blend Zip Hoodie | Gildan 18600",
@@ -2202,6 +2732,12 @@
               "value": "3XL"
             }
           ],
+          "sourcePrice": {
+            "amount": 35.75,
+            "currency": "EUR",
+            "taxInclusive": false,
+            "checkedAt": "2026-10-16T04:52:09.112282+00:00"
+          },
           "printfulSyncVariantId": 5576899300,
           "printfulCatalogVariantId": 32097
         }
