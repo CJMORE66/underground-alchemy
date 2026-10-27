@@ -48,3 +48,12 @@ Mapa standardně používá skutečné půdorysy z mapových dat a jen dostupné
 `dist/languages.js/css`, `dist/language-lessons.json` a `dist/i18n/{cs,en,fr}.json` přidávají trvalé přepínání CZ/EN/FR, 40 frází, čtenářské porovnání a místní výslovnost na kliknutí. Zdrojové překlady jsou v `docs/i18n/*-translations.json`; výsledné slovníky vytváří `python tools/build-languages.py`. Nový veřejný text přelož ve všech třech jazycích. Vlastní text uživatele označ `data-i18n-user`; nikdy jej nepřidávej do sdíleného slovníku. `python tools/wire-selfmade.py` zachovává jazykové ovládání po starších generátorech. Oba skripty spusť před testy a balením.
 
 Čti `docs/atlas/LANGUAGES.md`, `LANGUAGES_RELEASE_QA.md` a `CITY_LANGUAGES_RELEASE.md`. Lokální jazyková praxe používá pouze dva nové klíče popsané v dokumentaci; při rollbacku nemaž žádná uživatelská data. Úspěšná explicitní volba „Uložit pro cestu bez připojení“ v expedicích zahrnuje také tři slovníky a fráze; celý web tím nezískává offline mapy ani externí stránky. Skutečné snímky jsou v `docs/qa/city-languages/`.
+
+
+## Mobilní procházení a nativní kolekce (27. října 2026)
+
+Nejnovější změna vychází z uložené verze 29. Čti `docs/commerce/RELEASE_2026-10-27.md`, `docs/atlas/MOBILE_BROWSING.md` a `docs/critique/CAISIK_2026-10-27.md`. Atlas má rychlý výběr, předchozí/další místo v aktuálním filtru a krátký volitelný seznam. Ovládání nemění pozici dokumentu ani zápisníky. WebGL a dostupnost externích mapových podkladů mají samostatně popsané meze ověření.
+
+`/shop/` zpřístupňuje původní kolekci 20 návrhů / 86 variant; starý externí checkout se nenabízí. Jde o prohlížení kolekce s přesnými SKU, nikoli dokončený prodej. Pro přípravu historického veřejného katalogu slouží `tools/prepare-shop-catalog.py`; živý čtecí import připravuje `tools/sync-printful.py` podle `docs/commerce/PRINTFUL_CONNECT.md`. Nikdy nepředstírej autentizaci, aktuální ceny, objednávku nebo produkční Printful napojení bez skutečného ověření. Stávající Printful store je 18912189; nevytvářej náhradní účet nebo nové fiktivní produkty. Tajemství patří pouze do lokálního prostředí či správce tajemství. Připojení účtu, platební brána a objednávkový provoz zůstávají samostatné nedokončené kroky.
+
+Nové testy: `node tests/atlas-place-browser.mjs`, `node tests/shop.mjs`, `python tests/printful-sync.py`. Po generátorech spusť oba jazykové/wiring skripty. Nové screenshoty jsou v `docs/qa/mobile-shop/`. Rollback: znovu nasadit verzi 29, bez mazání lokálních dat.

@@ -1,7 +1,7 @@
 /* Opt-in text cache. This worker is scoped to /expeditions/ only. */
-const CACHE = 'caisik-expeditions-v3-20261027';
+const CACHE = 'caisik-expeditions-v4-20261027';
 // Saved only after the existing explicit offline action; no media library or uploads.
-const LANGUAGE = ['/languages.css?v=1', '/languages.js?v=1', '/language-lessons.json?v=1', ...['cs', 'en', 'fr'].map(lang => `/i18n/${lang}.json?v=1`)];
+const LANGUAGE = ['/languages.css?v=1', '/languages.js?v=2', '/language-lessons.json?v=1', ...['cs', 'en', 'fr'].map(lang => `/i18n/${lang}.json?v=2`)];
 const LANGUAGE_PATHS = new Set(LANGUAGE.map(path => new URL(path, self.location.origin).pathname));
 const CORE = ['/expeditions/expeditions.css?v=2', '/expeditions/app.js?v=2', '/expeditions/store.js?v=2', '/expeditions/schema.js?v=1', '/expeditions/data/expeditions.json?v=1', ...LANGUAGE];
 const PAGES = ['/expeditions/', ...['dj','mc','writer','breaking','knowledge'].map(id => `/expeditions/${id}/`)];

@@ -52,3 +52,49 @@
  .notebook-open{padding-left:20px}
 }
 @media(max-height:500px) and (min-width:601px){#hidden-city .map-wrap{height:380px;min-height:320px}}
+
+/* One selected place stays reachable; the catalogue is a choice, not a swipe wall. */
+#hidden-city .atlas-layout>.map-column{grid-column:1;grid-row:1}
+#hidden-city .atlas-layout>.place-preview{grid-column:2;grid-row:1 / span 2}
+#hidden-city .place-browser{grid-column:1;grid-row:2;min-width:0;padding:14px 18px 0;background:#0c0c0b;border-top:1px solid #51491f;border-right:1px solid #51491f}
+.place-browser-controls{display:grid;grid-template-columns:46px minmax(0,1fr) 46px;align-items:center;gap:12px}
+.place-browser-controls>[data-place-step]{display:grid;place-items:center;min-width:46px;min-height:46px;font:24px/1 Arial,sans-serif;border-color:#aa902d;color:#ffd600;touch-action:manipulation}
+.place-browser-controls>[data-place-step]:hover:not(:disabled){background:#ffd600;color:#080808}
+.place-browser-current{min-width:0}
+.place-browser-current>[data-place-position]{margin:0 0 5px;font:700 8px/1.4 var(--sans,Arial,sans-serif);letter-spacing:1.4px;color:#ffd600}
+.place-browser-current>select{display:block;min-height:46px;width:100%;max-width:100%;border:1px solid #51491f;background:#080808;color:#f5f1e8;font:600 14px/1.4 var(--sans,Arial,sans-serif);padding:10px 25px 10px 10px;border-radius:0;text-overflow:ellipsis}
+.place-list-toggle{display:none}
+#hidden-city .place-browser>.place-list{margin:12px -18px 0;max-height:280px;overflow:auto;overscroll-behavior:contain;scroll-behavior:auto;scrollbar-width:thin;scrollbar-color:#ffd600 #17160e}
+#hidden-city .place-browser>.place-list button{text-align:left;white-space:normal;overflow-wrap:anywhere;min-height:55px;touch-action:manipulation}
+#hidden-city .place-browser>.place-list button[aria-pressed=true]{background:#ffd6001a;box-shadow:inset 3px 0 #ffd600}
+@media(max-width:1100px){
+ #hidden-city .atlas-layout>.map-column,#hidden-city .atlas-layout>.place-browser,#hidden-city .atlas-layout>.place-preview{grid-column:1;grid-row:auto}
+ #hidden-city .place-browser{border-right:0}
+}
+@media(max-width:760px){
+ #hidden-city .atlas-layout{display:flex;flex-direction:column;overflow:visible}
+ #hidden-city .map-wrap{height:clamp(285px,44svh,380px);min-height:285px;max-height:none}
+ #hidden-city .place-browser{position:sticky;top:139px;z-index:40;padding:10px 11px 0;box-shadow:0 5px 10px #080808a0;border-bottom:1px solid #aa902d}
+ html:not(.journey-ready) #hidden-city .place-browser{top:96px}
+ .place-browser-controls{grid-template-columns:46px minmax(0,1fr) 46px;gap:8px}
+ .place-browser-current>[data-place-position]{font-size:7px;letter-spacing:.8px;margin-bottom:4px}
+ .place-browser-current>select{font-size:13px;min-height:44px;padding:9px 20px 9px 8px}
+ .place-browser-controls>[data-place-step]{min-width:46px;min-height:46px}
+ .place-list-toggle{display:block;width:100%;min-height:44px;border:0;border-top:1px solid #383123;padding:8px 5px;margin-top:9px;text-align:center;color:#ffd600;font:600 11px/1.6 var(--sans,Arial,sans-serif);letter-spacing:.7px}
+ .place-list-toggle:after{content:' ＋';margin-left:8px}
+ .place-list-toggle[aria-expanded=true]:after{content:' −'}
+ #hidden-city .place-browser>.place-list{display:flex;flex-direction:column;max-height:min(235px,31svh);overflow-x:hidden;overflow-y:auto;margin:0 -11px;gap:0;padding:0;scroll-snap-type:none}
+ #hidden-city .place-browser>.place-list[hidden]{display:none!important}
+ #hidden-city .place-browser>.place-list button{width:100%;flex:none;min-height:56px;padding:12px 14px;border:0;border-top:1px solid #383123;font-size:12px;display:flex;align-items:center;gap:11px}
+ #hidden-city .place-browser>.place-list button>span:first-child{flex:0 0 22px;color:#ffd600}
+ #hidden-city .place-browser>.place-list button small{white-space:normal;max-width:105px;flex:0 0 auto;font-size:8px}
+ #hidden-city .place-preview{scroll-margin-top:245px}
+ #hidden-city .city-scene-heading span:last-child{display:none}
+}
+@media(max-width:360px){.place-browser-current>select{font-size:12px}.place-browser-controls{gap:5px}}
+@media(max-height:520px) and (max-width:760px){
+ #hidden-city .place-browser{position:relative;top:auto!important}
+ #hidden-city .place-browser>.place-list{max-height:175px}
+ #hidden-city .map-wrap{height:280px;min-height:280px}
+}
+@media print{#hidden-city .place-browser{display:none!important}}

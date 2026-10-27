@@ -177,7 +177,7 @@ let receipt;
 await event('message',{data:{type:'SAVE_EXPEDITIONS',art:'/assets/masterworks-v2/044.webp'},ports:[{postMessage(value){receipt=value;}}]});
 assert.equal(receipt.ok,true);assert.equal(receipt.textReady,true);
 for(const id of ['dj','mc','writer','breaking','knowledge'])assert(cacheMap.has(`https://caisik.test/expeditions/${id}/`));
-const languagePaths = ['/languages.css?v=1', '/languages.js?v=1', '/language-lessons.json?v=1', ...['cs','en','fr'].map(lang=>`/i18n/${lang}.json?v=1`)];
+const languagePaths = ['/languages.css?v=1', '/languages.js?v=2', '/language-lessons.json?v=1', ...['cs','en','fr'].map(lang=>`/i18n/${lang}.json?v=2`)];
 for(const path of languagePaths)assert(cacheMap.has(`https://caisik.test${path}`), 'Explicit offline save contains language controls, practice cards and all three dictionaries');
 assert(requests.every(url=>url.startsWith('https://caisik.test/')),'Offline save never contacts a third party');
 networkDown=true;
@@ -188,10 +188,10 @@ for(const path of languagePaths){
  assert.equal(savedLanguage.status,200,'Saved language assets remain available with the network down');
  assert.equal(await savedLanguage.text(),`resource:${new URL(path,'https://caisik.test').pathname}`);
 }
-for(const url of ['https://caisik.test/i18n/private.json','https://caisik.test/play/store.js','https://other.test/i18n/fr.json?v=1']){
+for(const url of ['https://caisik.test/i18n/private.json','https://caisik.test/play/store.js','https://other.test/i18n/fr.json?v=2']){
  assert.equal(await event('fetch',{request:{method:'GET',url,mode:'cors'}}),undefined,'Only the exact same-origin language allowlist extends the expedition boundary');
 }
-assert.equal(await event('fetch',{request:{method:'POST',url:'https://caisik.test/i18n/fr.json?v=1',mode:'cors'}}),undefined,'The offline worker never handles a write or upload');
+assert.equal(await event('fetch',{request:{method:'POST',url:'https://caisik.test/i18n/fr.json?v=2',mode:'cors'}}),undefined,'The offline worker never handles a write or upload');
 const outside=await event('fetch',{request:{method:'GET',url:'https://caisik.test/locations-data.json',mode:'cors'}});
 assert.equal(outside,undefined,'The expedition worker does not intercept the existing atlas');
 networkDown=false;failingAsset=true;cacheMap.delete('https://caisik.test/assets/masterworks-v2/044.webp');
@@ -253,7 +253,7 @@ function upgradeFixture(failure = null) {
     async run(type) {let completion; handlers.get(type)({waitUntil(promise) {completion = promise;}}); await completion;}
   };
 }
-for (const failure of ['/expeditions/knowledge/', '/i18n/fr.json?v=1', '/language-lessons.json?v=1', 'all']) {
+for (const failure of ['/expeditions/knowledge/', '/i18n/fr.json?v=2', '/language-lessons.json?v=1', 'all']) {
   const upgrade = upgradeFixture(failure);
   await assert.rejects(upgrade.run('install'), /Incomplete offline text package/, 'Incomplete mandatory text rejects installation');
   assert.equal(upgrade.skipped, 0, 'Failed install never replaces the old active worker');

@@ -1,0 +1,345 @@
+{
+  "version": 1,
+  "entries": {
+    "Přejít ke kolekci": {
+      "cs": "Přejít ke kolekci",
+      "en": "Skip to the collection",
+      "fr": "Aller à la collection"
+    },
+    "Navigace obchodu": {
+      "cs": "Navigace obchodu",
+      "en": "Shop navigation",
+      "fr": "Navigation de la boutique"
+    },
+    "Zpět do Alchemy ↗": {
+      "cs": "Zpět do Alchemy ↗",
+      "en": "Back to Alchemy ↗",
+      "fr": "Retour à Alchemy ↗"
+    },
+    "TVŮJ ZNAK.": {
+      "cs": "TVŮJ ZNAK.",
+      "en": "YOUR MARK.",
+      "fr": "TON SIGNE."
+    },
+    "TVŮJ SVĚT.": {
+      "cs": "TVŮJ SVĚT.",
+      "en": "YOUR WORLD.",
+      "fr": "TON MONDE."
+    },
+    "Myšlenky z města. Původní návrhy, které můžeš nosit.": {
+      "cs": "Myšlenky z města. Původní návrhy, které můžeš nosit.",
+      "en": "Ideas from the city. Original designs you can wear.",
+      "fr": "Des idées venues de la ville. Des créations originales à porter."
+    },
+    "Kolekce je k prohlédnutí. Prodej zatím není spuštěný.": {
+      "cs": "Kolekce je k prohlédnutí. Prodej zatím není spuštěný.",
+      "en": "Browse the collection. Sales are not open yet.",
+      "fr": "Découvre la collection. Les ventes ne sont pas encore ouvertes."
+    },
+    "PROHLÉDNOUT KOLEKCI ↓": {
+      "cs": "PROHLÉDNOUT KOLEKCI ↓",
+      "en": "EXPLORE THE COLLECTION ↓",
+      "fr": "DÉCOUVRIR LA COLLECTION ↓"
+    },
+    "OMERTA WITH EGO — původní produktový mockup Printful, nikoli fotografie fyzického vzorku": {
+      "cs": "OMERTA WITH EGO — původní produktový mockup Printful, nikoli fotografie fyzického vzorku",
+      "en": "OMERTA WITH EGO — original Printful product mockup, not a photograph of a physical sample",
+      "fr": "OMERTA WITH EGO — aperçu produit original Printful, pas une photographie d’un échantillon physique"
+    },
+    "PŮVODNÍ NÁVRH / PRODUKTOVÝ MOCKUP": {
+      "cs": "PŮVODNÍ NÁVRH / PRODUKTOVÝ MOCKUP",
+      "en": "ORIGINAL DESIGN / PRODUCT MOCKUP",
+      "fr": "CRÉATION ORIGINALE / APERÇU PRODUIT"
+    },
+    "Vyber si vlastní stopu.": {
+      "cs": "Vyber si vlastní stopu.",
+      "en": "Choose your own mark.",
+      "fr": "Choisis ta propre trace."
+    },
+    "Načítám kolekci…": {
+      "cs": "Načítám kolekci…",
+      "en": "Loading the collection…",
+      "fr": "Chargement de la collection…"
+    },
+    "Najít návrh": {
+      "cs": "Najít návrh",
+      "en": "Find a design",
+      "fr": "Trouver un modèle"
+    },
+    "Název nebo SKU": {
+      "cs": "Název nebo SKU",
+      "en": "Name or SKU",
+      "fr": "Nom ou référence SKU"
+    },
+    "Druh produktu": {
+      "cs": "Druh produktu",
+      "en": "Product type",
+      "fr": "Type de produit"
+    },
+    "Načítám skutečné návrhy z kolekce.": {
+      "cs": "Načítám skutečné návrhy z kolekce.",
+      "en": "Loading the original collection designs.",
+      "fr": "Chargement des créations originales de la collection."
+    },
+    "Pro výběr návrhů zapni JavaScript. Prodej zatím není spuštěný.": {
+      "cs": "Pro výběr návrhů zapni JavaScript. Prodej zatím není spuštěný.",
+      "en": "Enable JavaScript to browse designs. Sales are not open yet.",
+      "fr": "Active JavaScript pour parcourir les modèles. Les ventes ne sont pas encore ouvertes."
+    },
+    "Obrázky jsou původní produktové mockupy. Barevné a velikostní varianty vycházejí z uložené kolekce; dnešní dostupnost není potvrzená.": {
+      "cs": "Obrázky jsou původní produktové mockupy. Barevné a velikostní varianty vycházejí z uložené kolekce; dnešní dostupnost není potvrzená.",
+      "en": "Images are original product mockups. Colour and size options come from the saved collection; current availability has not been confirmed.",
+      "fr": "Les images sont des aperçus produits originaux. Les couleurs et tailles proviennent de la collection enregistrée ; leur disponibilité actuelle n’est pas confirmée."
+    },
+    "Původní Blackbook ↗": {
+      "cs": "Původní Blackbook ↗",
+      "en": "Original Blackbook ↗",
+      "fr": "Blackbook original ↗"
+    },
+    "Zavřít návrh": {
+      "cs": "Zavřít návrh",
+      "en": "Close design",
+      "fr": "Fermer le modèle"
+    },
+    "Vše": {
+      "cs": "Vše",
+      "en": "All",
+      "fr": "Tout"
+    },
+    "Trička": {
+      "cs": "Trička",
+      "en": "T-shirts",
+      "fr": "T-shirts"
+    },
+    "Mikiny": {
+      "cs": "Mikiny",
+      "en": "Hoodies",
+      "fr": "Sweats"
+    },
+    "Doplňky": {
+      "cs": "Doplňky",
+      "en": "Accessories",
+      "fr": "Accessoires"
+    },
+    "Náhled se nepodařilo načíst. Název a varianty jsou stále dostupné.": {
+      "cs": "Náhled se nepodařilo načíst. Název a varianty jsou stále dostupné.",
+      "en": "The preview could not load. The name and variants remain available.",
+      "fr": "L’aperçu n’a pas pu se charger. Le nom et les variantes restent disponibles."
+    },
+    "{0} návrhů": {
+      "cs": "{0} návrhů",
+      "en": "{0} designs",
+      "fr": "{0} modèles"
+    },
+    "Prohlédnout návrh": {
+      "cs": "Prohlédnout návrh",
+      "en": "View design",
+      "fr": "Voir le modèle"
+    },
+    "Varianty:": {
+      "cs": "Varianty:",
+      "en": "Variants:",
+      "fr": "Variantes :"
+    },
+    "Žádný návrh neodpovídá. Zkus kratší dotaz nebo jiný druh produktu.": {
+      "cs": "Žádný návrh neodpovídá. Zkus kratší dotaz nebo jiný druh produktu.",
+      "en": "No designs match. Try a shorter search or another product type.",
+      "fr": "Aucun modèle ne correspond. Essaie une recherche plus courte ou un autre type de produit."
+    },
+    "Zobrazit celou kolekci": {
+      "cs": "Zobrazit celou kolekci",
+      "en": "Show the full collection",
+      "fr": "Afficher toute la collection"
+    },
+    "Vybraná varianta:": {
+      "cs": "Vybraná varianta:",
+      "en": "Selected variant:",
+      "fr": "Variante sélectionnée :"
+    },
+    "SKU:": {
+      "cs": "SKU:",
+      "en": "SKU:",
+      "fr": "SKU :"
+    },
+    "Tato kombinace v uložené kolekci není. Zkus jinou variantu.": {
+      "cs": "Tato kombinace v uložené kolekci není. Zkus jinou variantu.",
+      "en": "This combination is not in the saved collection. Try another variant.",
+      "fr": "Cette combinaison n’est pas dans la collection enregistrée. Essaie une autre variante."
+    },
+    "Vyber velikost a barvu pro zobrazení přesné varianty.": {
+      "cs": "Vyber velikost a barvu pro zobrazení přesné varianty.",
+      "en": "Choose a size and colour to see the exact variant.",
+      "fr": "Choisis une taille et une couleur pour voir la variante exacte."
+    },
+    "Produktové náhledy": {
+      "cs": "Produktové náhledy",
+      "en": "Product previews",
+      "fr": "Aperçus du produit"
+    },
+    "Pohled": {
+      "cs": "Pohled",
+      "en": "View",
+      "fr": "Vue"
+    },
+    "Produktový mockup. Nejde o fotografii fyzického vzorku.": {
+      "cs": "Produktový mockup. Nejde o fotografii fyzického vzorku.",
+      "en": "Product mockup. This is not a photograph of a physical sample.",
+      "fr": "Aperçu produit. Il ne s’agit pas d’une photographie d’un échantillon physique."
+    },
+    "Velikost": {
+      "cs": "Velikost",
+      "en": "Size",
+      "fr": "Taille"
+    },
+    "Barva": {
+      "cs": "Barva",
+      "en": "Colour",
+      "fr": "Couleur"
+    },
+    "Vyber variantu": {
+      "cs": "Vyber variantu",
+      "en": "Choose a variant",
+      "fr": "Choisis une variante"
+    },
+    "Zobrazené varianty pocházejí z uložené kolekce. Dnešní dostupnost není potvrzená.": {
+      "cs": "Zobrazené varianty pocházejí z uložené kolekce. Dnešní dostupnost není potvrzená.",
+      "en": "The displayed variants come from the saved collection. Current availability has not been confirmed.",
+      "fr": "Les variantes affichées proviennent de la collection enregistrée. Leur disponibilité actuelle n’est pas confirmée."
+    },
+    "Kolekci se nepodařilo načíst. Zkus to znovu.": {
+      "cs": "Kolekci se nepodařilo načíst. Zkus to znovu.",
+      "en": "The collection could not load. Try again.",
+      "fr": "La collection n’a pas pu se charger. Réessaie."
+    },
+    "Načíst znovu": {
+      "cs": "Načíst znovu",
+      "en": "Try again",
+      "fr": "Réessayer"
+    },
+    "Black": {
+      "cs": "Černá",
+      "en": "Black",
+      "fr": "Noir"
+    },
+    "White": {
+      "cs": "Bílá",
+      "en": "White",
+      "fr": "Blanc"
+    },
+    "Red": {
+      "cs": "Červená",
+      "en": "Red",
+      "fr": "Rouge"
+    },
+    "Navy": {
+      "cs": "Tmavě modrá",
+      "en": "Navy",
+      "fr": "Bleu marine"
+    },
+    "Dark Chocolate": {
+      "cs": "Tmavě čokoládová",
+      "en": "Dark Chocolate",
+      "fr": "Chocolat foncé"
+    },
+    "Default": {
+      "cs": "Výchozí",
+      "en": "Default",
+      "fr": "Standard"
+    },
+    "Faded Grey": {
+      "cs": "Vybledlá šedá",
+      "en": "Faded Grey",
+      "fr": "Gris délavé"
+    },
+    "Gold / Black / Black": {
+      "cs": "Zlatá / černá / černá",
+      "en": "Gold / Black / Black",
+      "fr": "Or / Noir / Noir"
+    },
+    "Light Steel": {
+      "cs": "Světle ocelová",
+      "en": "Light Steel",
+      "fr": "Gris acier clair"
+    },
+    "Pigment Midnight Navy": {
+      "cs": "Pigmentovaná noční modř",
+      "en": "Pigment Midnight Navy",
+      "fr": "Bleu marine nuit pigmenté"
+    },
+    "{0} návrh": {
+      "cs": "{0} návrh",
+      "en": "{0} design",
+      "fr": "{0} modèle"
+    },
+    "{0} návrhy": {
+      "cs": "{0} návrhy",
+      "en": "{0} designs",
+      "fr": "{0} modèles"
+    },
+    "Přecházet mezi místy": {
+      "cs": "Přecházet mezi místy",
+      "en": "Browse places",
+      "fr": "Parcourir les lieux"
+    },
+    "Předchozí místo": {
+      "cs": "Předchozí místo",
+      "en": "Previous place",
+      "fr": "Lieu précédent"
+    },
+    "Další místo": {
+      "cs": "Další místo",
+      "en": "Next place",
+      "fr": "Lieu suivant"
+    },
+    "Vybrat místo z aktuálního výběru": {
+      "cs": "Vybrat místo z aktuálního výběru",
+      "en": "Choose a place in the current results",
+      "fr": "Choisir un lieu dans les résultats actuels"
+    },
+    "Zobrazit seznam míst": {
+      "cs": "Zobrazit seznam míst",
+      "en": "Show the place list",
+      "fr": "Afficher la liste des lieux"
+    },
+    "Skrýt seznam míst": {
+      "cs": "Skrýt seznam míst",
+      "en": "Hide the place list",
+      "fr": "Masquer la liste des lieux"
+    },
+    "Žádná místa v aktuálním výběru": {
+      "cs": "Žádná místa v aktuálním výběru",
+      "en": "No places in the current results",
+      "fr": "Aucun lieu dans les résultats actuels"
+    },
+    "Místo mimo aktuální výběr": {
+      "cs": "Místo mimo aktuální výběr",
+      "en": "Place outside the current results",
+      "fr": "Lieu hors des résultats actuels"
+    },
+    "{0} / {1} VE VÝBĚRU": {
+      "cs": "{0} / {1} VE VÝBĚRU",
+      "en": "{0} / {1} IN THIS SELECTION",
+      "fr": "{0} / {1} DANS LA SÉLECTION"
+    },
+    "PROHLÉDNOUT KOLEKCI ↗": {
+      "cs": "PROHLÉDNOUT KOLEKCI ↗",
+      "en": "EXPLORE THE COLLECTION ↗",
+      "fr": "DÉCOUVRIR LA COLLECTION ↗"
+    },
+    "VIEW THE COLLECTION ↗": {
+      "cs": "PROHLÉDNOUT KOLEKCI ↗",
+      "en": "VIEW THE COLLECTION ↗",
+      "fr": "VOIR LA COLLECTION ↗"
+    },
+    "VIEW VARIANTS ↗": {
+      "cs": "PROHLÉDNOUT VARIANTY ↗",
+      "en": "VIEW VARIANTS ↗",
+      "fr": "VOIR LES VARIANTES ↗"
+    },
+    "Další návrhy": {
+      "cs": "Další návrhy",
+      "en": "More designs",
+      "fr": "Autres modèles"
+    }
+  }
+}

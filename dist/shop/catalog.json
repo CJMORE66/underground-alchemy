@@ -1,0 +1,2213 @@
+{
+  "version": 1,
+  "checkedAt": "2026-10-16T04:52:09.112309+00:00",
+  "mode": "snapshot",
+  "catalogueVerifiedLive": false,
+  "checkout": {
+    "enabled": false,
+    "url": null,
+    "verifiedAt": null
+  },
+  "products": [
+    {
+      "id": "prod_01M51CDX7WSP5QPMME938D6PHZ",
+      "productId": "prod_01M51CDX7WSP5QPMME938D6PHZ",
+      "handle": "printful-18912189-482100507",
+      "name": "Unisex max heavyweight short sleeve copy",
+      "originalName": "Unisex max heavyweight short sleeve copy",
+      "displayName": "Unisex max heavyweight short sleeve",
+      "category": "tees",
+      "localImage": "/assets/catalog/printful-18912189-482100507.png",
+      "image": "/assets/catalog/printful-18912189-482100507.png",
+      "images": [
+        "/assets/catalog/printful-18912189-482100507.png",
+        "https://files.cdn.printful.com/files/403/403a3bd9a598298837dabd24462f9f4e_preview.png",
+        "https://files.cdn.printful.com/files/12c/12c99c673b0a01025377fcc220100301_preview.png"
+      ],
+      "options": [
+        {
+          "title": "Size",
+          "values": [
+            "3XL"
+          ]
+        },
+        {
+          "title": "Color",
+          "values": [
+            "Navy"
+          ]
+        }
+      ],
+      "variants": [
+        {
+          "id": "variant_01M51CDX9D33NPE7ZK39J37M5W",
+          "sku": "PF-18912189-5577001692",
+          "title": "Navy / 3XL",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Navy"
+            },
+            {
+              "title": "Size",
+              "value": "3XL"
+            }
+          ],
+          "printfulSyncVariantId": 5577001692,
+          "printfulCatalogVariantId": 51734
+        }
+      ],
+      "printfulSyncProductId": 482100507,
+      "printfulStoreId": "18912189"
+    },
+    {
+      "id": "prod_01M51CDVGWV789E6ANBP93XBA7",
+      "productId": "prod_01M51CDVGWV789E6ANBP93XBA7",
+      "handle": "printful-18912189-482100511",
+      "name": "Unisex Champion hoodie",
+      "originalName": "Unisex Champion hoodie",
+      "displayName": "Unisex Champion hoodie",
+      "category": "hoodies",
+      "localImage": "/assets/catalog/printful-18912189-482100511.png",
+      "image": "/assets/catalog/printful-18912189-482100511.png",
+      "images": [
+        "/assets/catalog/printful-18912189-482100511.png",
+        "https://files.cdn.printful.com/files/e70/e7087dbab1410b7afe4d1fa803eeb66d_preview.png",
+        "https://files.cdn.printful.com/files/d34/d34125a6d5b13887a3b15c8dad422cbd_preview.png"
+      ],
+      "options": [
+        {
+          "title": "Color",
+          "values": [
+            "Light Steel"
+          ]
+        },
+        {
+          "title": "Size",
+          "values": [
+            "3XL"
+          ]
+        }
+      ],
+      "variants": [
+        {
+          "id": "variant_01M51CDVJC5VPRX7HN7NEYT85R",
+          "sku": "PF-18912189-5577001696",
+          "title": "Light Steel / 3XL",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Light Steel"
+            },
+            {
+              "title": "Size",
+              "value": "3XL"
+            }
+          ],
+          "printfulSyncVariantId": 5577001696,
+          "printfulCatalogVariantId": 22310
+        }
+      ],
+      "printfulSyncProductId": 482100511,
+      "printfulStoreId": "18912189"
+    },
+    {
+      "id": "prod_01M51CDST2TG72WG16YEHMRXRC",
+      "productId": "prod_01M51CDST2TG72WG16YEHMRXRC",
+      "handle": "printful-18912189-482100516",
+      "name": "Unisex garment dye heavyweight long sleeve tee",
+      "originalName": "Unisex garment dye heavyweight long sleeve tee",
+      "displayName": "Unisex garment dye heavyweight long sleeve tee",
+      "category": "tees",
+      "localImage": "/assets/catalog/printful-18912189-482100516.png",
+      "image": "/assets/catalog/printful-18912189-482100516.png",
+      "images": [
+        "/assets/catalog/printful-18912189-482100516.png",
+        "https://files.cdn.printful.com/files/282/28280c7cc63c79072f527f38f4060f97_preview.png"
+      ],
+      "options": [
+        {
+          "title": "Color",
+          "values": [
+            "Black"
+          ]
+        },
+        {
+          "title": "Size",
+          "values": [
+            "XS",
+            "S",
+            "M",
+            "L",
+            "XL",
+            "2XL",
+            "3XL"
+          ]
+        }
+      ],
+      "variants": [
+        {
+          "id": "variant_01M51CDSVJVD27C4DSW5SZH8JR",
+          "sku": "PF-18912189-5577001721",
+          "title": "Black / XS",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Black"
+            },
+            {
+              "title": "Size",
+              "value": "XS"
+            }
+          ],
+          "printfulSyncVariantId": 5577001721,
+          "printfulCatalogVariantId": 49817
+        },
+        {
+          "id": "variant_01M51CDSVK9Q9B52SXH1Q6J6M3",
+          "sku": "PF-18912189-5577001722",
+          "title": "Black / S",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Black"
+            },
+            {
+              "title": "Size",
+              "value": "S"
+            }
+          ],
+          "printfulSyncVariantId": 5577001722,
+          "printfulCatalogVariantId": 49822
+        },
+        {
+          "id": "variant_01M51CDSVKRKT1F8Q2B0F1QF51",
+          "sku": "PF-18912189-5577001723",
+          "title": "Black / M",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Black"
+            },
+            {
+              "title": "Size",
+              "value": "M"
+            }
+          ],
+          "printfulSyncVariantId": 5577001723,
+          "printfulCatalogVariantId": 49827
+        },
+        {
+          "id": "variant_01M51CDSVKPQJ083RPAB9ENNCF",
+          "sku": "PF-18912189-5577001724",
+          "title": "Black / L",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Black"
+            },
+            {
+              "title": "Size",
+              "value": "L"
+            }
+          ],
+          "printfulSyncVariantId": 5577001724,
+          "printfulCatalogVariantId": 49832
+        },
+        {
+          "id": "variant_01M51CDSVKTCBAXV9AVAYFE6SB",
+          "sku": "PF-18912189-5577001725",
+          "title": "Black / XL",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Black"
+            },
+            {
+              "title": "Size",
+              "value": "XL"
+            }
+          ],
+          "printfulSyncVariantId": 5577001725,
+          "printfulCatalogVariantId": 49837
+        },
+        {
+          "id": "variant_01M51CDSVK6Z3M1W8DCDNHG65W",
+          "sku": "PF-18912189-5577001726",
+          "title": "Black / 2XL",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Black"
+            },
+            {
+              "title": "Size",
+              "value": "2XL"
+            }
+          ],
+          "printfulSyncVariantId": 5577001726,
+          "printfulCatalogVariantId": 49842
+        },
+        {
+          "id": "variant_01M51CDSVMCER8YQZ87ZY5Q57W",
+          "sku": "PF-18912189-5577001727",
+          "title": "Black / 3XL",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Black"
+            },
+            {
+              "title": "Size",
+              "value": "3XL"
+            }
+          ],
+          "printfulSyncVariantId": 5577001727,
+          "printfulCatalogVariantId": 49847
+        }
+      ],
+      "printfulSyncProductId": 482100516,
+      "printfulStoreId": "18912189"
+    },
+    {
+      "id": "prod_01M51CDQFYEKMW6BN522Y2SJN1",
+      "productId": "prod_01M51CDQFYEKMW6BN522Y2SJN1",
+      "handle": "printful-18912189-482100520",
+      "name": "Oversized faded t-shirt",
+      "originalName": "Oversized faded t-shirt",
+      "displayName": "Oversized faded t-shirt",
+      "category": "tees",
+      "localImage": "/assets/catalog/printful-18912189-482100520.png",
+      "image": "/assets/catalog/printful-18912189-482100520.png",
+      "images": [
+        "/assets/catalog/printful-18912189-482100520.png",
+        "https://files.cdn.printful.com/files/76b/76b010a5907580dcea5db297beb61414_preview.png",
+        "https://files.cdn.printful.com/files/a8e/a8e2e8af632157af905462c8c0b43603_preview.png"
+      ],
+      "options": [
+        {
+          "title": "Size",
+          "values": [
+            "S",
+            "M",
+            "L",
+            "XL",
+            "2XL",
+            "3XL"
+          ]
+        },
+        {
+          "title": "Color",
+          "values": [
+            "Faded Grey"
+          ]
+        }
+      ],
+      "variants": [
+        {
+          "id": "variant_01M51CDR64N7HCKK1D2VV00N7X",
+          "sku": "PF-18912189-5577001756",
+          "title": "Faded Grey / S",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Faded Grey"
+            },
+            {
+              "title": "Size",
+              "value": "S"
+            }
+          ],
+          "printfulSyncVariantId": 5577001756,
+          "printfulCatalogVariantId": 17572
+        },
+        {
+          "id": "variant_01M51CDR65ZCJ4FHZ6H6NV3R3Z",
+          "sku": "PF-18912189-5577001757",
+          "title": "Faded Grey / M",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Faded Grey"
+            },
+            {
+              "title": "Size",
+              "value": "M"
+            }
+          ],
+          "printfulSyncVariantId": 5577001757,
+          "printfulCatalogVariantId": 17577
+        },
+        {
+          "id": "variant_01M51CDR65G5H7WYTJT68YKZWH",
+          "sku": "PF-18912189-5577001758",
+          "title": "Faded Grey / L",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Faded Grey"
+            },
+            {
+              "title": "Size",
+              "value": "L"
+            }
+          ],
+          "printfulSyncVariantId": 5577001758,
+          "printfulCatalogVariantId": 17582
+        },
+        {
+          "id": "variant_01M51CDR65PX6X4GR0HP6HK5CF",
+          "sku": "PF-18912189-5577001759",
+          "title": "Faded Grey / XL",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Faded Grey"
+            },
+            {
+              "title": "Size",
+              "value": "XL"
+            }
+          ],
+          "printfulSyncVariantId": 5577001759,
+          "printfulCatalogVariantId": 17587
+        },
+        {
+          "id": "variant_01M51CDR654FTBEX0ZKETCZ6D4",
+          "sku": "PF-18912189-5577001760",
+          "title": "Faded Grey / 2XL",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Faded Grey"
+            },
+            {
+              "title": "Size",
+              "value": "2XL"
+            }
+          ],
+          "printfulSyncVariantId": 5577001760,
+          "printfulCatalogVariantId": 17592
+        },
+        {
+          "id": "variant_01M51CDR664F042RHBPRASXSMG",
+          "sku": "PF-18912189-5577001761",
+          "title": "Faded Grey / 3XL",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Faded Grey"
+            },
+            {
+              "title": "Size",
+              "value": "3XL"
+            }
+          ],
+          "printfulSyncVariantId": 5577001761,
+          "printfulCatalogVariantId": 17597
+        }
+      ],
+      "printfulSyncProductId": 482100520,
+      "printfulStoreId": "18912189"
+    },
+    {
+      "id": "prod_01M51CDMQKJM6CTEB6XKTQNMWQ",
+      "productId": "prod_01M51CDMQKJM6CTEB6XKTQNMWQ",
+      "handle": "printful-18912189-482100561",
+      "name": "Unisex Champion hoodie",
+      "originalName": "Unisex Champion hoodie",
+      "displayName": "Unisex Champion hoodie",
+      "category": "hoodies",
+      "localImage": "/assets/catalog/printful-18912189-482100561.png",
+      "image": "/assets/catalog/printful-18912189-482100561.png",
+      "images": [
+        "/assets/catalog/printful-18912189-482100561.png",
+        "https://files.cdn.printful.com/files/607/60799c63c6495ec281ab97dc5663e4e0_preview.png",
+        "https://files.cdn.printful.com/files/a9a/a9a82f31c73d9def5183401ae02376ca_preview.png",
+        "https://files.cdn.printful.com/files/00e/00ee12e22780feb0e1f19cf5b2a6067a_preview.png"
+      ],
+      "options": [
+        {
+          "title": "Size",
+          "values": [
+            "3XL",
+            "S",
+            "M",
+            "L",
+            "XL",
+            "2XL"
+          ]
+        },
+        {
+          "title": "Color",
+          "values": [
+            "Black"
+          ]
+        }
+      ],
+      "variants": [
+        {
+          "id": "variant_01M51CDN02CMQBX4KEFQTR3711",
+          "sku": "PF-18912189-5577002178",
+          "title": "Black / 3XL",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Black"
+            },
+            {
+              "title": "Size",
+              "value": "3XL"
+            }
+          ],
+          "printfulSyncVariantId": 5577002178,
+          "printfulCatalogVariantId": 22309
+        },
+        {
+          "id": "variant_01M51CDN03R337GG9MWMQ0DSGG",
+          "sku": "PF-18912189-5577028752",
+          "title": "Black / S",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Black"
+            },
+            {
+              "title": "Size",
+              "value": "S"
+            }
+          ],
+          "printfulSyncVariantId": 5577028752,
+          "printfulCatalogVariantId": 22299
+        },
+        {
+          "id": "variant_01M51CDN03BX6TTTAMG97D898C",
+          "sku": "PF-18912189-5577028753",
+          "title": "Black / M",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Black"
+            },
+            {
+              "title": "Size",
+              "value": "M"
+            }
+          ],
+          "printfulSyncVariantId": 5577028753,
+          "printfulCatalogVariantId": 22301
+        },
+        {
+          "id": "variant_01M51CDN03RK0JZQZ1GQZBGCHV",
+          "sku": "PF-18912189-5577028754",
+          "title": "Black / L",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Black"
+            },
+            {
+              "title": "Size",
+              "value": "L"
+            }
+          ],
+          "printfulSyncVariantId": 5577028754,
+          "printfulCatalogVariantId": 22303
+        },
+        {
+          "id": "variant_01M51CDN0315VV4ZTX3QMF6APV",
+          "sku": "PF-18912189-5577028755",
+          "title": "Black / XL",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Black"
+            },
+            {
+              "title": "Size",
+              "value": "XL"
+            }
+          ],
+          "printfulSyncVariantId": 5577028755,
+          "printfulCatalogVariantId": 22305
+        },
+        {
+          "id": "variant_01M51CDN04W2W943S9FDVD2ZWV",
+          "sku": "PF-18912189-5577028756",
+          "title": "Black / 2XL",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Black"
+            },
+            {
+              "title": "Size",
+              "value": "2XL"
+            }
+          ],
+          "printfulSyncVariantId": 5577028756,
+          "printfulCatalogVariantId": 22307
+        }
+      ],
+      "printfulSyncProductId": 482100561,
+      "printfulStoreId": "18912189"
+    },
+    {
+      "id": "prod_01M51CDJ44VKB3MVZ00XWQQCPP",
+      "productId": "prod_01M51CDJ44VKB3MVZ00XWQQCPP",
+      "handle": "printful-18912189-482104116",
+      "name": "MagSafe® clear case for iPhone®",
+      "originalName": "MagSafe® clear case for iPhone®",
+      "displayName": "MagSafe® clear case for iPhone®",
+      "category": "accessories",
+      "localImage": "/assets/catalog/printful-18912189-482104116.png",
+      "image": "/assets/catalog/printful-18912189-482104116.png",
+      "images": [
+        "/assets/catalog/printful-18912189-482104116.png",
+        "https://files.cdn.printful.com/files/96b/96bbaacd3bae49f2a64cc1cd8d8f612a_preview.png"
+      ],
+      "options": [
+        {
+          "title": "Color",
+          "values": [
+            "Default"
+          ]
+        },
+        {
+          "title": "Size",
+          "values": [
+            "iPhone 17 Pro Max"
+          ]
+        }
+      ],
+      "variants": [
+        {
+          "id": "variant_01M51CDJNH9WCGY2HNJV5XAPE6",
+          "sku": "PF-18912189-5577025493",
+          "title": "iPhone 17 Pro Max",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Default"
+            },
+            {
+              "title": "Size",
+              "value": "iPhone 17 Pro Max"
+            }
+          ],
+          "printfulSyncVariantId": 5577025493,
+          "printfulCatalogVariantId": 34000
+        }
+      ],
+      "printfulSyncProductId": 482104116,
+      "printfulStoreId": "18912189"
+    },
+    {
+      "id": "prod_01M51CDGEA1182P8SZJPAYK27R",
+      "productId": "prod_01M51CDGEA1182P8SZJPAYK27R",
+      "handle": "printful-18912189-482104768",
+      "name": "OMERTA WITH EGO",
+      "originalName": "OMERTA WITH EGO",
+      "displayName": "OMERTA WITH EGO",
+      "category": "hoodies",
+      "localImage": "/assets/catalog/printful-18912189-482104768.png",
+      "image": "/assets/catalog/printful-18912189-482104768.png",
+      "images": [
+        "/assets/catalog/printful-18912189-482104768.png",
+        "https://files.cdn.printful.com/files/ff8/ff85508e252ed7d1e95fb0918c32e59f_preview.png"
+      ],
+      "options": [
+        {
+          "title": "Color",
+          "values": [
+            "Black"
+          ]
+        },
+        {
+          "title": "Size",
+          "values": [
+            "S",
+            "M",
+            "L",
+            "XL",
+            "2XL",
+            "3XL"
+          ]
+        }
+      ],
+      "variants": [
+        {
+          "id": "variant_01M51CDGGGBBHJ776CX8TCBB2Z",
+          "sku": "PF-18912189-5577030790",
+          "title": "Black / S",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Black"
+            },
+            {
+              "title": "Size",
+              "value": "S"
+            }
+          ],
+          "printfulSyncVariantId": 5577030790,
+          "printfulCatalogVariantId": 22299
+        },
+        {
+          "id": "variant_01M51CDGGGDB0A9AZJSF1F6ACX",
+          "sku": "PF-18912189-5577030791",
+          "title": "Black / M",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Black"
+            },
+            {
+              "title": "Size",
+              "value": "M"
+            }
+          ],
+          "printfulSyncVariantId": 5577030791,
+          "printfulCatalogVariantId": 22301
+        },
+        {
+          "id": "variant_01M51CDGGHAWT84HY2RCFESPEW",
+          "sku": "PF-18912189-5577030792",
+          "title": "Black / L",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Black"
+            },
+            {
+              "title": "Size",
+              "value": "L"
+            }
+          ],
+          "printfulSyncVariantId": 5577030792,
+          "printfulCatalogVariantId": 22303
+        },
+        {
+          "id": "variant_01M51CDGGHG24C765BK457A1E2",
+          "sku": "PF-18912189-5577030793",
+          "title": "Black / XL",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Black"
+            },
+            {
+              "title": "Size",
+              "value": "XL"
+            }
+          ],
+          "printfulSyncVariantId": 5577030793,
+          "printfulCatalogVariantId": 22305
+        },
+        {
+          "id": "variant_01M51CDGGHJT72J1PK1DY3QJBX",
+          "sku": "PF-18912189-5577030794",
+          "title": "Black / 2XL",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Black"
+            },
+            {
+              "title": "Size",
+              "value": "2XL"
+            }
+          ],
+          "printfulSyncVariantId": 5577030794,
+          "printfulCatalogVariantId": 22307
+        },
+        {
+          "id": "variant_01M51CDGGHABCYYSB4ECJ5NDZR",
+          "sku": "PF-18912189-5577030795",
+          "title": "Black / 3XL",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Black"
+            },
+            {
+              "title": "Size",
+              "value": "3XL"
+            }
+          ],
+          "printfulSyncVariantId": 5577030795,
+          "printfulCatalogVariantId": 22309
+        }
+      ],
+      "printfulSyncProductId": 482104768,
+      "printfulStoreId": "18912189"
+    },
+    {
+      "id": "prod_01M514QTJQ2M2A1ZM4ERG521FJ",
+      "productId": "prod_01M514QTJQ2M2A1ZM4ERG521FJ",
+      "handle": "printful-18912189-482072983",
+      "name": "WU TANG - forever - limited ed.",
+      "originalName": "WU TANG - forever - limited ed.",
+      "displayName": "WU TANG - forever - limited ed.",
+      "category": "tees",
+      "localImage": "/assets/catalog/printful-18912189-482072983.png",
+      "image": "/assets/catalog/printful-18912189-482072983.png",
+      "images": [
+        "/assets/catalog/printful-18912189-482072983.png",
+        "https://files.cdn.printful.com/files/fa7/fa72dc83e27487ab86cef00067c80c20_preview.png"
+      ],
+      "options": [
+        {
+          "title": "Size",
+          "values": [
+            "S",
+            "M",
+            "L",
+            "XL",
+            "2XL"
+          ]
+        },
+        {
+          "title": "Color",
+          "values": [
+            "Red"
+          ]
+        }
+      ],
+      "variants": [
+        {
+          "id": "variant_01M514QV1RH9Q7E85ZJ6RC01Y5",
+          "sku": "PF-18912189-5576810041",
+          "title": "Red / S",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Red"
+            },
+            {
+              "title": "Size",
+              "value": "S"
+            }
+          ],
+          "printfulSyncVariantId": 5576810041,
+          "printfulCatalogVariantId": 21221
+        },
+        {
+          "id": "variant_01M514QV1RH7DDRE6RNTR41MRR",
+          "sku": "PF-18912189-5576810042",
+          "title": "Red / M",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Red"
+            },
+            {
+              "title": "Size",
+              "value": "M"
+            }
+          ],
+          "printfulSyncVariantId": 5576810042,
+          "printfulCatalogVariantId": 21222
+        },
+        {
+          "id": "variant_01M514QV1SBPXAWZGNM2QFHKSV",
+          "sku": "PF-18912189-5576810043",
+          "title": "Red / L",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Red"
+            },
+            {
+              "title": "Size",
+              "value": "L"
+            }
+          ],
+          "printfulSyncVariantId": 5576810043,
+          "printfulCatalogVariantId": 21223
+        },
+        {
+          "id": "variant_01M514QV1SNCRAV85G9F13NYP3",
+          "sku": "PF-18912189-5576810044",
+          "title": "Red / XL",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Red"
+            },
+            {
+              "title": "Size",
+              "value": "XL"
+            }
+          ],
+          "printfulSyncVariantId": 5576810044,
+          "printfulCatalogVariantId": 21224
+        },
+        {
+          "id": "variant_01M514QV1SQJJMSBHZV7W9RQ1Y",
+          "sku": "PF-18912189-5576810045",
+          "title": "Red / 2XL",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Red"
+            },
+            {
+              "title": "Size",
+              "value": "2XL"
+            }
+          ],
+          "printfulSyncVariantId": 5576810045,
+          "printfulCatalogVariantId": 21225
+        }
+      ],
+      "printfulSyncProductId": 482072983,
+      "printfulStoreId": "18912189"
+    },
+    {
+      "id": "prod_01M514QREFQAAZJATACW14BX6Q",
+      "productId": "prod_01M514QREFQAAZJATACW14BX6Q",
+      "handle": "printful-18912189-482088042",
+      "name": "Men's Oversized Faded T-Shirt | AS Colour 5082 copy",
+      "originalName": "Men's Oversized Faded T-Shirt | AS Colour 5082 copy",
+      "displayName": "Men's Oversized Faded T-Shirt | AS Colour 5082",
+      "category": "tees",
+      "localImage": "/assets/catalog/printful-18912189-482088042.png",
+      "image": "/assets/catalog/printful-18912189-482088042.png",
+      "images": [
+        "/assets/catalog/printful-18912189-482088042.png",
+        "https://files.cdn.printful.com/files/de0/de0c08d98e9a548aa686148c38c98163_preview.png"
+      ],
+      "options": [
+        {
+          "title": "Color",
+          "values": [
+            "Faded Grey"
+          ]
+        },
+        {
+          "title": "Size",
+          "values": [
+            "S",
+            "M",
+            "L",
+            "XL",
+            "2XL",
+            "3XL"
+          ]
+        }
+      ],
+      "variants": [
+        {
+          "id": "variant_01M514QRY82WGD2QK6J5X21HNE",
+          "sku": "PF-18912189-5576894806",
+          "title": "Faded Grey / S",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Faded Grey"
+            },
+            {
+              "title": "Size",
+              "value": "S"
+            }
+          ],
+          "printfulSyncVariantId": 5576894806,
+          "printfulCatalogVariantId": 17572
+        },
+        {
+          "id": "variant_01M514QRY8DWMZBA8HH3G8HWCK",
+          "sku": "PF-18912189-5576894807",
+          "title": "Faded Grey / M",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Faded Grey"
+            },
+            {
+              "title": "Size",
+              "value": "M"
+            }
+          ],
+          "printfulSyncVariantId": 5576894807,
+          "printfulCatalogVariantId": 17577
+        },
+        {
+          "id": "variant_01M514QRY8Q2YFFGP7PYXRMAN4",
+          "sku": "PF-18912189-5576894808",
+          "title": "Faded Grey / L",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Faded Grey"
+            },
+            {
+              "title": "Size",
+              "value": "L"
+            }
+          ],
+          "printfulSyncVariantId": 5576894808,
+          "printfulCatalogVariantId": 17582
+        },
+        {
+          "id": "variant_01M514QRY986XHZH0T4XAG3AJB",
+          "sku": "PF-18912189-5576894809",
+          "title": "Faded Grey / XL",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Faded Grey"
+            },
+            {
+              "title": "Size",
+              "value": "XL"
+            }
+          ],
+          "printfulSyncVariantId": 5576894809,
+          "printfulCatalogVariantId": 17587
+        },
+        {
+          "id": "variant_01M514QRY9JBQ58B52YG7X2PSW",
+          "sku": "PF-18912189-5576894810",
+          "title": "Faded Grey / 2XL",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Faded Grey"
+            },
+            {
+              "title": "Size",
+              "value": "2XL"
+            }
+          ],
+          "printfulSyncVariantId": 5576894810,
+          "printfulCatalogVariantId": 17592
+        },
+        {
+          "id": "variant_01M514QRY9WZM2P5P1ZPR2E0EZ",
+          "sku": "PF-18912189-5576894811",
+          "title": "Faded Grey / 3XL",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Faded Grey"
+            },
+            {
+              "title": "Size",
+              "value": "3XL"
+            }
+          ],
+          "printfulSyncVariantId": 5576894811,
+          "printfulCatalogVariantId": 17597
+        }
+      ],
+      "printfulSyncProductId": 482088042,
+      "printfulStoreId": "18912189"
+    },
+    {
+      "id": "prod_01M514QQK596QC43KXDCWB0G8X",
+      "productId": "prod_01M514QQK596QC43KXDCWB0G8X",
+      "handle": "printful-18912189-482088808",
+      "name": "Snapback Hat copy",
+      "originalName": "Snapback Hat copy",
+      "displayName": "Snapback Hat",
+      "category": "accessories",
+      "localImage": "/assets/catalog/printful-18912189-482088808.png",
+      "image": "/assets/catalog/printful-18912189-482088808.png",
+      "images": [
+        "/assets/catalog/printful-18912189-482088808.png",
+        "https://files.cdn.printful.com/files/9b8/9b8d54b6d806e23a2feb617f52a7c5a5_preview.png",
+        "https://files.cdn.printful.com/files/ec3/ec3adca384c11c18c3409c810cfbdb2f_preview.png"
+      ],
+      "options": [
+        {
+          "title": "Color",
+          "values": [
+            "Gold / Black / Black"
+          ]
+        },
+        {
+          "title": "Size",
+          "values": [
+            "One size"
+          ]
+        }
+      ],
+      "variants": [
+        {
+          "id": "variant_01M514QQMM016HJ4NEF4V4QVT9",
+          "sku": "PF-18912189-5576898508",
+          "title": "Gold / Black / Black / One size",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Gold / Black / Black"
+            },
+            {
+              "title": "Size",
+              "value": "One size"
+            }
+          ],
+          "printfulSyncVariantId": 5576898508,
+          "printfulCatalogVariantId": 4481
+        }
+      ],
+      "printfulSyncProductId": 482088808,
+      "printfulStoreId": "18912189"
+    },
+    {
+      "id": "prod_01M514QNQ6YTZ05KFGMR5RS2NG",
+      "productId": "prod_01M514QNQ6YTZ05KFGMR5RS2NG",
+      "handle": "printful-18912189-482088834",
+      "name": "Men's Oversized Faded T-Shirt | AS Colour 5082 copy",
+      "originalName": "Men's Oversized Faded T-Shirt | AS Colour 5082 copy",
+      "displayName": "Men's Oversized Faded T-Shirt | AS Colour 5082",
+      "category": "tees",
+      "localImage": "/assets/catalog/printful-18912189-482088834.png",
+      "image": "/assets/catalog/printful-18912189-482088834.png",
+      "images": [
+        "/assets/catalog/printful-18912189-482088834.png",
+        "https://files.cdn.printful.com/files/9ed/9ed28103cd1e6950c321578b798cf038_preview.png",
+        "https://files.cdn.printful.com/files/b28/b2819ff9e293c33731baf55eb4430281_preview.png"
+      ],
+      "options": [
+        {
+          "title": "Size",
+          "values": [
+            "S",
+            "M",
+            "L",
+            "XL",
+            "2XL",
+            "3XL"
+          ]
+        },
+        {
+          "title": "Color",
+          "values": [
+            "Faded Grey"
+          ]
+        }
+      ],
+      "variants": [
+        {
+          "id": "variant_01M514QP1K93YK6RPG5M9Z378D",
+          "sku": "PF-18912189-5576898542",
+          "title": "Faded Grey / S",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Faded Grey"
+            },
+            {
+              "title": "Size",
+              "value": "S"
+            }
+          ],
+          "printfulSyncVariantId": 5576898542,
+          "printfulCatalogVariantId": 17572
+        },
+        {
+          "id": "variant_01M514QP1MDKC7MFC71N177VCF",
+          "sku": "PF-18912189-5576898543",
+          "title": "Faded Grey / M",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Faded Grey"
+            },
+            {
+              "title": "Size",
+              "value": "M"
+            }
+          ],
+          "printfulSyncVariantId": 5576898543,
+          "printfulCatalogVariantId": 17577
+        },
+        {
+          "id": "variant_01M514QP1MWXNB71DPHCMV22GZ",
+          "sku": "PF-18912189-5576898544",
+          "title": "Faded Grey / L",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Faded Grey"
+            },
+            {
+              "title": "Size",
+              "value": "L"
+            }
+          ],
+          "printfulSyncVariantId": 5576898544,
+          "printfulCatalogVariantId": 17582
+        },
+        {
+          "id": "variant_01M514QP1MMBT9TX90ADNCDHFF",
+          "sku": "PF-18912189-5576898545",
+          "title": "Faded Grey / XL",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Faded Grey"
+            },
+            {
+              "title": "Size",
+              "value": "XL"
+            }
+          ],
+          "printfulSyncVariantId": 5576898545,
+          "printfulCatalogVariantId": 17587
+        },
+        {
+          "id": "variant_01M514QP1MTE7NDGAHFY4TC9XA",
+          "sku": "PF-18912189-5576898546",
+          "title": "Faded Grey / 2XL",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Faded Grey"
+            },
+            {
+              "title": "Size",
+              "value": "2XL"
+            }
+          ],
+          "printfulSyncVariantId": 5576898546,
+          "printfulCatalogVariantId": 17592
+        },
+        {
+          "id": "variant_01M514QP1NMCXBMH4W8GEK2DA9",
+          "sku": "PF-18912189-5576898547",
+          "title": "Faded Grey / 3XL",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Faded Grey"
+            },
+            {
+              "title": "Size",
+              "value": "3XL"
+            }
+          ],
+          "printfulSyncVariantId": 5576898547,
+          "printfulCatalogVariantId": 17597
+        }
+      ],
+      "printfulSyncProductId": 482088834,
+      "printfulStoreId": "18912189"
+    },
+    {
+      "id": "prod_01M514QM1KD2M5M73SXQ2D5R97",
+      "productId": "prod_01M514QM1KD2M5M73SXQ2D5R97",
+      "handle": "printful-18912189-482088871",
+      "name": "Urban garment-dyed hoodie copy",
+      "originalName": "Urban garment-dyed hoodie copy",
+      "displayName": "Urban garment-dyed hoodie",
+      "category": "hoodies",
+      "localImage": "/assets/catalog/printful-18912189-482088871.png",
+      "image": "/assets/catalog/printful-18912189-482088871.png",
+      "images": [
+        "/assets/catalog/printful-18912189-482088871.png",
+        "https://files.cdn.printful.com/files/59d/59d3ed06e50bdf4abb85417cff8c0f46_preview.png",
+        "https://files.cdn.printful.com/files/d64/d64e0dbe41921b0cbe529d0bbc4582d7_preview.png"
+      ],
+      "options": [
+        {
+          "title": "Size",
+          "values": [
+            "S",
+            "M",
+            "L",
+            "XL",
+            "2XL",
+            "3XL"
+          ]
+        },
+        {
+          "title": "Color",
+          "values": [
+            "Pigment Midnight Navy"
+          ]
+        }
+      ],
+      "variants": [
+        {
+          "id": "variant_01M514QMFET26JCA4XXJGP2ACH",
+          "sku": "PF-18912189-5576898589",
+          "title": "Pigment Midnight Navy / S",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Pigment Midnight Navy"
+            },
+            {
+              "title": "Size",
+              "value": "S"
+            }
+          ],
+          "printfulSyncVariantId": 5576898589,
+          "printfulCatalogVariantId": 34362
+        },
+        {
+          "id": "variant_01M514QMFEB04AM2Z8TDC9SFJA",
+          "sku": "PF-18912189-5576898590",
+          "title": "Pigment Midnight Navy / M",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Pigment Midnight Navy"
+            },
+            {
+              "title": "Size",
+              "value": "M"
+            }
+          ],
+          "printfulSyncVariantId": 5576898590,
+          "printfulCatalogVariantId": 34365
+        },
+        {
+          "id": "variant_01M514QMFFV6J4EZ0PS8QC42NN",
+          "sku": "PF-18912189-5576898591",
+          "title": "Pigment Midnight Navy / L",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Pigment Midnight Navy"
+            },
+            {
+              "title": "Size",
+              "value": "L"
+            }
+          ],
+          "printfulSyncVariantId": 5576898591,
+          "printfulCatalogVariantId": 34368
+        },
+        {
+          "id": "variant_01M514QMFF84QZYFCM7CCV3640",
+          "sku": "PF-18912189-5576898593",
+          "title": "Pigment Midnight Navy / XL",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Pigment Midnight Navy"
+            },
+            {
+              "title": "Size",
+              "value": "XL"
+            }
+          ],
+          "printfulSyncVariantId": 5576898593,
+          "printfulCatalogVariantId": 34371
+        },
+        {
+          "id": "variant_01M514QMFF7EMCP9W70BET4RT3",
+          "sku": "PF-18912189-5576898594",
+          "title": "Pigment Midnight Navy / 2XL",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Pigment Midnight Navy"
+            },
+            {
+              "title": "Size",
+              "value": "2XL"
+            }
+          ],
+          "printfulSyncVariantId": 5576898594,
+          "printfulCatalogVariantId": 34374
+        },
+        {
+          "id": "variant_01M514QMFF6Y7E4NXCDTX9ZBYG",
+          "sku": "PF-18912189-5576898595",
+          "title": "Pigment Midnight Navy / 3XL",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Pigment Midnight Navy"
+            },
+            {
+              "title": "Size",
+              "value": "3XL"
+            }
+          ],
+          "printfulSyncVariantId": 5576898595,
+          "printfulCatalogVariantId": 34377
+        }
+      ],
+      "printfulSyncProductId": 482088871,
+      "printfulStoreId": "18912189"
+    },
+    {
+      "id": "prod_01M514QJV90TMT3K7YQNTQSGK9",
+      "productId": "prod_01M514QJV90TMT3K7YQNTQSGK9",
+      "handle": "printful-18912189-482088888",
+      "name": "Men's heavyweight long sleeve t-shirt copy",
+      "originalName": "Men's heavyweight long sleeve t-shirt copy",
+      "displayName": "Men's heavyweight long sleeve t-shirt",
+      "category": "tees",
+      "localImage": "/assets/catalog/printful-18912189-482088888.png",
+      "image": "/assets/catalog/printful-18912189-482088888.png",
+      "images": [
+        "/assets/catalog/printful-18912189-482088888.png",
+        "https://files.cdn.printful.com/files/d99/d991b0a8c792a712dc2db4bddbd2f599_preview.png",
+        "https://files.cdn.printful.com/files/127/12790b8e62dd8fc4c805ece73ce2f149_preview.png"
+      ],
+      "options": [
+        {
+          "title": "Size",
+          "values": [
+            "S",
+            "M",
+            "L",
+            "XL",
+            "2XL",
+            "3XL"
+          ]
+        },
+        {
+          "title": "Color",
+          "values": [
+            "Black"
+          ]
+        }
+      ],
+      "variants": [
+        {
+          "id": "variant_01M514QK123SHBAX74AZSHRSP8",
+          "sku": "PF-18912189-5576898634",
+          "title": "Black / S",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Black"
+            },
+            {
+              "title": "Size",
+              "value": "S"
+            }
+          ],
+          "printfulSyncVariantId": 5576898634,
+          "printfulCatalogVariantId": 24428
+        },
+        {
+          "id": "variant_01M514QK12B5G0DCY2RT1WPY37",
+          "sku": "PF-18912189-5576898635",
+          "title": "Black / M",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Black"
+            },
+            {
+              "title": "Size",
+              "value": "M"
+            }
+          ],
+          "printfulSyncVariantId": 5576898635,
+          "printfulCatalogVariantId": 24423
+        },
+        {
+          "id": "variant_01M514QK13RTE23PDFQKPA1RKG",
+          "sku": "PF-18912189-5576898636",
+          "title": "Black / L",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Black"
+            },
+            {
+              "title": "Size",
+              "value": "L"
+            }
+          ],
+          "printfulSyncVariantId": 5576898636,
+          "printfulCatalogVariantId": 24433
+        },
+        {
+          "id": "variant_01M514QK13G280QYBFQA225B7Q",
+          "sku": "PF-18912189-5576898637",
+          "title": "Black / XL",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Black"
+            },
+            {
+              "title": "Size",
+              "value": "XL"
+            }
+          ],
+          "printfulSyncVariantId": 5576898637,
+          "printfulCatalogVariantId": 24438
+        },
+        {
+          "id": "variant_01M514QK134W90YTNHKR699G31",
+          "sku": "PF-18912189-5576898638",
+          "title": "Black / 2XL",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Black"
+            },
+            {
+              "title": "Size",
+              "value": "2XL"
+            }
+          ],
+          "printfulSyncVariantId": 5576898638,
+          "printfulCatalogVariantId": 24443
+        },
+        {
+          "id": "variant_01M514QK13X43FHV6VG9YY3E6P",
+          "sku": "PF-18912189-5576898639",
+          "title": "Black / 3XL",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Black"
+            },
+            {
+              "title": "Size",
+              "value": "3XL"
+            }
+          ],
+          "printfulSyncVariantId": 5576898639,
+          "printfulCatalogVariantId": 24448
+        }
+      ],
+      "printfulSyncProductId": 482088888,
+      "printfulStoreId": "18912189"
+    },
+    {
+      "id": "prod_01M514QHVEGA719NQ56EF9S7HW",
+      "productId": "prod_01M514QHVEGA719NQ56EF9S7HW",
+      "handle": "printful-18912189-482088891",
+      "name": "Men's heavyweight long sleeve t-shirt copy",
+      "originalName": "Men's heavyweight long sleeve t-shirt copy",
+      "displayName": "Men's heavyweight long sleeve t-shirt",
+      "category": "tees",
+      "localImage": "/assets/catalog/printful-18912189-482088891.png",
+      "image": "/assets/catalog/printful-18912189-482088891.png",
+      "images": [
+        "/assets/catalog/printful-18912189-482088891.png",
+        "https://files.cdn.printful.com/files/bab/bab427039afe39eba4b8952532d3af39_preview.png",
+        "https://files.cdn.printful.com/files/7ba/7ba3339931df998e95d5fb1d3cd9792c_preview.png"
+      ],
+      "options": [
+        {
+          "title": "Color",
+          "values": [
+            "Black"
+          ]
+        },
+        {
+          "title": "Size",
+          "values": [
+            "S",
+            "M",
+            "L",
+            "XL",
+            "2XL",
+            "3XL"
+          ]
+        }
+      ],
+      "variants": [
+        {
+          "id": "variant_01M514QHYVNJFQM7GH1QF1MAB3",
+          "sku": "PF-18912189-5576898687",
+          "title": "Black / S",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Black"
+            },
+            {
+              "title": "Size",
+              "value": "S"
+            }
+          ],
+          "printfulSyncVariantId": 5576898687,
+          "printfulCatalogVariantId": 24428
+        },
+        {
+          "id": "variant_01M514QHYVMEMTW1RHM22Z36XA",
+          "sku": "PF-18912189-5576898688",
+          "title": "Black / M",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Black"
+            },
+            {
+              "title": "Size",
+              "value": "M"
+            }
+          ],
+          "printfulSyncVariantId": 5576898688,
+          "printfulCatalogVariantId": 24423
+        },
+        {
+          "id": "variant_01M514QHYVR0PM66X8VS3JQW8C",
+          "sku": "PF-18912189-5576898689",
+          "title": "Black / L",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Black"
+            },
+            {
+              "title": "Size",
+              "value": "L"
+            }
+          ],
+          "printfulSyncVariantId": 5576898689,
+          "printfulCatalogVariantId": 24433
+        },
+        {
+          "id": "variant_01M514QHYVFV7BVE80N1AHWNYX",
+          "sku": "PF-18912189-5576898690",
+          "title": "Black / XL",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Black"
+            },
+            {
+              "title": "Size",
+              "value": "XL"
+            }
+          ],
+          "printfulSyncVariantId": 5576898690,
+          "printfulCatalogVariantId": 24438
+        },
+        {
+          "id": "variant_01M514QHYW1HXN1V3FCVGE22B1",
+          "sku": "PF-18912189-5576898691",
+          "title": "Black / 2XL",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Black"
+            },
+            {
+              "title": "Size",
+              "value": "2XL"
+            }
+          ],
+          "printfulSyncVariantId": 5576898691,
+          "printfulCatalogVariantId": 24443
+        },
+        {
+          "id": "variant_01M514QHYWJNMP660YQR5VCT11",
+          "sku": "PF-18912189-5576898692",
+          "title": "Black / 3XL",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Black"
+            },
+            {
+              "title": "Size",
+              "value": "3XL"
+            }
+          ],
+          "printfulSyncVariantId": 5576898692,
+          "printfulCatalogVariantId": 24448
+        }
+      ],
+      "printfulSyncProductId": 482088891,
+      "printfulStoreId": "18912189"
+    },
+    {
+      "id": "prod_01M514QGX6424S1KASGR1YCTHJ",
+      "productId": "prod_01M514QGX6424S1KASGR1YCTHJ",
+      "handle": "printful-18912189-482088894",
+      "name": "Unisex organic ribbed neck t-shirt copy",
+      "originalName": "Unisex organic ribbed neck t-shirt copy",
+      "displayName": "Unisex organic ribbed neck t-shirt",
+      "category": "tees",
+      "localImage": "/assets/catalog/printful-18912189-482088894.png",
+      "image": "/assets/catalog/printful-18912189-482088894.png",
+      "images": [
+        "/assets/catalog/printful-18912189-482088894.png",
+        "https://files.cdn.printful.com/files/662/662427053fde88a7c0dc0582d9027770_preview.png"
+      ],
+      "options": [
+        {
+          "title": "Color",
+          "values": [
+            "Black"
+          ]
+        },
+        {
+          "title": "Size",
+          "values": [
+            "S",
+            "M",
+            "L",
+            "XL",
+            "2XL",
+            "3XL",
+            "4XL",
+            "5XL"
+          ]
+        }
+      ],
+      "variants": [
+        {
+          "id": "variant_01M514QGZ5CVPVNJFB7DCYWX0H",
+          "sku": "PF-18912189-5576898697",
+          "title": "Black / S",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Black"
+            },
+            {
+              "title": "Size",
+              "value": "S"
+            }
+          ],
+          "printfulSyncVariantId": 5576898697,
+          "printfulCatalogVariantId": 20716
+        },
+        {
+          "id": "variant_01M514QGZ58DRWDMAK68KQS79Q",
+          "sku": "PF-18912189-5576898698",
+          "title": "Black / M",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Black"
+            },
+            {
+              "title": "Size",
+              "value": "M"
+            }
+          ],
+          "printfulSyncVariantId": 5576898698,
+          "printfulCatalogVariantId": 20717
+        },
+        {
+          "id": "variant_01M514QGZ616XWSZNDWRA72PW8",
+          "sku": "PF-18912189-5576898699",
+          "title": "Black / L",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Black"
+            },
+            {
+              "title": "Size",
+              "value": "L"
+            }
+          ],
+          "printfulSyncVariantId": 5576898699,
+          "printfulCatalogVariantId": 20718
+        },
+        {
+          "id": "variant_01M514QGZ6MBHQMH9FRK8B1V5B",
+          "sku": "PF-18912189-5576898700",
+          "title": "Black / XL",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Black"
+            },
+            {
+              "title": "Size",
+              "value": "XL"
+            }
+          ],
+          "printfulSyncVariantId": 5576898700,
+          "printfulCatalogVariantId": 20719
+        },
+        {
+          "id": "variant_01M514QGZ6B5HXFH8146FWQ4G6",
+          "sku": "PF-18912189-5576898701",
+          "title": "Black / 2XL",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Black"
+            },
+            {
+              "title": "Size",
+              "value": "2XL"
+            }
+          ],
+          "printfulSyncVariantId": 5576898701,
+          "printfulCatalogVariantId": 20720
+        },
+        {
+          "id": "variant_01M514QGZ6TWZSG7R4G7QSSRN6",
+          "sku": "PF-18912189-5576898702",
+          "title": "Black / 3XL",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Black"
+            },
+            {
+              "title": "Size",
+              "value": "3XL"
+            }
+          ],
+          "printfulSyncVariantId": 5576898702,
+          "printfulCatalogVariantId": 21231
+        },
+        {
+          "id": "variant_01M514QGZ7XKVKWV3C92DHDQ26",
+          "sku": "PF-18912189-5576898703",
+          "title": "Black / 4XL",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Black"
+            },
+            {
+              "title": "Size",
+              "value": "4XL"
+            }
+          ],
+          "printfulSyncVariantId": 5576898703,
+          "printfulCatalogVariantId": 21232
+        },
+        {
+          "id": "variant_01M514QGZ7EF5760P2SWAF58EE",
+          "sku": "PF-18912189-5576898704",
+          "title": "Black / 5XL",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Black"
+            },
+            {
+              "title": "Size",
+              "value": "5XL"
+            }
+          ],
+          "printfulSyncVariantId": 5576898704,
+          "printfulCatalogVariantId": 21233
+        }
+      ],
+      "printfulSyncProductId": 482088894,
+      "printfulStoreId": "18912189"
+    },
+    {
+      "id": "prod_01M514QG3RBA8VXG5NW50WJHA8",
+      "productId": "prod_01M514QG3RBA8VXG5NW50WJHA8",
+      "handle": "printful-18912189-482088895",
+      "name": "Unisex Sculpted Heavyweight Hoodie | Stanley/Stella SASU057 / STSU278 copy",
+      "originalName": "Unisex Sculpted Heavyweight Hoodie | Stanley/Stella SASU057 / STSU278 copy",
+      "displayName": "Unisex Sculpted Heavyweight Hoodie | Stanley/Stella SASU057 / STSU278",
+      "category": "hoodies",
+      "localImage": "/assets/catalog/printful-18912189-482088895.png",
+      "image": "/assets/catalog/printful-18912189-482088895.png",
+      "images": [
+        "/assets/catalog/printful-18912189-482088895.png",
+        "https://files.cdn.printful.com/files/ee5/ee5cab80946d23a72149cf57ef8575b5_preview.png"
+      ],
+      "options": [
+        {
+          "title": "Color",
+          "values": [
+            "Black"
+          ]
+        },
+        {
+          "title": "Size",
+          "values": [
+            "3XL"
+          ]
+        }
+      ],
+      "variants": [
+        {
+          "id": "variant_01M514QG5Y0DAC4WZ3S1DW40AX",
+          "sku": "PF-18912189-5576898707",
+          "title": "Black / 3XL",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Black"
+            },
+            {
+              "title": "Size",
+              "value": "3XL"
+            }
+          ],
+          "printfulSyncVariantId": 5576898707,
+          "printfulCatalogVariantId": 52451
+        }
+      ],
+      "printfulSyncProductId": 482088895,
+      "printfulStoreId": "18912189"
+    },
+    {
+      "id": "prod_01M514QF7DKVGYDSZGQDQN3539",
+      "productId": "prod_01M514QF7DKVGYDSZGQDQN3539",
+      "handle": "printful-18912189-482088896",
+      "name": "Unisex organic ribbed neck t-shirt copy",
+      "originalName": "Unisex organic ribbed neck t-shirt copy",
+      "displayName": "Unisex organic ribbed neck t-shirt",
+      "category": "tees",
+      "localImage": "/assets/catalog/printful-18912189-482088896.png",
+      "image": "/assets/catalog/printful-18912189-482088896.png",
+      "images": [
+        "/assets/catalog/printful-18912189-482088896.png",
+        "https://files.cdn.printful.com/files/7e1/7e11b53ebaf07e6cee0e5525a8cd7f12_preview.png",
+        "https://files.cdn.printful.com/files/3a8/3a8d7ce0a3677494f88b2cdf3ce80503_preview.png"
+      ],
+      "options": [
+        {
+          "title": "Size",
+          "values": [
+            "S",
+            "M",
+            "L",
+            "XL",
+            "2XL"
+          ]
+        },
+        {
+          "title": "Color",
+          "values": [
+            "Red"
+          ]
+        }
+      ],
+      "variants": [
+        {
+          "id": "variant_01M514QF9KSBH1FMTXN4CKXZ94",
+          "sku": "PF-18912189-5576898709",
+          "title": "Red / S",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Red"
+            },
+            {
+              "title": "Size",
+              "value": "S"
+            }
+          ],
+          "printfulSyncVariantId": 5576898709,
+          "printfulCatalogVariantId": 21221
+        },
+        {
+          "id": "variant_01M514QF9K7B3HTSA3F4QFQ5D0",
+          "sku": "PF-18912189-5576898710",
+          "title": "Red / M",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Red"
+            },
+            {
+              "title": "Size",
+              "value": "M"
+            }
+          ],
+          "printfulSyncVariantId": 5576898710,
+          "printfulCatalogVariantId": 21222
+        },
+        {
+          "id": "variant_01M514QF9MHQ6WQECZT82DGZH2",
+          "sku": "PF-18912189-5576898711",
+          "title": "Red / L",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Red"
+            },
+            {
+              "title": "Size",
+              "value": "L"
+            }
+          ],
+          "printfulSyncVariantId": 5576898711,
+          "printfulCatalogVariantId": 21223
+        },
+        {
+          "id": "variant_01M514QF9MWKE1PHN59MBEXBZS",
+          "sku": "PF-18912189-5576898712",
+          "title": "Red / XL",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Red"
+            },
+            {
+              "title": "Size",
+              "value": "XL"
+            }
+          ],
+          "printfulSyncVariantId": 5576898712,
+          "printfulCatalogVariantId": 21224
+        },
+        {
+          "id": "variant_01M514QF9MQTW1T44CKS6FTRBK",
+          "sku": "PF-18912189-5576898713",
+          "title": "Red / 2XL",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Red"
+            },
+            {
+              "title": "Size",
+              "value": "2XL"
+            }
+          ],
+          "printfulSyncVariantId": 5576898713,
+          "printfulCatalogVariantId": 21225
+        }
+      ],
+      "printfulSyncProductId": 482088896,
+      "printfulStoreId": "18912189"
+    },
+    {
+      "id": "prod_01M514QE9WA20R72AP8SN0G5AC",
+      "productId": "prod_01M514QE9WA20R72AP8SN0G5AC",
+      "handle": "printful-18912189-482088898",
+      "name": "Men’s cotton crew neck t-shirt copy",
+      "originalName": "Men’s cotton crew neck t-shirt copy",
+      "displayName": "Men’s cotton crew neck t-shirt",
+      "category": "tees",
+      "localImage": "/assets/catalog/printful-18912189-482088898.png",
+      "image": "/assets/catalog/printful-18912189-482088898.png",
+      "images": [
+        "/assets/catalog/printful-18912189-482088898.png",
+        "https://files.cdn.printful.com/files/51b/51bf2727e85352a7abeb60bfb8cdaace_preview.png"
+      ],
+      "options": [
+        {
+          "title": "Color",
+          "values": [
+            "White"
+          ]
+        },
+        {
+          "title": "Size",
+          "values": [
+            "XS",
+            "S",
+            "M",
+            "L",
+            "XL",
+            "2XL"
+          ]
+        }
+      ],
+      "variants": [
+        {
+          "id": "variant_01M514QEBY5AM34MEK0PJX13BS",
+          "sku": "PF-18912189-5576898719",
+          "title": "White / XS",
+          "options": [
+            {
+              "title": "Color",
+              "value": "White"
+            },
+            {
+              "title": "Size",
+              "value": "XS"
+            }
+          ],
+          "printfulSyncVariantId": 5576898719,
+          "printfulCatalogVariantId": 33937
+        },
+        {
+          "id": "variant_01M514QEBY0T88QMEHM0DTM1YT",
+          "sku": "PF-18912189-5576898720",
+          "title": "White / S",
+          "options": [
+            {
+              "title": "Color",
+              "value": "White"
+            },
+            {
+              "title": "Size",
+              "value": "S"
+            }
+          ],
+          "printfulSyncVariantId": 5576898720,
+          "printfulCatalogVariantId": 33938
+        },
+        {
+          "id": "variant_01M514QEBZ9NBSVK33GYZG04VZ",
+          "sku": "PF-18912189-5576898721",
+          "title": "White / M",
+          "options": [
+            {
+              "title": "Color",
+              "value": "White"
+            },
+            {
+              "title": "Size",
+              "value": "M"
+            }
+          ],
+          "printfulSyncVariantId": 5576898721,
+          "printfulCatalogVariantId": 33939
+        },
+        {
+          "id": "variant_01M514QEBZEZ59GMEENRD2X3QR",
+          "sku": "PF-18912189-5576898722",
+          "title": "White / L",
+          "options": [
+            {
+              "title": "Color",
+              "value": "White"
+            },
+            {
+              "title": "Size",
+              "value": "L"
+            }
+          ],
+          "printfulSyncVariantId": 5576898722,
+          "printfulCatalogVariantId": 33940
+        },
+        {
+          "id": "variant_01M514QEBZSJRSS05M6AGJX3WP",
+          "sku": "PF-18912189-5576898723",
+          "title": "White / XL",
+          "options": [
+            {
+              "title": "Color",
+              "value": "White"
+            },
+            {
+              "title": "Size",
+              "value": "XL"
+            }
+          ],
+          "printfulSyncVariantId": 5576898723,
+          "printfulCatalogVariantId": 33941
+        },
+        {
+          "id": "variant_01M514QEC04YVJBC20CBEYJF6C",
+          "sku": "PF-18912189-5576898724",
+          "title": "White / 2XL",
+          "options": [
+            {
+              "title": "Color",
+              "value": "White"
+            },
+            {
+              "title": "Size",
+              "value": "2XL"
+            }
+          ],
+          "printfulSyncVariantId": 5576898724,
+          "printfulCatalogVariantId": 33942
+        }
+      ],
+      "printfulSyncProductId": 482088898,
+      "printfulStoreId": "18912189"
+    },
+    {
+      "id": "prod_01M514QDGVMPMZSAP5YKD0RZJQ",
+      "productId": "prod_01M514QDGVMPMZSAP5YKD0RZJQ",
+      "handle": "printful-18912189-482088957",
+      "name": "Flat Bill Cap copy",
+      "originalName": "Flat Bill Cap copy",
+      "displayName": "Flat Bill Cap",
+      "category": "accessories",
+      "localImage": "/assets/catalog/printful-18912189-482088957.png",
+      "image": "/assets/catalog/printful-18912189-482088957.png",
+      "images": [
+        "/assets/catalog/printful-18912189-482088957.png",
+        "https://files.cdn.printful.com/files/28f/28f48676ec861e6be6f04c75511be223_preview.png"
+      ],
+      "options": [
+        {
+          "title": "Color",
+          "values": [
+            "Black"
+          ]
+        },
+        {
+          "title": "Size",
+          "values": [
+            "One size"
+          ]
+        }
+      ],
+      "variants": [
+        {
+          "id": "variant_01M514QDJNV4EJDZQPVDAQQWVP",
+          "sku": "PF-18912189-5576898951",
+          "title": "Black / One size",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Black"
+            },
+            {
+              "title": "Size",
+              "value": "One size"
+            }
+          ],
+          "printfulSyncVariantId": 5576898951,
+          "printfulCatalogVariantId": 4614
+        }
+      ],
+      "printfulSyncProductId": 482088957,
+      "printfulStoreId": "18912189"
+    },
+    {
+      "id": "prod_01M514QCQYPTB4SMJWZHGRBRTS",
+      "productId": "prod_01M514QCQYPTB4SMJWZHGRBRTS",
+      "handle": "printful-18912189-482088999",
+      "name": "Unisex Heavy Blend Zip Hoodie | Gildan 18600 copy",
+      "originalName": "Unisex Heavy Blend Zip Hoodie | Gildan 18600 copy",
+      "displayName": "Unisex Heavy Blend Zip Hoodie | Gildan 18600",
+      "category": "hoodies",
+      "localImage": "/assets/catalog/printful-18912189-482088999.png",
+      "image": "/assets/catalog/printful-18912189-482088999.png",
+      "images": [
+        "/assets/catalog/printful-18912189-482088999.png",
+        "https://files.cdn.printful.com/files/4d9/4d9fb0e38e6248127297647495d9c2e8_preview.png",
+        "https://files.cdn.printful.com/files/812/8121d1498e4dd0d09742f66c3ba431f9_preview.png"
+      ],
+      "options": [
+        {
+          "title": "Color",
+          "values": [
+            "Dark Chocolate"
+          ]
+        },
+        {
+          "title": "Size",
+          "values": [
+            "3XL"
+          ]
+        }
+      ],
+      "variants": [
+        {
+          "id": "variant_01M514QCVAADNZ14CPB6W9GVC8",
+          "sku": "PF-18912189-5576899300",
+          "title": "Dark Chocolate / 3XL",
+          "options": [
+            {
+              "title": "Color",
+              "value": "Dark Chocolate"
+            },
+            {
+              "title": "Size",
+              "value": "3XL"
+            }
+          ],
+          "printfulSyncVariantId": 5576899300,
+          "printfulCatalogVariantId": 32097
+        }
+      ],
+      "printfulSyncProductId": 482088999,
+      "printfulStoreId": "18912189"
+    }
+  ]
+}

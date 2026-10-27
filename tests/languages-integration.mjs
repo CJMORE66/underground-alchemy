@@ -174,7 +174,7 @@ if(process.argv.includes('--runtime')){
   assert(html.indexOf('/languages.js?')<html.indexOf('/text-motion.js?'),`${name}: locale runtime precedes kinetic text`);
   if(document.getElementById('hidden-city')){atlasCount++;assert.equal(document.querySelectorAll('script[src^="/journey-scroll.js?"]').length,1,`${name}: chapter bridge runtime once`);}
  }
- assert.equal(htmlCount,27);assert.equal(atlasCount,13);assert.equal(atlas.locations.length+culture.places.length,32);
+ assert.equal(htmlCount,28);assert.equal(atlasCount,13);assert.equal(atlas.locations.length+culture.places.length,32);
  const studios=culture.places.filter(p=>p.category==='studio');assert.equal(studios.length,6);assert.equal(culture.sessionBrief.lessons.length,3);
  const pinned=[...atlas.locations,...culture.places].filter(p=>Number.isFinite(p.lat)&&Number.isFinite(p.lng));assert.equal(pinned.length,31);
  const missingPins=culture.places.filter(p=>p.lat===null);assert.equal(missingPins.length,1);assert.equal(missingPins[0].id,'spot13');

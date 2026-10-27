@@ -14,6 +14,7 @@ function notify(message){$('toast').textContent=message;$('toast').hidden=false;
 function download(name,content,type='application/json'){const url=URL.createObjectURL(new Blob([content],{type}));const a=document.createElement('a');a.href=url;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(url),2000);}
 const keys=['atlas-saved-places','atlas-saved-routes','atlas-observations','atlas-principle-notes','atlas-frequency-draft'];
 let locations=[],routes=[],knowledge={},selectedId='notre-dame',layer='All layers',map,markerGroup,routeLine,userMarker,userPosition,activeRouteId=null,frequency,principles,atlasData,cityExperience,mapResize,placeIllustrations={},cultureEntries=[],cultureBoard,cultureSymbols;
+let placeBrowser,placeBrowserMedia,placePickerOpen=false,placeBrowserIds='';
 const layers=['All layers','Architecture','Symbolism','Alchemy','Graffiti','Music','Astronomy','Graffiti shop','Record shop','Philosophy','Recording studio'];
 const neighbourhoods={'notre-dame':'Île de la Cité Latin Quarter','sainte-chapelle':'Île de la Cité','saint-sulpice':'Saint Germain des Prés','flamel-house':'Le Marais Nicolas Flamel','la-place':'Les Halles Châtelet','mur-oberkampf':'Oberkampf Belleville Ménilmontant','pere-lachaise':'Ménilmontant Gambetta','republique':'République Marianne','abbesses':'Montmartre Hector Guimard','centquatre':'La Chapelle Curial Riquet','philharmonie':'La Villette Jean Nouvel','shakespeare-company':'Latin Quarter George Whitman'};
 function arrayStore(key){const a=read(key,[]);return Array.isArray(a)?a.filter(x=>typeof x==='string'):[];}
@@ -61,19 +62,82 @@ async function openModelStudy(id){
 }
 function current(){return locations.find(x=>x.id===selectedId)||locations[0];}
 function renderPreview(){const p=current();if(!p)return;$('place-preview').innerHTML=`<div class="preview-heading"><p class="section-index">${String(locations.indexOf(p)+1).padStart(2,'0')} / ${p.categories.slice(0,2).map(category=>`<span>${escape(category)}</span>`).join(' & ')}</p>${saveButton('place',p.id,p.name)}</div><h3>${escape(p.name)}</h3><p class="place-address">⌖ ${escape(p.address)}</p>${imageBlock(p)}<p class="evidence-label">${p.culture?'DOLOŽENÝ KULTURNÍ KONTEXT':'HISTORICAL EVIDENCE'}</p><p class="preview-history">${escape(p.history)}</p><div class="preview-interpretation"><p class="evidence-label">ARTISTIC INTERPRETATION</p>${escape(p.interpretation.replace(/^CAISIK reading: /,''))}</div><div class="preview-actions"><button class="button" data-open-place="${escape(p.id)}">OPEN DISCOVERY <span>→</span></button><button class="small-button" data-inspire="${escape(p.id)}">MAKE A VERSE ↗</button></div>`;imageFallbacks($('place-preview'));}
-function selectPlace(id,pan=false){if(!locations.some(x=>x.id===id))return;selectedId=id;renderPreview();$('place-list').querySelectorAll('button').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.selectPlace===id)));if(map){markerGroup.eachLayer(marker=>{const el=marker.getElement?.();if(el)el.classList.toggle('active',marker.options.placeId===id);});if(pan){const p=current();if(validCityPoint(p))map.panTo([p.lat,p.lng],{animate:false});}}cityExperience?.select(id,{fly:pan});}
+// Selection changes content and the map, never the document's scroll position.
+function revealSelectedInList(){
+ const list=$('place-list'),button=list?.querySelector(`[data-select-place="${selectedId}"]`);
+ if(!button||list.hidden||typeof list.getBoundingClientRect!=='function'||typeof button.getBoundingClientRect!=='function')return;
+ const viewport=list.getBoundingClientRect(),item=button.getBoundingClientRect();
+ if(viewport.width<=0||viewport.height<=0)return;
+ if(item.top<viewport.top)list.scrollTop-=viewport.top-item.top;
+ else if(item.bottom>viewport.bottom)list.scrollTop+=item.bottom-viewport.bottom;
+ if(item.left<viewport.left)list.scrollLeft-=viewport.left-item.left;
+ else if(item.right>viewport.right)list.scrollLeft+=item.right-viewport.right;
+}
+function placeResults(){const visible=filtered();if(userPosition)visible.sort((a,b)=>distance(a,userPosition)-distance(b,userPosition));return visible;}
+function pickerIsMobile(){return !!placeBrowserMedia?.matches;}
+function setPlacePicker(open,{focus=false}={}){
+ placePickerOpen=!!open;const list=$('place-list'),mobile=pickerIsMobile();
+ if(list)list.hidden=mobile&&!placePickerOpen;
+ const toggle=placeBrowser?.querySelector('[data-place-list-toggle]');
+ if(toggle){toggle.setAttribute('aria-expanded',String(!mobile||placePickerOpen));toggle.textContent=placePickerOpen?'Skrýt seznam míst':'Zobrazit seznam míst';}
+ if(focus)placeBrowser?.querySelector('select')?.focus({preventScroll:true});
+ if(open)revealSelectedInList();
+}
+function syncPlaceBrowser(visible=placeResults()){
+ if(!placeBrowser)return;const select=placeBrowser.querySelector('select'),index=visible.findIndex(p=>p.id===selectedId),p=current();
+ const ids=visible.map(p=>p.id).join('|')+(index<0&&p?`|outside:${p.id}`:'');
+ if(ids!==placeBrowserIds){
+  placeBrowserIds=ids;
+  select.innerHTML=(index<0?`<option value="" disabled>${visible.length&&p?escape(p.name):'Žádná místa v aktuálním výběru'}</option>`:'')+visible.map(place=>`<option value="${escape(place.id)}" translate="no">${escape(place.name)}</option>`).join('');
+ }
+ const selectedOption=[...select.options].find(option=>option.value===(index<0?'':selectedId));if(selectedOption)selectedOption.selected=true;
+ select.disabled=!visible.length;
+ const count=placeBrowser.querySelector('[data-place-position]');count.textContent=index<0&&visible.length?'Místo mimo aktuální výběr':`${String(Math.max(0,index+1)).padStart(2,'0')} / ${String(visible.length).padStart(2,'0')} VE VÝBĚRU`;
+ placeBrowser.querySelector('[data-place-step="-1"]').disabled=index<=0;
+ placeBrowser.querySelector('[data-place-step="1"]').disabled=!visible.length||index>=visible.length-1;
+ placeBrowser.querySelector('[data-place-list-toggle]').disabled=!visible.length;
+ placeBrowser.querySelector('[data-place-announcement-name]').textContent=p&&visible.length?p.name:'';
+ placeBrowser.querySelector('[data-place-announcement-count]').textContent=count.textContent;
+ $('place-list').querySelectorAll('[data-select-place]').forEach((button,i)=>{button.setAttribute('aria-pressed',String(button.dataset.selectPlace===selectedId));button.tabIndex=button.dataset.selectPlace===selectedId||index<0&&i===0?0:-1;});
+}
+function movePlace(step,{edge,focusList=false}={}){
+ const visible=placeResults();if(!visible.length)return;const currentIndex=visible.findIndex(p=>p.id===selectedId);
+ const index=edge==='first'?0:edge==='last'?visible.length-1:Math.max(0,Math.min(visible.length-1,currentIndex+step));
+ selectPlace(visible[index].id,true);
+ if(focusList)$('place-list').querySelector(`[data-select-place="${selectedId}"]`)?.focus({preventScroll:true});
+}
+function setupPlaceBrowser(){
+ const list=$('place-list'),layout=list?.closest('.atlas-layout'),preview=$('place-preview');if(!list||!layout||!preview)return;
+ placeBrowser=document.createElement('nav');placeBrowser.className='place-browser';placeBrowser.lang='cs';placeBrowser.setAttribute('aria-label','Přecházet mezi místy');placeBrowser.setAttribute('data-text-motion','off');
+ placeBrowser.innerHTML=`<div class="place-browser-controls"><button type="button" data-place-step="-1" aria-label="Předchozí místo" aria-controls="place-preview">←</button><div class="place-browser-current"><p data-place-position></p><label for="place-quick-select" class="sr-only">Vybrat místo z aktuálního výběru</label><select id="place-quick-select" aria-controls="place-preview"></select></div><button type="button" data-place-step="1" aria-label="Další místo" aria-controls="place-preview">→</button></div><button type="button" class="place-list-toggle" data-place-list-toggle aria-expanded="false" aria-controls="place-list">Zobrazit seznam míst</button><p class="sr-only" role="status" aria-live="polite" aria-atomic="true"><span data-place-announcement-name translate="no"></span> <span data-place-announcement-count></span></p>`;
+ layout.insertBefore(placeBrowser,preview);placeBrowser.append(list);preview.setAttribute('aria-live','off');
+ placeBrowserMedia=window.matchMedia?.('(max-width: 760px)');
+ const changed=()=>{setPlacePicker(false);revealSelectedInList();};
+ placeBrowserMedia?.addEventListener?.('change',changed);
+ placeBrowser.querySelector('select').addEventListener('change',event=>{if(event.target.value){selectPlace(event.target.value,true);setPlacePicker(false);}});
+ placeBrowser.addEventListener('click',event=>{const button=event.target.closest('button');if(!button)return;if(button.hasAttribute('data-place-step'))movePlace(Number(button.dataset.placeStep));else if(button.hasAttribute('data-place-list-toggle'))setPlacePicker(!placePickerOpen);});
+ placeBrowser.addEventListener('keydown',event=>{
+  if(event.key==='Escape'&&pickerIsMobile()&&placePickerOpen){event.preventDefault();setPlacePicker(false,{focus:true});return;}
+  if(!event.target.matches('[data-select-place]'))return;
+  const step={ArrowDown:1,ArrowRight:1,ArrowUp:-1,ArrowLeft:-1}[event.key];
+  if(step||event.key==='Home'||event.key==='End'){event.preventDefault();movePlace(step||0,{edge:event.key==='Home'?'first':event.key==='End'?'last':undefined,focusList:true});}
+ });
+ const release=event=>{if(event.persisted)return;placeBrowserMedia?.removeEventListener?.('change',changed);window.removeEventListener('pagehide',release);};window.addEventListener('pagehide',release);
+ setPlacePicker(false);
+}
+function selectPlace(id,pan=false){if(!locations.some(x=>x.id===id))return;selectedId=id;renderPreview();syncPlaceBrowser();revealSelectedInList();if(map){markerGroup.eachLayer(marker=>{const el=marker.getElement?.();if(el)el.classList.toggle('active',marker.options.placeId===id);});if(pan){const p=current();if(validCityPoint(p))map.panTo([p.lat,p.lng],{animate:false});}}cityExperience?.select(id,{fly:pan});}
 function normalized(value){return value.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();}
 function filtered(){const term=normalized($('place-search').value.trim());const period=$('period-filter').value;const access=$('access-filter').value;return locations.filter(p=>(layer==='All layers'||p.categories.includes(layer))&&(!term||normalized([p.name,p.address,p.history,p.symbols,p.interpretation,p.categories.join(' '),neighbourhoods[p.id]].join(' ')).includes(term))&&(!period||p.period===period)&&(!access||(access==='verified'?p.accessVerified:p.outdoorViewing)));}
-function renderPlaces(){let visible=filtered();if(userPosition)visible.sort((a,b)=>distance(a,userPosition)-distance(b,userPosition));$('result-count').textContent=`${visible.length} / ${locations.length} DISCOVERIES`;$('place-list').innerHTML=visible.length?visible.map(p=>`<button type="button" data-select-place="${escape(p.id)}" aria-pressed="${p.id===selectedId}"><span>${String(locations.indexOf(p)+1).padStart(2,'0')}</span>${escape(p.name)}${userPosition&&validCityPoint(p)?`<small>~${distance(p,userPosition).toFixed(1)} km</small>`:!validCityPoint(p)?'<small>ADRESA / BEZ OVĚŘENÉHO PINU</small>':''}</button>`).join(''):'<p class="no-results">No discoveries match this combination. Try another layer or clear your search.</p>';if(map){markerGroup.clearLayers();visible.filter(validCityPoint).forEach(p=>{const index=locations.indexOf(p);const marker=L.marker([p.lat,p.lng],{placeId:p.id,keyboard:true,title:p.name,alt:p.name,icon:L.divIcon({className:`atlas-pin ${p.id===selectedId?'active':''}`,html:`<span class="pin-disc">${String(index+1).padStart(2,'0')}</span>`,iconSize:[30,30],iconAnchor:[15,15]})});marker.bindTooltip(p.name,{direction:'top',offset:[0,-15]});marker.on('click',()=>selectPlace(p.id));marker.addTo(markerGroup);});}if(visible.length){if(!visible.some(p=>p.id===selectedId))selectPlace(visible[0].id);else renderPreview();}else if(!visible.length){$('place-preview').innerHTML='<h3>No matching discoveries.</h3><p class="muted">Change the filters to reveal another layer of Paris.</p><button class="button" data-reset-filters>RESET FILTERS →</button>';}cityExperience?.setPlaces(visible,selectedId);}
+function renderPlaces(){let visible=placeResults();$('result-count').textContent=`${visible.length} / ${locations.length} DISCOVERIES`;$('place-list').innerHTML=visible.length?visible.map(p=>`<button type="button" data-select-place="${escape(p.id)}" aria-pressed="${p.id===selectedId}"><span>${String(locations.indexOf(p)+1).padStart(2,'0')}</span>${escape(p.name)}${userPosition&&validCityPoint(p)?`<small>~${distance(p,userPosition).toFixed(1)} km</small>`:!validCityPoint(p)?'<small>ADRESA / BEZ OVĚŘENÉHO PINU</small>':''}</button>`).join(''):'<p class="no-results">No discoveries match this combination. Try another layer or clear your search.</p>';if(map){markerGroup.clearLayers();visible.filter(validCityPoint).forEach(p=>{const index=locations.indexOf(p);const marker=L.marker([p.lat,p.lng],{placeId:p.id,keyboard:true,title:p.name,alt:p.name,icon:L.divIcon({className:`atlas-pin ${p.id===selectedId?'active':''}`,html:`<span class="pin-disc">${String(index+1).padStart(2,'0')}</span>`,iconSize:[30,30],iconAnchor:[15,15]})});marker.bindTooltip(p.name,{direction:'top',offset:[0,-15]});marker.on('click',()=>selectPlace(p.id));marker.addTo(markerGroup);});}if(visible.length){if(!visible.some(p=>p.id===selectedId))selectPlace(visible[0].id);else renderPreview();}else if(!visible.length){$('place-preview').innerHTML='<h3>No matching discoveries.</h3><p class="muted">Change the filters to reveal another layer of Paris.</p><button class="button" data-reset-filters>RESET FILTERS →</button>';}syncPlaceBrowser(visible);revealSelectedInList();cityExperience?.setPlaces(visible,selectedId);}
 function resetFilters(){layer='All layers';$('place-search').value='';$('period-filter').value='';$('access-filter').value='';renderFilterButtons();renderPlaces();renderPreview();}
-function renderFilterButtons(){$('layer-filters').innerHTML=layers.map(x=>`<button data-layer="${x}" aria-pressed="${x===layer}">${x}</button>`).join('');}
+function renderFilterButtons(){const focused=document.activeElement?.closest?.('#layer-filters [data-layer]')?.dataset.layer;$('layer-filters').innerHTML=layers.map(x=>`<button data-layer="${x}" aria-pressed="${x===layer}">${x}</button>`).join('');if(focused)$('layer-filters').querySelector(`[data-layer="${focused}"]`)?.focus({preventScroll:true});}
 function setupMap(){
  let tilesAdded=false;
  const fallback=()=>{
   if(!map){$('map-failure').hidden=false;return;}
   if(!tilesAdded){
    tilesAdded=true;let tilesOkay=false,errorCount=0;
-   const tiles=L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a>',maxZoom:19});
+   const tiles=L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a>',maxZoom:19,referrerPolicy:'strict-origin-when-cross-origin'});
    tiles.on('tileload',()=>{tilesOkay=true;$('map-failure').hidden=true;});
    tiles.on('tileerror',()=>{if(!tilesOkay&&++errorCount>=4)$('map-failure').hidden=false;});
    tiles.addTo(map);
@@ -124,6 +188,7 @@ async function mountCultureDistrict(){
  catch{host.innerHTML='<p class="status">Interaktivní dílnu nelze načíst. Všechna nová místa najdeš také v seznamu a filtrech atlasu výše.</p>';}
 }
 function setupEvents(){
+ setupPlaceBrowser();
  $('menu-toggle').onclick=()=>{const expanded=$('menu-toggle').getAttribute('aria-expanded')==='true';$('menu-toggle').setAttribute('aria-expanded',String(!expanded));$('main-nav').classList.toggle('open',!expanded);};
  $('main-nav').onclick=()=>{$('main-nav').classList.remove('open');$('menu-toggle').setAttribute('aria-expanded','false');};
  $('place-search').oninput=()=>renderPlaces();$('period-filter').onchange=()=>renderPlaces();$('access-filter').onchange=()=>renderPlaces();
@@ -143,7 +208,7 @@ function setupEvents(){
   if(d.layer){layer=d.layer;renderFilterButtons();renderPlaces();}
   if(d.door){layer=d.door;renderFilterButtons();renderPlaces();}
   if(d.resetFilters!==undefined)resetFilters();
-  if(d.selectPlace)selectPlace(d.selectPlace,true);
+  if(d.selectPlace){selectPlace(d.selectPlace,true);if(pickerIsMobile())setPlacePicker(false,{focus:true});}
   if(d.savePlace)toggleSaved('place',d.savePlace);
   if(d.saveRoute)toggleSaved('route',d.saveRoute);
   if(d.openPlace)openProfile(d.openPlace);
