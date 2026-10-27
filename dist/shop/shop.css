@@ -5,3 +5,5 @@
 @media(max-height:530px){.shop-dialog{max-height:94vh}.shop-hero{min-height:0}.shop-header{min-height:76px}.shop-brand img{height:55px}.shop-hero-art img{max-height:330px}}
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important;animation:none!important}.shop-card-image:hover img,.shop-card-image:focus-visible img{transform:none}}html[data-motion=off] .shop-card-image img{transition:none!important;transform:none!important}
 @media print{.shop-header,.shop-toolbar,.shop-card-open,.language-dock,.shop-dialog,.shop-primary{display:none!important}.shop-grid{grid-template-columns:repeat(3,1fr)}body{background:white;color:black}.shop-card{break-inside:avoid}.shop-hero{min-height:0}.shop-hero-art{display:none}}
+
+.shop-source-price{border-top:1px solid var(--shop-line);padding-top:14px;overflow-wrap:anywhere}.shop-source-price:empty{display:none}.shop-source-price strong{font-size:25px;color:var(--shop-yellow)}.shop-detail-availability .shop-primary:disabled{opacity:1;background:#24241d;border-color:var(--shop-line);color:var(--shop-muted);cursor:not-allowed}

@@ -1,5 +1,35 @@
 # Commerce integration and verification
 
+## Current audit — 27 October 2026
+
+This section supersedes the historical checkout observations below. Audited GitHub
+base: `be639623d83da4f6527732b5672a7960b430765c`.
+
+- That revision already has a main-navigation SHOP link and `/shop/`. The current
+  shop runtime is `dist/shop/shop.js`, not the archived `commerce-v7.js` modal.
+- A fresh cloud-browser visit to both the documented `/dk/store?page=1` and the
+  exact OMERTA Black / 2XL product URL below displays Synology's Czech
+  “Hledaná stránka nebyla nalezena.” page. HTTP status was not captured. This is
+  evidence of an unavailable purchase route in this browser, not a diagnosis of
+  the private server or proof that the original commerce database was removed.
+- The repair adds a direct SHOP shortcut outside the collapsed mobile menu,
+  preserves exact source IDs/SKUs and dated variant prices, and tests exact
+  `v_id` URL construction for all 86 variants. Historical prices stay labelled
+  with their original 16 October timestamp; they are not current offers.
+- Checkout remains blocked. No fresh cart, address-step, payment or Printful order
+  success is claimed. The old successful cart test must not be treated as current.
+- The Printful importer supports explicit `--platform api` (`/store/products`) and
+  `--platform ecommerce` (`/sync/products`). The existing store type must be
+  verified in the account; there is no blind endpoint fallback. Original SKU or
+  blank-variant identity changes stop import for review. Previously documented
+  storefront prices retain their original dates and are never replaced by
+  Printful manufacturing costs or `retail_price`.
+
+See [the repair and backend acceptance steps](commerce/SHOP_REPAIR.md) and
+[Printful read-only connection instructions](commerce/PRINTFUL_CONNECT.md).
+
+## Historical verification — 16 October 2026
+
 Verified on 16 October 2026. The exhibition preserves source product IDs, handles,
 variant IDs, SKUs, source names and prices. It does not receive payment details or
 create orders. Checkout runs on the existing original storefront.

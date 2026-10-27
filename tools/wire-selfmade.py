@@ -73,7 +73,7 @@ print(f'Visible motion controls and living-culture field desk linked to {len(atl
 # Accuracy-first map and reversible chapter motion preserve native page scrolling.
 for file in atlas_pages:
     data=file.read_text()
-    data=re.sub(r'/atlas\.js\?v=\d+','/atlas.js?v=10',data)
+    data=re.sub(r'/atlas\.js\?v=\d+','/atlas.js?v=11',data)
     data=re.sub(r'/city-map\.css\?v=\d+','/city-map.css?v=3',data)
     data=re.sub(r'/culture-board\.css\?v=\d+','/culture-board.css?v=2',data)
     data=data.replace('STREET / SOUND / THOUGHT · 14 NOVÝCH MÍST ↓','STREET / SOUND / THOUGHT · 20 KULTURNÍCH MÍST ↓')
@@ -121,4 +121,13 @@ for file in text_pages:
     data=file.read_text()
     for script in ['app.js','catalog.js','experience.js','cinematic-v7.js']:
         data=data.replace('src="/'+script+'"','src="/'+script+'?v=2"')
+    file.write_text(data)
+
+# SHOP remains directly reachable on narrow screens, outside the collapsed menu.
+for file in atlas_pages:
+    data=file.read_text()
+    if 'data-shop-shortcut' not in data:
+        data=data.replace('<button id="menu-toggle"', '<a class="shop-shortcut" href="/shop/" data-shop-shortcut translate="no">SHOP ↗</a><button id="menu-toggle"', 1)
+    if '/shop-entry.css' not in data:
+        data=data.replace('</head>', '<link rel="stylesheet" href="/shop-entry.css?v=1"></head>')
     file.write_text(data)

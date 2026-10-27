@@ -1,6 +1,11 @@
+> Aktuální doplnění: [SHOP_REPAIR.md](SHOP_REPAIR.md) a úvod
+> [COMMERCE.md](../COMMERCE.md) popisují novější audit a zachování datovaných
+> původních cen. Dřívější požadavek této specifikace „bez cen“ je tím nahrazen.
+> Checkout zůstává nedostupný; současná oprava neověřila placenou výrobu.
+
 # Native CAISIK shop / preview release
 
-The new `/shop/` route uses the approved CAISIK logo, saturated yellow/black identity and authentic existing Printful mockups. It consumes `/shop/catalog.json?v=1`, with no external ecommerce SDK, new account, remote tracking, microphone or location request.
+The new `/shop/` route uses the approved CAISIK logo, saturated yellow/black identity and authentic existing Printful mockups. It consumes `/shop/catalog.json?v=2`, with no external ecommerce SDK, new account, remote tracking, microphone or location request.
 
 ## Product and checkout boundary
 

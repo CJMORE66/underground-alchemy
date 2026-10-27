@@ -94,11 +94,11 @@ class SyncTests(unittest.TestCase):
         self.output.write_text(json.dumps(self.baseline), encoding="utf-8")
         self.before = self.output.read_bytes()
 
-    def client(self, route=normal_route):
+    def client(self, route=normal_route, platform="api"):
         handler = MockHTTPS(route)
         real_build = build_opener
         with patch.object(sync, "build_opener", side_effect=lambda *parts: real_build(handler, *parts)):
-            client = sync.PrintfulClient(TOKEN)
+            client = sync.PrintfulClient(TOKEN, platform)
         return client, handler
 
     def failed(self, route, message=None):
@@ -241,6 +241,41 @@ class SyncTests(unittest.TestCase):
         route = lambda path, query: (200, envelope(expanded), {}) if path == "/store/products/101" else normal_route(path, query)
         with patch.object(sync, "MAX_TOTAL_VARIANTS", 1):
             self.failed(route, "variant limit")
+
+    def test_ecommerce_uses_sync_api_without_probing_or_writes(self):
+        def route(path, query):
+            return normal_route(path.replace("/sync/products", "/store/products"), query)
+        client, handler = self.client(route, platform="ecommerce")
+        self.assertEqual(sync.sync_catalogue(self.output, client), (1, 1))
+        self.assertEqual([p for p, _ in handler.calls], ["/stores", "/sync/products", "/sync/products/101"])
+        for path in ("/store/products", "/orders", "/sync/variant/1001", "/sync/products/../orders"):
+            with self.assertRaises(sync.SyncError):
+                client.get(path)
+
+    def test_historical_storefront_price_and_date_survive_live_import(self):
+        product = self.baseline["products"][0]
+        product.update(id="prod_OLD", productId="prod_OLD", handle="printful-18912189-101",
+                       sourceUrl="https://hiphop.caisik.i234.me/dk/products/printful-18912189-101")
+        price = {"amount": 56.5, "currency": "EUR", "taxInclusive": False,
+                 "checkedAt": "2026-10-16T04:52:09.112124+00:00"}
+        product["variants"][0].update(sku="PF-SKU", sourcePrice=price)
+        self.output.write_text(json.dumps(self.baseline))
+        client, _ = self.client()
+        sync.sync_catalogue(self.output, client)
+        result = json.loads(self.output.read_text())["products"][0]
+        self.assertEqual(result["variants"][0]["sourcePrice"], price)
+        self.assertEqual(result["sourceUrl"], product["sourceUrl"])
+        self.assertNotEqual(result["variants"][0]["sourcePrice"]["amount"], 99.00,
+                            "Printful retail_price is not the original store's quote")
+
+    def test_changed_existing_sku_or_catalog_identity_does_not_overwrite(self):
+        for field, value in (("sku", "DIFFERENT-SKU"), ("printfulCatalogVariantId", 999)):
+            self.baseline["products"][0]["variants"][0][field] = value
+            self.output.write_text(json.dumps(self.baseline))
+            self.before = self.output.read_bytes()
+            self.failed(normal_route, "identity mapping")
+            self.baseline["products"][0]["variants"][0].pop(field)
+            self.baseline["products"][0]["variants"][0]["printfulCatalogVariantId"] = 51734
 
 
 if __name__ == "__main__":
