@@ -37,3 +37,11 @@ Desktop browser interactions were verified at the cloud browser's native viewpor
 ## Restoration
 
 At the user’s explicit request, the atlas functionality was restored from version 13, source `e159616e564d8bb5904c5af55f58fdc91afe8db3`, before applying the approved graphic-novel direction. The superseded version 14 was preserved in Git history and the local `before-approved-style-v14` branch. No history was rewritten.
+
+## Commerce execution —31October2026
+
+Static Sites release31 adds a saved variant cart and reviewed SHOP repairs.
+The live Printful/payment/order backend remains blocked; checkout stays disabled.
+Read `docs/PRINTFUL_PROGRESS.md` and the other five `docs/PRINTFUL_*.md` files
+before resuming. Run `npm run test:commerce` and `npm run check:commerce-release`.
+GitHub source commits do not deploy Sites automatically.

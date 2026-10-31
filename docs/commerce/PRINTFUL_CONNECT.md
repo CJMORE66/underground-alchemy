@@ -1,6 +1,6 @@
 # Printful / CAISIK: bezpečná čtecí synchronizace
 
-Stav k 27. říjnu 2026: připravený import skutečného katalogu Printful, **dosud bez připojení ke skutečnému účtu**. Žádný token nebyl dodán ani použit. Historický katalog 20 produktů / 86 variant je samostatný výchozí snapshot, nikoli důkaz dnešní dostupnosti, ceny nebo funkčního prodeje. Webový soubor, který se má publikovat, je `dist/shop/catalog.json`.
+Stav k 31. říjnu 2026: připravený import skutečného katalogu Printful, **dosud bez připojení ke skutečnému účtu**. Žádný token nebyl dodán ani použit. Historický katalog 20 produktů / 86 variant je samostatný výchozí snapshot, nikoli důkaz dnešní dostupnosti, ceny nebo funkčního prodeje. Webový soubor, který se má publikovat, je `dist/shop/catalog.json`.
 
 ## Co je připravené
 
@@ -9,14 +9,14 @@ Stav k 27. říjnu 2026: připravený import skutečného katalogu Printful, **d
 Povolené síťové operace jsou výhradně:
 
 - `GET https://api.printful.com/stores` pro kontrolu identity. Odpověď musí obsahovat právě jeden obchod s ID `18912189`.
-- `--platform api` (výchozí): `GET https://api.printful.com/store/products?status=synced&offset=…&limit=…` a `/store/products/{numeric_id}` pro existující Manual orders / API store.
+- `--platform api` (výchozí): `GET https://api.printful.com/store/products?offset=…&limit=…` a `/store/products/{numeric_id}` pro existující Manual orders / API store.
 - `--platform ecommerce`: stejné čtecí operace pod `/sync/products` pro existující obchod napojený integrační platformou. Typ obchodu ověř v účtu; historická Medusa-like data jej nedokazují. Skript automaticky nezkouší druhou rodinu endpointů ani nevytváří nový store.
 
 Každý požadavek používá TLS, pevný host a pevné `X-PF-Store-Id: 18912189`. Přesměrování se nenásledují ani na stejný host. Neexistuje argument pro jiný API server, obchod, token nebo objednávku. Celý nesanitizovaný API výstup se neukládá a neloguje.
 
 Export obsahuje jen názvy, veřejné identity, bezpečné mockupy, volby a varianty. Zachovává původní ID, schválený `displayName`, `handle`, kategorii a existující lokální obrázek podle Printful sync identity. Nové produkty dostanou `pf-{sync_product_id}` a nové varianty `pfv-{sync_variant_id}`. Bez jednoznačných atributů velikosti/barvy se použije celý dodaný název varianty, nikoli vymyšlené rozdělení názvu. Kategorie nového produktu je `other`, dokud ji správce vědomě nezařadí.
 
-Povoleny jsou pouze nepodepsané Printful CDN náhledy `files.cdn.printful.com/files/…/*_preview.*` nebo `*_thumbnail.*` a existující lokální obrázky v `/assets/catalog/`. Původní tiskové soubory, soukromá metadata, Printful ceny/náklady, dostupnost, objednávky a údaje zákazníků se neexportují. Výjimkou je již veřejná historická cena původního storefrontu v `sourcePrice`: zachovává původní částku, měnu, daňový příznak a původní `checkedAt`. Čerstvý import nesmí toto datum omladit ani nahradit cenu hodnotou Printful `retail_price`. Nová varianta bez doložené prodejní ceny zůstává bez ceny. Změna existujícího SKU nebo Printful catalog variant ID import zastaví; správce musí nejprve prověřit mapování. Nový produkt bez bezpečného náhledu import zastaví; to vyžaduje kontrolu zdroje, nikoli náhradní smyšlený obrázek.
+Povoleny jsou pouze nepodepsané Printful CDN náhledy `files.cdn.printful.com/files/…/*_preview.*` nebo `*_thumbnail.*` a existující lokální obrázky v `/assets/catalog/`. Původní tiskové soubory, soukromá metadata, výrobní náklady, objednávky a údaje zákazníků se neexportují. Nově se odděleně ukládá `printfulRetailPrice` s částkou jako desetinným řetězcem, známou nebo null měnou, datem a `checkoutQuote:false`; dostupnost je samostatné datované pozorování `availability`. Nejde o cenu ověřenou k zaplacení. Výjimkou je již veřejná historická cena původního storefrontu v `sourcePrice`: zachovává původní částku, měnu, daňový příznak a původní `checkedAt`. Čerstvý import nesmí toto datum omladit ani nahradit cenu hodnotou Printful `retail_price`. Nová varianta bez doložené prodejní ceny zůstává bez ceny. Změna existujícího SKU nebo Printful catalog variant ID import zastaví; správce musí nejprve prověřit mapování. Nový produkt bez bezpečného náhledu import zastaví; to vyžaduje kontrolu zdroje, nikoli náhradní smyšlený obrázek.
 
 `catalogueVerifiedLive: true` po skutečně úspěšném běhu znamená ověření **čtení katalogu v čase `checkedAt`**, nikoli potvrzení skladové zásoby, doručitelnosti nebo platby. Pole `checkout` se vždy exportuje jako `{enabled:false,url:null,verifiedAt:null}`.
 
@@ -46,7 +46,7 @@ try {
 }
 ```
 
-Při chybě autentizace, neplatné odpovědi, změně stránkování nebo prázdném katalogu zůstane předchozí soubor zachovaný. API token ani text chybové odpovědi se nevypisují. Bez tokenu skončí skript před prvním síťovým požadavkem. Limit je 500 produktů, 500 variant na produkt, 5 000 variant celkem a 8 MiB na jednotlivou odpověď i veřejný export; detaily se zpracovávají průběžně, nikoli jako neomezená sbírka původních API odpovědí.
+Při chybě autentizace, neplatné odpovědi nebo změně stránkování zůstane předchozí soubor zachovaný. Autentizovaný úplný scan s nulovým totalem nyní zapíše skutečně prázdný katalog a seznam odebraných identit; nesmí předstírat starý katalog jako aktuální. Produkt bez exportovatelné konfigurace nebo SKU import atomicky zastaví. API token ani text chybové odpovědi se nevypisují. Bez tokenu skončí skript před prvním síťovým požadavkem. Limit je 500 produktů, 500 variant na produkt, 5 000 variant celkem a 8 MiB na jednotlivou odpověď i veřejný export; detaily se zpracovávají průběžně, nikoli jako neomezená sbírka původních API odpovědí.
 
 ## Co zbývá před skutečným prodejem
 
@@ -66,7 +66,7 @@ Pokud se obnoví existující PrestaShop, Printful má oficiální modul pro sel
 
 `python tests/printful-sync.py` spouští offline testy nad skutečnou konstrukcí `urllib` HTTP požadavků, mock HTTPS transportem a dočasnými soubory. Ověřuje pevnou identitu a pouze GET endpointy, stránkování, veřejný whitelist, zachování identit, tajemství v chybových odpovědích, chybné JSON/HTML, velikostní meze, prázdné a duplicitní záznamy, odmítnutí přesměrování a atomický zápis. Testy nepoužívají účet ani síť a nedokazují úspěšnou živou autentizaci.
 
-Pro rollback obnov předchozí zkontrolovanou verzi `dist/shop/catalog.json` z Gitu a znovu publikuj odpovídající verzi webu. Neměň původní jazyková, atlasová ani Blackbook data. Nikdy nenahrazuj poškozený originál prázdným katalogem nebo falešným úspěchem.
+Pro rollback obnov předchozí zkontrolovanou verzi `dist/shop/catalog.json` z Gitu a znovu publikuj odpovídající verzi webu. Neměň původní jazyková, atlasová ani Blackbook data. Nikdy nezaměň chybu čtení za prázdný katalog nebo falešný úspěch; platná autentizovaná nulová odpověď je odlišný stav.
 
 ## Oficiální podklady
 
@@ -75,3 +75,7 @@ Pro rollback obnov předchozí zkontrolovanou verzi `dist/shop/catalog.json` z G
 - [Přijímání plateb zákazníků](https://help.printful.com/hc/en-us/articles/50262145635601-How-do-I-accept-payments-for-my-orders)
 - [Oficiální PrestaShop integrace a kompatibilita](https://help.printful.com/hc/en-us/articles/50262820051345-How-do-I-connect-PrestaShop-to-Printful)
 - [Dostupnost Quick Stores](https://help.printful.com/hc/en-us/articles/50265737247889-Is-Quick-Stores-available-in-my-area)
+
+## Rozšíření 31. října 2026
+
+Plný scan sleduje odstraněné a nedostupné varianty. Opakovatelný `--product-id ID` provede explicitní inkrementální refresh, ponechá ostatní produkty i jejich stará data a nenastaví `catalogueVerifiedLive:true`. GET požadavky mají omezené opakování při 429/5xx a síťových chybách; příliš dlouhý požadovaný Retry-After běh ukončí. Aktuální úplný postup a hranice implementace: `../PRINTFUL_SETUP.md`, `../PRINTFUL_ARCHITECTURE.md`. Současná sada má 25 izolovaných testů; žádná živá autentizace nebyla provedena.
