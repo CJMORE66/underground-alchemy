@@ -14,7 +14,7 @@ PRINTFUL_TEST_RESULTS.md. Offline fixtures do not establish real API success.
 - [x] Finish draft-only provider adapter and webhook/order safety tests.
 - [x] Run final release checks and browser QA.
 - [x] Publish validated static SHOP changes and verify production.
-- [ ] Push reviewable GitHub commits and open integration PR.
+- [x] Push reviewable GitHub commits and open integration PR.
 
 ## External dependencies — continue independent work
 
@@ -74,3 +74,13 @@ Deployed source:3fb9f74a210b6b1176c3f1363035d8b9c4054483.
 Rollback: existing saved version30 (see PRINTFUL_DEPLOYMENT.md).
 The full integration is not VERIFIED WORKING. Owner actions remain listed in
 PRINTFUL_SETUP.md; no repeated credential/API retries should occur before access.
+
+GitHub review: https://github.com/CJMORE66/underground-alchemy/pull/4
+
+Review commits:41a21f25047f4f7a3db274c9f97c35eda1eb63d6 (catalog),
+98e47001c7bb123516d6826a075302a3e30afb8d (server helpers),
+2cb20db95f090732a22e43b0488579aeda0639f5 (SHOP/cart),
+dc53845ebb7deab881f8d7a2f412f3aaeb97af8a (CI/audit/release evidence).
+PR4 includes open PR3 changes and is mergeable; neither PR was merged.
+GitHub Actions launched Commerce safety checks; final remote conclusion is
+recorded in the task report separately from the completed local checks.

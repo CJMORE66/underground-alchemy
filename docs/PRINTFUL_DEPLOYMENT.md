@@ -66,3 +66,8 @@ evidence are appended after publication. Any failure remains explicitly reported
 - Production https://caisik-underground-alchemy.caisik.chatgpt.site/shop/ rendered 20 snapshot products, exact OMERTA Black/2XL SKU and dated €56.50, saved local cart through reload, quantity and remove actions. Test cart returned to empty. Checkout stayed disabled; no paid request/order was sent.
 - Error-only Sites Worker log query (previous10minutes, limit25) returned zero events. This static result does not demonstrate a running commerce Worker. Captured browser errors were extension metadata errors; filtered Site-origin error logs returned none.
 - Subsequent documentation-only commits record this outcome; they do not change the deployed static artifact. No database migration or runtime/provider configuration was applied.
+
+GitHub review: https://github.com/CJMORE66/underground-alchemy/pull/4
+The four review commits are listed in PRINTFUL_PROGRESS.md. Existing PR3 remains
+open/unmerged. The new PR is mergeable; no merge or new paid backend deployment
+was performed.

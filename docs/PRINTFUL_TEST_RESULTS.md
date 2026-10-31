@@ -82,3 +82,6 @@ and disabled checkout. Test cart returned to empty. Production errors-only
 Worker query returned no events; Site-origin browser error filter returned none.
 The earlier preview desktop verified translated English hero and navigation.
 Only browser-local cart selections were exercised; no payment or order existed.
+
+Post-deployment English/French/Czech switching also verified translated hero
+headings and checkout-unavailable controls. Test cart remained empty afterward.
