@@ -7,7 +7,9 @@
     "build:cinema": "esbuild src/film-scene-v7.js motion-source.js --bundle --minify --format=esm --splitting --outdir=dist --entry-names=[name] --chunk-names=chunks/experience-[hash] --target=es2020 && esbuild src/cinematic-v7.js --bundle --minify --format=iife --external:/film-scene-v7.js --outfile=dist/cinematic-v7.js --target=es2020",
     "test": "node tests/atlas.mjs",
     "test:previous-experience": "node tests/interactions.cjs && node tests/education.cjs && node tests/scene-config.mjs && node tests/portals.cjs && node tests/cinema.cjs && node tests/static.cjs",
-    "build:map-vendor": "node dist/map-data/build-vendor.mjs"
+    "build:map-vendor": "node dist/map-data/build-vendor.mjs",
+    "test:commerce": "node tests/shop.mjs && node tests/cart.mjs && python tests/printful-sync.py && node tests/commerce-server.mjs",
+    "check:commerce-release": "node tools/check-commerce-release.mjs"
   },
   "dependencies": {
     "maplibre-gl": "6.16.0",

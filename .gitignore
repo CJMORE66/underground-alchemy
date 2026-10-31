@@ -1,6 +1,18 @@
 
 node_modules/
 
+# Credentials and private commerce data never belong in Git or dist/.
+.env
+.env.*
+!.env.example
+.dev.vars
+.dev.vars.*
+secrets/
+private-commerce/
+*.sqlite
+*.sqlite-shm
+*.sqlite-wal
+
 __pycache__/
 
 # Local RPG200 state, evidence, private drafts and isolated task worktrees.

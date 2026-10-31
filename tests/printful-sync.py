@@ -34,7 +34,7 @@ def details(product_id=101, variant_id=1001):
                              "description": "<p>Čistý <b>popis</b></p><script>nevystavovat()</script>",
                              "private": TOKEN, "retail_price": "9.99"},
             "sync_variants": [{"id": variant_id, "name": "Navy / 3XL", "variant_id": 51734,
-                               "color": "Navy", "size": "3XL", "sku": "PF-SKU", "retail_price": "99.00",
+                               "color": "Navy", "size": "3XL", "sku": "PF-SKU", "retail_price": "99.00", "currency": "EUR",
                                "price": "12.00", "availability_status": "active",
                                "files": [{"type": "front", "url": "https://secret.test/original.png",
                                           "preview_url": "https://files.cdn.printful.com/files/abc/private-design_preview.png",
@@ -72,7 +72,7 @@ def normal_route(path, query):
     if path == "/stores":
         return 200, envelope([{"id": 18912189, "name": "CAISIK"}]), {}
     if path == "/store/products":
-        assert query["status"] == ["synced"]
+        assert "status" not in query, "Full scan must include unsynced store identities"
         return 200, envelope([{"id": 101}], {"offset": 0, "limit": 100, "total": 1}), {}
     if path == "/store/products/101":
         return 200, envelope(details()), {}
@@ -94,11 +94,11 @@ class SyncTests(unittest.TestCase):
         self.output.write_text(json.dumps(self.baseline), encoding="utf-8")
         self.before = self.output.read_bytes()
 
-    def client(self, route=normal_route):
+    def client(self, route=normal_route, platform="api"):
         handler = MockHTTPS(route)
         real_build = build_opener
         with patch.object(sync, "build_opener", side_effect=lambda *parts: real_build(handler, *parts)):
-            client = sync.PrintfulClient(TOKEN)
+            client = sync.PrintfulClient(TOKEN, platform, sleep=lambda delay: None, jitter=lambda: 0)
         return client, handler
 
     def failed(self, route, message=None):
@@ -126,6 +126,11 @@ class SyncTests(unittest.TestCase):
         self.assertEqual(product["variants"][0]["id"], "legacy-variant")
         self.assertEqual(product["description"], "Čistý popis")
         self.assertEqual(product["options"], [{"title": "Color", "values": ["Navy"]}, {"title": "Size", "values": ["3XL"]}])
+        live = product["variants"][0]
+        self.assertEqual(live["printfulRetailPrice"]["amount"], "99.00")
+        self.assertEqual(live["printfulRetailPrice"]["currency"], "EUR")
+        self.assertFalse(live["printfulRetailPrice"]["checkoutQuote"])
+        self.assertEqual(live["availability"]["status"], "active")
         public = self.output.read_text()
         for forbidden in (TOKEN, "original.png", "private-design", "retail_price", "availability_status", "private_metadata", '"files"', '"price"'):
             self.assertNotIn(forbidden, public)
@@ -168,9 +173,10 @@ class SyncTests(unittest.TestCase):
         for fixture in fixtures:
             self.failed(lambda path, query, response=fixture: response)
 
-    def test_empty_duplicate_changed_pagination_and_hard_bounds(self):
-        pages = [envelope([], {"offset": 0, "limit": 100, "total": 0}),
-                 envelope([{"id": 101}, {"id": 101}], {"offset": 0, "limit": 100, "total": 2}),
+    def test_duplicate_changed_pagination_and_hard_bounds(self):
+        pages = [envelope([{"id": 101}, {"id": 101}], {"offset": 0, "limit": 100, "total": 2}),
+                 envelope([], {"offset": 0, "limit": 100, "total": 1}),
+                 envelope([{"id": 101}], {"offset": 0, "limit": 100, "total": 0}),
                  envelope([{"id": 101}], {"offset": 0, "limit": 100, "total": 501}),
                  envelope([{"id": 101}], {"offset": 1, "limit": 100, "total": 1})]
         for page in pages:
@@ -241,6 +247,192 @@ class SyncTests(unittest.TestCase):
         route = lambda path, query: (200, envelope(expanded), {}) if path == "/store/products/101" else normal_route(path, query)
         with patch.object(sync, "MAX_TOTAL_VARIANTS", 1):
             self.failed(route, "variant limit")
+
+    def test_ecommerce_uses_sync_api_without_probing_or_writes(self):
+        def route(path, query):
+            return normal_route(path.replace("/sync/products", "/store/products"), query)
+        client, handler = self.client(route, platform="ecommerce")
+        self.assertEqual(sync.sync_catalogue(self.output, client), (1, 1))
+        self.assertEqual([p for p, _ in handler.calls], ["/stores", "/sync/products", "/sync/products/101"])
+        for path in ("/store/products", "/orders", "/sync/variant/1001", "/sync/products/../orders"):
+            with self.assertRaises(sync.SyncError):
+                client.get(path)
+
+    def test_historical_storefront_price_and_date_survive_live_import(self):
+        product = self.baseline["products"][0]
+        product.update(id="prod_OLD", productId="prod_OLD", handle="printful-18912189-101",
+                       sourceUrl="https://hiphop.caisik.i234.me/dk/products/printful-18912189-101")
+        price = {"amount": 56.5, "currency": "EUR", "taxInclusive": False,
+                 "checkedAt": "2026-10-16T04:52:09.112124+00:00"}
+        product["variants"][0].update(sku="PF-SKU", sourcePrice=price)
+        self.output.write_text(json.dumps(self.baseline))
+        client, _ = self.client()
+        sync.sync_catalogue(self.output, client)
+        result = json.loads(self.output.read_text())["products"][0]
+        self.assertEqual(result["variants"][0]["sourcePrice"], price)
+        self.assertEqual(result["sourceUrl"], product["sourceUrl"])
+        self.assertNotEqual(result["variants"][0]["sourcePrice"]["amount"], 99.00,
+                            "Printful retail_price is not the original store's quote")
+
+    def test_changed_existing_sku_or_catalog_identity_does_not_overwrite(self):
+        for field, value in (("sku", "DIFFERENT-SKU"), ("printfulCatalogVariantId", 999)):
+            self.baseline["products"][0]["variants"][0][field] = value
+            self.output.write_text(json.dumps(self.baseline))
+            self.before = self.output.read_bytes()
+            self.failed(normal_route, "identity mapping")
+            self.baseline["products"][0]["variants"][0].pop(field)
+            self.baseline["products"][0]["variants"][0]["printfulCatalogVariantId"] = 51734
+
+    def test_missing_or_empty_sku_fails_atomically_instead_of_disappearing_in_ui(self):
+        for value in (None, "", "  \t "):
+            source = details()
+            source["sync_variants"][0]["sku"] = value
+            self.failed(lambda path, query, source=source:
+                        (200, envelope(source), {}) if path == "/store/products/101" else normal_route(path, query),
+                        "has no SKU")
+
+    def test_authenticated_empty_store_is_written_with_removal_evidence(self):
+        def route(path, query):
+            if path == "/store/products":
+                return 200, envelope([], {"offset": 0, "limit": 100, "total": 0}), {}
+            return normal_route(path, query)
+        client, handler = self.client(route)
+        self.assertEqual(sync.sync_catalogue(self.output, client), (0, 0))
+        result = json.loads(self.output.read_text())
+        self.assertEqual(result["products"], [])
+        self.assertTrue(result["catalogueVerifiedLive"])
+        self.assertEqual(result["sync"]["removedProductIds"], [101])
+        self.assertEqual(result["sync"]["removedVariantIds"], [1001])
+        self.assertEqual([p for p, _ in handler.calls], ["/stores", "/store/products"])
+
+    def test_bounded_rate_limit_and_transient_get_retries(self):
+        for status, headers, expected in ((429, {"Retry-After": "7"}, [7]), (503, {}, [1])):
+            failures, waits = [status], []
+            def route(path, query):
+                if failures:
+                    return failures.pop(), {"error": TOKEN}, headers
+                return normal_route(path, query)
+            client, handler = self.client(route)
+            client.sleep = waits.append
+            self.assertEqual(sync.sync_catalogue(self.output, client), (1, 1))
+            self.assertEqual(waits, expected)
+            self.assertEqual([p for p, _ in handler.calls].count("/stores"), 2)
+        waits = []
+        client, handler = self.client(lambda p, q: (429, {"error": TOKEN}, {"Retry-After": "0"}))
+        client.sleep = waits.append
+        with self.assertRaises(sync.SyncError):
+            sync.sync_catalogue(self.output, client)
+        self.assertEqual(len(handler.calls), sync.MAX_ATTEMPTS)
+        self.assertEqual(waits, [0, 0])
+
+    def test_retry_after_is_respected_or_stops_without_early_retry(self):
+        for value in ("61", "900", "invalid", ""):
+            client, handler = self.client(lambda p, q: (429, {"error": TOKEN}, {"Retry-After": value}))
+            waits = []
+            client.sleep = waits.append
+            with self.assertRaises(sync.SyncError):
+                sync.sync_catalogue(self.output, client)
+            self.assertEqual(len(handler.calls), 1)
+            self.assertEqual(waits, [])
+        for status in (400, 401, 403, 404):
+            client, handler = self.client(lambda p, q: (status, {"error": TOKEN}, {}))
+            with self.assertRaises(sync.SyncError):
+                sync.sync_catalogue(self.output, client)
+            self.assertEqual(len(handler.calls), 1)
+
+    def test_successful_rate_limit_headers_pace_next_request(self):
+        def route(path, query):
+            status, body, headers = normal_route(path, query)
+            return status, body, {"X-RateLimit-Remaining": "0", "X-RateLimit-Reset": "2"} if path == "/stores" else headers
+        client, _ = self.client(route)
+        waits = []
+        client.sleep = waits.append
+        sync.sync_catalogue(self.output, client)
+        self.assertEqual(waits, [2])
+
+    def test_incremental_preserves_other_products_and_their_observation_dates(self):
+        untouched = dict(self.baseline["products"][0])
+        untouched.update(id="other-product", productId="other-product", handle="other-product",
+                         printfulSyncProductId=102, printfulCheckedAt="2020-01-01T00:00:00Z")
+        untouched["variants"] = [dict(untouched["variants"][0], id="other-variant", printfulSyncVariantId=1002)]
+        self.baseline["products"].append(untouched)
+        self.output.write_text(json.dumps(self.baseline))
+        client, handler = self.client()
+        self.assertEqual(sync.sync_catalogue(self.output, client, [101]), (2, 2))
+        result = json.loads(self.output.read_text())
+        self.assertFalse(result["catalogueVerifiedLive"])
+        self.assertEqual(result["sync"]["mode"], "incremental")
+        self.assertFalse(result["sync"]["completeStoreScan"])
+        self.assertEqual(result["sync"]["removedProductIds"], [])
+        self.assertEqual(result["products"][0], untouched)
+        self.assertEqual([p for p, _ in handler.calls], ["/stores", "/store/products/101"])
+
+    def test_incremental_missing_product_never_infers_deletion(self):
+        client, handler = self.client(lambda p, q: (404, {"error": TOKEN}, {}) if p.endswith("/101") else normal_route(p, q))
+        with self.assertRaises(sync.SyncError):
+            sync.sync_catalogue(self.output, client, [101])
+        self.assertEqual(self.output.read_bytes(), self.before)
+        for ids in ([101, 101], [], [-1], [True]):
+            client, handler = self.client()
+            with self.assertRaises(sync.SyncError):
+                sync.sync_catalogue(self.output, client, ids)
+            self.assertEqual(handler.calls, [])
+
+    def test_live_price_currency_and_availability_are_observations_only(self):
+        for amount, currency, status in (("0.001", "EUR", "out_of_stock"), ("99.00", "", "unknown-provider-status")):
+            source = details()
+            source["sync_variants"][0].update(retail_price=amount, currency=currency, availability_status=status)
+            product = sync.public_product(101, source, None)
+            observed = product["variants"][0]
+            self.assertEqual(observed["printfulRetailPrice"]["amount"], amount)
+            self.assertEqual(observed["printfulRetailPrice"]["currency"], currency or None)
+            self.assertEqual(observed["availability"]["status"], status if status in sync.AVAILABILITY else "unknown")
+            self.assertFalse(observed["printfulRetailPrice"]["checkoutQuote"])
+            self.assertNotIn("sourcePrice", observed)
+        for amount, currency in (("NaN", "EUR"), ("-1", "EUR"), (12, "EUR"), ("99.00", "bad-currency")):
+            source = details()
+            source["sync_variants"][0].update(retail_price=amount, currency=currency)
+            with self.assertRaises(sync.SyncError):
+                sync.public_product(101, source, None)
+
+    def test_full_scan_tracks_removed_variants_after_complete_success(self):
+        old = self.baseline["products"][0]["variants"][0]
+        self.baseline["products"][0]["variants"].append(dict(old, id="removed-variant", printfulSyncVariantId=1002))
+        self.output.write_text(json.dumps(self.baseline))
+        client, _ = self.client()
+        sync.sync_catalogue(self.output, client)
+        self.assertEqual(json.loads(self.output.read_text())["sync"]["removedVariantIds"], [1002])
+
+    def test_ignored_and_out_of_stock_are_unavailable_not_removed(self):
+        source = details()
+        old = dict(self.baseline["products"][0]["variants"][0], id="ignored-variant", printfulSyncVariantId=1002)
+        self.baseline["products"][0]["variants"].append(old)
+        self.output.write_text(json.dumps(self.baseline))
+        source["sync_variants"][0]["availability_status"] = "temporary_out_of_stock"
+        source["sync_variants"].append(dict(source["sync_variants"][0], id=1002, is_ignored=True))
+        def route(path, query):
+            return (200, envelope(source), {}) if path == "/store/products/101" else normal_route(path, query)
+        client, _ = self.client(route)
+        sync.sync_catalogue(self.output, client)
+        result = json.loads(self.output.read_text())
+        self.assertEqual(result["sync"]["removedVariantIds"], [])
+        self.assertEqual(result["sync"]["unavailableVariantIds"], [1001, 1002])
+        self.assertEqual(result["products"][0]["unconfiguredVariantIds"], [1002])
+
+    def test_transient_transport_failure_retries_without_exposing_exception(self):
+        failures = [True]
+        def route(path, query):
+            if failures:
+                failures.pop()
+                raise OSError(TOKEN)
+            return normal_route(path, query)
+        client, handler = self.client(route)
+        waits = []
+        client.sleep = waits.append
+        sync.sync_catalogue(self.output, client)
+        self.assertEqual(waits, [1])
+        self.assertEqual([p for p, _ in handler.calls].count("/stores"), 2)
+        self.assertNotIn(TOKEN, self.output.read_text())
 
 
 if __name__ == "__main__":

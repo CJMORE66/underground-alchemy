@@ -1,17 +1,19 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import {parseHTML} from 'linkedom';
+import {sourcePrice,sourceProductURL,originalVariantURL} from '../dist/shop/source-commerce.js';
 import {normalizeShopCatalog,safeShopImage,findShopVariant,mountShop} from '../dist/shop/shop.js';
 
 const raw=JSON.parse(fs.readFileSync(new URL('../dist/catalog.json',import.meta.url),'utf8'));
-const input={version:1,checkedAt:raw.checkedAt,mode:'snapshot',catalogueVerifiedLive:false,checkout:{enabled:false},products:raw.products};
+const input=JSON.parse(fs.readFileSync(new URL('../dist/shop/catalog.json',import.meta.url),'utf8'));
+assert.equal(input.mode,'snapshot');
 const normalized=normalizeShopCatalog(input);
 assert.equal(normalized.products.length,20);
 assert.equal(normalized.products.flatMap(product=>product.variants).length,86);
 assert.equal(normalized.checkoutEnabled,false);
 assert(!JSON.stringify(normalized).includes('calculatedAmount'));
 assert(!JSON.stringify(normalized).includes('printfulAvailableAtSync'));
-assert(!JSON.stringify(normalized).includes('https://hiphop.caisik.i234.me'));
+assert(normalized.products.every(product=>sourceProductURL(product)?.startsWith('https://hiphop.caisik.i234.me/dk/products/')));
 assert(!JSON.stringify(normalized).includes('priceLabel'));
 assert.equal(normalizeShopCatalog({...input,checkout:{enabled:true,url:'https://attacker.example/checkout'},token:'private'}).checkoutEnabled,false,'the preview never enables orders from unverified config');
 assert.equal(safeShopImage('javascript:alert(1)'),null);
@@ -51,19 +53,31 @@ function fixture(responses=[input]){
 {
  const h=fixture();await h.api.ready;
  assert.equal(h.document.querySelectorAll('.shop-card').length,20);
- assert.equal(h.requests.length,1);assert.equal(h.requests[0].url,'/shop/catalog.json?v=1');
+ assert.equal(h.requests.length,1);assert.equal(h.requests[0].url,'/shop/catalog.json?v=2');
  assert(!h.document.querySelector('a[href*="hiphop.caisik"]'));
- assert(!h.document.querySelector('[data-checkout],form,[data-add-to-cart]'));
- assert(!h.host.textContent.includes('€'));
+ assert(!h.document.querySelector('[data-checkout],form'),'no payment form or enabled checkout exists');
+ assert(h.document.querySelector('[data-shop-cart]'),'local selection cart is available');
+ assert(h.document.querySelector('[aria-describedby="shop-checkout-reason"]').disabled);
+ assert(!h.host.textContent.includes('€'),'prices appear only for a fully selected exact variant');
  const search=h.document.querySelector('[data-shop-search]');search.value='OMERTA';search.dispatchEvent(new h.window.Event('input',{bubbles:true}));
  assert.equal(h.api.getState().count,1);assert.match(h.document.querySelector('.shop-card h3').textContent,/OMERTA/);
  const button=h.click('[data-shop-product]');assert(h.dialog.open);assert.equal(h.document._focus.id,'shop-detail-title');
+ assert(h.document.querySelector('[data-shop-add]').disabled,'a cart line requires an exact variant selection');
  const omerta=normalized.products.find(product=>product.name==='OMERTA WITH EGO'),variant=omerta.variants.find(variant=>variant.options.some(option=>option.value==='2XL'));
  for(const value of variant.options){const select=h.document.querySelector(`[data-shop-option="${value.title}"]`);h.setSelect(select,value.value);}
  assert.match(h.document.querySelector('[data-shop-variant-status]').textContent,new RegExp(variant.sku));
+ assert.match(h.document.querySelector('[data-shop-price]').textContent,/€56.50/);
+ assert.match(h.document.querySelector('[data-shop-price]').textContent,/2026-10-16/);
+ assert.equal(h.document.querySelector('[data-shop-variant-status]').dataset.sourceVariantUrl,originalVariantURL(omerta,variant));
+ assert(h.document.querySelector('.shop-detail-availability button').disabled,'unavailable checkout remains blocked even after a valid selection');
+ assert(!h.document.querySelector('[data-shop-add]').disabled,'an exact variant can be saved in the local cart');
+ h.click('[data-shop-add]');assert.equal(h.api.getState().cartCount,1);assert.match(h.document.querySelector('[data-shop-cart-lines]').textContent,/OMERTA/);
+ assert(h.document.querySelector('[aria-describedby="shop-checkout-reason"]').disabled,'saving a cart selection never enables payment');
  const select=h.document.querySelector('[data-shop-option="Size"]');h.setSelect(select,'invented');assert.match(h.document.querySelector('[data-shop-variant-status]').textContent,/kombinace/);assert(!h.document.querySelector('[data-shop-variant-status]').textContent.includes(variant.sku));
+ assert.equal(h.document.querySelector('[data-shop-price]').textContent,'');assert(!h.document.querySelector('[data-shop-variant-status]').dataset.sourceVariantUrl);
  h.setSelect(select,'');assert.match(h.document.querySelector('[data-shop-variant-status]').textContent,/Vyber/);
  h.click('[data-shop-close]');assert(!h.dialog.open);assert.equal(h.document._focus,button,'closing restores focus without a page scroll');
+ h.click('[data-shop-product]');assert(!h.document.querySelector('[data-shop-variant-status]').dataset.sourceVariantUrl,'reopening cannot reuse the old variant');h.click('[data-shop-close]');
  search.value='nothing-matches-123';search.dispatchEvent(new h.window.Event('input',{bubbles:true}));assert.equal(h.api.getState().count,0);assert(h.document.querySelector('[data-shop-reset]'));
  h.click('[data-shop-reset]');assert.equal(h.api.getState().count,20);assert.equal(search.value,'');assert.equal(h.document._focus,search);
  h.click('[data-shop-category="hoodies"]');assert.equal(h.api.getState().count,raw.products.filter(product=>product.category==='hoodies').length);
@@ -81,4 +95,24 @@ function fixture(responses=[input]){
 {
  let resolve;const {document}=parseHTML(html);const dialog=document.querySelector('dialog');dialog.close=()=>dialog.removeAttribute('open');const api=mountShop(document.querySelector('[data-shop]'),{document,fetch:()=>new Promise(done=>resolve=done)});api.destroy();resolve({ok:true,json:async()=>input});await api.ready;assert.equal(document.querySelectorAll('.shop-card').length,0,'a late response cannot remount a destroyed shop');
 }
-console.log('PASS shop: 20 real designs/86 exact variants, public-field allowlist, image-host safety, no prices/orders/old checkout, native search/category/detail/selection, invalid/ambiguous selection, escaped content, retry/image failure/focus and lifecycle cleanup.');
+// Every historical amount, currency, identity and SKU is retained exactly.
+for(const source of raw.products){
+ const product=normalized.products.find(product=>product.id===source.productId);assert(product);assert.equal(product.handle,source.handle);
+ for(const original of source.variants){
+  const variant=product.variants.find(variant=>variant.id===original.id);assert(variant);assert.equal(variant.sku,original.sku);
+  assert.deepEqual(variant.sourcePrice,{amount:original.calculatedAmount,currency:original.currency.toUpperCase(),taxInclusive:original.priceTaxInclusive,checkedAt:source.checkedAt});
+  const url=new URL(originalVariantURL(product,variant));assert.equal(url.origin,'https://hiphop.caisik.i234.me');assert.equal(url.pathname,'/dk/products/'+source.handle);assert.equal(url.searchParams.get('v_id'),original.id);
+ }
+}
+assert.equal(sourcePrice({amount:NaN,currency:'EUR',checkedAt:input.checkedAt}),null);
+assert.equal(sourcePrice({amount:-1,currency:'EUR',checkedAt:input.checkedAt}),null);
+assert.equal(sourcePrice({amount:1,currency:'BAD!',checkedAt:input.checkedAt}),null);
+assert.equal(sourcePrice({amount:1,currency:'EUR',checkedAt:'not a date'}),null);
+assert.equal(sourceProductURL({...normalized.products[0],sourceUrl:'https://attacker.example/'}),null);
+assert.equal(originalVariantURL(normalized.products[0],{id:'variant_fake',sku:'fake'}),null);
+assert.equal(originalVariantURL({...product,sourceUrl:'javascript:bad()'},product.variants[0]),null);
+const home=fs.readFileSync(new URL('../dist/index.html',import.meta.url),'utf8'),{document:homeDoc}=parseHTML(home);
+assert.equal(homeDoc.querySelectorAll('#main-nav a[href="/shop/"]').length,1);
+assert(homeDoc.querySelector('header>a[data-shop-shortcut][href="/shop/"]'),'mobile shortcut is outside the collapsed navigation');
+for(const lang of ['cs','en','fr']){const messages=JSON.parse(fs.readFileSync(new URL(`../dist/i18n/${lang}.json`,import.meta.url),'utf8'));for(const key of ['Cena ve zdrojovém katalogu:','Cenový snapshot:','NÁKUP DOČASNĚ NEDOSTUPNÝ','Objednávání je dočasně nedostupné. Původní obchod se musí obnovit.'])assert(messages[key],lang+': '+key);}
+console.log('PASS shop: 20 designs/86 exact IDs, SKUs and dated source prices; exact original-store variant URL construction; invalid/ambiguous/reset/reopen; local cart selections with blocked checkout; visible mobile entry; CS/EN/FR; image safety, search/category/detail, escaping, retry/focus and lifecycle.');

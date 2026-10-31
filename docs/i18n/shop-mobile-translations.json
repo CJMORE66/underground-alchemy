@@ -340,6 +340,46 @@
       "cs": "Další návrhy",
       "en": "More designs",
       "fr": "Autres modèles"
+    },
+    "Objednávání je dočasně nedostupné. Původní obchod se musí obnovit.": {
+      "cs": "Objednávání je dočasně nedostupné. Původní obchod se musí obnovit.",
+      "en": "Ordering is temporarily unavailable. The original store needs to be restored.",
+      "fr": "Les commandes sont temporairement indisponibles. La boutique d’origine doit être rétablie."
+    },
+    "Pro výběr návrhů zapni JavaScript. Objednávání je dočasně nedostupné.": {
+      "cs": "Pro výběr návrhů zapni JavaScript. Objednávání je dočasně nedostupné.",
+      "en": "Enable JavaScript to browse designs. Ordering is temporarily unavailable.",
+      "fr": "Active JavaScript pour parcourir les créations. Les commandes sont temporairement indisponibles."
+    },
+    "NÁKUP DOČASNĚ NEDOSTUPNÝ": {
+      "cs": "NÁKUP DOČASNĚ NEDOSTUPNÝ",
+      "en": "ORDERING TEMPORARILY UNAVAILABLE",
+      "fr": "COMMANDES TEMPORAIREMENT INDISPONIBLES"
+    },
+    "Cena ve zdrojovém katalogu:": {
+      "cs": "Cena ve zdrojovém katalogu:",
+      "en": "Source catalogue price:",
+      "fr": "Prix du catalogue source :"
+    },
+    "Cenový snapshot:": {
+      "cs": "Cenový snapshot:",
+      "en": "Price snapshot:",
+      "fr": "Prix enregistré le :"
+    },
+    "Zdrojová cena bez daně.": {
+      "cs": "Zdrojová cena bez daně.",
+      "en": "Source price excludes tax.",
+      "fr": "Le prix source est hors taxes."
+    },
+    "Cena této varianty není doložená.": {
+      "cs": "Cena této varianty není doložená.",
+      "en": "No documented price for this variant.",
+      "fr": "Aucun prix documenté pour cette variante."
+    },
+    "Uložené ceny nejsou aktuální nabídkou. Doprava, daně a konečná cena se ověřují v původním obchodě.": {
+      "cs": "Uložené ceny nejsou aktuální nabídkou. Doprava, daně a konečná cena se ověřují v původním obchodě.",
+      "en": "Saved prices are not a current offer. Shipping, taxes and the final price are confirmed in the original store.",
+      "fr": "Les prix enregistrés ne constituent pas une offre actuelle. Livraison, taxes et prix final sont confirmés dans la boutique d’origine."
     }
   }
 }
