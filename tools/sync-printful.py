@@ -10,9 +10,11 @@ import json
 import os
 from pathlib import Path
 import re
+import random
 import ssl
 import sys
 import tempfile
+import time
 from urllib.error import HTTPError, URLError
 from urllib.parse import urlencode, urlsplit
 from urllib.request import HTTPRedirectHandler, HTTPSHandler, Request, build_opener
@@ -29,6 +31,9 @@ MAX_TOTAL_VARIANTS = 5000
 MAX_RESPONSE_BYTES = 8 * 1024 * 1024
 MAX_CATALOGUE_BYTES = 8 * 1024 * 1024
 MAX_SAFE_INTEGER = 9007199254740991
+MAX_ATTEMPTS = 3
+MAX_RETRY_SECONDS = 60
+AVAILABILITY = {"active", "discontinued", "out_of_stock", "temporary_out_of_stock"}
 
 
 class SyncError(Exception):
@@ -133,13 +138,15 @@ def local_image(value):
 
 
 class PrintfulClient:
-    def __init__(self, token, platform="api"):
+    def __init__(self, token, platform="api", *, sleep=time.sleep, jitter=random.random):
         if (not isinstance(token, str) or not 8 <= len(token) <= 4096
                 or not re.fullmatch(r"[!-~]+", token)):
             raise SyncError("PRINTFUL_API_TOKEN is missing or has an invalid format. Set it only in the process environment.")
         if platform not in ("api", "ecommerce"):
             raise SyncError("Choose the existing store platform: api or ecommerce.")
         self.token = token
+        self.sleep, self.jitter = sleep, jitter
+        self.rate_limit_delay = 0
         self.product_path = "/store/products" if platform == "api" else "/sync/products"
         self.opener = build_opener(NoRedirect(), HTTPSHandler(context=ssl.create_default_context()))
 
@@ -150,22 +157,48 @@ class PrintfulClient:
         request = Request(url, headers={"Authorization": "Bearer " + self.token,
                           "X-PF-Store-Id": str(STORE_ID), "Accept": "application/json",
                           "User-Agent": "CAISIK-readonly-catalogue/1.0"}, method="GET")
-        try:
-            with self.opener.open(request, timeout=25) as response:
-                if response.geturl() != url or response.status != 200:
-                    raise SyncError("Printful returned an unexpected response; the catalogue was not changed.")
-                if response.headers.get_content_type() != "application/json":
-                    raise SyncError("Printful did not return JSON; the catalogue was not changed.")
-                raw = response.read(MAX_RESPONSE_BYTES + 1)
-                if len(raw) > MAX_RESPONSE_BYTES:
-                    raise SyncError("Printful response exceeds the configured size limit.")
-        except HTTPError as error:
-            # Never include the exception, URL, upstream body or headers in logs.
-            if error.code in (401, 403):
-                raise SyncError("Printful authentication or read permission failed; the catalogue was not changed.") from None
-            raise SyncError("Printful returned an HTTP error; the catalogue was not changed.") from None
-        except (URLError, TimeoutError, OSError):
-            raise SyncError("The secure Printful request failed; the catalogue was not changed.") from None
+        if self.rate_limit_delay:
+            self.sleep(self.rate_limit_delay)
+            self.rate_limit_delay = 0
+        for attempt in range(MAX_ATTEMPTS):
+            retry_delay = min(2 ** attempt + self.jitter(), MAX_RETRY_SECONDS)
+            try:
+                with self.opener.open(request, timeout=25) as response:
+                    if response.geturl() != url or response.status != 200:
+                        raise SyncError("Printful returned an unexpected response; the catalogue was not changed.")
+                    if response.headers.get_content_type() != "application/json":
+                        raise SyncError("Printful did not return JSON; the catalogue was not changed.")
+                    raw = response.read(MAX_RESPONSE_BYTES + 1)
+                    if len(raw) > MAX_RESPONSE_BYTES:
+                        raise SyncError("Printful response exceeds the configured size limit.")
+                    # Reset is a relative number of seconds, not a Unix timestamp.
+                    remaining = response.headers.get("X-RateLimit-Remaining")
+                    reset = response.headers.get("X-RateLimit-Reset", "")
+                    if remaining == "0" and re.fullmatch(r"[0-9]{1,3}", reset):
+                        if int(reset) > MAX_RETRY_SECONDS:
+                            raise SyncError("Printful rate-limit reset exceeds the bounded wait; retry the import later.")
+                        self.rate_limit_delay = min(MAX_RETRY_SECONDS, int(reset) + self.jitter())
+                break
+            except HTTPError as error:
+                # Never include the exception, URL, upstream body or headers in logs.
+                status = error.code
+                retry_after = error.headers.get("Retry-After", "") if error.headers else ""
+                error.close()
+                if status in (401, 403):
+                    raise SyncError("Printful authentication or read permission failed; the catalogue was not changed.") from None
+                if status == 429:
+                    # Respect the authoritative wait or stop. Never cap it and retry too early.
+                    if not re.fullmatch(r"[0-9]{1,6}", retry_after) or int(retry_after) > MAX_RETRY_SECONDS:
+                        raise SyncError("Printful rate-limited the import; retry later after the provider's required delay.") from None
+                    retry_delay = min(MAX_RETRY_SECONDS, int(retry_after) + self.jitter())
+                elif status not in (500, 502, 503, 504):
+                    raise SyncError("Printful returned an HTTP error; the catalogue was not changed.") from None
+                if attempt + 1 == MAX_ATTEMPTS:
+                    raise SyncError("Printful exhausted the bounded read retries; the catalogue was not changed.") from None
+            except (URLError, TimeoutError, OSError):
+                if attempt + 1 == MAX_ATTEMPTS:
+                    raise SyncError("The secure Printful request failed after bounded retries; the catalogue was not changed.") from None
+            self.sleep(retry_delay)
         try:
             envelope = strict_json(raw.decode("utf-8"))
         except (UnicodeError, ValueError, RecursionError):
@@ -174,23 +207,33 @@ class PrintfulClient:
             raise SyncError("Printful returned an invalid API envelope; the catalogue was not changed.")
         return envelope
 
-    def products(self):
+    def products(self, product_ids=None):
         stores = self.get("/stores")["result"]
         if (not isinstance(stores, list) or len(stores) != 1 or not isinstance(stores[0], dict)
                 or identifier(stores[0].get("id")) != STORE_ID):
             raise SyncError("Use a token limited to the expected CAISIK store 18912189; store identity did not match.")
+        if product_ids is not None:
+            # An incremental scan never infers deletion from absent records. A 404 fails
+            # atomically and requires a full scan to establish actual store membership.
+            for product_id in product_ids:
+                yield product_id, self.get(self.product_path + "/" + str(product_id))["result"]
+            return
         seen, offset, total = set(), 0, None
         for _ in range(MAX_PAGES):
-            page = self.get(self.product_path, {"status": "synced", "offset": offset, "limit": PAGE_SIZE})
+            page = self.get(self.product_path, {"offset": offset, "limit": PAGE_SIZE})
             batch, paging = page["result"], page.get("paging")
             if not isinstance(batch, list) or not isinstance(paging, dict):
                 raise SyncError("Printful product pagination is malformed.")
             current_total, current_offset, limit = paging.get("total"), paging.get("offset"), paging.get("limit")
-            if (type(current_total) is not int or not 1 <= current_total <= MAX_PRODUCTS
+            if (type(current_total) is not int or not 0 <= current_total <= MAX_PRODUCTS
                     or type(current_offset) is not int or current_offset != offset
                     or type(limit) is not int or not 1 <= limit <= PAGE_SIZE
-                    or len(batch) > limit or not batch):
+                    or len(batch) > limit or (not batch and current_total != 0)):
                 raise SyncError("Printful returned an empty, oversized or inconsistent catalogue page.")
+            if current_total == 0:
+                if offset != 0 or batch:
+                    raise SyncError("Printful returned inconsistent empty catalogue pagination.")
+                return
             if total is None:
                 total = current_total
             if current_total != total or offset + len(batch) > total:
@@ -279,13 +322,38 @@ def historical_source_price(value):
             "checkedAt": value["checkedAt"]}
 
 
-def public_product(product_id, detail, previous):
+def live_variant_fields(variant, checked_at):
+    """Store provider observations separately from historical storefront quotes.
+
+    Printful retail_price is merchant-configured metadata, not proof of a
+    payable storefront price. Empty currency is documented and stays unknown.
+    """
+    price, amount, currency = None, variant.get("retail_price"), variant.get("currency")
+    if amount is not None and amount != "":
+        if not isinstance(amount, str) or not re.fullmatch(r"(?:0|[1-9][0-9]{0,8})(?:\.[0-9]{1,6})?", amount):
+            raise SyncError("Printful returned an invalid retail price; the catalogue was not changed.")
+        if currency in (None, ""):
+            currency = None
+        elif not isinstance(currency, str) or not re.fullmatch(r"[A-Z]{3}", currency):
+            raise SyncError("Printful returned an invalid retail currency; the catalogue was not changed.")
+        price = {"amount": amount, "currency": currency, "checkedAt": checked_at,
+                 "source": "printful-sync-variant", "checkoutQuote": False}
+    status = variant.get("availability_status")
+    return {"printfulRetailPrice": price,
+            "availability": {"status": status if isinstance(status, str) and status in AVAILABILITY else "unknown",
+                             "checkedAt": checked_at, "source": "printful-sync-variant"},
+            "configurationStatus": ("synced" if variant.get("synced") is True else
+                                    "incomplete" if variant.get("synced") is False else "unverified")}
+
+
+def public_product(product_id, detail, previous, checked_at=None):
     if not isinstance(detail, dict) or not isinstance(detail.get("sync_product"), dict) or not isinstance(detail.get("sync_variants"), list):
         raise SyncError("Printful returned malformed product details.")
     product, source_variants = detail["sync_product"], detail["sync_variants"]
     if identifier(product.get("id")) != product_id or not 1 <= len(source_variants) <= MAX_VARIANTS:
         raise SyncError("Printful product identity or variant count is invalid.")
     name = text(product.get("name"), 300, required=True)
+    checked_at = checked_at or dt.datetime.now(dt.timezone.utc).isoformat().replace("+00:00", "Z")
     previous = previous or {}
     previous_variants = {}
     for item in previous.get("variants", []):
@@ -295,7 +363,7 @@ def public_product(product_id, detail, previous):
         if variant_id in previous_variants:
             raise SyncError("The previous catalogue contains duplicate variant identifiers.")
         previous_variants[variant_id] = item
-    variants, images, options, seen = [], [], {}, set()
+    variants, images, options, seen, unconfigured = [], [], {}, set(), []
     local = local_image(previous.get("localImage"))
     if previous.get("localImage") and local is None:
         raise SyncError("A retained local product image is missing or has an unsafe path.")
@@ -312,10 +380,13 @@ def public_product(product_id, detail, previous):
             raise SyncError("Printful returned a duplicate variant identifier.")
         seen.add(variant_id)
         if variant.get("is_ignored") is True or variant.get("variant_id") is None:
+            unconfigured.append(variant_id)
             continue
         catalog_id = identifier(variant.get("variant_id"))
         old = previous_variants.get(variant_id, {})
         sku = text(variant.get("sku"), 200)
+        if not sku:
+            raise SyncError("An exportable Printful variant has no SKU; complete its configuration before import.")
         if old and ((old.get("sku") and old["sku"] != sku)
                     or old.get("printfulCatalogVariantId") != catalog_id):
             raise SyncError("A retained SKU or catalog variant changed; review identity mapping before import.")
@@ -329,6 +400,7 @@ def public_product(product_id, detail, previous):
                          "title": text(old.get("title") or variant.get("name"), 300, required=True),
                          "options": values, "printfulSyncVariantId": variant_id,
                          "printfulCatalogVariantId": catalog_id})
+        variants[-1].update(live_variant_fields(variant, checked_at))
         saved_price = historical_source_price(old.get("sourcePrice"))
         if saved_price is not None:
             variants[-1]["sourcePrice"] = saved_price
@@ -351,7 +423,8 @@ def public_product(product_id, detail, previous):
             "description": description(product.get("description") or previous.get("description")),
             "localImage": local, "image": local or images[0], "images": images,
             "options": [{"title": key, "values": values} for key, values in options.items()],
-            "variants": variants, "printfulSyncProductId": product_id, "printfulStoreId": str(STORE_ID)}
+            "variants": variants, "printfulSyncProductId": product_id, "printfulStoreId": str(STORE_ID),
+            "printfulCheckedAt": checked_at, "unconfiguredVariantIds": unconfigured}
     original_url = "https://hiphop.caisik.i234.me/dk/products/" + result["handle"]
     if (re.fullmatch(r"prod_[A-Za-z0-9]+", result["productId"])
             and re.fullmatch(r"printful-18912189-[0-9]+", result["handle"])
@@ -360,16 +433,30 @@ def public_product(product_id, detail, previous):
     return result
 
 
-def sync_catalogue(output, client):
+def sync_catalogue(output, client, product_ids=None):
     output = Path(output)
     if output.is_symlink() or output.suffix.lower() != ".json":
         raise SyncError("Choose a regular JSON output path, not a symbolic link.")
     previous = previous_catalogue(output)
-    products, seen_variants, public_ids, public_handles, public_variants, variant_count = [], set(), set(), set(), set(), 0
-    for product_id, detail in client.products():
+    if product_ids is not None:
+        product_ids = [identifier(value) for value in product_ids]
+        if not product_ids or len(product_ids) > MAX_PRODUCTS or len(set(product_ids)) != len(product_ids):
+            raise SyncError("Incremental sync requires distinct, bounded Printful product IDs.")
+        # Preserve untouched products exactly, including their observation dates.
+        products = [value for key, value in previous.items() if key not in product_ids]
+    else:
+        products = []
+    checked_at = dt.datetime.now(dt.timezone.utc).isoformat().replace("+00:00", "Z")
+    refreshed, observed_variant_ids = [], set()
+    for product_id, detail in client.products(product_ids):
         if len(products) >= MAX_PRODUCTS:
             raise SyncError("The catalogue exceeds the configured product limit.")
-        product = public_product(product_id, detail, previous.get(product_id))
+        product = public_product(product_id, detail, previous.get(product_id), checked_at)
+        observed_variant_ids.update(identifier(v.get("id")) for v in detail["sync_variants"])
+        products.append(product)
+        refreshed.append(product_id)
+    seen_variants, public_ids, public_handles, public_variants, variant_count = set(), set(), set(), set(), 0
+    for product in products:
         if product["id"] in public_ids or product["handle"] in public_handles:
             raise SyncError("Retained public product identities conflict.")
         public_ids.add(product["id"])
@@ -383,11 +470,19 @@ def sync_catalogue(output, client):
                 raise SyncError("The catalogue contains conflicting variant identifiers.")
             seen_variants.add(variant_id)
             public_variants.add(variant["id"])
-        products.append(product)
-    if not products:
-        raise SyncError("An empty catalogue cannot replace the existing catalogue.")
-    catalogue = {"version": 1, "checkedAt": dt.datetime.now(dt.timezone.utc).isoformat().replace("+00:00", "Z"),
-                 "mode": "printful-readonly", "catalogueVerifiedLive": True,
+    previous_variants = {identifier(v.get("printfulSyncVariantId"))
+                         for key, p in previous.items() if product_ids is None or key in product_ids
+                         for v in p.get("variants", [])}
+    current_product_ids = {p["printfulSyncProductId"] for p in products}
+    catalogue = {"version": 1, "checkedAt": checked_at,
+                 "mode": "printful-readonly", "catalogueVerifiedLive": product_ids is None,
+                 "sync": {"mode": "full" if product_ids is None else "incremental",
+                          "completeStoreScan": product_ids is None, "refreshedProductIds": refreshed,
+                          "removedProductIds": sorted(set(previous) - current_product_ids) if product_ids is None else [],
+                          "removedVariantIds": sorted(previous_variants - observed_variant_ids),
+                          "unavailableVariantIds": sorted({v["printfulSyncVariantId"] for p in products for v in p["variants"]
+                                                           if v.get("availability", {}).get("status") in AVAILABILITY - {"active"}}
+                                                          | {value for p in products for value in p.get("unconfiguredVariantIds", [])})},
                  "checkout": {"enabled": False, "url": None, "verifiedAt": None}, "products": products}
     payload = (json.dumps(catalogue, ensure_ascii=False, indent=2, allow_nan=False) + "\n").encode("utf-8")
     if len(payload) > MAX_CATALOGUE_BYTES or client.token.encode("utf-8") in payload:
@@ -418,10 +513,12 @@ def main(argv=None):
     parser.add_argument("--output", type=Path, default=DEFAULT_OUTPUT, help="Public JSON output; defaults to dist/shop/catalog.json")
     parser.add_argument("--platform", choices=("api", "ecommerce"), default="api",
                         help="Existing Printful store type: manual/API or ecommerce integration. Verify in the account first.")
+    parser.add_argument("--product-id", action="append", type=int, dest="product_ids",
+                        help="Explicit incremental refresh of one product; repeat for more. Full scan is the default.")
     args = parser.parse_args(argv)
     try:
         client = PrintfulClient(os.environ.get("PRINTFUL_API_TOKEN", ""), args.platform)
-        products, variants = sync_catalogue(args.output, client)
+        products, variants = sync_catalogue(args.output, client, args.product_ids)
     except SyncError as error:
         print(str(error), file=sys.stderr)
         return 1
