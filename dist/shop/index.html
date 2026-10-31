@@ -8,10 +8,10 @@
   <title>CAISIK / SHOP — Underground Alchemy</title>
   <link rel="icon" href="/assets/logo/caisik-signature.webp" type="image/webp">
   <link rel="stylesheet" href="/fonts-v7.css?v=1">
-  <link rel="stylesheet" href="/shop/shop.css?v=2">
+  <link rel="stylesheet" href="/shop/shop.css?v=4">
   <link rel="stylesheet" href="/languages.css?v=1">
   <script src="/languages.js?v=2" defer></script>
-  <script type="module" src="/shop/shop.js?v=2"></script>
+  <script type="module" src="/shop/shop.js?v=4"></script>
 <link rel="stylesheet" href="/text-motion.css?v=2"><script src="/text-motion.js?v=2" defer></script></head>
 <body>
   <a class="shop-skip" href="#shop-collection">Přejít ke kolekci</a>
@@ -23,10 +23,10 @@
     <section class="shop-hero" aria-labelledby="shop-title">
       <div class="shop-hero-copy">
         <p class="shop-eyebrow">CAISIK / UNDERGROUND ALCHEMY / SHOP</p>
-        <h1 id="shop-title">TVŮJ ZNAK.<br><em>TVŮJ SVĚT.</em></h1>
+        <h1 id="shop-title"><span>TVŮJ ZNAK.</span><br><em><span>TVŮJ SVĚT.</span></em></h1>
         <p class="shop-lead">Myšlenky z města. Původní návrhy, které můžeš nosit.</p>
         <p class="shop-availability">Objednávání je dočasně nedostupné. Původní obchod se musí obnovit.</p>
-        <a class="shop-primary" href="#shop-collection">PROHLÉDNOUT KOLEKCI ↓</a>
+        <div class="shop-hero-actions"><a class="shop-primary" href="#shop-collection">PROHLÉDNOUT KOLEKCI ↓</a><a class="shop-cart-link" href="#shop-cart"><span>Košík</span> <span data-shop-cart-count translate="no">0</span></a></div>
       </div>
       <figure class="shop-hero-art">
         <svg viewBox="0 0 620 620" aria-hidden="true"><circle cx="310" cy="310" r="259"/><circle cx="310" cy="310" r="234" stroke-dasharray="2 13"/><path d="M310 13V86M310 534V607M13 310H86M534 310H607M90 90 142 142M478 478 530 530M90 530 142 478M478 142 530 90M310 66 523 433H97Z"/></svg>
@@ -44,6 +44,17 @@
       <div class="shop-grid" data-shop-grid></div>
       <noscript><p>Pro výběr návrhů zapni JavaScript. Objednávání je dočasně nedostupné.</p></noscript>
       <p class="shop-source-note">Obrázky jsou původní produktové mockupy. Barevné a velikostní varianty vycházejí z uložené kolekce; dnešní dostupnost není potvrzená.</p>
+    </section>
+    <section id="shop-cart" class="shop-cart" data-shop-cart aria-labelledby="shop-cart-title" tabindex="-1">
+      <p class="shop-eyebrow">CAISIK / SHOP</p><h2 id="shop-cart-title">Tvůj košík</h2>
+      <p>Ulož si vybrané varianty. Košík není objednávka.</p>
+      <p data-shop-cart-storage role="status" aria-live="polite"></p>
+      <div data-shop-cart-lines></div>
+      <div class="shop-cart-summary" data-shop-cart-summary></div>
+      <p class="shop-source-note">Ceny jsou historický odhad bez dopravy a konečných daní. Dostupnost i cenu musí ověřit server před platbou.</p>
+      <button class="shop-primary" type="button" disabled aria-describedby="shop-checkout-reason">POKLADNA NEDOSTUPNÁ</button>
+      <p id="shop-checkout-reason">Platba čeká na ověřené připojení obchodu, Printful a platební brány.</p>
+      <noscript><p>Pro práci s košíkem zapni JavaScript.</p></noscript>
     </section>
   </main>
   <footer class="shop-footer"><a href="/">CAISIK / UNDERGROUND ALCHEMY ↗</a><p>THE CITY IS A TEXT. YOUR WORK LEAVES A MARK.</p><a href="/art/">Původní Blackbook ↗</a></footer>

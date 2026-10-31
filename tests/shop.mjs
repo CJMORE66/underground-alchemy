@@ -55,11 +55,14 @@ function fixture(responses=[input]){
  assert.equal(h.document.querySelectorAll('.shop-card').length,20);
  assert.equal(h.requests.length,1);assert.equal(h.requests[0].url,'/shop/catalog.json?v=2');
  assert(!h.document.querySelector('a[href*="hiphop.caisik"]'));
- assert(!h.document.querySelector('[data-checkout],form,[data-add-to-cart]'));
+ assert(!h.document.querySelector('[data-checkout],form'),'no payment form or enabled checkout exists');
+ assert(h.document.querySelector('[data-shop-cart]'),'local selection cart is available');
+ assert(h.document.querySelector('[aria-describedby="shop-checkout-reason"]').disabled);
  assert(!h.host.textContent.includes('€'),'prices appear only for a fully selected exact variant');
  const search=h.document.querySelector('[data-shop-search]');search.value='OMERTA';search.dispatchEvent(new h.window.Event('input',{bubbles:true}));
  assert.equal(h.api.getState().count,1);assert.match(h.document.querySelector('.shop-card h3').textContent,/OMERTA/);
  const button=h.click('[data-shop-product]');assert(h.dialog.open);assert.equal(h.document._focus.id,'shop-detail-title');
+ assert(h.document.querySelector('[data-shop-add]').disabled,'a cart line requires an exact variant selection');
  const omerta=normalized.products.find(product=>product.name==='OMERTA WITH EGO'),variant=omerta.variants.find(variant=>variant.options.some(option=>option.value==='2XL'));
  for(const value of variant.options){const select=h.document.querySelector(`[data-shop-option="${value.title}"]`);h.setSelect(select,value.value);}
  assert.match(h.document.querySelector('[data-shop-variant-status]').textContent,new RegExp(variant.sku));
@@ -67,6 +70,9 @@ function fixture(responses=[input]){
  assert.match(h.document.querySelector('[data-shop-price]').textContent,/2026-10-16/);
  assert.equal(h.document.querySelector('[data-shop-variant-status]').dataset.sourceVariantUrl,originalVariantURL(omerta,variant));
  assert(h.document.querySelector('.shop-detail-availability button').disabled,'unavailable checkout remains blocked even after a valid selection');
+ assert(!h.document.querySelector('[data-shop-add]').disabled,'an exact variant can be saved in the local cart');
+ h.click('[data-shop-add]');assert.equal(h.api.getState().cartCount,1);assert.match(h.document.querySelector('[data-shop-cart-lines]').textContent,/OMERTA/);
+ assert(h.document.querySelector('[aria-describedby="shop-checkout-reason"]').disabled,'saving a cart selection never enables payment');
  const select=h.document.querySelector('[data-shop-option="Size"]');h.setSelect(select,'invented');assert.match(h.document.querySelector('[data-shop-variant-status]').textContent,/kombinace/);assert(!h.document.querySelector('[data-shop-variant-status]').textContent.includes(variant.sku));
  assert.equal(h.document.querySelector('[data-shop-price]').textContent,'');assert(!h.document.querySelector('[data-shop-variant-status]').dataset.sourceVariantUrl);
  h.setSelect(select,'');assert.match(h.document.querySelector('[data-shop-variant-status]').textContent,/Vyber/);
@@ -109,4 +115,4 @@ const home=fs.readFileSync(new URL('../dist/index.html',import.meta.url),'utf8')
 assert.equal(homeDoc.querySelectorAll('#main-nav a[href="/shop/"]').length,1);
 assert(homeDoc.querySelector('header>a[data-shop-shortcut][href="/shop/"]'),'mobile shortcut is outside the collapsed navigation');
 for(const lang of ['cs','en','fr']){const messages=JSON.parse(fs.readFileSync(new URL(`../dist/i18n/${lang}.json`,import.meta.url),'utf8'));for(const key of ['Cena ve zdrojovém katalogu:','Cenový snapshot:','NÁKUP DOČASNĚ NEDOSTUPNÝ','Objednávání je dočasně nedostupné. Původní obchod se musí obnovit.'])assert(messages[key],lang+': '+key);}
-console.log('PASS shop: 20 designs/86 exact IDs, SKUs and dated source prices; exact original-store variant URL construction; invalid/ambiguous/reset/reopen; blocked checkout; visible mobile entry; CS/EN/FR; image safety, search/category/detail, escaping, retry/focus and lifecycle.');
+console.log('PASS shop: 20 designs/86 exact IDs, SKUs and dated source prices; exact original-store variant URL construction; invalid/ambiguous/reset/reopen; local cart selections with blocked checkout; visible mobile entry; CS/EN/FR; image safety, search/category/detail, escaping, retry/focus and lifecycle.');
