@@ -5,26 +5,70 @@ BLOCKED. Stripe is confirmed; the new backend remains unhosted. The 31 October
 static browser/deployment evidence below is historical and was not rerun as a
 claim of backend readiness.
 
+## 1 November actual Stripe sandbox reads
+
+The owner completed Stripe plugin sandbox authorization. All operations below
+used the selected sandbox with `livemode:false`, not the connected live account.
+These were actual authenticated provider reads, not mocked tests:
+
+| Provider operation | Observed result | Limit |
+| --- | --- | --- |
+| `GET /v1/balance` | PASS: object `balance`, `livemode:false` | Authenticated sandbox read only; no balances retained |
+| `GET /v1/tax/settings` | Authenticated; `status:pending`, `livemode:false`, missing `head_office` | BLOCKED Tax configuration; missing address does not resolve automatically |
+| `GET /v1/tax/registrations?status=all&limit=100` | Empty list, `has_more:false` | No active, scheduled or expired registration returned; no registration was created |
+| `GET /v1/webhook_endpoints?limit=100` | Empty list, `has_more:false` | v1 snapshot endpoint inventory only; does not inventory every v2 Event Destination or prove HTTP delivery |
+| `node tools/verify-stripe.mjs` after OAuth | BLOCKED, `STRIPE_TEST_KEY_REQUIRED`, `networkAttempted:false`, exit 1 | OAuth connection does not supply the Node runtime with a key |
+
+The plugin schema reported `2026-09-30.preview`; this does not prove runtime SDK
+requests at pinned `2026-10-28.endive`. No settings, Checkout Session, payment,
+webhook endpoint, Printful draft or fulfillment confirmation was written.
+Authentication is verified only for these sandbox MCP reads. Checkout, runtime
+credentials, merchant tax policy and public webhook delivery remain unverified.
+
 ## 1 November Stripe / durable-storage verification
 
 | Command/check | Actual result | Evidence category |
 | --- | --- | --- |
 | `node tests/commerce-server.mjs` | PASS, 19 cases | Original fake-provider/repository safety fixtures |
-| `node tests/stripe.mjs` | PASS, 19 cases | Official SDK 23.1.0 signature construction/verification and mocked provider HTTP: test-only keys, Tax/quote/line/address/amount binding, fresh Session/PI/charge/refund checks, pagination and deterministic lost-reply retry parameters |
+| `node tests/stripe.mjs` | PASS, 21 cases | Official SDK 23.1.0 signature construction/verification and mocked provider HTTP: restricted/secret test keys, sanitized denied-scope errors, Tax/quote/line/address/amount binding, fresh Session/PI/charge/refund checks, pagination and deterministic lost-reply retry parameters |
 | `node tests/commerce-sqlite.mjs` | PASS, 14 cases | Actual private on-disk SQLite, migration/checksum, durable reopen, transactions/uniqueness, eight-process races, single-POST gate, leases/fencing and retries/dead letters; no provider requests |
-| `node tests/stripe-workflow.mjs` | PASS, 12 cases | Actual SQLite plus fake Stripe/Printful providers: durable admission, duplicate events/jobs, delayed payments, early/lost Session mapping recovery after quote expiry, ambiguous POST reconciliation and raw Request handler responses |
-| `npm run test:stripe` | PASS, 45 cases | Stripe + SQLite + workflow groups above, not live provider testing |
-| Focused four-suite total | PASS, 64 cases | 19 + 19 + 14 + 12; no fixture is reported as an account/payment success |
+| `node tests/stripe-workflow.mjs` | PASS, 13 cases | Actual SQLite plus fake Stripe/Printful providers: durable admission, duplicate events/jobs, delayed payments, early/lost Session mapping recovery after quote expiry, ambiguous POST reconciliation, raw Request handler responses and restricted-key preflight |
+| `npm run test:stripe` | PASS, 48 cases | Stripe + SQLite + workflow groups above, not live provider testing |
+| Focused four-suite total | PASS, 67 cases | 19 + 21 + 14 + 13; no fixture is reported as an account/payment success |
 | `node tools/verify-stripe.mjs` | BLOCKED, missing test key; `networkAttempted:false` | No authentication request, Session/payment or endpoint registration occurred |
 | Runtime/process credential inspection | BLOCKED | No Stripe/Printful key or endpoint secret available; Sites environment entries remain empty |
 | Latest `npm audit --json` | PASS, exit 0, zero known vulnerabilities | Current dependency advisory check; an earlier exit-2 result was not treated as a clean command |
 
 Real database concurrency is tested, not mocked. Stripe SDK raw signatures are
 tested locally with fixture keys; HTTP account/Tax/payment/refund responses remain
-mocked. No actual Stripe test checkout, real signed delivery, merchant tax
+mocked in automated tests. The actual sandbox reads above are separate. No
+actual Stripe test checkout, real signed delivery, merchant tax
 configuration, Printful draft, customer charge or paid fulfillment was verified.
 Static version 31 and public checkout remain unchanged. No new UI/browser E2E is
 claimed for this backend-only follow-up.
+
+### Proxy retry regression follow-up
+
+The PR review correctly identified that urllib's real `ProxyHandler` mutates a
+Request during HTTPS-over-HTTP tunneling. Reusing that Request for retries can
+change its transport to HTTP. `tools/sync-printful.py` now constructs a fresh
+Request for every bounded attempt, retaining the original HTTPS URL/headers.
+
+`python tests/printful-sync.py ProxyRetryTests.test_retry_rebuilds_request_after_real_proxy_tunnel_mutation`
+passes locally for 429, 503 and transport-failure subcases. The test uses the real
+ProxyHandler and isolated transport, without sockets; the regression failed on
+the old implementation. The agent's full 26-case importer run used a temporary
+path-existence fixture because this partial checkout lacks the real image.
+Only full-repository CI may establish the unmodified image/asset checks.
+`python -m py_compile tools/sync-printful.py tests/printful-sync.py` passed.
+
+Restricted-key support also extends the public artifact scanner from `sk_` to
+both `sk_` and `rk_` secret formats. Full artifact validation requires the complete
+repository and is recorded separately from local source syntax checks.
+The first repository tree write was rejected by GitHub's secret-content rule
+because tests contained complete synthetic credential-shaped literals. Fixtures
+now generate explicitly artificial credentials at runtime; the rule is retained,
+and no actual credential or override is used.
 
 ## 31 October static release evidence
 

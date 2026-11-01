@@ -77,7 +77,7 @@ order or confirmation. Public checkout remains disabled.
    not supplied or verified by this code's existence.
 3. SQLite persists the immutable trusted order. Workflow Checkout creation loads
    that order, creates a hosted Session through official SDK 23.1.0/API
-   `2026-10-28.endive` and durably binds its unique Session/quote. Only `sk_test_`
+   `2026-10-28.endive` and durably binds its unique Session/quote. Only `rk_test_`/`sk_test_`
    keys/test-mode objects are accepted. Discounts, adjustable quantities and
    adaptive currency changes are disabled.
 4. The raw Stripe snapshot signature is verified with the official SDK. Event
@@ -102,7 +102,7 @@ order or confirmation. Public checkout remains disabled.
 | Module | Implemented | External/remaining dependency |
 | --- | --- | --- |
 | `printful.js` | Fixed origin/store; bounded timeout/JSON/read retries; `verifyStore`, `catalogSummary`, `shippingRates`, `lookupOrder`, draft-only `createDraft` | Real token/API verification. Shipping uses catalog `variant_id`; designs use `sync_variant_id`. No arbitrary request, confirmation/refund/cancellation/registration method. |
-| `stripe.js` | Test-only official SDK; Tax/frozen quote, hosted Checkout/resume, session-reference recovery, fresh Session/PI/charge/refund checks, raw snapshot verification | Actual test account/secrets, merchant registrations/countries/tax codes and trusted order creation. Address/provider response normalization requires live validation. |
+| `stripe.js` | Test-only official SDK; restricted/secret test keys, Tax/frozen quote, hosted Checkout/resume, session-reference recovery, fresh Session/PI/charge/refund checks, raw snapshot verification | Sandbox MCP reads are authenticated; runtime keys remain absent. Actual Tax settings are pending (missing head_office), registrations empty. Merchant policy/countries/tax codes and trusted order creation remain required. |
 | `sqlite-repository.js`, `migrations/001-commerce.sql` | Private durable files, checksum migration, immutable orders, unique bindings, atomic inbox/jobs, leases/fencing and failure records | Node 24/private durable local filesystem; explicit startup migration; approved PII retention/anonymization still absent. Not a D1/Cloudflare adapter. |
 | `stripe-workflow.js` | Server-order Checkout coordination, raw Request handler at `/api/stripe/webhook`, durable admission/worker and session-binding recovery | Actual router/host, business authentication/authorization, abuse controls, secrets and worker supervision. |
 | `orders.js` | Draft service, deterministic bounded external ID, payload/hash/payment binding and internal state guard | SQLite supplies repository methods; Stripe supplies fresh verifier. Actual provider draft behavior remains unverified. |
@@ -110,6 +110,13 @@ order or confirmation. Public checkout remains disabled.
 | `validation.js` | Bounded text/items, explicit-exponent decimal conversion and integer money totals | Syntax checks are not deliverability, trusted prices, merchant tax policy or payment verification. |
 
 ## SQLite migration, leases and recovery
+
+Stripe plugin OAuth is a separate control-plane connection, not a credential
+bridge into the Node runtime. Actual sandbox balance/Tax/registration and v1
+endpoint reads are recorded in `PRINTFUL_TEST_RESULTS.md`. They do not mount a
+webhook, inject a runtime key, verify the pinned SDK API version or test payment.
+The runtime read-only preflight uses Tax settings to avoid requiring Balance Read
+for a restricted application key; 401 and 403 return separate sanitized errors.
 
 Filename must be absolute. Its direct parent must already be a non-symlink
 private directory without group/other permissions. The DB must be a private

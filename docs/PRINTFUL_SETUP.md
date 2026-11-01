@@ -2,7 +2,10 @@
 
 Updated: 1 November 2026 (Europe/Paris). Stripe is confirmed; its test-mode
 adapter and real SQLite worker are implemented but not hosted. Live commerce
-remains blocked. For concrete Stripe/bootstrap instructions read
+remains blocked. Actual read-only sandbox MCP authentication now succeeds; this
+does not configure runtime secrets. Tax is pending (missing `head_office`), all
+registrations and v1 snapshot endpoint lists are empty. Complete the merchant's
+real Tax policy; do not create fictitious registration details. For concrete Stripe/bootstrap instructions read
 `STRIPE_SETUP.md`. Do not
 send API tokens, payment keys, customer records or webhook secrets in chat or
 commit them to this repository. Set values through the actual server's secret
@@ -18,7 +21,7 @@ manager or the authorized local process environment.
 | Existing Printful store | Account access establishing store ID/type and existing integration/webhook settings; expected historical ID is `18912189` | Verify the correct actual store and its configuration without creating a replacement |
 | Printful credential | Store-scoped private token stored securely as `PRINTFUL_API_TOKEN`, initially `sync_products/read`; add `orders/read` only for authorized read verification | Authenticate catalog/store reads and establish real counts/variant mappings |
 | Draft-order capability | Only when backend is identified: narrowly scoped `orders` permission in the actual server's secret configuration | Verify a deliberate draft-only create/reconcile flow. It does not authorize confirmation or paid fulfillment |
-| Stripe test secret | Configure actual account test secret as `STRIPE_SECRET_KEY` (`sk_test_…`) in the Node backend's secret manager | Read-only auth preflight, authorized test hosted Checkout and fresh payment reads; live keys are rejected |
+| Stripe test credential | Plugin sandbox authorization is complete. Inject a restricted `rk_test_…` (preferred; `sk_test_…` also supported) as `STRIPE_SECRET_KEY` in the Node backend's secret manager | Runtime Tax-settings preflight, authorized test hosted Checkout and fresh payment reads; live keys are rejected. OAuth does not inject the key. |
 | Stripe snapshot endpoint | Mount `/api/stripe/webhook` on the real HTTPS Node host; configure an account snapshot destination at API `2026-10-28.endive`; inject that destination's `STRIPE_WEBHOOK_SECRET` (`whsec_…`) | Verify original bytes through the official SDK, then durably enqueue; see event list in `STRIPE_SETUP.md` |
 | Stripe Tax/business policy | Verify active actual test-mode settings/registration IDs, merchant country, allowed delivery countries, product/shipping tax codes and selling currencies/prices | Calculate/freeze real quotes; tests do not configure registrations or establish tax obligations |
 | Durable backend host | Authorized Node 24 host with a mounted private durable local directory, process supervision and backup access; recover original NAS first if reusing it | Run actual SQLite migration/transactions/leases and worker. Static Sites/Cloudflare cannot run this Node SQLite backend |

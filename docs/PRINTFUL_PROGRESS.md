@@ -16,12 +16,20 @@ PRINTFUL_TEST_RESULTS.md. Offline fixtures do not establish real API success.
 - [x] Publish validated static SHOP changes and verify production.
 - [x] Push reviewable GitHub commits and open integration PR.
 - [x] Confirm Stripe as the selected provider with the user (1 November).
+- [x] Authorize the selected Stripe sandbox and verify actual read-only API
+  access through the Stripe plugin (`livemode:false`). Tax is pending (missing
+  `head_office`), registrations and v1 snapshot endpoints are empty. No payment
+  or account configuration was written; runtime secrets remain unavailable.
 - [x] Implement official SDK test-only hosted Checkout, Stripe Tax/frozen quote,
   raw snapshot signatures and fresh Session/PI/charge/refund checks.
 - [x] Implement real private-disk SQLite schema/repository, durable inbox/jobs,
   unique bindings, leases/fencing and single-POST gate; test multiprocess races.
 - [x] Implement Stripe workflow/Request webhook handler and early/lost Session
-  recovery; verify 64 focused local cases (fixture providers, actual SQLite).
+  recovery; verify 67 focused local cases (fixture providers, actual SQLite).
+- [x] Accept restricted sandbox API keys, distinguish denied scopes without
+  leaking provider bodies, and avoid unnecessary Balance Read in preflight.
+- [x] Repair Printful HTTPS/proxy retries with a fresh urllib Request per attempt;
+  real ProxyHandler/isolated transport regression passes locally.
 - [ ] Supply real Stripe test key/actual snapshot endpoint secret, verified Tax
   policy, Printful token and mounted Node 24 durable backend.
 - [ ] Complete business auth/quote/order routes, retention/anonymization,
@@ -38,7 +46,10 @@ public UI. Static version 31 remains unchanged with checkout disabled.
 2. Authorized Node 24 backend host with private durable local disk and process
    supervision. If reusing original hiphop.caisik.i234.me, recover its NAS/
    reverse-proxy/Compose/backend first. Static Sites cannot run Node SQLite.
-3. Stripe is confirmed. Configure `STRIPE_SECRET_KEY` (`sk_test_…`) and the actual
+3. Stripe sandbox MCP authentication succeeds. Tax is `pending` (missing
+   `head_office`); all registrations and v1 webhook endpoint lists are empty.
+   Complete the actual merchant Tax policy, never fictitious registration data.
+   Configure `STRIPE_SECRET_KEY` (prefer restricted `rk_test_…`, or `sk_test_…`) and the actual
    snapshot destination's `STRIPE_WEBHOOK_SECRET` (`whsec_…`) securely, plus
    verified active Stripe Tax registrations/product+shipping codes/countries.
    Business authentication/authorization and trusted catalog quoting remain.
@@ -71,6 +82,7 @@ separate until their actual deployment relationship is verified.
 | Criterion | Evidence/status |
 | --- | --- |
 | Printful auth and correct store | BLOCKED: no token; preflight made no network call |
+| Stripe sandbox authentication | WORKING via actual MCP reads: balance and Tax objects have `livemode:false`. Runtime SDK/key/API-version and Checkout verification remain BLOCKED. |
 | Real current products/variants | BLOCKED: historical20/86 snapshot only; importer fixture tests pass |
 | Product images | WORKING for inspected snapshot/local assets and tested product; live catalog unverified |
 | Server price validation | INCOMPLETE: Stripe frozen quote/line/address/amount binding tested; trusted catalog/quote builder and authenticated business routes still required |
@@ -83,7 +95,7 @@ separate until their actual deployment relationship is verified.
 | Shipping | INCOMPLETE: safe adapter tests pass; real address/rates blocked |
 | Fulfillment/tracking | BLOCKED live; event reducer tested in isolation |
 | CZ/EN/FR SHOP | WORKING for delivered UI; shared language regressions/browser checks pass |
-| Automated local tests | PASS:64 focused server/Stripe/SQLite/workflow cases; previous 25 importer + cart/shop/language/static groups recorded separately |
+| Automated local tests | PASS:67 focused server/Stripe/SQLite/workflow cases plus isolated real-proxy retry regression. Full current importer/static checks require complete-repository CI; previous checks recorded separately. |
 | Production build/artifact | PASS: static artifact validation; no framework build required |
 | Deployment | PASS: saved version31; native deployment succeeded |
 | Production smoke | PASS for static catalog/cart; live checkout excluded/blocked |
@@ -93,8 +105,9 @@ Deployed source:3fb9f74a210b6b1176c3f1363035d8b9c4054483.
 Rollback: existing saved version30 (see PRINTFUL_DEPLOYMENT.md).
 The full integration is not VERIFIED WORKING. Owner actions remain listed in
 PRINTFUL_SETUP.md and STRIPE_SETUP.md; no repeated credential/API retries should
-occur before access. Read-only Stripe preflight is BLOCKED before any network
-request; no real payment or Printful order was created.
+occur before access. The runtime Stripe CLI preflight is still BLOCKED before
+network access because no runtime key is injected; separate sandbox MCP reads
+succeeded. No payment or Printful order was created.
 
 GitHub review: https://github.com/CJMORE66/underground-alchemy/pull/4
 
@@ -114,4 +127,16 @@ recorded in the task report separately from the completed local checks.
 Remote CI is separate from the 64 focused local passes; report its actual final
 run conclusion rather than inferring success from a push. These commits do not
 change deployed Site version 31.
+
+Sandbox follow-up, same PR #4:
+
+- `8e938369044c6edacc8d637c2f29461f569abda4` — fresh HTTPS Requests across
+  Printful proxy retries; actual ProxyHandler regression (isolated transport).
+- `14e5cebf812be31908ac22c6102bce33bfa2a710` — restricted sandbox keys,
+  distinct sanitized permission errors, least-privilege runtime preflight,
+  generated synthetic credential fixtures and broader public secret scan.
+- Latest local focused result: 67 cases passed. Full current repository CI must
+  be checked on the final PR head; no new deployment is implied by these commits.
+- Actual plugin reads: sandbox authentication succeeds; Tax pending/missing
+  head_office, empty registrations and v1 snapshot endpoints. No writes/charges.
 

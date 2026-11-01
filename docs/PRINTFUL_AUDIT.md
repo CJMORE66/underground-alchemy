@@ -24,8 +24,11 @@ and deployment evidence belongs in `PRINTFUL_TEST_RESULTS.md` and
   the opened Sites source while preserving unrelated content.
 - Sites runtime environment inspection returned **zero configured entries**.
   No Printful/Stripe credentials were available in the process or Site settings.
-  The user confirmed **Stripe** on 1 November. That confirms the selected payment
-  provider; it does not establish a connected Stripe account or configured Tax.
+  The user confirmed **Stripe** on 1 November and then authorized its separate
+  sandbox through the plugin. Actual sandbox MCP reads now authenticate with
+  `livemode:false`. This does not inject runtime credentials or establish a
+  configured Tax policy: settings are pending, missing `head_office`, and all
+  registrations are empty. See `PRINTFUL_TEST_RESULTS.md` for exact read scope.
 - The new server work uses Node 24, official Stripe SDK **23.1.0**, pinned API
   **2026-10-28.endive**, a real on-disk SQLite repository and durable payment
   inbox/worker. These are source changes for
@@ -33,6 +36,13 @@ and deployment evidence belongs in `PRINTFUL_TEST_RESULTS.md` and
   deployment. Static Sites/Cloudflare cannot execute this Node SQLite service.
 
 ## Classification
+
+The subsequent sandbox follow-up also repaired a confirmed proxy retry bug:
+urllib mutates the Request transport while tunneling, so reusing a Request could
+break HTTPS retries. Each attempt now starts with a fresh Request. A regression
+uses the actual ProxyHandler with isolated transport (429/503/network failures).
+Restricted test keys are accepted server-side, denied scopes have a sanitized
+distinct error, and the public artifact scan includes `rk_` credentials.
 
 `WORKING` means supported by the evidence stated in that row, not necessarily
 live end-to-end commerce. `INCOMPLETE` means some code exists without the full
@@ -48,7 +58,8 @@ required behavior. `MISSING` means absent from this inspected application.
 | Existing original commerce host | BROKEN | On 31 October the browser opened the documented `hiphop.caisik.i234.me/dk/store?page=1` and displayed the Czech Synology not-found page. The underlying proxy/container/backend cause cannot be determined from that page. |
 | Original backend framework | UNVERIFIED | Historic public payload uses `prod_…`/`variant_…` IDs consistent with Medusa. This is an inference; private source/runtime was not inspected. Magento is a separate historically inspected host, not an established replacement. |
 | Server API routes/functions | INCOMPLETE | `createStripeWebhookHandler` implements a bounded raw-body Request handler for `/api/stripe/webhook`, but no Node host/router is mounted. Authenticated quote/checkout/order routes remain to be implemented in the real host. |
-| Authentication/secret configuration | BLOCKED | No Printful token, Stripe test secret key or actual endpoint signing secret is configured. Read-only preflight blocks before network access. |
+| Stripe sandbox authentication | WORKING for MCP reads | Actual sandbox balance/Tax reads return `livemode:false`. No Checkout/payment or runtime SDK authentication is implied. |
+| Runtime authentication/secret configuration | BLOCKED | No Printful token, Stripe test runtime key or actual endpoint signing secret is configured. The runtime CLI preflight blocks before network access; plugin OAuth credentials are separate. |
 | Product/variant mapping | INCOMPLETE | Historical snapshot has 20 products/86 variants and retained Printful/source identities. Current counts, designs and identities require authenticated comparison. |
 | Product synchronization | INCOMPLETE | Read-only importer supports full/explicit incremental reads, bounded pagination/retries, public-field filtering and atomic output. Offline test evidence does not establish live API compatibility. |
 | Prices and availability | INCOMPLETE | Dated original-store prices remain historical evidence; importer records separately observed Printful retail prices/availability. No value is a server-approved customer checkout quote. |
@@ -57,7 +68,7 @@ required behavior. `MISSING` means absent from this inspected application.
 | CZ/EN/FR | WORKING | Delivered SHOP/cart controls passed shared language suites and production switching checks; no new public UI is introduced here. |
 | Checkout/payment integration | INCOMPLETE | Stripe is confirmed. A test-only hosted Checkout adapter implements immutable quote/session/variant/amount bindings and fresh payment verification. Real account/test credentials, business routes and end-to-end checkout remain BLOCKED; public checkout stays disabled. |
 | Shipping/address validation | INCOMPLETE | Reusable validation/provider helpers can be tested offline; live shipping estimates and destination acceptance require authorized API calls and original backend wiring. |
-| Customer tax/currency policy | INCOMPLETE | Stripe Tax calculation/settings/registration checks and frozen address/line/total validation are implemented. Actual merchant registrations, product/shipping tax codes, country policy and selling prices are not configured or verified. |
+| Customer tax/currency policy | BLOCKED configuration; INCOMPLETE policy | Actual sandbox Tax settings are pending, missing `head_office`; all registrations are empty. Calculation/registration guards are implemented. Merchant tax policy, product/shipping tax codes, delivery countries and selling prices still need verification. |
 | Database/models/migrations | WORKING locally; BLOCKED deployment | `SqliteCommerceRepository` and checksum-checked migration provide real private on-disk persistence, transactions, unique bindings and leases; 14 integration tests include multiprocess races. No durable backend disk/host is connected. |
 | Internal order lifecycle | INCOMPLETE | Durable Stripe event inbox/jobs, worker leases, payment-to-draft coordination and single-POST gate are implemented/tested locally. Production host, trusted order/quote creation, notifications and operational controls remain absent. |
 | Printful order creation | BLOCKED | Requires authorized token, correct mapped variants and original backend. No live draft or confirmed fulfillment order was created in this task. |
@@ -67,7 +78,7 @@ required behavior. `MISSING` means absent from this inspected application.
 | Refund/cancellation | INCOMPLETE | Fresh Stripe verification rejects refunded/disputed/reviewed payments and any refund history before drafting. Initiating customer refunds/cancellations and Printful cancellation are not implemented. No actual charge changed. |
 | CI/CD | INCOMPLETE | `.github/workflows/commerce.yml` contains Node 24 offline safety checks. Local evidence is separate from the latest remote CI result. No backend deployment pipeline is configured; Sites uses explicit saved versions. |
 | Logging/monitoring | INCOMPLETE | Importer errors avoid credentials/upstream bodies; server helpers provide safe errors. Production commerce telemetry, audit storage and failure alerts require a backend. |
-| Automated tests | WORKING for local scope | Focused run: 19 existing server + 17 Stripe SDK/signature + 14 actual SQLite + 12 workflow tests passed. Stripe/Printful calls remain fixtures; no real API/payment E2E proof. |
+| Automated tests | WORKING for local scope | Earlier focused run: 19 existing server + 19 Stripe SDK/signature + 14 actual SQLite + 12 workflow tests passed. Automated provider calls remain fixtures. Actual sandbox read-only verification is separate; payment E2E remains unverified. |
 | Security | INCOMPLETE | Payment integrity, raw signatures, private DB permissions, leases/uniqueness and disabled public checkout are tested. Business authentication/authorization, abuse controls, customer-data retention/anonymization and real deployment review remain required. |
 
 ## Root causes found
@@ -111,7 +122,7 @@ required behavior. `MISSING` means absent from this inspected application.
   must be inspected and verified before wiring a production receiver.
 - Do not register another Printful sender or replace webhook settings before
   inspecting the original integration; duplicate fulfillment is a material risk.
-- The Stripe adapter accepts `sk_test_` credentials and requires test-mode
+- The Stripe adapter accepts restricted `rk_test_` and `sk_test_` credentials and requires test-mode
   objects; it does not support live keys or paid Printful confirmation. A
   provider redirect or signed event alone is never payment proof: the worker
   re-fetches the Session, all bound lines/shipping, PaymentIntent, captured

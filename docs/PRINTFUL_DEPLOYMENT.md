@@ -9,9 +9,12 @@ checkout is claimed.
 Stripe is confirmed. PR #4 receives official SDK 23.1.0/API
 2026-10-28.endive test-only Checkout/Tax/payment verification, a real Node 24
 SQLite repository/migration, raw snapshot Request handler and durable leased
-payment worker. The 64 focused local tests pass with actual SQLite and fixture
-providers. No Stripe/Printful credentials, actual merchant Tax settings or
-durable Node host are configured. Public checkout remains disabled.
+payment worker. The latest 67 focused local tests pass with actual SQLite and fixture
+providers. Actual sandbox MCP reads now authenticate, but no Stripe/Printful
+runtime credentials or durable Node host are configured. Observed sandbox Tax
+settings are pending (missing `head_office`), with empty registrations and v1
+snapshot endpoint lists. No provider settings were written. Public checkout
+remains disabled.
 
 This is a backend-only source follow-up: no Site build/publication, runtime
 secret change or production database migration occurs. Static Sites/Cloudflare

@@ -3,13 +3,14 @@
 Updated 2026-11-01. Stripe is confirmed. Server-only modules stay outside
 published `dist/`; static Sites version 31 is unchanged and checkout is disabled.
 Node 24/`node:sqlite` needs a separate durable Node host and cannot run in static
-Sites/Cloudflare. No Stripe/Printful credentials, real account configuration,
-actual payment or backend deployment has been verified.
+Sites/Cloudflare. Actual sandbox MCP authentication is verified separately;
+runtime credentials, actual payment and backend deployment remain unverified.
+Sandbox Tax is pending (missing `head_office`), with no registrations returned.
 
 ## Modules
 
-- `stripe.js`: official SDK 23.1.0, pinned API `2026-10-28.endive`, `sk_test_`
-  keys only. Verifies actual configured Tax settings/registrations, calculates
+- `stripe.js`: official SDK 23.1.0, pinned API `2026-10-28.endive`, restricted
+  `rk_test_` (preferred) or `sk_test_` keys only. Verifies actual configured Tax settings/registrations, calculates
   and freezes address/line/variant/shipping/tax/total quotes, creates/resumes hosted
   Checkout with stable idempotency parameters, recovers Session references and
   re-fetches Session/lines/PI/captured charge/refund history before payment proof.
@@ -51,7 +52,7 @@ starting workers; checksum mismatch must stop startup. Database/WAL/SHM files
 need private durable storage/backups. Tests establish local shared-file
 concurrency, not multi-machine/network-filesystem support.
 
-The host must supply `STRIPE_SECRET_KEY` (`sk_test_…`), the actual destination's
+The host must supply `STRIPE_SECRET_KEY` (prefer restricted `rk_test_…`, or `sk_test_…`), the actual destination's
 `STRIPE_WEBHOOK_SECRET` (`whsec_…`), `PRINTFUL_API_TOKEN`, verified active Stripe
 Tax registrations/product+shipping tax codes/countries, and authoritative
 merchant catalog prices. Secrets belong in the host secret manager, never chat,
@@ -73,9 +74,9 @@ Printful mutations or release their reservation after an empty lookup.
 
 ## Evidence and remaining limits
 
-Focused local run: **64 passed** — 19 original server fixture cases, 19 Stripe
+Latest focused local run: **67 passed** — 19 original server fixture cases, 21 Stripe
 adapter cases with official SDK signature checks/mock HTTP, 14 real disk SQLite
-integration cases including eight-process races, 12 real-SQLite workflow cases
+integration cases including eight-process races, 13 real-SQLite workflow cases
 with fake providers. This is actual database evidence, not real Stripe/Printful
 authentication, account Tax configuration, payment, webhook delivery or draft.
 
