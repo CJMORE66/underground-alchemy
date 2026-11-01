@@ -33,7 +33,7 @@ export class StripeOrderWorkflow {
     if (!event || !PAYMENT_EVENTS.has(event.type)) return { received: true, ignored: true };
     try {
       const accepted = await this.#repository.enqueuePaymentEvent({ eventId: event.id, sessionId: event.sessionId, type: event.type, created: event.created });
-      return { received: true, duplicate: accepted.duplicate === true };
+      return { received: true, duplicate: accepted.duplicate === true, jobId: accepted.jobId || accepted.id };
     } catch { throw new CommerceError('STRIPE_WEBHOOK_PERSISTENCE_FAILED', { status: 503, retryable: true }); }
   }
 

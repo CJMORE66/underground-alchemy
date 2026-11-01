@@ -2,7 +2,8 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import Stripe from 'stripe';
-import { STRIPE_API_VERSION, STRIPE_RETURN_URLS, createTestStripeClient, createStripeTestAdapter, isStripeTestKey, StripeCheckoutAdapter } from '../server/commerce/stripe.js';
+import { webcrypto } from 'node:crypto';
+import { STRIPE_API_VERSION, STRIPE_RETURN_URLS, createTestStripeClient, createWorkerTestStripeClient, createStripeTestAdapter, createStripeWorkerTestAdapter, isStripeTestKey, StripeCheckoutAdapter, verifyStripeTestWebhook } from '../server/commerce/stripe.js';
 
 // Deliberately synthetic, deterministic fixture values. No account credentials
 // are embedded here, and every provider method in this suite is replaced.
@@ -78,6 +79,30 @@ test('factory accepts least-privilege restricted test keys and rejects live, pub
     assert.equal(isStripeTestKey(key), false);
     assert.throws(() => createTestStripeClient(key), errorCode('STRIPE_TEST_SECRET_KEY_REQUIRED'));
   }
+});
+
+test('Worker client uses actual SDK Fetch transport and keeps test-key and request bounds', async () => {
+  let requests = 0;
+  const fetch = async (url, options) => {
+    requests++;
+    assert.equal(url, 'https://api.stripe.com/v1/tax/settings');
+    const headers = new Headers(options.headers);
+    assert.equal(headers.get('Stripe-Version'), STRIPE_API_VERSION);
+    assert.equal(headers.get('Authorization'), 'Bearer ' + syntheticApiKey('rk'));
+    return new Response(JSON.stringify({ object: 'tax.settings', livemode: false, status: 'pending' }), { headers: { 'content-type': 'application/json' } });
+  };
+  const stripe = createWorkerTestStripeClient(syntheticApiKey('rk'), { fetch });
+  assert.equal(stripe.getApiField('httpClient').getClientName(), 'fetch');
+  assert.equal(stripe.getApiField('timeout'), 5000);
+  assert.equal(stripe.getApiField('maxNetworkRetries'), 1);
+  assert.equal(stripe.getApiField('version'), STRIPE_API_VERSION);
+  assert.equal(requests, 0, 'factory construction never performs an API request');
+  assert.equal((await stripe.tax.settings.retrieve()).livemode, false);
+  assert.equal(requests, 1, 'isolated fetch handled the SDK request without network');
+  for (const key of [syntheticApiKey('sk', 'live'), syntheticApiKey('rk', 'live'), syntheticApiKey('pk'), syntheticApiKey('rk', 'test', 7)]) assert.throws(() => createWorkerTestStripeClient(key, { fetch }), errorCode('STRIPE_TEST_SECRET_KEY_REQUIRED'));
+  assert.equal(requests, 1);
+  assert.throws(() => createWorkerTestStripeClient(SECRET, { fetch: false }), errorCode('STRIPE_FETCH_REQUIRED'));
+  assert.throws(() => createStripeWorkerTestAdapter({ secretKey: SECRET, taxConfiguration: CONFIG, subtleCrypto: {} }), errorCode('STRIPE_WEB_CRYPTO_REQUIRED'));
 });
 
 test('restricted-scope permission errors remain distinguishable, nonretryable and sanitized', async () => {
@@ -307,4 +332,111 @@ test('signed webhook rejects altered raw body, wrong secret, stale signature, li
   assert.throws(() => f.adapter.verifyWebhook(...signed(f, { ...event, api_version: '2020-01-01' })), errorCode('STRIPE_WEBHOOK_VERSION_OR_MODE_MISMATCH'));
   assert.throws(() => f.adapter.verifyWebhook(...signed(f, { ...event, object: 'v2.core.event' })), errorCode('STRIPE_WEBHOOK_UNAUTHORIZED'));
   assert.equal(f.calls.length, 0);
+});
+
+test('Worker webhook entry point uses actual SDK async SubtleCrypto and returns only a trigger', async () => {
+  let network = 0, hmacCalls = 0;
+  const subtleCrypto = {
+    importKey: webcrypto.subtle.importKey.bind(webcrypto.subtle),
+    sign: (...args) => { hmacCalls++; return webcrypto.subtle.sign(...args); }
+  };
+  const adapter = createStripeWorkerTestAdapter({ secretKey: syntheticApiKey('rk'), webhookSecret: WEBHOOK_SECRET, taxConfiguration: CONFIG, now: () => CLOCK, subtleCrypto, fetch: async () => { network++; throw new Error('No network is allowed in signature tests'); } });
+  const node = fixture(), event = eventPayload(), [raw, signature] = signed(node, event);
+  const pending = adapter.verifyWebhook(new Uint8Array(raw), signature);
+  assert.equal(typeof pending.then, 'function', 'Worker entry point must be awaited by the workflow');
+  const result = await pending;
+  assert.deepEqual(result, node.adapter.verifyWebhook(raw, signature));
+  assert.equal(hmacCalls, 1, 'the WebCrypto HMAC implementation performed verification');
+  assert.equal(Object.hasOwn(result, 'verified'), false);
+  assert.equal(Object.isFrozen(result), true);
+  assert.equal(network, 0);
+  const asyncHeader = await node.stripe.webhooks.generateTestHeaderStringAsync({ payload: JSON.stringify(event), secret: WEBHOOK_SECRET, timestamp: CLOCK / 1000, cryptoProvider: Stripe.createSubtleCryptoProvider(webcrypto.subtle) });
+  assert.deepEqual(await adapter.verifyWebhookAsync(new TextEncoder().encode(JSON.stringify(event)), asyncHeader), result);
+});
+
+test('async webhook preserves synchronous raw-byte, timestamp, environment and snapshot-schema rejection', async () => {
+  const node = fixture(), adapter = createStripeWorkerTestAdapter({ secretKey: SECRET, webhookSecret: WEBHOOK_SECRET, taxConfiguration: CONFIG, now: () => CLOCK, subtleCrypto: webcrypto.subtle, fetch: async () => { throw new Error('No signature test may call an API'); } });
+  const event = eventPayload(), [raw, signature] = signed(node, event);
+  await assert.rejects(adapter.verifyWebhook(new TextEncoder().encode(raw.toString().replace('unpaid', 'paid')), signature), errorCode('STRIPE_WEBHOOK_UNAUTHORIZED'));
+  await assert.rejects(adapter.verifyWebhook(...signed(node, event, { secret: syntheticWebhookSecret('X') })), errorCode('STRIPE_WEBHOOK_UNAUTHORIZED'));
+  await assert.rejects(adapter.verifyWebhook(...signed(node, event, { timestamp: CLOCK / 1000 - 301 })), errorCode('STRIPE_WEBHOOK_UNAUTHORIZED'));
+  await assert.rejects(adapter.verifyWebhook(...signed(node, event, { timestamp: CLOCK / 1000 + 301 })), errorCode('STRIPE_INVALID_WEBHOOK'));
+  await assert.rejects(adapter.verifyWebhook(raw.toString(), signature), errorCode('STRIPE_INVALID_WEBHOOK'));
+  await assert.rejects(adapter.verifyWebhook(new Uint8Array(256 * 1024 + 1), signature), errorCode('STRIPE_INVALID_WEBHOOK'));
+  for (const [change, code] of [[{ livemode: true }, 'STRIPE_INVALID_WEBHOOK'], [{ api_version: '2020-01-01' }, 'STRIPE_WEBHOOK_VERSION_OR_MODE_MISMATCH'], [{ object: 'v2.core.event' }, 'STRIPE_WEBHOOK_UNAUTHORIZED'], [{ context: 'acct_untrusted' }, 'STRIPE_INVALID_WEBHOOK']]) await assert.rejects(adapter.verifyWebhook(...signed(node, { ...event, ...change })), errorCode(code));
+  for (const type of ['checkout.session.expired', 'checkout.session.async_payment_failed']) assert.equal((await adapter.verifyWebhook(...signed(node, eventPayload(type)))).ignored, true);
+  assert.equal((await adapter.verifyWebhook(...signed(node, eventPayload('checkout.session.async_payment_succeeded')))).ignored, false);
+  assert.equal(node.calls.length, 0);
+});
+
+test('standalone webhook verifies with only endpoint secret and actual SDK WebCrypto, without an API client', async () => {
+  const event = eventPayload(), payload = JSON.stringify(event);
+  const signature = Stripe.webhooks.generateTestHeaderString({ payload, secret: WEBHOOK_SECRET, timestamp: CLOCK / 1000 });
+  let hmacCalls = 0;
+  const subtleCrypto = {
+    importKey: webcrypto.subtle.importKey.bind(webcrypto.subtle),
+    sign: (...args) => { hmacCalls++; return webcrypto.subtle.sign(...args); }
+  };
+  // No API credential, Stripe client, merchant policy, fetch adapter or env is
+  // supplied. Static public SDK helpers perform local signature verification.
+  const verified = await verifyStripeTestWebhook(new TextEncoder().encode(payload), signature, { webhookSecret: WEBHOOK_SECRET, now: () => CLOCK, subtleCrypto });
+  assert.deepEqual(verified, { id: event.id, type: event.type, created: event.created, sessionId: SESSION_ID, ignored: false });
+  assert.equal(hmacCalls, 1);
+  assert.equal(Object.isFrozen(verified), true);
+  assert.equal(Object.hasOwn(verified, 'verified'), false, 'signature admission never proves payment');
+});
+
+test('standalone webhook shares adapter raw-byte, age, environment and snapshot-schema guards', async () => {
+  const options = { webhookSecret: WEBHOOK_SECRET, now: () => CLOCK, subtleCrypto: webcrypto.subtle };
+  const event = eventPayload();
+  const signedEvent = (value = event, { secret = WEBHOOK_SECRET, timestamp = CLOCK / 1000 } = {}) => {
+    const payload = JSON.stringify(value);
+    return [new TextEncoder().encode(payload), Stripe.webhooks.generateTestHeaderString({ payload, secret, timestamp })];
+  };
+  const [raw, signature] = signedEvent();
+  await assert.rejects(verifyStripeTestWebhook(new TextEncoder().encode(new TextDecoder().decode(raw).replace('unpaid', 'paid')), signature, options), errorCode('STRIPE_WEBHOOK_UNAUTHORIZED'));
+  for (const signedOptions of [{ secret: syntheticWebhookSecret('X') }, { timestamp: CLOCK / 1000 - 301 }]) await assert.rejects(verifyStripeTestWebhook(...signedEvent(event, signedOptions), options), errorCode('STRIPE_WEBHOOK_UNAUTHORIZED'));
+  await assert.rejects(verifyStripeTestWebhook(...signedEvent(event, { timestamp: CLOCK / 1000 + 301 }), options), errorCode('STRIPE_INVALID_WEBHOOK'));
+  for (const input of [new TextDecoder().decode(raw), new Uint8Array(), new Uint8Array(256 * 1024 + 1)]) await assert.rejects(verifyStripeTestWebhook(input, signature, options), errorCode('STRIPE_INVALID_WEBHOOK'));
+  for (const [change, code] of [[{ livemode: true }, 'STRIPE_INVALID_WEBHOOK'], [{ account: 'acct_other_merchant' }, 'STRIPE_INVALID_WEBHOOK'], [{ context: 'acct_other_merchant' }, 'STRIPE_INVALID_WEBHOOK'], [{ created: CLOCK / 1000 + 301 }, 'STRIPE_INVALID_WEBHOOK'], [{ api_version: '2020-01-01' }, 'STRIPE_WEBHOOK_VERSION_OR_MODE_MISMATCH'], [{ object: 'v2.core.event' }, 'STRIPE_WEBHOOK_UNAUTHORIZED'], [{ data: { object: { ...event.data.object, livemode: true } } }, 'STRIPE_WEBHOOK_VERSION_OR_MODE_MISMATCH']]) await assert.rejects(verifyStripeTestWebhook(...signedEvent({ ...event, ...change }), options), errorCode(code));
+  for (const type of ['checkout.session.expired', 'checkout.session.async_payment_failed']) assert.equal((await verifyStripeTestWebhook(...signedEvent(eventPayload(type)), options)).ignored, true);
+  assert.equal((await verifyStripeTestWebhook(...signedEvent(eventPayload('checkout.session.async_payment_succeeded')), options)).ignored, false);
+});
+
+test('standalone webhook rejects missing endpoint secret, clock and WebCrypto before signature work', async () => {
+  const raw = new TextEncoder().encode('{}'), signature = 'synthetic-invalid-signature';
+  await assert.rejects(verifyStripeTestWebhook(raw, signature), errorCode('STRIPE_WEBHOOK_SECRET_REQUIRED'));
+  const options = { webhookSecret: WEBHOOK_SECRET, now: () => CLOCK, subtleCrypto: webcrypto.subtle };
+  for (const now of [false, () => NaN, () => 0, () => -1, () => Infinity]) await assert.rejects(verifyStripeTestWebhook(raw, signature, { ...options, now }), errorCode('STRIPE_INVALID_CLOCK'));
+  for (const subtleCrypto of [null, {}, { importKey() {} }, { sign() {} }]) await assert.rejects(verifyStripeTestWebhook(raw, signature, { ...options, subtleCrypto }), errorCode('STRIPE_WEB_CRYPTO_REQUIRED'));
+  await assert.rejects(verifyStripeTestWebhook(raw, 'x'.repeat(4097), options), errorCode('STRIPE_INVALID_WEBHOOK'));
+});
+
+test('explicit September endpoint snapshots route test events while the API client remains October pinned', async () => {
+  const options = { webhookSecret: WEBHOOK_SECRET, now: () => CLOCK, subtleCrypto: webcrypto.subtle };
+  const endpointVersion = '2026-09-30.endive';
+  const signed = version => {
+    const event = { ...eventPayload(), api_version: version };
+    const payload = JSON.stringify(event);
+    return [new TextEncoder().encode(payload), Stripe.webhooks.generateTestHeaderString({ payload, secret: WEBHOOK_SECRET, timestamp: CLOCK / 1000 })];
+  };
+  const september = signed(endpointVersion), october = signed(STRIPE_API_VERSION);
+  await assert.rejects(verifyStripeTestWebhook(...september, options), errorCode('STRIPE_WEBHOOK_VERSION_OR_MODE_MISMATCH'));
+  const trigger = await verifyStripeTestWebhook(...september, { ...options, apiVersion: endpointVersion });
+  assert.deepEqual(trigger, { id: eventPayload().id, type: 'checkout.session.completed', created: CLOCK / 1000, sessionId: SESSION_ID, ignored: false });
+  assert.equal(Object.isFrozen(trigger), true);
+  assert.equal(Object.hasOwn(trigger, 'verified'), false);
+  assert.equal(Object.hasOwn(trigger, 'payment_status'), false, 'a signed snapshot is only a routing trigger');
+  await assert.rejects(verifyStripeTestWebhook(...october, { ...options, apiVersion: endpointVersion }), errorCode('STRIPE_WEBHOOK_VERSION_OR_MODE_MISMATCH'));
+  assert.deepEqual(await verifyStripeTestWebhook(...october, options), trigger);
+  assert.equal(createWorkerTestStripeClient(syntheticApiKey('rk')).getApiField('version'), STRIPE_API_VERSION, 'endpoint configuration never changes API client version');
+});
+
+test('standalone endpoint version configuration rejects all unreviewed contracts before signature work', async () => {
+  const payload = JSON.stringify(eventPayload());
+  const signature = Stripe.webhooks.generateTestHeaderString({ payload, secret: WEBHOOK_SECRET, timestamp: CLOCK / 1000 });
+  let hmacCalls = 0;
+  const options = { webhookSecret: WEBHOOK_SECRET, now: () => CLOCK, subtleCrypto: { importKey: webcrypto.subtle.importKey.bind(webcrypto.subtle), sign: (...args) => { hmacCalls++; return webcrypto.subtle.sign(...args); } } };
+  for (const apiVersion of [null, '', false, {}, '2020-01-01', '2026-09-30.clover', '2026-11-30.endive']) await assert.rejects(verifyStripeTestWebhook(new TextEncoder().encode(payload), signature, { ...options, apiVersion }), errorCode('STRIPE_WEBHOOK_API_VERSION_UNSUPPORTED'));
+  assert.equal(hmacCalls, 0);
 });

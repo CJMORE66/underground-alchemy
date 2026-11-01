@@ -78,4 +78,3 @@ export function transitionOrder(state, event) {
   if (!Object.hasOwn(TRANSITIONS, state) || typeof event !== 'string' || !Object.hasOwn(TRANSITIONS[state], event)) throw new CommerceError('INVALID_ORDER_TRANSITION');
   return TRANSITIONS[state][event];
 }
-

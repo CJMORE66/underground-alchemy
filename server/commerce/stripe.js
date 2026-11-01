@@ -25,6 +25,12 @@ export function createTestStripeClient(secretKey) {
   return new Stripe(secretKey, { apiVersion: STRIPE_API_VERSION, timeout: 5000, maxNetworkRetries: 1, telemetry: false });
 }
 
+export function createWorkerTestStripeClient(secretKey, { fetch: fetchImplementation } = {}) {
+  if (!isStripeTestKey(secretKey)) throw new CommerceError('STRIPE_TEST_SECRET_KEY_REQUIRED');
+  if (fetchImplementation !== undefined && typeof fetchImplementation !== 'function') throw new CommerceError('STRIPE_FETCH_REQUIRED');
+  return new Stripe(secretKey, { apiVersion: STRIPE_API_VERSION, timeout: 5000, maxNetworkRetries: 1, telemetry: false, httpClient: Stripe.createFetchHttpClient(fetchImplementation) });
+}
+
 function configuration(value) {
   if (!value || value.mode !== 'stripe_automatic' || !Array.isArray(value.registrationIds) || !value.registrationIds.length || value.registrationIds.length > 5 || !Array.isArray(value.allowedCountries) || !value.allowedCountries.length || value.allowedCountries.length > 100) throw new CommerceError('STRIPE_TAX_CONFIGURATION_REQUIRED');
   const policyRevision = boundedText(value.policyRevision, 100);
@@ -83,11 +89,47 @@ function checkoutUrl(value) {
   throw new CommerceError('STRIPE_CHECKOUT_URL_REJECTED');
 }
 
+function webhookInput(rawBody, signature, secret) {
+  if (typeof secret !== 'string' || !/^whsec_[A-Za-z0-9]{8,250}$/.test(secret)) throw new CommerceError('STRIPE_WEBHOOK_SECRET_REQUIRED');
+  if (!(rawBody instanceof Uint8Array) || !rawBody.byteLength || rawBody.byteLength > 256 * 1024 || typeof signature !== 'string' || signature.length > 4096) throw new CommerceError('STRIPE_INVALID_WEBHOOK');
+}
+
+function normalizeWebhook(event, signature, seconds, apiVersion = STRIPE_API_VERSION) {
+  const signatureTime = signature.split(',').find(part => part.startsWith('t='))?.slice(2);
+  if (!signatureTime || !/^\d+$/.test(signatureTime) || Number(signatureTime) > seconds + 300 || event?.object !== 'event' || event.livemode !== false || event.account || event.context || !Number.isSafeInteger(event.created) || event.created <= 0 || event.created > seconds + 300) throw new CommerceError('STRIPE_INVALID_WEBHOOK');
+  const id = stripeId(event.id, 'evt_');
+  const supported = new Set(['checkout.session.completed', 'checkout.session.async_payment_succeeded', 'checkout.session.async_payment_failed', 'checkout.session.expired']);
+  if (!supported.has(event.type)) return Object.freeze({ id, type: boundedText(event.type, 100), created: event.created, sessionId: null, ignored: true });
+  if (event.api_version !== apiVersion || event.data?.object?.object !== 'checkout.session' || event.data.object.livemode !== false) throw new CommerceError('STRIPE_WEBHOOK_VERSION_OR_MODE_MISMATCH');
+  return Object.freeze({ id, type: event.type, created: event.created, sessionId: stripeId(event.data.object.id, 'cs_test_'), ignored: !['checkout.session.completed', 'checkout.session.async_payment_succeeded'].includes(event.type) });
+}
+
+// Signature admission needs only its own endpoint secret. It must remain usable
+// while API credentials/tax configuration are unavailable, so a durable inbox can
+// retain verified test events without constructing an authenticated API client.
+export async function verifyStripeTestWebhook(rawBody, signature, { webhookSecret, now = Date.now, subtleCrypto = globalThis.crypto?.subtle, apiVersion = STRIPE_API_VERSION } = {}) {
+  webhookInput(rawBody, signature, webhookSecret);
+  // The endpoint snapshot version is an explicit, bounded contract independent
+  // of the API client pin. Only routing fields shared by these versions are
+  // consumed; payment evidence always comes from a fresh pinned API read.
+  if (![STRIPE_API_VERSION, '2026-09-30.endive'].includes(apiVersion)) throw new CommerceError('STRIPE_WEBHOOK_API_VERSION_UNSUPPORTED');
+  if (typeof now !== 'function') throw new CommerceError('STRIPE_INVALID_CLOCK');
+  const receivedAt = now(), seconds = Math.floor(receivedAt / 1000);
+  if (!Number.isSafeInteger(seconds) || seconds <= 0) throw new CommerceError('STRIPE_INVALID_CLOCK');
+  if (!subtleCrypto || typeof subtleCrypto.importKey !== 'function' || typeof subtleCrypto.sign !== 'function') throw new CommerceError('STRIPE_WEB_CRYPTO_REQUIRED');
+  let event;
+  try {
+    event = await Stripe.webhooks.constructEventAsync(rawBody, signature, webhookSecret, 300, Stripe.createSubtleCryptoProvider(subtleCrypto), receivedAt);
+  } catch { throw new CommerceError('STRIPE_WEBHOOK_UNAUTHORIZED'); }
+  return normalizeWebhook(event, signature, seconds, apiVersion);
+}
+
 export class StripeCheckoutAdapter {
-  #stripe; #secret; #tax; #now; #log;
-  constructor({ stripe, webhookSecret, taxConfiguration, now = Date.now, log = () => {} }) {
+  #stripe; #secret; #tax; #now; #log; #webhookCryptoProvider;
+  constructor({ stripe, webhookSecret, taxConfiguration, now = Date.now, log = () => {}, webhookCryptoProvider }) {
     if (!stripe?.checkout?.sessions || !stripe?.tax?.calculations || !stripe?.webhooks || typeof now !== 'function' || typeof log !== 'function') throw new CommerceError('STRIPE_SDK_REQUIRED');
-    this.#stripe = stripe; this.#secret = webhookSecret; this.#tax = configuration(taxConfiguration); this.#now = now; this.#log = log;
+    if (webhookCryptoProvider !== undefined && typeof webhookCryptoProvider?.computeHMACSignatureAsync !== 'function') throw new CommerceError('STRIPE_WEB_CRYPTO_REQUIRED');
+    this.#stripe = stripe; this.#secret = webhookSecret; this.#tax = configuration(taxConfiguration); this.#now = now; this.#log = log; this.#webhookCryptoProvider = webhookCryptoProvider;
   }
 
   #emit(entry) { try { this.#log(entry); } catch { /* Logs cannot change payment behavior. */ } }
@@ -259,22 +301,43 @@ export class StripeCheckoutAdapter {
     return Object.freeze({ verified: true, status: 'paid', orderId: order.id, amountMinor: order.totalMinor, currency: order.currency, providerReference: paymentIntentId, stripeCheckoutSessionId: id, testMode: true });
   }
 
+  #validateWebhookInput(rawBody, signature) {
+    webhookInput(rawBody, signature, this.#secret);
+  }
+
+  #normalizeWebhook(event, signature) {
+    return normalizeWebhook(event, signature, this.#seconds());
+  }
+
   verifyWebhook(rawBody, signature) {
-    if (typeof this.#secret !== 'string' || !/^whsec_[A-Za-z0-9]{8,250}$/.test(this.#secret)) throw new CommerceError('STRIPE_WEBHOOK_SECRET_REQUIRED');
-    if (!(rawBody instanceof Uint8Array) || !rawBody.byteLength || rawBody.byteLength > 256 * 1024 || typeof signature !== 'string' || signature.length > 4096) throw new CommerceError('STRIPE_INVALID_WEBHOOK');
+    this.#validateWebhookInput(rawBody, signature);
     let event;
     try { event = this.#stripe.webhooks.constructEvent(rawBody, signature, this.#secret, 300, undefined, this.#now()); }
     catch { throw new CommerceError('STRIPE_WEBHOOK_UNAUTHORIZED'); }
-    const signatureTime = signature.split(',').find(part => part.startsWith('t='))?.slice(2);
-    if (!signatureTime || !/^\d+$/.test(signatureTime) || Number(signatureTime) > this.#seconds() + 300 || event?.object !== 'event' || event.livemode !== false || event.account || event.context || !Number.isSafeInteger(event.created) || event.created <= 0 || event.created > this.#seconds() + 300) throw new CommerceError('STRIPE_INVALID_WEBHOOK');
-    const id = stripeId(event.id, 'evt_');
-    const supported = new Set(['checkout.session.completed', 'checkout.session.async_payment_succeeded', 'checkout.session.async_payment_failed', 'checkout.session.expired']);
-    if (!supported.has(event.type)) return Object.freeze({ id, type: boundedText(event.type, 100), created: event.created, sessionId: null, ignored: true });
-    if (event.api_version !== STRIPE_API_VERSION || event.data?.object?.object !== 'checkout.session' || event.data.object.livemode !== false) throw new CommerceError('STRIPE_WEBHOOK_VERSION_OR_MODE_MISMATCH');
-    return Object.freeze({ id, type: event.type, created: event.created, sessionId: stripeId(event.data.object.id, 'cs_test_'), ignored: !['checkout.session.completed', 'checkout.session.async_payment_succeeded'].includes(event.type) });
+    return this.#normalizeWebhook(event, signature);
+  }
+
+  async verifyWebhookAsync(rawBody, signature) {
+    this.#validateWebhookInput(rawBody, signature);
+    let event;
+    try {
+      const cryptoProvider = this.#webhookCryptoProvider || Stripe.createSubtleCryptoProvider();
+      event = await this.#stripe.webhooks.constructEventAsync(rawBody, signature, this.#secret, 300, cryptoProvider, this.#now());
+    } catch { throw new CommerceError('STRIPE_WEBHOOK_UNAUTHORIZED'); }
+    return this.#normalizeWebhook(event, signature);
   }
 }
 
 export function createStripeTestAdapter({ secretKey, webhookSecret, taxConfiguration, now, log }) {
   return new StripeCheckoutAdapter({ stripe: createTestStripeClient(secretKey), webhookSecret, taxConfiguration, now, log });
+}
+
+// Worker entry points must await verifyWebhook. The Node factory above retains
+// its synchronous contract; both paths share the same raw-body/schema guards.
+export function createStripeWorkerTestAdapter({ secretKey, webhookSecret, taxConfiguration, now, log, fetch: fetchImplementation, subtleCrypto = globalThis.crypto?.subtle }) {
+  const stripe = createWorkerTestStripeClient(secretKey, { fetch: fetchImplementation });
+  if (!subtleCrypto || typeof subtleCrypto.importKey !== 'function' || typeof subtleCrypto.sign !== 'function') throw new CommerceError('STRIPE_WEB_CRYPTO_REQUIRED');
+  const adapter = new StripeCheckoutAdapter({ stripe, webhookSecret, taxConfiguration, now, log, webhookCryptoProvider: Stripe.createSubtleCryptoProvider(subtleCrypto) });
+  adapter.verifyWebhook = adapter.verifyWebhookAsync.bind(adapter);
+  return adapter;
 }
