@@ -39,7 +39,15 @@ export class DraftOrderService {
         if (claim.printfulId != null && claim.printfulId !== result.id) throw new CommerceError('DRAFT_RESERVATION_CONFLICT', { ambiguous: true });
       }
       else {
-        if (claim.acquired !== true || claim.state !== 'reserved') throw new CommerceError('DRAFT_REQUIRES_RECONCILIATION', { ambiguous: true });
+        if (typeof this.#repository.beginDraftAttempt === 'function') {
+          // Fence the only mutation durably, after the initial safe lookup. A
+          // failed GET before this boundary can recover without another POST.
+          const attempt = await this.#repository.beginDraftAttempt({ orderId, externalId: body.external_id, payloadHash });
+          if (attempt?.acquired !== true || attempt.attempted !== true) throw new CommerceError('DRAFT_REQUIRES_RECONCILIATION', { ambiguous: true });
+        } else if (claim.acquired !== true || claim.state !== 'reserved') {
+          // Older repository adapters remain conservative until upgraded.
+          throw new CommerceError('DRAFT_REQUIRES_RECONCILIATION', { ambiguous: true });
+        }
         result = await this.#client.createDraft({ externalId: body.external_id, recipient: body.recipient, items: body.items, shippingId: body.shipping });
       }
       await this.#repository.markDraftCreated({ orderId, externalId: body.external_id, payloadHash, printfulId: result.id });
@@ -70,3 +78,4 @@ export function transitionOrder(state, event) {
   if (!Object.hasOwn(TRANSITIONS, state) || typeof event !== 'string' || !Object.hasOwn(TRANSITIONS[state], event)) throw new CommerceError('INVALID_ORDER_TRANSITION');
   return TRANSITIONS[state][event];
 }
+
