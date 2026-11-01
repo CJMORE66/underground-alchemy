@@ -5,9 +5,36 @@ BLOCKED. Stripe is confirmed; the new backend remains unhosted. The 31 October
 static browser/deployment evidence below is historical and was not rerun as a
 claim of backend readiness.
 
-## 1 November actual Stripe sandbox reads
+## Current merchant connection — 1 November 2026
 
-The owner completed Stripe plugin sandbox authorization. All operations below
+The owner selected the separate **underground alchemy** merchant,
+`acct_1UWra7PkIIV492Qz`. Fresh account discovery on its Stripe connection
+returns this account with `livemode:true` only. The older Jakub Cais connection
+still exposes its own live account and sandbox; those are separate identities.
+Earlier sandbox evidence must not be attributed to underground alchemy.
+
+Actual read-only requests on the selected merchant succeeded:
+
+- `GET /v1/tax/settings`: object `tax.settings`, `livemode:true`, `status:active`.
+- `GET /v1/tax/registrations?status=all&limit=100`: empty, `has_more:false`.
+- `GET /v1/webhook_endpoints?limit=100`: empty, `has_more:false` (v1 snapshot
+  endpoints only; not a complete v2 Event Destination inventory).
+
+No settings, Session, payment, webhook destination or Printful order was written.
+Active Tax settings do not establish the merchant's applicable registration or
+price/tax policy. No missing head-office claim is made for this merchant; the
+previous pending/head_office finding belongs to the older Jakub Cais sandbox.
+
+Required next access: authorize this merchant's own sandbox/test context through
+its Stripe connection, then rediscover the exact returned context and mode.
+Do not flip this live context to false, reuse the old sandbox, inherit its keys
+or reuse an old merchant's database/Session/order mappings. Runtime keys, actual
+HTTPS endpoint/secret, Printful token and a deployed durable Node backend remain
+unavailable. Checkout is disabled; static version 31 is unchanged.
+
+## Earlier 1 November reads — Jakub Cais sandbox
+
+The owner completed the earlier Jakub Cais sandbox authorization; this is not the newly selected underground alchemy merchant. All operations below
 used the selected sandbox with `livemode:false`, not the connected live account.
 These were actual authenticated provider reads, not mocked tests:
 

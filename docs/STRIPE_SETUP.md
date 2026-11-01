@@ -1,12 +1,13 @@
 # Stripe test-mode setup
 
 Updated: 1 November 2026 (Europe/Paris). Stripe is confirmed by the user.
-Implemented source is test-only. The owner-authorized sandbox now passes actual
-read-only Stripe MCP requests; the Node runtime still has no key. Tax settings
-are `pending` with missing `head_office`, and registrations are empty. No actual
-payment was created and no backend is deployed. Static Sites version
-31 is unchanged, with public checkout disabled. This setup cannot enable live
-keys or confirm paid Printful manufacturing.
+Implemented source is test-only. The newly selected underground alchemy merchant
+is connected in live mode for read-only inspection. Its Tax settings are active;
+registrations and v1 snapshot endpoints are empty. Its own sandbox/test context
+is not yet authorized. Earlier Jakub Cais sandbox evidence is a separate account.
+The Node runtime still has no keys, and no backend is deployed. Static Sites
+version 31 remains unchanged with checkout disabled. No payment or Printful
+fulfillment was created.
 
 ## Required host and secrets
 
@@ -28,11 +29,38 @@ keys or confirm paid Printful manufacturing.
   design. These remain host integration work, not completed by setting secrets.
 
 Never paste secrets into chat, commit them, put them in browser code, command
-arguments or `.openai/hosting.json`. The installed Stripe plugin is now authorized
-for the sandbox. This OAuth connection does not inject a key or webhook secret
-into the Node backend.
+arguments or `.openai/hosting.json`. Plugin OAuth is authorized for the selected
+merchant's live account, and separately for the older Jakub Cais sandbox. It does
+not inject a key or webhook secret into the Node backend.
 
-## Actual sandbox verification — 1 November 2026
+## Current merchant connection — 1 November 2026
+
+The owner selected the separate **underground alchemy** merchant,
+`acct_1UWra7PkIIV492Qz`. Fresh account discovery on its Stripe connection
+returns this account with `livemode:true` only. The older Jakub Cais connection
+still exposes its own live account and sandbox; those are separate identities.
+Earlier sandbox evidence must not be attributed to underground alchemy.
+
+Actual read-only requests on the selected merchant succeeded:
+
+- `GET /v1/tax/settings`: object `tax.settings`, `livemode:true`, `status:active`.
+- `GET /v1/tax/registrations?status=all&limit=100`: empty, `has_more:false`.
+- `GET /v1/webhook_endpoints?limit=100`: empty, `has_more:false` (v1 snapshot
+  endpoints only; not a complete v2 Event Destination inventory).
+
+No settings, Session, payment, webhook destination or Printful order was written.
+Active Tax settings do not establish the merchant's applicable registration or
+price/tax policy. No missing head-office claim is made for this merchant; the
+previous pending/head_office finding belongs to the older Jakub Cais sandbox.
+
+Required next access: authorize this merchant's own sandbox/test context through
+its Stripe connection, then rediscover the exact returned context and mode.
+Do not flip this live context to false, reuse the old sandbox, inherit its keys
+or reuse an old merchant's database/Session/order mappings. Runtime keys, actual
+HTTPS endpoint/secret, Printful token and a deployed durable Node backend remain
+unavailable. Checkout is disabled; static version 31 is unchanged.
+
+## Earlier sandbox verification — Jakub Cais, 1 November 2026
 
 The account list returned the existing live account and its separate sandbox.
 Only the owner-selected sandbox (`livemode:false`) was used for API reads:
@@ -49,8 +77,9 @@ reads do not verify the adapter's pinned API `2026-10-28.endive` in the runtime.
 No account settings were written and no Session, payment or Printful order was
 created. Existing live-account settings were not inspected or changed.
 
-Next, the owner must complete the sandbox's Tax head-office address and confirm
-the applicable merchant tax policy. Add registrations only for jurisdictions
+For the selected merchant, first authorize its own sandbox and inspect its Tax
+settings independently. If fields are pending, complete the actual sandbox
+configuration and confirm the applicable merchant tax policy. Add registrations only for jurisdictions
 where the merchant is actually registered; do not create fictitious registrations
 to pass a test. The current automatic-tax adapter requires verified active
 settings/registrations and deliberately blocks an empty configuration. If a

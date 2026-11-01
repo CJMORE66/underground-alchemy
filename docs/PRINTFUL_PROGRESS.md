@@ -4,6 +4,33 @@ Updated: 2026-11-01 (Europe/Paris). Overall: PARTIALLY WORKING; live commerce BL
 This is the persistent handoff record. A checked item requires evidence in
 PRINTFUL_TEST_RESULTS.md. Offline fixtures do not establish real API success.
 
+## Current merchant connection — 1 November 2026
+
+The owner selected the separate **underground alchemy** merchant,
+`acct_1UWra7PkIIV492Qz`. Fresh account discovery on its Stripe connection
+returns this account with `livemode:true` only. The older Jakub Cais connection
+still exposes its own live account and sandbox; those are separate identities.
+Earlier sandbox evidence must not be attributed to underground alchemy.
+
+Actual read-only requests on the selected merchant succeeded:
+
+- `GET /v1/tax/settings`: object `tax.settings`, `livemode:true`, `status:active`.
+- `GET /v1/tax/registrations?status=all&limit=100`: empty, `has_more:false`.
+- `GET /v1/webhook_endpoints?limit=100`: empty, `has_more:false` (v1 snapshot
+  endpoints only; not a complete v2 Event Destination inventory).
+
+No settings, Session, payment, webhook destination or Printful order was written.
+Active Tax settings do not establish the merchant's applicable registration or
+price/tax policy. No missing head-office claim is made for this merchant; the
+previous pending/head_office finding belongs to the older Jakub Cais sandbox.
+
+Required next access: authorize this merchant's own sandbox/test context through
+its Stripe connection, then rediscover the exact returned context and mode.
+Do not flip this live context to false, reuse the old sandbox, inherit its keys
+or reuse an old merchant's database/Session/order mappings. Runtime keys, actual
+HTTPS endpoint/secret, Printful token and a deployed durable Node backend remain
+unavailable. Checkout is disabled; static version 31 is unchanged.
+
 - [x] Open existing Sites project and source, retain public audience and identity.
 - [x] Inspect GitHub main and open PR #3 (ready, not draft; not merged).
 - [x] Audit current source and production runtime configuration.
@@ -16,7 +43,8 @@ PRINTFUL_TEST_RESULTS.md. Offline fixtures do not establish real API success.
 - [x] Publish validated static SHOP changes and verify production.
 - [x] Push reviewable GitHub commits and open integration PR.
 - [x] Confirm Stripe as the selected provider with the user (1 November).
-- [x] Authorize the selected Stripe sandbox and verify actual read-only API
+- [ ] Authorize and verify the selected underground alchemy merchant's own sandbox/test context.
+- [x] Authorize the earlier Jakub Cais Stripe sandbox and verify actual read-only API
   access through the Stripe plugin (`livemode:false`). Tax is pending (missing
   `head_office`), registrations and v1 snapshot endpoints are empty. No payment
   or account configuration was written; runtime secrets remain unavailable.
@@ -46,9 +74,10 @@ public UI. Static version 31 remains unchanged with checkout disabled.
 2. Authorized Node 24 backend host with private durable local disk and process
    supervision. If reusing original hiphop.caisik.i234.me, recover its NAS/
    reverse-proxy/Compose/backend first. Static Sites cannot run Node SQLite.
-3. Stripe sandbox MCP authentication succeeds. Tax is `pending` (missing
-   `head_office`); all registrations and v1 webhook endpoint lists are empty.
-   Complete the actual merchant Tax policy, never fictitious registration data.
+3. Current underground alchemy live MCP reads succeed and Tax is active; all
+   registrations and v1 snapshot endpoint lists are empty. Authorize its own
+   sandbox, then independently verify sandbox Tax and the actual merchant policy.
+   The old pending/head_office finding belongs to Jakub Cais sandbox.
    Configure `STRIPE_SECRET_KEY` (prefer restricted `rk_test_…`, or `sk_test_…`) and the actual
    snapshot destination's `STRIPE_WEBHOOK_SECRET` (`whsec_…`) securely, plus
    verified active Stripe Tax registrations/product+shipping codes/countries.
@@ -82,7 +111,7 @@ separate until their actual deployment relationship is verified.
 | Criterion | Evidence/status |
 | --- | --- |
 | Printful auth and correct store | BLOCKED: no token; preflight made no network call |
-| Stripe sandbox authentication | WORKING via actual MCP reads: balance and Tax objects have `livemode:false`. Runtime SDK/key/API-version and Checkout verification remain BLOCKED. |
+| Selected merchant authentication | WORKING via bounded underground alchemy live MCP reads (Tax active). Its own sandbox and runtime SDK/key/API-version/Checkout verification remain BLOCKED. Old Jakub Cais sandbox evidence is separate. |
 | Real current products/variants | BLOCKED: historical20/86 snapshot only; importer fixture tests pass |
 | Product images | WORKING for inspected snapshot/local assets and tested product; live catalog unverified |
 | Server price validation | INCOMPLETE: Stripe frozen quote/line/address/amount binding tested; trusted catalog/quote builder and authenticated business routes still required |
