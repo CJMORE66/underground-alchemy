@@ -1,5 +1,25 @@
 # Worker deployment and rollback record
 
+## Native archive size correction
+
+The first Worker save was rejected before creating a version: the default
+packager copied both maintained `dist/` assets and generated `dist/client/`,
+exceeding the native 256 MiB archive limit. No deployment occurred from that
+attempt. The build continues to preserve all maintained frontend files.
+
+After building, invoke the official Sites packager through the output-only
+staging helper (absolute helper/archive paths required):
+
+```sh
+node scripts/package-commerce-worker.mjs /absolute/sites/scripts/package-site.mjs /absolute/outside-checkout/release.tar.gz
+```
+
+The helper stages only `dist/client`, `dist/server`, `dist/.openai`, the hosting
+manifest and native Drizzle migrations. SHA256 checks verify staged output
+bytes. The resulting test archive was 179,682,380 bytes, under 256 MiB. The source
+checkout and served asset bytes are preserved; source must still be committed
+and pushed through the native Site source workflow before saving this archive.
+
 Updated: 1 November 2026, Europe/Paris. **Native Worker publication/migration is
 pending.** Public production is still saved static version 31 until an actual
 successful deployment record is added below. No live checkout is claimed.
