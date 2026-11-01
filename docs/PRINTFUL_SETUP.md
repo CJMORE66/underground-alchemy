@@ -1,6 +1,9 @@
 # Printful setup and remaining access dependencies
 
-Updated: 31 October 2026 (Europe/Paris). Live commerce remains blocked. Do not
+Updated: 1 November 2026 (Europe/Paris). Stripe is confirmed; its test-mode
+adapter and real SQLite worker are implemented but not hosted. Live commerce
+remains blocked. For concrete Stripe/bootstrap instructions read
+`STRIPE_SETUP.md`. Do not
 send API tokens, payment keys, customer records or webhook secrets in chat or
 commit them to this repository. Set values through the actual server's secret
 manager or the authorized local process environment.
@@ -10,14 +13,17 @@ manager or the authorized local process environment.
 | Dependency | Exact access/action needed | Purpose |
 | --- | --- | --- |
 | Original NAS/deployment | Authorized access to Synology reverse proxy/HTTPS virtual host for `hiphop.caisik.i234.me`, its target port, Container Manager/Docker Compose definitions and bounded service logs | Diagnose today's Synology not-found page and restore the existing storefront/backend |
-| Original backend source/runtime | Repository/branch, running platform/version, deployment procedure and environment-key names; do not paste secret values | Locate existing cart/checkout, payment provider and fulfillment adapter; prevent a duplicate sender |
+| Original backend source/runtime | Repository/branch, running platform/version, deployment procedure and environment-key names; do not paste secret values | Reuse original business routes/catalog or host the Node 24 adapter; detect any existing fulfillment sender |
 | Backend database/admin | Read-only product/order mapping and schema first, then narrowly authorized migration/write path if necessary | Verify source product/variant IDs, SKU, selling price/currency, Printful mapping, existing orders and uniqueness |
 | Existing Printful store | Account access establishing store ID/type and existing integration/webhook settings; expected historical ID is `18912189` | Verify the correct actual store and its configuration without creating a replacement |
 | Printful credential | Store-scoped private token stored securely as `PRINTFUL_API_TOKEN`, initially `sync_products/read`; add `orders/read` only for authorized read verification | Authenticate catalog/store reads and establish real counts/variant mappings |
 | Draft-order capability | Only when backend is identified: narrowly scoped `orders` permission in the actual server's secret configuration | Verify a deliberate draft-only create/reconcile flow. It does not authorize confirmation or paid fulfillment |
-| Existing payment sandbox | Provider identity, existing sandbox/test account connection, test credentials in server secrets, webhook endpoint/configuration and signing secret | Verify server-side payment status and duplicate/replayed event behavior without real charges |
-| Merchant business/tax configuration | Verified merchant country, tax registrations, supported selling currencies/countries, configured tax service and product tax handling | Calculate actual customer tax and totals; do not derive them from Printful's merchant cost/tax |
-| Durable processing/notifications | Existing database/queue/job host, admin access boundaries and customer notification service | Persist orders, event/job uniqueness, retries/dead letters, state/tracking and customer confirmations |
+| Stripe test secret | Configure actual account test secret as `STRIPE_SECRET_KEY` (`sk_test_…`) in the Node backend's secret manager | Read-only auth preflight, authorized test hosted Checkout and fresh payment reads; live keys are rejected |
+| Stripe snapshot endpoint | Mount `/api/stripe/webhook` on the real HTTPS Node host; configure an account snapshot destination at API `2026-10-28.endive`; inject that destination's `STRIPE_WEBHOOK_SECRET` (`whsec_…`) | Verify original bytes through the official SDK, then durably enqueue; see event list in `STRIPE_SETUP.md` |
+| Stripe Tax/business policy | Verify active actual test-mode settings/registration IDs, merchant country, allowed delivery countries, product/shipping tax codes and selling currencies/prices | Calculate/freeze real quotes; tests do not configure registrations or establish tax obligations |
+| Durable backend host | Authorized Node 24 host with a mounted private durable local directory, process supervision and backup access; recover original NAS first if reusing it | Run actual SQLite migration/transactions/leases and worker. Static Sites/Cloudflare cannot run this Node SQLite backend |
+| Business routes/operations | Customer/order authentication and authorization, trusted catalog/quote builder, rate limiting, admin dead-letter visibility, notification service | Expose a usable checkout safely; these ordinary host integrations are still required |
+| PII retention | Approved retention/anonymization schema and procedure for immutable order JSON and backups | Address data is persisted; current immutable SQL triggers provide no delete/anonymize path. Resolve before production customer storage |
 
 No real charge or paid fulfillment test is needed for the currently authorized
 offline/static release. Request separate explicit authorization before either.
@@ -101,11 +107,12 @@ headers to the verifier; JSON parsing or middleware rewriting must not precede
 signature verification. Real registration/delivery and cross-version order
 notifications remain unverified.
 
-`server/commerce/` is a disconnected server-only library. It is intentionally
-outside `dist/`; setting a Site environment variable alone does not expose an
-endpoint or connect storage. Wire it into the identified original backend only
-after matching its interfaces, durable repository, payment evidence and secret
-handling. Verify recovery/concurrency through the real database before live use.
+`server/commerce/` now includes the real SQLite repository/migration, Stripe
+adapter and durable workflow/Request handler. It remains intentionally outside
+`dist/`; setting Site environment variables does not mount a Node endpoint or
+durable filesystem. Use the bootstrap in `STRIPE_SETUP.md` on the identified
+Node host. Local SQLite concurrency/recovery tests pass, but deployment/backup,
+actual signatures/payment/Tax and provider normalization still need real checks.
 
 ## Verification required before enabling sales
 
@@ -114,8 +121,8 @@ The owner/backend team must be able to demonstrate, with authorized test data:
 1. Real Printful authentication and exact correct store/product/variant mapping.
 2. Server-approved variant price/currency, live shipping methods and configured
    customer tax for the test address; frontend price tampering is rejected.
-3. Successful and failed test checkout; verified server-side payment evidence;
-   durable internal order persistence.
+3. Successful and failed Stripe test checkout; verified fresh Session/line,
+   PaymentIntent/charge/refund evidence; actual deployed SQLite persistence.
 4. One linked Printful draft after payment, including concurrent duplicate
    events, timeout reconciliation and retry/dead-letter recovery.
 5. Real webhook delivery/authentication, duplicate/out-of-order processing,
@@ -125,6 +132,13 @@ The owner/backend team must be able to demonstrate, with authorized test data:
 7. Production build/deployment, reachable configured endpoints, production logs,
    rate limits, retention controls and tested rollback.
 
+No paid Printful confirmation method is implemented. The current release only
+creates drafts after verified test payment when deliberately wired and supplied
+with credentials. Customer refunds/cancellations and durable Printful status
+notifications still require additional implementation; fresh refund detection is
+not itself a customer refund workflow.
+
 Keep checkout disabled until these applicable criteria are supported by real
 evidence. Update `PRINTFUL_PROGRESS.md` and `PRINTFUL_TEST_RESULTS.md` rather than
 relabeling mocked tests as live verification.
+

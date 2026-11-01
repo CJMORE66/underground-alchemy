@@ -1,68 +1,98 @@
-# Server commerce adapters — implemented, not connected
+# Node commerce backend — implemented, not hosted
 
-These modules are server-only integration building blocks. They are outside the
-published `dist/` directory. They expose no HTTP endpoint, collect no customer
-data, choose no payment provider, and are **not a deployed checkout**.
+Updated 2026-11-01. Stripe is confirmed. Server-only modules stay outside
+published `dist/`; static Sites version 31 is unchanged and checkout is disabled.
+Node 24/`node:sqlite` needs a separate durable Node host and cannot run in static
+Sites/Cloudflare. No Stripe/Printful credentials, real account configuration,
+actual payment or backend deployment has been verified.
 
-`printful.js` fixes the API origin/store, refuses redirects, bounds response bodies
-and timeouts, redacts diagnostics, retries only reads and read-only shipping
-estimates, and creates drafts using `confirm=false&update_existing=false`. It has
-no confirmation, cancellation, refund, webhook-registration or arbitrary-request
-method. Shipping uses the catalog `variant_id`; configured draft designs use the
-store's `sync_variant_id`. Store verification must complete first.
+## Modules
 
-`orders.js` loads authoritative persisted orders and requires an injected payment
-verifier that verifies the existing payment provider server-side. The verifier
-must bind order ID, captured amount, currency and unique provider reference.
-Browser flags/redirects are not payment evidence. The payment verifier and order
-repository are required dependencies and have **not been supplied**.
+- `stripe.js`: official SDK 23.1.0, pinned API `2026-10-28.endive`, `sk_test_`
+  keys only. Verifies actual configured Tax settings/registrations, calculates
+  and freezes address/line/variant/shipping/tax/total quotes, creates/resumes hosted
+  Checkout with stable idempotency parameters, recovers Session references and
+  re-fetches Session/lines/PI/captured charge/refund history before payment proof.
+  Raw account snapshot events use SDK signature verification; live/Connect/thin
+  payloads are not supported. No raw card data is handled.
+- `sqlite-repository.js` + `migrations/001-commerce.sql`: real private-file SQLite
+  repository; checksum-checked explicit startup migration, WAL/FULL transactions,
+  immutable orders, unique Session/external/payment references, atomic event
+  inbox/jobs, leases with random fencing tokens, bounded retries/dead letters and
+  a durable single-Printful-POST gate.
+- `stripe-workflow.js`: loads authoritative persisted orders for Checkout,
+  conditionally binds Sessions, admits signed events durably before HTTP 200,
+  and runs payment-to-draft jobs through a leased worker. Exported
+  `createStripeWebhookHandler` handles raw Request POSTs at
+  `/api/stripe/webhook`; no actual HTTP server/router is mounted.
+- `orders.js`: deterministic bounded external ID, amount/currency/order/payment
+  reference checks, payload hashing and durable draft workflow. `beginDraftAttempt`
+  atomically permits a POST only before any attempted mutation; ambiguous results
+  can only reconcile. No timeout clears the durable gate.
+- `printful.js`: fixed origin/store, verified store precondition, no redirects,
+  bounded JSON/timeouts/read retries, shipping estimates and draft creation with
+  `confirm=false&update_existing=false`. Shipping uses catalog `variant_id`;
+  configured designs use `sync_variant_id`. No confirmation, cancellation,
+  refund, webhook-registration or arbitrary-request method exists.
+- `webhooks.js`: Printful v2 hex-key HMAC-SHA256/raw-byte/public-key/store
+  verification and newer-order/shipment state reducer. It rejects unsigned v1
+  events; actual signed subscription/cross-version delivery and a durable
+  Printful event-ledger/snapshot receiver remain unconnected.
+- `validation.js`: bounded inputs/items, explicit currency exponent and integer
+  money arithmetic. It does not establish deliverability or merchant tax policy.
 
-The repository adapter must implement:
+## Startup and host contract
 
-- `getOrder(id)`: immutable server-side priced order, address, shipping method and
-  Printful sync variant IDs; no browser-supplied prices or payment state.
-- `claimDraft({orderId,externalId,payloadHash,paymentReference})`: atomic insert
-  with unique constraints on order ID, external ID and payment reference. Return
-  `{externalId,payloadHash,paymentReference,state,acquired}`. Exactly one caller
-  gets `acquired:true`, state `reserved`; repeats get false. A different hash or
-  payment reference is a conflict. Reservations survive process failure.
-- `markDraftCreated(...)`: conditional durable update tied to the same reservation
-  and payload hash. Never replace another Printful ID.
-- `recordDraftFailure(...)`: durable failure/dead-letter record, with bounded
-  retries of safe reconciliation and administrative visibility. Never release a
-  reservation after timeout merely because an order lookup is temporarily empty.
+See [`docs/STRIPE_SETUP.md`](../../docs/STRIPE_SETUP.md) for actual bootstrap,
+tax configuration/quote fields, secrets, snapshot subscription and worker calls.
+Use a private durable directory mode 0700, service umask 0077 and absolute DB
+filename outside public mounts. Call `repository.migrate()` before serving or
+starting workers; checksum mismatch must stop startup. Database/WAL/SHM files
+need private durable storage/backups. Tests establish local shared-file
+concurrency, not multi-machine/network-filesystem support.
 
-An ambiguous POST is reconciled using `GET /orders/@external_id`; it is never
-blindly retried. A repeat invocation with an existing reservation can only read
-and reconcile. A remote draft whose ID, contents, recipient, shipping method or
-draft status do not match is rejected. Provider response normalization (including
-address normalization) still requires live verification before use.
+The host must supply `STRIPE_SECRET_KEY` (`sk_test_…`), the actual destination's
+`STRIPE_WEBHOOK_SECRET` (`whsec_…`), `PRINTFUL_API_TOKEN`, verified active Stripe
+Tax registrations/product+shipping tax codes/countries, and authoritative
+merchant catalog prices. Secrets belong in the host secret manager, never chat,
+Git, logs or browser code. No arbitrary browser totals/paid flags are trusted.
 
-`webhooks.js` verifies v2 HMAC-SHA256 over original bytes, decodes the hexadecimal
-secret key, matches the configured public key/store, and normalizes only supported
-order/shipment events. v1's unsigned payload is not accepted. Keys must come from
-the actual Printful-created configuration; registering webhooks can replace prior
-settings and is not performed by these modules. Verify v1 order notifications
-against the actual signed v2 subscription before relying on cross-version delivery.
+Mount authenticated/authorized quote, checkout and order routes with abuse
+controls. The supplied webhook handler preserves raw bytes, requires JSON POST,
+limits body size and returns 503 when the event cannot be durably saved. Configure
+account **snapshot** events at API `2026-10-28.endive`: completed, async success,
+async failure and expired Checkout Sessions. Only the first two enqueue jobs.
+Success redirects are not payment evidence or a completed confirmation UI.
 
-The event reducer requires authenticated events and keeps order status, shipments
-and refund state separate. Persist its result and a unique event-key insert in
-one DB transaction. Older order updates cannot overwrite newer ones; timestamp
-ties with conflicting values require provider reconciliation. Events do not
-charge cards, confirm production, cancel orders or issue customer refunds.
-Printful refunds to the merchant are not customer payment refunds.
+Supervisor-managed workers call `processNextPayment` with distinct IDs. Default
+lease is five minutes, maximum fifteen; no renewal method exists, so bound the
+whole attempt beneath its lease. Fencing prevents expired owners completing
+reclaimed jobs. Five attempts and bounded backoff end in durable dead letters;
+operator monitoring/replay UI is not implemented. Do not replay uncertain
+Printful mutations or release their reservation after an empty lookup.
 
-`validation.js` performs integer money arithmetic with an explicit currency
-exponent. It does not invent tax rates or decide merchant tax obligations.
+## Evidence and remaining limits
 
-All tests use isolated fake transports/repositories. Missing pieces include the
-actual backend adapter, transaction/locking/dead-letter implementation, provider
-payment verification, authoritative pricing/tax/address validation, authenticated
-routes/abuse protection, real API/webhook tests, notifications and deployment.
+Focused local run: **64 passed** — 19 original server fixture cases, 19 Stripe
+adapter cases with official SDK signature checks/mock HTTP, 14 real disk SQLite
+integration cases including eight-process races, 12 real-SQLite workflow cases
+with fake providers. This is actual database evidence, not real Stripe/Printful
+authentication, account Tax configuration, payment, webhook delivery or draft.
 
-Official contracts checked 2026-10-31:
+Missing host work includes actual secrets/configuration/HTTPS mounting, business
+authentication/authorization/rate limits, trusted catalog quoting/address
+validation, production backups/monitoring, notifications, customer refund/
+cancellation and durable Printful status/tracking receiver. Current payment
+verification detects refunds/disputes/reviews; it does not initiate refunds.
 
-- https://developers.printful.com/docs/ — auth, stores, shipping rates, draft
-  creation, external IDs and sync variants.
-- https://developers.printful.com/docs/v2-beta/ — signed webhook bytes, hex key,
-  public-key header, order and shipment events. API v2 is beta.
+**PII retention is incomplete:** immutable `commerce_orders.order_json` stores
+customer addresses and SQL triggers block update/delete. Implement an approved
+retention/anonymization schema/process and backup lifecycle before production
+customer storage. No live-key mode or paid Printful confirmation is implemented
+or authorized. Keep public checkout disabled until real acceptance is demonstrated.
+
+Contracts: [Stripe Checkout](https://docs.stripe.com/api/checkout/sessions/create),
+[Stripe webhooks](https://docs.stripe.com/webhooks),
+[Stripe Tax](https://docs.stripe.com/tax/standalone-tax-api),
+[Printful v1](https://developers.printful.com/docs/),
+[Printful v2 beta](https://developers.printful.com/docs/v2-beta/).

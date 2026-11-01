@@ -1,8 +1,32 @@
 # Printful test results
 
-Date: 2026-10-31 (Europe/Paris). Overall PARTIALLY WORKING; live acceptance BLOCKED.
+Updated: 2026-11-01 (Europe/Paris). Overall PARTIALLY WORKING; live acceptance
+BLOCKED. Stripe is confirmed; the new backend remains unhosted. The 31 October
+static browser/deployment evidence below is historical and was not rerun as a
+claim of backend readiness.
 
-## Evidence categories
+## 1 November Stripe / durable-storage verification
+
+| Command/check | Actual result | Evidence category |
+| --- | --- | --- |
+| `node tests/commerce-server.mjs` | PASS, 19 cases | Original fake-provider/repository safety fixtures |
+| `node tests/stripe.mjs` | PASS, 19 cases | Official SDK 23.1.0 signature construction/verification and mocked provider HTTP: test-only keys, Tax/quote/line/address/amount binding, fresh Session/PI/charge/refund checks, pagination and deterministic lost-reply retry parameters |
+| `node tests/commerce-sqlite.mjs` | PASS, 14 cases | Actual private on-disk SQLite, migration/checksum, durable reopen, transactions/uniqueness, eight-process races, single-POST gate, leases/fencing and retries/dead letters; no provider requests |
+| `node tests/stripe-workflow.mjs` | PASS, 12 cases | Actual SQLite plus fake Stripe/Printful providers: durable admission, duplicate events/jobs, delayed payments, early/lost Session mapping recovery after quote expiry, ambiguous POST reconciliation and raw Request handler responses |
+| `npm run test:stripe` | PASS, 45 cases | Stripe + SQLite + workflow groups above, not live provider testing |
+| Focused four-suite total | PASS, 64 cases | 19 + 19 + 14 + 12; no fixture is reported as an account/payment success |
+| `node tools/verify-stripe.mjs` | BLOCKED, missing test key; `networkAttempted:false` | No authentication request, Session/payment or endpoint registration occurred |
+| Runtime/process credential inspection | BLOCKED | No Stripe/Printful key or endpoint secret available; Sites environment entries remain empty |
+| Latest `npm audit --json` | PASS, exit 0, zero known vulnerabilities | Current dependency advisory check; an earlier exit-2 result was not treated as a clean command |
+
+Real database concurrency is tested, not mocked. Stripe SDK raw signatures are
+tested locally with fixture keys; HTTP account/Tax/payment/refund responses remain
+mocked. No actual Stripe test checkout, real signed delivery, merchant tax
+configuration, Printful draft, customer charge or paid fulfillment was verified.
+Static version 31 and public checkout remain unchanged. No new UI/browser E2E is
+claimed for this backend-only follow-up.
+
+## 31 October static release evidence
 
 | Check | Result | What it establishes |
 | --- | --- | --- |
@@ -41,10 +65,11 @@ These checks do not verify a physical phone or live payment.
    product/variant count comparison and safe image availability.
 2. Actual address-specific Printful shipping methods/currency and merchant tax
    service. Provider tax on manufacturing is not customer checkout tax.
-3. Existing payment sandbox checkout, successful/failed payment, server-side
+3. Actual Stripe test checkout, successful/failed payment, server-side
    amount/currency/order binding, replayed/out-of-order payment webhooks.
-4. Actual durable internal order/outbox/event ledger, transaction uniqueness,
-   concurrent jobs, crash recovery, dead-letter/admin visibility.
+4. Deployed durable internal order/inbox/jobs, host restart/backup recovery and
+   dead-letter/admin visibility. Local real SQLite transaction/concurrency/lease
+   behavior now passes; actual host deployment is still blocked.
 5. Authorized real draft-only Printful creation (`confirm=false`), ambiguous
    response reconciliation, duplicate protection in the deployed backend.
 6. Actual signed webhook delivery/retry/status/tracking mapping and customer
@@ -52,6 +77,10 @@ These checks do not verify a physical phone or live payment.
 
 No confirmation-for-fulfillment API method is implemented. Paid production
 confirmation and real charges require separate explicit authorization.
+Stripe test keys/actual snapshot endpoint secret, verified Tax registrations,
+product/shipping tax codes and countries, real Printful token, authenticated
+business routes/trusted quotes and a Node 24 durable host are still required.
+Immutable order JSON lacks an implemented PII retention/anonymization path.
 
 ## Limits
 
@@ -85,3 +114,13 @@ Only browser-local cart selections were exercised; no payment or order existed.
 
 Post-deployment English/French/Czech switching also verified translated hero
 headings and checkout-unavailable controls. Test cart remained empty afterward.
+
+
+### Repository-wide CI for the Stripe code
+
+GitHub Actions run41265201942 completed successfully for code commit
+a59ed6923471fefae4bf929ec00ae50b20842a46:
+https://github.com/CJMORE66/underground-alchemy/actions/runs/41265201942
+It executed the full checkout, including existing SHOP/cart/importer/language/atlas
+checks, the45new Stripe/storage/workflow tests and static release validation.
+This is CI/fixture evidence, not live provider verification.

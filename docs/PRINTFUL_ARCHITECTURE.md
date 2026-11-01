@@ -1,157 +1,181 @@
-# Printful architecture and operational boundaries
+# Printful / Stripe architecture and operational boundaries
 
-Updated: 31 October 2026 (Europe/Paris). This describes the inspected application
-and isolated code additions. It is not a claim that a production commerce
-backend, payment flow or durable order pipeline is connected.
+Updated: 1 November 2026 (Europe/Paris). Stripe is the confirmed payment
+provider. Node 24 modules implement test-mode Checkout/Tax/payment verification,
+a real on-disk SQLite repository and a durable payment worker. They are not
+mounted or deployed. Production remains static version 31 with checkout disabled.
 
-## Current deployed application
+## Deployed application and source map
 
 `dist/` is the maintained static application. `.openai/hosting.json` retains the
 existing public Sites project and `static.directory: dist`. Atlas, Blackbook,
-Alchemy/Frequency tools, Selfmade, routes, artwork and existing local user data
-remain independent of commerce. The Site has no configured commerce database or
-runtime secrets.
+Alchemy/Frequency, Selfmade, artwork, routes and local user data are preserved.
+Node's `node:sqlite` cannot run in this static Sites/Cloudflare deployment.
 
 | Code/data | Responsibility | Trust boundary |
 | --- | --- | --- |
-| `dist/shop/index.html`, `shop.css`, `shop.js` | Catalog grid, filtering, accessible product dialog/gallery, size/color selection, saved cart UI | Public browser code; cannot authenticate providers, validate payable totals or create fulfillment |
-| `dist/shop/catalog.json` | Public product snapshot with stable internal/Printful mapping | Observation data, not live stock or a delivered-price quote |
-| `dist/catalog.json` | Original dated source catalog evidence | Preserve historical identities/prices; do not silently refresh dates |
-| `dist/shop/source-commerce.js` | Validate historical source prices and exact original product/variant URLs | Fixed original host/handle; diagnostics are not an active checkout |
-| `dist/shop/cart.js` | Versioned device-local variant IDs and quantities, bounded parsing and storage recovery | No address/card/order data, payment authority or server inventory reservation |
-| `tools/sync-printful.py` | Explicit administrator-run read-only import | Token only in process environment; API allowlist, TLS, no redirects, bounded responses/retries, atomic public export |
-| `server/commerce/` | Reusable provider/validation/order/webhook safety helpers | Server-only source, outside `dist/`; disconnected from HTTP hosting and durable storage |
-| `docs/i18n/*-translations.json`, `tools/build-languages.py` | Translation source and generator for CZ/EN/FR | Original product names, SKUs and user text are not translated into invented data |
+| `dist/shop/{index.html,shop.css,shop.js}` | Grid/filtering, accessible detail/gallery, variants and saved cart | Public browser; no provider authentication, payable quote or fulfillment authority |
+| `dist/shop/catalog.json`, `dist/catalog.json` | Public mapped snapshot and original dated evidence | Historical observations, not live inventory or delivered-price offers |
+| `dist/shop/source-commerce.js` | Historical prices and allowlisted exact original URLs | Diagnostics, not an active checkout |
+| `dist/shop/cart.js` | Versioned local variant IDs/quantities with recovery | No customer address, card/order data or inventory reservation |
+| `tools/sync-printful.py` | Explicit administrator-run read-only catalog import | Process-only token; fixed API/store, TLS/no redirects, bounded responses/retries and atomic public export |
+| `server/commerce/` | Printful/Stripe adapters, migration, durable repository and worker | Server-only Node 24 source outside `dist/`; requires a private durable host and actual secrets |
+| `docs/i18n/*-translations.json`, `tools/build-languages.py` | CZ/EN/FR source/generated dictionaries | Existing identifiers/product names/user data are preserved |
 
-The exact original commerce host is
-`https://hiphop.caisik.i234.me/dk/`. Historic public data resembled Medusa; its
-private implementation and payment provider remain unknown. The currently
-observed Synology not-found page is an external deployment failure, not evidence
-that a new backend should be silently substituted.
+The original commerce host is `https://hiphop.caisik.i234.me/dk/`. Historic
+payloads resembled Medusa; its private implementation remains uninspected.
+Stripe is now selected by the user. The Synology not-found observation is dated
+31 October; diagnosing/reusing that deployment needs authorized NAS/backend access.
+GitHub review and Sites/backend deployments remain separate operations.
 
 ## Catalog synchronization
 
-1. The administrator supplies a store-scoped credential to the Python process.
-   The importer authenticates `GET /stores` and checks expected store
-   `18912189` before fetching products. This ID is a historical expected
-   identity until verified by a real authenticated response.
-2. Manual/API stores use v1 `/store/products`; ecommerce platform stores use
-   `/sync/products`. The operator must establish the existing type before
-   choosing `--platform`. The importer never creates another store.
-3. A full scan lists bounded pages and retrieves details. Explicit
-   `--product-id` refreshes only selected products and preserves other records
-   with their original observation dates. An incremental result does not claim
-   to verify the whole current store.
-4. Existing public IDs, handles, merchandising names, categories and approved
-   local images are retained. Conflicting SKU/catalog-variant identity changes
-   stop the import. Removed/unconfigured/unavailable identities are recorded
-   explicitly; a genuine empty full catalog is represented accurately.
-5. Original-store `sourcePrice` remains dated evidence. Printful retail-price
-   and availability observations have separate fields/provenance. Manufacturing
-   costs never silently replace customer prices; unknown availability remains
-   unknown. No catalog export enables checkout.
-6. Only public product data and allowlisted previews are serialized. The final
-   JSON replaces the prior file atomically only after validation. The operator
-   reviews the diff/tests and publishes a separate Sites version.
+1. Administrator injects a store-scoped credential. `GET /stores` verifies
+   expected historical store `18912189` before reads; it is not an authenticated
+   account fact until a real request succeeds.
+2. Existing Manual/API stores use v1 `/store/products`; ecommerce stores use
+   `/sync/products`. The operator establishes the type before choosing
+   `--platform`; the importer never creates another store.
+3. Full sync lists bounded pages/details. Explicit `--product-id` refreshes
+   selected products and preserves other records/dates; incremental output
+   cannot claim a complete current store scan.
+4. Stable public IDs, handles, merchandising fields and approved local images
+   are retained. SKU/catalog-variant conflicts stop the import. Removed,
+   ignored/unconfigured/unavailable identities and a real empty full scan are
+   represented explicitly.
+5. Historical `sourcePrice` remains dated; Printful retail-price/availability
+   observations use separate provenance. Manufacturing costs never silently
+   become customer prices. Unknown stock remains unknown; checkout stays off.
+6. Public-field/image allowlists and validation precede atomic JSON replacement.
+   The operator reviews the diff/tests and publishes a separate static version.
 
-GET retries are bounded and apply to transient/rate-limit failures. Permanent
-authorization/schema failures stop. The importer cannot create orders, configure
-webhooks or confirm fulfillment. It is not a scheduled production worker.
+Retries apply only to bounded transient/rate-limit reads. Permanent auth/schema
+errors stop. This tool cannot create orders, change webhooks or confirm production.
 
 ## Saved cart
 
-`caisik-shop-cart-v1` stores only `{productId, variantId, quantity}` lines in a
-versioned browser-local record. Product/variant descriptions and price
-observations are resolved from the current public catalog. Malformed/excessive
-records are rejected, and quota/storage failures are visible with an in-memory
-fallback. Sequential cross-tab edits re-read storage and receive storage events;
-this is not a distributed transaction or simultaneous-edit merge guarantee.
+`caisik-shop-cart-v1` stores `{productId,variantId,quantity}` only. Current public
+catalog data supplies names/price observations. Invalid/excessive records are
+rejected; storage/quota failures are visible with an in-memory fallback. Storage
+events and re-read-before-mutation handle sequential tab edits; simultaneous
+writes remain last-writer-wins.
 
-Historical estimate totals use integer minor units and remain separated by
-currency. Missing/removed variants or prices make the estimate incomplete. There
-is no server quote, stock reservation, order number or customer confirmation.
-The disabled checkout explains the missing verified backend/provider connection.
+Historical estimates use integer minor units and separate currencies. Missing
+variants/prices make totals incomplete. There is no server quote, reservation,
+order or confirmation. Public checkout remains disabled.
 
-## Required original-backend integration
+## Implemented Stripe test-mode server flow
 
-This flow is the acceptance contract for reconnecting the actual backend, not an
-implemented production topology:
+1. **Still required from the host:** authenticate the customer/order owner,
+   resolve enabled variants and selling prices from a trusted merchant catalog,
+   validate the delivery address and obtain a real Printful shipping quote.
+   Browser-provided prices/payment flags are never accepted as authority.
+2. `StripeCheckoutAdapter.calculateTax` verifies configured test-mode Tax
+   settings/registrations and obtains a calculation. It freezes delivery address,
+   currency, priced lines/quantities, sync-variant mapping, shipping, tax policy
+   and total into a bounded-lived quote hash. Actual merchant configuration is
+   not supplied or verified by this code's existence.
+3. SQLite persists the immutable trusted order. Workflow Checkout creation loads
+   that order, creates a hosted Session through official SDK 23.1.0/API
+   `2026-10-28.endive` and durably binds its unique Session/quote. Only `sk_test_`
+   keys/test-mode objects are accepted. Discounts, adjustable quantities and
+   adaptive currency changes are disabled.
+4. The raw Stripe snapshot signature is verified with the official SDK. Event
+   identity and pending job are committed atomically before HTTP 200. Processing
+   occurs in a separate leased worker, not in webhook delivery.
+5. The worker freshly retrieves the exact Session, all product/variant lines,
+   shipping/address/tax/total, PaymentIntent, captured charge and refund history.
+   Signed event/redirect success alone is not payment evidence. A mismatch,
+   refund/dispute/review or unavailable capture prevents drafting.
+6. A durable reservation binds order, payment reference, payload hash and stable
+   external ID. An atomic single-POST gate admits at most one Printful create
+   attempt. The draft uses configured `sync_variant_id` and
+   `confirm=false&update_existing=false`; ambiguous results reconcile by
+   `GET /orders/@external_id`, never another blind create.
+7. Pending/transient jobs receive bounded retries; exhausted/permanent failures
+   enter a durable dead-letter state. Paid Printful confirmation, customer
+   notification/refund/cancellation and a durable Printful status receiver remain
+   unimplemented/unconnected. A draft is not paid fulfillment.
 
-1. Browser sends only known variant IDs, quantities and a validated delivery
-   address to an authenticated/rate-limited checkout service.
-2. Server re-resolves enabled variants and selling prices from trusted merchant
-   records, validates currency, obtains current shipping methods and calculates
-   customer tax using the merchant's configured tax service/rules.
-3. Payment is created through the existing provider's authorized test/live mode.
-   A redirect success page is never sufficient payment verification.
-4. Verified server-side payment evidence and the internal order are persisted
-   transactionally with an idempotent fulfillment job. Order/payment/event
-   uniqueness is enforced by durable storage, not process memory.
-5. The job creates a Printful **draft** with mapped `sync_variant_id` items,
-   `confirm=false` and a stable unique `external_id`. After an ambiguous result,
-   it reconciles `GET /orders/@external_id` before considering another create.
-6. A successful draft is mapped to the internal order. It is not paid
-   fulfillment. Confirmation can charge the merchant and requires separate
-   authorization and a verified release gate.
-7. Authenticated notifications and API reconciliation update canonical order
-   states/tracking. A webhook is durably recorded/deduplicated before processing;
-   old events cannot regress confirmed newer state. Transient failures enter a
-   bounded retry queue; exhausted jobs enter an inspectable failed-job queue.
-8. Cancellation/refund coordinates the actual payment-provider transaction,
-   internal order and fulfillment cancellation. A Printful merchant refund is
-   not automatically a refund of the customer's payment. Notifications expose
-   only customer-authorized order data.
+## Actual module contracts
 
-The repository's isolated helpers support parts of that contract, but no HTTP
-handler, database adapter, transaction/outbox, deployed queue, administrative
-screen, mail delivery or payment-provider adapter is connected. They must not be
-called production-ready merely because fixture tests pass.
-
-### Server helper contracts actually present
-
-| Module | Implemented boundary | Required dependency/limit |
+| Module | Implemented | External/remaining dependency |
 | --- | --- | --- |
-| `server/commerce/printful.js` | `verifyStore`, paginated `catalogSummary`, read-only `shippingRates`, `lookupOrder`, draft-only `createDraft`; fixed origin/store, bounded JSON/timeouts/retries and redacted diagnostics | Needs a real token and verified API responses. Shipping uses catalog `variant_id`; configured draft items use `sync_variant_id`. No arbitrary request, confirmation, cancellation, refund or registration method exists. |
-| `server/commerce/orders.js` | `DraftOrderService`, deterministic bounded external order ID, payload-hash matching and internal state-transition guard | Injected `getOrder`, atomic/durable `claimDraft`, conditional `markDraftCreated`, durable `recordDraftFailure` and real provider `verifyPayment` are mandatory. No storage/verifier implementation is connected. |
-| `server/commerce/webhooks.js` | Verify original v2 raw bytes/key/store; normalize supported events; derive retry-stable event keys and reduce newer order/shipment states | Unique event-key insertion and snapshot persistence must share a DB transaction. Tied/conflicting event timestamps require API reconciliation. Only events verified by the helper enter its reducer. |
-| `server/commerce/validation.js` | Bounded fields/items, currency syntax, explicit-exponent decimal-to-minor conversion and integer totals | Syntax checks are not country/address deliverability validation, authoritative merchant pricing, payment verification or customer tax calculation. |
+| `printful.js` | Fixed origin/store; bounded timeout/JSON/read retries; `verifyStore`, `catalogSummary`, `shippingRates`, `lookupOrder`, draft-only `createDraft` | Real token/API verification. Shipping uses catalog `variant_id`; designs use `sync_variant_id`. No arbitrary request, confirmation/refund/cancellation/registration method. |
+| `stripe.js` | Test-only official SDK; Tax/frozen quote, hosted Checkout/resume, session-reference recovery, fresh Session/PI/charge/refund checks, raw snapshot verification | Actual test account/secrets, merchant registrations/countries/tax codes and trusted order creation. Address/provider response normalization requires live validation. |
+| `sqlite-repository.js`, `migrations/001-commerce.sql` | Private durable files, checksum migration, immutable orders, unique bindings, atomic inbox/jobs, leases/fencing and failure records | Node 24/private durable local filesystem; explicit startup migration; approved PII retention/anonymization still absent. Not a D1/Cloudflare adapter. |
+| `stripe-workflow.js` | Server-order Checkout coordination, raw Request handler at `/api/stripe/webhook`, durable admission/worker and session-binding recovery | Actual router/host, business authentication/authorization, abuse controls, secrets and worker supervision. |
+| `orders.js` | Draft service, deterministic bounded external ID, payload/hash/payment binding and internal state guard | SQLite supplies repository methods; Stripe supplies fresh verifier. Actual provider draft behavior remains unverified. |
+| `webhooks.js` | Printful v2 raw HMAC-SHA256 verification, event normalization and newer-state reduction | Actual signed subscription/delivery plus a transaction-backed Printful event ledger/snapshot receiver. |
+| `validation.js` | Bounded text/items, explicit-exponent decimal conversion and integer money totals | Syntax checks are not deliverability, trusted prices, merchant tax policy or payment verification. |
 
-The order repository must enforce unique order ID, external ID and provider
-payment reference at the database level. An existing/uncertain reservation can
-only reconcile; the helper does not release it for another blind POST. A remote
-draft must match its ID, recipient, items, shipping and draft status. Actual
-provider address/response normalization requires live verification. See
-`server/commerce/README.md` for the exact adapter contract.
+## SQLite migration, leases and recovery
+
+Filename must be absolute. Its direct parent must already be a non-symlink
+private directory without group/other permissions. The DB must be a private
+non-symlink regular file or is created mode 0600. Call `migrate()` before serving;
+migration 001's checksum is checked on every startup. WAL, `synchronous=FULL`,
+foreign keys and `BEGIN IMMEDIATE` protect local transactions. No request-time
+schema creation occurs.
+
+SQLite enforces unique order, Session, external order and provider payment
+identities. `beginDraftAttempt` is a durable mutation gate. A safe initial lookup
+failure can retry before the POST; once attempted/uncertain, only reconciliation
+is permitted. A returned draft must match ID, recipient, shipping, items and
+draft status. Failure cannot silently release the gate for another POST.
+
+Available/expired jobs are claimed with a new random fencing token. Only the
+current unexpired owner/token may complete/fail them. Attempts are capped at
+five; retry backoff is bounded and exhausted jobs become `dead_letter`. There
+is no lease-renewal method: provider/service timeout budgets must fit the chosen
+lease (default five minutes, maximum fifteen). The host supervises/restarts
+workers and exposes dead letters to an authorized operator.
+
+A signed event may precede Session binding. Recovery retrieves the Session,
+loads the immutable order by provider metadata and verifies/conditionally binds
+the exact quote/Session before payment verification. After quote creation expiry,
+recovery restores mapping only; it neither creates a new Session nor proves
+payment. Stripe creation retains a stable idempotency key. Printful creation
+uses external-ID reconciliation and the durable single-attempt gate.
+
+`commerce_orders.order_json` contains customer address data and update/delete
+triggers currently make it immutable. **Retention/anonymization is not
+implemented.** An approved schema/data lifecycle, private backups/access controls
+and monitoring are required before production customer data is stored.
 
 ## Webhook policy
 
-Use the actual configured provider/version's documented event schema. v1
-Printful webhook configuration and v2 beta signing have different contracts.
-Inspect existing settings before any replacement; do not steal notifications
-from an existing integration. Signature verification uses the original raw
-request bytes and the exact configured key/header contract. Unknown or malformed
-events cannot create or pay an order.
+Stripe needs an **account snapshot** destination pinned to
+`2026-10-28.endive`, not a thin/Connect destination. SDK raw-byte signature
+verification precedes durable admission. `checkout.session.completed` and
+`checkout.session.async_payment_succeeded` enqueue payment work. Failed/expired
+events are verified/ignored. An unpaid completion waits for a distinct
+async-success event; fresh API reads remain authoritative. All four subscription
+types and exact endpoint configuration are in `STRIPE_SETUP.md`.
 
-The present v2 helper expects `X-PF-Webhook-Signature` as hexadecimal HMAC-SHA256,
-decodes the configured hexadecimal secret key and matches
-`X-PF-Webhook-Public-Key`. It does not accept unsigned v1 payloads. Actual v1
-order creation to signed v2 subscription compatibility has not been demonstrated
-for this account and must be checked with real delivery before use.
+Printful v1 notifications and v2 beta signing are different contracts. The v2
+helper expects `X-PF-Webhook-Signature` as hex HMAC-SHA256, decodes the hex secret
+and matches `X-PF-Webhook-Public-Key` and expected store. It rejects unsigned v1
+payloads. Actual v1 order to signed v2 subscription compatibility remains
+unverified. Inspect existing settings before replacing any webhook configuration.
 
-Production needs durable event uniqueness, raw-payload access controls/retention,
-canonical API reconciliation and payment verification. An in-memory test store
-is only a fixture. Authentication helper success is not evidence of real
-webhook delivery or a correctly registered endpoint.
+Stripe normalized event identity/jobs are durable; raw customer payloads are
+not persisted by its inbox. The Printful reducer still needs transactional
+event-key uniqueness and snapshot persistence; tied/conflicting timestamps need
+canonical API reconciliation. Neither kind of webhook confirms paid fulfillment.
 
 ## Release and rollback
 
-Static SHOP changes can be validated/published independently while checkout
-stays disabled. Server-only helpers are not included in the static site. Preserve
-the existing Site audience and identity. Roll back with the exact previously
-deployed saved version; never erase browser notes/cart records as a deployment
-step. Backend migrations/order processing require their own verified deployment
-and rollback after access is available. See `PRINTFUL_DEPLOYMENT.md`.
+Static version 31 stays unchanged for this backend-only follow-up. Backend
+source is outside `dist/`; no Site migration or new public checkout is deployed.
+A Node backend needs its own verified host, private durable directory, explicit
+migration, backups and worker supervision. During rollback, pause work and
+reconcile pending provider operations; never erase/downgrade the database or
+replay uncertain creates. See `PRINTFUL_DEPLOYMENT.md` and `STRIPE_SETUP.md`.
 
 Official contracts:
-[API v1](https://developers.printful.com/docs/) and
-[API v2 beta](https://developers.printful.com/docs/v2-beta/).
+[Printful v1](https://developers.printful.com/docs/),
+[Printful v2 beta](https://developers.printful.com/docs/v2-beta/),
+[Stripe Checkout](https://docs.stripe.com/api/checkout/sessions/create),
+[Stripe webhooks](https://docs.stripe.com/webhooks),
+[Stripe Tax](https://docs.stripe.com/tax/standalone-tax-api).

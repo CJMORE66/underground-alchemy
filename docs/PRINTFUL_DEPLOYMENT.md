@@ -1,6 +1,43 @@
 # Printful deployment and rollback
 
-Date: 2026-10-31 (Europe/Paris). Static release 31 deployed successfully; no live checkout claimed.
+Updated: 2026-11-01 (Europe/Paris). Static release 31 remains deployed and
+unchanged. Stripe/durable-backend source changes are not deployed; no live
+checkout is claimed.
+
+## 1 November backend release boundary
+
+Stripe is confirmed. PR #4 receives official SDK 23.1.0/API
+2026-10-28.endive test-only Checkout/Tax/payment verification, a real Node 24
+SQLite repository/migration, raw snapshot Request handler and durable leased
+payment worker. The 64 focused local tests pass with actual SQLite and fixture
+providers. No Stripe/Printful credentials, actual merchant Tax settings or
+durable Node host are configured. Public checkout remains disabled.
+
+This is a backend-only source follow-up: no Site build/publication, runtime
+secret change or production database migration occurs. Static Sites/Cloudflare
+cannot execute `node:sqlite`. Follow `STRIPE_SETUP.md` to assemble/mount the
+service on an authorized Node 24 host; recover the original NAS first if reusing
+its deployment. Authenticated business routes and trusted merchant quote creation
+remain required.
+
+Before any backend launch: provision service-owned private durable directory
+0700/umask 0077, protect DB/WAL/SHM and backups, run the checksum-checked migration
+explicitly before serving, then mount raw `/api/stripe/webhook` and supervised
+workers. Configure the actual account snapshot destination/version, real test
+keys, verified Tax registrations/codes/countries and Printful token securely.
+Test host restart, expired leases/fencing, dead letters and safe reconciliation.
+No paid fulfillment confirmation method exists.
+
+`commerce_orders.order_json` is immutable and contains address data; retention/
+anonymization is not implemented. Resolve that production blocker before real
+customer storage. Local migration tests are not production migration evidence.
+
+For Node rollback, pause worker admission/processing, preserve private DB plus
+WAL-consistent backups, and inspect pending/uncertain remote operations. Do not
+downgrade/delete schema, reset single-POST gates or replay uncertain creates.
+Migration 001's checksum is immutable; later changes need a reviewed migration/
+restore strategy. Reverting static Sites does not roll back a separately hosted
+database or provider side effect.
 
 ## Existing environment
 
@@ -48,10 +85,12 @@ replay uncertain creates or reverse real payments as part of a static rollback.
 
 ## Current external blockers
 
-Printful token/store verification, existing backend/NAS access, payment sandbox,
-merchant price/tax rules, durable persistence and signed webhook configuration
-are missing. Checkout, order creation/confirmation, shipping, tax and customer
-notifications therefore remain unavailable. See PRINTFUL_SETUP.md.
+Printful token/store verification, Node backend host/NAS access, actual Stripe
+test key/snapshot endpoint secret, merchant price/Tax policy, business auth/routes,
+PII retention and actual signed delivery are missing. Durable persistence is
+implemented/tested locally, but is not mounted in production. Checkout/order
+creation, shipping, customer tax and notifications remain unavailable publicly.
+See PRINTFUL_SETUP.md and STRIPE_SETUP.md.
 
 ## Release record
 
@@ -71,3 +110,4 @@ GitHub review: https://github.com/CJMORE66/underground-alchemy/pull/4
 The four review commits are listed in PRINTFUL_PROGRESS.md. Existing PR3 remains
 open/unmerged. The new PR is mergeable; no merge or new paid backend deployment
 was performed.
+

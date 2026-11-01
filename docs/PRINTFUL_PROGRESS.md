@@ -1,6 +1,6 @@
 # Printful execution checklist
 
-Updated: 2026-10-31 (Europe/Paris). Overall: PARTIALLY WORKING; live commerce BLOCKED.
+Updated: 2026-11-01 (Europe/Paris). Overall: PARTIALLY WORKING; live commerce BLOCKED.
 This is the persistent handoff record. A checked item requires evidence in
 PRINTFUL_TEST_RESULTS.md. Offline fixtures do not establish real API success.
 
@@ -15,27 +15,46 @@ PRINTFUL_TEST_RESULTS.md. Offline fixtures do not establish real API success.
 - [x] Run final release checks and browser QA.
 - [x] Publish validated static SHOP changes and verify production.
 - [x] Push reviewable GitHub commits and open integration PR.
+- [x] Confirm Stripe as the selected provider with the user (1 November).
+- [x] Implement official SDK test-only hosted Checkout, Stripe Tax/frozen quote,
+  raw snapshot signatures and fresh Session/PI/charge/refund checks.
+- [x] Implement real private-disk SQLite schema/repository, durable inbox/jobs,
+  unique bindings, leases/fencing and single-POST gate; test multiprocess races.
+- [x] Implement Stripe workflow/Request webhook handler and early/lost Session
+  recovery; verify 64 focused local cases (fixture providers, actual SQLite).
+- [ ] Supply real Stripe test key/actual snapshot endpoint secret, verified Tax
+  policy, Printful token and mounted Node 24 durable backend.
+- [ ] Complete business auth/quote/order routes, retention/anonymization,
+  operations/notifications/refund-cancellation and real provider E2E acceptance.
+
+The 1 November work changes server source/docs/dependencies for PR #4, not the
+public UI. Static version 31 remains unchanged with checkout disabled.
 
 ## External dependencies — continue independent work
 
 1. Printful store-scoped token for actual store verification. Historical store ID
    18912189 is an expected identity, not an authenticated fact. No token is present
    in this process or Sites runtime configuration.
-2. Existing backend source/runtime/database access. The public frontend's original
-   catalog points to hiphop.caisik.i234.me. The server currently renders a Synology
-   error. No payment provider can be established from this repository.
-3. Existing payment sandbox credentials, webhook signing configuration and the
-   merchant's tax/currency settings. Do not invent a provider or tax policy.
+2. Authorized Node 24 backend host with private durable local disk and process
+   supervision. If reusing original hiphop.caisik.i234.me, recover its NAS/
+   reverse-proxy/Compose/backend first. Static Sites cannot run Node SQLite.
+3. Stripe is confirmed. Configure `STRIPE_SECRET_KEY` (`sk_test_…`) and the actual
+   snapshot destination's `STRIPE_WEBHOOK_SECRET` (`whsec_…`) securely, plus
+   verified active Stripe Tax registrations/product+shipping codes/countries.
+   Business authentication/authorization and trusted catalog quoting remain.
 4. Actual signed Printful webhook configuration and a durable authenticated backend
    endpoint. Do not replace an existing webhook configuration without inspecting it.
 5. Separate explicit authorization before paid fulfillment confirmation or real
    charges. The current work does not require or perform either action.
+6. PII retention/anonymization: immutable order JSON stores customer addresses;
+   migration 001 has no approved anonymize/delete lifecycle. Resolve before
+   production, together with backup/access/monitoring and operational admin work.
 
 ## Acceptance criteria still requiring live evidence
 
 Printful authentication/store, current catalog counts/variant comparison, shipping,
 server price validation, test payment verification, durable order persistence,
-draft creation/reconciliation, webhook delivery/deduplication, fulfillment/tracking,
+deployed draft creation/reconciliation, actual webhook delivery/deduplication, fulfillment/tracking,
 cancellation/refund and customer notifications remain blocked/unverified until the
 external dependencies above are available. Public checkout stays disabled.
 
@@ -54,17 +73,17 @@ separate until their actual deployment relationship is verified.
 | Printful auth and correct store | BLOCKED: no token; preflight made no network call |
 | Real current products/variants | BLOCKED: historical20/86 snapshot only; importer fixture tests pass |
 | Product images | WORKING for inspected snapshot/local assets and tested product; live catalog unverified |
-| Server price validation | BLOCKED: actual backend/pricing/payment adapter missing |
+| Server price validation | INCOMPLETE: Stripe frozen quote/line/address/amount binding tested; trusted catalog/quote builder and authenticated business routes still required |
 | Desktop/mobile cart | WORKING: automated model/DOM + browser390/320px + production smoke |
-| Authorized test checkout/payment verification | BLOCKED: unknown existing provider and sandbox |
-| Durable internal orders | BLOCKED: actual database adapter not connected |
+| Authorized test checkout/payment verification | INCOMPLETE: Stripe SDK test adapter/fresh verification pass fixtures; actual test key/Tax/host unavailable |
+| Durable internal orders | WORKING locally: actual SQLite migration/transactions/reopen/races; BLOCKED deployed host and PII retention |
 | Safe real Printful draft creation | BLOCKED: fixture adapter tests only |
-| Duplicate fulfillment prevention | INCOMPLETE: helper tests pass; durable production uniqueness unavailable |
-| Webhooks | INCOMPLETE: signed v2 helper tests pass; endpoint/real delivery blocked |
+| Duplicate fulfillment prevention | INCOMPLETE: SQLite uniqueness, leased jobs and single-POST gate tested; actual provider/deployment verification unavailable |
+| Webhooks | INCOMPLETE: Stripe raw Request/SDK snapshot + durable inbox and Printful v2 reducer tested; actual HTTPS delivery/Printful durable receiver unavailable |
 | Shipping | INCOMPLETE: safe adapter tests pass; real address/rates blocked |
 | Fulfillment/tracking | BLOCKED live; event reducer tested in isolation |
 | CZ/EN/FR SHOP | WORKING for delivered UI; shared language regressions/browser checks pass |
-| Automated local tests | PASS:25 importer +19 server cases, cart/shop/language/regression groups |
+| Automated local tests | PASS:64 focused server/Stripe/SQLite/workflow cases; previous 25 importer + cart/shop/language/static groups recorded separately |
 | Production build/artifact | PASS: static artifact validation; no framework build required |
 | Deployment | PASS: saved version31; native deployment succeeded |
 | Production smoke | PASS for static catalog/cart; live checkout excluded/blocked |
@@ -73,7 +92,9 @@ separate until their actual deployment relationship is verified.
 Deployed source:3fb9f74a210b6b1176c3f1363035d8b9c4054483.
 Rollback: existing saved version30 (see PRINTFUL_DEPLOYMENT.md).
 The full integration is not VERIFIED WORKING. Owner actions remain listed in
-PRINTFUL_SETUP.md; no repeated credential/API retries should occur before access.
+PRINTFUL_SETUP.md and STRIPE_SETUP.md; no repeated credential/API retries should
+occur before access. Read-only Stripe preflight is BLOCKED before any network
+request; no real payment or Printful order was created.
 
 GitHub review: https://github.com/CJMORE66/underground-alchemy/pull/4
 
@@ -84,3 +105,13 @@ dc53845ebb7deab881f8d7a2f412f3aaeb97af8a (CI/audit/release evidence).
 PR4 includes open PR3 changes and is mergeable; neither PR was merged.
 GitHub Actions launched Commerce safety checks; final remote conclusion is
 recorded in the task report separately from the completed local checks.
+
+1 November code follow-up on the same PR #4:
+
+- `cdccb19b8136626fa8f0799c0b96f02edb7c0719` — Stripe SDK/Tax/Checkout/payment verification.
+- `a59ed6923471fefae4bf929ec00ae50b20842a46` — SQLite repository/migration, durable workflow and read-only preflight.
+
+Remote CI is separate from the 64 focused local passes; report its actual final
+run conclusion rather than inferring success from a push. These commits do not
+change deployed Site version 31.
+
