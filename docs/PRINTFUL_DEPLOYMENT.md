@@ -1,116 +1,81 @@
-# Printful deployment and rollback
+# Worker deployment and rollback record
 
-Updated: 2026-11-01 (Europe/Paris). Static release 31 remains deployed and
-unchanged. Stripe/durable-backend source changes are not deployed; no live
-checkout is claimed.
+Updated: 1 November 2026, Europe/Paris. **Native Worker publication/migration is
+pending.** Public production is still saved static version 31 until an actual
+successful deployment record is added below. No live checkout is claimed.
 
-## 1 November backend release boundary
+## Prepared release
 
-Stripe is confirmed. PR #4 receives official SDK 23.1.0/API
-2026-10-28.endive test-only Checkout/Tax/payment verification, a real Node 24
-SQLite repository/migration, raw snapshot Request handler and durable leased
-payment worker. The latest 67 focused local tests pass with actual SQLite and fixture
-providers. Actual sandbox MCP reads now authenticate, but no Stripe/Printful
-runtime credentials or durable Node host are configured. Observed sandbox Tax
-settings are pending (missing `head_office`), with empty registrations and v1
-snapshot endpoint lists. No provider settings were written. Public checkout
-remains disabled.
+- Preserve Site `appgprj_6ad19e715dcc819185592c61456c5182`, its URL
+  https://caisik-underground-alchemy.caisik.chatgpt.site/ and public audience.
+- Source manifest now omits `static` and declares `d1: COMMERCE_DB`.
+  `server/worker.js` handles commerce APIs; non-API routes use ASSETS.
+- `npm run build:commerce` uses Sites/Vite/Cloudflare integration. First prepared
+  build passed: Worker entry 810.76 kB / 123.81 kB gzip; 680 frontend assets,
+  188,107,785 bytes, preserved byte-for-byte in generated client output.
+  Dependency remediation/final rebuild is still pending.
+- Schema-only chain: `drizzle/0000_commerce.sql` and
+  `drizzle/0001_commerce_immutability.sql`. Native deployment must apply them to
+  `COMMERCE_DB`. Repository readiness checks perform no request-time DDL.
+- Masked Printful/session secrets exist at runtime revision 2. Runtime Stripe API
+  key, actual snapshot signing secret and approved merchant policy are absent.
+  Release must keep payment unavailable while exposing only verified safe reads.
+- No external hosting account/NAS recovery is a mandatory prerequisite for this
+  supported native Worker/D1 path.
 
-This is a backend-only source follow-up: no Site build/publication, runtime
-secret change or production database migration occurs. Static Sites/Cloudflare
-cannot execute `node:sqlite`. Follow `STRIPE_SETUP.md` to assemble/mount the
-service on an authorized Node 24 host; recover the original NAS first if reusing
-its deployment. Authenticated business routes and trusted merchant quote creation
-remain required.
+## Publication checks and pending evidence
 
-Before any backend launch: provision service-owned private durable directory
-0700/umask 0077, protect DB/WAL/SHM and backups, run the checksum-checked migration
-explicitly before serving, then mount raw `/api/stripe/webhook` and supervised
-workers. Configure the actual account snapshot destination/version, real test
-keys, verified Tax registrations/codes/countries and Printful token securely.
-Test host restart, expired leases/fencing, dead letters and safe reconciliation.
-No paid fulfillment confirmation method exists.
+Run commerce/provider/Worker/UI tests, shared atlas/languages, current release/
+whitespace checks, dependency audit and final Worker build. Production graph has
+zero known advisories. The 11 development findings (7 high/4 moderate) were
+remediated through patched build dependencies; the new full graph audit exits0.
+Managed Miniflare hung; that is unverified, not a successful native smoke test.
 
-`commerce_orders.order_json` is immutable and contains address data; retention/
-anonymization is not implemented. Resolve that production blocker before real
-customer storage. Local migration tests are not production migration evidence.
+Use existing Sites source packaging/save/deploy workflow, preserving identity and
+access. The exact validated source/Drizzle chain must accompany the archive.
+GitHub PR #4 and Sites source are separate; merging/pushing alone is not deployment.
 
-For Node rollback, pause worker admission/processing, preserve private DB plus
-WAL-consistent backups, and inspect pending/uncertain remote operations. Do not
-downgrade/delete schema, reset single-POST gates or replay uncertain creates.
-Migration 001's checksum is immutable; later changes need a reviewed migration/
-restore strategy. Reverting static Sites does not roll back a separately hosted
-database or provider side effect.
+After native publication record:
 
-## Existing environment
+- Source SHA / archive hash / saved version ID / deployment ID and terminal result.
+- Native D1 migration/readiness result; no payment/customer records need creating
+  to prove schema presence.
+- Actual production catalog count, real price/availability/SKU alias presentation,
+  product image loading and retained atlas/navigation/languages.
+- Guest status/cookie and safe address-specific shipping estimate; payment must
+  remain unavailable without runtime Stripe key/secret/policy.
+- Worker logs and browser errors; explicit limits on any incomplete checks.
 
-- Site: `appgprj_6ad19e715dcc819185592c61456c5182`, public audience retained.
-- URL: https://caisik-underground-alchemy.caisik.chatgpt.site/
-- Application: maintained static HTML/CSS/ES modules in `dist/`.
-- Original deployed source before this work: `bf4c1077f072847991c3d8eea0925b9ae5061e66`.
-- Known previous saved version: 30,
-  `appgprj_6ad19e715dcc819185592c61456c5182~appgver_62bc31d888ec8191ba0f40f6a072b35d`.
-- GitHub `main`/PR #3 and Sites have separate source histories. A GitHub merge
-  alone does not deploy this Site. Only reviewed bounded commerce changes are
-  transferred; unrelated GitHub RPG200 work remains intact.
+**Current values:** new saved version/deployment/migration/production smoke are
+PENDING. Add exact returned IDs/results here after verification; do not invent a
+version number or interpret the prepared build as deployment.
 
-## Release content and checks
+## Rollback target: verified static version 31
 
-Publish the static SHOP/cart/navigation/language fixes with checkout disabled.
-Preserve the original dated catalog; no actual Printful catalog has been read.
-`server/commerce/` remains source-only outside the published static directory;
-shipping/order/webhook helpers are not production endpoints.
+- Saved version: `appgprj_6ad19e715dcc819185592c61456c5182~appgver_c70a82f405a48191a09d087d4b2aa4e3`.
+- Source: `3fb9f74a210b6b1176c3f1363035d8b9c4054483`.
+- Archive SHA256: `027f75d4ab8ccb119b1778d77a4c235dbf5e88a77ae3e195da8deb4810dc8f5a`.
+- Prior deployment: `appgdep_6ae64db70f608191b2a918ad6e45be2e`, succeeded
+  31 October 2026, 21:21 Europe/Paris.
 
-Run `npm run test:commerce`, `npm test`, language tests, Python/JS syntax,
-`npm run check:commerce-release` and `git diff --check`. No framework build or
-database migration is needed for this static release. Do not introduce a dummy
-backend or runtime credential merely to make a configuration check green.
+Redeploy that exact archive-backed saved version through the native Site tool and
+verify its result. It restores the previous frontend/cart and disabled checkout;
+never delete browser notes/carts or D1 tables as a rollback step. Preserve runtime
+secrets and D1 resource/data. Pause/reconcile any pending provider work before a
+future backend rollback. Never downgrade/drop schema, reset uncertain single-POST
+gates, replay creates or reverse payments as part of static rollback.
 
-Use the existing Sites source helper to push the exact validated state, package
-it, save a version, and deploy through the public-Site workflow. Retain returned
-commit/version/deployment IDs. Do not deploy an unvalidated tree or change access.
-Production smoke checks must verify actual product images, variant/cart behavior,
-language controls and disabled checkout. Check Worker logs where exposed; static
-hosting has no commerce Worker whose successful operation could be inferred.
+The current Drizzle migrations only create schema/constraints/triggers; no
+actual payment/order has been submitted. If a migration fails, inspect the exact
+native failure and readiness state instead of manually marking migrations done.
+Order JSON is immutable and includes address data; a reviewed retention/
+anonymization migration/lifecycle is still required before production customers.
 
-## Rollback
+## Dated source/review context
 
-Deploy the exact saved version 30 above using `sites.deploy_site_version` with
-the same project ID. It is already archive-backed. Confirm the deployment result.
-This restores the previous static app without deleting browser notes or carts.
-New cart data may remain harmlessly stored until a compatible version is used.
-No database migration, live order, webhook registration or provider setting was
-changed by this release, so there is no transactional commerce rollback.
-
-For later backend work: append-only schema migrations, backup/restore, provider
-job pausing and reconciliation must be designed for the actual database. Never
-replay uncertain creates or reverse real payments as part of a static rollback.
-
-## Current external blockers
-
-Printful token/store verification, Node backend host/NAS access, actual Stripe
-test key/snapshot endpoint secret, merchant price/Tax policy, business auth/routes,
-PII retention and actual signed delivery are missing. Durable persistence is
-implemented/tested locally, but is not mounted in production. Checkout/order
-creation, shipping, customer tax and notifications remain unavailable publicly.
-See PRINTFUL_SETUP.md and STRIPE_SETUP.md.
-
-## Release record
-
-Final validated source, saved version, deployment result and production smoke
-evidence are appended after publication. Any failure remains explicitly reported.
-
-### Completed publication
-
-- Published saved version **31**, `appgprj_6ad19e715dcc819185592c61456c5182~appgver_c70a82f405a48191a09d087d4b2aa4e3`.
-- Deployed source `3fb9f74a210b6b1176c3f1363035d8b9c4054483`; archive SHA256 `027f75d4ab8ccb119b1778d77a4c235dbf5e88a77ae3e195da8deb4810dc8f5a`.
-- Deployment `appgdep_6ae64db70f608191b2a918ad6e45be2e`: **succeeded**, 2026-10-31 21:21 Europe/Paris; public audience retained; runtime env revision 0.
-- Production https://caisik-underground-alchemy.caisik.chatgpt.site/shop/ rendered 20 snapshot products, exact OMERTA Black/2XL SKU and dated €56.50, saved local cart through reload, quantity and remove actions. Test cart returned to empty. Checkout stayed disabled; no paid request/order was sent.
-- Error-only Sites Worker log query (previous10minutes, limit25) returned zero events. This static result does not demonstrate a running commerce Worker. Captured browser errors were extension metadata errors; filtered Site-origin error logs returned none.
-- Subsequent documentation-only commits record this outcome; they do not change the deployed static artifact. No database migration or runtime/provider configuration was applied.
-
-GitHub review: https://github.com/CJMORE66/underground-alchemy/pull/4
-The four review commits are listed in PRINTFUL_PROGRESS.md. Existing PR3 remains
-open/unmerged. The new PR is mergeable; no merge or new paid backend deployment
-was performed.
-
+Version 31 was a static SHOP/cart/navigation/language release, with no commerce
+backend migration/provider mutation. Its production smoke passed for those
+boundaries only. Prior version 30 remains historical fallback, but version 31 is
+the immediate known-good rollback for this Worker change.
+GitHub review: https://github.com/CJMORE66/underground-alchemy/pull/4 .
+Final remote CI conclusion must be recorded separately from passing local tests.

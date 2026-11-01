@@ -10,7 +10,16 @@ const root=resolve(dirname(fileURLToPath(import.meta.url)),'..');
 const read=path=>readFileSync(resolve(root,path),'utf8');
 const hosting=JSON.parse(read('.openai/hosting.json'));
 assert.equal(hosting.project_id,'appgprj_6ad19e715dcc819185592c61456c5182');
-assert.equal(hosting.static.directory,'dist');
+if(hosting.static)assert.equal(hosting.static.directory,'dist');
+else {
+ assert.equal(hosting.d1,'COMMERCE_DB');
+ assert(existsSync(resolve(root,'server/worker.js')),'Worker source must exist');
+ assert(existsSync(resolve(root,'dist/server/index.js')),'Worker artifact must be built');
+ const workerConfig=JSON.parse(read('dist/server/wrangler.json'));
+ assert.equal(workerConfig.assets?.binding,'ASSETS');
+ assert.deepEqual(workerConfig.assets?.run_worker_first,['/api/*']);
+ for(const path of ['index.html','shop/index.html','atlas.js'])assert.equal(read('dist/'+path),read('dist/client/'+path),'Retained frontend bytes must match Worker assets');
+}
 const raw=JSON.parse(read('dist/shop/catalog.json'));
 const catalog=normalizeShopCatalog(raw);
 assert.equal(catalog.products.length,raw.products.length,'No imported product may silently disappear from the UI');
@@ -45,4 +54,3 @@ function publicScan(dir){for(const entry of readdirSync(resolve(root,dir),{withF
 publicScan('dist');
 console.log(`PASS static publish validation: ${catalog.products.length} products, ${catalog.products.reduce((n,p)=>n+p.variants.length,0)} variants, ${images} image references; ${syntaxFiles.length} JS syntax checks; checkout disabled; bounded public secret scan.`);
 console.log('This validates static artifacts. It does not verify live prices, API credentials, payments or fulfillment.');
-

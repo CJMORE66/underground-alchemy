@@ -1,99 +1,79 @@
-# Node commerce backend — implemented, not hosted
+# Sites commerce Worker
 
-Updated 2026-11-01. Stripe is confirmed. Server-only modules stay outside
-published `dist/`; static Sites version 31 is unchanged and checkout is disabled.
-Node 24/`node:sqlite` needs a separate durable Node host and cannot run in static
-Sites/Cloudflare. Actual sandbox MCP authentication is verified separately;
-runtime credentials, actual payment and backend deployment remain unverified.
-Sandbox Tax is pending (missing `head_office`), with no registrations returned.
+Updated 1 November 2026. Supported hosting is native **Sites Worker + ASSETS +
+D1**, not a required external Node/NAS service. `server/worker.js` serves APIs;
+non-API traffic retains the existing frontend via ASSETS. The candidate build
+passes, but native publication/migration/production smoke are still pending.
+Public production remains static version 31 until the release record is updated.
 
-## Modules
+## Modules and boundaries
 
-- `stripe.js`: official SDK 23.1.0, pinned API `2026-10-28.endive`, restricted
-  `rk_test_` (preferred) or `sk_test_` keys only. Verifies actual configured Tax settings/registrations, calculates
-  and freezes address/line/variant/shipping/tax/total quotes, creates/resumes hosted
-  Checkout with stable idempotency parameters, recovers Session references and
-  re-fetches Session/lines/PI/captured charge/refund history before payment proof.
-  Raw account snapshot events use SDK signature verification; live/Connect/thin
-  payloads are not supported. No raw card data is handled.
-- `sqlite-repository.js` + `migrations/001-commerce.sql`: real private-file SQLite
-  repository; checksum-checked explicit startup migration, WAL/FULL transactions,
-  immutable orders, unique Session/external/payment references, atomic event
-  inbox/jobs, leases with random fencing tokens, bounded retries/dead letters and
-  a durable single-Printful-POST gate.
-- `stripe-workflow.js`: loads authoritative persisted orders for Checkout,
-  conditionally binds Sessions, admits signed events durably before HTTP 200,
-  and runs payment-to-draft jobs through a leased worker. Exported
-  `createStripeWebhookHandler` handles raw Request POSTs at
-  `/api/stripe/webhook`; no actual HTTP server/router is mounted.
-- `orders.js`: deterministic bounded external ID, amount/currency/order/payment
-  reference checks, payload hashing and durable draft workflow. `beginDraftAttempt`
-  atomically permits a POST only before any attempted mutation; ambiguous results
-  can only reconcile. No timeout clears the durable gate.
-- `printful.js`: fixed origin/store, verified store precondition, no redirects,
-  bounded JSON/timeouts/read retries, shipping estimates and draft creation with
-  `confirm=false&update_existing=false`. Shipping uses catalog `variant_id`;
-  configured designs use `sync_variant_id`. No confirmation, cancellation,
-  refund, webhook-registration or arbitrary-request method exists.
-- `webhooks.js`: Printful v2 hex-key HMAC-SHA256/raw-byte/public-key/store
-  verification and newer-order/shipment state reducer. It rejects unsigned v1
-  events; actual signed subscription/cross-version delivery and a durable
-  Printful event-ledger/snapshot receiver remain unconnected.
-- `validation.js`: bounded inputs/items, explicit currency exponent and integer
-  money arithmetic. It does not establish deliverability or merchant tax policy.
+| Module | Responsibility |
+| --- | --- |
+| `live-catalog.js` | Fixed Printful origin/store, bounded reads, expected-store membership among account stores, stable merchandising mappings, exact legacy SKU aliases and public preview whitelist |
+| `quote-service.js` | Fresh active/synced variant price/currency mapping, actual shipping method, approved merchant tax codes/countries and immutable owner-bound Stripe Tax quote |
+| `http-security.js` | HMAC HttpOnly/Secure/SameSite guest cookie, exact Origin checks and bounded bodies; cookie possession establishes guest order ownership |
+| `d1-repository.js` | Async mandatory account/mode/store scope in all business operations, atomic batches/conditional claims, inbox/jobs, leases/fencing, mutation gate and rate limits |
+| `stripe.js` | Official SDK 23.1.0/API 2026-10-28.endive, Worker Fetch/Web Crypto, test-only hosted Checkout/Tax, raw snapshot admission and fresh Session/PI/capture/refund verification |
+| `stripe-workflow.js`, `orders.js` | Session binding/recovery, leased payment-to-draft work, stable external ID, unique payment binding and single-POST gate |
+| `printful.js` | Store verification, bounded read retries/shipping and draft-only create/reconciliation; no paid confirmation, cancellation/refund/registration method |
+| `webhooks.js` | Separate signed Printful v2 normalization/reducer helper; durable receiver/subscription/tracking is not connected |
+| `sqlite-repository.js` | Alternative/local Node storage/test implementation; not the native Worker database |
 
-## Startup and host contract
+Source manifest declares `COMMERCE_DB` and omits static hosting. Deployment uses
+`db/schema.ts` and `drizzle/0000_commerce.sql` +
+`drizzle/0001_commerce_immutability.sql`. D1 repository `migrate()` checks installed
+schema only; it never executes request-time DDL. Do not apply the older
+`d1-migrations/` file as a competing migration chain. Native D1 migration remains
+pending despite passing SQLite-backed D1-interface tests.
 
-See [`docs/STRIPE_SETUP.md`](../../docs/STRIPE_SETUP.md) for actual bootstrap,
-tax configuration/quote fields, secrets, snapshot subscription and worker calls.
-Use a private durable directory mode 0700, service umask 0077 and absolute DB
-filename outside public mounts. Call `repository.migrate()` before serving or
-starting workers; checksum mismatch must stop startup. Database/WAL/SHM files
-need private durable storage/backups. Tests establish local shared-file
-concurrency, not multi-machine/network-filesystem support.
+## Routes / flow
 
-The host must supply `STRIPE_SECRET_KEY` (prefer restricted `rk_test_…`, or `sk_test_…`), the actual destination's
-`STRIPE_WEBHOOK_SECRET` (`whsec_…`), `PRINTFUL_API_TOKEN`, verified active Stripe
-Tax registrations/product+shipping tax codes/countries, and authoritative
-merchant catalog prices. Secrets belong in the host secret manager, never chat,
-Git, logs or browser code. No arbitrary browser totals/paid flags are trusted.
+`/api/commerce/catalog` exposes only sanitized public data (up to 60-second edge
+cache). Status establishes guest/session readiness. Same-origin POST shipping,
+quote and checkout accept IDs/quantities/address or owner-bound order ID, never
+browser prices/paid flags. Orders are owner-scoped, including by-session lookup.
+Quote uses a new request-local live catalog rather than the edge/public cache.
+D1 owner/network limits and bounded bodies protect mutations.
 
-Mount authenticated/authorized quote, checkout and order routes with abuse
-controls. The supplied webhook handler preserves raw bytes, requires JSON POST,
-limits body size and returns 503 when the event cannot be durably saved. Configure
-account **snapshot** events at API `2026-10-28.endive`: completed, async success,
-async failure and expired Checkout Sessions. Only the first two enqueue jobs.
-Success redirects are not payment evidence or a completed confirmation UI.
+`/api/stripe/webhook` verifies original account snapshot bytes with the SDK and
+actual endpoint secret before durable queue admission. Signature verification is
+keyless with respect to the runtime Stripe API key: valid events may be retained
+while payment config is unavailable, with HTTP 503 for pending redelivery. Worker
+processing is awaited; `waitUntil` alone is not the recovery guarantee. Fresh
+Session/lines/address/tax/total/PI/charge/refund reads still decide payment truth.
 
-Supervisor-managed workers call `processNextPayment` with distinct IDs. Default
-lease is five minutes, maximum fifteen; no renewal method exists, so bound the
-whole attempt beneath its lease. Fencing prevents expired owners completing
-reclaimed jobs. Five attempts and bounded backoff end in durable dead letters;
-operator monitoring/replay UI is not implemented. Do not replay uncertain
-Printful mutations or release their reservation after an empty lookup.
+Single-POST gate survives lease expiry/crashes. Initial safe reads may retry;
+once Printful creation is attempted/uncertain, only external-ID reconciliation
+is allowed. Every created order is a draft with `confirm=false`; paid production
+confirmation is not implemented or authorized. Printful merchant refunds do not
+automatically refund customer Stripe payments.
 
-## Evidence and remaining limits
+## Actual connected evidence / missing config
 
-Latest focused local run: **67 passed** — 19 original server fixture cases, 21 Stripe
-adapter cases with official SDK signature checks/mock HTTP, 14 real disk SQLite
-integration cases including eight-process races, 13 real-SQLite workflow cases
-with fake providers. This is actual database evidence, not real Stripe/Printful
-authentication, account Tax configuration, payment, webhook delivery or draft.
+Real Printful auth/store/full sync succeeded: 20 products/86 variants, 83 active/
+3 temporarily unavailable, all EUR, checked 2026-11-01T10:10:57.292386Z. One actual
+official-test-destination shipping estimate succeeded; no orders were created.
+Masked Printful/session secrets are configured at Sites revision 2.
 
-Missing host work includes actual secrets/configuration/HTTPS mounting, business
-authentication/authorization/rate limits, trusted catalog quoting/address
-validation, production backups/monitoring, notifications, customer refund/
-cancellation and durable Printful status/tracking receiver. Current payment
-verification detects refunds/disputes/reviews; it does not initiate refunds.
+Existing Stripe test account/Tax settings and two active Czech registrations were
+read through the connector. That is not a runtime API-key grant. Runtime
+`STRIPE_SECRET_KEY`, actual `STRIPE_WEBHOOK_SECRET` and approved
+`COMMERCE_POLICY_JSON` remain absent; checkout fails closed. No new hosting
+account/NAS recovery is a mandatory dependency. Never print credentials or
+customer payloads. Exact configuration is in `docs/STRIPE_SETUP.md` and
+`docs/PRINTFUL_SETUP.md`.
 
-**PII retention is incomplete:** immutable `commerce_orders.order_json` stores
-customer addresses and SQL triggers block update/delete. Implement an approved
-retention/anonymization schema/process and backup lifecycle before production
-customer storage. No live-key mode or paid Printful confirmation is implemented
-or authorized. Keep public checkout disabled until real acceptance is demonstrated.
+## Tests and unfinished work
 
-Contracts: [Stripe Checkout](https://docs.stripe.com/api/checkout/sessions/create),
-[Stripe webhooks](https://docs.stripe.com/webhooks),
-[Stripe Tax](https://docs.stripe.com/tax/standalone-tax-api),
-[Printful v1](https://developers.printful.com/docs/),
-[Printful v2 beta](https://developers.printful.com/docs/v2-beta/).
+56 Stripe-related cases pass (SDK/fixture providers + real Node SQLite); 86
+Worker cases pass (20 SQLite-backed D1 shim, 17 quote, 22 live catalog, 27 HTTP).
+Original provider/importer/UI/language checks are separate. Managed Miniflare
+hung; neither shim tests nor a prepared build prove native D1/production behavior.
+
+Native migration/deploy/smoke, actual authorized Stripe test payment/webhook and
+one Printful draft remain unverified. Customer refund/cancellation initiation,
+Printful status/tracking receiver, notifications and operational admin handling
+remain incomplete. Immutable D1 order JSON stores addresses and forbids update/
+delete; approved retention/anonymization is not implemented. Preserve DB/provider
+state during rollback and never reset uncertain mutation gates.

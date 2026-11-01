@@ -1,181 +1,88 @@
-# Printful execution checklist
+# Commerce progress / resume record
 
-Updated: 2026-11-01 (Europe/Paris). Overall: PARTIALLY WORKING; live commerce BLOCKED.
-This is the persistent handoff record. A checked item requires evidence in
-PRINTFUL_TEST_RESULTS.md. Offline fixtures do not establish real API success.
+Updated: 1 November 2026, Europe/Paris. Overall **PARTIALLY WORKING**. Live
+Printful reads work; payment/fulfillment and native Worker release remain pending.
 
-## Current merchant connection — 1 November 2026
+## Verified completed
 
-The owner-selected **underground alchemy** merchant is
-`acct_1UWra7PkIIV492Qz`. Fresh account discovery now explicitly returns this
-merchant with `livemode:false` on its Stripe connection. This is actual new
-authorization, not a manually changed mode or the older Jakub Cais sandbox.
-No further owner Stripe authorization is currently required for these reads.
+- [x] Inspect existing GitHub/Sites source and PR #3; retain branding/routes/audience.
+- [x] Deliver static SHOP/cart/CZ-EN-FR repair as verified version 31 (31 October).
+- [x] Keep review changes in GitHub PR #4; distinguish GitHub and Sites histories.
+- [x] Real Printful authentication: expected store 18912189 once among seven,
+  HTTP 200. Credential securely stored as masked Sites runtime secret.
+- [x] Real full catalog sync at `2026-11-01T10:10:57.292386Z`: 20 products /
+  86 variants, 83 active / 3 temporary out of stock, all retail currencies EUR.
+- [x] Preserve internal/sync/catalog identities and historical price dates;
+  migrate only exact legacy PF aliases to `sourceSku`, retaining actual `sku`.
+- [x] Real safe shipping estimate: catalog variant 51734 × 1, official US/CA
+  test destination, STANDARD €4.69 at observation. No order created.
+- [x] Confirm/read existing Stripe test account and active Tax settings/two Czech
+  registration records; do not mistake connector auth for a runtime key.
+- [x] Implement native Worker+ASSETS, fresh server quote/prices, signed guest
+  ownership/Origin/body/rate controls, D1 scoped repository and Drizzle schema.
+- [x] Pass focused current groups: 56 Stripe-related, 86 Worker/D1/quote/catalog/
+  HTTP, 19 original provider, 29 importer cases; UI/language/atlas regressions.
+- [x] First Worker build preserves 680 frontend assets / 188,107,785 bytes.
 
-Actual read-only requests using the returned test context succeeded:
+## Pending release / configuration
 
-- `GET /v1/tax/settings`: `object:tax.settings`, `livemode:false`, `status:active`.
-- `GET /v1/tax/registrations?status=all&limit=100`: two active CZ registrations,
-  both `livemode:false`, `has_more:false`. Their standard place-of-supply schemes
-  are `inbound_goods` and `small_seller`; no merchant/legal policy is inferred
-  from their presence, and neither registration was created or changed here.
-- `GET /v1/webhook_endpoints?limit=100`: empty, `has_more:false` (v1 snapshot
-  endpoints only; not a complete v2 Event Destination inventory).
+- [x] Remediate build dependencies; full audit now reports zero known advisories.
+- [ ] Freeze the final native-installed build and record deployment/smoke evidence.
+- [ ] Publish exact Worker source/archive through existing native Sites workflow.
+- [ ] Apply/verify both schema-only Drizzle migrations on actual COMMERCE_DB.
+- [ ] Verify production live catalog/images/status/shipping, retained UI/languages
+  and logs. Public production is still version 31 until native success is recorded.
+- [ ] Securely configure actual runtime Stripe test key, actual snapshot endpoint
+  signing secret and approved `COMMERCE_POLICY_JSON`.
+- [ ] Run authorized real test Checkout/payment/signature/retry/draft acceptance.
+- [ ] Complete durable Printful statuses/tracking, notifications, refund/cancellation
+  initiation, admin failure operations and retention/anonymization.
 
-Earlier selected-merchant live reads had active Tax and empty registrations;
-those results are separate from this newly authorized test context. The older
-Jakub Cais sandbox's pending/head_office result does not apply to this merchant.
+## Current owner dependencies
 
-Sites was independently inspected: saved version 31 remains active/public,
-runtime environment revision 0 has no entries, and no D1 bindings/tables exist.
-The plugin connection does not inject Stripe/Printful keys into deployed code.
-The current runtime lacks the Printful token, Stripe test key, real webhook
-endpoint/secret and deployed durable order backend. Backend hosting may use a
-reviewed Sites Worker/D1 adaptation instead of NAS; that adaptation is not yet
-implemented or deployed. Keep per-merchant/environment keys and order mappings
-isolated. No Session, payment, provider configuration or Printful order was
-written. Checkout remains disabled.
+Existing Printful/session secrets are already present at runtime revision 2;
+there is no reason to re-request or print them. Remaining external requirements:
 
-- [x] Open existing Sites project and source, retain public audience and identity.
-- [x] Inspect GitHub main and open PR #3 (ready, not draft; not merged).
-- [x] Audit current source and production runtime configuration.
-- [x] Verify original external shop currently renders Synology not-found page.
-- [x] Apply bounded PR #3 repairs onto deployed source; preserve unrelated work.
-- [x] Finish importer reliability, prices, availability and full/incremental tests.
-- [x] Finish persistent cart, quantity, variant, accessibility and language tests.
-- [x] Finish draft-only provider adapter and webhook/order safety tests.
-- [x] Run final release checks and browser QA.
-- [x] Publish validated static SHOP changes and verify production.
-- [x] Push reviewable GitHub commits and open integration PR.
-- [x] Confirm Stripe as the selected provider with the user (1 November).
-- [x] Authorize and verify the selected underground alchemy merchant's own sandbox/test context; actual API reads pass, Tax active and two active CZ test registrations.
-- [x] Authorize the earlier Jakub Cais Stripe sandbox and verify actual read-only API
-  access through the Stripe plugin (`livemode:false`). Tax is pending (missing
-  `head_office`), registrations and v1 snapshot endpoints are empty. No payment
-  or account configuration was written; runtime secrets remain unavailable.
-- [x] Implement official SDK test-only hosted Checkout, Stripe Tax/frozen quote,
-  raw snapshot signatures and fresh Session/PI/charge/refund checks.
-- [x] Implement real private-disk SQLite schema/repository, durable inbox/jobs,
-  unique bindings, leases/fencing and single-POST gate; test multiprocess races.
-- [x] Implement Stripe workflow/Request webhook handler and early/lost Session
-  recovery; verify 67 focused local cases (fixture providers, actual SQLite).
-- [x] Accept restricted sandbox API keys, distinguish denied scopes without
-  leaking provider bodies, and avoid unnecessary Balance Read in preflight.
-- [x] Repair Printful HTTPS/proxy retries with a fresh urllib Request per attempt;
-  real ProxyHandler/isolated transport regression passes locally.
-- [ ] Supply real Stripe test key/actual snapshot endpoint secret, verified Tax
-  policy, Printful token and mounted Node 24 durable backend.
-- [ ] Complete business auth/quote/order routes, retention/anonymization,
-  operations/notifications/refund-cancellation and real provider E2E acceptance.
+1. Actual connected-account `STRIPE_SECRET_KEY` test key in secure Sites config.
+2. Actual snapshot destination at `/api/stripe/webhook`, pinned API
+   2026-10-28.endive, and its securely stored `STRIPE_WEBHOOK_SECRET`.
+3. Reviewed merchant price/tax/country policy as `COMMERCE_POLICY_JSON`, including
+   intended selling prices/exclusive tax treatment, registrations and tax codes.
 
-The 1 November work changes server source/docs/dependencies for PR #4, not the
-public UI. Static version 31 remains unchanged with checkout disabled.
+No new hosting account or mandatory NAS access is needed for the native Worker/D1
+path. Connector authentication does not supply a runtime API key. Never paste
+secrets into chat. No real-charge or paid Printful confirmation is authorized;
+no confirmation method is implemented.
 
-## External dependencies — continue independent work
+## Acceptance status
 
-1. Printful store-scoped token for actual store verification. Historical store ID
-   18912189 is an expected identity, not an authenticated fact. No token is present
-   in this process or Sites runtime configuration.
-2. Authorized Node 24 backend host with private durable local disk and process
-   supervision. If reusing original hiphop.caisik.i234.me, recover its NAS/
-   reverse-proxy/Compose/backend first. Static Sites cannot run Node SQLite.
-3. Current underground alchemy live MCP reads succeed and Tax is active; all
-   registrations and v1 snapshot endpoint lists were empty. Its own test context
-   is now authorized: Tax active, two active CZ registrations, empty v1 endpoints.
-   Runtime secrets, deployment and actual merchant policy verification remain.
-   The old pending/head_office finding belongs to Jakub Cais sandbox.
-   Configure `STRIPE_SECRET_KEY` (prefer restricted `rk_test_…`, or `sk_test_…`) and the actual
-   snapshot destination's `STRIPE_WEBHOOK_SECRET` (`whsec_…`) securely, plus
-   verified active Stripe Tax registrations/product+shipping codes/countries.
-   Business authentication/authorization and trusted catalog quoting remain.
-4. Actual signed Printful webhook configuration and a durable authenticated backend
-   endpoint. Do not replace an existing webhook configuration without inspecting it.
-5. Separate explicit authorization before paid fulfillment confirmation or real
-   charges. The current work does not require or perform either action.
-6. PII retention/anonymization: immutable order JSON stores customer addresses;
-   migration 001 has no approved anonymize/delete lifecycle. Resolve before
-   production, together with backup/access/monitoring and operational admin work.
-
-## Acceptance criteria still requiring live evidence
-
-Printful authentication/store, current catalog counts/variant comparison, shipping,
-server price validation, test payment verification, durable order persistence,
-deployed draft creation/reconciliation, actual webhook delivery/deduplication, fulfillment/tracking,
-cancellation/refund and customer notifications remain blocked/unverified until the
-external dependencies above are available. Public checkout stays disabled.
-
-## Resume
-
-Read all six PRINTFUL_*.md files, current Git state, Site versions and runtime
-configuration. Continue from the current branch; do not regenerate the historical
-snapshot over a newer live import. Do not replay an ambiguous create-order request
-without reconciliation by external_id. Keep static source and original backend
-separate until their actual deployment relationship is verified.
-
-## Acceptance status after release31
-
-| Criterion | Evidence/status |
+| Criterion | Current evidence/status |
 | --- | --- |
-| Printful auth and correct store | BLOCKED: no token; preflight made no network call |
-| Selected merchant authentication | WORKING via actual underground alchemy test MCP reads: Tax active, two active CZ test registrations. Runtime SDK/key/API-version/Checkout verification remains BLOCKED; plugin authorization is complete. |
-| Real current products/variants | BLOCKED: historical20/86 snapshot only; importer fixture tests pass |
-| Product images | WORKING for inspected snapshot/local assets and tested product; live catalog unverified |
-| Server price validation | INCOMPLETE: Stripe frozen quote/line/address/amount binding tested; trusted catalog/quote builder and authenticated business routes still required |
-| Desktop/mobile cart | WORKING: automated model/DOM + browser390/320px + production smoke |
-| Authorized test checkout/payment verification | INCOMPLETE: Stripe SDK test adapter/fresh verification pass fixtures; actual test key/Tax/host unavailable |
-| Durable internal orders | WORKING locally: actual SQLite migration/transactions/reopen/races; BLOCKED deployed host and PII retention |
-| Safe real Printful draft creation | BLOCKED: fixture adapter tests only |
-| Duplicate fulfillment prevention | INCOMPLETE: SQLite uniqueness, leased jobs and single-POST gate tested; actual provider/deployment verification unavailable |
-| Webhooks | INCOMPLETE: Stripe raw Request/SDK snapshot + durable inbox and Printful v2 reducer tested; actual HTTPS delivery/Printful durable receiver unavailable |
-| Shipping | INCOMPLETE: safe adapter tests pass; real address/rates blocked |
-| Fulfillment/tracking | BLOCKED live; event reducer tested in isolation |
-| CZ/EN/FR SHOP | WORKING for delivered UI; shared language regressions/browser checks pass |
-| Automated local tests | PASS:67 focused server/Stripe/SQLite/workflow cases plus isolated real-proxy retry regression. Full current importer/static checks require complete-repository CI; previous checks recorded separately. |
-| Production build/artifact | PASS: static artifact validation; no framework build required |
-| Deployment | PASS: saved version31; native deployment succeeded |
-| Production smoke | PASS for static catalog/cart; live checkout excluded/blocked |
-| Security | No critical issue found in bounded review; npm audit0 advisories; live backend cannot be assessed |
+| Printful authentication / store | VERIFIED live read |
+| Real products / variants / prices / availability | VERIFIED live full read; customer policy still needs approval |
+| Shipping | VERIFIED one destination-specific read; hosted integration pending |
+| Catalog/cart/CZ-EN-FR | Prior production baseline + new fixture tests; new hosted smoke pending |
+| Server pricing/tax/ownership | Implemented/tested; runtime merchant policy/payment config missing |
+| D1 durable orders / duplicate safety | Scoped D1 interface/SQLite-backed tests pass; actual native migration pending |
+| Stripe payment / actual signed delivery | BLOCKED runtime key/secret/policy; no real test payment |
+| Printful draft | Fixture safety only; no actual order created |
+| Paid fulfillment / tracking / refunds / notifications | Not verified; several workflows incomplete |
+| Build / deployment | First build passed; native Worker release/migration/CI/smoke pending |
+| Security | Production and full development audits now zero; PII retention remains incomplete |
 
-Deployed source:3fb9f74a210b6b1176c3f1363035d8b9c4054483.
-Rollback: existing saved version30 (see PRINTFUL_DEPLOYMENT.md).
-The full integration is not VERIFIED WORKING. Owner actions remain listed in
-PRINTFUL_SETUP.md and STRIPE_SETUP.md; no repeated credential/API retries should
-occur before access. The runtime Stripe CLI preflight is still BLOCKED before
-network access because no runtime key is injected; separate sandbox MCP reads
-succeeded. No payment or Printful order was created.
+## Resume / rollback
 
-GitHub review: https://github.com/CJMORE66/underground-alchemy/pull/4
+Read these six PRINTFUL documents, `STRIPE_SETUP.md`, current source/manifest and
+actual Site deployment/D1 state. Do not replace a live catalog with an old
+snapshot, infer a deployment from a push, or replay uncertain creates.
 
-Review commits:41a21f25047f4f7a3db274c9f97c35eda1eb63d6 (catalog),
-98e47001c7bb123516d6826a075302a3e30afb8d (server helpers),
-2cb20db95f090732a22e43b0488579aeda0639f5 (SHOP/cart),
-dc53845ebb7deab881f8d7a2f412f3aaeb97af8a (CI/audit/release evidence).
-PR4 includes open PR3 changes and is mergeable; neither PR was merged.
-GitHub Actions launched Commerce safety checks; final remote conclusion is
-recorded in the task report separately from the completed local checks.
+Immediate known-good rollback is saved version 31; see exact IDs in
+`PRINTFUL_DEPLOYMENT.md`. Preserve D1 schema/data, runtime secrets and all local
+user notes. Schema readiness is not a production payment test. Managed Miniflare
+hung and stays unverified; do not relabel shim tests as native D1 success.
 
-1 November code follow-up on the same PR #4:
+## Final release fields — pending root update
 
-- `cdccb19b8136626fa8f0799c0b96f02edb7c0719` — Stripe SDK/Tax/Checkout/payment verification.
-- `a59ed6923471fefae4bf929ec00ae50b20842a46` — SQLite repository/migration, durable workflow and read-only preflight.
-
-Remote CI is separate from the 64 focused local passes; report its actual final
-run conclusion rather than inferring success from a push. These commits do not
-change deployed Site version 31.
-
-Sandbox follow-up, same PR #4:
-
-- `8e938369044c6edacc8d637c2f29461f569abda4` — fresh HTTPS Requests across
-  Printful proxy retries; actual ProxyHandler regression (isolated transport).
-- `14e5cebf812be31908ac22c6102bce33bfa2a710` — restricted sandbox keys,
-  distinct sanitized permission errors, least-privilege runtime preflight,
-  generated synthetic credential fixtures and broader public secret scan.
-- Latest local focused result: 67 cases passed. Full current repository CI must
-  be checked on the final PR head; no new deployment is implied by these commits.
-- Actual plugin reads: sandbox authentication succeeds; Tax pending/missing
-  head_office, empty registrations and v1 snapshot endpoints. No writes/charges.
-- Full repository CI on `a1c3c80c697290eda628614436b7e56dcdd756b3` completed
-  success: https://github.com/CJMORE66/underground-alchemy/actions/runs/41275702803
-  Commerce/importer, atlas, both language suites, static release validation and
-  whitespace steps all passed. No backend or new Site deployment occurred.
-
+Append actual final source/PR commits, full audit/build/check results, native
+saved version/deployment/migration results and production smoke. Until verified,
+leave these release fields pending rather than carrying forward old success.

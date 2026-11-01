@@ -18,3 +18,9 @@ __pycache__/
 # Local RPG200 state, evidence, private drafts and isolated task worktrees.
 .caisik/
 .worktrees/
+
+.sites-commerce-build/
+dist/client/
+dist/server/
+dist/.openai/
+.wrangler/

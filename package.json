@@ -8,19 +8,31 @@
     "test": "node tests/atlas.mjs",
     "test:previous-experience": "node tests/interactions.cjs && node tests/education.cjs && node tests/scene-config.mjs && node tests/portals.cjs && node tests/cinema.cjs && node tests/static.cjs",
     "build:map-vendor": "node dist/map-data/build-vendor.mjs",
-    "test:commerce": "node tests/shop.mjs && node tests/cart.mjs && python tests/printful-sync.py && node tests/commerce-server.mjs && npm run test:stripe",
+    "test:commerce": "node tests/shop.mjs && node tests/cart.mjs && node tests/checkout-ui.mjs && python tests/printful-sync.py && node tests/commerce-server.mjs && npm run test:stripe && npm run test:commerce:worker",
     "check:commerce-release": "node tools/check-commerce-release.mjs",
     "test:stripe": "node --test tests/stripe.mjs tests/commerce-sqlite.mjs tests/stripe-workflow.mjs",
-    "verify:stripe": "node tools/verify-stripe.mjs"
+    "db:generate": "drizzle-kit generate --config drizzle.config.ts",
+    "test:commerce:worker": "node --test tests/commerce-d1.mjs tests/commerce-quotes.mjs tests/live-catalog.mjs tests/commerce-http.mjs",
+    "build:commerce": "node scripts/build-commerce-worker.mjs"
   },
   "dependencies": {
     "maplibre-gl": "6.16.0",
-    "stripe": "23.1.0",
     "three": "0.186.1",
-    "web-vitals": "6.2.3"
+    "web-vitals": "6.2.3",
+    "stripe": "23.1.0"
   },
   "devDependencies": {
     "esbuild": "0.28.2",
-    "linkedom": "0.18.13"
+    "linkedom": "0.18.13",
+    "vite": "8.3.5",
+    "@cloudflare/vite-plugin": "1.66.0",
+    "wrangler": "4.156.0",
+    "drizzle-orm": "0.45.2",
+    "drizzle-kit": "0.31.11"
+  },
+  "overrides": {
+    "@esbuild-kit/core-utils": {
+      "esbuild": "0.28.2"
+    }
   }
 }
