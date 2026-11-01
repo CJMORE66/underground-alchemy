@@ -42,7 +42,7 @@ for(const value of [{...quote,totalMinor:1},{...quote,expiresAt:Math.floor(CLOCK
  const h=fixture({live:false});await h.api.ready;assert(!h.api.getState().enabled);assert(h.document.querySelector('form').hidden);assert.match(h.document.querySelector('[data-commerce-status]').textContent,/uložená kolekce/);h.submit();await tick();assert.equal(h.calls.length,1,'snapshot cannot reach shipping or checkout');h.api.destroy();
 }
 {
- const h=fixture({serverStatus:{...status,checkoutAvailable:false}});await h.api.ready;h.address();h.submit();await tick();h.choose();h.click('[data-commerce-quote]');await tick();assert(h.api.getState().hasQuote);assert(h.document.querySelector('[data-commerce-pay]').disabled);h.click('[data-commerce-pay]');await tick();assert(!h.calls.some(call=>call.path.endsWith('/checkout')));h.api.destroy();
+ const h=fixture({serverStatus:{...status,checkoutAvailable:false}});await h.api.ready;h.address();h.submit();await tick();h.choose();assert(h.api.getState().hasShipping);assert(h.document.querySelector('[data-commerce-quote]').disabled);h.click('[data-commerce-quote]');await tick();assert(!h.api.getState().hasQuote);assert(h.document.querySelector('[data-commerce-pay]').disabled);h.click('[data-commerce-pay]');await tick();assert(!h.calls.some(call=>call.path.endsWith('/quote')||call.path.endsWith('/checkout')),'Shipping-only readiness must not open a payment-dependent quote or checkout');h.api.destroy();
 }
 {
  const h=fixture({lines:[]});await h.api.ready;assert(!h.api.getState().enabled);assert(h.document.querySelector('[data-commerce-shipping]').disabled);h.api.destroy();
