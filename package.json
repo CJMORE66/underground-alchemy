@@ -8,11 +8,14 @@
     "test": "node tests/atlas.mjs",
     "test:previous-experience": "node tests/interactions.cjs && node tests/education.cjs && node tests/scene-config.mjs && node tests/portals.cjs && node tests/cinema.cjs && node tests/static.cjs",
     "build:map-vendor": "node dist/map-data/build-vendor.mjs",
-    "test:commerce": "node tests/shop.mjs && node tests/cart.mjs && python tests/printful-sync.py && node tests/commerce-server.mjs",
-    "check:commerce-release": "node tools/check-commerce-release.mjs"
+    "test:commerce": "node tests/shop.mjs && node tests/cart.mjs && python tests/printful-sync.py && node tests/commerce-server.mjs && npm run test:stripe",
+    "check:commerce-release": "node tools/check-commerce-release.mjs",
+    "test:stripe": "node --test tests/stripe.mjs tests/commerce-sqlite.mjs tests/stripe-workflow.mjs",
+    "verify:stripe": "node tools/verify-stripe.mjs"
   },
   "dependencies": {
     "maplibre-gl": "6.16.0",
+    "stripe": "23.1.0",
     "three": "0.186.1",
     "web-vitals": "6.2.3"
   },
