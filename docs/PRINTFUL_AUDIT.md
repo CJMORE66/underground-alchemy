@@ -1,13 +1,11 @@
 # Printful / Stripe integration audit
 
-Updated: 1 November 2026. Overall **PARTIALLY WORKING**. Native version 37 is
-deployed and its live API/CS-EN-FR product-detail copy are verified. Prior v35/36
-provider, shipping, status/cart and quote-gate proofs remain valid dated evidence.
-A real standalone Printful
-draft was created and read back safely. Stripe Checkout/payment verification and
-the full paid-order workflow remain blocked/unverified. V36 final actual shipping/
-quote-button gate smoke passed at 10:54 UTC: shipping works, tax quote remains
-disabled while checkoutAvailable:false.
+Updated: 1 November 2026. Overall **PARTIALLY WORKING**. Native **v38 / env5**
+is deployed. Real Printful catalog/shipping, safe standalone draft and actual
+signed webhook admission/durable unmapped classification are verified. Stripe
+runtime API key and merchant policy are absent; checkout remains fail closed.
+No real Stripe payment, internal paid-order linkage or full fulfillment workflow
+has been verified. Earlier v35–v37 evidence below is explicitly dated history.
 
 ## Verified live behavior
 
@@ -30,8 +28,8 @@ disabled while checkoutAvailable:false.
   US/California test destination: **STANDARD Flat Rate €8.39**, CO2 option
   **€8.47**. Earlier Node estimate for catalog variant 51734 × 1 was €4.69.
   These are distinct observed quotes, not fixed/global shipping prices.
-- Native COMMERCE_DB has **nine tables**, including public catalog cache and
-  fulfillment projection. Observed cache metadata: store 18912189, **60,000 ms**
+- Native COMMERCE_DB now has **12 tables**, including Printful event/job/recovery,
+  public catalog cache and fulfillment projection. Earlier observed cache metadata: store 18912189, **60,000 ms**
   TTL, lease NULL. The bounded row reader truncates payload text; no claim of
   parsing that truncated value is made. Browser API responses prove catalog counts.
 - Real Printful draft **184026933**, external ID
@@ -43,8 +41,8 @@ disabled while checkoutAvailable:false.
   does not verify the Stripe-to-draft workflow.
 - Existing connected Stripe account is test mode; Tax settings and two active
   Czech registrations were read. The real four-event September snapshot endpoint
-  is enabled in test mode and its masked secret/version are configured at runtime
-  revision 4. Connector authorization is not a runtime Stripe API key.
+  is enabled in test mode and its masked secret/version are preserved at runtime
+  revision 5 (originally configured at revision 4). Connector authorization is not a runtime Stripe API key.
 
 ## Component classification
 
@@ -67,17 +65,18 @@ and stack locations, without provider bodies or addresses.
 | Desktop shop / cart / CZ-EN-FR | WORKING | Actual product/OOS/gallery/cart/language checks; v36 shipping-only quote gate and cleanup/reload pass |
 | Mobile usability | UNVERIFIED current release | Prior v31 iframe evidence is historical; no new real mobile viewport acceptance |
 | Shipping | WORKING for tested destinations | Actual browser and Node estimates; other destinations/methods require fresh rates |
-| D1 schema / public cache | WORKING for observed scope | Nine native tables and public cache metadata; no actual internal paid order persisted |
+| D1 schema / public cache | WORKING for observed scope | Twelve native tables after migration 0003; prior cache metadata and actual live responses; internal order/draft mappings remain empty |
 | Quote / ownership / payment integrity | INCOMPLETE | Server-owned fresh pricing, guest ownership, Tax quote binding and fail-closed gates tested; runtime Stripe key/approved merchant policy absent |
 | Stripe Checkout / real payment verification | BLOCKED | SDK test integration exists; no authorized actual test checkout/capture verified |
 | Stripe webhook | INCOMPLETE | Actual enabled test endpoint/secret/version configured; raw signature/durable admission tested; no real signed delivery/payment workflow proved |
 | Printful draft API | WORKING low-level | One real draft created/GET-verified safely; no Stripe payment or internal-order linkage |
 | Durable fulfillment projection / multiple tracking | INCOMPLETE | Owner-scoped GET refresh, multiple shipments, monotonic CAS persistence and partial-tracking UI implemented/tested; no actual linked paid order or shipment progression |
-| Printful webhook receiver / recovery | INCOMPLETE | Signed durable receiver/recovery candidate implemented and fixture-tested; native activation and actual delivery pending |
+| Printful webhook admission | WORKING for observed scope | Real signed order_updated durably ignored as unmapped, no fake paid record |
+| Printful mapped reconciliation / recovery | INCOMPLETE | Fresh GET, fencing, bounded retries/dead letters and server-authorized recovery fixture-tested; no actual mapped paid-order progression/retry proved |
 | Notifications / refund initiation / full operations | INCOMPLETE | Business/sender/retention decisions and complete production operations remain open |
 | Paid Printful confirmation | MISSING intentionally | No confirmation method; paid production not authorized |
 | Retention / customer-data lifecycle | INCOMPLETE | Immutable address-bearing order JSON lacks an approved retention/anonymization lifecycle |
-| Build / tests / release | WORKING for recorded scope | Prior native v37 verified; new receiver candidate 273 focused cases plus 3 isolated post-build bundle tests passes, activation pending |
+| Build / tests / release | WORKING for recorded scope | 273 focused cases plus 3 isolated post-build bundle cases; v38/env5 deployed, PR #4 CI #16 succeeds |
 
 ## Root causes and repairs
 
@@ -121,7 +120,7 @@ CTA, and retains Add/Open Cart actions. Six fallback/live DOM scenarios are
 fixture coverage, not a claim of forced production fallback. No backend change.
 CI #14 passes at GitHub `d3d9adba105d5432c319f796fa7781554c78cc9e`.
 Actual final status is HTTP 200/test/catalog+shipping true/checkout false;
-cart 0/live20 collection and closed CZ modal are confirmed. Latest 11:04 UTC
+cart 0/live20 collection and closed CZ modal are confirmed. The dated v37 11:04 UTC
 bounded error query returns three ancillary static404 events (favicon/sitemap/
 robots), outcome ok, with no commerce_request_failed/API failure in its window.
 This is not a zero-error query; v36 zero events remain dated earlier evidence.
@@ -138,31 +137,47 @@ References: [Printful v1](https://developers.printful.com/docs/),
 [Stripe webhooks](https://docs.stripe.com/webhooks),
 [Stripe Tax](https://docs.stripe.com/tax/standalone-tax-api).
 
-## Prepared continuation: signed Printful event receiver
+## Verified v38: signed Printful event admission
 
-The restored source baseline is `2b18699669879b26a75627ab908628abee6755c1`.
-The new receiver is **IMPLEMENTED / activation UNVERIFIED**; current production
-remains the verified v37 above. No receiver publication, registration, provider
-write or actual signed delivery is claimed for this continuation yet.
+Source `53617e2a9d04d38d06a2f6f06af4053316d94095` is deployed as native
+**v38 / env5**. Migration `0003_printful_inbox.sql` is applied: actual
+COMMERCE_DB has **12 tables**, including the three dedicated Printful inbox,
+job and recovery-audit relations. Two new signing values are stored as masked
+runtime secrets; existing Printful/session/Stripe webhook settings are preserved.
+STRIPE_SECRET_KEY and COMMERCE_POLICY_JSON are still absent.
 
-Fresh authorized reads verified expected store 18912189 again. Printful v1
-`GET /webhooks` returned HTTP 200 with no URL/types; v2
-`GET /v2/webhooks?show_expired=true` returned HTTP 200 with no default URL,
-events or public key. Recheck immediately before registration; these reads do
-not establish permanent ownership of an empty configuration.
+Fresh v1/v2 reads confirmed empty configuration before one v2 registration of
+16 order/shipment event types to `/api/printful/webhook`. Authenticated readback
+verified the destination at `2026-11-01T18:08:04.595168Z`. The actual signing-key
+values are not report artifacts. A recipient test-name metadata-only PUT to
+existing unconfirmed draft **184026933** used `confirm=false`; authenticated GET
+at `2026-11-01T18:09:04.099847Z` confirmed the same external ID
+`UA_TEST_20261101_1a196badad6`, sync variant 5577001692 × 1, still draft.
+No charge, production confirmation or new test order was created.
 
-`/api/printful/webhook` verifies the original bytes with Worker Web Crypto HMAC,
-expected public key and store before durable admission. Missing configuration
-returns 503. Migration `0003_printful_inbox.sql` adds separate inbox, jobs and
-recovery-audit tables: production still has nine tables until this migration is
-actually applied and observed. Retry-independent fingerprints, fenced leases,
-five-attempt dead letters, fresh provider GET reconciliation and authorized
-server-only requeue/drain are tested. Unknown/unmapped events are durably ignored;
-events cannot create/confirm orders or infer payment, refund or delivery.
+A real provider `order_updated` event occurred at `2026-11-01T18:08:58Z` and
+passed the deployed raw-byte signature/public-key/store verifier. D1 received it
+at epoch milliseconds `1793556539373`, fingerprint
+`3a118364d4cbf744cbc3e88317ee5dfe9a6a3620196b8f0196389c06fb82d08d`.
+Its durable job is **ignored**, attempts **0**, reason
+**PRINTFUL_UNMAPPED_ORDER**. This terminal path returns HTTP 200 by code; the
+persisted record is the delivery evidence, not a log inference or fabricated
+external HTTP trace. Internal order and draft-mapping tables remain empty.
 
-The candidate has **273 passing focused fixture/database cases**, plus three
-post-build isolated generated-bundle cases. Native registration, actual signature
-admission/retry and resulting production records remain acceptance steps. This
-reduces the receiver/admin-recovery code gap, but does not deliver notifications,
-refund/cancellation initiation, full operational tooling, retention or real
-paid-order/shipment progression. Overall remains **PARTIALLY WORKING**.
+This proves **real draft update → signed callback → verified durable admission
+and safe unmapped classification**. It does not prove paid-order linkage,
+mapped fresh-GET reconciliation, retry/dead-letter operation on a real order,
+shipment progression or the complete Stripe workflow. Those paths have isolated
+fixture/database coverage. Events never create/confirm orders or infer payment,
+refund or delivery. Overall remains **PARTIALLY WORKING**.
+
+The v38 browser shows the actual 20-product live collection in CZ; status
+reports catalog/shipping available and checkout unavailable. A fresh catalog GET
+first returned 503 CATALOG_REFRESH_PENDING during the D1 single-fill lease. One
+reload succeeded with checkedAt `2026-11-01T18:10:24.869Z`: 20 products, 86 variants,
+83 active / 3 temporarily out of stock, EUR, full sync and no removed entries.
+This does not prove every initial request succeeds immediately; bounded UI
+retry/visible fallback recovery is a narrow follow-up. Real mobile viewport
+acceptance remains UNVERIFIED. Its bounded 15-minute
+Worker error query returned only two favicon404 events, with no returned commerce
+errors; ingestion/window limits apply. This is not callback-delivery proof.

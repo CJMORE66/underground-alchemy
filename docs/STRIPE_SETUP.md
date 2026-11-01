@@ -7,9 +7,9 @@ missing; no actual Stripe payment or full paid-order workflow is verified.
 
 ## Required owner configuration
 
-The deployed v37 frontend live/fallback-copy correction does not change Stripe
-configuration, payment authorization or the verified v36 backend. Its native
-publication/live CS/EN/FR copy smoke pass; all payment blockers below remain unchanged.
+Native v38/env5 adds verified actual Printful callback admission and twelve-table
+D1 durability. It does not supply a runtime Stripe API key or approved merchant
+policy; all payment blockers below remain unchanged.
 
 Supply through secure Sites runtime settings only:
 
@@ -21,7 +21,8 @@ Supply through secure Sites runtime settings only:
   country, product/shipping tax-code and registration policy. Exact schema and
   scope are in `PRINTFUL_SETUP.md`; do not invent IDs/rules to enable a button.
 
-Preserve existing masked Printful/session/webhook secrets at env revision 4.
+Preserve existing masked Printful/session/Stripe webhook secrets and the new
+Printful signing values at env revision 5.
 Native Sites Worker/D1 requires no extra hosting account or mandatory NAS access.
 Observed active Tax settings/registrations are not blanket approval of all
 products/countries or an actual Tax calculation for the proposed order.
@@ -86,8 +87,9 @@ or end-to-end fulfillment acceptance. Do not confirm it for production.
 
 Owner-scoped durable fulfillment projection, multiple-tracking/partial UI and
 CAS safety are implemented/tested; no actual linked paid order or shipment
-progression exists. Activate/verify the prepared durable Printful receiver; complete customer
-notification/refund/cancellation initiation and operational admin/recovery.
+progression exists. Actual Printful signed admission is now verified, classified
+as unmapped with no fake paid record. Complete mapped-order/recovery acceptance,
+customer notification/refund/cancellation initiation and full operational tooling.
 Approved business identity, sender/service and retention policy are dependencies.
 Immutable address-bearing order JSON has no completed anonymization/delete
 lifecycle. No live-charge mode or paid Printful confirmation method is delivered.
@@ -109,15 +111,15 @@ securely as STRIPE_SECRET_KEY, plus reviewed COMMERCE_POLICY_JSON. Visitor
 AppGateway OAuth is not an unattended merchant API credential. Never request
 key values in chat/source/logs.
 
-The new signed Printful receiver does not remove this payment dependency. Its
-raw-byte HMAC/public-key validation, scoped durable inbox/jobs, fresh GET and
-server-authorized recovery are implemented/tested but still awaiting native
-publication/configuration and actual provider delivery. Production remains v37
-at env4; Stripe key/policy are absent and checkout remains fail closed. Actual
-fresh Printful webhook reads are empty; registration has not yet happened in
-this continuation. No event may authorize payment or create/confirm fulfillment.
-A safe callback from the existing standalone unconfirmed draft cannot substitute
-for a real Stripe payment and linked internal order.
+The active v38/env5 Printful receiver does not remove this payment dependency.
+A safe metadata-only update to existing unconfirmed draft184026933 produced an
+actual signed order_updated callback, durably ignored / attempts0 /
+PRINTFUL_UNMAPPED_ORDER. Internal order/draft mappings remain empty. This proves
+provider signature admission and durable safe classification, not Stripe
+payment, mapped reconciliation or full fulfillment. Two Printful signing values
+are now masked in env5; Stripe key/policy are still absent and checkout is false.
+No event may authorize payment or create/confirm manufacturing. Exact release
+and actual D1 evidence are in PRINTFUL_DEPLOYMENT/PRINTFUL_TEST_RESULTS.
 
 Official key references: [API keys](https://docs.stripe.com/keys),
 [managed keys](https://docs.stripe.com/keys/managed-api-keys),

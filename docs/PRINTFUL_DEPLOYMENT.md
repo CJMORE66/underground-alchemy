@@ -1,12 +1,11 @@
 # Native commerce release / rollback record
 
-Updated: 1 November 2026. **Version 37 is deployed and live catalog/CS-EN-FR
-detail copy are verified.** V36 shipping/quote-gate proofs remain dated baseline
-evidence; native D1 has nine tables. Overall
-PARTIALLY WORKING: Stripe runtime payment key/merchant policy and full paid-order
-acceptance are still absent. All timestamps in the final v36 record are UTC.
+Updated: 1 November 2026. **Native v38 / env5 is deployed and actual signed
+Printful event admission is verified.** Native D1 has 12 tables. Overall
+**PARTIALLY WORKING**: Stripe runtime key/merchant policy are absent and no full
+paid-order workflow is proved. All timestamps below are UTC.
 
-## Current v37 frontend-only correction — verified
+## Historical v37 frontend-only correction — verified
 
 Source `a57f86b285a0aae0d156b5ad501b203078095920` changes eight frontend/translation/
 test files only. It corrects actual obsolete original-store/NAS-dependent copy
@@ -128,6 +127,7 @@ checks: https://github.com/CJMORE66/underground-alchemy/actions/runs/41299341644
 | 35 | 6e758e1 | Correct binding/manual redirect rejection + D1 cache; actual live catalog/shipping verified |
 | 36 | b5d613845852a5e14d20f4a3072189726b84fada | Shipping-only tax-quote UI gate fixed; native publish and final actual smoke pass |
 | 37 | a57f86b285a0aae0d156b5ad501b203078095920 | Frontend-only live/fallback detail copy corrected; actual CS/EN/FR live copy and live API verified |
+| 38 | 53617e2a9d04d38d06a2f6f06af4053316d94095 | Signed Printful receiver, 12-table native schema, env5 activation and actual durable unmapped event admission |
 
 These failures are historical, not the current catalog status. Three isolated
 actual-bundle workerd cases now exercise native fetch/cache/redirect behavior.
@@ -157,32 +157,68 @@ reverse customer payments as a static rollback step. No paid-confirmation method
 is implemented. Retention/anonymization and full operational recovery remain
 incomplete, even though current catalog/shipping deployment works.
 
-## Prepared continuation: signed receiver release
+## Current v38 signed receiver — deployed and admitted actual event
 
-The source candidate is restored baseline
-`2b18699669879b26a75627ab908628abee6755c1` plus the signed Printful receiver,
-durable workflow/recovery and schema-only migration `0003_printful_inbox.sql`.
-It is **PREPARED; deployment/activation pending**, not a recorded v38 success.
-All 273 focused cases plus three post-build isolated bundle cases pass. Build
-Worker is 865.79 kB; 680 frontend assets / 188,113,092 bytes and frontend hash
-`8b38bf76f09e43e7d1675227927db61005bf458aa048c876b0627ddde0156967`
-are unchanged; 19 syntax checks pass.
+- Source: `53617e2a9d04d38d06a2f6f06af4053316d94095`.
+- Saved version: `appgprj_6ad19e715dcc819185592c61456c5182~appgver_382a75a348d08191ada342a9ef5d37c9`.
+- Canonical archive SHA256:
+  `fdf30fb898dfff2371baae8c96253247e7cd6eb41954bd19017b94a322a5ad2d`,
+  **191,426,560 bytes / 695 files**; local gzip **179,721,164 bytes**.
+- Initial env4 deployment `appgdep_6ae77f9ae6c48191901cf9be3da03fb3`
+  succeeded at `2026-11-01T18:06:40.842748+00:00`.
+- Activated **env5** deployment `appgdep_6ae7800d3c10819193f6121b3b9bcaa5`
+  succeeded at `2026-11-01T18:08:34.312252+00:00`.
+- Applied schema-only migration 0003 is observed in native D1: **12 tables**.
+  Existing settings are preserved; two actual Printful signing values are masked.
+  Runtime Stripe payment key and approved merchant policy are still absent.
+- Fresh v1/v2 empty-configuration guard preceded one v2 POST registration of 16
+  order/shipment types to `/api/printful/webhook`. Authenticated readback at
+  `2026-11-01T18:08:04.595168Z` verifies it. Public-key SHA256 fingerprint:
+  `aa443877917ab0bbf93e98728a4d9d2d3ae8f98f842fdc37744f96b9c6b277ec`;
+  no signing values are recorded here.
+- Existing standalone draft 184026933 was safely metadata-updated with
+  confirm=false and GET verified unchanged draft/items/external ID at
+  `2026-11-01T18:09:04.099847Z`. The real signed order_updated event at
+  `2026-11-01T18:08:58Z` is durably ignored with attempts 0 /
+  PRINTFUL_UNMAPPED_ORDER. TEST_RESULTS records the stable fingerprint and
+  received time. Internal orders/draft mappings remain empty. No charge or
+  production confirmation occurred; this is not the full paid-order workflow.
+- Browser CZ live20 and status catalog/shipping true/checkout false are verified.
+  A fresh catalog GET had 503 CATALOG_REFRESH_PENDING during single fill; one
+  reload succeeded at checkedAt 2026-11-01T18:10:24.869Z with 20/86, 83 active/
+  3temporary out of stock, EUR/full sync/no removed entries. Initial-request
+  success is not guaranteed; bounded UI recovery is a follow-up. Actual mobile
+  viewport remains UNVERIFIED. GET webhook is METHOD_NOT_ALLOWED. Bounded 15-minute errors show two favicon
+  404s only, no returned commerce errors; D1 records, not logs, prove callback.
+- 273 focused cases plus three isolated post-build generated-bundle cases pass.
+  Worker 865.79 kB; 680 assets / 188,113,092 bytes; unchanged frontend hash
+  `8b38bf76f09e43e7d1675227927db61005bf458aa048c876b0627ddde0156967`;
+  19 syntax checks. GitHub mirror `75ae5808019d787bbc8c19e8535e85e0b384a940`,
+  PR #4 CI #16 **SUCCESS**:
+  https://github.com/CJMORE66/underground-alchemy/actions/runs/41334842634 .
 
-Current production is still v37 at env4 with nine native tables. The candidate
-adds three dedicated Printful inbox/job/recovery tables; verify actual migration
-and schema rather than treating generated SQL as applied. Publish first, verify
-configuration-gated 503, freshly recheck the empty v1/v2 webhook configuration,
-then register the deployed endpoint and securely store the actual provider keys.
-No provider write/registration or real delivery is claimed yet. Record exact
-saved/deployment IDs, runtime revision, schema and bounded production evidence
-after those operations. The actual safe test trigger must retain the existing
-test order as an unconfirmed draft, without manufacturing or fake paid mappings.
+## Receiver-aware rollback caveat
 
-For this continuation the preferred known-good rollback is **v37**, saved version
+Preferred known-good prior release is **v37**, saved version
 `appgprj_6ad19e715dcc819185592c61456c5182~appgver_4f31c92d450c81918fbaf77bc1ad7942`,
 source `a57f86b285a0aae0d156b5ad501b203078095920`, deployment
-`appgdep_6ae71c3a15408191922fc997b4911e5c`. Its exact archive hash and success
-are recorded above. V36 is the older functional baseline; v31 is emergency
-static fallback. Preserve all D1 tables/data, secrets, inbox/recovery state and
-provider state. If receiver rollback interrupts delivery, preserve/reconcile
-pending work and provider registration; do not reset claims or replay creates.
+`appgdep_6ae71c3a15408191922fc997b4911e5c`. Exact archive proof is above.
+V36 is older functional fallback, v31 emergency static fallback.
+
+**V37 has no Printful receiver. Prefer a receiver fix-forward when possible.**
+An application rollback must preserve the twelve-table D1, env5 signing values,
+provider registration and all inbox/recovery/provider state. A missing receiver
+can cause 404/503 delivery retries; reconcile pending callbacks after restoration.
+Disable the provider destination only with authorization and preserve its keys/
+configuration for recovery; do not blindly rotate keys, reset claims, replay
+creates or drop/downgrade schema. No paid-confirmation method is delivered.
+
+Actual production Worker log at `1793556539642` confirms
+`POST /api/printful/webhook` returned **200**, outcome **ok**, matching the
+durable signed event receipt above. Subsequent catalog/status GET logs return
+200; the separately recorded refresh-pending503 is preserved as a real transient.
+
+Desktop v38 live browser also verifies OMERTA Black/M selection, add to cart,
+quantity1→2 using the plus control, historical subtotal €109.00 and quantity2
+after reload. CZ/EN/FR cart copy was observed after translations completed.
+This does not establish mobile viewport or payment acceptance.
