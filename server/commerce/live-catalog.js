@@ -125,7 +125,7 @@ async function boundedEnvelope(response) {
 export class LivePrintfulCatalog {
   #token; #fetch; #sleep; #now; #timeout; #retries; #maximumWait; #base; #merchandising;
   #storePromise = null; #catalogPromise = null; #quoteVariants = new Map(); #rateDelay = 0;
-  constructor({ token, merchandising, platform = 'api', fetch = globalThis.fetch,
+  constructor({ token, merchandising, platform = 'api', fetch = (input, init) => globalThis.fetch(input, init),
     sleep = ms => new Promise(resolve => setTimeout(resolve, ms)), now = Date.now,
     timeoutMs = 10000, retryLimit = 2, maxRetryWaitMs = 5000 } = {}) {
     if (typeof token !== 'string' || !/^[!-~]{8,4096}$/.test(token)) fail('PRINTFUL_TOKEN_REQUIRED');
@@ -153,9 +153,12 @@ export class LivePrintfulCatalog {
       const abort = new AbortController(), timer = setTimeout(() => abort.abort(), this.#timeout);
       try {
         const url = ORIGIN + path;
-        const response = await this.#fetch(url, { method: 'GET', redirect: 'error', signal: abort.signal,
+        const response = await this.#fetch(url, { method: 'GET', redirect: 'manual', signal: abort.signal,
           headers: { Authorization: `Bearer ${this.#token}`, 'X-PF-Store-Id': String(EXPECTED_STORE_ID), Accept: 'application/json' } });
-        if (response.redirected || (response.url && response.url !== url)) fail('PRINTFUL_REDIRECT_REJECTED');
+        if ((response.status >= 300 && response.status < 400) || response.redirected || (response.url && response.url !== url)) {
+          try { await response.body?.cancel(); } catch { /* Reject redirects even if cancelling their body fails. */ }
+          fail('PRINTFUL_REDIRECT_REJECTED');
+        }
         if (!response.ok) {
           await response.body?.cancel();
           if (TRANSIENT.has(response.status) && attempt < this.#retries) { clearTimeout(timer); await this.#sleep(this.#delay(response, attempt)); continue; }

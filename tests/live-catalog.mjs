@@ -36,7 +36,7 @@ function fixture({ merch = merchandising(), route, platform = 'api', retryLimit 
   const base = platform === 'api' ? '/store/products' : '/sync/products';
   const fetch = async (url, options) => {
     const parsed = new URL(url);
-    assert.equal(parsed.origin, 'https://api.printful.com'); assert.equal(options.method, 'GET'); assert.equal(options.redirect, 'error');
+    assert.equal(parsed.origin, 'https://api.printful.com'); assert.equal(options.method, 'GET'); assert.equal(options.redirect, 'manual');
     assert.equal(options.headers.Authorization, 'Bearer ' + TOKEN); assert.equal(options.headers['X-PF-Store-Id'], String(STORE));
     assert(options.signal instanceof AbortSignal); calls.push(parsed.pathname + parsed.search);
     if (route) { const found = await route(parsed, options, calls); if (found) return found; }
@@ -50,10 +50,36 @@ function fixture({ merch = merchandising(), route, platform = 'api', retryLimit 
   return { catalog, calls, delays, detail, fetch };
 }
 
+test('default catalog transport preserves the global fetch receiver required by Workers', async () => {
+  const original = globalThis.fetch; let requests = 0;
+  globalThis.fetch = async function (url, init) {
+    assert.equal(this, globalThis, 'Native Worker fetch must receive its global receiver');
+    assert.equal(url, 'https://api.printful.com/stores'); assert.equal(init.method, 'GET'); requests++;
+    return response(sevenStores());
+  };
+  try {
+    const catalog = new LivePrintfulCatalog({ token: TOKEN, merchandising: merchandising(), retryLimit: 0 });
+    assert.deepEqual(await catalog.verifyStore(), { id: STORE, verified: true });
+    assert.equal(requests, 1);
+  } finally { globalThis.fetch = original; }
+});
+
 test('canonical expected store is verified exactly once among seven account stores', async () => {
   const f = fixture(); const proof = await f.catalog.verifyStore(); proof.id = 1;
   assert.deepEqual(await f.catalog.verifyStore(), { id: STORE, verified: true });
   assert.deepEqual(f.calls, ['/stores']);
+});
+
+test('all3xx catalog responses are rejected once without forwarding credentials to the Location', async () => {
+  for (let status = 300; status < 400; status++) {
+    const f = fixture({ route: () => new Response(null, { status, headers: { location: 'https://untrusted.example.test/private-location' } }) });
+    await assert.rejects(f.catalog.getCatalog(), error => error.code === 'PRINTFUL_REDIRECT_REJECTED' && !error.message.includes('private-location'));
+    assert.deepEqual(f.calls, ['/stores']); assert.deepEqual(f.delays, []);
+  }
+  let cancelled = false;
+  const f = fixture({ route: () => new Response(new ReadableStream({ start(controller) { controller.enqueue(new TextEncoder().encode('private redirect body')); }, cancel() { cancelled = true; } }), { status: 302, headers: { location: 'https://untrusted.example.test' } }) });
+  await assert.rejects(f.catalog.getCatalog(), error => error.code === 'PRINTFUL_REDIRECT_REJECTED' && !error.message.includes('private redirect body'));
+  assert.equal(cancelled, true); assert.deepEqual(f.calls, ['/stores']); assert.deepEqual(f.delays, []);
 });
 
 test('store mismatch and canonical duplicate store IDs fail before any catalog read', async () => {

@@ -25,7 +25,7 @@ export function createTestStripeClient(secretKey) {
   return new Stripe(secretKey, { apiVersion: STRIPE_API_VERSION, timeout: 5000, maxNetworkRetries: 1, telemetry: false });
 }
 
-export function createWorkerTestStripeClient(secretKey, { fetch: fetchImplementation } = {}) {
+export function createWorkerTestStripeClient(secretKey, { fetch: fetchImplementation = (input, init) => globalThis.fetch(input, init) } = {}) {
   if (!isStripeTestKey(secretKey)) throw new CommerceError('STRIPE_TEST_SECRET_KEY_REQUIRED');
   if (fetchImplementation !== undefined && typeof fetchImplementation !== 'function') throw new CommerceError('STRIPE_FETCH_REQUIRED');
   return new Stripe(secretKey, { apiVersion: STRIPE_API_VERSION, timeout: 5000, maxNetworkRetries: 1, telemetry: false, httpClient: Stripe.createFetchHttpClient(fetchImplementation) });

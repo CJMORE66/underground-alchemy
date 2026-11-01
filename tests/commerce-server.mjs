@@ -27,6 +27,20 @@ async function readyClient(handler, options = {}) {
   return { client, requests };
 }
 
+test('default Printful transport preserves the global fetch receiver required by Workers', async () => {
+  const original = globalThis.fetch; let requests = 0;
+  globalThis.fetch = async function (url, init) {
+    assert.equal(this, globalThis, 'Native Worker fetch must receive its global receiver');
+    assert.equal(url, 'https://api.printful.com/stores'); assert.equal(init.method, 'GET'); requests++;
+    return stores();
+  };
+  try {
+    const client = new PrintfulClient({ token: TOKEN, retryLimit: 0 });
+    assert.deepEqual(await client.verifyStore(), { id: EXPECTED_STORE_ID, verified: true });
+    assert.equal(requests, 1);
+  } finally { globalThis.fetch = original; }
+});
+
 test('missing credentials/configuration blocks CLI before network', async () => {
   let calls = 0;
   const options = { clientFactory() { calls++; throw Error('must not run'); } };
@@ -43,10 +57,29 @@ test('store authentication uses exact host, Bearer, store header and no redirect
   assert.equal(requests[0].url, 'https://api.printful.com/stores');
   assert.equal(requests[0].init.headers.Authorization, 'Bearer ' + TOKEN);
   assert.equal(requests[0].init.headers['X-PF-Store-Id'], String(EXPECTED_STORE_ID));
-  assert.equal(requests[0].init.redirect, 'error');
+  assert.equal(requests[0].init.redirect, 'manual');
   assert.equal(requests[0].init.method, 'GET');
   assert.equal(typeof client.confirmOrder, 'undefined');
   assert.equal(typeof client.request, 'undefined');
+});
+
+test('all3xx responses are rejected without following locations, leaking bodies or retrying mutations', async () => {
+  for (let status = 300; status < 400; status++) {
+    let calls = 0;
+    const client = new PrintfulClient({ token: TOKEN, sleep: async () => assert.fail('Redirects must never be retried'), fetch: async (url, init) => {
+      calls++; assert.equal(url, 'https://api.printful.com/stores'); assert.equal(init.redirect, 'manual');
+      return new Response(null, { status, headers: { location: 'https://untrusted.example.test/private-location' } });
+    } });
+    await assert.rejects(client.verifyStore(), error => error.code === 'PRINTFUL_REDIRECT_REJECTED' && !error.message.includes('private-location'));
+    assert.equal(calls, 1);
+  }
+  let cancelled = false;
+  const { client, requests } = await readyClient(async (_url, init) => {
+    assert.equal(init.redirect, 'manual');
+    return new Response(new ReadableStream({ start(controller) { controller.enqueue(new TextEncoder().encode('private redirect body')); }, cancel() { cancelled = true; } }), { status: 307, headers: { location: 'https://untrusted.example.test' } });
+  });
+  await assert.rejects(client.createDraft(draftInput), error => error.code === 'PRINTFUL_REDIRECT_REJECTED' && !error.message.includes('private redirect body'));
+  assert.equal(cancelled, true); assert.equal(requests.length, 2); assert.equal(requests.filter(value => value.init.method === 'POST').length, 1);
 });
 
 test('wrong store and unauthorized token fail without sensitive logging/retries', async () => {

@@ -116,6 +116,20 @@ test('restricted-scope permission errors remain distinguishable, nonretryable an
   await assert.rejects(f.freeze(), errorCode('STRIPE_AUTH_FAILED'));
 });
 
+test('Worker SDK default transport preserves the required global fetch receiver', async t => {
+  const original = globalThis.fetch; let calls = 0;
+  globalThis.fetch = async function (url, options) {
+    assert.equal(this, globalThis, 'Cloudflare native fetch rejects a foreign receiver'); calls++;
+    assert.equal(url, 'https://api.stripe.com/v1/tax/settings');
+    assert.equal(new Headers(options.headers).get('authorization'), 'Bearer ' + syntheticApiKey('rk'));
+    return Response.json({ object: 'tax.settings', livemode: false, status: 'pending' });
+  };
+  t.after(() => { globalThis.fetch = original; });
+  const stripe = createWorkerTestStripeClient(syntheticApiKey('rk'));
+  assert.equal((await stripe.tax.settings.retrieve()).livemode, false);
+  assert.equal(calls, 1);
+});
+
 test('StripeTax quote verifies actual settings/registrations, exact address, codes and totals', async () => {
   const f = fixture(), order = await f.freeze();
   assert.equal(order.subtotalMinor, 1000); assert.equal(order.shippingMinor, 100); assert.equal(order.taxMinor, 220); assert.equal(order.totalMinor, 1320);

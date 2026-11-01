@@ -41,7 +41,7 @@ function retryDelay(response, attempt, maximum) {
 /* No arbitrary URLs, raw responses, redirect following, mutation retries or confirmation method. */
 export class PrintfulClient {
   #token; #fetch; #log; #sleep; #timeout; #retryLimit; #maxWait; #verified = false;
-  constructor({ token, fetch = globalThis.fetch, log = () => {}, sleep = ms => new Promise(resolve => setTimeout(resolve, ms)), timeoutMs = 10000, retryLimit = 2, maxRetryWaitMs = 5000 } = {}) {
+  constructor({ token, fetch = (input, init) => globalThis.fetch(input, init), log = () => {}, sleep = ms => new Promise(resolve => setTimeout(resolve, ms)), timeoutMs = 10000, retryLimit = 2, maxRetryWaitMs = 5000 } = {}) {
     if (typeof token !== 'string' || !/^[!-~]{8,4096}$/.test(token)) throw new CommerceError('PRINTFUL_TOKEN_REQUIRED');
     if (typeof fetch !== 'function' || typeof log !== 'function' || typeof sleep !== 'function') throw new CommerceError('INVALID_ADAPTER');
     if (!Number.isInteger(timeoutMs) || timeoutMs < 1 || timeoutMs > 30000 || !Number.isInteger(retryLimit) || retryLimit < 0 || retryLimit > 3 || !Number.isInteger(maxRetryWaitMs) || maxRetryWaitMs < 0 || maxRetryWaitMs > 10000) throw new CommerceError('INVALID_RETRY_POLICY');
@@ -55,12 +55,17 @@ export class PrintfulClient {
       const controller = new AbortController();
       const timer = setTimeout(() => controller.abort(), this.#timeout);
       try {
-        const response = await this.#fetch(ORIGIN + path, {
-          method, redirect: 'error', signal: controller.signal,
+        const url = ORIGIN + path;
+        const response = await this.#fetch(url, {
+          method, redirect: 'manual', signal: controller.signal,
           headers: { Authorization: `Bearer ${this.#token}`, 'X-PF-Store-Id': String(EXPECTED_STORE_ID), Accept: 'application/json', ...(body ? { 'Content-Type': 'application/json' } : {}) },
           ...(body ? { body: JSON.stringify(body) } : {})
         });
         this.#emit({ event: 'printful_request', operation, attempt, status: response.status });
+        if ((response.status >= 300 && response.status < 400) || response.redirected || (response.url && response.url !== url)) {
+          try { await response.body?.cancel(); } catch { /* Reject redirects even if cancelling their body fails. */ }
+          throw new CommerceError('PRINTFUL_REDIRECT_REJECTED');
+        }
         if (response.status === 404 && notFound) { await response.body?.cancel(); return null; }
         if (!response.ok) {
           await response.body?.cancel();
