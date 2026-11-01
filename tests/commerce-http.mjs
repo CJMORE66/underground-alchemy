@@ -83,6 +83,12 @@ function signedEvent({ type = 'checkout.session.completed', id = 'evt_isolatedHt
 }
 const webhookRequest = (signed, headers = {}) => request('/api/stripe/webhook', { body: signed.raw, headers: { 'stripe-signature': signed.signature, ...headers } });
 
+function isolatedCache(t, cache) {
+  const original = Object.getOwnPropertyDescriptor(globalThis, 'caches');
+  Object.defineProperty(globalThis, 'caches', { configurable: true, writable: true, value: { default: cache } });
+  t.after(() => { if (original) Object.defineProperty(globalThis, 'caches', original); else delete globalThis.caches; });
+}
+
 test('existing ASSETS requests retain their Request and response without commerce access', async () => {
   const f = fixture(), incoming = get('/art/?retained=1'), response = await f.fetch(incoming);
   assert.equal(await response.text(), 'retained asset'); assert.equal(response.headers.get('x-isolated-asset'), 'yes');
@@ -95,6 +101,42 @@ test('catalog route requires a live verification flag and does not expose failed
   assert.deepEqual(await result(await f.fetch(get('/api/commerce/catalog'))), { status: 503, body: { error: 'LIVE_CATALOG_REQUIRED' } });
   f.catalog.getCatalog = async () => { throw new Error('private provider response and synthetic customer'); };
   assert.deepEqual(await result(await f.fetch(get('/api/commerce/catalog'))), { status: 503, body: { error: 'COMMERCE_UNAVAILABLE' } });
+});
+
+test('unavailable edge-cache reads still require and return a freshly verified catalog', async t => {
+  const cache = { match() {}, async put() {} }; isolatedCache(t, cache);
+  for (const match of [() => { throw new Error('Isolated cache API unavailable'); }, async () => { throw new Error('Isolated cache read unavailable'); }]) {
+    let reads = 0; cache.match = (...args) => { reads++; return match(...args); };
+    const f = fixture(), background = [];
+    const response = await f.worker.fetch(get('/api/commerce/catalog'), f.env, { waitUntil(promise) { background.push(promise); } });
+    assert.equal(response.status, 200); assert.equal((await response.json()).catalogueVerifiedLive, true);
+    assert.equal(reads, 1); assert.equal(f.calls.catalog, 1); assert.equal(f.calls.repositoryFactory, 0);
+    await Promise.all(background);
+    f.catalog.getCatalog = async () => ({ products: [] });
+    assert.deepEqual(await result(await f.worker.fetch(get('/api/commerce/catalog'), f.env, {})), { status: 503, body: { error: 'LIVE_CATALOG_REQUIRED' } });
+  }
+});
+
+test('sync/async cache-write and background-context failures cannot replace a verified catalog response', async t => {
+  const cache = { async match() {}, put() {} }; isolatedCache(t, cache);
+  for (const failure of ['sync-write', 'async-write', 'background-context']) {
+    let writes = 0, contexts = 0; const background = [];
+    cache.put = () => { writes++; if (failure === 'sync-write') throw new Error('Isolated cache write unavailable'); return Promise.reject(new Error('Isolated asynchronous cache write unavailable')); };
+    const f = fixture();
+    const response = await f.worker.fetch(get('/api/commerce/catalog'), f.env, { waitUntil(promise) { contexts++; background.push(promise); if (failure === 'background-context') throw new Error('Isolated background context unavailable'); } });
+    assert.equal(response.status, 200); assert.equal((await response.json()).catalogueVerifiedLive, true);
+    assert.equal(f.calls.catalog, 1); assert.equal(writes, 1); assert.equal(contexts, failure === 'sync-write' ? 0 : 1);
+    await Promise.all(background); // The write rejection was handled before scheduling.
+  }
+});
+
+test('a trusted catalog cache hit retains the public response and skips provider reads', async t => {
+  const cached = Response.json({ catalogueVerifiedLive: true, products: [], source: 'isolated-cache-fixture' }, { headers: { 'cache-control': 'public, max-age=60' } });
+  let reads = 0;
+  isolatedCache(t, { async match(key) { reads++; assert.equal(key.method, 'GET'); assert.equal(key.url, ORIGIN + '/api/commerce/catalog'); return cached; }, put() { assert.fail('A cache hit must not trigger a write'); } });
+  const f = fixture(), response = await f.fetch(get('/api/commerce/catalog?isolated=1'));
+  assert.equal(response, cached); assert.equal(reads, 1); assert.equal(response.headers.get('cache-control'), 'public, max-age=60');
+  assert.equal(f.calls.catalog, 0); assert.equal(f.calls.provider.length, 0); assert.equal(f.calls.repositoryFactory, 0);
 });
 
 test('sandbox readiness fails closed for missing DB, migration, key, webhook, store policy and session config', async () => {

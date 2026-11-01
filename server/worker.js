@@ -77,12 +77,22 @@ export function createCommerceWorker({ fetchImplementation = globalThis.fetch, c
       try {
         if (path === '/api/commerce/catalog' && request.method === 'GET') {
           const cacheKey = new Request(url.origin + '/api/commerce/catalog', { method: 'GET' });
-          const cached = await globalThis.caches?.default?.match(cacheKey);
+          let cached;
+          try { cached = await globalThis.caches?.default?.match(cacheKey); }
+          catch { /* The optional edge cache cannot block a fresh provider read. */ }
           if (cached) return cached;
           const catalog = await catalogFor(env).getCatalog();
           if (catalog.catalogueVerifiedLive !== true) throw new CommerceError('LIVE_CATALOG_REQUIRED');
           const response = json(200, catalog); response.headers.set('cache-control', 'public, max-age=60');
-          if (globalThis.caches?.default && ctx?.waitUntil) ctx.waitUntil(globalThis.caches.default.put(cacheKey, response.clone()));
+          try {
+            const cache = globalThis.caches?.default;
+            if (cache && typeof ctx?.waitUntil === 'function') {
+              // Attach rejection handling before waitUntil: some hosting
+              // environments expose unavailable cache APIs or reject writes.
+              const write = Promise.resolve(cache.put(cacheKey, response.clone())).catch(() => {});
+              ctx.waitUntil(write);
+            }
+          } catch { /* Cache writes never change the verified catalog response. */ }
           return response;
         }
         if (path === '/api/commerce/status' && request.method === 'GET') {
