@@ -259,6 +259,23 @@ test('shipping uses current server variant catalog IDs, aggregates shared blanks
   assert.deepEqual(f.calls.variants, ['artwork_black_l', 'artwork_white_l']); assert.equal(f.calls.payment.length, 0); assert.equal(f.calls.events.length, 0);
 });
 
+test('Worker default transport calls global fetch with its native receiver', async t => {
+  const original = globalThis.fetch, requests = [];
+  globalThis.fetch = async function (url, init) {
+    assert.equal(this, globalThis, 'Cloudflare native fetch requires the global receiver');
+    requests.push({ url, redirect: init.redirect });
+    if (url.endsWith('/stores')) return Response.json({ code: 200, result: [{ id: STORE }] });
+    if (url.endsWith('/shipping/rates')) return Response.json({ code: 200, result: [{ id: 'ISOLATED_STANDARD', name: 'Isolated standard', rate: '3.50', currency: 'EUR' }] });
+    assert.fail('Unexpected isolated provider request');
+  };
+  t.after(() => { globalThis.fetch = original; });
+  const f = fixture(), session = await f.session();
+  const worker = createCommerceWorker({ catalogFactory: () => f.catalog, repositoryFactory: () => f.repository, paymentFactory: () => f.payments });
+  const response = await worker.fetch(request('/api/commerce/shipping', { cookie: session.header, body: shippingInput() }), f.env, {});
+  assert.equal(response.status, 200); assert.equal((await response.json()).shippingOptions[0].amountMinor, 350);
+  assert.equal(requests.length, 2); assert(requests.every(entry => entry.redirect === 'manual'));
+});
+
 test('shipping rejects browser prices, currency, paid flags and provider identifiers', async () => {
   for (const change of [body => { body.price = 1; }, body => { body.currency = 'USD'; }, body => { body.paid = true; }, body => { body.lines[0].unitAmountMinor = 1; }, body => { body.lines[0].catalogVariantId = 999; }, body => { body.lines[0].sync_variant_id = 999; }]) {
     const f = fixture(), session = await f.session(), body = shippingInput(); change(body);
@@ -369,4 +386,32 @@ test('valid signed events survive missing Printful credentials as durable pendin
   const response = await f.fetch(webhookRequest(signedEvent()));
   assert.equal(response.status, 503); assert.equal((await response.json()).received, true); assert.equal(f.calls.events.length, 1);
   assert.equal(f.calls.paymentFactory, 0); assert.equal(f.calls.provider.length, 0);
+});
+
+test('owned order exposes only its cached fulfillment projection and preserves internal draft status', async () => {
+  let reads = 0;
+  const projection = { version: 1, storeId: STORE, status: 'partial', shipments: [] };
+  const f = fixture({ repository: {
+    async getDraft(id) { return { orderId: id, state: 'created', printfulId: 901 }; },
+    async getFulfillmentProjection(id, options) { reads++; assert.equal(options.ownerId, owner.ownerId); return { observedAt: Date.now(), projection }; },
+  } });
+  const owner = await f.session();
+  f.orders.set('owned_order', { id: 'owned_order', ownerId: owner.ownerId, currency: 'EUR', totalMinor: 1250, recipient: { name: 'private isolated value' } });
+  const response = await f.fetch(get('/api/commerce/orders/owned_order', owner.header)), body = await response.json();
+  assert.equal(response.status, 200); assert.equal(body.status, 'draft_created'); assert.equal(body.fulfillment.status, 'partial'); assert.equal(body.fulfillmentSync, 'cached');
+  assert.equal(JSON.stringify(body).includes('private isolated value'), false); assert.equal(f.calls.provider.length, 0); assert.equal(reads, 1);
+  f.orders.get('owned_order').ownerId = 'different_owner';
+  assert.equal((await f.fetch(get('/api/commerce/orders/owned_order', owner.header))).status, 404); assert.equal(reads, 1, 'Wrong owners never read shipment projections');
+});
+
+test('provider refresh failure preserves an explicitly stale owned projection without changing payment/draft state', async () => {
+  const old = { version: 1, storeId: STORE, status: 'inprocess', shipments: [] };
+  const f = fixture({ repository: {
+    async getDraft(id) { return { orderId: id, state: 'created', printfulId: 901, externalId: 'invalid_isolated_mapping' }; },
+    async getFulfillmentProjection() { return { observedAt: 1, projection: old }; },
+    async saveFulfillmentProjection() { assert.fail('An invalid mapping must never save a provider observation'); },
+  } });
+  const owner = await f.session(); f.orders.set('owned_order', { id: 'owned_order', ownerId: owner.ownerId, currency: 'EUR', totalMinor: 1250 });
+  const response = await f.fetch(get('/api/commerce/orders/owned_order', owner.header)), body = await response.json();
+  assert.equal(response.status, 200); assert.equal(body.status, 'draft_created'); assert.equal(body.fulfillmentSync, 'stale'); assert.deepEqual(body.fulfillment, old); assert.equal(f.calls.provider.length, 0);
 });

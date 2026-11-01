@@ -12,7 +12,7 @@
     "check:commerce-release": "node tools/check-commerce-release.mjs",
     "test:stripe": "node --test tests/stripe.mjs tests/commerce-sqlite.mjs tests/stripe-workflow.mjs",
     "db:generate": "drizzle-kit generate --config drizzle.config.ts",
-    "test:commerce:worker": "node --test tests/commerce-d1.mjs tests/commerce-quotes.mjs tests/live-catalog.mjs tests/commerce-http.mjs",
+    "test:commerce:worker": "node --test tests/commerce-d1.mjs tests/commerce-quotes.mjs tests/live-catalog.mjs tests/commerce-http.mjs tests/fulfillment-sync.mjs tests/catalog-cache.mjs",
     "build:commerce": "node scripts/build-commerce-worker.mjs"
   },
   "dependencies": {

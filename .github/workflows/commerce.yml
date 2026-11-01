@@ -23,5 +23,6 @@ jobs:
       - run: node tests/languages.mjs
       - run: node tests/languages-integration.mjs
       - run: npm run build:commerce
+      - run: node --test tests/commerce-workerd.mjs
       - run: npm run check:commerce-release
       - run: git diff --check

@@ -1,10 +1,12 @@
 import merchandising from '../dist/shop/catalog.json' with { type: 'json' };
 import { LivePrintfulCatalog } from './commerce/live-catalog.js';
+import { D1PublicCatalogCache } from './commerce/catalog-cache.js';
 import { PrintfulClient, EXPECTED_STORE_ID } from './commerce/printful.js';
 import { D1CommerceRepository } from './commerce/d1-repository.js';
 import { CheckoutQuoteService, validateQuoteConfiguration } from './commerce/quote-service.js';
 import { createStripeWorkerTestAdapter, isStripeTestKey, verifyStripeTestWebhook, STRIPE_API_VERSION } from './commerce/stripe.js';
 import { StripeOrderWorkflow } from './commerce/stripe-workflow.js';
+import { FulfillmentSyncService } from './commerce/fulfillment-sync.js';
 import { CommerceError, shippingRecipient, decimalToMinor } from './commerce/validation.js';
 import { commerceSession, requireSameOrigin, boundedRequestJson, boundedRequestBytes } from './commerce/http-security.js';
 
@@ -26,7 +28,7 @@ function configuredPolicy(env) {
   } catch { return null; }
 }
 
-export function createCommerceWorker({ fetchImplementation = globalThis.fetch, catalogFactory, repositoryFactory, paymentFactory } = {}) {
+export function createCommerceWorker({ fetchImplementation = (input, init) => globalThis.fetch(input, init), catalogFactory, repositoryFactory, paymentFactory } = {}) {
   const catalogFor = env => catalogFactory ? catalogFactory(env) : new LivePrintfulCatalog({ token: env.PRINTFUL_API_TOKEN, merchandising, platform: 'api', fetch: fetchImplementation });
   const printfulFor = env => new PrintfulClient({ token: env.PRINTFUL_API_TOKEN, fetch: fetchImplementation });
   const repositoryFor = async env => {
@@ -81,9 +83,12 @@ export function createCommerceWorker({ fetchImplementation = globalThis.fetch, c
           try { cached = await globalThis.caches?.default?.match(cacheKey); }
           catch { /* The optional edge cache cannot block a fresh provider read. */ }
           if (cached) return cached;
-          const catalog = await catalogFor(env).getCatalog();
+          const loadCatalog = () => catalogFor(env).getCatalog();
+          const publicCache = catalogFactory ? null : new D1PublicCatalogCache({ db: env.COMMERCE_DB });
+          const catalog = publicCache ? await publicCache.getCatalog(loadCatalog) : await loadCatalog();
           if (catalog.catalogueVerifiedLive !== true) throw new CommerceError('LIVE_CATALOG_REQUIRED');
-          const response = json(200, catalog); response.headers.set('cache-control', 'public, max-age=60');
+          const maxAge = publicCache ? Math.max(0, Math.floor((publicCache.expiresAtMs - Date.now()) / 1000)) : 60;
+          const response = json(200, catalog); response.headers.set('cache-control', 'public, max-age=' + maxAge);
           try {
             const cache = globalThis.caches?.default;
             if (cache && typeof ctx?.waitUntil === 'function') {
@@ -141,7 +146,20 @@ export function createCommerceWorker({ fetchImplementation = globalThis.fetch, c
           if (!order || order.ownerId !== session.ownerId) return json(404, { error: 'ORDER_NOT_FOUND' });
           const draft = await repository.getDraft(order.id);
           const states = { reserved: 'draft_reserved', created: 'draft_created', uncertain: 'draft_uncertain', failed: 'draft_failed' };
-          return json(200, { orderId: order.id, status: states[draft?.state] || 'awaiting_payment', currency: order.currency, totalMinor: order.totalMinor, draftId: draft?.printfulId || null });
+          const observed = {};
+          if (draft?.state === 'created' && typeof repository.getFulfillmentProjection === 'function') {
+            let record = await repository.getFulfillmentProjection(order.id, { ownerId: session.ownerId });
+            let sync = 'cached';
+            if (!record || Date.now() - record.observedAt > 60000) {
+              try {
+                await limited(repository, session.ownerId, 'fulfillment', request, env.COMMERCE_SESSION_SECRET);
+                record = await new FulfillmentSyncService({ repository, printful: printfulFor(env) }).refreshOrder(order.id, { ownerId: session.ownerId });
+                sync = 'fresh';
+              } catch { sync = record ? 'stale' : 'unavailable'; }
+            }
+            Object.assign(observed, { fulfillment: record?.projection || null, fulfillmentCheckedAt: record?.observedAt || null, fulfillmentSync: sync });
+          }
+          return json(200, { orderId: order.id, status: states[draft?.state] || 'awaiting_payment', currency: order.currency, totalMinor: order.totalMinor, draftId: draft?.printfulId || null, ...observed });
         }
         if (['/api/commerce/shipping', '/api/commerce/quote', '/api/commerce/checkout'].includes(path)) {
           if (request.method !== 'POST') return json(405, { error: 'METHOD_NOT_ALLOWED' });
