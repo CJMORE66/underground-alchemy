@@ -21,7 +21,8 @@ V36 final UI-gate deployment and actual shipping/gate browser smoke pass.
 | Native D1 | Nine tables incl fulfillment/public cache; store 18912189 row, 60,000 ms TTL, lease NULL | Full cached payload parsing from bounded reader: payload text is truncated and was not treated as complete JSON evidence |
 | Real standalone draft | 184026933, external UA_TEST_20261101_1a196badad6, confirm=false; authenticated GET verifies draft | Stripe payment, actual internal paid order or the full payment-to-draft workflow |
 | Stripe account/Tax/endpoint | Test account and active settings/registrations; enabled test September four-event endpoint/secret configured | Runtime API key, actual order Tax calculation, real signed delivery/captured test payment |
-| Recent native error interval | Last 5-minute/25-event error query returns 0 events | Bounded window/log lag, not all-time clean logs; fixed failures remain historical |
+| V36 native error interval (dated) | Its 5-minute/25-event error query returned 0 events | Historical bounded result, not the latest v37 query |
+| V37 final status/cart/log follow-up | Actual status HTTP 200: mode test/catalog+shipping true/checkout false; modal closed CZ, cart 0, live20 notice. 11:04 UTC error query returns 3 ancillary404s only: favicon.ico/sitemap.xml/robots.txt, outcome ok | No commerce_request_failed/API failures in returned 5-minute/25-event window; bounded/lag limits apply, not zero/all-time clean logs |
 
 Real draft authenticated GET was verified at recorded 10:50:18 UTC. Item:
 sync 5577001692 / catalog 51734 × 1, name
@@ -56,6 +57,24 @@ bundle tests pass. V36 deployed successfully at 2026-11-01T10:53:43.921359+00:00
 Fresh reload leaves the address form empty. Current real mobile viewport remains
 unverified despite desktop/DOM and older iframe checks.
 
+## Verified v37 frontend-only copy correction
+
+Verified frontend-only v37 source
+`a57f86b285a0aae0d156b5ad501b203078095920` fixes the observed live detail's
+obsolete original-store-only wording. Six additional DOM scenarios cover
+CS/EN/FR × live/fallback, retaining native cart action and historical price dates.
+UI/shop/cart and language suites pass; dictionaries have 2,942 matching keys × 3.
+Build/release pass: 680 authored assets / 188,113,092 bytes, frontend hash
+`8b38bf76f09e43e7d1675227927db61005bf458aa048c876b0627ddde0156967`,
+unchanged Worker 836.58 kB. Native v37 deployed successfully at
+`2026-11-01T11:02:50.549892+00:00`. Actual live API returns printful-live/true,
+20/86 and 83 active, checked `2026-11-01T11:03:03.836Z`. Visible live detail in CS/EN/FR after
+lazy dictionary loading shows the new server-recheck/availability policy with
+native Add/Open Cart and no obsolete disabled external CTA. Fallback remains
+fixture coverage; do not add these six scenarios to the 227-case total.
+CI #14 passes at `d3d9adba105d5432c319f796fa7781554c78cc9e`:
+https://github.com/CJMORE66/underground-alchemy/actions/runs/41300046055 .
+
 ## Required remaining live acceptance
 
 - Secure runtime Stripe test API key and approved merchant price/tax/country policy.
@@ -79,10 +98,12 @@ actual-workerd isolated successes; old failures were not erased from logs.
 ## Final release record
 
 V36 exact IDs/source/archive and successful native result are in DEPLOYMENT.
-The final actual shipping/quote-disabled browser smoke and recent bounded error
-interval pass as recorded above. Do not claim end-to-end verified
+The v36 actual shipping/quote-disabled smoke, v37 live-copy/status/cart checks
+and distinct bounded log observations are recorded above. The latest v37 query
+has three ancillary static404s, not zero events. Do not claim end-to-end verified
 working from any isolated draft, fixture suite or successful deployment.
 
 Actual desktop collection evidence: [PRINTFUL_SHOP_VERIFIED.jpg](evidence/PRINTFUL_SHOP_VERIFIED.jpg)
-(95,391 bytes; live notice/20 products, no test address/customer data visible).
+(live notice/20 products, no test address/customer data visible; final stable
+collection evidence is retained at this path).
 Final browser location: https://caisik-underground-alchemy.caisik.chatgpt.site/shop/#shop-collection .

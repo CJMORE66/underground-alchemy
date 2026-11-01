@@ -1,9 +1,46 @@
 # Native commerce release / rollback record
 
-Updated: 1 November 2026. **Version 36 is deployed and its live catalog, shipping
-and shipping-only quote gate are verified.** Native D1 has nine tables. Overall
+Updated: 1 November 2026. **Version 37 is deployed and live catalog/CS-EN-FR
+detail copy are verified.** V36 shipping/quote-gate proofs remain dated baseline
+evidence; native D1 has nine tables. Overall
 PARTIALLY WORKING: Stripe runtime payment key/merchant policy and full paid-order
 acceptance are still absent. All timestamps in the final v36 record are UTC.
+
+## Current v37 frontend-only correction — verified
+
+Source `a57f86b285a0aae0d156b5ad501b203078095920` changes eight frontend/translation/
+test files only. It corrects actual obsolete original-store/NAS-dependent copy
+shown in a live product detail, with conditional live/fallback CS/EN/FR text.
+Backend/Worker behavior, native cart action and dated prices are unchanged.
+Six live/fallback DOM scenarios and UI/shop/cart/language suites pass;
+2,942 matching dictionary keys × 3. Build/release pass: 680 authored assets /
+188,113,092 bytes, frontend hash
+`8b38bf76f09e43e7d1675227927db61005bf458aa048c876b0627ddde0156967`;
+Worker unchanged 836.58 kB; local gzip 179,702,509 bytes.
+
+- Saved version: `appgprj_6ad19e715dcc819185592c61456c5182~appgver_4f31c92d450c81918fbaf77bc1ad7942`.
+- Deployment: `appgdep_6ae71c3a15408191922fc997b4911e5c`, **succeeded** at
+  `2026-11-01T11:02:50.549892+00:00` (UTC), env4; source
+  `a57f86b285a0aae0d156b5ad501b203078095920`.
+- Canonical tar SHA256
+  `ef5db13aac596f098aea87ee0738235c949a8316248fe1c858599812b15c7283`,
+  **191,303,680 bytes / 693 files**. Local gzip **179,702,509 bytes**.
+- Actual API returns printful-live/true, **20/86**, **83 active**, checkedAt
+  `2026-11-01T11:03:03.836Z`. Actual visible CS/EN/FR detail after dictionaries
+  load has the new server-recheck/availability-at-load policy, no obsolete
+  disabled external CTA and retained Add/Open Cart actions. Fallback is tested
+  by six DOM fixture scenarios, not forced production failure.
+- GitHub `d3d9adba105d5432c319f796fa7781554c78cc9e`, CI #14 **PASS**:
+  https://github.com/CJMORE66/underground-alchemy/actions/runs/41300046055 .
+- Final actual status HTTP 200 reports mode:test, catalog/shipping available and
+  checkout unavailable. Modal closed in CZ; empty cart **0** and live **20-product**
+  collection notice are confirmed.
+- Latest bounded error query at **11:04 UTC** (5 minutes / limit 25) returns
+  **three ancillary 404 request events only**: `/favicon.ico`, `/sitemap.xml`,
+  `/robots.txt`, outcome ok. No commerce_request_failed/API failure appears in
+  the returned window. These existing static-asset gaps are not a clean-log
+  result or a new SEO work scope. Preserve the earlier v36 zero-event result as
+  dated history, not the latest query.
 
 ## Earlier healthy release: v35
 
@@ -90,13 +127,23 @@ checks: https://github.com/CJMORE66/underground-alchemy/actions/runs/41299341644
 | 34 | 3ee4110 | Optional safe cache; native Fetch wrong receiver/unsupported redirect:error exposed |
 | 35 | 6e758e1 | Correct binding/manual redirect rejection + D1 cache; actual live catalog/shipping verified |
 | 36 | b5d613845852a5e14d20f4a3072189726b84fada | Shipping-only tax-quote UI gate fixed; native publish and final actual smoke pass |
+| 37 | a57f86b285a0aae0d156b5ad501b203078095920 | Frontend-only live/fallback detail copy corrected; actual CS/EN/FR live copy and live API verified |
 
 These failures are historical, not the current catalog status. Three isolated
 actual-bundle workerd cases now exercise native fetch/cache/redirect behavior.
 
 ## Rollback
 
-Known-good static v31 saved version:
+Preferred verified functional v36 saved version:
+`appgprj_6ad19e715dcc819185592c61456c5182~appgver_337ea06b363c81918affa223c4a21ab5`.
+Source: `b5d613845852a5e14d20f4a3072189726b84fada`.
+Deployment: `appgdep_6ae71a2303288191918d0da936d4f235`.
+Canonical archive SHA256:
+`35b89ec30fba9ee7a98fc38ed78e6df787af56ef279fc310cf19d5ea01eb7806`.
+This restores the verified live backend/cart/quote gate, with the older detail
+copy. Preserve D1/secrets and verify the native rollback result.
+
+Emergency static v31 saved version:
 `appgprj_6ad19e715dcc819185592c61456c5182~appgver_c70a82f405a48191a09d087d4b2aa4e3`.
 Source: `3fb9f74a210b6b1176c3f1363035d8b9c4054483`.
 Archive SHA256: `027f75d4ab8ccb119b1778d77a4c235dbf5e88a77ae3e195da8deb4810dc8f5a`.

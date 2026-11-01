@@ -7,6 +7,10 @@ missing; no actual Stripe payment or full paid-order workflow is verified.
 
 ## Required owner configuration
 
+The deployed v37 frontend live/fallback-copy correction does not change Stripe
+configuration, payment authorization or the verified v36 backend. Its native
+publication/live CS/EN/FR copy smoke pass; all payment blockers below remain unchanged.
+
 Supply through secure Sites runtime settings only:
 
 - **STRIPE_SECRET_KEY**: actual connected-account test secret/restricted test API

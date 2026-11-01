@@ -6,6 +6,11 @@ and end-to-end paid-order workflow remain blocked; overall PARTIALLY WORKING.
 V36 native publication and final actual shipping/quote-button browser smoke
 pass; only the documented payment/full-order and remaining operational scope is blocked.
 
+V37 is a deployed/verified frontend-only live/fallback-copy correction; no new runtime
+settings, API credentials or backend migration are needed for it. Native
+publication and actual live CS/EN/FR detail-copy smoke pass. Use verified v36 as the preferred functional
+rollback and v31 only as an emergency static fallback, preserving D1/secrets.
+
 ## Already configured and verified
 
 - Existing Printful store 18912189: real authorized store membership among seven,

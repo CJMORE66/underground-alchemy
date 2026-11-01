@@ -1,6 +1,6 @@
 # Commerce final progress / resume record
 
-Updated: 1 November 2026. Overall **PARTIALLY WORKING**. Native v36 is deployed;
+Updated: 1 November 2026. Overall **PARTIALLY WORKING**. Native v37 is deployed;
 live catalog/shipping and one standalone safe Printful draft are verified. Runtime
 Stripe API key/merchant policy and complete paid-order acceptance remain blocked.
 V36 final shipping/quote-button browser smoke passes; this does not make the
@@ -37,12 +37,22 @@ Stripe payment/full-order workflow complete.
 
 ## Remaining acceptance
 
+- [x] Deploy v37 frontend-only correction for actual obsolete original-store
+  detail copy; six CS/EN/FR live/fallback DOM scenarios, UI/shop/cart/language and
+  build/release checks pass. Native cart action/dated prices/backend unchanged.
+- [x] V37 deployment succeeds at 2026-11-01T11:02:50.549892+00:00, live API 20/86
+  with 83 active and visible CS/EN/FR detail copy pass after dictionary loading;
+  CI #14 PASS. Final status200/test/catalog+shipping true/checkoutfalse,
+  cart0/live20 notice and closed CZ modal verified. Latest bounded11:04UTC query
+  has3 ancillary404s only (favicon/sitemap/robots), no returned commerce/API failure.
+  Exact native IDs are in DEPLOYMENT. Preferred functional rollback is v36.
+
 - [x] Final v36 actual 10:54 UTC smoke: live catalog 20/86/83 active, official
   destination rates €8.39/€8.47; STANDARD selected with tax quote disabled.
   Test item removed to 0, persisted after reload; address form empty on reload.
 - [x] Actual D1 order/draft-mapping rows both zero; standalone provider draft is
-  not an internal paid order. Last 5-minute/25-event error query returns 0 events,
-  subject to bounded window/ingestion lag.
+  not an internal paid order. V36's dated 5-minute/25-event query returned0;
+  latest v37 query has3 ancillary404s as above. Window/ingestion limits apply.
 - [ ] Securely configure runtime STRIPE_SECRET_KEY test API key and reviewed
   COMMERCE_POLICY_JSON. Existing Printful/session/webhook secrets are already set.
 - [ ] Authorized actual Stripe Tax/Checkout/payment/signature/redelivery and
@@ -72,7 +82,8 @@ test draft remains in Printful for inspection; do not confirm it automatically.
 
 Read the six PRINTFUL documents and STRIPE_SETUP, current Site/D1/configuration
 and real deployment records. V36 IDs/source/archive are in DEPLOYMENT. Immediate
-known-good static rollback remains v31; preserve D1/schema/cache/order data,
+preferred verified functional rollback is v36; v31 is an emergency static
+fallback. Preserve D1/schema/cache/order data,
 runtime secrets, browser notes/carts and uncertain mutation gates. Never replay
 an ambiguous create or treat a deployment/fixture as paid fulfillment proof.
 

@@ -1,7 +1,8 @@
 # Printful / Stripe integration audit
 
-Updated: 1 November 2026. Overall **PARTIALLY WORKING**. Native version 36 is
-deployed; v35 proved live catalog/shipping and v36 status/cart persistence pass.
+Updated: 1 November 2026. Overall **PARTIALLY WORKING**. Native version 37 is
+deployed and its live API/CS-EN-FR product-detail copy are verified. Prior v35/36
+provider, shipping, status/cart and quote-gate proofs remain valid dated evidence.
 A real standalone Printful
 draft was created and read back safely. Stripe Checkout/payment verification and
 the full paid-order workflow remain blocked/unverified. V36 final actual shipping/
@@ -93,13 +94,37 @@ server quote/checkout still rejected it. The meaningful gate fix and regression
 are committed/deployed as `b5d613845852a5e14d20f4a3072189726b84fada`, with UI/
 shop/cart/build/release/native-bundle checks passing. V36 native publication
 succeeded at `2026-11-01T10:53:43.921359+00:00` (UTC); final shipping/gate browser
-smoke passed at 10:54 UTC. Exact native IDs are in DEPLOYMENT. Recent bounded
+smoke passed at 10:54 UTC. Exact native IDs are in DEPLOYMENT. V36's dated bounded
 Worker error query returned zero events, subject to window/ingestion limits.
 
 Immediate owner inputs: secure runtime **STRIPE_SECRET_KEY** test key and reviewed
 **COMMERCE_POLICY_JSON**. No new Printful token, webhook secret, hosting account
 or mandatory NAS recovery is needed. Further notification/retention work requires
 approved business identity, sender/service and retention policy; do not invent them.
+
+## Verified v37 frontend copy correction
+
+An actual v36 product-detail UX defect retained obsolete wording that the
+original store must be restored/prices checked there and all variants were only
+saved data, even when live Printful data was loaded. Source
+`a57f86b285a0aae0d156b5ad501b203078095920` fixes only eight frontend/translation/
+test files: conditional live/fallback detail/footer copy in CS/EN/FR. Native
+cart action and dated prices remain unchanged; no backend/payment configuration
+changes. Six DOM scenarios cover live/fallback in all three languages, and UI/
+shop/cart/language/build/release checks pass (2,942 matching keys per language).
+V37 native deployment succeeded at `2026-11-01T11:02:50.549892+00:00` (UTC),
+env4. Actual API is printful-live/verified true, 20 products/86 variants, 83 active, checked
+`2026-11-01T11:03:03.836Z`. Actual visible CS/EN/FR detail after dictionary load
+shows server recheck/availability-at-load wording, no obsolete disabled external
+CTA, and retains Add/Open Cart actions. Six fallback/live DOM scenarios are
+fixture coverage, not a claim of forced production fallback. No backend change.
+CI #14 passes at GitHub `d3d9adba105d5432c319f796fa7781554c78cc9e`.
+Actual final status is HTTP 200/test/catalog+shipping true/checkout false;
+cart 0/live20 collection and closed CZ modal are confirmed. Latest 11:04 UTC
+bounded error query returns three ancillary static404 events (favicon/sitemap/
+robots), outcome ok, with no commerce_request_failed/API failure in its window.
+This is not a zero-error query; v36 zero events remain dated earlier evidence.
+V36 remains preferred verified functional rollback; v31 is emergency static.
 
 Exact configured Printful-credential scan across 533 source/public text files
 returned zero matches at 10:55 UTC, without printing the value. This is bounded

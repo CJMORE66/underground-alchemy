@@ -1,6 +1,6 @@
 # Commerce architecture
 
-Updated: 1 November 2026. Native **Sites Worker + ASSETS + D1** is deployed.
+Updated: 1 November 2026. Native **Sites Worker + ASSETS + D1** version 37 is deployed.
 V35 live catalog/shipping and nine-table schema are verified. V36 final UI-gate
 release is deployed; final actual shipping/gate browser smoke passes. Shipping
 works while the tax quote button stays disabled without payment configuration.
@@ -91,5 +91,12 @@ anonymized/deleted through an approved lifecycle. Resolve this before production
 customer processing. No paid-confirmation method/live-charge release exists.
 
 Preserve DB/provider state during rollback; never drop schema or reset uncertain
-mutation gates. Version 31 is the known-good static rollback, with current D1/
-secrets preserved. See `PRINTFUL_DEPLOYMENT.md`.
+mutation gates. Version 36 is the preferred verified functional rollback;
+version 31 is an emergency static fallback. Preserve current D1/secrets in
+either case. See `PRINTFUL_DEPLOYMENT.md`.
+
+Verified v37 changes only frontend conditional live/fallback wording and its
+CS/EN/FR translation/tests. Native APIs, Worker behavior, merchant policy,
+historical price dates and cart actions are unchanged. Publication/copy smoke
+passed for live CS/EN/FR detail; fallback coverage is DOM-fixture evidence. No
+new backend or stale-age UI completion is implied.
