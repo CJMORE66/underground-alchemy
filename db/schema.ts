@@ -67,3 +67,31 @@ export const commerceJobs = sqliteTable('commerce_d1_jobs', {
 export const commerceLimits = sqliteTable('commerce_d1_limits', {
   scope: text('scope').notNull(), key: text('key').notNull(), windowStart: integer('window_start').notNull(), count: integer('count').notNull()
 }, table => [primaryKey({ columns: [table.scope, table.key] }), check('commerce_d1_limit_window_check', sql`${table.windowStart} >= 0`), check('commerce_d1_limit_count_check', sql`${table.count} BETWEEN 1 AND 10001`)]);
+
+// Read-only provider observations, separate from immutable prices/payment/order records.
+export const commerceFulfillment = sqliteTable('commerce_d1_fulfillment', {
+  scope: text('scope').notNull(), orderId: text('order_id').notNull(), printfulId: integer('printful_id').notNull(),
+  externalId: text('external_id').notNull(), providerUpdatedAt: integer('provider_updated_at').notNull(),
+  projectionHash: text('projection_hash').notNull(), projectionJson: text('projection_json').notNull(), observedAt: integer('observed_at_ms').notNull()
+}, table => [
+  primaryKey({ columns: [table.scope, table.orderId] }),
+  unique('commerce_d1_fulfillment_printful_unique').on(table.scope, table.printfulId),
+  unique('commerce_d1_fulfillment_external_unique').on(table.scope, table.externalId),
+  foreignKey({ columns: [table.scope, table.orderId], foreignColumns: [commerceDrafts.scope, commerceDrafts.orderId] }),
+  check('commerce_d1_fulfillment_printful_check', sql`${table.printfulId} > 0`),
+  check('commerce_d1_fulfillment_version_check', sql`${table.providerUpdatedAt} >= 0`),
+  check('commerce_d1_fulfillment_hash_check', sql`length(${table.projectionHash}) = 64`),
+  check('commerce_d1_fulfillment_json_check', sql`json_valid(${table.projectionJson})`),
+  check('commerce_d1_fulfillment_observed_check', sql`${table.observedAt} >= 0`)
+]);
+
+// Public catalog only. No credentials or customer/order records belong in this cache.
+export const commercePublicCatalogCache = sqliteTable('commerce_d1_public_catalog_cache', {
+  storeId: integer('store_id').primaryKey(), payloadJson: text('payload_json'),
+  verifiedAt: integer('verified_at_ms').notNull().default(0), expiresAt: integer('expires_at_ms').notNull().default(0),
+  leaseToken: text('lease_token'), leaseExpiresAt: integer('lease_expires_at_ms').notNull().default(0), updatedAt: integer('updated_at_ms').notNull().default(0)
+}, table => [
+  check('commerce_d1_catalog_store_check', sql`${table.storeId} > 0`),
+  check('commerce_d1_catalog_json_check', sql`${table.payloadJson} IS NULL OR json_valid(${table.payloadJson})`),
+  check('commerce_d1_catalog_time_check', sql`${table.verifiedAt} >= 0 AND ${table.expiresAt} >= 0 AND ${table.leaseExpiresAt} >= 0 AND ${table.updatedAt} >= 0`)
+]);

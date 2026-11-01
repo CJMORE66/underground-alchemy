@@ -1,4 +1,5 @@
 import { CommerceError, boundedText, currencyCode, fulfillmentItems, shippingRecipient } from './validation.js';
+import { validateFulfillmentProjection } from './fulfillment-sync.js';
 
 export const D1_SCHEMA_VERSION = 1;
 export const D1_SCHEMA_CONTRACT = 'ua-commerce-d1-v1';
@@ -20,10 +21,12 @@ const jobRecord = row => row ? { id: row.id, jobId: row.id, eventId: row.event_i
 const hydratedOrder = row => row ? { ...JSON.parse(row.order_json), stripeCheckoutSessionId: row.session_id ?? null } : null;
 const ORDER_SELECT = 'SELECT o.*, s.session_id FROM commerce_d1_orders o LEFT JOIN commerce_d1_sessions s ON s.scope = o.scope AND s.order_id = o.id WHERE o.scope = ? AND o.id = ?';
 const JOB_SELECT = 'SELECT j.*, e.session_id, e.type, e.provider_created FROM commerce_d1_jobs j JOIN commerce_d1_events e ON e.scope = j.scope AND e.event_id = j.event_id WHERE j.scope = ? AND j.id = ?';
+const FULFILLMENT_SELECT = "SELECT f.* FROM commerce_d1_fulfillment f JOIN commerce_d1_orders o ON o.scope = f.scope AND o.id = f.order_id JOIN commerce_d1_drafts d ON d.scope = f.scope AND d.order_id = f.order_id AND d.printful_id = f.printful_id AND d.external_id = f.external_id AND d.state = 'created' WHERE f.scope = ? AND f.order_id = ? AND json_extract(o.order_json, '$.ownerId') = ?";
+const fulfillmentRecord = row => row ? { orderId: row.order_id, printfulId: row.printful_id, externalId: row.external_id, providerUpdatedAt: row.provider_updated_at, projectionHash: row.projection_hash, observedAt: row.observed_at_ms, projection: validateFulfillmentProjection(JSON.parse(row.projection_json)) } : null;
 const READINESS_OBJECTS = Object.freeze([
   ['commerce_d1_schema', 'table'], ['commerce_d1_orders', 'table'], ['commerce_d1_sessions', 'table'],
   ['commerce_d1_drafts', 'table'], ['commerce_d1_events', 'table'], ['commerce_d1_jobs', 'table'],
-  ['commerce_d1_limits', 'table'], ['commerce_d1_jobs_available', 'index'],
+  ['commerce_d1_limits', 'table'], ['commerce_d1_fulfillment', 'table'], ['commerce_d1_public_catalog_cache', 'table'], ['commerce_d1_jobs_available', 'index'],
   ['commerce_d1_orders_immutable_update', 'trigger'], ['commerce_d1_orders_immutable_delete', 'trigger']
 ]);
 
@@ -122,6 +125,28 @@ export class D1CommerceRepository {
   async getDraft(orderId) {
     this.#requireReady(); safeId(orderId, 120);
     return draftRecord(await this.#first('SELECT * FROM commerce_d1_drafts WHERE scope = ? AND order_id = ?', this.#scope, orderId));
+  }
+  async getFulfillmentProjection(orderId, { ownerId } = {}) {
+    this.#requireReady(); safeId(orderId, 120); safeId(ownerId, 120);
+    return fulfillmentRecord(await this.#first(FULFILLMENT_SELECT, this.#scope, orderId, ownerId));
+  }
+  async saveFulfillmentProjection({ orderId, ownerId, printfulId, externalId, expectedHash, projection, observedAt }) {
+    this.#requireReady(); safeId(orderId, 120); safeId(ownerId, 120); safeId(externalId, 32); milliseconds(observedAt);
+    if (expectedHash !== null) safeHash(expectedHash);
+    const checked = validateFulfillmentProjection(projection);
+    if (checked.printfulId !== printfulId || checked.externalId !== externalId || Number(this.#scope.split(':').at(-1)) !== checked.storeId) throw new CommerceError('FULFILLMENT_MAPPING_REQUIRED');
+    const body = JSON.stringify(canonical(checked));
+    if (new TextEncoder().encode(body).byteLength > 128 * 1024) throw new CommerceError('FULFILLMENT_PROJECTION_TOO_LARGE');
+    const projectionHash = await sha(body);
+    const result = await this.#batch([
+      ["INSERT INTO commerce_d1_fulfillment(scope, order_id, printful_id, external_id, provider_updated_at, projection_hash, projection_json, observed_at_ms) SELECT d.scope, d.order_id, d.printful_id, d.external_id, ?, ?, ?, ? FROM commerce_d1_drafts d JOIN commerce_d1_orders o ON o.scope = d.scope AND o.id = d.order_id WHERE d.scope = ? AND d.order_id = ? AND d.state = 'created' AND d.printful_id = ? AND d.external_id = ? AND json_extract(o.order_json, '$.ownerId') = ? ON CONFLICT(scope, order_id) DO UPDATE SET provider_updated_at = excluded.provider_updated_at, projection_hash = excluded.projection_hash, projection_json = excluded.projection_json, observed_at_ms = max(observed_at_ms, excluded.observed_at_ms) WHERE commerce_d1_fulfillment.projection_hash = ? AND commerce_d1_fulfillment.printful_id = excluded.printful_id AND commerce_d1_fulfillment.external_id = excluded.external_id AND excluded.provider_updated_at >= commerce_d1_fulfillment.provider_updated_at", checked.providerUpdatedAt, projectionHash, body, observedAt, this.#scope, orderId, printfulId, externalId, ownerId, expectedHash],
+      [FULFILLMENT_SELECT, this.#scope, orderId, ownerId]
+    ]);
+    const record = fulfillmentRecord(result[1].results[0]);
+    if (!record) throw new CommerceError('ORDER_NOT_FOUND', { status: 404 });
+    if (record.printfulId !== printfulId || record.externalId !== externalId) throw new CommerceError('FULFILLMENT_MAPPING_REQUIRED');
+    if (record.projectionHash !== projectionHash) throw new CommerceError('FULFILLMENT_SYNC_CONFLICT', { retryable: true });
+    return record;
   }
   async claimDraft({ orderId, externalId, payloadHash, paymentReference }) {
     this.#requireReady(); safeId(orderId, 120); safeId(externalId, 32); safeHash(payloadHash); safeId(paymentReference);

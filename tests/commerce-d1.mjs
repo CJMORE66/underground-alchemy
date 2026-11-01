@@ -10,6 +10,7 @@ import { DraftOrderService } from '../server/commerce/orders.js';
 import { StripeOrderWorkflow } from '../server/commerce/stripe-workflow.js';
 import { CommerceError } from '../server/commerce/validation.js';
 import { draftPayload } from '../server/commerce/printful.js';
+import { projectPrintfulOrder } from '../server/commerce/fulfillment-sync.js';
 
 const migration = readFileSync(new URL('../server/commerce/d1-migrations/0001-commerce.sql', import.meta.url), 'utf8');
 const SCOPE = { stripeAccountId: 'acct_isolatedAccount123', mode: 'test', printfulStoreId: 18912189 };
@@ -80,12 +81,58 @@ test('migrate only verifies deployment-applied schema and never runs DDL during 
 
 test('deployment SQL and journal are real Drizzle generation plus a schema-only custom trigger migration', () => {
   const journal = JSON.parse(readFileSync(new URL('../drizzle/meta/_journal.json', import.meta.url), 'utf8'));
-  assert.equal(journal.dialect, 'sqlite'); assert.equal(journal.entries.length, 2);
+  assert.equal(journal.dialect, 'sqlite'); assert.equal(journal.entries.length, 3);
   const generated = journal.entries.map(entry => readFileSync(new URL('../drizzle/' + entry.tag + '.sql', import.meta.url), 'utf8')).join('\n');
   assert.equal(migration, '-- Generated deployment migration mirror; edit db/schema.ts and regenerate Drizzle, not this file.\n' + generated + '\n');
   assert.doesNotMatch(generated, /^\s*(INSERT|UPDATE|DELETE|REPLACE)\b/im);
   assert.match(generated, /CREATE TABLE [`"]?commerce_d1_limits/);
+  assert.match(generated, /CREATE TABLE [`"]?commerce_d1_fulfillment/);
   assert.match(generated, /CREATE TRIGGER commerce_d1_orders_immutable_update/);
+});
+
+async function fulfillmentFixture(t) {
+  const f = await fixture(t), order = { ...orderFixture('fulfillment-order'), ownerId: 'owner-isolated' }, input = reservation(order.id);
+  await f.repository.createOrder(order); await f.repository.claimDraft(input); await f.repository.markDraftCreated({ ...input, printfulId: 1001 });
+  const remote = { id: 1001, external_id: input.externalId, created: 1799999000, updated: 1800000000, status: 'draft', items: [{ id: 10, sync_variant_id: 101, quantity: 1 }], shipments: [] };
+  const projection = projectPrintfulOrder(remote, { order, mapping: { ...input, printfulId: 1001 }, nowMs: f.now() });
+  const write = { orderId: order.id, ownerId: order.ownerId, printfulId: 1001, externalId: input.externalId, expectedHash: null, projection, observedAt: f.now() };
+  return { ...f, order, input, projection, write };
+}
+
+test('fulfillment projection requires actual owner, created mapping and exact account/store scope', async t => {
+  const f = await fulfillmentFixture(t), saved = await f.repository.saveFulfillmentProjection(f.write);
+  assert.equal(saved.projection.status, 'draft'); assert.equal(saved.printfulId, 1001);
+  assert.equal(await f.repository.getFulfillmentProjection(f.order.id, { ownerId: 'other-owner' }), null);
+  await assert.rejects(f.repository.saveFulfillmentProjection({ ...f.write, ownerId: 'other-owner' }), errorCode('ORDER_NOT_FOUND'));
+  const otherScope = await f.scoped({ ...SCOPE, stripeAccountId: 'acct_otherAccount123' });
+  assert.equal(await otherScope.getFulfillmentProjection(f.order.id, { ownerId: f.order.ownerId }), null);
+  await assert.rejects(otherScope.saveFulfillmentProjection(f.write), errorCode('ORDER_NOT_FOUND'));
+  await assert.rejects(f.repository.saveFulfillmentProjection({ ...f.write, printfulId: 2 }), errorCode('FULFILLMENT_MAPPING_REQUIRED'));
+  const pending = { ...orderFixture('pending-order'), ownerId: f.order.ownerId }; await f.repository.createOrder(pending); await f.repository.claimDraft({ ...reservation(pending.id), payloadHash: 'c'.repeat(64) });
+  await assert.rejects(f.repository.saveFulfillmentProjection({ ...f.write, orderId: pending.id }), errorCode('ORDER_NOT_FOUND'));
+  assert.equal((await f.repository.getOrder(f.order.id)).totalMinor, f.order.totalMinor, 'projection never changes immutable order/payment data');
+});
+
+test('actual SQL CAS prevents concurrent lost updates and rejects provider timestamp regression', async t => {
+  const f = await fulfillmentFixture(t), first = await f.repository.saveFulfillmentProjection(f.write);
+  const next = status => ({ ...f.write, expectedHash: first.projectionHash, projection: { ...f.projection, status, providerUpdatedAt: 1800000001 } });
+  const results = await Promise.allSettled([f.repository.saveFulfillmentProjection(next('pending')), f.second.saveFulfillmentProjection(next('onhold'))]);
+  assert.equal(results.filter(result => result.status === 'fulfilled').length, 1);
+  assert.equal(results.find(result => result.status === 'rejected').reason.code, 'FULFILLMENT_SYNC_CONFLICT');
+  const current = await f.repository.getFulfillmentProjection(f.order.id, { ownerId: f.order.ownerId });
+  await assert.rejects(f.repository.saveFulfillmentProjection({ ...f.write, expectedHash: current.projectionHash }), errorCode('FULFILLMENT_SYNC_CONFLICT'));
+  assert.equal((await f.repository.getFulfillmentProjection(f.order.id, { ownerId: f.order.ownerId })).providerUpdatedAt, 1800000001);
+  const resumed = new D1CommerceRepository({ db: f.secondDb, scope: SCOPE, clock: f.now }); await resumed.migrate();
+  assert.deepEqual(await resumed.getFulfillmentProjection(f.order.id, { ownerId: f.order.ownerId }), current);
+});
+
+test('projection commit with lost D1 reply safely recovers and unknown fields cannot persist', async t => {
+  const f = await fulfillmentFixture(t); f.db.loseReply = true;
+  await assert.rejects(f.repository.saveFulfillmentProjection(f.write), errorCode('REPOSITORY_UNAVAILABLE'));
+  const recovered = await f.second.getFulfillmentProjection(f.order.id, { ownerId: f.order.ownerId });
+  assert.equal(recovered.projection.status, 'draft');
+  assert.equal((await f.repository.saveFulfillmentProjection(f.write)).projectionHash, recovered.projectionHash);
+  await assert.rejects(f.repository.saveFulfillmentProjection({ ...f.write, projection: { ...f.projection, recipient: f.order.recipient } }), errorCode('PRINTFUL_FULFILLMENT_INVALID'));
 });
 
 test('immutable authoritative order and hydrated Session survive a new repository instance', async t => {

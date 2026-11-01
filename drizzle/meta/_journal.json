@@ -15,6 +15,13 @@
       "when": 1793527783799,
       "tag": "0001_commerce_immutability",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "6",
+      "when": 1793529709633,
+      "tag": "0002_fulfillment",
+      "breakpoints": true
     }
   ]
 }
