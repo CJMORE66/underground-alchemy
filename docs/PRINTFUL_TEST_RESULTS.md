@@ -70,6 +70,18 @@ because tests contained complete synthetic credential-shaped literals. Fixtures
 now generate explicitly artificial credentials at runtime; the rule is retained,
 and no actual credential or override is used.
 
+### Complete-repository CI after sandbox follow-up
+
+[Commerce safety checks run 41275702803](https://github.com/CJMORE66/underground-alchemy/actions/runs/41275702803)
+completed **success** at source head
+`a1c3c80c697290eda628614436b7e56dcdd756b3`. All job steps passed: locked
+dependency installation, `npm run test:commerce` (including the 26-case importer
+suite against the repository's actual asset tree), atlas, both language suites,
+static publish validation and `git diff --check`. This resolves the partial-local
+asset-verification limitation for that source head. CI does not authenticate
+providers, execute payment or deploy a backend. Subsequent documentation-only
+evidence updates do not change the tested commerce implementation.
+
 ## 31 October static release evidence
 
 | Check | Result | What it establishes |
