@@ -16,8 +16,12 @@ const taxCode = value => { if (typeof value !== 'string' || !/^txcd_[0-9]{8}$/.t
 const idOf = value => typeof value === 'string' ? value : value?.id;
 const same = (left, right) => JSON.stringify(left) === JSON.stringify(right);
 
+export function isStripeTestKey(secretKey) {
+  return typeof secretKey === 'string' && /^(?:sk|rk)_test_[A-Za-z0-9]{8,250}$/.test(secretKey);
+}
+
 export function createTestStripeClient(secretKey) {
-  if (typeof secretKey !== 'string' || !/^sk_test_[A-Za-z0-9]{8,250}$/.test(secretKey)) throw new CommerceError('STRIPE_TEST_SECRET_KEY_REQUIRED');
+  if (!isStripeTestKey(secretKey)) throw new CommerceError('STRIPE_TEST_SECRET_KEY_REQUIRED');
   return new Stripe(secretKey, { apiVersion: STRIPE_API_VERSION, timeout: 5000, maxNetworkRetries: 1, telemetry: false });
 }
 
@@ -99,7 +103,7 @@ export class StripeCheckoutAdapter {
       if (error instanceof CommerceError) throw error;
       const status = Number.isInteger(error?.statusCode) ? error.statusCode : null;
       const transient = status === 429 || status === 409 || status >= 500 || ['StripeConnectionError', 'StripeAPIError', 'StripeRateLimitError'].includes(error?.type);
-      const code = status === 401 || status === 403 ? 'STRIPE_AUTH_FAILED' : checkoutMutation && transient ? 'STRIPE_CHECKOUT_CREATE_UNCERTAIN' : transient ? 'STRIPE_PROVIDER_UNAVAILABLE' : 'STRIPE_REQUEST_REJECTED';
+      const code = status === 401 ? 'STRIPE_AUTH_FAILED' : status === 403 ? 'STRIPE_PERMISSION_DENIED' : checkoutMutation && transient ? 'STRIPE_CHECKOUT_CREATE_UNCERTAIN' : transient ? 'STRIPE_PROVIDER_UNAVAILABLE' : 'STRIPE_REQUEST_REJECTED';
       this.#emit({ event: 'stripe_error', operation, code, status });
       throw new CommerceError(code, { status, retryable: transient, ambiguous: checkoutMutation && transient });
     }

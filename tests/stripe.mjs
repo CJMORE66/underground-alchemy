@@ -2,9 +2,18 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import Stripe from 'stripe';
-import { STRIPE_API_VERSION, STRIPE_RETURN_URLS, createTestStripeClient, createStripeTestAdapter, StripeCheckoutAdapter } from '../server/commerce/stripe.js';
+import { STRIPE_API_VERSION, STRIPE_RETURN_URLS, createTestStripeClient, createStripeTestAdapter, isStripeTestKey, StripeCheckoutAdapter } from '../server/commerce/stripe.js';
 
-const SECRET = 'sk_test_isolatedFixtureKey123456789', WEBHOOK_SECRET = 'whsec_isolatedFixtureSecret123456789';
+// Deliberately synthetic, deterministic fixture values. No account credentials
+// are embedded here, and every provider method in this suite is replaced.
+function syntheticApiKey(kind = 'sk', mode = 'test', length = 32) {
+  assert(['sk', 'rk', 'pk'].includes(kind));
+  assert(['test', 'live'].includes(mode));
+  assert([0, 5, 7, 8, 32, 250, 251].includes(length), 'Only declared valid/boundary fixture lengths are allowed');
+  return [kind, mode, 'F'.repeat(length)].join('_');
+}
+const syntheticWebhookSecret = marker => ['whsec', marker.repeat(32)].join('_');
+const SECRET = syntheticApiKey(), WEBHOOK_SECRET = syntheticWebhookSecret('W');
 const CLOCK = Date.parse('2026-11-01T10:00:00Z'), SESSION_ID = 'cs_test_isolatedSession123456', INTENT_ID = 'pi_isolatedIntent123456';
 const CONFIG = { mode: 'stripe_automatic', policyRevision: 'isolated-policy-v1', registrationIds: ['taxreg_isolatedRegistration123'], allowedCountries: ['FR', 'US'] };
 const sourceOrder = () => ({ id: 'isolated_internal_order_1', currency: 'EUR', recipient: { name: 'Isolated Test', address1: 'Synthetic Street 1', city: 'Synthetic City', zip: '00000', country_code: 'FR' }, items: [{ sync_variant_id: 123, quantity: 2 }], shippingId: 'ISOLATED_STANDARD', shippingMinor: 100, shippingTaxCode: 'txcd_92010001', checkoutLines: [{ syncVariantId: 123, name: 'Synthetic artwork / Black / XXL', unitAmountMinor: 500, quantity: 2, taxCode: 'txcd_99999999' }] });
@@ -55,9 +64,31 @@ test('factory uses actual SDK23.1.0, pinned API, bounded retries/timeouts and re
   assert.equal(stripe.getApiField('version'), STRIPE_API_VERSION);
   assert.equal(stripe.getApiField('timeout'), 5000);
   assert.equal(stripe.getApiField('maxNetworkRetries'), 1);
-  assert.throws(() => createTestStripeClient('sk_live_isolatedRejectedKey1234'), errorCode('STRIPE_TEST_SECRET_KEY_REQUIRED'));
+  assert.throws(() => createTestStripeClient(syntheticApiKey('sk', 'live')), errorCode('STRIPE_TEST_SECRET_KEY_REQUIRED'));
   assert.throws(() => createTestStripeClient(''), errorCode('STRIPE_TEST_SECRET_KEY_REQUIRED'));
   assert.throws(() => createStripeTestAdapter({ secretKey: SECRET }), errorCode('STRIPE_TAX_CONFIGURATION_REQUIRED'));
+});
+
+test('factory accepts least-privilege restricted test keys and rejects live, publishable and malformed keys', () => {
+  const restricted = syntheticApiKey('rk');
+  assert.equal(isStripeTestKey(restricted), true);
+  assert.equal(createTestStripeClient(restricted).getApiField('version'), STRIPE_API_VERSION);
+  for (const length of [8, 250]) assert.equal(isStripeTestKey(syntheticApiKey('rk', 'test', length)), true);
+  for (const key of [syntheticApiKey('rk', 'live'), syntheticApiKey('sk', 'live'), syntheticApiKey('pk'), syntheticApiKey('rk', 'test', 5), syntheticApiKey('rk', 'test', 7), syntheticApiKey('rk', 'test', 0), syntheticApiKey('rk', 'test', 251), restricted + '_invalid', restricted + '\n', ' ' + restricted, {}, null]) {
+    assert.equal(isStripeTestKey(key), false);
+    assert.throws(() => createTestStripeClient(key), errorCode('STRIPE_TEST_SECRET_KEY_REQUIRED'));
+  }
+});
+
+test('restricted-scope permission errors remain distinguishable, nonretryable and sanitized', async () => {
+  const f = fixture(), restricted = syntheticApiKey('rk');
+  f.stripe.tax.settings.retrieve = async () => { throw Object.assign(new Error(restricted + ' private customer information'), { statusCode: 403 }); };
+  await assert.rejects(f.freeze(), error => error.code === 'STRIPE_PERMISSION_DENIED' && error.status === 403 && !error.retryable && !error.ambiguous && !error.message.includes(restricted));
+  assert.equal(f.calls.some(call => call.name === 'tax.calculations.create'), false);
+  assert.equal(JSON.stringify(f.logs).includes(restricted), false);
+  assert.equal(JSON.stringify(f.logs).includes('private customer information'), false);
+  f.stripe.tax.settings.retrieve = async () => { throw Object.assign(new Error(restricted), { statusCode: 401 }); };
+  await assert.rejects(f.freeze(), errorCode('STRIPE_AUTH_FAILED'));
 });
 
 test('StripeTax quote verifies actual settings/registrations, exact address, codes and totals', async () => {
@@ -269,7 +300,7 @@ test('actual SDK snapshot signature verification returns only a trigger, never p
 test('signed webhook rejects altered raw body, wrong secret, stale signature, live/old-version/thin events', () => {
   const f = fixture(), event = eventPayload(), [raw, signature] = signed(f, event);
   assert.throws(() => f.adapter.verifyWebhook(Buffer.from(raw.toString().replace('unpaid', 'paid')), signature), errorCode('STRIPE_WEBHOOK_UNAUTHORIZED'));
-  assert.throws(() => f.adapter.verifyWebhook(...signed(f, event, { secret: 'whsec_otherIsolatedSecret123' })), errorCode('STRIPE_WEBHOOK_UNAUTHORIZED'));
+  assert.throws(() => f.adapter.verifyWebhook(...signed(f, event, { secret: syntheticWebhookSecret('X') })), errorCode('STRIPE_WEBHOOK_UNAUTHORIZED'));
   assert.throws(() => f.adapter.verifyWebhook(...signed(f, event, { timestamp: CLOCK / 1000 - 301 })), errorCode('STRIPE_WEBHOOK_UNAUTHORIZED'));
   assert.throws(() => f.adapter.verifyWebhook(raw.toString(), signature), errorCode('STRIPE_INVALID_WEBHOOK'));
   assert.throws(() => f.adapter.verifyWebhook(...signed(f, { ...event, livemode: true })), errorCode('STRIPE_INVALID_WEBHOOK'));

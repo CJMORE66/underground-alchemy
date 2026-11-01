@@ -9,6 +9,16 @@ import { CommerceError } from '../server/commerce/validation.js';
 import { draftPayload } from '../server/commerce/printful.js';
 import { verifyStripe } from '../tools/verify-stripe.mjs';
 
+// Construct obvious offline fixtures from typed prefix components, never an
+// embedded account credential. Explicit lengths cover only declared boundaries.
+function syntheticApiKey(kind = 'sk', mode = 'test', length = 32) {
+  assert(['sk', 'rk', 'pk'].includes(kind));
+  assert(['test', 'live'].includes(mode));
+  assert([0, 5, 7, 8, 32, 250, 251].includes(length), 'Only declared valid/boundary fixture lengths are allowed');
+  return [kind, mode, 'F'.repeat(length)].join('_');
+}
+const syntheticWebhookSecret = () => ['whsec', 'W'.repeat(32)].join('_');
+
 // Only the SQLite database is real in these orchestration tests. Both providers
 // are isolated fixtures; the Stripe adapter suite tests the real SDK signatures.
 function fixture(t) {
@@ -142,9 +152,21 @@ test('HTTP handler preserves raw bytes and never returns200 for a failed durable
 });
 
 test('preflight blocks missing/live keys before API access and only exposes sanitized read-only status', async () => {
-  let calls = 0; const clientFactory = () => { calls++; return { balance: { retrieve: async () => ({ object: 'balance', livemode: false, available: [{ amount: 123456 }] }) }, tax: { settings: { retrieve: async () => ({ status: 'active' }) } } }; };
+  let calls = 0; const clientFactory = () => { calls++; return { balance: { retrieve: async () => { throw new Error('Balance Read must not be required'); } }, tax: { settings: { retrieve: async () => ({ object: 'tax.settings', livemode: false, status: 'active' }) } } }; };
   assert.equal((await verifyStripe({}, { clientFactory })).networkAttempted, false);
-  assert.equal((await verifyStripe({ STRIPE_SECRET_KEY: 'sk_live_fixture' }, { clientFactory })).networkAttempted, false); assert.equal(calls, 0);
-  const result = await verifyStripe({ STRIPE_SECRET_KEY: 'sk_test_fixture123', STRIPE_WEBHOOK_SECRET: 'whsec_fixture123' }, { clientFactory });
+  for (const key of [syntheticApiKey('sk', 'live'), syntheticApiKey('rk', 'live'), syntheticApiKey('pk'), syntheticApiKey('rk', 'test', 5), syntheticApiKey('rk', 'test', 7), syntheticApiKey('rk', 'test', 0), syntheticApiKey('rk', 'test', 251), syntheticApiKey('rk') + ' invalid', syntheticApiKey() + '\n']) assert.equal((await verifyStripe({ STRIPE_SECRET_KEY: key }, { clientFactory })).networkAttempted, false);
+  assert.equal(calls, 0);
+  const result = await verifyStripe({ STRIPE_SECRET_KEY: syntheticApiKey(), STRIPE_WEBHOOK_SECRET: syntheticWebhookSecret() }, { clientFactory });
   assert.equal(result.status, 'VERIFIED_READ_ONLY'); assert.equal(result.checkoutVerified, false); assert(!JSON.stringify(result).includes('123456'));
+  const restricted = await verifyStripe({ STRIPE_SECRET_KEY: syntheticApiKey('rk'), STRIPE_WEBHOOK_SECRET: syntheticWebhookSecret() }, { clientFactory });
+  assert.deepEqual(restricted, result);
+});
+
+test('restricted-key preflight reports denied scopes without echoing secrets or upstream data', async () => {
+  const key = syntheticApiKey('rk'); let requests = 0;
+  const clientFactory = () => ({ tax: { settings: { retrieve: async () => { requests++; throw Object.assign(new Error(key + ' private provider body'), { statusCode: 403 }); } } } });
+  assert.deepEqual(await verifyStripe({ STRIPE_SECRET_KEY: key }, { clientFactory }), { status: 'FAILED', code: 'STRIPE_PERMISSION_DENIED', networkAttempted: true });
+  assert.equal(requests, 1);
+  const wrongModeFactory = () => ({ tax: { settings: { retrieve: async () => ({ object: 'tax.settings', status: 'active', livemode: true }) } } });
+  assert.deepEqual(await verifyStripe({ STRIPE_SECRET_KEY: key }, { clientFactory: wrongModeFactory }), { status: 'FAILED', code: 'STRIPE_TEST_MODE_MISMATCH', networkAttempted: true });
 });

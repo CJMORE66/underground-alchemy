@@ -35,7 +35,7 @@ for(const path of syntaxFiles)execFileSync(process.execPath,['--check',resolve(r
 for(const file of ['AUDIT','ARCHITECTURE','SETUP','TEST_RESULTS','DEPLOYMENT','PROGRESS'])assert(existsSync(resolve(root,`docs/PRINTFUL_${file}.md`)));
 // A deliberately bounded check for common accidentally embedded credential formats.
 // This is not a claim that all possible secrets or Git history have been scanned.
-const secretPattern=/(?:sk_(?:live|test)_[A-Za-z0-9]{16,}|whsec_[A-Za-z0-9]{16,}|gh[pousr]_[A-Za-z0-9]{24,}|-----BEGIN (?:RSA |EC |OPENSSH )?PRIVATE KEY-----)/;
+const secretPattern=/(?:[sr]k_(?:live|test)_[A-Za-z0-9]{16,}|whsec_[A-Za-z0-9]{16,}|gh[pousr]_[A-Za-z0-9]{24,}|-----BEGIN (?:RSA |EC |OPENSSH )?PRIVATE KEY-----)/;
 function publicScan(dir){for(const entry of readdirSync(resolve(root,dir),{withFileTypes:true})){
  const path=dir+'/'+entry.name;
  if(entry.name.startsWith('.'))continue;
@@ -45,3 +45,4 @@ function publicScan(dir){for(const entry of readdirSync(resolve(root,dir),{withF
 publicScan('dist');
 console.log(`PASS static publish validation: ${catalog.products.length} products, ${catalog.products.reduce((n,p)=>n+p.variants.length,0)} variants, ${images} image references; ${syntaxFiles.length} JS syntax checks; checkout disabled; bounded public secret scan.`);
 console.log('This validates static artifacts. It does not verify live prices, API credentials, payments or fulfillment.');
+
