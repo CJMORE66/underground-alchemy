@@ -86,7 +86,7 @@ or end-to-end fulfillment acceptance. Do not confirm it for production.
 
 Owner-scoped durable fulfillment projection, multiple-tracking/partial UI and
 CAS safety are implemented/tested; no actual linked paid order or shipment
-progression exists. Complete the durable Printful event receiver, customer
+progression exists. Activate/verify the prepared durable Printful receiver; complete customer
 notification/refund/cancellation initiation and operational admin/recovery.
 Approved business identity, sender/service and retention policy are dependencies.
 Immutable address-bearing order JSON has no completed anonymization/delete
@@ -96,3 +96,30 @@ Sources: [Checkout](https://docs.stripe.com/api/checkout/sessions/create),
 [webhooks](https://docs.stripe.com/webhooks),
 [Tax](https://docs.stripe.com/tax/standalone-tax-api),
 [Printful v1](https://developers.printful.com/docs/).
+
+## Continuation: runtime-key and Printful receiver boundaries
+
+Stripe supports managed API keys through an approved Stripe App preview with
+explicit `api_key_write`, app review/approval and installation authorization.
+The available connector exposes no corresponding key-issuance operation, and
+neither a CLI/injected runtime key nor that app authorization is present here.
+Key creation is therefore not globally Dashboard-only; the actionable owner
+input here remains a narrowly permitted **restricted test API key**, stored
+securely as STRIPE_SECRET_KEY, plus reviewed COMMERCE_POLICY_JSON. Visitor
+AppGateway OAuth is not an unattended merchant API credential. Never request
+key values in chat/source/logs.
+
+The new signed Printful receiver does not remove this payment dependency. Its
+raw-byte HMAC/public-key validation, scoped durable inbox/jobs, fresh GET and
+server-authorized recovery are implemented/tested but still awaiting native
+publication/configuration and actual provider delivery. Production remains v37
+at env4; Stripe key/policy are absent and checkout remains fail closed. Actual
+fresh Printful webhook reads are empty; registration has not yet happened in
+this continuation. No event may authorize payment or create/confirm fulfillment.
+A safe callback from the existing standalone unconfirmed draft cannot substitute
+for a real Stripe payment and linked internal order.
+
+Official key references: [API keys](https://docs.stripe.com/keys),
+[managed keys](https://docs.stripe.com/keys/managed-api-keys),
+[approved Stripe App managed-key preview](https://docs.stripe.com/stripe-apps/api-authentication/managed-api-keys),
+[restricted-key apps](https://docs.stripe.com/stripe-apps/api-authentication/rak).

@@ -8,7 +8,7 @@ pass; only the documented payment/full-order and remaining operational scope is 
 
 V37 is a deployed/verified frontend-only live/fallback-copy correction; no new runtime
 settings, API credentials or backend migration are needed for it. Native
-publication and actual live CS/EN/FR detail-copy smoke pass. Use verified v36 as the preferred functional
+publication and actual live CS/EN/FR detail-copy smoke pass. Use verified v37 as the preferred
 rollback and v31 only as an emergency static fallback, preserving D1/secrets.
 
 ## Already configured and verified
@@ -92,3 +92,37 @@ anonymization. Business identity, approved sender/service and retention policy
 must come from the owner. Multiple-tracking projection/UI code is implemented,
 but real paid-order/shipment progression remains unverified. No live-charge or
 paid Printful confirmation method is delivered.
+
+## Prepared continuation: receiver activation
+
+The new signed receiver is ready for publication/testing; current production is
+still v37 with nine tables. Apply schema-only `0003_printful_inbox.sql` through
+the native migration workflow, then observe the three new inbox/job/recovery
+relations before claiming a twelve-table production schema. Publish the tested
+Worker and verify fail-closed POST behavior before registering the provider.
+
+Fresh authorized store/webhook reads succeeded: expected store 18912189;
+v1 webhook configuration empty, and v2 `show_expired=true` configuration empty
+with no public key. Recheck just before registering to avoid overwriting a
+subsequently configured destination. Register the deployed HTTPS
+`/api/printful/webhook`, then store only the actual provider-issued base64 public
+key and raw-hex secret in secure Sites runtime settings as
+`PRINTFUL_WEBHOOK_PUBLIC_KEY` and `PRINTFUL_WEBHOOK_SECRET_HEX`. Do not paste
+these values in chat or commit them. This is an independent activation step,
+not another owner credential handoff; no provider write has occurred in this
+continuation yet.
+
+After deployment/configuration, use only the existing unconfirmed test draft
+for a safe delivery trigger. Confirm actual signature admission and durable
+record/classification, then fresh GET its draft state; do not create a fake paid
+mapping or confirm production. Unmapped callbacks are expected to be durably
+ignored. Actual mapped paid-order processing remains separate acceptance.
+Server-only authorized dead-letter requeue/drain is implemented; it is not a
+public admin API or a completed operational service.
+
+Stripe still needs a securely stored restricted test API key and reviewed
+merchant policy. Official Stripe Apps can create managed keys in an approved
+preview with `api_key_write`; this is not a capability exposed by the available
+connector operations or an injected runtime credential here. Do not describe
+key issuance as globally Dashboard-only, or substitute visitor AppGateway OAuth
+for an unattended merchant key. See `STRIPE_SETUP.md` for the exact boundary.

@@ -82,8 +82,9 @@ actual generated Worker bundle under local workerd with isolated synthetic
 outbound handlers/native D1. The cached second inbound request makes zero extra
 synthetic Printful reads. These are distinct from actual production reads/schema.
 
-A separate durable Printful event receiver, automated notifications, customer
-refund/cancellation initiation and full operational admin/recovery are incomplete.
+The durable Printful event receiver/recovery candidate is implemented but awaits
+native activation and real delivery. Automated notifications, customer refund/
+cancellation initiation and full operational admin/recovery are incomplete.
 Order-read projection is not a substitute for every background notification or
 webhook workflow. Approved business identity/sender/service and retention policy
 are dependencies; immutable order JSON stores addresses and cannot currently be
@@ -91,7 +92,7 @@ anonymized/deleted through an approved lifecycle. Resolve this before production
 customer processing. No paid-confirmation method/live-charge release exists.
 
 Preserve DB/provider state during rollback; never drop schema or reset uncertain
-mutation gates. Version 36 is the preferred verified functional rollback;
+mutation gates. Version 37 is the preferred verified rollback for the continuation;
 version 31 is an emergency static fallback. Preserve current D1/secrets in
 either case. See `PRINTFUL_DEPLOYMENT.md`.
 
@@ -100,3 +101,34 @@ CS/EN/FR translation/tests. Native APIs, Worker behavior, merchant policy,
 historical price dates and cart actions are unchanged. Publication/copy smoke
 passed for live CS/EN/FR detail; fallback coverage is DOM-fixture evidence. No
 new backend or stale-age UI completion is implied.
+
+## Prepared continuation: signed Printful event receiver
+
+Candidate source adds `printful-webhook.js` (strict bounded raw-byte HMAC
+verification/normalization), `printful-workflow.js` (durable processing/recovery),
+and the Worker POST `/api/printful/webhook`. Runtime configuration is
+`PRINTFUL_WEBHOOK_PUBLIC_KEY` (base64) and `PRINTFUL_WEBHOOK_SECRET_HEX` (raw hex
+secret). No values belong in source/logs. The endpoint fails closed with 503
+until configured; after validation it durably admits before processing.
+
+Migration `0003_printful_inbox.sql` adds `commerce_d1_printful_events`,
+`commerce_d1_printful_jobs` and `commerce_d1_printful_recoveries`. Fingerprints
+exclude changing delivery retries. Scoped uniqueness, fenced claims, bounded
+five-attempt retry/dead-letter handling and compare-and-set recovery prevent
+uncontrolled replay. Only an existing created internal-to-Printful mapping is
+eligible for fresh GET reconciliation; unknown/unmapped events are durably
+ignored rather than imported as paid orders. No event creates/confirms an order
+or establishes payment/refund/delivery. Existing projection handles safe status
+and multiple tracking updates from authenticated fresh reads.
+
+Authorized server-only requeue requires a trusted injected authorization check
+and records actor hash/reason; bounded drain has no public admin route. A full
+operator interface, scheduling/alerting and retention lifecycle are still gaps.
+The standalone test draft has no internal paid mapping and must not be given a
+fake one to make a webhook look complete.
+
+This slice is prepared/tested, not yet deployed/registered or proven by actual
+delivery. Current production remains v37/nine tables; the candidate migration
+would add three tables. Preferred rollback for the next release is verified v37,
+with v36 an older functional baseline and v31 emergency static fallback. Preserve
+D1 data, provider state and uncertain mutation gates throughout rollback.

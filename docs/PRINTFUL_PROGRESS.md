@@ -45,7 +45,7 @@ Stripe payment/full-order workflow complete.
   CI #14 PASS. Final status200/test/catalog+shipping true/checkoutfalse,
   cart0/live20 notice and closed CZ modal verified. Latest bounded11:04UTC query
   has3 ancillary404s only (favicon/sitemap/robots), no returned commerce/API failure.
-  Exact native IDs are in DEPLOYMENT. Preferred functional rollback is v36.
+  Exact native IDs are in DEPLOYMENT. Preferred rollback for the continuation is v37.
 
 - [x] Final v36 actual 10:54 UTC smoke: live catalog 20/86/83 active, official
   destination rates €8.39/€8.47; STANDARD selected with tax quote disabled.
@@ -61,8 +61,8 @@ Stripe payment/full-order workflow complete.
 - [ ] Actual linked paid-order fulfillment/shipment progression. Owner-scoped
   projection/multiple tracking/CAS/partial UI are implemented/tested, not live
   shipment acceptance.
-- [ ] Complete Printful receiver, customer notifications/refund-cancellation
-  initiation, admin recovery and approved retention/anonymization. Obtain actual
+- [ ] Activate/verify the prepared Printful receiver; complete customer notifications/
+  refund-cancellation initiation, full operations and retention/anonymization. Obtain actual
   business identity, approved sender/service and retention policy as needed.
 - [ ] Current-release real mobile viewport acceptance; desktop/fixtures do not
   substitute for it.
@@ -82,7 +82,7 @@ test draft remains in Printful for inspection; do not confirm it automatically.
 
 Read the six PRINTFUL documents and STRIPE_SETUP, current Site/D1/configuration
 and real deployment records. V36 IDs/source/archive are in DEPLOYMENT. Immediate
-preferred verified functional rollback is v36; v31 is an emergency static
+preferred verified rollback is v37; v31 is an emergency static
 fallback. Preserve D1/schema/cache/order data,
 runtime secrets, browser notes/carts and uncertain mutation gates. Never replay
 an ambiguous create or treat a deployment/fixture as paid fulfillment proof.
@@ -90,3 +90,32 @@ an ambiguous create or treat a deployment/fixture as paid fulfillment proof.
 Final v36 publication/smoke record is complete in DEPLOYMENT/TEST_RESULTS.
 The full integration remains PARTIALLY WORKING, with the specific external
 payment inputs and incomplete production operations above still open.
+
+## Prepared continuation: signed receiver
+
+- [x] Implement raw-byte HMAC/public-key/store validation and gated Worker POST
+  `/api/printful/webhook`; dedicated D1 inbox/jobs/recovery-audit migration.
+- [x] Implement retry-independent fingerprinting, durable unknown/unmapped ignore,
+  existing-created-mapping-only fresh GET reconciliation, fenced leases,
+  five-attempt dead letters and authorized server-only requeue/audited drain.
+  Events never create/confirm orders or infer payment/refund/delivery.
+- [x] Pass 273 focused cases (29 importer + 21 provider + 57 Stripe + 166 Worker),
+  plus three post-build isolated generated-bundle cases; providers are fixtures.
+  Build/release and 19 syntax checks pass; frontend bytes/hash unchanged.
+- [x] Fresh read-only Printful store membership and v1/v2 empty webhook
+  configurations verified. No provider write has occurred in this continuation.
+- [ ] Publish receiver and apply/observe three new native relations. Current
+  production remains verified v37/env4/nine tables until actual release evidence.
+- [ ] Freshly recheck configuration, register deployed HTTPS destination, mask
+  provider-issued keys, safely trigger from the existing unconfirmed test draft,
+  and prove actual signed admission/durable classification/retry. Never create
+  a fake internal paid mapping or confirm the draft for production.
+- [ ] Actual mapped paid-order/status progression, notifications, refund/cancel
+  initiation, full operator tooling/scheduling and approved retention remain open.
+
+Overall remains **PARTIALLY WORKING**. Secure restricted Stripe test API key and
+approved merchant policy are still the immediate owner inputs; managed Stripe
+App key issuance exists only with its own approved preview/permission workflow
+and is not exposed by the current connector. Preferred rollback for the next
+release is verified v37 (exact saved ID in DEPLOYMENT); preserve native data and
+all uncertain mutation gates. This prepared slice is not actual delivery proof.

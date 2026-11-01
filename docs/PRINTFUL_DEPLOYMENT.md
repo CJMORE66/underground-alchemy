@@ -134,7 +134,7 @@ actual-bundle workerd cases now exercise native fetch/cache/redirect behavior.
 
 ## Rollback
 
-Preferred verified functional v36 saved version:
+Older verified functional v36 saved version (v37 is preferred for the continuation):
 `appgprj_6ad19e715dcc819185592c61456c5182~appgver_337ea06b363c81918affa223c4a21ab5`.
 Source: `b5d613845852a5e14d20f4a3072189726b84fada`.
 Deployment: `appgdep_6ae71a2303288191918d0da936d4f235`.
@@ -156,3 +156,33 @@ reset uncertain single-POST gates, replay creates, drop/downgrade schema or
 reverse customer payments as a static rollback step. No paid-confirmation method
 is implemented. Retention/anonymization and full operational recovery remain
 incomplete, even though current catalog/shipping deployment works.
+
+## Prepared continuation: signed receiver release
+
+The source candidate is restored baseline
+`2b18699669879b26a75627ab908628abee6755c1` plus the signed Printful receiver,
+durable workflow/recovery and schema-only migration `0003_printful_inbox.sql`.
+It is **PREPARED; deployment/activation pending**, not a recorded v38 success.
+All 273 focused cases plus three post-build isolated bundle cases pass. Build
+Worker is 865.79 kB; 680 frontend assets / 188,113,092 bytes and frontend hash
+`8b38bf76f09e43e7d1675227927db61005bf458aa048c876b0627ddde0156967`
+are unchanged; 19 syntax checks pass.
+
+Current production is still v37 at env4 with nine native tables. The candidate
+adds three dedicated Printful inbox/job/recovery tables; verify actual migration
+and schema rather than treating generated SQL as applied. Publish first, verify
+configuration-gated 503, freshly recheck the empty v1/v2 webhook configuration,
+then register the deployed endpoint and securely store the actual provider keys.
+No provider write/registration or real delivery is claimed yet. Record exact
+saved/deployment IDs, runtime revision, schema and bounded production evidence
+after those operations. The actual safe test trigger must retain the existing
+test order as an unconfirmed draft, without manufacturing or fake paid mappings.
+
+For this continuation the preferred known-good rollback is **v37**, saved version
+`appgprj_6ad19e715dcc819185592c61456c5182~appgver_4f31c92d450c81918fbaf77bc1ad7942`,
+source `a57f86b285a0aae0d156b5ad501b203078095920`, deployment
+`appgdep_6ae71c3a15408191922fc997b4911e5c`. Its exact archive hash and success
+are recorded above. V36 is the older functional baseline; v31 is emergency
+static fallback. Preserve all D1 tables/data, secrets, inbox/recovery state and
+provider state. If receiver rollback interrupts delivery, preserve/reconcile
+pending work and provider registration; do not reset claims or replay creates.

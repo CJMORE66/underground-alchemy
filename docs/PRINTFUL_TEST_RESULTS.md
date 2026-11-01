@@ -83,8 +83,9 @@ https://github.com/CJMORE66/underground-alchemy/actions/runs/41300046055 .
   persisted internal order and one linked Printful draft without duplicates.
 - Actual linked paid-order fulfillment status/shipment progression; code/CAS/UI
   fixtures alone are not production tracking proof.
-- Full Printful receiver/notifications/refund initiation/admin recovery and
-  approved address-data retention/anonymization. No paid confirmation method exists.
+- Actual activation/delivery of the prepared Printful receiver, plus notifications,
+  refund initiation/full operational recovery and approved address-data retention/
+  anonymization. No paid confirmation method exists.
 
 ## Dated failure / baseline history
 
@@ -107,3 +108,28 @@ Actual desktop collection evidence: [PRINTFUL_SHOP_VERIFIED.jpg](evidence/PRINTF
 (live notice/20 products, no test address/customer data visible; final stable
 collection evidence is retained at this path).
 Final browser location: https://caisik-underground-alchemy.caisik.chatgpt.site/shop/#shop-collection .
+
+## Prepared continuation: receiver evidence
+
+Current candidate focused run: **273 PASS = 29 importer + 21 provider + 57 Stripe
++ 166 Worker**. New Worker coverage includes 20 D1/workflow cases, 16 cryptographic
+cases, nine HTTP cases and one actual-workerd/native-D1 case. Three additional
+post-build tests execute the actual generated Worker bundle. Provider responses
+in these automated suites are explicitly isolated fixtures, not real Printful
+webhook delivery.
+
+Coverage includes raw-byte HMAC/public-key/store rejection, retry-independent
+fingerprints, duplicate/out-of-order admission, unknown/unmapped durable ignore,
+existing-mapping-only fresh GET, fenced claims, five-attempt dead letters and
+server-authorized recovery audit/drain. No test establishes payment or creates/
+confirms fulfillment from an event. Candidate build/release checks pass: Worker
+865.79 kB; 680 authored assets / 188,113,092 bytes; unchanged frontend hash
+`8b38bf76f09e43e7d1675227927db61005bf458aa048c876b0627ddde0156967`;
+19 syntax checks. Security review found no material blocker in this slice.
+
+Actual fresh provider reads: authorized expected-store membership succeeds;
+v1 `GET /webhooks` HTTP 200 has no URL/types; v2
+`GET /v2/webhooks?show_expired=true` HTTP 200 has no default URL/events/public
+key. These are read-only configuration observations. No continuation provider
+write, native receiver activation or actual signed delivery has happened yet.
+Production v37/nine-table and its dated evidence above remain the baseline.

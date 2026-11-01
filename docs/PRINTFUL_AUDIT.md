@@ -73,10 +73,11 @@ and stack locations, without provider bodies or addresses.
 | Stripe webhook | INCOMPLETE | Actual enabled test endpoint/secret/version configured; raw signature/durable admission tested; no real signed delivery/payment workflow proved |
 | Printful draft API | WORKING low-level | One real draft created/GET-verified safely; no Stripe payment or internal-order linkage |
 | Durable fulfillment projection / multiple tracking | INCOMPLETE | Owner-scoped GET refresh, multiple shipments, monotonic CAS persistence and partial-tracking UI implemented/tested; no actual linked paid order or shipment progression |
-| Printful webhook receiver / notifications / refund initiation / admin recovery | INCOMPLETE | Separate helpers and safety checks exist; complete production operations are not delivered |
+| Printful webhook receiver / recovery | INCOMPLETE | Signed durable receiver/recovery candidate implemented and fixture-tested; native activation and actual delivery pending |
+| Notifications / refund initiation / full operations | INCOMPLETE | Business/sender/retention decisions and complete production operations remain open |
 | Paid Printful confirmation | MISSING intentionally | No confirmation method; paid production not authorized |
 | Retention / customer-data lifecycle | INCOMPLETE | Immutable address-bearing order JSON lacks an approved retention/anonymization lifecycle |
-| Build / tests / release | WORKING for recorded scope | 227 focused cases plus UI/regressions and 3 isolated actual-workerd bundle tests; v36 native deployment/smoke and CI #12 pass |
+| Build / tests / release | WORKING for recorded scope | Prior native v37 verified; new receiver candidate 273 focused cases plus 3 isolated post-build bundle tests passes, activation pending |
 
 ## Root causes and repairs
 
@@ -124,7 +125,7 @@ cart 0/live20 collection and closed CZ modal are confirmed. Latest 11:04 UTC
 bounded error query returns three ancillary static404 events (favicon/sitemap/
 robots), outcome ok, with no commerce_request_failed/API failure in its window.
 This is not a zero-error query; v36 zero events remain dated earlier evidence.
-V36 remains preferred verified functional rollback; v31 is emergency static.
+V37 is the preferred verified rollback for the continuation; v31 is emergency static.
 
 Exact configured Printful-credential scan across 533 source/public text files
 returned zero matches at 10:55 UTC, without printing the value. This is bounded
@@ -136,3 +137,32 @@ References: [Printful v1](https://developers.printful.com/docs/),
 [Stripe Checkout](https://docs.stripe.com/api/checkout/sessions/create),
 [Stripe webhooks](https://docs.stripe.com/webhooks),
 [Stripe Tax](https://docs.stripe.com/tax/standalone-tax-api).
+
+## Prepared continuation: signed Printful event receiver
+
+The restored source baseline is `2b18699669879b26a75627ab908628abee6755c1`.
+The new receiver is **IMPLEMENTED / activation UNVERIFIED**; current production
+remains the verified v37 above. No receiver publication, registration, provider
+write or actual signed delivery is claimed for this continuation yet.
+
+Fresh authorized reads verified expected store 18912189 again. Printful v1
+`GET /webhooks` returned HTTP 200 with no URL/types; v2
+`GET /v2/webhooks?show_expired=true` returned HTTP 200 with no default URL,
+events or public key. Recheck immediately before registration; these reads do
+not establish permanent ownership of an empty configuration.
+
+`/api/printful/webhook` verifies the original bytes with Worker Web Crypto HMAC,
+expected public key and store before durable admission. Missing configuration
+returns 503. Migration `0003_printful_inbox.sql` adds separate inbox, jobs and
+recovery-audit tables: production still has nine tables until this migration is
+actually applied and observed. Retry-independent fingerprints, fenced leases,
+five-attempt dead letters, fresh provider GET reconciliation and authorized
+server-only requeue/drain are tested. Unknown/unmapped events are durably ignored;
+events cannot create/confirm orders or infer payment, refund or delivery.
+
+The candidate has **273 passing focused fixture/database cases**, plus three
+post-build isolated generated-bundle cases. Native registration, actual signature
+admission/retry and resulting production records remain acceptance steps. This
+reduces the receiver/admin-recovery code gap, but does not deliver notifications,
+refund/cancellation initiation, full operational tooling, retention or real
+paid-order/shipment progression. Overall remains **PARTIALLY WORKING**.
