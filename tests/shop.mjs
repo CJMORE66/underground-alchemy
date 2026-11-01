@@ -39,15 +39,15 @@ const duplicate={...product,variants:[product.variants[0],product.variants[0]]};
 assert.equal(findShopVariant(duplicate,Object.fromEntries(duplicate.variants[0].options.map(option=>[option.title,option.value]))),null,'ambiguous variants never produce a guessed match');
 
 const html=fs.readFileSync(new URL('../dist/shop/index.html',import.meta.url),'utf8');
-function fixture(responses=[input]){
+function fixture(responses=[input],{liveResponses=[],liveHandler=null,language='cs'}={}){
  const {document,window}=parseHTML(html);const requests=[],rescans=[];
  window.HTMLElement.prototype.focus=function(){document._focus=this;};
  const dialog=document.querySelector('[data-shop-dialog]');
  Object.defineProperty(dialog,'open',{get(){return this.hasAttribute('open');}});
  dialog.showModal=function(){this.setAttribute('open','');};
  dialog.close=function(){this.removeAttribute('open');this.dispatchEvent(new window.Event('close'));};
- window.CaisikI18n={t:source=>source,rescan:node=>rescans.push(node)};
- const fetch=async(url,options)=>{requests.push({url,options});if(url==='/api/commerce/status')return {ok:true,json:async()=>({catalogAvailable:false,shippingAvailable:false,checkoutAvailable:false,mode:'test'})};if(url==='/api/commerce/catalog')return {ok:false,status:503,json:async()=>({error:'FIXTURE_LIVE_UNAVAILABLE'})};const response=responses.shift();if(response instanceof Error)throw response;return {ok:response!==false,json:async()=>response};};
+ const messages=JSON.parse(fs.readFileSync(new URL(`../dist/i18n/${language}.json`,import.meta.url),'utf8'));window.CaisikI18n={t:source=>messages[source]||source,getLanguage:()=>language,rescan:node=>rescans.push(node)};
+ const fetch=async(url,options)=>{requests.push({url,options});if(url==='/api/commerce/status')return {ok:true,json:async()=>({catalogAvailable:false,shippingAvailable:false,checkoutAvailable:false,mode:'test'})};if(url==='/api/commerce/catalog'){if(liveHandler)return liveHandler(url,options);if(liveResponses.length){const response=liveResponses.shift();if(response instanceof Error)throw response;return response;}return {ok:false,status:503,json:async()=>({error:'FIXTURE_LIVE_UNAVAILABLE'})};}const response=responses.shift();if(response instanceof Error)throw response;return {ok:response!==false,json:async()=>response};};
  const host=document.querySelector('[data-shop]'),api=mountShop(host,{document,fetch});
  const click=selector=>{const element=document.querySelector(selector);assert(element,selector);element.click();return element;};
  const setSelect=(select,value)=>{Object.defineProperty(select,'value',{configurable:true,writable:true,value});select.dispatchEvent(new window.Event('change',{bubbles:true}));};
@@ -98,6 +98,34 @@ function fixture(responses=[input]){
 {
  let resolve;const {document}=parseHTML(html);const dialog=document.querySelector('dialog');dialog.close=()=>dialog.removeAttribute('open');const api=mountShop(document.querySelector('[data-shop]'),{document,fetch:()=>new Promise(done=>resolve=done)});api.destroy();resolve({ok:true,json:async()=>input});await api.ready;assert.equal(document.querySelectorAll('.shop-card').length,0,'a late response cannot remount a destroyed shop');
 }
+// Cold single-fill requests may report an explicit transient state. These are
+// isolated transport fixtures; no live Printful or deployed Worker is called.
+const verifiedLive=()=>({...structuredClone(input),mode:'printful-readonly',catalogueVerifiedLive:true});
+const pendingResponse=()=>({ok:false,status:503,json:async()=>({error:'CATALOG_REFRESH_PENDING'})});
+const liveResponse=()=>({ok:true,status:200,json:async()=>verifiedLive()});
+{
+ const h=fixture([input],{liveResponses:[pendingResponse(),liveResponse()]});await h.api.ready;
+ assert.equal(h.requests.filter(item=>item.url==='/api/commerce/catalog').length,2,'one confirmed fill-pending response is retried');assert(!h.requests.some(item=>item.url.startsWith('/shop/catalog.json')),'pending then live must not commit or fetch a saved fallback');assert(h.api.getState().catalogueLive);assert.equal(h.document.querySelectorAll('.shop-card').length,normalized.products.length);assert(h.document.querySelector('[data-shop-live-retry]').hidden);h.api.destroy();
+}
+{
+ const h=fixture([input],{liveResponses:[pendingResponse(),pendingResponse(),pendingResponse(),liveResponse()]});await h.api.ready;
+ assert.equal(h.requests.filter(item=>item.url==='/api/commerce/catalog').length,3,'automatic pending retries stop at three total attempts');assert.equal(h.requests.filter(item=>item.url.startsWith('/shop/catalog.json')).length,1);assert(!h.api.getState().catalogueLive);assert(!h.api.getState().checkoutEnabled);assert.match(h.document.querySelector('[data-shop-catalog-notice]').textContent,/uložená kolekce/);
+ const retry=h.document.querySelector('[data-shop-live-retry]');assert(!retry.hidden);assert(!retry.disabled);assert.equal(retry.type,'button');assert.equal(h.document.getElementById(retry.getAttribute('aria-describedby')),h.document.querySelector('[data-shop-catalog-notice]'),'retry has the explicit stale provenance as its accessible description');h.click('[data-shop-live-retry]');await new Promise(resolve=>setImmediate(resolve));
+ assert.equal(h.requests.filter(item=>item.url==='/api/commerce/catalog').length,4);assert(h.api.getState().catalogueLive,'manual retry refreshes the actual catalogue rather than only checkout status');assert(retry.hidden);assert.match(h.document.querySelector('[data-shop-catalog-notice]').textContent,/serverového katalogu Printful/);h.api.destroy();
+}
+for(const response of [{ok:false,status:401,json:async()=>({error:'CATALOG_REFRESH_PENDING'})},{ok:false,status:503,json:async()=>({error:'ANOTHER_PROVIDER_FAILURE'})},{ok:false,status:503,json:async()=>{throw Error('malformed');}}]){
+ const h=fixture([input],{liveResponses:[response,liveResponse()]});await h.api.ready;assert.equal(h.requests.filter(item=>item.url==='/api/commerce/catalog').length,1,'authentication, other failures and unparseable responses are not retryable fill-pending evidence');assert(!h.api.getState().catalogueLive);assert(!h.document.querySelector('[data-shop-live-retry]').hidden);h.api.destroy();
+}
+{
+ const h=fixture([input],{liveResponses:[pendingResponse(),liveResponse()]});await new Promise(resolve=>setImmediate(resolve));assert.equal(h.requests.filter(item=>item.url==='/api/commerce/catalog').length,1);h.api.destroy();let deadline;const settled=await Promise.race([h.api.ready.then(()=>true),new Promise(resolve=>{deadline=setTimeout(()=>resolve(false),100);})]);clearTimeout(deadline);assert(settled,'destroy cancels the short retry delay immediately');assert(h.requests.find(item=>item.url==='/api/commerce/catalog').options.signal.aborted);assert.equal(h.requests.filter(item=>item.url==='/api/commerce/catalog').length,1);assert(!h.requests.some(item=>item.url.startsWith('/shop/catalog.json')));assert.equal(h.document.querySelectorAll('.shop-card').length,0);assert.equal(h.document.querySelector('[data-shop-live-retry]'),null);
+}
+{
+ let complete;const h=fixture([input],{liveHandler:()=>new Promise(resolve=>complete=resolve)});h.api.destroy();complete(liveResponse());await h.api.ready;assert.equal(h.document.querySelectorAll('.shop-card').length,0,'a live response arriving after destroy cannot commit any catalogue');assert(!h.requests.some(item=>item.url.startsWith('/shop/catalog.json')));
+}
+for(const language of ['cs','en','fr']){
+ const h=fixture([input],{language});await h.api.ready;const messages=JSON.parse(fs.readFileSync(new URL(`../dist/i18n/${language}.json`,import.meta.url),'utf8')),retry=h.document.querySelector('[data-shop-live-retry]');assert(!retry.hidden);assert.equal(retry.textContent,messages['Načíst znovu']);assert(h.rescans.includes(retry),'manual retry participates in the existing locale rescan');h.api.destroy();
+}
+
 // Every historical amount, currency, identity and SKU is retained exactly.
 for(const source of raw.products){
  const product=normalized.products.find(product=>product.id===source.productId);assert(product);assert.equal(product.handle,source.handle);
@@ -118,4 +146,4 @@ const home=fs.readFileSync(new URL('../dist/index.html',import.meta.url),'utf8')
 assert.equal(homeDoc.querySelectorAll('#main-nav a[href="/shop/"]').length,1);
 assert(homeDoc.querySelector('header>a[data-shop-shortcut][href="/shop/"]'),'mobile shortcut is outside the collapsed navigation');
 for(const lang of ['cs','en','fr']){const messages=JSON.parse(fs.readFileSync(new URL(`../dist/i18n/${lang}.json`,import.meta.url),'utf8'));for(const key of ['Cena ve zdrojovém katalogu:','Cenový snapshot:','NÁKUP DOČASNĚ NEDOSTUPNÝ','Objednávání je dočasně nedostupné. Původní obchod se musí obnovit.'])assert(messages[key],lang+': '+key);}
-console.log('PASS shop: 20 designs/86 exact IDs, SKUs and dated source prices; exact original-store variant URL construction; invalid/ambiguous/reset/reopen; local cart selections with blocked checkout; visible mobile entry; CS/EN/FR; image safety, search/category/detail, escaping, retry/focus and lifecycle.');
+console.log('PASS shop: 20 designs/86 exact IDs, SKUs and dated source prices; exact original-store variant URL construction; invalid/ambiguous/reset/reopen; local cart selections with blocked checkout; visible mobile entry; CS/EN/FR; image safety, search/category/detail, escaping, bounded confirmed-pending retries, labelled fallback/manual live refresh, abort/focus and lifecycle.');

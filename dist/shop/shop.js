@@ -55,16 +55,17 @@ export function mountShop(host,{document:doc=host?.ownerDocument,fetch:request=g
  if(!dialog||!detail||!grid||!filters||!search||!count||!status)throw new Error('Shop page is incomplete');
  const cartHost=host.querySelector('[data-shop-cart]'),cartLines=cartHost?.querySelector('[data-shop-cart-lines]'),cartSummary=cartHost?.querySelector('[data-shop-cart-summary]'),cartStorage=cartHost?.querySelector('[data-shop-cart-storage]');
  const cleanups=[],controller=typeof AbortController!=='undefined'?new AbortController():null;
- let catalogue=null,category='all',term='',selected=null,opener=null,closeTarget=null,disposed=false,loadEpoch=0,catalogueLive=false,checkout=null;
+ let catalogue=null,category='all',term='',selected=null,opener=null,closeTarget=null,disposed=false,loadEpoch=0,catalogueLive=false,checkout=null,activeLoadController=null;
  const listen=(node,event,fn)=>{node.addEventListener(event,fn);cleanups.push(()=>node.removeEventListener(event,fn));};
  const t=value=>view.CaisikI18n?.t?.(value)||value;
  const rescan=node=>view.CaisikI18n?.rescan?.(node);
  let storage;try{storage=view.localStorage;}catch{}
  const cart=createCart({storage,eventTarget:view,onChange:()=>renderCart()});
- const provenance=doc.createElement('p');provenance.className='shop-catalog-notice';provenance.dataset.shopCatalogNotice='';provenance.setAttribute('translate','no');status.after(provenance);
+ const provenance=doc.createElement('p');provenance.className='shop-catalog-notice';provenance.dataset.shopCatalogNotice='';provenance.setAttribute('translate','no');provenance.id='shop-catalog-source';status.after(provenance);
+ const catalogRetry=doc.createElement('button');catalogRetry.type='button';catalogRetry.className='shop-clear';catalogRetry.dataset.shopRetry='';catalogRetry.dataset.shopLiveRetry='';catalogRetry.setAttribute('aria-describedby',provenance.id);catalogRetry.hidden=true;provenance.after(catalogRetry);
  const language=()=>view.CaisikI18n?.getLanguage?.()||doc.documentElement?.lang||'cs';
  const commerceLabel=key=>commerceText(key,language());
- function showProvenance(){provenance.textContent=commerceLabel(catalogueLive?'live':'stale')+(catalogue?.checkedAt?' '+catalogue.checkedAt.slice(0,10):'');}
+ function showProvenance(){provenance.textContent=commerceLabel(catalogueLive?'live':'stale')+(catalogue?.checkedAt?' '+catalogue.checkedAt.slice(0,10):'');catalogRetry.hidden=!catalogue||catalogueLive;catalogRetry.textContent=t('Načíst znovu');rescan(catalogRetry);}
  function updateCommerceAvailability(state=checkout?.getState()){
   const hero=host.querySelector('.shop-availability');if(hero){hero.setAttribute('translate','no');hero.textContent=commerceLabel(!catalogue?'loading':!catalogueLive?'stale':state?.serverReady?state.mode==='test'?'test':'ready':state?.shippingAvailable?'shippingOnly':'unavailable');}
   const detailAvailability=detail.querySelector('.shop-detail-availability');if(detailAvailability){if(catalogueLive)detailAvailability.remove();else detailAvailability.hidden=state?.serverReady===true;}
@@ -137,17 +138,49 @@ export function mountShop(host,{document:doc=host?.ownerDocument,fetch:request=g
   if(target?.isConnected)target.focus({preventScroll:true});
  }
  function close(focusTarget=null){closeTarget=focusTarget;if(typeof dialog.close==='function')dialog.close();else{dialog.removeAttribute('open');restoreFocus();}}
+ function retryDelay(milliseconds,signal){
+  return new Promise((resolve,reject)=>{
+   let timer;
+   const aborted=()=>{clearTimeout(timer);signal?.removeEventListener('abort',aborted);reject(new Error('Catalogue request aborted'));};
+   if(signal?.aborted){aborted();return;}
+   signal?.addEventListener('abort',aborted,{once:true});
+   timer=setTimeout(()=>{signal?.removeEventListener('abort',aborted);resolve();},milliseconds);
+  });
+ }
  async function load(){
-  const epoch=++loadEpoch;status.textContent=t('Načítám skutečné návrhy z kolekce.');count.textContent=t('Načítám kolekci…');catalogueLive=false;checkout?.refresh();
+  if(disposed)return;
+  const epoch=++loadEpoch;activeLoadController?.abort();activeLoadController=typeof AbortController!=='undefined'?new AbortController():null;
+  const signal=activeLoadController?.signal||controller?.signal,current=()=>!disposed&&epoch===loadEpoch&&!signal?.aborted;
+  const requireCurrent=()=>{if(!current())throw new Error('Catalogue request superseded');};
+  status.textContent=t('Načítám skutečné návrhy z kolekce.');count.textContent=t('Načítám kolekci…');catalogRetry.disabled=true;catalogueLive=false;checkout?.refresh();
   try{
    let data,isLive=false;
-   try{const response=await request(catalogUrl,{signal:controller?.signal,credentials:'same-origin',cache:'no-store',redirect:'error'});if(!response.ok)throw new Error('Catalogue unavailable');const raw=await response.json();if(raw.catalogueVerifiedLive!==true||raw.mode==='snapshot')throw new Error('Live catalogue not verified');data=normalizeShopCatalog(raw);isLive=true;}
-   catch(error){if(controller?.signal.aborted||!fallbackCatalogUrl)throw error;const response=await request(fallbackCatalogUrl,{signal:controller?.signal,credentials:'same-origin',cache:'no-store',redirect:'error'});if(!response.ok)throw new Error('Saved catalogue unavailable');data=normalizeShopCatalog(await response.json());}
-   if(disposed||epoch!==loadEpoch)return;catalogue=data;catalogueLive=isLive;renderFilters();render();renderCart();showProvenance();
+   try{
+    for(let attempt=0;attempt<3;attempt++){
+     requireCurrent();
+     const response=await request(catalogUrl,{signal,credentials:'same-origin',cache:'no-store',redirect:'error'});requireCurrent();
+     if(!response.ok){
+      let pending=false;
+      if(response.status===503){try{const failure=await response.json();requireCurrent();pending=failure?.error==='CATALOG_REFRESH_PENDING';}catch{requireCurrent();}}
+      if(pending&&attempt<2){await retryDelay(300*(attempt+1),signal);requireCurrent();continue;}
+      throw new Error('Catalogue unavailable');
+     }
+     const raw=await response.json();requireCurrent();
+     if(raw.catalogueVerifiedLive!==true||raw.mode==='snapshot')throw new Error('Live catalogue not verified');
+     data=normalizeShopCatalog(raw);isLive=true;break;
+    }
+   }catch(error){
+    if(!current()||!fallbackCatalogUrl)throw error;
+    const response=await request(fallbackCatalogUrl,{signal,credentials:'same-origin',cache:'no-store',redirect:'error'});requireCurrent();
+    if(!response.ok)throw new Error('Saved catalogue unavailable');
+    const raw=await response.json();requireCurrent();data=normalizeShopCatalog(raw);
+   }
+   if(!current())return;catalogue=data;catalogueLive=isLive;renderFilters();render();renderCart();showProvenance();
    try{const id=new URL(view.location?.href||'https://local.invalid/').searchParams.get('product');if(id)open(id,null);}catch{}
-  }catch(error){if(disposed||epoch!==loadEpoch)return;catalogue=null;catalogueLive=false;grid.replaceChildren();filters.replaceChildren();count.textContent='';status.innerHTML='<span>Kolekci se nepodařilo načíst. Zkus to znovu.</span><br><button type="button" data-shop-retry>Načíst znovu</button>';showProvenance();checkout?.refresh();rescan(status);}
+  }catch(error){if(!current())return;catalogue=null;catalogueLive=false;grid.replaceChildren();filters.replaceChildren();count.textContent='';status.innerHTML='<span>Kolekci se nepodařilo načíst. Zkus to znovu.</span><br><button type="button" data-shop-retry>Načíst znovu</button>';showProvenance();checkout?.refresh();rescan(status);}
+  finally{if(current())catalogRetry.disabled=false;}
  }
- listen(host,'click',event=>{const button=event.target.closest?.('button');if(!button)return;if(button.hasAttribute('data-shop-product'))open(button.dataset.shopProduct,button);else if(button.hasAttribute('data-shop-category')){category=button.dataset.shopCategory;render();}else if(button.hasAttribute('data-shop-reset')){category='all';term='';search.value='';render();search.focus({preventScroll:true});}else if(button.hasAttribute('data-shop-retry'))void load();});
+ listen(host,'click',event=>{const button=event.target.closest?.('button');if(!button)return;if(button.hasAttribute('data-shop-product'))open(button.dataset.shopProduct,button);else if(button.hasAttribute('data-shop-category')){category=button.dataset.shopCategory;render();}else if(button.hasAttribute('data-shop-reset')){category='all';term='';search.value='';render();search.focus({preventScroll:true});}else if(button.hasAttribute('data-shop-retry')&&!button.disabled)void load();});
  listen(search,'input',()=>{term=normalize(search.value.trim());render();});
  listen(dialog,'change',event=>{if(event.target.matches('[data-shop-option]'))updateVariant();});
  listen(dialog,'click',event=>{const button=event.target.closest?.('button');if(!button)return;if(button.hasAttribute('data-shop-close'))close();else if(button.hasAttribute('data-shop-add')&&selected){const variant=findShopVariant(selected,selection());if(!canSaveVariant(variant))return;const added=cart.add(selected.id,variant.id),feedback=detail.querySelector('[data-shop-cart-feedback]');feedback.textContent=t(added?'Varianta přidaná do košíku. Nejde o objednávku.':'Košík je plný nebo bylo dosaženo limitu množství.');}else if(button.hasAttribute('data-shop-view')&&selected){const index=Number(button.dataset.shopView),url=selected.images[index];if(!url)return;const image=detail.querySelector('.shop-detail-image');image.src=url;image.hidden=false;detail.querySelector('.shop-image-missing')?.remove();for(const control of detail.querySelectorAll('[data-shop-view]'))control.setAttribute('aria-pressed',String(control===button));}});
@@ -158,7 +191,7 @@ export function mountShop(host,{document:doc=host?.ownerDocument,fetch:request=g
  renderCart();
  listen(view,'caisik:languagechange',()=>{if(catalogue)count.textContent=t(countLabel(visible().length));renderCart();showProvenance();updateCommerceAvailability();});
  listen(view,'pagehide',event=>{if(!event.persisted)destroy();});
- function destroy(){if(disposed)return;disposed=true;loadEpoch++;controller?.abort();cleanups.forEach(remove=>remove());cart.destroy();checkout?.destroy();provenance.remove();if(dialog.open){if(typeof dialog.close==='function')dialog.close();else dialog.removeAttribute('open');}detail.replaceChildren();selected=null;opener=null;}
+ function destroy(){if(disposed)return;disposed=true;loadEpoch++;controller?.abort();activeLoadController?.abort();cleanups.forEach(remove=>remove());cart.destroy();checkout?.destroy();provenance.remove();catalogRetry.remove();if(dialog.open){if(typeof dialog.close==='function')dialog.close();else dialog.removeAttribute('open');}detail.replaceChildren();selected=null;opener=null;}
  const ready=load();
  return {ready,destroy,getState:()=>({destroyed:disposed,category,search:term,count:visible().length,selected:selected?.id||null,checkoutEnabled:checkout?.getState().enabled===true,catalogueLive,cartCount:cartView(cart.getState().lines,catalogue).count}),open:id=>open(id,null)};
 }
