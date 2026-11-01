@@ -10,7 +10,7 @@ import tempfile
 import unittest
 from unittest.mock import patch
 from urllib.parse import parse_qs, urlsplit
-from urllib.request import BaseHandler, build_opener
+from urllib.request import BaseHandler, ProxyHandler, build_opener
 from urllib.response import addinfourl
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -435,5 +435,47 @@ class SyncTests(unittest.TestCase):
         self.assertNotIn(TOKEN, self.output.read_text())
 
 
+class ProxyRetryTests(unittest.TestCase):
+    def test_retry_rebuilds_request_after_real_proxy_tunnel_mutation(self):
+        # Actual urllib ProxyHandler mutates host/type/_tunnel_host on Request.
+        # Catch protocol downgrade locally: no test path may reach a real socket.
+        for transient in (429, 503, "transport"):
+            with self.subTest(transient=transient):
+                requests, waits = [], []
+
+                class Transport(BaseHandler):
+                    handler_order = 490
+
+                    def https_open(inner, request):
+                        self.assertEqual(request.type, "https")
+                        self.assertEqual(request.host, "proxy.invalid:3128")
+                        self.assertEqual(request._tunnel_host, "api.printful.com")
+                        self.assertEqual(request.get_header("Authorization"), "Bearer " + TOKEN)
+                        requests.append(request)
+                        if len(requests) == 1 and transient == "transport":
+                            raise OSError("isolated transient transport failure")
+                        status = transient if len(requests) == 1 else 200
+                        headers = Message()
+                        headers["Content-Type"] = "application/json"
+                        headers["Retry-After"] = "0"
+                        value = envelope([]) if status == 200 else {"code": status, "result": "isolated retry fixture"}
+                        response = addinfourl(io.BytesIO(json.dumps(value).encode()), headers, request.full_url, status)
+                        response.msg = "Isolated proxy response"
+                        return response
+
+                    def http_open(inner, request):
+                        self.fail("A retried HTTPS request was downgraded to HTTP by proxy mutation")
+
+                opener = build_opener(ProxyHandler({"https": "http://proxy.invalid:3128"}), Transport(), sync.NoRedirect())
+                client = sync.PrintfulClient(TOKEN, sleep=waits.append, jitter=lambda: 0)
+                client.opener = opener
+                with patch("urllib.request.proxy_bypass", return_value=False):
+                    self.assertEqual(client.get("/stores"), envelope([]))
+                self.assertEqual(len(requests), 2)
+                self.assertIsNot(requests[0], requests[1])
+                self.assertEqual(waits, [0 if transient == 429 else 1])
+
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)
+

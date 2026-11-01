@@ -154,14 +154,16 @@ class PrintfulClient:
         if not (path == "/stores" or path == self.product_path or re.fullmatch(re.escape(self.product_path) + r"/[1-9][0-9]{0,15}", path)):
             raise SyncError("This synchronizer permits only store identity and catalogue GET requests.")
         url = API_ORIGIN + path + ("?" + urlencode(query) if query else "")
-        request = Request(url, headers={"Authorization": "Bearer " + self.token,
-                          "X-PF-Store-Id": str(STORE_ID), "Accept": "application/json",
-                          "User-Agent": "CAISIK-readonly-catalogue/1.0"}, method="GET")
         if self.rate_limit_delay:
             self.sleep(self.rate_limit_delay)
             self.rate_limit_delay = 0
         for attempt in range(MAX_ATTEMPTS):
             retry_delay = min(2 ** attempt + self.jitter(), MAX_RETRY_SECONDS)
+            # ProxyHandler mutates Request host/type/tunnel state in place. A retry
+            # must start from the original HTTPS URL, never reuse that mutation.
+            request = Request(url, headers={"Authorization": "Bearer " + self.token,
+                              "X-PF-Store-Id": str(STORE_ID), "Accept": "application/json",
+                              "User-Agent": "CAISIK-readonly-catalogue/1.0"}, method="GET")
             try:
                 with self.opener.open(request, timeout=25) as response:
                     if response.geturl() != url or response.status != 200:
@@ -531,3 +533,4 @@ def main(argv=None):
 
 if __name__ == "__main__":
     raise SystemExit(main())
+
