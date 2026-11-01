@@ -6,30 +6,35 @@ PRINTFUL_TEST_RESULTS.md. Offline fixtures do not establish real API success.
 
 ## Current merchant connection — 1 November 2026
 
-The owner selected the separate **underground alchemy** merchant,
-`acct_1UWra7PkIIV492Qz`. Fresh account discovery on its Stripe connection
-returns this account with `livemode:true` only. The older Jakub Cais connection
-still exposes its own live account and sandbox; those are separate identities.
-Earlier sandbox evidence must not be attributed to underground alchemy.
+The owner-selected **underground alchemy** merchant is
+`acct_1UWra7PkIIV492Qz`. Fresh account discovery now explicitly returns this
+merchant with `livemode:false` on its Stripe connection. This is actual new
+authorization, not a manually changed mode or the older Jakub Cais sandbox.
+No further owner Stripe authorization is currently required for these reads.
 
-Actual read-only requests on the selected merchant succeeded:
+Actual read-only requests using the returned test context succeeded:
 
-- `GET /v1/tax/settings`: object `tax.settings`, `livemode:true`, `status:active`.
-- `GET /v1/tax/registrations?status=all&limit=100`: empty, `has_more:false`.
+- `GET /v1/tax/settings`: `object:tax.settings`, `livemode:false`, `status:active`.
+- `GET /v1/tax/registrations?status=all&limit=100`: two active CZ registrations,
+  both `livemode:false`, `has_more:false`. Their standard place-of-supply schemes
+  are `inbound_goods` and `small_seller`; no merchant/legal policy is inferred
+  from their presence, and neither registration was created or changed here.
 - `GET /v1/webhook_endpoints?limit=100`: empty, `has_more:false` (v1 snapshot
   endpoints only; not a complete v2 Event Destination inventory).
 
-No settings, Session, payment, webhook destination or Printful order was written.
-Active Tax settings do not establish the merchant's applicable registration or
-price/tax policy. No missing head-office claim is made for this merchant; the
-previous pending/head_office finding belongs to the older Jakub Cais sandbox.
+Earlier selected-merchant live reads had active Tax and empty registrations;
+those results are separate from this newly authorized test context. The older
+Jakub Cais sandbox's pending/head_office result does not apply to this merchant.
 
-Required next access: authorize this merchant's own sandbox/test context through
-its Stripe connection, then rediscover the exact returned context and mode.
-Do not flip this live context to false, reuse the old sandbox, inherit its keys
-or reuse an old merchant's database/Session/order mappings. Runtime keys, actual
-HTTPS endpoint/secret, Printful token and a deployed durable Node backend remain
-unavailable. Checkout is disabled; static version 31 is unchanged.
+Sites was independently inspected: saved version 31 remains active/public,
+runtime environment revision 0 has no entries, and no D1 bindings/tables exist.
+The plugin connection does not inject Stripe/Printful keys into deployed code.
+The current runtime lacks the Printful token, Stripe test key, real webhook
+endpoint/secret and deployed durable order backend. Backend hosting may use a
+reviewed Sites Worker/D1 adaptation instead of NAS; that adaptation is not yet
+implemented or deployed. Keep per-merchant/environment keys and order mappings
+isolated. No Session, payment, provider configuration or Printful order was
+written. Checkout remains disabled.
 
 - [x] Open existing Sites project and source, retain public audience and identity.
 - [x] Inspect GitHub main and open PR #3 (ready, not draft; not merged).
@@ -43,7 +48,7 @@ unavailable. Checkout is disabled; static version 31 is unchanged.
 - [x] Publish validated static SHOP changes and verify production.
 - [x] Push reviewable GitHub commits and open integration PR.
 - [x] Confirm Stripe as the selected provider with the user (1 November).
-- [ ] Authorize and verify the selected underground alchemy merchant's own sandbox/test context.
+- [x] Authorize and verify the selected underground alchemy merchant's own sandbox/test context; actual API reads pass, Tax active and two active CZ test registrations.
 - [x] Authorize the earlier Jakub Cais Stripe sandbox and verify actual read-only API
   access through the Stripe plugin (`livemode:false`). Tax is pending (missing
   `head_office`), registrations and v1 snapshot endpoints are empty. No payment
@@ -75,8 +80,9 @@ public UI. Static version 31 remains unchanged with checkout disabled.
    supervision. If reusing original hiphop.caisik.i234.me, recover its NAS/
    reverse-proxy/Compose/backend first. Static Sites cannot run Node SQLite.
 3. Current underground alchemy live MCP reads succeed and Tax is active; all
-   registrations and v1 snapshot endpoint lists are empty. Authorize its own
-   sandbox, then independently verify sandbox Tax and the actual merchant policy.
+   registrations and v1 snapshot endpoint lists were empty. Its own test context
+   is now authorized: Tax active, two active CZ registrations, empty v1 endpoints.
+   Runtime secrets, deployment and actual merchant policy verification remain.
    The old pending/head_office finding belongs to Jakub Cais sandbox.
    Configure `STRIPE_SECRET_KEY` (prefer restricted `rk_test_…`, or `sk_test_…`) and the actual
    snapshot destination's `STRIPE_WEBHOOK_SECRET` (`whsec_…`) securely, plus
@@ -111,7 +117,7 @@ separate until their actual deployment relationship is verified.
 | Criterion | Evidence/status |
 | --- | --- |
 | Printful auth and correct store | BLOCKED: no token; preflight made no network call |
-| Selected merchant authentication | WORKING via bounded underground alchemy live MCP reads (Tax active). Its own sandbox and runtime SDK/key/API-version/Checkout verification remain BLOCKED. Old Jakub Cais sandbox evidence is separate. |
+| Selected merchant authentication | WORKING via actual underground alchemy test MCP reads: Tax active, two active CZ test registrations. Runtime SDK/key/API-version/Checkout verification remains BLOCKED; plugin authorization is complete. |
 | Real current products/variants | BLOCKED: historical20/86 snapshot only; importer fixture tests pass |
 | Product images | WORKING for inspected snapshot/local assets and tested product; live catalog unverified |
 | Server price validation | INCOMPLETE: Stripe frozen quote/line/address/amount binding tested; trusted catalog/quote builder and authenticated business routes still required |

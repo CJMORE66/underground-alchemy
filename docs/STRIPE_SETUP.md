@@ -1,10 +1,10 @@
 # Stripe test-mode setup
 
 Updated: 1 November 2026 (Europe/Paris). Stripe is confirmed by the user.
-Implemented source is test-only. The newly selected underground alchemy merchant
-is connected in live mode for read-only inspection. Its Tax settings are active;
-registrations and v1 snapshot endpoints are empty. Its own sandbox/test context
-is not yet authorized. Earlier Jakub Cais sandbox evidence is a separate account.
+Implemented source is test-only. The selected underground alchemy merchant's
+actual test context is now authorized: Tax settings active, two active CZ test
+registrations, and no v1 snapshot endpoints. Earlier Jakub Cais sandbox evidence
+is a separate account; no further Stripe plugin authorization is needed now.
 The Node runtime still has no keys, and no backend is deployed. Static Sites
 version 31 remains unchanged with checkout disabled. No payment or Printful
 fulfillment was created.
@@ -35,30 +35,36 @@ not inject a key or webhook secret into the Node backend.
 
 ## Current merchant connection — 1 November 2026
 
-The owner selected the separate **underground alchemy** merchant,
-`acct_1UWra7PkIIV492Qz`. Fresh account discovery on its Stripe connection
-returns this account with `livemode:true` only. The older Jakub Cais connection
-still exposes its own live account and sandbox; those are separate identities.
-Earlier sandbox evidence must not be attributed to underground alchemy.
+The owner-selected **underground alchemy** merchant is
+`acct_1UWra7PkIIV492Qz`. Fresh account discovery now explicitly returns this
+merchant with `livemode:false` on its Stripe connection. This is actual new
+authorization, not a manually changed mode or the older Jakub Cais sandbox.
+No further owner Stripe authorization is currently required for these reads.
 
-Actual read-only requests on the selected merchant succeeded:
+Actual read-only requests using the returned test context succeeded:
 
-- `GET /v1/tax/settings`: object `tax.settings`, `livemode:true`, `status:active`.
-- `GET /v1/tax/registrations?status=all&limit=100`: empty, `has_more:false`.
+- `GET /v1/tax/settings`: `object:tax.settings`, `livemode:false`, `status:active`.
+- `GET /v1/tax/registrations?status=all&limit=100`: two active CZ registrations,
+  both `livemode:false`, `has_more:false`. Their standard place-of-supply schemes
+  are `inbound_goods` and `small_seller`; no merchant/legal policy is inferred
+  from their presence, and neither registration was created or changed here.
 - `GET /v1/webhook_endpoints?limit=100`: empty, `has_more:false` (v1 snapshot
   endpoints only; not a complete v2 Event Destination inventory).
 
-No settings, Session, payment, webhook destination or Printful order was written.
-Active Tax settings do not establish the merchant's applicable registration or
-price/tax policy. No missing head-office claim is made for this merchant; the
-previous pending/head_office finding belongs to the older Jakub Cais sandbox.
+Earlier selected-merchant live reads had active Tax and empty registrations;
+those results are separate from this newly authorized test context. The older
+Jakub Cais sandbox's pending/head_office result does not apply to this merchant.
 
-Required next access: authorize this merchant's own sandbox/test context through
-its Stripe connection, then rediscover the exact returned context and mode.
-Do not flip this live context to false, reuse the old sandbox, inherit its keys
-or reuse an old merchant's database/Session/order mappings. Runtime keys, actual
-HTTPS endpoint/secret, Printful token and a deployed durable Node backend remain
-unavailable. Checkout is disabled; static version 31 is unchanged.
+Sites was independently inspected: saved version 31 remains active/public,
+runtime environment revision 0 has no entries, and no D1 bindings/tables exist.
+The plugin connection does not inject Stripe/Printful keys into deployed code.
+The current runtime lacks the Printful token, Stripe test key, real webhook
+endpoint/secret and deployed durable order backend. Backend hosting may use a
+reviewed Sites Worker/D1 adaptation instead of NAS; that adaptation is not yet
+implemented or deployed. Keep per-merchant/environment keys and order mappings
+isolated. No Session, payment, provider configuration or Printful order was
+written. Checkout remains disabled.
+
 
 ## Earlier sandbox verification — Jakub Cais, 1 November 2026
 
@@ -77,8 +83,7 @@ reads do not verify the adapter's pinned API `2026-10-28.endive` in the runtime.
 No account settings were written and no Session, payment or Printful order was
 created. Existing live-account settings were not inspected or changed.
 
-For the selected merchant, first authorize its own sandbox and inspect its Tax
-settings independently. If fields are pending, complete the actual sandbox
+The selected merchant's own test context and Tax reads are now verified. If fields are pending, complete the actual sandbox
 configuration and confirm the applicable merchant tax policy. Add registrations only for jurisdictions
 where the merchant is actually registered; do not create fictitious registrations
 to pass a test. The current automatic-tax adapter requires verified active

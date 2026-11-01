@@ -38,30 +38,36 @@ and deployment evidence belongs in `PRINTFUL_TEST_RESULTS.md` and
 
 ## Current merchant connection — 1 November 2026
 
-The owner selected the separate **underground alchemy** merchant,
-`acct_1UWra7PkIIV492Qz`. Fresh account discovery on its Stripe connection
-returns this account with `livemode:true` only. The older Jakub Cais connection
-still exposes its own live account and sandbox; those are separate identities.
-Earlier sandbox evidence must not be attributed to underground alchemy.
+The owner-selected **underground alchemy** merchant is
+`acct_1UWra7PkIIV492Qz`. Fresh account discovery now explicitly returns this
+merchant with `livemode:false` on its Stripe connection. This is actual new
+authorization, not a manually changed mode or the older Jakub Cais sandbox.
+No further owner Stripe authorization is currently required for these reads.
 
-Actual read-only requests on the selected merchant succeeded:
+Actual read-only requests using the returned test context succeeded:
 
-- `GET /v1/tax/settings`: object `tax.settings`, `livemode:true`, `status:active`.
-- `GET /v1/tax/registrations?status=all&limit=100`: empty, `has_more:false`.
+- `GET /v1/tax/settings`: `object:tax.settings`, `livemode:false`, `status:active`.
+- `GET /v1/tax/registrations?status=all&limit=100`: two active CZ registrations,
+  both `livemode:false`, `has_more:false`. Their standard place-of-supply schemes
+  are `inbound_goods` and `small_seller`; no merchant/legal policy is inferred
+  from their presence, and neither registration was created or changed here.
 - `GET /v1/webhook_endpoints?limit=100`: empty, `has_more:false` (v1 snapshot
   endpoints only; not a complete v2 Event Destination inventory).
 
-No settings, Session, payment, webhook destination or Printful order was written.
-Active Tax settings do not establish the merchant's applicable registration or
-price/tax policy. No missing head-office claim is made for this merchant; the
-previous pending/head_office finding belongs to the older Jakub Cais sandbox.
+Earlier selected-merchant live reads had active Tax and empty registrations;
+those results are separate from this newly authorized test context. The older
+Jakub Cais sandbox's pending/head_office result does not apply to this merchant.
 
-Required next access: authorize this merchant's own sandbox/test context through
-its Stripe connection, then rediscover the exact returned context and mode.
-Do not flip this live context to false, reuse the old sandbox, inherit its keys
-or reuse an old merchant's database/Session/order mappings. Runtime keys, actual
-HTTPS endpoint/secret, Printful token and a deployed durable Node backend remain
-unavailable. Checkout is disabled; static version 31 is unchanged.
+Sites was independently inspected: saved version 31 remains active/public,
+runtime environment revision 0 has no entries, and no D1 bindings/tables exist.
+The plugin connection does not inject Stripe/Printful keys into deployed code.
+The current runtime lacks the Printful token, Stripe test key, real webhook
+endpoint/secret and deployed durable order backend. Backend hosting may use a
+reviewed Sites Worker/D1 adaptation instead of NAS; that adaptation is not yet
+implemented or deployed. Keep per-merchant/environment keys and order mappings
+isolated. No Session, payment, provider configuration or Printful order was
+written. Checkout remains disabled.
+
 
 ## Classification
 
@@ -86,7 +92,7 @@ required behavior. `MISSING` means absent from this inspected application.
 | Existing original commerce host | BROKEN | On 31 October the browser opened the documented `hiphop.caisik.i234.me/dk/store?page=1` and displayed the Czech Synology not-found page. The underlying proxy/container/backend cause cannot be determined from that page. |
 | Original backend framework | UNVERIFIED | Historic public payload uses `prod_…`/`variant_…` IDs consistent with Medusa. This is an inference; private source/runtime was not inspected. Magento is a separate historically inspected host, not an established replacement. |
 | Server API routes/functions | INCOMPLETE | `createStripeWebhookHandler` implements a bounded raw-body Request handler for `/api/stripe/webhook`, but no Node host/router is mounted. Authenticated quote/checkout/order routes remain to be implemented in the real host. |
-| Selected merchant authentication | WORKING for bounded live MCP reads | underground alchemy Tax settings return active/livemode:true; registrations and v1 snapshot endpoints are empty. Its own sandbox is not authorized yet. Earlier Jakub Cais sandbox evidence does not transfer. |
+| Selected merchant authentication | WORKING for bounded test MCP reads | underground alchemy now returns livemode:false; Tax active, two active CZ test registrations, empty v1 snapshot endpoints. Runtime credentials/payment verification remain unverified. |
 | Runtime authentication/secret configuration | BLOCKED | No Printful token, Stripe test runtime key or actual endpoint signing secret is configured. The runtime CLI preflight blocks before network access; plugin OAuth credentials are separate. |
 | Product/variant mapping | INCOMPLETE | Historical snapshot has 20 products/86 variants and retained Printful/source identities. Current counts, designs and identities require authenticated comparison. |
 | Product synchronization | INCOMPLETE | Read-only importer supports full/explicit incremental reads, bounded pagination/retries, public-field filtering and atomic output. Offline test evidence does not establish live API compatibility. |
@@ -96,7 +102,7 @@ required behavior. `MISSING` means absent from this inspected application.
 | CZ/EN/FR | WORKING | Delivered SHOP/cart controls passed shared language suites and production switching checks; no new public UI is introduced here. |
 | Checkout/payment integration | INCOMPLETE | Stripe is confirmed. A test-only hosted Checkout adapter implements immutable quote/session/variant/amount bindings and fresh payment verification. Real account/test credentials, business routes and end-to-end checkout remain BLOCKED; public checkout stays disabled. |
 | Shipping/address validation | INCOMPLETE | Reusable validation/provider helpers can be tested offline; live shipping estimates and destination acceptance require authorized API calls and original backend wiring. |
-| Customer tax/currency policy | INCOMPLETE policy | Current underground alchemy live Tax settings are active with no registrations returned. Its sandbox Tax remains unverified. Merchant tax policy, product/shipping tax codes, delivery countries and selling prices still need verification. |
+| Customer tax/currency policy | INCOMPLETE policy | Actual underground alchemy test Tax is active with two active CZ registrations (inbound_goods/small_seller). Their presence does not verify merchant obligations. Product/shipping tax codes, delivery countries and selling prices still need verification. |
 | Database/models/migrations | WORKING locally; BLOCKED deployment | `SqliteCommerceRepository` and checksum-checked migration provide real private on-disk persistence, transactions, unique bindings and leases; 14 integration tests include multiprocess races. No durable backend disk/host is connected. |
 | Internal order lifecycle | INCOMPLETE | Durable Stripe event inbox/jobs, worker leases, payment-to-draft coordination and single-POST gate are implemented/tested locally. Production host, trusted order/quote creation, notifications and operational controls remain absent. |
 | Printful order creation | BLOCKED | Requires authorized token, correct mapped variants and original backend. No live draft or confirmed fulfillment order was created in this task. |
