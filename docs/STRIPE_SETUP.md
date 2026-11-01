@@ -13,12 +13,13 @@ Use supported Sites secure configuration for the existing Worker project:
 - `STRIPE_SECRET_KEY`: actual connected-account test secret or appropriately
   permitted restricted test key. Test-only adapter accepts `sk_test_…`/`rk_test_…`
   and rejects live keys/mode. Never transmit a value through chat, Git or logs.
-- `STRIPE_WEBHOOK_SECRET`: actual registered test snapshot endpoint's signing
-  secret. A CLI listener secret is not the deployed destination secret.
 - `COMMERCE_POLICY_JSON`: verified merchant settings in `PRINTFUL_SETUP.md`;
   do not substitute synthetic tax IDs or infer treatment from a connector read.
 
-Existing masked `PRINTFUL_API_TOKEN` and `COMMERCE_SESSION_SECRET` are configured.
+Existing masked `PRINTFUL_API_TOKEN`, `COMMERCE_SESSION_SECRET` and actual
+`STRIPE_WEBHOOK_SECRET` are configured at runtime revision 4. Snapshot version
+`STRIPE_WEBHOOK_API_VERSION=2026-09-30.endive` is configured too. Remaining owner
+inputs are only the runtime Stripe test API key and approved merchant policy.
 Native Worker/D1 supplies the backend; no new hosting account, Node disk path
 or NAS administration step is required for this deployment path.
 
@@ -29,19 +30,28 @@ EUR/exponent 2/exclusive selling-price treatment. Product/shipping tax codes,
 delivery countries and registration IDs need merchant review; active Tax
 settings alone do not approve the policy.
 
-## Register the actual snapshot destination
+## Configured actual snapshot destination
 
-Inspect existing destinations before creating/replacing one. On the existing
-test account register an **account Snapshot** destination, API version
-**2026-10-28.endive**, HTTPS path `/api/stripe/webhook` on the deployed Site.
-The adapter rejects thin/Connect/live-mode events. Subscribe to:
+Already created on the existing test account: endpoint
+`we_1UWw4LPkIIV492Qzkv8SzPaj`, **account Snapshot**, `livemode:false`,
+**2026-09-30.endive**, status **enabled**, `livemode:false` (**test mode**).
+Its masked signing secret is stored
+in Sites and all four events below are subscribed. Do not duplicate the endpoint
+or request its secret again. After payment configuration, test delivery through
+the authorized connected workflow. `livemode:false` does not mean disabled;
+registration is complete, but no actual delivery is verified yet.
+
+Outgoing SDK API remains **2026-10-28.endive**. Snapshot verification matches
+the actual endpoint version using `STRIPE_WEBHOOK_API_VERSION`; it explicitly
+supports the configured September contract rather than assuming SDK version
+equals destination version. The adapter rejects thin/Connect/live events.
 
 - `checkout.session.completed`
 - `checkout.session.async_payment_succeeded`
 - `checkout.session.async_payment_failed`
 - `checkout.session.expired`
 
-Store its signing secret securely in Sites. Preserve original bytes: no JSON
+Preserve original bytes: no JSON
 parsing/re-serialization before SDK verification. Raw body is bounded at 256 KiB.
 Only completed/async-success candidates enter the scoped D1 inbox/job transaction.
 Failed/expired events do not create fulfillment work; invalid signatures fail.
@@ -84,10 +94,15 @@ single-POST gate are implemented. Safe initial reads can retry; uncertain
 attempted Printful creates only reconcile by external ID. Never reset the gate
 because a lookup is temporarily empty.
 
-Native migration/deployment and hosted smoke are pending. Managed Miniflare hung;
-passing SQLite-backed D1-interface tests are a different evidence category.
-Checkout currently fails closed without runtime payment key, endpoint secret
-and policy. Finish retention/anonymization of immutable address-bearing orders,
+Native initial D1 schema and Worker versions 32–34 are deployed. Production
+status is ready for catalog/shipping but not checkout; a diagnosed native Fetch
+receiver binding and unsupported redirect:error still prevent catalog access.
+Correct binding plus redirect:manual/explicit redirect rejection fixes/tests are
+ready, but deployment/new production proof are pending. Later local workerd
+synthetic runs succeeded; the original
+Miniflare hang is historical and does not invalidate those later distinct tests.
+Checkout fails closed without runtime payment API key and approved policy.
+Finish retention/anonymization of immutable address-bearing orders,
 customer refund/cancellation initiation, Printful status/tracking receiver,
 notifications and operational admin handling before production customers.
 

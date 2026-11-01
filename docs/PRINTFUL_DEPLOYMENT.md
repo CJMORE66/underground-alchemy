@@ -20,9 +20,35 @@ bytes. The resulting test archive was 179,682,380 bytes, under 256 MiB. The sour
 checkout and served asset bytes are preserved; source must still be committed
 and pushed through the native Site source workflow before saving this archive.
 
-Updated: 1 November 2026, Europe/Paris. **Native Worker publication/migration is
-pending.** Public production is still saved static version 31 until an actual
-successful deployment record is added below. No live checkout is claimed.
+Updated: 1 November 2026, Europe/Paris. **Worker versions 32–34 and initial D1
+schema are deployed; production catalog remains broken.** Native status is HTTP
+200, while v34 transport fails from wrong native Fetch receiver binding and
+Cloudflare-unsupported redirect:error. Both repairs/tests are ready; new release/
+full production smoke are pending. No live checkout is claimed.
+
+## Observed native versions and current failure
+
+| Version | Source | Actual result |
+| --- | --- | --- |
+| 32 | `467723d` | Native Worker/ASSETS/D1 architecture published |
+| 33 | `c8ec0ef` | Safe diagnostics published; native cache.match failure confirmed in logs (frame 23440) |
+| 34 | `3ee4110` | Optional/safe cache handling published; actual catalog returns Printful TRANSPORT_ERROR |
+
+COMMERCE_DB has seven actual tables. `/api/commerce/status` returned HTTP 200:
+`mode:test`, `catalogAvailable:true`, `shippingAvailable:true`,
+`checkoutAvailable:false`. These are configuration/schema readiness flags, not a
+provider health probe. Node LivePrintfulCatalog real reads return 20/86; actual
+local workerd synthetic runs also work. Wrong native Fetch receiver and unsupported
+`redirect:'error'` are confirmed causes. Both fixes/tests are ready: correct native
+binding and `redirect:'manual'` with explicit redirect rejection. They are not yet
+production-deployed/verified.
+
+Runtime revision 4 includes the masked actual Stripe webhook secret and explicit
+September snapshot version. Real endpoint is registered/enabled in test mode. Only
+runtime Stripe test API key and approved merchant policy remain owner inputs.
+Initial schema/deployment are not pending anymore. A further fulfillment
+catalog-cache and fulfillment projection migrations/tables and their tested
+deployments are pending; do not infer their presence from the seven-table schema.
 
 ## Prepared release
 
@@ -33,12 +59,15 @@ successful deployment record is added below. No live checkout is claimed.
 - `npm run build:commerce` uses Sites/Vite/Cloudflare integration. First prepared
   build passed: Worker entry 810.76 kB / 123.81 kB gzip; 680 frontend assets,
   188,107,785 bytes, preserved byte-for-byte in generated client output.
-  Dependency remediation/final rebuild is still pending.
+  Dependency remediation and later native builds completed; final receiver/
+  fulfillment-projection repair rebuild is still pending.
 - Schema-only chain: `drizzle/0000_commerce.sql` and
   `drizzle/0001_commerce_immutability.sql`. Native deployment must apply them to
-  `COMMERCE_DB`. Repository readiness checks perform no request-time DDL.
-- Masked Printful/session secrets exist at runtime revision 2. Runtime Stripe API
-  key, actual snapshot signing secret and approved merchant policy are absent.
+  `COMMERCE_DB`; the initial seven-table native schema is verified. Repository
+  readiness checks perform no request-time DDL. Further projection schema changes
+  need their own reviewed migration and actual readiness proof.
+- Masked Printful/session/webhook secrets exist at runtime revision 4. Runtime
+  Stripe API key and approved merchant policy are absent.
   Release must keep payment unavailable while exposing only verified safe reads.
 - No external hosting account/NAS recovery is a mandatory prerequisite for this
   supported native Worker/D1 path.
@@ -49,13 +78,15 @@ Run commerce/provider/Worker/UI tests, shared atlas/languages, current release/
 whitespace checks, dependency audit and final Worker build. Production graph has
 zero known advisories. The 11 development findings (7 high/4 moderate) were
 remediated through patched build dependencies; the new full graph audit exits0.
-Managed Miniflare hung; that is unverified, not a successful native smoke test.
+The initial managed Miniflare attempt hung. Later actual local workerd runs
+succeeded with synthetic provider responses; initial native D1/status are
+verified separately. None proves the still-failing actual catalog transport.
 
 Use existing Sites source packaging/save/deploy workflow, preserving identity and
 access. The exact validated source/Drizzle chain must accompany the archive.
 GitHub PR #4 and Sites source are separate; merging/pushing alone is not deployment.
 
-After native publication record:
+After the pending receiver/projection repair publication record:
 
 - Source SHA / archive hash / saved version ID / deployment ID and terminal result.
 - Native D1 migration/readiness result; no payment/customer records need creating
@@ -66,9 +97,9 @@ After native publication record:
   remain unavailable without runtime Stripe key/secret/policy.
 - Worker logs and browser errors; explicit limits on any incomplete checks.
 
-**Current values:** new saved version/deployment/migration/production smoke are
-PENDING. Add exact returned IDs/results here after verification; do not invent a
-version number or interpret the prepared build as deployment.
+**Next release fields:** append exact saved/deployment IDs, repaired Fetch smoke,
+new projection migration result and current errors after verification. Versions
+32–34 above are deployed, but full provider/checkout acceptance is not passed.
 
 ## Rollback target: verified static version 31
 
@@ -98,4 +129,5 @@ backend migration/provider mutation. Its production smoke passed for those
 boundaries only. Prior version 30 remains historical fallback, but version 31 is
 the immediate known-good rollback for this Worker change.
 GitHub review: https://github.com/CJMORE66/underground-alchemy/pull/4 .
-Final remote CI conclusion must be recorded separately from passing local tests.
+PR #4 head `ceac189` passed CI #10. Later repair commits/CI results and final
+production proof must be recorded separately; do not carry that pass forward.

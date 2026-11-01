@@ -1,7 +1,10 @@
 # Commerce architecture
 
-Updated: 1 November 2026. Candidate hosting is **Sites Worker + ASSETS + D1**;
-public production remains version 31 until deployment evidence is appended.
+Updated: 1 November 2026. Hosting is deployed **Sites Worker + ASSETS + D1**,
+latest observed version 34 (`3ee4110`). Seven native D1 tables and status HTTP
+200 are verified. Production catalog still fails; native receiver binding and
+unsupported redirect:error fixes/tests are ready, but deployment/production proof
+remain pending. Version 31 is static rollback.
 Stripe is the confirmed payment provider. The supported native hosting path does
 not require a new NAS/Node host or another hosting account.
 
@@ -24,7 +27,10 @@ not require a new NAS/Node host or another hosting account.
 The earlier Node SQLite repository remains local/alternative test source. It is
 not the deployed Worker database. Native hosting uses binding `COMMERCE_DB`.
 `D1CommerceRepository.migrate()` checks installed schema readiness only; it never
-executes request-time DDL. Deployment applies the two tracked Drizzle migrations.
+executes request-time DDL. Native deployment applied the initial schema chain;
+the actual seven-table database is readable. Additional durable catalog-cache and
+fulfillment-projection migrations/tables are pending; do not count them as native
+schema before actual migration/readiness evidence.
 The legacy `server/commerce/d1-migrations/` file is not the active migration chain.
 
 ## HTTP contract
@@ -77,22 +83,34 @@ provider payloads, addresses and raw network identifiers are not logged.
    `waitUntil` alone is not the recovery mechanism. Leases/fencing, bounded retry
    and dead-letter state are durable. No standalone recurring worker is claimed.
 
-Stripe only accepts test keys/test-mode objects and account snapshot events at
-API `2026-10-28.endive`. Supported events: completed, async payment succeeded,
+Stripe uses outgoing API `2026-10-28.endive`, test keys/test-mode objects only.
+Snapshot verification explicitly matches the actual configured destination
+version, currently `2026-09-30.endive`, through `STRIPE_WEBHOOK_API_VERSION`.
+Supported events: completed, async payment succeeded,
 async payment failed and expired Checkout Sessions. Only paid-work candidates
-queue; fresh API reads remain authoritative. Payment keys and policy are absent
-now, so checkout fails closed.
+queue; fresh API reads remain authoritative. A real enabled test-mode endpoint and
+masked signing secret are configured at runtime revision 4. Runtime payment API
+key and approved merchant policy are absent, so checkout fails closed.
 
 ## Remaining boundaries
 
-Actual D1 migration/Worker publication and production smoke are pending. The
-D1-interface tests use real SQLite behind a D1 shim; they are not Miniflare or
-hosted D1 evidence. The managed Miniflare attempt hung and remains unverified.
+Native initial D1 schema and Worker publication are verified. V33's native cache
+lookup failure led to optional cache handling in v34. Native Fetch wrong-receiver
+invocation and unsupported `redirect:'error'` then blocked the actual catalog.
+Both repairs/regression tests are ready: bind native Fetch correctly and use
+`redirect:'manual'`, rejecting redirect responses explicitly. They are not yet
+production-deployed. Status availability flags do not probe the provider.
+
+D1-interface tests use real SQLite behind a shim. The initial managed Miniflare
+attempt hung, but later actual local workerd runs succeeded with synthetic 20/86
+provider responses. Those are distinct from actual native D1 status and real Node
+catalog reads; they do not prove production provider transport.
 Actual test Checkout, Stripe destination delivery and Printful draft are not
 verified. Paid Printful confirmation is not implemented or authorized.
 
-Printful v2 HMAC/event reduction is a helper, not a mounted durable receiver;
-status/tracking/notifications, customer refund/cancellation initiation and admin
+Printful v2 HMAC/event reduction is a helper. Durable owner-visible fulfillment
+projection/read-side synchronization and its schema migration are in progress;
+no hosted status/tracking acceptance is claimed. Notifications, customer refund/cancellation initiation and admin
 operations remain incomplete. Immutable D1 order JSON contains customer address
 data and forbids update/delete; retention/anonymization is not implemented.
 Resolve that lifecycle before production customer processing. Preserve D1 data

@@ -1,8 +1,11 @@
 # Printful / commerce setup
 
 Updated: 1 November 2026. Real Printful store/catalog reads and one shipping
-estimate succeeded. The native Sites Worker/D1 release is pending publication;
-Stripe payment configuration is missing. No new hosting account or mandatory
+estimate succeeded, including a real Node LivePrintfulCatalog read. Native
+Worker versions 32–34 and seven-table D1 schema are deployed. A diagnosed native
+Fetch receiver bug and unsupported redirect:error still block production catalog
+access. Both fixes/tests are ready, deployment/proof pending. Stripe API key/policy
+are missing. No new hosting account or mandatory
 NAS recovery is required for the supported native deployment.
 
 ## Already completed
@@ -13,10 +16,16 @@ NAS recovery is required for the supported native deployment.
 - Full live import at `2026-11-01T10:10:57.292386Z`: 20 products/86 variants,
   83 active/3 temporary out of stock, all retail currencies EUR. Exact internal/
   sync/catalog identities remain; actual SKU and historical alias are separate.
-- Sites runtime revision 2 includes `PRINTFUL_API_TOKEN` and
-  `COMMERCE_SESSION_SECRET`; source uses the existing Manual/API product family.
+- Sites runtime revision 4 includes masked `PRINTFUL_API_TOKEN`,
+  `COMMERCE_SESSION_SECRET`, `STRIPE_WEBHOOK_SECRET` and configured
+  `STRIPE_WEBHOOK_API_VERSION=2026-09-30.endive`; existing Manual/API store retained.
 - Existing connected Stripe test account/Tax settings and two active Czech
   registration records were read. This is not a runtime API-key grant.
+- A real four-event test Stripe destination is registered and enabled in test mode.
+  Its endpoint secret/version are already securely configured; do not re-request
+  the secret. No actual signed delivery/payment is verified.
+- Native status returns HTTP 200, `mode:test`, catalog/shipping available,
+  checkout unavailable. These readiness flags are not provider health probes.
 
 ## Required remaining runtime settings
 
@@ -27,11 +36,12 @@ owner credential handoff. Never paste secrets in chat, commit them, put them in
 | Setting | Required value/source |
 | --- | --- |
 | `STRIPE_SECRET_KEY` | Actual connected-account test API key; official adapter accepts test secret/restricted test keys only. Connector authentication is not this key. |
-| `STRIPE_WEBHOOK_SECRET` | Signing secret of the actual test account snapshot destination at `/api/stripe/webhook`, explicit STRIPE_WEBHOOK_API_VERSION (current target2026-09-30.endive) |
 | `COMMERCE_POLICY_JSON` | Reviewed merchant price/tax/country policy matching the already connected account/store/test scope; exact fields below |
 
-Keep the existing Printful/session secrets. Do not rotate or re-enter the
-Printful credential merely to repeat a successful authentication check.
+Keep the existing Printful/session/webhook secrets and destination version.
+Owner inputs now are the runtime Stripe test API key and merchant policy only.
+Testing the already-enabled destination is a technical release step after valid
+payment configuration, not a request for another secret/account or registration.
 
 The policy requires `stripeAccountId` matching the already connected account,
 `mode: test`, `printfulStoreId: 18912189`, `currency: EUR`, `currencyExponent: 2`,
@@ -60,11 +70,13 @@ Run language/regression/whitespace checks documented in `PRINTFUL_TEST_RESULTS.m
 Do not regenerate migrations to hide a schema mismatch. The reviewed migration
 chain is `drizzle/0000_commerce.sql` and `drizzle/0001_commerce_immutability.sql`,
 from `db/schema.ts`/Drizzle metadata. Native deployment must apply and verify
-those schema-only migrations before readiness is accepted. Repository `migrate()`
-is only a readiness check; HTTP requests must never create schema. Actual hosted
-migration is currently pending, despite passing SQLite-backed D1-interface tests.
+those schema-only migrations before readiness is accepted. The initial native
+seven-table schema is now verified. Repository `migrate()` is only a readiness
+check; HTTP requests never create schema. Durable catalog-cache and fulfillment
+projection/table migrations are pending; test/apply them separately before
+claiming additional native support.
 
-After native deployment, verify catalog/status and a safe shipping estimate,
+After deploying both receiver-binding/manual-redirect repairs, verify catalog/status and a safe shipping estimate,
 retained frontend/images/languages and checkout-disabled behavior. With runtime
 Stripe key/policy still absent, status must not claim checkout is available.
 Append actual version/deployment IDs and smoke results to
@@ -87,13 +99,14 @@ Importer reads do not create orders or publish the Site automatically.
 ## Remaining acceptance
 
 See `STRIPE_SETUP.md` for actual snapshot destination and test flow. Demonstrate
-native D1 readiness, live Worker catalog/shipping, authorized Stripe test payment,
+the repaired live Worker catalog/shipping, authorized Stripe test payment,
 fresh server verification and one safely linked Printful draft before accepting
 end-to-end operation. No real payment/draft has been created so far. Paid Printful
 confirmation has no method and requires separate authorization/implementation.
 
-Customer refund/cancellation initiation, durable Printful status/tracking/
-notifications and administrative visibility remain incomplete. Immutable order
+Customer refund/cancellation initiation and notifications/admin handling remain
+incomplete. Durable owner-visible fulfillment projection/read synchronization is
+in progress, with no accepted production result yet. Immutable order
 JSON has no completed retention/anonymization path; resolve before production
 customer processing. Keep database/provider state during rollback, and never
 reset the single-POST gate to recover an uncertain remote create.
