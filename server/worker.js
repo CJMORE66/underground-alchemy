@@ -7,6 +7,8 @@ import { CheckoutQuoteService, validateQuoteConfiguration } from './commerce/quo
 import { createStripeWorkerTestAdapter, isStripeTestKey, verifyStripeTestWebhook, STRIPE_API_VERSION } from './commerce/stripe.js';
 import { StripeOrderWorkflow } from './commerce/stripe-workflow.js';
 import { FulfillmentSyncService } from './commerce/fulfillment-sync.js';
+import { verifyPrintfulV2Webhook } from './commerce/printful-webhook.js';
+import { PrintfulOrderWorkflow } from './commerce/printful-workflow.js';
 import { CommerceError, shippingRecipient, decimalToMinor } from './commerce/validation.js';
 import { commerceSession, requireSameOrigin, boundedRequestJson, boundedRequestBytes } from './commerce/http-security.js';
 
@@ -134,6 +136,33 @@ export function createCommerceWorker({ fetchImplementation = (input, init) => gl
           const pending = !['completed', 'dead_letter'].includes(current?.state);
           return json(pending ? 503 : 200, { received: true, pending });
         }
+        if (path === '/api/printful/webhook') {
+          if (request.method !== 'POST') return json(405, { error: 'METHOD_NOT_ALLOWED' });
+          if (!/^application\/json(?:;|$)/i.test(request.headers.get('content-type') || '')) return json(415, { error: 'JSON_REQUIRED' });
+          if (!env.PRINTFUL_WEBHOOK_PUBLIC_KEY || !env.PRINTFUL_WEBHOOK_SECRET_HEX) return json(503, { error: 'PRINTFUL_WEBHOOK_NOT_CONFIGURED' });
+          const publicKey = request.headers.get('x-pf-webhook-public-key');
+          const signature = request.headers.get('x-pf-webhook-signature');
+          const raw = await boundedRequestBytes(request, 256 * 1024);
+          let verified;
+          try {
+            verified = await verifyPrintfulV2Webhook({ raw, publicKey, signature, expectedPublicKey: env.PRINTFUL_WEBHOOK_PUBLIC_KEY, secretHex: env.PRINTFUL_WEBHOOK_SECRET_HEX, expectedStoreId: EXPECTED_STORE_ID });
+          } catch (error) {
+            if (error?.code === 'PRINTFUL_WEBHOOK_CONFIGURATION_REQUIRED') return json(503, { error: 'PRINTFUL_WEBHOOK_NOT_CONFIGURED' });
+            return json(400, { error: 'PRINTFUL_WEBHOOK_REJECTED' });
+          }
+          if (verified.ignored) return json(200, { received: true, ignored: true });
+          // Only authenticated normalized hints reach durable storage. Event
+          // status/address/amount fields never replace a fresh provider read.
+          const repository = await repositoryFor(env);
+          const workflow = new PrintfulOrderWorkflow({ repository, printful: hasPrintfulToken(env) ? printfulFor(env) : null, verifyWebhook: async () => verified });
+          const admitted = await workflow.acceptWebhook({ raw, publicKey, signature });
+          if (admitted.ignored || ['completed', 'ignored', 'dead_letter'].includes(admitted.state)) return json(200, { received: true, ignored: Boolean(admitted.ignored) });
+          if (!hasPrintfulToken(env)) return json(503, { received: true, pending: true });
+          await workflow.processNext({ workerId: 'printful_' + crypto.randomUUID(), leaseMs: 120000, jobId: admitted.jobId });
+          const job = await repository.getPrintfulJob(admitted.jobId);
+          const pending = !['completed', 'ignored', 'dead_letter'].includes(job?.state);
+          return json(pending ? 503 : 200, { received: true, pending });
+        }
         if (path.startsWith('/api/commerce/orders/') && request.method === 'GET') {
           const session = await commerceSession(request, env.COMMERCE_SESSION_SECRET), repository = await repositoryFor(env);
           const suffix = path.slice('/api/commerce/orders/'.length);
@@ -183,7 +212,7 @@ export function createCommerceWorker({ fetchImplementation = (input, init) => gl
         const status = Number.isInteger(error?.status) && error.status >= 400 && error.status <= 599 ? error.status : error?.code?.startsWith('INVALID_') ? 400 : 503;
         // Log fixed route classes and stack locations only. Error messages may
         // contain provider/customer values and must never enter production logs.
-        const route = ['/api/commerce/catalog', '/api/commerce/status', '/api/commerce/shipping', '/api/commerce/quote', '/api/commerce/checkout', '/api/stripe/webhook'].includes(path) ? path : '/api/other';
+        const route = ['/api/commerce/catalog', '/api/commerce/status', '/api/commerce/shipping', '/api/commerce/quote', '/api/commerce/checkout', '/api/stripe/webhook', '/api/printful/webhook'].includes(path) ? path : '/api/other';
         const kind = ['TypeError', 'ReferenceError', 'RangeError', 'SyntaxError', 'Error', 'CommerceError'].includes(error?.name) ? error.name : 'Error';
         const frames = typeof error?.stack === 'string' ? error.stack.split('\n').slice(1, 5).map(line => line.match(/(?:index|worker)\.js:\d+:\d+/)?.[0]).filter(Boolean) : [];
         console.error(JSON.stringify({ event: 'commerce_request_failed', route, status, code: safeError(error), kind, frames }));
