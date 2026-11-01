@@ -153,6 +153,12 @@ export function createCommerceWorker({ fetchImplementation = globalThis.fetch, c
         return json(404, { error: 'NOT_FOUND' });
       } catch (error) {
         const status = Number.isInteger(error?.status) && error.status >= 400 && error.status <= 599 ? error.status : error?.code?.startsWith('INVALID_') ? 400 : 503;
+        // Log fixed route classes and stack locations only. Error messages may
+        // contain provider/customer values and must never enter production logs.
+        const route = ['/api/commerce/catalog', '/api/commerce/status', '/api/commerce/shipping', '/api/commerce/quote', '/api/commerce/checkout', '/api/stripe/webhook'].includes(path) ? path : '/api/other';
+        const kind = ['TypeError', 'ReferenceError', 'RangeError', 'SyntaxError', 'Error', 'CommerceError'].includes(error?.name) ? error.name : 'Error';
+        const frames = typeof error?.stack === 'string' ? error.stack.split('\n').slice(1, 5).map(line => line.match(/(?:index|worker)\.js:\d+:\d+/)?.[0]).filter(Boolean) : [];
+        console.error(JSON.stringify({ event: 'commerce_request_failed', route, status, code: safeError(error), kind, frames }));
         // No upstream response body, credential, SQL, address or raw event is logged/returned.
         return json(status, { error: safeError(error) });
       }
