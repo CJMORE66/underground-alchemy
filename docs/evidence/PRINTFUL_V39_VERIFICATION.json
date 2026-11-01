@@ -1,0 +1,136 @@
+{
+  "recordedAt": "2026-11-01T18:20:29.985Z",
+  "overall": "PARTIALLY WORKING",
+  "production": {
+    "version": 39,
+    "environmentRevision": 5,
+    "sourceCommit": "370fd42896a95c9a1ffd76f9bc89ad5f24a40756",
+    "savedVersion": "appgprj_6ad19e715dcc819185592c61456c5182~appgver_2862c633a45c8191ba1482674ffbc17d",
+    "deployment": "appgdep_6ae7823ca42c819196a4533ad2f73cdc",
+    "deployedAt": "2026-11-01T18:17:53.735340+00:00",
+    "url": "https://caisik-underground-alchemy.caisik.chatgpt.site/"
+  },
+  "actualProviderWebhook": {
+    "configurationVersion": 2,
+    "eventTypesRegistered": 16,
+    "receiverRelease": 38,
+    "providerMutation": "Existing standalone draft recipient test-name update with confirm=false",
+    "draftId": 184026933,
+    "paidFulfillmentConfirmed": false,
+    "event": {
+      "scope": "acct_1UWra7PkIIV492Qz:test:18912189",
+      "fingerprint": "3a118364d4cbf744cbc3e88317ee5dfe9a6a3620196b8f0196389c06fb82d08d",
+      "type": "order_updated",
+      "occurred_at": "2026-11-01T18:08:58Z",
+      "store_id": 18912189,
+      "printful_id": 184026933,
+      "external_id": "UA_TEST_20261101_1a196badad6",
+      "shipment_id": null,
+      "received_at_ms": 1793556539373
+    },
+    "job": {
+      "scope": "acct_1UWra7PkIIV492Qz:test:18912189",
+      "id": "printful_3a118364d4cbf744cbc3e88317ee5dfe9a6a3620196b8f0196389c06fb82d08d",
+      "fingerprint": "3a118364d4cbf744cbc3e88317ee5dfe9a6a3620196b8f0196389c06fb82d08d",
+      "order_id": null,
+      "state": "ignored",
+      "attempts": 0,
+      "available_at_ms": 1793556539373,
+      "worker_id": null,
+      "lease_token": null,
+      "lease_expires_at_ms": null,
+      "last_error_code": "PRINTFUL_UNMAPPED_ORDER",
+      "recovery_count": 0,
+      "recovery_nonce": null,
+      "completed_at_ms": 1793556539373,
+      "created_at_ms": 1793556539373,
+      "updated_at_ms": 1793556539373
+    },
+    "http": {
+      "method": "POST",
+      "path": "/api/printful/webhook",
+      "status": 200,
+      "outcome": "ok",
+      "timestampMs": 1793556539642
+    },
+    "boundary": "Authentic signed admission and durable ignored_unmapped result only; no linked paid order, shipment progression or tracking verified"
+  },
+  "actualCatalog": {
+    "checkedAt": "2026-11-01T18:10:24.869Z",
+    "mode": "printful-live",
+    "products": 20,
+    "variants": 86,
+    "active": 83,
+    "temporaryOutOfStock": 3,
+    "currency": "EUR",
+    "completeStoreScan": true
+  },
+  "actualBrowser": {
+    "release": 39,
+    "newRetryControlPresent": true,
+    "liveProducts": 20,
+    "cartQuantityPersisted": 1,
+    "commerceStatus": {
+      "mode": "test",
+      "catalogAvailable": true,
+      "shippingAvailable": true,
+      "checkoutAvailable": false
+    },
+    "desktopCartQuantityChange": "1 -> 2 via plus button; persisted after reload; reset to 1",
+    "languagesObserved": [
+      "cs",
+      "en",
+      "fr"
+    ],
+    "mobileViewport": "UNVERIFIED"
+  },
+  "actualShipping": {
+    "release": 38,
+    "product": "OMERTA WITH EGO",
+    "variant": "Black / M",
+    "quantity": 1,
+    "destination": "Official Printful API sample US/CA 91311; no customer address",
+    "standardMinor": 839,
+    "co2StandardMinor": 847,
+    "currency": "EUR",
+    "taxQuoteDisabledAfterSelection": true,
+    "noPaymentOpened": true
+  },
+  "database": {
+    "binding": "COMMERCE_DB",
+    "tables": [
+      "commerce_d1_drafts",
+      "commerce_d1_events",
+      "commerce_d1_fulfillment",
+      "commerce_d1_jobs",
+      "commerce_d1_limits",
+      "commerce_d1_orders",
+      "commerce_d1_printful_events",
+      "commerce_d1_printful_jobs",
+      "commerce_d1_printful_recoveries",
+      "commerce_d1_public_catalog_cache",
+      "commerce_d1_schema",
+      "commerce_d1_sessions"
+    ],
+    "internalOrders": 0,
+    "linkedDraftMappings": 0,
+    "preservedSignedReceipts": 1
+  },
+  "automated": {
+    "focusedCases": 273,
+    "generatedWorkerdCases": 3,
+    "newCatalogRecoveryUiAssertions": "Passed shop/cart/checkout scripts; synthetic isolated providers only",
+    "build": "PASS",
+    "syntaxChecks": 19,
+    "secretScan": "PASS bounded public artifact scan",
+    "ci": "https://github.com/CJMORE66/underground-alchemy/actions/runs/41335757707"
+  },
+  "blockers": [
+    "STRIPE_SECRET_KEY test runtime credential absent",
+    "COMMERCE_POLICY_JSON approved merchant pricing/tax/country policy absent",
+    "Actual Stripe test checkout/payment/webhook and mapped internal paid-order workflow unverified",
+    "Actual shipment/tracking lifecycle unverified",
+    "Notifications/refund/cancellation initiation, operational admin and retention lifecycle incomplete",
+    "Mobile viewport acceptance unverified"
+  ]
+}

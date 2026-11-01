@@ -1,7 +1,8 @@
 # Commerce architecture
 
-Updated: 1 November 2026. Native **Sites Worker + ASSETS + D1 v38 / env5** is
-deployed with 12 observed tables and actual signed Printful event admission.
+Updated: 1 November 2026. Native **Sites Worker + ASSETS + D1 v39 / env5** is
+deployed with 12 observed tables and preserved actual signed Printful event
+admission from v38.
 Catalog/shipping work; Stripe key/policy are absent and checkout fails closed.
 Overall **PARTIALLY WORKING**, not verified end-to-end commerce.
 
@@ -93,7 +94,7 @@ anonymized/deleted through an approved lifecycle. Resolve this before production
 customer processing. No paid-confirmation method/live-charge release exists.
 
 Preserve DB/provider state during rollback; never drop schema or reset uncertain
-mutation gates. Version 37 is the preferred verified rollback for the continuation;
+mutation gates. Version 38 is the preferred receiver-capable rollback;
 version 31 is an emergency static fallback. Preserve current D1/env5 secrets in
 either case. V37 has no receiver: prefer a receiver fix-forward; otherwise
 provider delivery retries must be reconciled as described in DEPLOYMENT. See `PRINTFUL_DEPLOYMENT.md`.
@@ -104,7 +105,7 @@ historical price dates and cart actions are unchanged. Publication/copy smoke
 passed for live CS/EN/FR detail; fallback coverage is DOM-fixture evidence. No
 new backend or stale-age UI completion is implied.
 
-## Active v38 Printful event path
+## Printful event path: activated v38, retained in v39
 
 `printful-webhook.js` validates bounded original bytes using Worker Web Crypto
 HMAC, configured base64 `PRINTFUL_WEBHOOK_PUBLIC_KEY`, raw-hex
@@ -130,3 +131,14 @@ attempts 0 / PRINTFUL_UNMAPPED_ORDER because no internal paid mapping exists.
 That is correct admission behavior, not mapped reconciliation or payment proof.
 Internal orders/draft mappings remain empty. Exact durable fingerprint/release
 records are in TEST_RESULTS/DEPLOYMENT. No fake paid mapping was introduced.
+
+## V39 catalog UI recovery
+
+The server/receiver/schema/env5 are retained from v38. Only authored shop.js
+changes: retry only CATALOG_REFRESH_PENDING, up to three total automatic attempts
+at 300/600 ms, then an accessible labelled fallback/manual-retry control. Abort/
+destroy cancels recovery; authentication failures do not enter retries. DOM
+fixtures cover pending-to-live, cap/manual action and CZ/EN/FR behavior. Actual
+v39 shows live20, persistent quantity1 and checkout false. It does not guarantee
+all provider refreshes succeed automatically or complete stale-age labelling,
+mobile acceptance, payment or fulfillment operations.

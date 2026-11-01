@@ -1,9 +1,37 @@
 # Native commerce release / rollback record
 
-Updated: 1 November 2026. **Native v38 / env5 is deployed and actual signed
-Printful event admission is verified.** Native D1 has 12 tables. Overall
+Updated: 1 November 2026. **Native v39 / env5 is deployed. Actual signed
+Printful admission remains verified from v38; v39 adds bounded UI recovery.** Native D1 has 12 tables. Overall
 **PARTIALLY WORKING**: Stripe runtime key/merchant policy are absent and no full
 paid-order workflow is proved. All timestamps below are UTC.
+
+## Current v39 bounded catalog recovery — deployed
+
+- Source `370fd42896a95c9a1ffd76f9bc89ad5f24a40756`; source history includes
+  `b8cbccb` (actual v38 docs) then this frontend fix.
+- Saved version `appgprj_6ad19e715dcc819185592c61456c5182~appgver_2862c633a45c8191ba1482674ffbc17d`.
+- Deployment `appgdep_6ae7823ca42c819196a4533ad2f73cdc` **succeeded** at
+  `2026-11-01T18:17:53.735340+00:00` (UTC), **env5**.
+- Canonical archive SHA256
+  `b17d66aa2aff09718220b446c725c395caf2e5a54d7a5c0bc1fd31afe0c857d1`,
+  **191,426,560 bytes / 695 files**; local gzip **179,724,077 bytes**.
+- 680 authored assets / **188,114,946 bytes**, frontend hash
+  `6f759b9f0eabb593a80b12f03fd7ff006270447f6a11a2f68cb10389bbd24c54`.
+  Only authored shop.js changes; other 679 assets are byte-identical. Server
+  bundle **865.79 kB / gzip 136.22 kB / 236 modules**. Nineteen syntax/release
+  checks, 273 focused cases, three generated-bundle fixtures and new UI scenarios
+  pass. PR #4 CI #17 **SUCCESS** at
+  `4f18a783df5b2730323a6b2458cbcb87cb8cc201`:
+  https://github.com/CJMORE66/underground-alchemy/actions/runs/41335757707 .
+- Pending-only automatic attempts are capped at three, with 300/600 ms delays;
+  exhaustion leaves an accessible labelled manual retry. Auth/abort/destroy and
+  CZ/EN/FR behavior are tested; success is not guaranteed automatically.
+- Actual reload exposes the retry DOM control, live20 and cart quantity1 persisted,
+  shipping ready; real status catalog/shipping true, checkout false. No charge.
+  V38 actual shipping/quote gate and signed admission proofs are retained as dated
+  evidence; no second callback is claimed on v39. Real mobile is UNVERIFIED.
+- Actual desktop screenshots: [shipping v38](evidence/PRINTFUL_SHIPPING_V38.jpg)
+  and [collection v39](evidence/PRINTFUL_SHOP_V39.jpg).
 
 ## Historical v37 frontend-only correction — verified
 
@@ -128,13 +156,14 @@ checks: https://github.com/CJMORE66/underground-alchemy/actions/runs/41299341644
 | 36 | b5d613845852a5e14d20f4a3072189726b84fada | Shipping-only tax-quote UI gate fixed; native publish and final actual smoke pass |
 | 37 | a57f86b285a0aae0d156b5ad501b203078095920 | Frontend-only live/fallback detail copy corrected; actual CS/EN/FR live copy and live API verified |
 | 38 | 53617e2a9d04d38d06a2f6f06af4053316d94095 | Signed Printful receiver, 12-table native schema, env5 activation and actual durable unmapped event admission |
+| 39 | 370fd42896a95c9a1ffd76f9bc89ad5f24a40756 | Bounded pending-only catalog UI retry and labelled manual recovery; real live/cart/status smoke |
 
 These failures are historical, not the current catalog status. Three isolated
 actual-bundle workerd cases now exercise native fetch/cache/redirect behavior.
 
 ## Rollback
 
-Older verified functional v36 saved version (v37 is preferred for the continuation):
+Older verified functional v36 saved version (v38 is now preferred):
 `appgprj_6ad19e715dcc819185592c61456c5182~appgver_337ea06b363c81918affa223c4a21ab5`.
 Source: `b5d613845852a5e14d20f4a3072189726b84fada`.
 Deployment: `appgdep_6ae71a2303288191918d0da936d4f235`.
@@ -157,7 +186,7 @@ reverse customer payments as a static rollback step. No paid-confirmation method
 is implemented. Retention/anonymization and full operational recovery remain
 incomplete, even though current catalog/shipping deployment works.
 
-## Current v38 signed receiver — deployed and admitted actual event
+## Verified v38 signed receiver — actual admission baseline
 
 - Source: `53617e2a9d04d38d06a2f6f06af4053316d94095`.
 - Saved version: `appgprj_6ad19e715dcc819185592c61456c5182~appgver_382a75a348d08191ada342a9ef5d37c9`.
@@ -187,7 +216,7 @@ incomplete, even though current catalog/shipping deployment works.
   A fresh catalog GET had 503 CATALOG_REFRESH_PENDING during single fill; one
   reload succeeded at checkedAt 2026-11-01T18:10:24.869Z with 20/86, 83 active/
   3temporary out of stock, EUR/full sync/no removed entries. Initial-request
-  success is not guaranteed; bounded UI recovery is a follow-up. Actual mobile
+  success is not guaranteed; bounded UI recovery is deployed in v39. Actual mobile
   viewport remains UNVERIFIED. GET webhook is METHOD_NOT_ALLOWED. Bounded 15-minute errors show two favicon
   404s only, no returned commerce errors; D1 records, not logs, prove callback.
 - 273 focused cases plus three isolated post-build generated-bundle cases pass.
@@ -199,7 +228,14 @@ incomplete, even though current catalog/shipping deployment works.
 
 ## Receiver-aware rollback caveat
 
-Preferred known-good prior release is **v37**, saved version
+Preferred receiver-capable prior release is **v38**, saved version
+`appgprj_6ad19e715dcc819185592c61456c5182~appgver_382a75a348d08191ada342a9ef5d37c9`,
+source `53617e2a9d04d38d06a2f6f06af4053316d94095`, env5 deployment
+`appgdep_6ae7800d3c10819193f6121b3b9bcaa5`. Exact archive proof is above.
+This retains the receiver and loses only the v39 catalog UI recovery fix.
+Preserve all twelve D1 tables, env5 keys, provider configuration and job state.
+
+Older **v37** saved version
 `appgprj_6ad19e715dcc819185592c61456c5182~appgver_4f31c92d450c81918fbaf77bc1ad7942`,
 source `a57f86b285a0aae0d156b5ad501b203078095920`, deployment
 `appgdep_6ae71c3a15408191922fc997b4911e5c`. Exact archive proof is above.
@@ -222,3 +258,13 @@ Desktop v38 live browser also verifies OMERTA Black/M selection, add to cart,
 quantity1→2 using the plus control, historical subtotal €109.00 and quantity2
 after reload. CZ/EN/FR cart copy was observed after translations completed.
 This does not establish mobile viewport or payment acceptance.
+
+Final v39 D1 recheck still shows **12 tables**, **one same-fingerprint signed
+receipt**, and no internal orders/linked draft mappings. The fresh bounded
+five-minute Worker error query contains only **two favicon404s**, with no
+returned API/commerce failures; window/ingestion limits apply. Independent
+frontend review found no material blocker in this narrow UI change. Reviewable
+sanitized evidence: [v39 verification JSON](evidence/PRINTFUL_V39_VERIFICATION.json),
+[actual desktop shipping v38](evidence/PRINTFUL_SHIPPING_V38.jpg),
+[actual desktop shop v39](evidence/PRINTFUL_SHOP_V39.jpg). This preserves the
+single v38 callback proof and does not imply a second delivery on v39.

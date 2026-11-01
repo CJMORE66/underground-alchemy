@@ -1,10 +1,11 @@
 # Commerce setup / remaining owner inputs
 
-Updated: 1 November 2026. Native **v38 / env5** is deployed with live catalog/
+Updated: 1 November 2026. Native **v39 / env5** is deployed with live catalog/
 shipping, 12 native tables and an actual signed Printful callback safely admitted
 and classified as unmapped. Runtime Stripe payment and full paid-order workflow
 remain blocked; overall **PARTIALLY WORKING**. Preserve D1/provider state and all
-masked signing settings on rollback; v37 rollback has no Printful receiver.
+masked signing settings on rollback. Preferred rollback v38 retains the
+receiver; older v37 has none.
 
 ## Already configured and verified
 
@@ -95,7 +96,8 @@ paid Printful confirmation method is delivered.
 
 ## Active Printful receiver / safe maintenance
 
-Receiver source is published as v38, migration 0003 is applied, and both signing
+Receiver was activated in v38 and is retained in v39; migration 0003 is applied
+and both signing
 values are masked at env5. Fresh v1/v2 empty-config guards preceded one v2 POST
 registration of 16 order/shipment types to the deployed HTTPS
 `/api/printful/webhook`; authenticated readback verified it. Do not repeat
@@ -121,3 +123,13 @@ merchant policy. Official Stripe Apps can create managed keys in an approved
 preview with `api_key_write`; the available connector has no such operation or
 injected runtime key here. Key issuance is not globally Dashboard-only, and
 visitor AppGateway OAuth is not an unattended merchant credential.
+
+## Current v39 frontend maintenance
+
+V39/env5 adds pending-only catalog recovery; no new provider registration,
+credential or migration is required. At most three automatic attempts use
+300/600 ms delays, then a labelled manual-retry control remains available.
+Keep fail-closed checkout gates. Actual v39 live20/cart quantity1 persistence
+and real status catalog/shipping true/checkoutfalse are verified; current real
+mobile viewport and actual payment remain unverified. Preferred rollback is
+receiver-capable v38, preserving all twelve tables/env5/signing configuration.

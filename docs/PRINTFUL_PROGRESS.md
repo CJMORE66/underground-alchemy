@@ -1,6 +1,6 @@
 # Commerce final progress / resume record
 
-Updated: 1 November 2026. Overall **PARTIALLY WORKING**. Native **v38 / env5**
+Updated: 1 November 2026. Overall **PARTIALLY WORKING**. Native **v39 / env5**
 is deployed; live catalog/shipping, a safe standalone draft and real signed
 Printful webhook admission are verified. D1 has 12 tables. Runtime Stripe key/
 merchant policy and complete paid-order/shipment acceptance remain blocked.
@@ -45,7 +45,7 @@ merchant policy and complete paid-order/shipment acceptance remain blocked.
   CI #14 PASS. Final status200/test/catalog+shipping true/checkoutfalse,
   cart0/live20 notice and closed CZ modal verified. Latest bounded11:04UTC query
   has3 ancillary404s only (favicon/sitemap/robots), no returned commerce/API failure.
-  Exact native IDs are in DEPLOYMENT. Preferred rollback for the continuation is v37.
+  Exact native IDs are in DEPLOYMENT. Current receiver-capable rollback is v38.
 
 - [x] Final v36 actual 10:54 UTC smoke: live catalog 20/86/83 active, official
   destination rates €8.39/€8.47; STANDARD selected with tax quote disabled.
@@ -83,9 +83,9 @@ test draft remains in Printful for inspection; do not confirm it automatically.
 
 Read the six PRINTFUL documents and STRIPE_SETUP, current Site/D1/configuration
 and real deployment records. V38 and prior IDs/source/archive are in DEPLOYMENT. Immediate
-preferred verified rollback is v37; v31 is an emergency static
-fallback. V37 lacks the receiver and can trigger provider retries; prefer receiver
-fix-forward and preserve/reconcile registration/callbacks. Preserve D1/schema/cache/order data,
+preferred receiver-capable rollback is v38; v31 is an emergency static
+fallback. V38 retains the receiver. Older v37 lacks it and can trigger provider
+retries; preserve/reconcile registration/callbacks if that emergency path is used. Preserve D1/schema/cache/order data,
 runtime secrets, browser notes/carts and uncertain mutation gates. Never replay
 an ambiguous create or treat a deployment/fixture as paid fulfillment proof.
 
@@ -114,10 +114,11 @@ payment inputs and incomplete production operations above still open.
 - [x] Actual v38 browser live20/status catalog+shipping true/checkoutfalse and
   GET webhook METHOD_NOT_ALLOWED. Bounded error window has two favicon404s only,
   no returned commerce errors; D1 event records are actual callback evidence.
-- [ ] Verify the narrow catalog-pending UI recovery follow-up: a fresh v38 GET
-  returned 503 CATALOG_REFRESH_PENDING during single fill; one reload then
-  succeeded at 18:10:24.869Z with 20/86/83active/3temporaryOOS/EUR/full sync.
-  Actual mobile viewport remains UNVERIFIED.
+- [x] Implement/test/deploy v39 bounded pending-only catalog recovery: at most
+  three automatic attempts with 300/600 ms delays, then accessible manual retry.
+  Pending-to-live/cap/manual/auth-no-retry/abort/destroy/CZ-EN-FR tests pass.
+  Initial v38 pending503/reload observation remains historical; not every
+  provider load is guaranteed to recover automatically.
 - [ ] Actual mapped paid-order reconciliation, retry/dead-letter recovery and
   shipment progression; notifications, refund/cancellation initiation, full
   operator tooling/scheduling and approved retention/anonymization.
@@ -125,6 +126,34 @@ payment inputs and incomplete production operations above still open.
 Overall **PARTIALLY WORKING**. Secure restricted Stripe test API key and approved
 merchant policy remain immediate owner inputs. Managed Stripe App key issuance
 exists only with its own approved preview/permission workflow and is not exposed
-by the available connector. Preferred prior rollback is verified v37, preserving
-D1/env5/registration and reconciling retries because v37 lacks this receiver.
+by the available connector. Preferred prior rollback is receiver-capable v38, preserving
+D1/env5/registration. Older v37 lacks this receiver and requires retry recovery.
 No paid Printful confirmation or real Stripe payment is authorized/verified.
+
+## Verified current v39 release
+
+- [x] Deploy source370fd42896a95c9a1ffd76f9bc89ad5f24a40756 as v39/env5 at
+  2026-11-01T18:17:53.735340+00:00; exact save/deploy/archive in DEPLOYMENT.
+- [x] Preserve v38 receiver/twelve-table schema/signing configuration; no repeated
+  registration or second callback claim. Keep actual signed v38 proof separate.
+- [x] Build/release 19 syntax checks, 273 focused cases +3 isolated bundle fixtures,
+  new shop recovery and cart/checkout UI tests pass; CI #17 SUCCESS.
+- [x] Actual v39 reload shows retry control/live20, cart quantity1 persistence,
+  shipping ready and checkoutfalse; API catalog/shipping true/checkout false.
+- [x] Fresh v38 actual shipping €8.39/€8.47 for official public test destination;
+  STANDARD selection keeps quote disabled/pay hidden or disabled, no charge.
+- [ ] Actual payment, mapped-order/recovery/shipment, real mobile viewport,
+  notifications/refund initiation/full admin operations and retention acceptance.
+
+Desktop evidence is linked in TEST_RESULTS. Overall remains PARTIALLY WORKING;
+secure runtime Stripe test key and approved merchant policy remain owner inputs.
+
+Final v39 D1 recheck still shows **12 tables**, **one same-fingerprint signed
+receipt**, and no internal orders/linked draft mappings. The fresh bounded
+five-minute Worker error query contains only **two favicon404s**, with no
+returned API/commerce failures; window/ingestion limits apply. Independent
+frontend review found no material blocker in this narrow UI change. Reviewable
+sanitized evidence: [v39 verification JSON](evidence/PRINTFUL_V39_VERIFICATION.json),
+[actual desktop shipping v38](evidence/PRINTFUL_SHIPPING_V38.jpg),
+[actual desktop shop v39](evidence/PRINTFUL_SHOP_V39.jpg). This preserves the
+single v38 callback proof and does not imply a second delivery on v39.

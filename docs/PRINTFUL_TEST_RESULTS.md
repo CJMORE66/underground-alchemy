@@ -1,10 +1,11 @@
 # Commerce test results / evidence boundaries
 
-Updated: 1 November 2026. Overall **PARTIALLY WORKING**. Native **v38 / env5**
+Updated: 1 November 2026. Overall **PARTIALLY WORKING**. Native **v39 / env5**
 is deployed, actual D1 has 12 tables, and a real signed Printful callback is
 durably admitted/ignored as unmapped. Stripe payment and the full internal
 paid-order workflow remain unverified. V35–v37 observations below are dated
-baselines, not substitutes for current acceptance.
+baselines, not substitutes for current acceptance. V39 adds bounded UI retry;
+the real signed provider callback evidence remains the v38 observation.
 
 ## Actual provider and production evidence
 
@@ -100,7 +101,7 @@ actual-workerd isolated successes; old failures were not erased from logs.
 
 ## Final release record
 
-Current v38 and historical v36/v37 exact IDs/source/archive and successful
+Current v39 and historical v36–v38 exact IDs/source/archive and successful
 native results are in DEPLOYMENT.
 The v36 actual shipping/quote-disabled smoke, v37 live-copy/status/cart checks
 and distinct bounded log observations are recorded above. The dated v37 query
@@ -135,9 +136,10 @@ passed the deployed raw-byte signature/public-key/store verifier. D1 received it
 at epoch milliseconds `1793556539373`, fingerprint
 `3a118364d4cbf744cbc3e88317ee5dfe9a6a3620196b8f0196389c06fb82d08d`.
 Its durable job is **ignored**, attempts **0**, reason
-**PRINTFUL_UNMAPPED_ORDER**. This terminal path returns HTTP 200 by code; the
-persisted record is the delivery evidence, not a log inference or fabricated
-external HTTP trace. Internal order and draft-mapping tables remain empty.
+**PRINTFUL_UNMAPPED_ORDER**. The matching actual Worker POST log at
+`1793556539642` records HTTP 200 / outcome ok. Persisted validated D1 records
+establish durable admission; the log also confirms the response. Internal order
+and draft-mapping tables remain empty.
 
 This proves **real draft update → signed callback → verified durable admission
 and safe unmapped classification**. It does not prove paid-order linkage,
@@ -169,7 +171,8 @@ shipping true, checkout false. Fresh catalog GET first returned 503
 CATALOG_REFRESH_PENDING during D1 single fill, then one reload succeeded with
 checkedAt `2026-11-01T18:10:24.869Z`, 20/86, 83 active/3 temporary out of stock,
 EUR, full sync and no removed entries. This is an observed recovery, not
-always-immediate success. Bounded UI retry/fallback recovery is a follow-up.
+always-immediate success. V39 subsequently implements/tests/deploys bounded
+pending-only UI retry and a visible manual fallback retry.
 Actual mobile viewport remains UNVERIFIED. GET webhook reports METHOD_NOT_ALLOWED. The bounded
 15-minute Worker error window contains only two favicon404 events, no returned
 commerce errors. Window/ingestion limits apply; absence of callback logs is not
@@ -184,3 +187,44 @@ Desktop v38 live browser also verifies OMERTA Black/M selection, add to cart,
 quantity1→2 using the plus control, historical subtotal €109.00 and quantity2
 after reload. CZ/EN/FR cart copy was observed after translations completed.
 This does not establish mobile viewport or payment acceptance.
+
+## Current v39 build, UI and production smoke
+
+V39/env5 deployment succeeded at `2026-11-01T18:17:53.735340+00:00` (UTC).
+The 273 focused backend cases and three generated-workerd isolated fixtures
+remain passing. New SHOP scenarios pass for pending→live recovery, three-attempt
+cap, labelled manual retry, authentication no-retry, abort/destroy and accessible
+CZ/EN/FR controls; cart/checkout UI groups pass. Automatic retry only targets
+CATALOG_REFRESH_PENDING and waits 300/600 ms; exhaustion is visible, not an
+infinite or always-successful recovery. No fixture is real callback/payment proof.
+
+Build/release: 680 authored assets / **188,114,946 bytes**, frontend SHA256
+`6f759b9f0eabb593a80b12f03fd7ff006270447f6a11a2f68cb10389bbd24c54`.
+Only authored shop.js changes; other 679 assets are byte-identical. Server bundle
+**865.79 kB / gzip 136.22 kB / 236 modules**; 19 syntax checks pass. PR #4 CI #17
+**SUCCESS** at `4f18a783df5b2730323a6b2458cbcb87cb8cc201`:
+https://github.com/CJMORE66/underground-alchemy/actions/runs/41335757707 .
+
+Actual v39 browser reload has the new retry DOM control, live20 collection
+notice, cart quantity1 persisted and shipping ready; API status reports catalog/
+shipping true and checkout false. This does not establish an observed forced
+retry sequence in production. No second real provider callback is claimed after
+v39. Current real mobile viewport remains UNVERIFIED.
+
+Fresh actual v38 shipping for OMERTA Black/M ×1 at the official public Printful
+US/CA sample returned **STANDARD €8.39**, **CO2 STANDARD €8.47**. Selecting STANDARD
+kept tax quote disabled and payment hidden/disabled. Rates are destination/time
+specific; no charge occurred. Desktop evidence:
+[shipping v38](evidence/PRINTFUL_SHIPPING_V38.jpg),
+[collection v39](evidence/PRINTFUL_SHOP_V39.jpg). These are actual desktop screens,
+not mobile acceptance or completed checkout.
+
+Final v39 D1 recheck still shows **12 tables**, **one same-fingerprint signed
+receipt**, and no internal orders/linked draft mappings. The fresh bounded
+five-minute Worker error query contains only **two favicon404s**, with no
+returned API/commerce failures; window/ingestion limits apply. Independent
+frontend review found no material blocker in this narrow UI change. Reviewable
+sanitized evidence: [v39 verification JSON](evidence/PRINTFUL_V39_VERIFICATION.json),
+[actual desktop shipping v38](evidence/PRINTFUL_SHIPPING_V38.jpg),
+[actual desktop shop v39](evidence/PRINTFUL_SHOP_V39.jpg). This preserves the
+single v38 callback proof and does not imply a second delivery on v39.

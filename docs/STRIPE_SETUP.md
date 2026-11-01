@@ -7,8 +7,8 @@ missing; no actual Stripe payment or full paid-order workflow is verified.
 
 ## Required owner configuration
 
-Native v38/env5 adds verified actual Printful callback admission and twelve-table
-D1 durability. It does not supply a runtime Stripe API key or approved merchant
+Native v39/env5 retains v38 actual Printful callback admission and twelve-table
+D1 durability, and adds bounded catalog UI recovery. It does not supply a runtime Stripe API key or approved merchant
 policy; all payment blockers below remain unchanged.
 
 Supply through secure Sites runtime settings only:
@@ -111,7 +111,8 @@ securely as STRIPE_SECRET_KEY, plus reviewed COMMERCE_POLICY_JSON. Visitor
 AppGateway OAuth is not an unattended merchant API credential. Never request
 key values in chat/source/logs.
 
-The active v38/env5 Printful receiver does not remove this payment dependency.
+The active v39/env5 receiver retains the actual v38 admission proof; it does
+not remove this payment dependency.
 A safe metadata-only update to existing unconfirmed draft184026933 produced an
 actual signed order_updated callback, durably ignored / attempts0 /
 PRINTFUL_UNMAPPED_ORDER. Internal order/draft mappings remain empty. This proves
@@ -125,3 +126,13 @@ Official key references: [API keys](https://docs.stripe.com/keys),
 [managed keys](https://docs.stripe.com/keys/managed-api-keys),
 [approved Stripe App managed-key preview](https://docs.stripe.com/stripe-apps/api-authentication/managed-api-keys),
 [restricted-key apps](https://docs.stripe.com/stripe-apps/api-authentication/rak).
+
+## V39 checkout gate unchanged
+
+V39 deploys bounded pending-only catalog recovery (three automatic attempts,
+300/600 ms, then labelled manual retry); it adds no Stripe credential/policy or
+payment authorization. Actual v39 status has catalog/shipping true and checkout
+false; quantity1 persists after reload. Fresh actual v38 shipping selection
+kept tax quote disabled/pay hidden or disabled. No charge or real Stripe test
+payment is claimed. Preferred rollback v38 retains the receiver/env5 config;
+see PRINTFUL_DEPLOYMENT for exact release IDs and older-v37 retry caveat.
