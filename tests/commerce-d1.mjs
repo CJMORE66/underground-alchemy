@@ -81,12 +81,13 @@ test('migrate only verifies deployment-applied schema and never runs DDL during 
 
 test('deployment SQL and journal are real Drizzle generation plus a schema-only custom trigger migration', () => {
   const journal = JSON.parse(readFileSync(new URL('../drizzle/meta/_journal.json', import.meta.url), 'utf8'));
-  assert.equal(journal.dialect, 'sqlite'); assert.equal(journal.entries.length, 3);
+  assert.equal(journal.dialect, 'sqlite'); assert.equal(journal.entries.length, 4);
   const generated = journal.entries.map(entry => readFileSync(new URL('../drizzle/' + entry.tag + '.sql', import.meta.url), 'utf8')).join('\n');
   assert.equal(migration, '-- Generated deployment migration mirror; edit db/schema.ts and regenerate Drizzle, not this file.\n' + generated + '\n');
   assert.doesNotMatch(generated, /^\s*(INSERT|UPDATE|DELETE|REPLACE)\b/im);
   assert.match(generated, /CREATE TABLE [`"]?commerce_d1_limits/);
   assert.match(generated, /CREATE TABLE [`"]?commerce_d1_fulfillment/);
+  assert.match(generated, /CREATE TABLE [`"]?commerce_d1_printful_events/);
   assert.match(generated, /CREATE TRIGGER commerce_d1_orders_immutable_update/);
 });
 

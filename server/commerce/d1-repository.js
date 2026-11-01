@@ -1,5 +1,6 @@
 import { CommerceError, boundedText, currencyCode, fulfillmentItems, shippingRecipient } from './validation.js';
 import { validateFulfillmentProjection } from './fulfillment-sync.js';
+import { normalizePrintfulHint } from './printful-workflow.js';
 
 export const D1_SCHEMA_VERSION = 1;
 export const D1_SCHEMA_CONTRACT = 'ua-commerce-d1-v1';
@@ -21,12 +22,15 @@ const jobRecord = row => row ? { id: row.id, jobId: row.id, eventId: row.event_i
 const hydratedOrder = row => row ? { ...JSON.parse(row.order_json), stripeCheckoutSessionId: row.session_id ?? null } : null;
 const ORDER_SELECT = 'SELECT o.*, s.session_id FROM commerce_d1_orders o LEFT JOIN commerce_d1_sessions s ON s.scope = o.scope AND s.order_id = o.id WHERE o.scope = ? AND o.id = ?';
 const JOB_SELECT = 'SELECT j.*, e.session_id, e.type, e.provider_created FROM commerce_d1_jobs j JOIN commerce_d1_events e ON e.scope = j.scope AND e.event_id = j.event_id WHERE j.scope = ? AND j.id = ?';
+const PRINTFUL_JOB_SELECT = 'SELECT j.*, e.type, e.occurred_at, e.store_id, e.printful_id, e.external_id, e.shipment_id FROM commerce_d1_printful_jobs j JOIN commerce_d1_printful_events e ON e.scope = j.scope AND e.fingerprint = j.fingerprint WHERE j.scope = ? AND j.id = ?';
+const printfulJobRecord = row => row ? { id: row.id, jobId: row.id, fingerprint: row.fingerprint, type: row.type, occurredAt: row.occurred_at, storeId: row.store_id, printfulId: row.printful_id, externalId: row.external_id, shipmentId: row.shipment_id, orderId: row.order_id, state: row.state, attempts: row.attempts, availableAt: row.available_at_ms, workerId: row.worker_id, leaseToken: row.lease_token, leaseExpiresAt: row.lease_expires_at_ms, lastErrorCode: row.last_error_code, recoveryCount: row.recovery_count, completedAt: row.completed_at_ms, updatedAt: row.updated_at_ms } : null;
 const FULFILLMENT_SELECT = "SELECT f.* FROM commerce_d1_fulfillment f JOIN commerce_d1_orders o ON o.scope = f.scope AND o.id = f.order_id JOIN commerce_d1_drafts d ON d.scope = f.scope AND d.order_id = f.order_id AND d.printful_id = f.printful_id AND d.external_id = f.external_id AND d.state = 'created' WHERE f.scope = ? AND f.order_id = ? AND json_extract(o.order_json, '$.ownerId') = ?";
 const fulfillmentRecord = row => row ? { orderId: row.order_id, printfulId: row.printful_id, externalId: row.external_id, providerUpdatedAt: row.provider_updated_at, projectionHash: row.projection_hash, observedAt: row.observed_at_ms, projection: validateFulfillmentProjection(JSON.parse(row.projection_json)) } : null;
 const READINESS_OBJECTS = Object.freeze([
   ['commerce_d1_schema', 'table'], ['commerce_d1_orders', 'table'], ['commerce_d1_sessions', 'table'],
   ['commerce_d1_drafts', 'table'], ['commerce_d1_events', 'table'], ['commerce_d1_jobs', 'table'],
   ['commerce_d1_limits', 'table'], ['commerce_d1_fulfillment', 'table'], ['commerce_d1_public_catalog_cache', 'table'], ['commerce_d1_jobs_available', 'index'],
+  ['commerce_d1_printful_events', 'table'], ['commerce_d1_printful_jobs', 'table'], ['commerce_d1_printful_recoveries', 'table'], ['commerce_d1_pf_jobs_available', 'index'],
   ['commerce_d1_orders_immutable_update', 'trigger'], ['commerce_d1_orders_immutable_delete', 'trigger']
 ]);
 
@@ -125,6 +129,85 @@ export class D1CommerceRepository {
   async getDraft(orderId) {
     this.#requireReady(); safeId(orderId, 120);
     return draftRecord(await this.#first('SELECT * FROM commerce_d1_drafts WHERE scope = ? AND order_id = ?', this.#scope, orderId));
+  }
+  async getOrderByPrintfulMapping({ printfulId, externalId }) {
+    this.#requireReady();
+    if (!Number.isSafeInteger(printfulId) || printfulId <= 0) throw new CommerceError('INVALID_PRINTFUL_ID');
+    if (externalId === null) return null;
+    safeId(externalId, 32);
+    return hydratedOrder(await this.#first("SELECT o.*, s.session_id FROM commerce_d1_orders o JOIN commerce_d1_drafts d ON d.scope = o.scope AND d.order_id = o.id LEFT JOIN commerce_d1_sessions s ON s.scope = o.scope AND s.order_id = o.id WHERE d.scope = ? AND d.printful_id = ? AND d.external_id = ? AND d.state = 'created'", this.#scope, printfulId, externalId));
+  }
+  async enqueuePrintfulEvent(hint) {
+    this.#requireReady();
+    const event = normalizePrintfulHint(hint);
+    if (event.storeId !== Number(this.#scope.split(':').at(-1))) throw new CommerceError('PRINTFUL_EVENT_SCOPE_MISMATCH');
+    const id = 'printful_' + event.fingerprint, now = this.#now();
+    const result = await this.#batch([
+      ['INSERT INTO commerce_d1_printful_events(scope, fingerprint, type, occurred_at, store_id, printful_id, external_id, shipment_id, received_at_ms) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?) ON CONFLICT DO NOTHING', this.#scope, event.fingerprint, event.type, event.occurredAt, event.storeId, event.printfulId, event.externalId, event.shipmentId, now],
+      ["INSERT INTO commerce_d1_printful_jobs(scope, id, fingerprint, order_id, state, available_at_ms, last_error_code, completed_at_ms, created_at_ms, updated_at_ms) SELECT e.scope, ?, e.fingerprint, CASE WHEN d.order_id IS NOT NULL AND typeof(json_extract(o.order_json, '$.ownerId')) = 'text' AND length(json_extract(o.order_json, '$.ownerId')) BETWEEN 1 AND 120 THEN d.order_id ELSE NULL END, CASE WHEN d.order_id IS NOT NULL AND typeof(json_extract(o.order_json, '$.ownerId')) = 'text' AND length(json_extract(o.order_json, '$.ownerId')) BETWEEN 1 AND 120 THEN 'pending' ELSE 'ignored' END, ?, CASE WHEN d.order_id IS NOT NULL AND typeof(json_extract(o.order_json, '$.ownerId')) = 'text' AND length(json_extract(o.order_json, '$.ownerId')) BETWEEN 1 AND 120 THEN NULL ELSE 'PRINTFUL_UNMAPPED_ORDER' END, CASE WHEN d.order_id IS NOT NULL AND typeof(json_extract(o.order_json, '$.ownerId')) = 'text' AND length(json_extract(o.order_json, '$.ownerId')) BETWEEN 1 AND 120 THEN NULL ELSE ? END, ?, ? FROM commerce_d1_printful_events e LEFT JOIN commerce_d1_drafts d ON d.scope = e.scope AND d.printful_id = e.printful_id AND d.external_id = e.external_id AND d.state = 'created' LEFT JOIN commerce_d1_orders o ON o.scope = d.scope AND o.id = d.order_id WHERE e.scope = ? AND e.fingerprint = ? AND e.type = ? AND e.occurred_at = ? AND e.store_id = ? AND e.printful_id = ? AND e.external_id IS ? AND e.shipment_id IS ? ON CONFLICT DO NOTHING", id, now, now, now, now, this.#scope, event.fingerprint, event.type, event.occurredAt, event.storeId, event.printfulId, event.externalId, event.shipmentId],
+      ['SELECT * FROM commerce_d1_printful_events WHERE scope = ? AND fingerprint = ?', this.#scope, event.fingerprint],
+      [PRINTFUL_JOB_SELECT, this.#scope, id]
+    ]);
+    const stored = result[2].results[0], job = printfulJobRecord(result[3].results[0]);
+    if (!stored || stored.type !== event.type || stored.occurred_at !== event.occurredAt || stored.store_id !== event.storeId || stored.printful_id !== event.printfulId || stored.external_id !== event.externalId || stored.shipment_id !== event.shipmentId || !job) throw new CommerceError('PRINTFUL_EVENT_CONFLICT');
+    return { ...job, duplicate: result[0].meta?.changes !== 1 };
+  }
+  async getPrintfulJob(jobId) {
+    this.#requireReady(); safeId(jobId, 100);
+    return printfulJobRecord(await this.#first(PRINTFUL_JOB_SELECT, this.#scope, jobId));
+  }
+  async listPrintfulJobs({ state = 'dead_letter', limit = 20 } = {}) {
+    this.#requireReady();
+    if (!['pending', 'processing', 'completed', 'ignored', 'dead_letter'].includes(state) || !Number.isSafeInteger(limit) || limit < 1 || limit > 100) throw new CommerceError('INVALID_PRINTFUL_JOB_QUERY');
+    const result = await this.#batch([[PRINTFUL_JOB_SELECT.replace('j.id = ?', 'j.state = ?') + ' ORDER BY j.updated_at_ms, j.id LIMIT ?', this.#scope, state, limit]]);
+    return result[0].results.map(printfulJobRecord);
+  }
+  async claimPrintfulJob({ workerId, nowMs, leaseMs, jobId = null }) {
+    this.#requireReady(); safeId(workerId, 120); milliseconds(nowMs); if (jobId !== null) safeId(jobId, 100);
+    if (!Number.isSafeInteger(leaseMs) || leaseMs <= 0 || leaseMs > 15 * 60 * 1000 || !Number.isSafeInteger(nowMs + leaseMs)) throw new CommerceError('INVALID_JOB_LEASE');
+    const leaseToken = safeId(this.#uuid());
+    const result = await this.#batch([
+      ["UPDATE commerce_d1_printful_jobs SET state = 'dead_letter', worker_id = NULL, lease_token = NULL, lease_expires_at_ms = NULL, last_error_code = 'LEASE_ATTEMPTS_EXHAUSTED', updated_at_ms = ? WHERE scope = ? AND state = 'processing' AND lease_expires_at_ms <= ? AND attempts >= ?", nowMs, this.#scope, nowMs, MAX_ATTEMPTS],
+      ["UPDATE commerce_d1_printful_jobs SET state = 'processing', attempts = attempts + 1, worker_id = ?, lease_token = ?, lease_expires_at_ms = ?, updated_at_ms = ? WHERE scope = ? AND id = (SELECT id FROM commerce_d1_printful_jobs WHERE scope = ? AND (? IS NULL OR id = ?) AND attempts < ? AND ((state = 'pending' AND available_at_ms <= ?) OR (state = 'processing' AND lease_expires_at_ms <= ?)) ORDER BY available_at_ms, created_at_ms, id LIMIT 1)", workerId, leaseToken, nowMs + leaseMs, nowMs, this.#scope, this.#scope, jobId, jobId, MAX_ATTEMPTS, nowMs, nowMs],
+      [PRINTFUL_JOB_SELECT.replace('j.id = ?', "j.lease_token = ? AND j.state = 'processing'"), this.#scope, leaseToken]
+    ]);
+    if (result[1].meta?.changes !== 1) return null;
+    const job = printfulJobRecord(result[2].results[0]);
+    if (!job || job.workerId !== workerId || job.leaseToken !== leaseToken || job.leaseExpiresAt !== nowMs + leaseMs || (jobId !== null && job.jobId !== jobId)) throw new CommerceError('PRINTFUL_JOB_LEASE_CONFLICT');
+    return job;
+  }
+  async completePrintfulJob({ jobId, workerId, leaseToken, ignored = false }) {
+    this.#requireReady(); safeId(jobId, 100); safeId(workerId, 120); safeId(leaseToken);
+    if (typeof ignored !== 'boolean') throw new CommerceError('INVALID_PRINTFUL_JOB');
+    const now = this.#now();
+    const result = await this.#batch([
+      ["UPDATE commerce_d1_printful_jobs SET state = ?, worker_id = NULL, lease_token = NULL, lease_expires_at_ms = NULL, completed_at_ms = ?, last_error_code = ?, updated_at_ms = ? WHERE scope = ? AND id = ? AND state = 'processing' AND worker_id = ? AND lease_token = ? AND lease_expires_at_ms > ?", ignored ? 'ignored' : 'completed', now, ignored ? 'PRINTFUL_UNMAPPED_ORDER' : null, now, this.#scope, jobId, workerId, leaseToken, now],
+      [PRINTFUL_JOB_SELECT, this.#scope, jobId]
+    ]);
+    if (result[0].meta?.changes !== 1) throw new CommerceError('PRINTFUL_JOB_LEASE_CONFLICT');
+    return printfulJobRecord(result[1].results[0]);
+  }
+  async failPrintfulJob({ jobId, workerId, leaseToken, code, retryable, nowMs }) {
+    this.#requireReady(); safeId(jobId, 100); safeId(workerId, 120); safeId(leaseToken); failureCode(code); milliseconds(nowMs);
+    if (typeof retryable !== 'boolean' || !Number.isSafeInteger(nowMs + 60000)) throw new CommerceError('INVALID_JOB_FAILURE');
+    const result = await this.#batch([
+      ["UPDATE commerce_d1_printful_jobs SET state = CASE WHEN ? = 1 AND attempts < ? THEN 'pending' ELSE 'dead_letter' END, available_at_ms = ? + min(60000, 1000 * (1 << (attempts - 1))), worker_id = NULL, lease_token = NULL, lease_expires_at_ms = NULL, last_error_code = ?, updated_at_ms = ? WHERE scope = ? AND id = ? AND state = 'processing' AND worker_id = ? AND lease_token = ? AND lease_expires_at_ms > ?", retryable ? 1 : 0, MAX_ATTEMPTS, nowMs, code, nowMs, this.#scope, jobId, workerId, leaseToken, nowMs],
+      [PRINTFUL_JOB_SELECT, this.#scope, jobId]
+    ]);
+    if (result[0].meta?.changes !== 1) throw new CommerceError('PRINTFUL_JOB_LEASE_CONFLICT');
+    return printfulJobRecord(result[1].results[0]);
+  }
+  async retryPrintfulJob({ jobId, expectedUpdatedAt, expectedRecoveryCount, actorHash, reasonCode }) {
+    this.#requireReady(); safeId(jobId, 100); milliseconds(expectedUpdatedAt); safeHash(actorHash); failureCode(reasonCode);
+    if (!Number.isSafeInteger(expectedRecoveryCount) || expectedRecoveryCount < 0 || expectedRecoveryCount >= 10) throw new CommerceError('INVALID_PRINTFUL_RECOVERY');
+    const now = this.#now(), nonce = safeId(this.#uuid());
+    const result = await this.#batch([
+      ["UPDATE commerce_d1_printful_jobs SET state = 'pending', attempts = 0, available_at_ms = ?, last_error_code = NULL, completed_at_ms = NULL, recovery_count = recovery_count + 1, recovery_nonce = ?, updated_at_ms = ? WHERE scope = ? AND id = ? AND state = 'dead_letter' AND updated_at_ms = ? AND recovery_count = ? AND recovery_count < 10", now, nonce, now, this.#scope, jobId, expectedUpdatedAt, expectedRecoveryCount],
+      ["INSERT INTO commerce_d1_printful_recoveries(scope, job_id, number, actor_hash, reason_code, created_at_ms) SELECT scope, id, recovery_count, ?, ?, ? FROM commerce_d1_printful_jobs WHERE scope = ? AND id = ? AND recovery_nonce = ? AND state = 'pending' AND changes() = 1", actorHash, reasonCode, now, this.#scope, jobId, nonce],
+      [PRINTFUL_JOB_SELECT, this.#scope, jobId]
+    ]);
+    if (result[0].meta?.changes !== 1 || result[1].meta?.changes !== 1) throw new CommerceError('PRINTFUL_RECOVERY_CONFLICT');
+    return printfulJobRecord(result[2].results[0]);
   }
   async getFulfillmentProjection(orderId, { ownerId } = {}) {
     this.#requireReady(); safeId(orderId, 120); safeId(ownerId, 120);

@@ -95,3 +95,40 @@ export const commercePublicCatalogCache = sqliteTable('commerce_d1_public_catalo
   check('commerce_d1_catalog_json_check', sql`${table.payloadJson} IS NULL OR json_valid(${table.payloadJson})`),
   check('commerce_d1_catalog_time_check', sql`${table.verifiedAt} >= 0 AND ${table.expiresAt} >= 0 AND ${table.leaseExpiresAt} >= 0 AND ${table.updatedAt} >= 0`)
 ]);
+
+// Authenticated Printful hints only: never retain raw events or customer payloads.
+export const commercePrintfulEvents = sqliteTable('commerce_d1_printful_events', {
+  scope: text('scope').notNull(), fingerprint: text('fingerprint').notNull(), type: text('type').notNull(),
+  occurredAt: text('occurred_at').notNull(), storeId: integer('store_id').notNull(), printfulId: integer('printful_id').notNull(),
+  externalId: text('external_id'), shipmentId: integer('shipment_id'), receivedAt: integer('received_at_ms').notNull()
+}, table => [
+  primaryKey({ columns: [table.scope, table.fingerprint] }),
+  check('commerce_d1_pf_event_hash_check', sql`length(${table.fingerprint}) = 64`),
+  check('commerce_d1_pf_event_ids_check', sql`${table.storeId} > 0 AND ${table.printfulId} > 0 AND (${table.shipmentId} IS NULL OR ${table.shipmentId} > 0)`)
+]);
+
+export const commercePrintfulJobs = sqliteTable('commerce_d1_printful_jobs', {
+  scope: text('scope').notNull(), id: text('id').notNull(), fingerprint: text('fingerprint').notNull(), orderId: text('order_id'),
+  state: text('state').notNull(), attempts: integer('attempts').notNull().default(0), availableAt: integer('available_at_ms').notNull(),
+  workerId: text('worker_id'), leaseToken: text('lease_token'), leaseExpiresAt: integer('lease_expires_at_ms'), lastErrorCode: text('last_error_code'),
+  recoveryCount: integer('recovery_count').notNull().default(0), recoveryNonce: text('recovery_nonce'),
+  completedAt: integer('completed_at_ms'), createdAt: integer('created_at_ms').notNull(), updatedAt: integer('updated_at_ms').notNull()
+}, table => [
+  primaryKey({ columns: [table.scope, table.id] }), unique('commerce_d1_pf_job_event_unique').on(table.scope, table.fingerprint), unique('commerce_d1_pf_job_lease_unique').on(table.scope, table.leaseToken),
+  foreignKey({ columns: [table.scope, table.fingerprint], foreignColumns: [commercePrintfulEvents.scope, commercePrintfulEvents.fingerprint] }),
+  foreignKey({ columns: [table.scope, table.orderId], foreignColumns: [commerceOrders.scope, commerceOrders.id] }),
+  index('commerce_d1_pf_jobs_available').on(table.scope, table.state, table.availableAt, table.createdAt),
+  check('commerce_d1_pf_job_state_check', sql`${table.state} IN ('pending', 'processing', 'completed', 'ignored', 'dead_letter')`),
+  check('commerce_d1_pf_job_attempts_check', sql`${table.attempts} BETWEEN 0 AND 5 AND ${table.recoveryCount} BETWEEN 0 AND 10`),
+  check('commerce_d1_pf_job_mapping_check', sql`${table.orderId} IS NOT NULL OR ${table.state} = 'ignored'`),
+  check('commerce_d1_pf_job_lease_check', sql`(${table.state} = 'processing' AND ${table.workerId} IS NOT NULL AND ${table.leaseToken} IS NOT NULL AND ${table.leaseExpiresAt} IS NOT NULL) OR (${table.state} != 'processing' AND ${table.workerId} IS NULL AND ${table.leaseToken} IS NULL AND ${table.leaseExpiresAt} IS NULL)`)
+]);
+
+export const commercePrintfulRecoveries = sqliteTable('commerce_d1_printful_recoveries', {
+  scope: text('scope').notNull(), jobId: text('job_id').notNull(), number: integer('number').notNull(),
+  actorHash: text('actor_hash').notNull(), reasonCode: text('reason_code').notNull(), createdAt: integer('created_at_ms').notNull()
+}, table => [
+  primaryKey({ columns: [table.scope, table.jobId, table.number] }),
+  foreignKey({ columns: [table.scope, table.jobId], foreignColumns: [commercePrintfulJobs.scope, commercePrintfulJobs.id] }),
+  check('commerce_d1_pf_recovery_check', sql`${table.number} BETWEEN 1 AND 10 AND length(${table.actorHash}) = 64 AND ${table.createdAt} >= 0`)
+]);
