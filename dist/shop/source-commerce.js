@@ -10,6 +10,6 @@ export function sourceProductURL(product){
 }
 export function originalVariantURL(product,variant){
  const base=sourceProductURL(product);
- if(!base||!/^variant_[A-Za-z0-9]+$/.test(variant?.id||'')||product.variants?.filter(item=>item.id===variant.id&&item.sku===variant.sku).length!==1)return null;
+ if(!base||!/^variant_[A-Za-z0-9]+$/.test(variant?.id||'')||product.variants?.filter(item=>item.id===variant.id&&(item.sourceSku||item.sku)===(variant.sourceSku||variant.sku)).length!==1)return null;
  const url=new URL(base);url.searchParams.set('v_id',variant.id);return url.href;
 }

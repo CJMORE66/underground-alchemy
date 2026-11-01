@@ -3,9 +3,12 @@ import fs from 'node:fs';
 import {parseHTML} from 'linkedom';
 import {sourcePrice,sourceProductURL,originalVariantURL} from '../dist/shop/source-commerce.js';
 import {normalizeShopCatalog,safeShopImage,findShopVariant,mountShop} from '../dist/shop/shop.js';
+import {historicalShopFixture} from './shop-fixture.mjs';
 
 const raw=JSON.parse(fs.readFileSync(new URL('../dist/catalog.json',import.meta.url),'utf8'));
-const input=JSON.parse(fs.readFileSync(new URL('../dist/shop/catalog.json',import.meta.url),'utf8'));
+const input=historicalShopFixture();
+const currentCatalog=JSON.parse(fs.readFileSync(new URL('../dist/shop/catalog.json',import.meta.url),'utf8'));
+const currentNormalized=normalizeShopCatalog(currentCatalog);assert.equal(currentNormalized.products.length,currentCatalog.products.length,'current imported products remain visible');assert.equal(currentNormalized.products.flatMap(item=>item.variants).length,currentCatalog.products.flatMap(item=>item.variants).length,'current imported variants remain selectable');
 assert.equal(input.mode,'snapshot');
 const normalized=normalizeShopCatalog(input);
 assert.equal(normalized.products.length,20);
@@ -44,7 +47,7 @@ function fixture(responses=[input]){
  dialog.showModal=function(){this.setAttribute('open','');};
  dialog.close=function(){this.removeAttribute('open');this.dispatchEvent(new window.Event('close'));};
  window.CaisikI18n={t:source=>source,rescan:node=>rescans.push(node)};
- const fetch=async(url,options)=>{requests.push({url,options});const response=responses.shift();if(response instanceof Error)throw response;return {ok:response!==false,json:async()=>response};};
+ const fetch=async(url,options)=>{requests.push({url,options});if(url==='/api/commerce/status')return {ok:true,json:async()=>({catalogAvailable:false,shippingAvailable:false,checkoutAvailable:false,mode:'test'})};if(url==='/api/commerce/catalog')return {ok:false,status:503,json:async()=>({error:'FIXTURE_LIVE_UNAVAILABLE'})};const response=responses.shift();if(response instanceof Error)throw response;return {ok:response!==false,json:async()=>response};};
  const host=document.querySelector('[data-shop]'),api=mountShop(host,{document,fetch});
  const click=selector=>{const element=document.querySelector(selector);assert(element,selector);element.click();return element;};
  const setSelect=(select,value)=>{Object.defineProperty(select,'value',{configurable:true,writable:true,value});select.dispatchEvent(new window.Event('change',{bubbles:true}));};
@@ -53,9 +56,9 @@ function fixture(responses=[input]){
 {
  const h=fixture();await h.api.ready;
  assert.equal(h.document.querySelectorAll('.shop-card').length,20);
- assert.equal(h.requests.length,1);assert.equal(h.requests[0].url,'/shop/catalog.json?v=2');
+ assert.equal(h.requests.filter(item=>item.url==='/api/commerce/catalog').length,1);assert.equal(h.requests.filter(item=>item.url.startsWith('/shop/catalog.json')).length,1);assert(h.requests.some(item=>item.url==='/api/commerce/status'));assert.equal(h.api.getState().catalogueLive,false);assert.match(h.document.querySelector('[data-shop-catalog-notice]').textContent,/uložená kolekce/);
  assert(!h.document.querySelector('a[href*="hiphop.caisik"]'));
- assert(!h.document.querySelector('[data-checkout],form'),'no payment form or enabled checkout exists');
+ assert(!h.document.querySelector('[data-checkout]'),'no unverified external checkout exists');assert(h.document.querySelector('[data-commerce-form]').hidden,'saved catalog cannot activate the address/checkout form');
  assert(h.document.querySelector('[data-shop-cart]'),'local selection cart is available');
  assert(h.document.querySelector('[aria-describedby="shop-checkout-reason"]').disabled);
  assert(!h.host.textContent.includes('€'),'prices appear only for a fully selected exact variant');
@@ -83,10 +86,10 @@ function fixture(responses=[input]){
  h.click('[data-shop-category="hoodies"]');assert.equal(h.api.getState().count,raw.products.filter(product=>product.category==='hoodies').length);
  assert.equal(h.document.querySelector('[data-shop-category="hoodies"]').getAttribute('aria-pressed'),'true');
  const image=h.document.querySelector('.shop-card img');image.dispatchEvent(new h.window.Event('error'));assert(image.hidden);assert.match(h.document.querySelector('.shop-image-missing').textContent,/Náhled/);
- h.api.destroy();const prior=h.api.getState();search.value='OMERTA';search.dispatchEvent(new h.window.Event('input',{bubbles:true}));assert.deepEqual(h.api.getState(),prior,'unmounted handlers do not update the page');assert(h.requests[0].options.signal.aborted);h.api.destroy();
+ h.api.destroy();const prior=h.api.getState();search.value='OMERTA';search.dispatchEvent(new h.window.Event('input',{bubbles:true}));assert.deepEqual(h.api.getState(),prior,'unmounted handlers do not update the page');assert(h.requests.find(item=>item.url==='/api/commerce/catalog').options.signal.aborted);h.api.destroy();
 }
 {
- const h=fixture([false,input]);await h.api.ready;assert.match(h.document.querySelector('[data-shop-status]').textContent,/nepodařilo/);h.click('[data-shop-retry]');await new Promise(resolve=>setImmediate(resolve));assert.equal(h.api.getState().count,20);assert.equal(h.requests.length,2);h.api.destroy();
+ const h=fixture([false,input]);await h.api.ready;assert.match(h.document.querySelector('[data-shop-status]').textContent,/nepodařilo/);h.click('[data-shop-retry]');await new Promise(resolve=>setImmediate(resolve));assert.equal(h.api.getState().count,20);assert.equal(h.requests.filter(item=>item.url.startsWith('/shop/catalog.json')).length,2);h.api.destroy();
 }
 {
  const hostile=structuredClone(input);hostile.products=[{...hostile.products[0],name:'<img src=x onerror=bad()>',displayName:'<img src=x onerror=bad()>',description:'<script>bad()</script>plain'}];

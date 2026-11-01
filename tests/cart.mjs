@@ -2,7 +2,8 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import {CART_KEY,parseCart,cartView,createCart} from '../dist/shop/cart.js';
 import {normalizeShopCatalog,normalizePrintfulRetailPrice} from '../dist/shop/shop.js';
-const input=JSON.parse(fs.readFileSync(new URL('../dist/shop/catalog.json',import.meta.url),'utf8'));
+import {historicalShopFixture} from './shop-fixture.mjs';
+const input=historicalShopFixture();
 const catalogue=normalizeShopCatalog(input),product=catalogue.products.find(item=>item.variants.length>3),variant=product.variants[0],second=product.variants[1];
 const memory=(initial=null)=>{let raw=initial;return {getItem:key=>key===CART_KEY?raw:null,setItem:(key,value)=>{assert.equal(key,CART_KEY);raw=value;},get raw(){return raw;}};};
 assert.deepEqual(parseCart(null),{version:1,lines:[]});
@@ -47,7 +48,7 @@ function fixture({payload=input,location,asyncClose=false}={}){
  window.HTMLElement.prototype.focus=function(){document._focus=this;};
  const dialog=document.querySelector('dialog');Object.defineProperty(dialog,'open',{get(){return this.hasAttribute('open');}});dialog.showModal=function(){this.setAttribute('open','');};dialog.close=function(){this.removeAttribute('open');const emit=()=>this.dispatchEvent(new window.Event('close'));if(asyncClose)queueMicrotask(emit);else emit();};
  window.CaisikI18n={t:source=>source,rescan:()=>{}};
- const api=mountShop(document.querySelector('[data-shop]'),{document,fetch:async()=>({ok:true,json:async()=>payload})});
+ const api=mountShop(document.querySelector('[data-shop]'),{document,fetch:async(path)=>path==='/api/commerce/status'?({ok:true,json:async()=>({catalogAvailable:false,shippingAvailable:false,checkoutAvailable:false,mode:'test'})}):path==='/api/commerce/catalog'?({ok:false,status:503,json:async()=>({error:'FIXTURE_LIVE_UNAVAILABLE'})}):({ok:true,json:async()=>payload})});
  const click=selector=>{const node=document.querySelector(selector);assert(node,selector);node.click();return node;};
  const choose=variant=>{for(const option of variant.options){const select=document.querySelector(`[data-shop-option="${option.title}"]`);Object.defineProperty(select,'value',{configurable:true,writable:true,value:option.value});select.dispatchEvent(new window.Event('change',{bubbles:true}));}};
  return {document,window,dialog,api,click,choose};
