@@ -153,10 +153,25 @@ class SyncTests(unittest.TestCase):
         self.assertEqual(second["variants"][0]["id"], "pfv-1002")
         self.assertEqual([q["offset"] for p, q in handler.calls if p == "/store/products"], [["0"], ["1"]])
 
-    def test_wrong_or_multiple_store_refuses_before_reading_products(self):
-        for stores in ([{"id": 7}], [{"id": 18912189}, {"id": 7}], []):
+    def test_missing_ambiguous_or_malformed_store_identity_refuses_before_products(self):
+        for stores in ([{"id": 7}], [], [{"id": 18912189}, {"id": 18912189}],
+                       [{"id": 18912189}, {"id": "18912189"}], [{"id": True}, {"id": 18912189}],
+                       [{"id": 18912189}, {"id": []}], [None], {"id": 18912189}, None):
             handler = self.failed(lambda path, query: (200, envelope(stores), {}), "store identity")
             self.assertEqual(len(handler.calls), 1)
+
+    def test_account_token_with_multiple_stores_reads_only_fixed_expected_store(self):
+        for platform in ("api", "ecommerce"):
+            def route(path, query):
+                if path == "/stores":
+                    return 200, envelope([{"id": 7, "name": TOKEN, "private": TOKEN},
+                                          {"id": 18912189, "name": "CAISIK"}, {"id": 8}]), {}
+                return normal_route(path.replace("/sync/products", "/store/products"), query)
+            client, handler = self.client(route, platform=platform)
+            self.assertEqual(sync.sync_catalogue(self.output, client), (1, 1))
+            expected = "/store/products" if platform == "api" else "/sync/products"
+            self.assertEqual([path for path, _ in handler.calls], ["/stores", expected, expected + "/101"])
+            self.assertNotIn(TOKEN, self.output.read_text())
 
     def test_redirect_does_not_transmit_token_to_another_host(self):
         handler = self.failed(lambda path, query: (302, b"", {"Location": "https://external.test/collect"}), "redirect")
@@ -290,6 +305,47 @@ class SyncTests(unittest.TestCase):
             self.failed(lambda path, query, source=source:
                         (200, envelope(source), {}) if path == "/store/products/101" else normal_route(path, query),
                         "has no SKU")
+
+    def test_legacy_external_store_sku_migrates_once_and_preserves_alias_identity_and_price(self):
+        saved_price = {"amount": 56.5, "currency": "EUR", "taxInclusive": False,
+                       "checkedAt": "2026-10-16T04:52:09.112124+00:00"}
+        previous = self.baseline["products"][0]["variants"][0]
+        previous.update(sku="PF-18912189-1001", sourcePrice=saved_price)
+        self.output.write_text(json.dumps(self.baseline))
+        client, _ = self.client()
+        sync.sync_catalogue(self.output, client)
+        migrated = json.loads(self.output.read_text())["products"][0]["variants"][0]
+        self.assertEqual(migrated["sku"], "PF-SKU")
+        self.assertEqual(migrated["sourceSku"], "PF-18912189-1001")
+        self.assertEqual(migrated["id"], previous["id"])
+        self.assertEqual(migrated["printfulSyncVariantId"], 1001)
+        self.assertEqual(migrated["printfulCatalogVariantId"], 51734)
+        self.assertEqual(migrated["sourcePrice"], saved_price)
+        sync.sync_catalogue(self.output, client)
+        repeated = json.loads(self.output.read_text())["products"][0]["variants"][0]
+        self.assertEqual(repeated["sku"], migrated["sku"])
+        self.assertEqual(repeated["sourceSku"], migrated["sourceSku"])
+        self.assertEqual(repeated["sourcePrice"], saved_price)
+        self.before = self.output.read_bytes()
+        changed = details()
+        changed["sync_variants"][0]["sku"] = "CHANGED-ACTUAL-SKU"
+        self.failed(lambda path, query: (200, envelope(changed), {}) if path == "/store/products/101" else normal_route(path, query),
+                    "identity mapping")
+
+    def test_legacy_sku_migration_refuses_changed_catalog_or_wrong_alias_identity(self):
+        for sku, catalog_id, source_sku in (("PF-18912189-1001", 999, None),
+                                            ("PF-18912189-1002", 51734, None),
+                                            ("PF-999-1001", 51734, None),
+                                            ("REAL-OLD-SKU", 51734, "PF-18912189-1001"),
+                                            ("PF-18912189-1001", 51734, "PF-18912189-1002")):
+            previous = self.baseline["products"][0]["variants"][0]
+            previous.update(sku=sku, printfulCatalogVariantId=catalog_id)
+            previous.pop("sourceSku", None)
+            if source_sku is not None:
+                previous["sourceSku"] = source_sku
+            self.output.write_text(json.dumps(self.baseline))
+            self.before = self.output.read_bytes()
+            self.failed(normal_route, "identity mapping")
 
     def test_authenticated_empty_store_is_written_with_removal_evidence(self):
         def route(path, query):
@@ -478,4 +534,3 @@ class ProxyRetryTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main(verbosity=2)
-

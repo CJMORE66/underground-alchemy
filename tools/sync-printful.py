@@ -211,9 +211,17 @@ class PrintfulClient:
 
     def products(self, product_ids=None):
         stores = self.get("/stores")["result"]
-        if (not isinstance(stores, list) or len(stores) != 1 or not isinstance(stores[0], dict)
-                or identifier(stores[0].get("id")) != STORE_ID):
-            raise SyncError("Use a token limited to the expected CAISIK store 18912189; store identity did not match.")
+        if not isinstance(stores, list) or any(not isinstance(store, dict) for store in stores):
+            raise SyncError("Printful store identity response has an invalid format.")
+        try:
+            store_ids = [identifier(store.get("id")) for store in stores]
+        except SyncError:
+            raise SyncError("Printful store identity response has an invalid identifier.") from None
+        # Account-level tokens legitimately authorize several stores. Only confirm
+        # one unambiguous expected identity; every catalogue request remains pinned
+        # to STORE_ID by X-PF-Store-Id. Other store metadata is never used/exported.
+        if store_ids.count(STORE_ID) != 1:
+            raise SyncError("Expected CAISIK store identity 18912189 is missing or ambiguous.")
         if product_ids is not None:
             # An incremental scan never infers deletion from absent records. A 404 fails
             # atomically and requires a full scan to establish actual store membership.
@@ -389,9 +397,19 @@ def public_product(product_id, detail, previous, checked_at=None):
         sku = text(variant.get("sku"), 200)
         if not sku:
             raise SyncError("An exportable Printful variant has no SKU; complete its configuration before import.")
-        if old and ((old.get("sku") and old["sku"] != sku)
-                    or old.get("printfulCatalogVariantId") != catalog_id):
+        legacy_sku = f"PF-{STORE_ID}-{variant_id}"
+        source_sku = old.get("sourceSku")
+        if source_sku is not None and source_sku != legacy_sku:
+            raise SyncError("A retained legacy source SKU alias conflicts with the Printful identity mapping.")
+        if old and old.get("printfulCatalogVariantId") != catalog_id:
             raise SyncError("A retained SKU or catalog variant changed; review identity mapping before import.")
+        if old.get("sku") and old["sku"] != sku:
+            # Explicit migration of the documented external-store placeholder.
+            # The sync identity and catalog variant must both remain unchanged;
+            # real Printful SKU changes are never silently accepted afterward.
+            if old["sku"] != legacy_sku:
+                raise SyncError("A retained SKU or catalog variant changed; review identity mapping before import.")
+            source_sku = legacy_sku
         values = variant_options(variant, old)
         for option in values:
             options.setdefault(option["title"], [])
@@ -402,6 +420,8 @@ def public_product(product_id, detail, previous, checked_at=None):
                          "title": text(old.get("title") or variant.get("name"), 300, required=True),
                          "options": values, "printfulSyncVariantId": variant_id,
                          "printfulCatalogVariantId": catalog_id})
+        if source_sku is not None:
+            variants[-1]["sourceSku"] = source_sku
         variants[-1].update(live_variant_fields(variant, checked_at))
         saved_price = historical_source_price(old.get("sourcePrice"))
         if saved_price is not None:
@@ -533,4 +553,3 @@ def main(argv=None):
 
 if __name__ == "__main__":
     raise SystemExit(main())
-
