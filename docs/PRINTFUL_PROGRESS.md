@@ -1,103 +1,81 @@
-# Commerce progress / resume record
+# Commerce final progress / resume record
 
-Updated: 1 November 2026, Europe/Paris. Overall **PARTIALLY WORKING**. Live
-Printful real Node reads work; native Worker versions 32–34/D1/status are
-deployed. Production catalog transport is broken by native Fetch receiver and
-unsupported redirect:error. Both fixes/tests are ready; deployment/new hosted
-proof and payment/fulfillment acceptance remain pending.
+Updated: 1 November 2026. Overall **PARTIALLY WORKING**. Native v36 is deployed;
+live catalog/shipping and one standalone safe Printful draft are verified. Runtime
+Stripe API key/merchant policy and complete paid-order acceptance remain blocked.
+V36 final shipping/quote-button browser smoke passes; this does not make the
+Stripe payment/full-order workflow complete.
 
 ## Verified completed
 
-- [x] Inspect existing GitHub/Sites source and PR #3; retain branding/routes/audience.
-- [x] Deliver static SHOP/cart/CZ-EN-FR repair as verified version 31 (31 October).
-- [x] Keep review changes in GitHub PR #4; distinguish GitHub and Sites histories.
-- [x] Real Printful authentication: expected store 18912189 once among seven,
-  HTTP 200. Credential securely stored as masked Sites runtime secret.
-- [x] Real full catalog sync at `2026-11-01T10:10:57.292386Z`: 20 products /
-  86 variants, 83 active / 3 temporary out of stock, all retail currencies EUR.
-- [x] Actual Node LivePrintfulCatalog also reads the real 20/86; distinct from
-  both CLI results and actual local workerd runs with synthetic 20/86 responses.
-- [x] Preserve internal/sync/catalog identities and historical price dates;
-  migrate only exact legacy PF aliases to `sourceSku`, retaining actual `sku`.
-- [x] Real safe shipping estimate: catalog variant 51734 × 1, official US/CA
-  test destination, STANDARD €4.69 at observation. No order created.
-- [x] Confirm/read existing Stripe test account and active Tax settings/two Czech
-  registration records; do not mistake connector auth for a runtime key.
-- [x] Implement native Worker+ASSETS, fresh server quote/prices, signed guest
-  ownership/Origin/body/rate controls, D1 scoped repository and Drizzle schema.
-- [x] Pass latest reported groups: 56 Stripe-related, 89 Worker/D1/quote/catalog/
-  HTTP, 19 original provider, 29 importer cases; UI/language/atlas regressions.
-- [x] First Worker build preserves 680 frontend assets / 188,107,785 bytes.
-- [x] Deploy native v32 (`467723d`), v33 (`c8ec0ef`) and v34 (`3ee4110`).
-- [x] Verify seven actual COMMERCE_DB tables and native status HTTP 200:
-  test/catalog/shipping true, checkout false. No order created.
-- [x] Register actual enabled test-mode Stripe endpoint, four September-version
-  snapshot events; securely store its signing secret/version at runtime rev4.
-- [x] GitHub PR #4 head `ceac189` passes CI #10; later fixes require later proof.
+- [x] Retain original brand/routes/assets and public Sites identity; review PR #4
+  separately from Sites source/deploy history.
+- [x] Real Printful auth/store: 18912189 once among seven native account stores.
+- [x] Real CLI and Node adapter reads: 20 products/86 variants, 83 active/3
+  temporary out of stock, all EUR; exact IDs and legacy sourceSku aliases retained.
+- [x] Native live browser catalog/product/cart/persistence/quantity/CZ-EN-FR
+  desktop; actual out-of-stock option cannot add; second gallery preview loads.
+- [x] Actual browser shipping OMERTA Black/M × 1 at official US/California test
+  destination: STANDARD €8.39, CO2 €8.47. Earlier separate Node estimate €4.69.
+- [x] Nine native D1 tables incl fulfillment/public cache; observed store-specific
+  cache metadata TTL 60,000 ms/lease NULL. Truncated row payload not treated as
+  complete parsed evidence.
+- [x] Safe standalone draft 184026933 created and authenticated GET verified;
+  confirm=false, no charge/production. Left draft, no fake paid internal order.
+- [x] Enabled test Stripe snapshot endpoint/actual masked secret and September
+  version configured at env4. Connected test account/Tax settings inspected.
+- [x] 227 focused cases (29 importer + 21 provider + 57 Stripe + 120 Worker),
+  UI/regression groups and 3 actual generated-bundle isolated workerd cases pass.
+- [x] Native Fetch/redirect/cache failures repaired and live v35 catalog verified;
+  later v36 UI quote gate fixed/tested and deployed.
+- [x] CI #12 passes at GitHub a2c7d8a6b3b91e476b74213c5cb4084311fe8837,
+  including native-bundle checks.
+- [x] V36 native deployment succeeds at 2026-11-01T10:53:43.921359+00:00,
+  source b5d613845852a5e14d20f4a3072189726b84fada. Status 200 reports test mode,
+  catalog/shipping available, checkout unavailable; cart preserves quantity 1
+  after reload.
 
-## Pending release / configuration
+## Remaining acceptance
 
-- [x] Remediate build dependencies; full audit now reports zero known advisories.
-- [x] Publish initial Worker/archive and apply/verify initial native D1 schema.
-- [x] Prepare/test correct native Fetch receiver and manual-redirect/explicit
-  redirect rejection fixes. Cloudflare redirect:error is unsupported.
-- [ ] Publish/verify those fixes in the next exact source. V33 exposed cache.match failure; v34 made
-  cache safe/optional but actual provider catalog still returns TRANSPORT_ERROR.
-- [ ] Finish/test/apply durable cache and owner-visible fulfillment projection/table migrations.
-- [ ] Verify production live catalog/images/status/shipping, retained UI/languages
-  and logs. Current observed production is v34; its catalog is not accepted working.
-- [ ] Securely configure actual runtime Stripe test API key and approved
-  `COMMERCE_POLICY_JSON`; existing endpoint secret/version do not need re-entry.
-- [ ] Run authorized real test Checkout/payment/signature/retry/draft acceptance.
-- [ ] Complete durable Printful statuses/tracking, notifications, refund/cancellation
-  initiation, admin failure operations and retention/anonymization.
+- [x] Final v36 actual 10:54 UTC smoke: live catalog 20/86/83 active, official
+  destination rates €8.39/€8.47; STANDARD selected with tax quote disabled.
+  Test item removed to 0, persisted after reload; address form empty on reload.
+- [x] Actual D1 order/draft-mapping rows both zero; standalone provider draft is
+  not an internal paid order. Last 5-minute/25-event error query returns 0 events,
+  subject to bounded window/ingestion lag.
+- [ ] Securely configure runtime STRIPE_SECRET_KEY test API key and reviewed
+  COMMERCE_POLICY_JSON. Existing Printful/session/webhook secrets are already set.
+- [ ] Authorized actual Stripe Tax/Checkout/payment/signature/redelivery and
+  fresh captured-payment verification; durable internal order → one linked
+  Printful draft. Standalone draft proof is not this workflow.
+- [ ] Actual linked paid-order fulfillment/shipment progression. Owner-scoped
+  projection/multiple tracking/CAS/partial UI are implemented/tested, not live
+  shipment acceptance.
+- [ ] Complete Printful receiver, customer notifications/refund-cancellation
+  initiation, admin recovery and approved retention/anonymization. Obtain actual
+  business identity, approved sender/service and retention policy as needed.
+- [ ] Current-release real mobile viewport acceptance; desktop/fixtures do not
+  substitute for it.
 
-## Current owner dependencies
+## Current owner inputs / state
 
-Existing Printful/session/webhook secrets and September snapshot version are
-already present at runtime revision 4;
-there is no reason to re-request or print them. Remaining external requirements:
+Immediate blockers are only the secure runtime Stripe test API key and approved
+merchant selling/tax/country policy. No new hosting account, mandatory NAS access,
+Printful token or webhook-secret handoff is required. Connector authorization
+does not grant a runtime key; never put secrets in chat/source/logs.
 
-1. Actual connected-account `STRIPE_SECRET_KEY` test key in secure Sites config.
-2. Reviewed merchant price/tax/country policy as `COMMERCE_POLICY_JSON`, including
-   intended selling prices/exclusive tax treatment, registrations and tax codes.
-
-No new hosting account or mandatory NAS access is needed for the native Worker/D1
-path. Connector authentication does not supply a runtime API key. Never paste
-secrets into chat. No real-charge or paid Printful confirmation is authorized;
-no confirmation method is implemented.
-
-## Acceptance status
-
-| Criterion | Current evidence/status |
-| --- | --- |
-| Printful authentication / store | VERIFIED live read |
-| Real products / variants / prices / availability | VERIFIED live full read; customer policy still needs approval |
-| Production catalog transport | BROKEN v34; receiver/manual-redirect fixes and regressions ready, new deployment/production proof pending |
-| Shipping | VERIFIED one destination-specific read; hosted integration pending |
-| Catalog/cart/CZ-EN-FR | Prior production baseline + new fixture tests; new hosted smoke pending |
-| Server pricing/tax/ownership | Implemented/tested; runtime merchant policy/payment config missing |
-| D1 durable orders / duplicate safety | Native seven-table schema/status verified; no actual order; new fulfillment projection migration pending |
-| Stripe payment / actual signed delivery | BLOCKED runtime API key/policy; endpoint enabled in test mode and secret/version configured; no real test payment/delivery |
-| Printful draft | Fixture safety only; no actual order created |
-| Paid fulfillment / tracking / refunds / notifications | Not verified; several workflows incomplete |
-| Build / deployment | Versions 32–34 deployed; CI #10 passes earlier PR head. New receiver/projection fix/deploy/CI/smoke pending |
-| Security | Production and full development audits now zero; PII retention remains incomplete |
+No real Stripe payment or full paid-order workflow is verified. No paid Printful
+confirmation method exists or production charge is authorized. The standalone
+test draft remains in Printful for inspection; do not confirm it automatically.
 
 ## Resume / rollback
 
-Read these six PRINTFUL documents, `STRIPE_SETUP.md`, current source/manifest and
-actual Site deployment/D1 state. Do not replace a live catalog with an old
-snapshot, infer a deployment from a push, or replay uncertain creates.
+Read the six PRINTFUL documents and STRIPE_SETUP, current Site/D1/configuration
+and real deployment records. V36 IDs/source/archive are in DEPLOYMENT. Immediate
+known-good static rollback remains v31; preserve D1/schema/cache/order data,
+runtime secrets, browser notes/carts and uncertain mutation gates. Never replay
+an ambiguous create or treat a deployment/fixture as paid fulfillment proof.
 
-Immediate known-good rollback is saved version 31; see exact IDs in
-`PRINTFUL_DEPLOYMENT.md`. Preserve D1 schema/data, runtime secrets and all local
-user notes. Schema readiness is not a production payment test. Initial Miniflare
-hang is dated earlier evidence; later actual local workerd synthetic runs passed.
-Keep shim/synthetic/native-D1/real-provider evidence categories separate.
-
-## Final release fields — pending root update
-
-Append new repair/projection source/PR commits, checks/CI, exact native saved/
-deployment IDs, migration result and production provider smoke. Do not relabel
-the current failed catalog path or carry earlier CI success to later code.
+Final v36 publication/smoke record is complete in DEPLOYMENT/TEST_RESULTS.
+The full integration remains PARTIALLY WORKING, with the specific external
+payment inputs and incomplete production operations above still open.

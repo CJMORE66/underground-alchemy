@@ -1,110 +1,92 @@
 # Stripe test-mode runtime setup
 
-Updated: 1 November 2026. Stripe is confirmed and the existing connected test
-account was read successfully: `livemode:false`, Tax settings active, two active
-Czech registration records (`inbound_goods`, `small_seller`). Do not create a
-replacement account or assume connector authorization supplies runtime keys.
-No actual Checkout/payment or paid Printful order has been created.
+Updated: 1 November 2026. Existing Stripe test account/Tax settings and two active
+Czech registration records are verified. Endpoint registration is complete and
+enabled in test mode. Runtime payment key and approved merchant policy remain
+missing; no actual Stripe payment or full paid-order workflow is verified.
 
-## Runtime configuration still missing
+## Required owner configuration
 
-Use supported Sites secure configuration for the existing Worker project:
+Supply through secure Sites runtime settings only:
 
-- `STRIPE_SECRET_KEY`: actual connected-account test secret or appropriately
-  permitted restricted test key. Test-only adapter accepts `sk_test_…`/`rk_test_…`
-  and rejects live keys/mode. Never transmit a value through chat, Git or logs.
-- `COMMERCE_POLICY_JSON`: verified merchant settings in `PRINTFUL_SETUP.md`;
-  do not substitute synthetic tax IDs or infer treatment from a connector read.
+- **STRIPE_SECRET_KEY**: actual connected-account test secret/restricted test API
+  key with the required Checkout/Tax/payment-read permissions. Connector/MCP
+  authorization is not this runtime credential. Never paste key values in chat,
+  source, browser code, command arguments or logs.
+- **COMMERCE_POLICY_JSON**: reviewed merchant selling-price, exclusive-tax,
+  country, product/shipping tax-code and registration policy. Exact schema and
+  scope are in `PRINTFUL_SETUP.md`; do not invent IDs/rules to enable a button.
 
-Existing masked `PRINTFUL_API_TOKEN`, `COMMERCE_SESSION_SECRET` and actual
-`STRIPE_WEBHOOK_SECRET` are configured at runtime revision 4. Snapshot version
-`STRIPE_WEBHOOK_API_VERSION=2026-09-30.endive` is configured too. Remaining owner
-inputs are only the runtime Stripe test API key and approved merchant policy.
-Native Worker/D1 supplies the backend; no new hosting account, Node disk path
-or NAS administration step is required for this deployment path.
+Preserve existing masked Printful/session/webhook secrets at env revision 4.
+Native Sites Worker/D1 requires no extra hosting account or mandatory NAS access.
+Observed active Tax settings/registrations are not blanket approval of all
+products/countries or an actual Tax calculation for the proposed order.
 
-SDK is pinned to **23.1.0** and API to **2026-10-28.endive**. Worker uses Stripe's
-Fetch client and Web Crypto asynchronous SDK verification. Policy must match
-the connected account/test mode/store 18912189 and currently supported
-EUR/exponent 2/exclusive selling-price treatment. Product/shipping tax codes,
-delivery countries and registration IDs need merchant review; active Tax
-settings alone do not approve the policy.
+## Existing enabled snapshot destination
 
-## Configured actual snapshot destination
+Endpoint `we_1UWw4LPkIIV492Qzkv8SzPaj` has **status enabled**, **livemode:false**
+(test mode), account Snapshot contract **2026-09-30.endive**, path
+`/api/stripe/webhook`. All four events are registered:
 
-Already created on the existing test account: endpoint
-`we_1UWw4LPkIIV492Qzkv8SzPaj`, **account Snapshot**, `livemode:false`,
-**2026-09-30.endive**, status **enabled**, `livemode:false` (**test mode**).
-Its masked signing secret is stored
-in Sites and all four events below are subscribed. Do not duplicate the endpoint
-or request its secret again. After payment configuration, test delivery through
-the authorized connected workflow. `livemode:false` does not mean disabled;
-registration is complete, but no actual delivery is verified yet.
+- checkout.session.completed
+- checkout.session.async_payment_succeeded
+- checkout.session.async_payment_failed
+- checkout.session.expired
 
-Outgoing SDK API remains **2026-10-28.endive**. Snapshot verification matches
-the actual endpoint version using `STRIPE_WEBHOOK_API_VERSION`; it explicitly
-supports the configured September contract rather than assuming SDK version
-equals destination version. The adapter rejects thin/Connect/live events.
+Its actual signing secret is securely configured; do not recreate it or request
+another secret. `livemode:false` means test mode, not disabled. Actual signed
+endpoint delivery/processing remains unverified.
 
-- `checkout.session.completed`
-- `checkout.session.async_payment_succeeded`
-- `checkout.session.async_payment_failed`
-- `checkout.session.expired`
+Official SDK is **23.1.0**, outgoing API **2026-10-28.endive**. Worker Fetch and
+Web Crypto verify original raw bytes against the explicitly configured September
+snapshot version. Do not assume SDK version equals webhook version. Thin,
+Connect and live-mode payloads are rejected by the test-only adapter.
 
-Preserve original bytes: no JSON
-parsing/re-serialization before SDK verification. Raw body is bounded at 256 KiB.
-Only completed/async-success candidates enter the scoped D1 inbox/job transaction.
-Failed/expired events do not create fulfillment work; invalid signatures fail.
+Raw signature admission requires the actual endpoint secret but not the payment
+API key. Valid candidates commit to scoped D1 inbox/jobs; absent runtime payment
+configuration leaves them pending and returns 503 for redelivery. Processing is
+awaited; waitUntil alone is not the recovery guarantee. Failed/expired events
+never authorize manufacturing. No real webhook delivery has been inferred from
+fixture signatures or successful registration.
 
-Signature admission is independent of runtime API-key construction. With an
-actual endpoint secret and ready D1, valid events can be saved even if the API
-key/policy is missing. Pending work returns **503** for redelivery; receipt is
-not acknowledged as completed payment processing. The Worker awaits durable
-processing and does not rely only on `waitUntil`.
+## Shipping-only versus paid test flow
 
-## Quote, test Checkout and payment verification
+Live catalog/destination-specific shipping can work without Stripe payment key/
+policy. Status currently reports checkoutAvailable:false. V35 showed a quote
+button enabled in this mode although the server correctly rejected quotes. The
+source gate fix (`b5d613845852a5e14d20f4a3072189726b84fada`) now blocks both the
+button and handler until checkoutReady; tests pass and v36 is deployed. Its
+final actual browser smoke passes: official-destination shipping returns €8.39/
+€8.47, and selecting STANDARD leaves the tax quote button disabled while
+checkoutAvailable:false. This verifies the gate, not a Stripe payment.
 
-The same-origin CS/EN/FR UI obtains a signed guest ownership cookie through
-status, then submits IDs/quantities/address to shipping/quote APIs. Server reads
-current Printful prices/active variants, actual rates and approved tax policy.
-Browser prices, historical estimates and paid flags are not trusted. Guest
-cookie possession is order ownership, not verified personal identity.
+When payment configuration is ready, the guest sends IDs/quantities/address only.
+Fresh server catalog, exact variants, shipping and approved policy feed Stripe
+Tax. Immutable D1 quote binds address, all line amounts/quantities, currency,
+shipping, policy and total. Stable idempotency parameters survive lost replies;
+quote creation is bounded and changed/expired inputs require a new quote.
 
-Stripe Tax freezes address, exact variant/quantity/line price, currency,
-shipping, policy revision and total. D1 persists the owner-bound quote; Checkout
-loads it by ID. Stable idempotency parameters survive lost replies. New quote
-creation lasts at most 30 minutes. Hosted Session expiry is fixed to
-`quoteExpiry + 1860` across retries. Changed/expired inputs require a fresh quote.
+After an event, fresh Session/all lines/shipping/address/tax/total, PI, captured
+charge and refund history must match. A redirect or signature alone is not
+payment evidence. Refunded/disputed/reviewed, uncaptured or mismatched payments
+cannot create a linked draft. Authorized successful/failed/delayed test payment,
+real delivery/retries and actual internal-order-to-Printful mapping still need
+demonstration after runtime configuration.
 
-After a signed event, freshly retrieved Session/all lines/shipping/address/tax/
-total, PaymentIntent, captured charge and refund history must match. A browser
-return or signed event alone is never payment proof. Refunded/disputed/reviewed,
-uncaptured or mismatched payments cannot create a draft.
+## Printful draft and production boundary
 
-Authorized test acceptance must demonstrate successful/failed/delayed payments,
-actual delivery/retries, ownership, native D1 recovery and one linked Printful
-**draft**. Use authorized Stripe test methods. A draft is not paid manufacturing;
-no Printful confirmation method or real-charge authorization exists in this work.
+Standalone Printful draft **184026933** was created and read back safely with
+confirm=false. It remains a draft, with no charge/production confirmation and no
+fake paid internal order. That low-level API proof is not a Stripe payment test
+or end-to-end fulfillment acceptance. Do not confirm it for production.
 
-## Durable operation and unfinished work
-
-D1 operations are scoped to Stripe account + test mode + Printful store. Atomic
-inbox/jobs, unique bindings, leases/fencing, five-attempt bound, dead letters and
-single-POST gate are implemented. Safe initial reads can retry; uncertain
-attempted Printful creates only reconcile by external ID. Never reset the gate
-because a lookup is temporarily empty.
-
-Native initial D1 schema and Worker versions 32–34 are deployed. Production
-status is ready for catalog/shipping but not checkout; a diagnosed native Fetch
-receiver binding and unsupported redirect:error still prevent catalog access.
-Correct binding plus redirect:manual/explicit redirect rejection fixes/tests are
-ready, but deployment/new production proof are pending. Later local workerd
-synthetic runs succeeded; the original
-Miniflare hang is historical and does not invalidate those later distinct tests.
-Checkout fails closed without runtime payment API key and approved policy.
-Finish retention/anonymization of immutable address-bearing orders,
-customer refund/cancellation initiation, Printful status/tracking receiver,
-notifications and operational admin handling before production customers.
+Owner-scoped durable fulfillment projection, multiple-tracking/partial UI and
+CAS safety are implemented/tested; no actual linked paid order or shipment
+progression exists. Complete the durable Printful event receiver, customer
+notification/refund/cancellation initiation and operational admin/recovery.
+Approved business identity, sender/service and retention policy are dependencies.
+Immutable address-bearing order JSON has no completed anonymization/delete
+lifecycle. No live-charge mode or paid Printful confirmation method is delivered.
 
 Sources: [Checkout](https://docs.stripe.com/api/checkout/sessions/create),
 [webhooks](https://docs.stripe.com/webhooks),

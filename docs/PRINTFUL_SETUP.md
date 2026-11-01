@@ -1,112 +1,89 @@
-# Printful / commerce setup
+# Commerce setup / remaining owner inputs
 
-Updated: 1 November 2026. Real Printful store/catalog reads and one shipping
-estimate succeeded, including a real Node LivePrintfulCatalog read. Native
-Worker versions 32–34 and seven-table D1 schema are deployed. A diagnosed native
-Fetch receiver bug and unsupported redirect:error still block production catalog
-access. Both fixes/tests are ready, deployment/proof pending. Stripe API key/policy
-are missing. No new hosting account or mandatory
-NAS recovery is required for the supported native deployment.
+Updated: 1 November 2026. Native Worker/D1 and live catalog/shipping now work.
+One standalone safe Printful draft was created/read back. Runtime Stripe payment
+and end-to-end paid-order workflow remain blocked; overall PARTIALLY WORKING.
+V36 native publication and final actual shipping/quote-button browser smoke
+pass; only the documented payment/full-order and remaining operational scope is blocked.
 
-## Already completed
+## Already configured and verified
 
-- Authorized Printful credential accepted; expected store 18912189 appeared once
-  among seven native stores. It is stored as a masked Sites runtime secret, not
-  committed or printed.
-- Full live import at `2026-11-01T10:10:57.292386Z`: 20 products/86 variants,
-  83 active/3 temporary out of stock, all retail currencies EUR. Exact internal/
-  sync/catalog identities remain; actual SKU and historical alias are separate.
-- Sites runtime revision 4 includes masked `PRINTFUL_API_TOKEN`,
-  `COMMERCE_SESSION_SECRET`, `STRIPE_WEBHOOK_SECRET` and configured
-  `STRIPE_WEBHOOK_API_VERSION=2026-09-30.endive`; existing Manual/API store retained.
-- Existing connected Stripe test account/Tax settings and two active Czech
-  registration records were read. This is not a runtime API-key grant.
-- A real four-event test Stripe destination is registered and enabled in test mode.
-  Its endpoint secret/version are already securely configured; do not re-request
-  the secret. No actual signed delivery/payment is verified.
-- Native status returns HTTP 200, `mode:test`, catalog/shipping available,
-  checkout unavailable. These readiness flags are not provider health probes.
+- Existing Printful store 18912189: real authorized store membership among seven,
+  CLI/Node live 20/86 and actual production browser catalog. Preserve the existing
+  credential and exact internal/sync/catalog mappings/legacy sourceSku aliases.
+- Runtime revision 4 has masked PRINTFUL_API_TOKEN, COMMERCE_SESSION_SECRET and
+  actual STRIPE_WEBHOOK_SECRET; STRIPE_WEBHOOK_API_VERSION is 2026-09-30.endive.
+- Enabled test-mode Stripe snapshot endpoint exists with four required events.
+  Do not recreate it or ask for the signing secret again. Actual delivery/payment
+  still needs testing after payment configuration.
+- Native COMMERCE_DB has nine tables including fulfillment/public cache. Actual
+  catalog cache metadata shows 60-second TTL; preserve native data on rollback.
+- Existing Sites project/audience and Worker+ASSETS+D1 require no new hosting
+  account, external Node disk or mandatory NAS recovery.
 
-## Required remaining runtime settings
+## Immediate owner inputs
 
-Set these through supported Sites secret/environment configuration or a secure
-owner credential handoff. Never paste secrets in chat, commit them, put them in
-`dist/`, command arguments, reports or `.openai/hosting.json`.
+Use supported secure Sites configuration. Never paste values into chat, Git,
+command arguments, `dist/`, reports or `.openai/hosting.json`.
 
-| Setting | Required value/source |
+| Runtime setting | Required source / decision |
 | --- | --- |
-| `STRIPE_SECRET_KEY` | Actual connected-account test API key; official adapter accepts test secret/restricted test keys only. Connector authentication is not this key. |
-| `COMMERCE_POLICY_JSON` | Reviewed merchant price/tax/country policy matching the already connected account/store/test scope; exact fields below |
+| STRIPE_SECRET_KEY | Actual connected-account test API key (secret or appropriately permitted restricted test key); connector authentication is not a runtime key |
+| COMMERCE_POLICY_JSON | Reviewed selling-price/tax/country policy matching connected account, test mode and store; fields below |
 
-Keep the existing Printful/session/webhook secrets and destination version.
-Owner inputs now are the runtime Stripe test API key and merchant policy only.
-Testing the already-enabled destination is a technical release step after valid
-payment configuration, not a request for another secret/account or registration.
+The policy requires matching stripeAccountId, mode:test, printfulStoreId:18912189,
+currency:EUR, currencyExponent:2, priceTaxBehavior:exclusive, policyRevision,
+verified active registrationIds, approved allowedCountries, shippingTaxCode and
+internal-ID keyed taxCodeByVariantId and/or taxCodeByProductId. Confirm that the
+Printful retail metadata is the intended selling price and exclusive-tax treatment.
+Active observed Tax registrations are not approval of every product/country rule.
+Do not invent registrations, tax codes, universal shipping rates or zero-tax policy.
 
-The policy requires `stripeAccountId` matching the already connected account,
-`mode: test`, `printfulStoreId: 18912189`, `currency: EUR`, `currencyExponent: 2`,
-`priceTaxBehavior: exclusive`, a nonempty `policyRevision`, verified active
-`registrationIds`, approved `allowedCountries`, `shippingTaxCode`, and
-`taxCodeByVariantId` and/or `taxCodeByProductId` keyed by retained internal IDs.
-Approve that Printful retail metadata is the intended customer selling price
-and confirm exclusive-tax treatment. Observed active registrations alone do not
-establish every country/product's tax obligations. Do not invent tax-code IDs,
-zero-tax policy, countries or a universal shipping price.
-
-## Native build, schema and deployment
-
-The existing Site identity/audience is retained. Source manifest declares D1
-binding `COMMERCE_DB` and omits static hosting. Use the supported Sites source
-packaging/save/deploy workflow; no external Cloudflare account bootstrap is needed.
+## Native maintenance / release
 
 ```sh
 npm run test:commerce
 npm test
 npm run build:commerce
 npm run check:commerce-release
+node tests/commerce-workerd.mjs
 ```
 
-Run language/regression/whitespace checks documented in `PRINTFUL_TEST_RESULTS.md`.
-Do not regenerate migrations to hide a schema mismatch. The reviewed migration
-chain is `drizzle/0000_commerce.sql` and `drizzle/0001_commerce_immutability.sql`,
-from `db/schema.ts`/Drizzle metadata. Native deployment must apply and verify
-those schema-only migrations before readiness is accepted. The initial native
-seven-table schema is now verified. Repository `migrate()` is only a readiness
-check; HTTP requests never create schema. Durable catalog-cache and fulfillment
-projection/table migrations are pending; test/apply them separately before
-claiming additional native support.
+Run language/Drizzle/whitespace/advisory checks described in TEST_RESULTS. The
+active schema-only chain is `drizzle/0000_commerce.sql`,
+`0001_commerce_immutability.sql`, `0002_fulfillment.sql`; the third includes the
+public cache table too. Native migrations/schema are verified at nine tables.
+Readiness checks do no request-time DDL. Use supported Sites source packaging/
+save/deploy with the exact validated archive; GitHub push alone is not deployment.
 
-After deploying both receiver-binding/manual-redirect repairs, verify catalog/status and a safe shipping estimate,
-retained frontend/images/languages and checkout-disabled behavior. With runtime
-Stripe key/policy still absent, status must not claim checkout is available.
-Append actual version/deployment IDs and smoke results to
-`PRINTFUL_DEPLOYMENT.md`; do not infer deployment from a GitHub merge.
+Output-only packaging avoids duplicate maintained/generated asset copies:
+
+```sh
+node scripts/package-commerce-worker.mjs /absolute/sites/scripts/package-site.mjs /absolute/outside-checkout/release.tar.gz
+```
+
+Preserve the Site identity/audience and D1. `PRINTFUL_DEPLOYMENT.md` records known
+release/rollback IDs and actual successful v36 shipping/quote-gate browser smoke.
 
 ## Read-only catalog refresh
 
-With the existing authorized token securely injected into a local process:
+With the existing token securely injected into a process, run
+`python tools/sync-printful.py --platform api`. Full sync and explicit selected
+`--product-id` refresh are read-only. Review stable IDs, actual SKU/source aliases,
+public previews and separate live retail/availability fields. Never refresh the
+historical sourcePrice date or export raw printing files/private metadata.
+Catalog import alone neither publishes nor creates fulfillment.
 
-```sh
-python tools/sync-printful.py --platform api
-```
+## Remaining acceptance and operations
 
-Full sync is explicit; `--product-id` supports bounded selected-product refresh.
-Review the public JSON diff and stable IDs/SKUs/source aliases. Preserve historical
-`sourcePrice.checkedAt`; live retail/availability observations have separate
-provenance. No raw printing files, private metadata or credentials are exported.
-Importer reads do not create orders or publish the Site automatically.
+After payment configuration: verify actual Stripe Tax quote, authorized successful/
+failed/delayed test Checkout, signed redelivery, fresh captured-payment checks,
+one real internal order and one linked Printful draft. The existing standalone
+draft 184026933 is provider-only evidence and remains untouched; no fake paid
+internal record was created. Never confirm it for paid production in this task.
 
-## Remaining acceptance
-
-See `STRIPE_SETUP.md` for actual snapshot destination and test flow. Demonstrate
-the repaired live Worker catalog/shipping, authorized Stripe test payment,
-fresh server verification and one safely linked Printful draft before accepting
-end-to-end operation. No real payment/draft has been created so far. Paid Printful
-confirmation has no method and requires separate authorization/implementation.
-
-Customer refund/cancellation initiation and notifications/admin handling remain
-incomplete. Durable owner-visible fulfillment projection/read synchronization is
-in progress, with no accepted production result yet. Immutable order
-JSON has no completed retention/anonymization path; resolve before production
-customer processing. Keep database/provider state during rollback, and never
-reset the single-POST gate to recover an uncertain remote create.
+Complete notification/refund/cancellation/admin workflows and approved retention/
+anonymization. Business identity, approved sender/service and retention policy
+must come from the owner. Multiple-tracking projection/UI code is implemented,
+but real paid-order/shipment progression remains unverified. No live-charge or
+paid Printful confirmation method is delivered.
