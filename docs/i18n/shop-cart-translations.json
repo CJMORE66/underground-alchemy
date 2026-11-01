@@ -175,6 +175,36 @@
       "cs": "Úvodní stránka CAISIK Underground Alchemy",
       "en": "CAISIK Underground Alchemy home",
       "fr": "Accueil de CAISIK Underground Alchemy"
+    },
+    "Cena, dostupnost, doprava a daně se před platbou znovu ověří na serveru.": {
+      "cs": "Cena, dostupnost, doprava a daně se před platbou znovu ověří na serveru.",
+      "en": "Prices, availability, shipping and taxes will be checked again by the server before payment.",
+      "fr": "Les prix, la disponibilité, la livraison et les taxes seront revérifiés par le serveur avant le paiement."
+    },
+    "Dostupnost variant byla ověřena při načtení katalogu. Před platbou se ověří znovu.": {
+      "cs": "Dostupnost variant byla ověřena při načtení katalogu. Před platbou se ověří znovu.",
+      "en": "Variant availability was checked when the catalogue loaded. It will be checked again before payment.",
+      "fr": "La disponibilité des variantes a été vérifiée au chargement du catalogue. Elle sera revérifiée avant le paiement."
+    },
+    "Pokladna je dočasně nedostupná. Vybrané varianty si můžeš uložit do košíku.": {
+      "cs": "Pokladna je dočasně nedostupná. Vybrané varianty si můžeš uložit do košíku.",
+      "en": "Checkout is temporarily unavailable. You can save selected variants in your cart.",
+      "fr": "Le paiement est temporairement indisponible. Tu peux enregistrer les variantes choisies dans ton panier."
+    },
+    "Načítám katalog a ověřuji dostupnost pokladny.": {
+      "cs": "Načítám katalog a ověřuji dostupnost pokladny.",
+      "en": "Loading the catalogue and checking checkout availability.",
+      "fr": "Chargement du catalogue et vérification de la disponibilité du paiement."
+    },
+    "Uložené ceny nejsou aktuální nabídkou. Konečnou cenu, dopravu a daně musí ověřit server před platbou.": {
+      "cs": "Uložené ceny nejsou aktuální nabídkou. Konečnou cenu, dopravu a daně musí ověřit server před platbou.",
+      "en": "Saved prices are not a current offer. The server must verify the final price, shipping and taxes before payment.",
+      "fr": "Les prix enregistrés ne constituent pas une offre actuelle. Le serveur doit vérifier le prix final, la livraison et les taxes avant le paiement."
+    },
+    "Obrázky jsou původní produktové mockupy. Varianty se načítají z Printful; dostupnost se před platbou znovu ověří.": {
+      "cs": "Obrázky jsou původní produktové mockupy. Varianty se načítají z Printful; dostupnost se před platbou znovu ověří.",
+      "en": "Images are original product mockups. Variants are loaded from Printful; availability will be checked again before payment.",
+      "fr": "Les images sont des aperçus produit originaux. Les variantes sont chargées depuis Printful ; la disponibilité sera revérifiée avant le paiement."
     }
   }
 }
