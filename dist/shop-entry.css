@@ -1,0 +1,15 @@
+/* Keep SHOP one tap away even while the mobile main menu is closed. */
+.shop-shortcut{display:none}
+@media(min-width:1181px){.site-header nav{gap:clamp(14px,1.8vw,32px)}}
+@media(max-width:1180px){
+ .site-header{height:75px;gap:10px;padding-inline:5%}
+ .site-header .brand{width:156px;flex-shrink:1;min-width:85px}
+ .site-header #menu-toggle{display:flex;align-items:center;justify-content:center;width:auto;min-width:48px;min-height:44px;padding:8px 4px;margin-left:0;font:700 14px 'Barlow Condensed',sans-serif;border:0;color:var(--gold)}
+ .site-header .shop-shortcut{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:8px 10px;margin-left:auto;border:1px solid var(--gold);font:700 16px 'Barlow Condensed',sans-serif;color:var(--gold);white-space:nowrap}
+ .site-header #main-nav{display:none;position:absolute;top:75px;left:0;right:0;padding:8px 5% 18px;margin:0;gap:0;background:#080808;border-bottom:2px solid var(--gold);max-height:calc(100dvh - 75px);overflow-y:auto;overscroll-behavior:contain}
+ .site-header #main-nav.open{display:flex;flex-direction:column;align-items:stretch}
+ .site-header #main-nav a{min-height:48px;padding:12px 0;border-bottom:1px solid #51491f;font-size:18px;line-height:1.3}
+ .site-header #main-nav a:after{display:none}
+ .site-header .notebook-open{min-height:44px;min-width:36px;padding:6px}
+}
+@media(max-width:380px){.site-header .brand{width:104px}.site-header{gap:6px}.site-header .shop-shortcut{padding-inline:8px}}

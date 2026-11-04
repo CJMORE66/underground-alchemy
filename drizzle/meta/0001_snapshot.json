@@ -1,0 +1,678 @@
+{
+  "id": "b9640746-e7ec-4221-943d-fce92a1ba1ea",
+  "prevId": "61792815-00b8-4959-9e4d-7375925ae2c9",
+  "version": "6",
+  "dialect": "sqlite",
+  "tables": {
+    "commerce_d1_drafts": {
+      "name": "commerce_d1_drafts",
+      "columns": {
+        "scope": {
+          "name": "scope",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "order_id": {
+          "name": "order_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "external_id": {
+          "name": "external_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "payload_hash": {
+          "name": "payload_hash",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "payment_reference": {
+          "name": "payment_reference",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "state": {
+          "name": "state",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "attempted": {
+          "name": "attempted",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false,
+          "default": 0
+        },
+        "printful_id": {
+          "name": "printful_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "failure_code": {
+          "name": "failure_code",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "failure_count": {
+          "name": "failure_count",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false,
+          "default": 0
+        },
+        "created_at_ms": {
+          "name": "created_at_ms",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "updated_at_ms": {
+          "name": "updated_at_ms",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        }
+      },
+      "indexes": {
+        "commerce_d1_draft_external_unique": {
+          "name": "commerce_d1_draft_external_unique",
+          "columns": [
+            "scope",
+            "external_id"
+          ],
+          "isUnique": true
+        },
+        "commerce_d1_draft_payload_unique": {
+          "name": "commerce_d1_draft_payload_unique",
+          "columns": [
+            "scope",
+            "payload_hash"
+          ],
+          "isUnique": true
+        },
+        "commerce_d1_draft_payment_unique": {
+          "name": "commerce_d1_draft_payment_unique",
+          "columns": [
+            "scope",
+            "payment_reference"
+          ],
+          "isUnique": true
+        },
+        "commerce_d1_draft_printful_unique": {
+          "name": "commerce_d1_draft_printful_unique",
+          "columns": [
+            "scope",
+            "printful_id"
+          ],
+          "isUnique": true
+        }
+      },
+      "foreignKeys": {
+        "commerce_d1_drafts_scope_order_id_commerce_d1_orders_scope_id_fk": {
+          "name": "commerce_d1_drafts_scope_order_id_commerce_d1_orders_scope_id_fk",
+          "tableFrom": "commerce_d1_drafts",
+          "columnsFrom": [
+            "scope",
+            "order_id"
+          ],
+          "tableTo": "commerce_d1_orders",
+          "columnsTo": [
+            "scope",
+            "id"
+          ],
+          "onUpdate": "no action",
+          "onDelete": "no action"
+        }
+      },
+      "compositePrimaryKeys": {
+        "commerce_d1_drafts_scope_order_id_pk": {
+          "columns": [
+            "scope",
+            "order_id"
+          ],
+          "name": "commerce_d1_drafts_scope_order_id_pk"
+        }
+      },
+      "uniqueConstraints": {},
+      "checkConstraints": {
+        "commerce_d1_draft_state_check": {
+          "name": "commerce_d1_draft_state_check",
+          "value": "\"commerce_d1_drafts\".\"state\" IN ('reserved', 'created', 'uncertain', 'failed')"
+        },
+        "commerce_d1_draft_attempted_check": {
+          "name": "commerce_d1_draft_attempted_check",
+          "value": "\"commerce_d1_drafts\".\"attempted\" IN (0, 1)"
+        },
+        "commerce_d1_draft_printful_check": {
+          "name": "commerce_d1_draft_printful_check",
+          "value": "\"commerce_d1_drafts\".\"printful_id\" IS NULL OR \"commerce_d1_drafts\".\"printful_id\" > 0"
+        },
+        "commerce_d1_draft_failures_check": {
+          "name": "commerce_d1_draft_failures_check",
+          "value": "\"commerce_d1_drafts\".\"failure_count\" BETWEEN 0 AND 10000"
+        }
+      }
+    },
+    "commerce_d1_events": {
+      "name": "commerce_d1_events",
+      "columns": {
+        "scope": {
+          "name": "scope",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "event_id": {
+          "name": "event_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "session_id": {
+          "name": "session_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "type": {
+          "name": "type",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "provider_created": {
+          "name": "provider_created",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "received_at_ms": {
+          "name": "received_at_ms",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {
+        "commerce_d1_events_scope_event_id_pk": {
+          "columns": [
+            "scope",
+            "event_id"
+          ],
+          "name": "commerce_d1_events_scope_event_id_pk"
+        }
+      },
+      "uniqueConstraints": {},
+      "checkConstraints": {
+        "commerce_d1_event_created_check": {
+          "name": "commerce_d1_event_created_check",
+          "value": "\"commerce_d1_events\".\"provider_created\" >= 0"
+        }
+      }
+    },
+    "commerce_d1_jobs": {
+      "name": "commerce_d1_jobs",
+      "columns": {
+        "scope": {
+          "name": "scope",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "id": {
+          "name": "id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "event_id": {
+          "name": "event_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "state": {
+          "name": "state",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "attempts": {
+          "name": "attempts",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false,
+          "default": 0
+        },
+        "available_at_ms": {
+          "name": "available_at_ms",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "worker_id": {
+          "name": "worker_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "lease_token": {
+          "name": "lease_token",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "lease_expires_at_ms": {
+          "name": "lease_expires_at_ms",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "last_error_code": {
+          "name": "last_error_code",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "completed_at_ms": {
+          "name": "completed_at_ms",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "created_at_ms": {
+          "name": "created_at_ms",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "updated_at_ms": {
+          "name": "updated_at_ms",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        }
+      },
+      "indexes": {
+        "commerce_d1_jobs_available": {
+          "name": "commerce_d1_jobs_available",
+          "columns": [
+            "scope",
+            "state",
+            "available_at_ms",
+            "created_at_ms"
+          ],
+          "isUnique": false
+        },
+        "commerce_d1_job_event_unique": {
+          "name": "commerce_d1_job_event_unique",
+          "columns": [
+            "scope",
+            "event_id"
+          ],
+          "isUnique": true
+        },
+        "commerce_d1_job_lease_unique": {
+          "name": "commerce_d1_job_lease_unique",
+          "columns": [
+            "scope",
+            "lease_token"
+          ],
+          "isUnique": true
+        }
+      },
+      "foreignKeys": {
+        "commerce_d1_jobs_scope_event_id_commerce_d1_events_scope_event_id_fk": {
+          "name": "commerce_d1_jobs_scope_event_id_commerce_d1_events_scope_event_id_fk",
+          "tableFrom": "commerce_d1_jobs",
+          "columnsFrom": [
+            "scope",
+            "event_id"
+          ],
+          "tableTo": "commerce_d1_events",
+          "columnsTo": [
+            "scope",
+            "event_id"
+          ],
+          "onUpdate": "no action",
+          "onDelete": "no action"
+        }
+      },
+      "compositePrimaryKeys": {
+        "commerce_d1_jobs_scope_id_pk": {
+          "columns": [
+            "scope",
+            "id"
+          ],
+          "name": "commerce_d1_jobs_scope_id_pk"
+        }
+      },
+      "uniqueConstraints": {},
+      "checkConstraints": {
+        "commerce_d1_job_state_check": {
+          "name": "commerce_d1_job_state_check",
+          "value": "\"commerce_d1_jobs\".\"state\" IN ('pending', 'processing', 'completed', 'dead_letter')"
+        },
+        "commerce_d1_job_attempts_check": {
+          "name": "commerce_d1_job_attempts_check",
+          "value": "\"commerce_d1_jobs\".\"attempts\" BETWEEN 0 AND 5"
+        },
+        "commerce_d1_job_lease_check": {
+          "name": "commerce_d1_job_lease_check",
+          "value": "(\"commerce_d1_jobs\".\"state\" = 'processing' AND \"commerce_d1_jobs\".\"worker_id\" IS NOT NULL AND \"commerce_d1_jobs\".\"lease_token\" IS NOT NULL AND \"commerce_d1_jobs\".\"lease_expires_at_ms\" IS NOT NULL) OR (\"commerce_d1_jobs\".\"state\" != 'processing' AND \"commerce_d1_jobs\".\"worker_id\" IS NULL AND \"commerce_d1_jobs\".\"lease_token\" IS NULL AND \"commerce_d1_jobs\".\"lease_expires_at_ms\" IS NULL)"
+        }
+      }
+    },
+    "commerce_d1_limits": {
+      "name": "commerce_d1_limits",
+      "columns": {
+        "scope": {
+          "name": "scope",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "key": {
+          "name": "key",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "window_start": {
+          "name": "window_start",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "count": {
+          "name": "count",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {
+        "commerce_d1_limits_scope_key_pk": {
+          "columns": [
+            "scope",
+            "key"
+          ],
+          "name": "commerce_d1_limits_scope_key_pk"
+        }
+      },
+      "uniqueConstraints": {},
+      "checkConstraints": {
+        "commerce_d1_limit_window_check": {
+          "name": "commerce_d1_limit_window_check",
+          "value": "\"commerce_d1_limits\".\"window_start\" >= 0"
+        },
+        "commerce_d1_limit_count_check": {
+          "name": "commerce_d1_limit_count_check",
+          "value": "\"commerce_d1_limits\".\"count\" BETWEEN 1 AND 10001"
+        }
+      }
+    },
+    "commerce_d1_orders": {
+      "name": "commerce_d1_orders",
+      "columns": {
+        "scope": {
+          "name": "scope",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "id": {
+          "name": "id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "quote_hash": {
+          "name": "quote_hash",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "order_hash": {
+          "name": "order_hash",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "order_json": {
+          "name": "order_json",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "total_minor": {
+          "name": "total_minor",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "currency": {
+          "name": "currency",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "created_at_ms": {
+          "name": "created_at_ms",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {
+        "commerce_d1_orders_scope_id_pk": {
+          "columns": [
+            "scope",
+            "id"
+          ],
+          "name": "commerce_d1_orders_scope_id_pk"
+        }
+      },
+      "uniqueConstraints": {},
+      "checkConstraints": {
+        "commerce_d1_order_scope_check": {
+          "name": "commerce_d1_order_scope_check",
+          "value": "length(\"commerce_d1_orders\".\"scope\") BETWEEN 1 AND 180"
+        },
+        "commerce_d1_order_json_check": {
+          "name": "commerce_d1_order_json_check",
+          "value": "json_valid(\"commerce_d1_orders\".\"order_json\")"
+        },
+        "commerce_d1_order_total_check": {
+          "name": "commerce_d1_order_total_check",
+          "value": "\"commerce_d1_orders\".\"total_minor\" > 0"
+        },
+        "commerce_d1_order_currency_check": {
+          "name": "commerce_d1_order_currency_check",
+          "value": "length(\"commerce_d1_orders\".\"currency\") = 3"
+        }
+      }
+    },
+    "commerce_d1_schema": {
+      "name": "commerce_d1_schema",
+      "columns": {
+        "version": {
+          "name": "version",
+          "type": "integer",
+          "primaryKey": true,
+          "notNull": true,
+          "autoincrement": false,
+          "default": 1
+        },
+        "contract": {
+          "name": "contract",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false,
+          "default": "'ua-commerce-d1-v1'"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "checkConstraints": {
+        "commerce_d1_schema_version_check": {
+          "name": "commerce_d1_schema_version_check",
+          "value": "\"commerce_d1_schema\".\"version\" = 1"
+        },
+        "commerce_d1_schema_contract_check": {
+          "name": "commerce_d1_schema_contract_check",
+          "value": "\"commerce_d1_schema\".\"contract\" = 'ua-commerce-d1-v1'"
+        }
+      }
+    },
+    "commerce_d1_sessions": {
+      "name": "commerce_d1_sessions",
+      "columns": {
+        "scope": {
+          "name": "scope",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "session_id": {
+          "name": "session_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "order_id": {
+          "name": "order_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "quote_hash": {
+          "name": "quote_hash",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "bound_at_ms": {
+          "name": "bound_at_ms",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        }
+      },
+      "indexes": {
+        "commerce_d1_session_order_unique": {
+          "name": "commerce_d1_session_order_unique",
+          "columns": [
+            "scope",
+            "order_id"
+          ],
+          "isUnique": true
+        }
+      },
+      "foreignKeys": {
+        "commerce_d1_sessions_scope_order_id_commerce_d1_orders_scope_id_fk": {
+          "name": "commerce_d1_sessions_scope_order_id_commerce_d1_orders_scope_id_fk",
+          "tableFrom": "commerce_d1_sessions",
+          "columnsFrom": [
+            "scope",
+            "order_id"
+          ],
+          "tableTo": "commerce_d1_orders",
+          "columnsTo": [
+            "scope",
+            "id"
+          ],
+          "onUpdate": "no action",
+          "onDelete": "no action"
+        }
+      },
+      "compositePrimaryKeys": {
+        "commerce_d1_sessions_scope_session_id_pk": {
+          "columns": [
+            "scope",
+            "session_id"
+          ],
+          "name": "commerce_d1_sessions_scope_session_id_pk"
+        }
+      },
+      "uniqueConstraints": {},
+      "checkConstraints": {}
+    }
+  },
+  "views": {},
+  "enums": {},
+  "_meta": {
+    "columns": {},
+    "schemas": {},
+    "tables": {}
+  },
+  "internal": {
+    "indexes": {}
+  }
+}

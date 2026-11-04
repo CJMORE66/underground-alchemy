@@ -163,7 +163,8 @@ if(process.argv.includes('--runtime')){
  const missing=fields.filter(([source])=>locales.some(locale=>!Object.hasOwn(dictionaries[locale],source)));
  const missingUnique=[...new Map(missing.map(([source,label])=>[source,label])).entries()];
  assert.equal(missing.length,0,`actual public human content fields missing translations: ${JSON.stringify(missingUnique)}`);
- const walk=directory=>fs.readdirSync(directory,{withFileTypes:true}).flatMap(item=>item.isDirectory()?walk(path.join(directory,item.name)):item.name.endsWith('.html')?[path.join(directory,item.name)]:[]);
+ // Worker assets are a verified byte-identical build copy, not additional authored pages.
+ const walk=directory=>fs.readdirSync(directory,{withFileTypes:true}).flatMap(item=>directory===dist&&['client','server','.openai'].includes(item.name)?[]:item.isDirectory()?walk(path.join(directory,item.name)):item.name.endsWith('.html')?[path.join(directory,item.name)]:[]);
  let htmlCount=0,atlasCount=0;
  for(const file of walk(dist)){
   const html=fs.readFileSync(file,'utf8');if(!html.includes('text-motion.js'))continue;htmlCount++;
