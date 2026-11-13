@@ -27,9 +27,16 @@
   }
   function label(item) {
     if (item.kind !== 'title' || !item.el.matches(semanticHeadingSelector) || item.el.hasAttribute('aria-labelledby')) return;
-    if (!item.el.hasAttribute('aria-label') || (item.ownsLabel && item.el.getAttribute('aria-label') === item.lastLabel)) {
-      item.lastLabel = plainLabel(item.el); item.el.setAttribute('aria-label',item.lastLabel); item.ownsLabel = true;
+    const current = item.el.getAttribute('aria-label');
+    if (current !== null && (!item.ownsLabel || current !== item.lastLabel)) {
+      item.ownsLabel = false;
+      item.el.removeAttribute('data-ctm-label');
+      return;
     }
+    item.lastLabel = plainLabel(item.el);
+    item.ownsLabel = true;
+    if (!item.el.hasAttribute('data-ctm-label')) item.el.setAttribute('data-ctm-label','');
+    if (current !== item.lastLabel) item.el.setAttribute('aria-label',item.lastLabel);
   }
   function splitText(item) {
     const nodes = [];
@@ -40,6 +47,7 @@
       }
     };
     visit(item.el);
+    const structuredTitle = item.kind === 'title' && (nodes.length > 1 || item.el.children.length > 0);
     for (const textNode of nodes) {
       const fragment = doc.createDocumentFragment();
       for (const part of textNode.textContent.split(/(\s+)/u)) {
@@ -53,9 +61,10 @@
         } else ink.textContent = part;
         word.append(ink); fragment.append(word);
       }
-      // Keep a direct flex-button label as one flex item, like its original
-      // anonymous text run; separate native arrow/icon elements stay separate.
-      if (item.kind === 'action' && textNode.parentNode === item.el) {
+      // Keep each heading's original translation unit, including line and
+      // emphasis boundaries. A direct flex-button label stays one flex item.
+      const parent = textNode.parentElement;
+      if ((structuredTitle && !parent.matches('ctm-run')) || (item.kind === 'action' && parent === item.el)) {
         const run=doc.createElement('ctm-run');run.className='ctm-run';run.append(fragment);textNode.replaceWith(run);
       } else textNode.replaceWith(fragment);
     }
@@ -171,6 +180,7 @@
   function restore(item) {
     resetPointer(item,true);item.el.classList.remove('ctm-title','ctm-action','ctm-display','ctm-phrase','ctm-wrap','ctm-enabled','ctm-in','ctm-out','ctm-hover');delete item.el.dataset.ctmId;
     if(item.ownsLabel&&item.el.getAttribute('aria-label')===item.lastLabel)item.el.removeAttribute('aria-label');
+    item.el.removeAttribute('data-ctm-label');
     // Only remove our own wrappers. Native em/span/br, links and handlers stay.
     item.el.querySelectorAll('ctm-word').forEach(word=>word.replaceWith(doc.createTextNode(word.textContent)));
     item.el.querySelectorAll('ctm-run').forEach(run=>run.replaceWith(...run.childNodes));
@@ -208,9 +218,9 @@
         const parent=record.target.nodeType===1?record.target:record.target.parentElement;
         if(parent?.closest?.('ctm-word,ctm-ink,ctm-glyph'))continue;
         const existing=parent?.closest?.('.ctm-title,.ctm-action');
-        const added=[...record.addedNodes].filter(node=>node.nodeType===1&&!node.matches('ctm-word,ctm-ink,ctm-glyph'));
+        const added=[...record.addedNodes].filter(node=>node.nodeType===1&&!node.matches('ctm-run,ctm-word,ctm-ink,ctm-glyph'));
         for(const node of added)queueScan(node);
-        if(existing && [...record.addedNodes].some(n=>n.nodeType===3||n.nodeType===1&&!n.matches('ctm-word,ctm-ink,ctm-glyph')))queueScan(existing);
+        if(existing && (added.length || [...record.addedNodes].some(node=>node.nodeType===3&&node.textContent.trim())))queueScan(existing);
       }
     });mutationObserver.observe(doc.body,{childList:true,subtree:true,attributes:true,attributeFilter:['hidden','open','inert']});
     stateObserver=new MutationObserver(preferenceChanged);stateObserver.observe(root,{attributes:true,attributeFilter:['data-motion','data-selfmade-motion']});stateObserver.observe(doc.body,{attributes:true,attributeFilter:['class']});

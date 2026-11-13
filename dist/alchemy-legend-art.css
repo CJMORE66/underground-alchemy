@@ -1,0 +1,256 @@
+.ua-gallery-chapter {
+  --gallery-ink: #090705;
+  --gallery-gold: #e8ad4e;
+  position: relative;
+  background: var(--gallery-ink);
+  color: #ffe5ab;
+  scroll-margin-top: 0;
+}
+.ua-gallery-chapter[data-gallery-flow="scroll"] { min-height: 282svh; }
+.ua-gallery-frame {
+  position: relative;
+  min-height: max(360px, calc(100svh - var(--caisik-dock-height, 0px)));
+  isolation: isolate;
+  display: flex;
+  align-items: end;
+  justify-content: end;
+  padding: clamp(12px, 2.5vw, 34px);
+}
+[data-gallery-flow="scroll"] .ua-gallery-frame { position: sticky; top: var(--caisik-dock-height, 0px); }
+.ua-gallery-stage {
+  position: absolute;
+  inset: 0;
+  isolation: isolate;
+  overflow: hidden;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse at 38% 36%, #291b0d 0%, #130d08 41%, transparent 69%),
+    linear-gradient(#0c0907 72%, #181107);
+}
+.ua-gallery-architecture {
+  position: absolute;
+  inset: -4% -6% 14%;
+  opacity: .42;
+  background:
+    repeating-linear-gradient(90deg, transparent 0 8%, #9a6827 8.04%, #140e09 8.28%, transparent 9% 14%),
+    repeating-linear-gradient(0deg, transparent 0 21%, #895723 21.12%, #100b07 21.65%, transparent 22.4% 27%);
+  mask-image: radial-gradient(ellipse at 48% 50%, #000 0 20%, transparent 76%);
+}
+.ua-gallery-floor {
+  position: absolute;
+  inset: 73% -20% -24%;
+  transform: perspective(260px) rotateX(49deg);
+  transform-origin: 50% 0;
+  background:
+    repeating-linear-gradient(90deg, transparent 0 9.8%, #4d3219 10%, transparent 10.2%),
+    repeating-linear-gradient(0deg, #170f09 0 18%, #483016 18.5%, #130d09 19.2% 21%);
+  opacity: .55;
+}
+.ua-gallery-aura {
+  position: absolute;
+  inset: 11% 16% 4%;
+  opacity: .1;
+  background: radial-gradient(ellipse at 40% 58%, #f6b23155, #a949230f 48%, transparent 68%);
+}
+.ua-gallery-portal {
+  position: absolute;
+  left: clamp(7%, 11vw, 20%);
+  top: 9%;
+  width: 49%;
+  height: 69%;
+  padding: clamp(8px, 1.4vw, 19px);
+  border: 1px solid #9a6425;
+  background:
+    repeating-linear-gradient(135deg, #493012, #21140a 7px, #58381b 8px, #1c1109 10px);
+  box-shadow: inset 0 0 0 4px #181007, inset 0 0 0 5px #bd853b77, 0 12px 35px #000a;
+  overflow: hidden;
+}
+.ua-gallery-plates {
+  position: absolute;
+  inset: clamp(8px, 1.4vw, 19px);
+  overflow: hidden;
+  background: radial-gradient(ellipse, #2b1b08, #0c0906 78%);
+  border: 1px solid #c68b3b77;
+}
+.ua-gallery-plate {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: 50% 50%;
+}
+[data-gallery-plate="echo"], [data-gallery-plate="print"] { opacity: 0; }
+.ua-gallery-doors {
+  position: absolute;
+  inset: clamp(8px, 1.4vw, 19px);
+  overflow: hidden;
+}
+.ua-gallery-door {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: calc(50% + 1px);
+  transform: translateX(0);
+  background:
+    repeating-linear-gradient(136deg, transparent 0 9%, #c58d4328 9.15%, transparent 9.6% 18%),
+    repeating-linear-gradient(90deg, #181008 0%, #342111 8%, #21140a 17%, #120b06 20%);
+  border: 1px solid #bf8846;
+  box-shadow: inset 0 0 0 5px #1b1107, inset 0 0 0 6px #97612277, inset 0 0 25px 10px #070504;
+}
+.ua-gallery-door::before, .ua-gallery-door::after {
+  content: "";
+  position: absolute;
+  inset: 13% 12%;
+  border: 1px solid #be843b63;
+  clip-path: polygon(0 0, 100% 0, 100% 39%, 85% 50%, 100% 61%, 100% 100%, 0 100%, 0 61%, 15% 50%, 0 39%);
+}
+.ua-gallery-door::after { inset: 17% 21%; border-color: #c7914363; }
+.ua-gallery-door--left { left: 0; }
+.ua-gallery-door--right { right: 0; transform-origin: 100% 50%; }
+.ua-gallery-seam {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 1px;
+  background: #ffe490;
+  box-shadow: 0 0 10px 2px #f9b44b;
+  opacity: .2;
+}
+.ua-gallery-lock {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: clamp(42px, 8vw, 101px);
+  aspect-ratio: 1;
+  transform: translate(-50%, -50%);
+  filter: drop-shadow(0 0 14px #ef9f3399);
+}
+.ua-gallery-reflection {
+  position: absolute;
+  left: clamp(7%, 11vw, 20%);
+  top: 78%;
+  width: 49%;
+  height: 56%;
+  transform: scaleY(-1);
+  opacity: 0;
+  mask-image: linear-gradient(to top, #000, transparent 48%);
+}
+.ua-gallery-reflection img { width: 100%; height: 100%; object-fit: contain; }
+.ua-gallery-echo {
+  position: absolute;
+  z-index: 1;
+  left: 58%;
+  top: 43%;
+  width: 8px;
+  aspect-ratio: 1;
+}
+.ua-gallery-echo i {
+  position: absolute;
+  inset: 0;
+  border: 1px solid #ffdb72;
+  border-radius: 50%;
+  opacity: 0;
+  box-shadow: 0 0 6px #ffb523;
+}
+.ua-gallery-lines { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+.ua-gallery-lines path { fill: none; stroke: #f3b747; vector-effect: non-scaling-stroke; }
+.ua-gallery-lines path:not(.ua-gallery-border) {
+  opacity: 0;
+  stroke-width: 1.6;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  filter: drop-shadow(0 0 5px #dc8b17);
+}
+.ua-gallery-lines .ua-gallery-border { opacity: .33; stroke-width: 1; }
+.ua-gallery-actor {
+  position: absolute;
+  inset: 12% 2.5% 10% auto;
+  width: 48%;
+  z-index: 2;
+}
+.ua-gallery-actor > svg { width: 100%; height: 100%; overflow: visible; }
+.ua-gallery-vignette {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  background: radial-gradient(ellipse at 47% 48%, transparent 44%, #090705c4 92%), linear-gradient(transparent 82%, #090705 100%);
+}
+.ua-gallery-controls {
+  display: flex;
+  align-items: center;
+  gap: .55rem;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  position: relative;
+  z-index: 4;
+}
+.ua-gallery-controls a, .ua-gallery-controls button {
+  display: inline-flex;
+  align-items: center;
+  gap: .58em;
+  padding: 8px 13px;
+  min-height: 44px;
+  border: 1px solid #c4914c91;
+  color: #ffe5ab;
+  background: #100c09ed;
+  font: 750 .85rem/1.2 'Barlow Condensed', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  cursor: pointer;
+  text-decoration: none;
+}
+.ua-gallery-controls a:hover, .ua-gallery-controls button:hover { background: #3b250e; }
+.ua-gallery-controls a:focus-visible, .ua-gallery-controls button:focus-visible { outline: 2px solid #ffe5ab; outline-offset: 3px; }
+.ua-gallery-controls [hidden] { display: none; }
+.ua-gallery-meters {
+  display: flex;
+  gap: 4px;
+  position: absolute;
+  z-index: 4;
+  bottom: calc(clamp(12px, 2.5vw, 34px) + 20px);
+  left: 12%;
+}
+.ua-gallery-meters i { display: block; width: clamp(12px, 2.2vw, 35px); height: 2px; background: #735025; }
+.ua-gallery-meters [data-current] { background: #ffda6b; box-shadow: 0 0 6px #da8e24; }
+.ua-gallery-sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+}
+[data-gallery-flow="still"] .ua-gallery-frame { min-height: clamp(280px, 56svh, 560px); }
+[data-gallery-flow="still"] .ua-gallery-doors, [data-gallery-flow="still"] .ua-gallery-meters { display: none; }
+[data-gallery-flow="still"] .ua-gallery-reflection { opacity: .26; }
+#blackbook-collection { scroll-margin-top: 18px; }
+#blackbook-collection:focus { outline: 0; }
+@media (max-width: 680px) {
+  .ua-gallery-chapter[data-gallery-flow="scroll"] { min-height: 245svh; }
+  .ua-gallery-portal { left: 7%; top: 9%; width: 64%; height: 56%; }
+  .ua-gallery-actor { inset: 25% 0 10% auto; width: 62%; }
+  .ua-gallery-reflection { left: 7%; top: 65%; width: 64%; }
+  .ua-gallery-floor { inset-block-start: 72%; }
+  .ua-gallery-echo { left: 61%; top: 44%; }
+  .ua-gallery-meters { left: 6%; bottom: 9.5%; }
+}
+@media (max-width: 360px) {
+  .ua-gallery-controls { gap: .35rem; }
+  .ua-gallery-controls a, .ua-gallery-controls button { font-size: .75rem; padding-inline: 9px; }
+}
+.ua-gallery-architecture::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(105deg, transparent 35%, #da943a38 49%, transparent 63%);
+  transform: translateX(-38%);
+  opacity: .19;
+}
+[data-gallery-flow="scroll"][data-gallery-visible] .ua-gallery-architecture::after {
+  animation: ua-gallery-lamplight 8s ease-in-out infinite alternate;
+}
+@keyframes ua-gallery-lamplight {
+  to { transform: translateX(44%); opacity: .51; }
+}

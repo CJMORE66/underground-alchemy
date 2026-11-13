@@ -22,11 +22,12 @@ for file in pages:
 print(f'Selfmade linked to {len(pages)} existing pages; original routes retained.')
 
 # Interactive typography is optional enhancement, never required to read a page.
-TEXT_HEAD='<link rel="stylesheet" href="/text-motion.css?v=2"><script src="/text-motion.js?v=2" defer></script>'
+TEXT_HEAD='<link rel="stylesheet" href="/text-motion.css?v=3"><script src="/text-motion.js?v=3" defer></script>'
 text_pages=[p for p in sorted(DIST.rglob('*.html')) if p.name not in ['implementation.html','launch-plan.html'] and p!=DIST/'play/roadmap/index.html']
 for file in text_pages:
     data=file.read_text()
-    data=data.replace('/text-motion.css?v=1','/text-motion.css?v=2').replace('/text-motion.js?v=1','/text-motion.js?v=2')
+    for version in (1,2):
+        data=data.replace(f'/text-motion.css?v={version}','/text-motion.css?v=3').replace(f'/text-motion.js?v={version}','/text-motion.js?v=3')
     if '/text-motion.js' not in data:
         data=data.replace('</head>',TEXT_HEAD+'</head>')
     file.write_text(data)
@@ -82,7 +83,7 @@ for file in atlas_pages:
     file.write_text(data)
 
 # One persistent language preference across atlas, expeditions, workshops and gallery.
-LANGUAGE_HEAD='<link rel="stylesheet" href="/languages.css?v=1"><script src="/languages.js?v=2" defer></script>'
+LANGUAGE_HEAD='<link rel="stylesheet" href="/languages.css?v=2"><script src="/languages.js?v=3" defer></script>'
 for file in text_pages:
     data=file.read_text()
     if '/languages.js' not in data:
@@ -113,7 +114,8 @@ for file in text_pages:
     file.write_text(data)
 
 for file in text_pages:
-    data=file.read_text().replace('/languages.js?v=1','/languages.js?v=2')
+    data=re.sub(r'/languages\.js\?v=\d+','/languages.js?v=3',file.read_text())
+    data=re.sub(r'/languages\.css\?v=\d+','/languages.css?v=2',data)
     file.write_text(data)
 
 # Reload only the changed legacy link adapters after this release.

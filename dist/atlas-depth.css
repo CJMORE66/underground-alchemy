@@ -1,0 +1,142 @@
+/* An engraved foreground gives each entry a distinct depth plane. */
+.ua-depth-scene {
+  --ua-depth-ink: #ffd600;
+  --ua-depth-x: 0px;
+  --ua-depth-y: 0px;
+  isolation: isolate;
+}
+
+.ua-depth-scene .ua-depth-frame,
+.ua-depth-scene .ua-depth-art {
+  position: absolute;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.ua-depth-scene > .ua-depth-frame {
+  inset: 8px;
+  border: 1px solid #ffd60048;
+  border: 1px solid color-mix(in srgb, var(--ua-depth-ink) 27%, transparent);
+  background:
+    linear-gradient(var(--ua-depth-ink), var(--ua-depth-ink)) left top / 18px 1px,
+    linear-gradient(var(--ua-depth-ink), var(--ua-depth-ink)) left top / 1px 18px,
+    linear-gradient(var(--ua-depth-ink), var(--ua-depth-ink)) right bottom / 18px 1px,
+    linear-gradient(var(--ua-depth-ink), var(--ua-depth-ink)) right bottom / 1px 18px;
+  background-repeat: no-repeat;
+  opacity: .63;
+}
+
+.ua-depth-scene .ua-depth-art {
+  inset: 0 auto 0 2%;
+  width: min(55%, 292px);
+  height: 100%;
+  color: var(--ua-depth-ink);
+  opacity: .56;
+  overflow: visible;
+  fill: none;
+}
+
+.ua-depth-marks,
+.ua-depth-engraving,
+.ua-depth-trace {
+  stroke: currentColor;
+  vector-effect: non-scaling-stroke;
+  stroke-linecap: square;
+  stroke-linejoin: bevel;
+}
+
+.ua-depth-marks { stroke-width: .8; opacity: .6; }
+.ua-depth-engraving { stroke-width: 1; opacity: .58; }
+.ua-depth-trace { stroke-width: 1.7; }
+.ua-depth-pin { fill: #e71932; stroke: #080808; stroke-width: 1.5; }
+
+.layer-doors > .ua-depth-scene:is(:hover, :focus-visible) .ua-depth-frame {
+  opacity: 1;
+}
+
+.layer-doors > .ua-depth-scene:is(:hover, :focus-visible) .ua-depth-art {
+  opacity: .94;
+}
+
+.layer-doors > .ua-depth-scene:focus-visible {
+  outline: 2px solid #ffd600;
+  outline-offset: -4px;
+}
+
+.ua-depth-selfmade {
+  --ua-depth-ink: #080808;
+  position: relative;
+}
+
+.ua-depth-selfmade > div,
+.ua-depth-selfmade > a,
+.ua-depth-expeditions > :not(.ua-depth-art, .ua-depth-frame) {
+  position: relative;
+  z-index: 2;
+}
+
+.ua-depth-selfmade .ua-depth-art {
+  inset: auto 12% -24% auto;
+  width: min(48%, 430px);
+  height: 145%;
+  opacity: .27;
+}
+
+.ua-depth-selfmade .ua-depth-frame {
+  inset: 12px;
+  opacity: .46;
+}
+
+.ua-depth-expeditions {
+  position: relative;
+}
+
+.ua-depth-expeditions .ua-depth-art {
+  inset: 5% 1% 0 auto;
+  width: 45%;
+  height: 95%;
+  opacity: .17;
+}
+
+.ua-depth-expeditions .ua-depth-frame {
+  inset: 8px 0 8px -10px;
+  opacity: .31;
+}
+
+@media (max-width: 760px) {
+  .ua-depth-scene .ua-depth-art { opacity: .43; }
+  .ua-depth-selfmade .ua-depth-art { inset: auto -9% -13% auto; width: 72%; height: 114%; opacity: .19; }
+  .ua-depth-expeditions .ua-depth-art { opacity: .15; }
+  .ua-depth-expeditions .ua-depth-frame { inset-inline-start: -4px; }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html:not([data-motion="off"], [data-selfmade-motion="off"], [data-selfmade-motion="calm"], [data-selfmade-motion="quiet"], [data-selfmade-motion="reduced"])
+    body:not(.simple-mode) .ua-depth-scene .ua-depth-art {
+    transform: translate(var(--ua-depth-x), var(--ua-depth-y));
+    transition: transform 320ms cubic-bezier(.2,.7,.25,1), opacity 240ms ease;
+  }
+
+  html:not([data-motion="off"]) body:not(.simple-mode) .ua-depth-tracking .ua-depth-art {
+    transition-duration: 110ms, 240ms;
+  }
+
+  html:not([data-motion="off"]) body:not(.simple-mode) .ua-depth-arriving .ua-depth-trace {
+    stroke-dasharray: 1;
+    animation: ua-depth-etch 1050ms cubic-bezier(.2,.65,.25,1) both;
+  }
+
+  html:not([data-motion="off"]) body:not(.simple-mode) .ua-depth-arriving .ua-depth-pin {
+    animation: ua-depth-pin-in 650ms 290ms ease both;
+  }
+}
+
+@keyframes ua-depth-etch {
+  from { stroke-dashoffset: 1; opacity: .25; }
+  to { stroke-dashoffset: 0; opacity: 1; }
+}
+
+@keyframes ua-depth-pin-in {
+  from { opacity: .15; }
+  to { opacity: 1; }
+}

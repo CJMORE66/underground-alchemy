@@ -1,6 +1,21 @@
 {
   "version": 1,
   "entries": {
+    "THE HIDDEN CITY.": {
+      "cs": "SKRYTÉ MĚSTO.",
+      "en": "THE HIDDEN CITY.",
+      "fr": "LA VILLE CACHÉE."
+    },
+    "The Seven Principles": {
+      "cs": "Sedm principů",
+      "en": "The Seven Principles",
+      "fr": "Les sept principes"
+    },
+    "THE FREQUENCY": {
+      "cs": "FREKVENCE",
+      "en": "THE FREQUENCY",
+      "fr": "LA FRÉQUENCE"
+    },
     "Skip to the explorer": {
       "cs": "Přejít k průzkumníkovi",
       "en": "Skip to the explorer",
@@ -7180,6 +7195,21 @@
       "cs": "PARIS / OBJEV {0}",
       "en": "PARIS / DISCOVERY {0}",
       "fr": "PARIS / DÉCOUVERTE {0}"
+    },
+    "ANIMATION PAUSED": {
+      "cs": "ANIMACE POZASTAVENA",
+      "en": "ANIMATION PAUSED",
+      "fr": "ANIMATION EN PAUSE"
+    },
+    "LET IT DREAM ↙": {
+      "cs": "NECHAT SNÍT ↙",
+      "en": "LET IT DREAM ↙",
+      "fr": "LAISSER RÊVER ↙"
+    },
+    "AWAKEN THE ALCHEMIST ↗": {
+      "cs": "PROBUDIT ALCHYMISTU ↗",
+      "en": "AWAKEN THE ALCHEMIST ↗",
+      "fr": "ÉVEILLER L’ALCHIMISTE ↗"
     }
   }
 }

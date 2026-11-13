@@ -144,6 +144,7 @@ assert.equal(originalVariantURL(normalized.products[0],{id:'variant_fake',sku:'f
 assert.equal(originalVariantURL({...product,sourceUrl:'javascript:bad()'},product.variants[0]),null);
 const home=fs.readFileSync(new URL('../dist/index.html',import.meta.url),'utf8'),{document:homeDoc}=parseHTML(home);
 assert.equal(homeDoc.querySelectorAll('#main-nav a[href="/shop/"]').length,1);
-assert(homeDoc.querySelector('header>a[data-shop-shortcut][href="/shop/"]'),'mobile shortcut is outside the collapsed navigation');
+const shortcut=homeDoc.querySelector('header a[data-shop-shortcut][href="/shop/"]');
+assert(shortcut&&!shortcut.closest('#main-nav'),'mobile shortcut is outside the collapsed navigation');
 for(const lang of ['cs','en','fr']){const messages=JSON.parse(fs.readFileSync(new URL(`../dist/i18n/${lang}.json`,import.meta.url),'utf8'));for(const key of ['Cena ve zdrojovém katalogu:','Cenový snapshot:','NÁKUP DOČASNĚ NEDOSTUPNÝ','Objednávání je dočasně nedostupné. Původní obchod se musí obnovit.'])assert(messages[key],lang+': '+key);}
 console.log('PASS shop: 20 designs/86 exact IDs, SKUs and dated source prices; exact original-store variant URL construction; invalid/ambiguous/reset/reopen; local cart selections with blocked checkout; visible mobile entry; CS/EN/FR; image safety, search/category/detail, escaping, bounded confirmed-pending retries, labelled fallback/manual live refresh, abort/focus and lifecycle.');

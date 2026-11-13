@@ -5,7 +5,7 @@
   const stage = hero?.querySelector('.alchemy-stage');
   const button = hero?.querySelector('.alchemy-awaken');
   const status = hero?.querySelector('.alchemy-status');
-  if (!hero || !stage || !button) return;
+  if (!hero || !stage || !button || hero.hasAttribute?.('data-film-epilogue')) return;
 
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
   const fine = matchMedia('(hover: hover) and (pointer: fine)');

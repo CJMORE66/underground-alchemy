@@ -1,6 +1,26 @@
 {
   "version": 1,
   "entries": {
+    "TVŮJ MATERIÁL.": {
+      "cs": "TVŮJ MATERIÁL.",
+      "en": "YOUR MATERIAL.",
+      "fr": "TES MATÉRIAUX."
+    },
+    "TVŮJ VLASTNÍ TAH.": {
+      "cs": "TVŮJ VLASTNÍ TAH.",
+      "en": "YOUR OWN STROKE.",
+      "fr": "TON PROPRE TRAIT."
+    },
+    "AS ABOVE.": {
+      "cs": "JAK NAHOŘE.",
+      "en": "AS ABOVE.",
+      "fr": "COMME EN HAUT."
+    },
+    "YOUR OWN BELOW.": {
+      "cs": "DOLE PO SVÉM.",
+      "en": "YOUR OWN BELOW.",
+      "fr": "EN BAS, À TA FAÇON."
+    },
     "Která vlastnost tvých písmen má být rozpoznatelná i bez podpisu?": {
       "cs": "Která vlastnost tvých písmen má být rozpoznatelná i bez podpisu?",
       "en": "Which feature of your letters should be recognisable even without a signature?",

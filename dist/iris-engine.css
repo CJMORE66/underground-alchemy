@@ -1,0 +1,171 @@
+/* Black ink and molten gold, drawn for the Underground Alchemy atlas. */
+:root:has(.iris-dock) { --caisik-dock-height:116px; --exp-header:116px; }
+header.iris-dock {
+  --engine-color:#ffd600; --metal:#ffd600; --iron:#100c05; --hair:#62490c; --paper:#fff6da;
+  --technical:600 10px/1.25 ui-monospace,SFMono-Regular,Consolas,monospace;
+  position:sticky; inset:0 0 auto; z-index:1150; isolation:isolate; display:grid;
+  grid-template-columns:minmax(0,1fr) auto minmax(0,1fr); align-items:center; gap:12px;
+  box-sizing:border-box; width:100%; height:var(--caisik-dock-height); min-height:0; max-width:none;
+  margin:0; padding:0 clamp(12px,4vw,72px); background:linear-gradient(180deg,#100b03 0,#050403 48%,#080704);
+  border:0; border-bottom:1px solid #ab7d08; box-shadow:0 3px 0 #201300,0 7px 18px #0006;
+  color:var(--paper); font:500 15px/1.3 'DM Sans',sans-serif; text-align:left; overflow:visible;
+}
+.iris-dock *, .iris-dock *::before, .iris-dock *::after { box-sizing:border-box; }
+.iris-dock::before {
+  content:""; position:absolute; inset:5px 0 auto; height:1px; pointer-events:none;
+  background:linear-gradient(90deg,transparent,#c7971833 20%,transparent 41%,transparent 60%,#c7971833 82%,transparent);
+}
+.iris-dock::after {
+  content:""; position:absolute; inset:auto 0 -1px; height:2px; pointer-events:none;
+  background:linear-gradient(90deg,transparent 13%,#ffd600 34%,transparent 43%,transparent 57%,#ffd600 66%,transparent 87%);
+}
+.iris-dock a { text-decoration:none; }
+.iris-dock .iris-id {
+  justify-self:start; display:flex; align-items:center; gap:clamp(8px,1.3vw,20px); min-height:44px; padding:0; border:0; color:#ffde48;
+}
+.iris-id .iris-mini { font:var(--technical); letter-spacing:.12em; color:var(--metal); }
+.iris-id b { display:block; padding-left:clamp(8px,1.4vw,20px); border-left:1px solid #866311; font:650 11px/1.05 'Barlow Condensed',Arial,sans-serif; letter-spacing:.14em; }
+.iris-dock button.iris-switch {
+  position:relative; display:flex; align-items:center; flex-direction:column; justify-content:center; align-self:stretch;
+  background:transparent; border:0; border-radius:0; box-shadow:none; color:var(--metal);
+  width:clamp(230px,20vw,278px); height:100%; min-height:44px; padding:2px 0 3px; margin:0; cursor:pointer; line-height:1; overflow:visible;
+}
+.iris-dock .iris-switch::before,.iris-dock .iris-switch::after {
+  content:""; position:absolute; width:clamp(14px,3.4vw,64px); height:5px; top:47%; pointer-events:none; border:solid #ffca25; border-width:1px 0; opacity:.65;
+}
+.iris-dock .iris-switch::before { right:100%; transform:skewX(-33deg); }
+.iris-dock .iris-switch::after { left:100%; transform:skewX(33deg); }
+.iris-dock .iris-symbol { display:block; height:calc(100% - 12px); width:100%; min-height:0; }
+.iris-symbol img,.iris-dock .iris-symbol svg.ua-mark,#menu-toggle .iris-symbol > svg.ua-mark { display:block; width:100%; height:100%; object-fit:contain; max-width:none; }
+.iris-switch-label { display:flex; gap:6px; align-items:center; color:#ffdf5b; font:800 10px/1 'Barlow Condensed',sans-serif; letter-spacing:.19em; }
+.iris-switch-label i { width:5px; height:5px; border:solid var(--engine-color); border-width:0 1px 1px 0; transform:translateY(-1px) rotate(45deg); }
+.iris-switch[data-open="true"] .iris-switch-label i { transform:translateY(1px) rotate(225deg); }
+.iris-dock .iris-tools { display:flex; align-items:center; justify-content:flex-end; gap:10px; min-width:0; }
+.iris-dock .iris-tools :is(a,button) {
+  display:inline-flex; align-items:center; justify-content:center; gap:5px; min-height:38px; min-width:32px; margin:0;
+  border:1px solid #8a6517; background:#110c04; color:#ffdd43; box-shadow:none; border-radius:2px; padding:4px 10px;
+  font:650 12px/1.1 'Barlow Condensed',sans-serif; letter-spacing:.04em; cursor:pointer; text-align:center;
+}
+.iris-dock .iris-tools :is(a,button):hover { color:var(--engine-color); border-color:var(--engine-color); }
+.iris-tools .notebook-open svg { width:15px; height:18px; fill:none; stroke:currentColor; }
+.iris-context { max-width:100%; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; text-transform:uppercase; color:var(--engine-color); font:var(--technical); letter-spacing:.09em; }
+.iris-context::before { content:'◆'; margin-inline-end:.65em; font-size:.65em; }
+.iris-dock nav.iris-panel {
+  display:block; position:absolute; inset:100% auto auto 50%; transform:translateX(-50%); width:min(592px,calc(100vw - 20px)); max-height:calc(100dvh - var(--caisik-dock-height) - 12px);
+  margin:0; background:#080705; border:1px solid #ffcb17; box-shadow:0 18px 42px #000a,0 3px 0 #6d4305; overflow:auto;
+  color:var(--paper); overscroll-behavior:contain; padding:10px 12px; line-height:1.2; scrollbar-width:thin; scrollbar-color:#b38212 #120d05; text-align:left;
+}
+.iris-dock nav.iris-panel[hidden] { display:none!important; }
+.iris-eyebrow { display:flex; align-items:center; justify-content:space-between; text-transform:uppercase; font:var(--technical); color:var(--metal); letter-spacing:.13em; padding:4px 1px 10px; border-bottom:1px solid var(--hair); }
+.iris-index { color:#e5d4a9; letter-spacing:.075em; }
+.iris-body { display:grid; grid-template-columns:minmax(145px,.8fr) minmax(0,1.24fr); gap:12px; padding:10px 0; }
+.iris-instrument {
+  align-self:stretch; display:flex; flex-direction:column; align-items:center; justify-content:center; min-width:0; border:1px solid #8a6112; isolation:isolate;
+  padding:12px 8px; overflow:hidden; text-align:center; background:radial-gradient(ellipse at 48% 36%,#67430599,transparent 68%),
+  linear-gradient(155deg,#100b04,#070604);
+}
+.iris-chart { width:min(88%,172px); aspect-ratio:160/157; }
+.iris-chart svg { width:100%;height:100%;display:block;fill:none;stroke-linejoin:round;stroke-linecap:round; }
+.iris-instrument-rule { stroke:#e2a91a;stroke-width:1.3; }
+.iris-instrument-rotor { transform-origin:80px 79px;  stroke:var(--engine-color); stroke-width:2; }
+.iris-route-glyph { stroke:var(--engine-color);stroke-width:1.8; }
+.iris-plate-no { margin-top:9px;color:var(--metal);font:var(--technical);letter-spacing:.16em; }
+.iris-plate-name { margin:4px 0 3px; color:#fff0d9;font:700 clamp(22px,3.5vw,32px)/1.04 'Barlow Condensed',sans-serif; }
+.iris-plate-tag {color:#e6d6b3;font:500 11px/1.3 'DM Sans',sans-serif;}
+.iris-panel ol.iris-chapters { display:grid; align-content:center; gap:0; list-style:none; margin:0; padding:0; min-width:0; }
+.iris-chapters li { margin:0; padding:0; list-style:none; }
+.iris-dock .iris-chapters a {
+  display:grid; grid-template-columns:24px minmax(0,1fr) 16px; gap:8px; align-items:center;
+  min-height:42px; margin:0; padding:4px 9px; border:0; border-bottom:1px solid #4f3910; color:#fff5da; background:none; border-radius:0;
+  font:650 21px/1.06 'Barlow Condensed',sans-serif; letter-spacing:.015em; text-align:left; text-transform:none;
+}
+.iris-dock .iris-chapters a small,.iris-chapters a i { font:var(--technical);color:#ffc71b; }
+.iris-dock .iris-chapters a i { text-align:right;font-size:15px; }
+.iris-dock .iris-chapters a:is(:focus-visible,:hover,[data-preview]) { background:#3e2a02; color:var(--engine-color); }
+.iris-dock .iris-chapters a[aria-current] small { color:var(--engine-color); }
+.iris-foot { display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px;padding-top:5px;border-top:1px solid var(--hair); }
+.iris-pages {display:flex; flex-wrap:wrap;gap:14px;}
+.iris-dock .iris-pages a { display:inline-flex;align-items:center;min-height:34px;padding:0;margin:0;background:none;color:#ffe27b;border:0;font:var(--technical);font-size:11px;letter-spacing:.025em; }
+.iris-dock :is(button,a):focus-visible { outline:2px solid var(--engine-color); outline-offset:1px; }
+.iris-dock [data-brand-language] { max-width:100%; }
+.iris-dock [data-brand-language] .language-dock { position:static;inset:auto; margin:0; max-width:100%; }
+html.has-language-dock:has(.iris-dock .language-dock) body { padding-bottom:0; }
+html:has(.iris-dock) .journey-rail,html:has(.iris-dock) .play-nav { top:var(--caisik-dock-height); }
+html:has(.iris-dock) { scroll-padding-top:calc(var(--caisik-dock-height) + 12px); }
+html.journey-ready:has(.iris-dock) { scroll-padding-top:calc(var(--caisik-dock-height) + 54px); }
+@media(max-width:700px) {
+  :root:has(.iris-dock) {--caisik-dock-height:100px;--exp-header:100px;}
+  header.iris-dock {gap:3px;padding:0 10px;}
+  .iris-dock button.iris-switch {width:clamp(182px,53vw,208px);}
+  .iris-id .iris-mini { display:none; }
+  .iris-id b {padding:0;border:0;font-size:10px;letter-spacing:.11em;}
+  .iris-dock .iris-tools { gap:4px; }
+  .iris-dock .iris-tools :is(a,button) {padding:3px 6px;font-size:11px;min-height:34px;}
+  .iris-dock .iris-switch::before,.iris-dock .iris-switch::after { width:9px; }
+  .iris-context { font-size:8px; }
+}
+@media(max-width:500px){
+  .iris-body { grid-template-columns:minmax(0,1fr); gap:4px; padding:6px 0; }
+  .iris-instrument { display:grid; grid-template-columns:44px minmax(0,1fr); align-content:center;justify-content:start;column-gap:8px;padding:5px 9px;text-align:left;}
+  .iris-chart {grid-row:1/4;width:42px;justify-self:start;}
+  .iris-plate-no { margin:0; font-size:8px; }
+  .iris-plate-name {font-size:17px;margin:2px 0;}
+  .iris-plate-tag {font-size:10px;}
+  .iris-dock .iris-chapters a {min-height:39px;font-size:19px;}
+  .iris-dock nav.iris-panel {padding:7px 10px;}
+}
+@media(max-width:360px) { .iris-dock .iris-tools .notebook-open svg { display:none; }.iris-dock .iris-tools{gap:2px}.iris-dock button.iris-switch{width:clamp(171px,55vw,190px)} }
+@media(prefers-reduced-motion:no-preference) {
+  html:not([data-motion="off"],[data-selfmade-motion="calm"],[data-selfmade-motion="quiet"],[data-selfmade-motion="off"]) body:not(.simple-mode,.exp-field) .iris-dock .iris-panel:not([hidden]) { animation:iris-unfold .30s .16s cubic-bezier(.2,.76,.32,1) both; }
+  .iris-instrument-rotor {transition:transform .4s cubic-bezier(.2,.8,.3,1);}
+}
+@keyframes iris-unfold {from{clip-path:inset(0 28% 95%);opacity:.45}to{clip-path:inset(0);opacity:1}}
+html:is([data-motion="off"],[data-selfmade-motion="quiet"],[data-selfmade-motion="calm"],[data-selfmade-motion="off"]) .iris-dock *,body:is(.simple-mode,.exp-field) .iris-dock *{animation:none!important;transition:none!important;}
+@media print { header.iris-dock {display:none!important;} }
+.ua-engine .ua-mark { color: var(--engine-color,#ffd600); display: block; width: 100%; height: 100%; overflow: visible; pointer-events: none; }
+
+@media(max-width:700px){
+  header.iris-dock{grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);}
+  .iris-dock .iris-switch::before,.iris-dock .iris-switch::after{display:none;}
+  .iris-dock .iris-id b{font:800 12px/1.02 'Barlow Condensed',sans-serif;letter-spacing:.045em;}
+  .iris-dock .iris-tools :is(a,button){min-height:44px;min-width:36px;}
+  .iris-dock[data-brand-route="atlas"] .iris-id{visibility:hidden;}
+  .iris-dock[data-brand-route="atlas"] .iris-tools [data-shop-shortcut]{position:absolute;left:10px;top:50%;transform:translateY(-50%);}
+  .iris-dock .iris-tools :is(#exp-mode,#motion-control){min-width:0;max-width:100%;white-space:normal;}
+}
+@media(max-width:360px){.iris-dock .iris-id b{font-size:10px;}.iris-tools .iris-context{display:none;}}
+
+/* All pivots are registered to the bearings in the 1983 × 793 painted master. */
+.forge-machine .forge-joint {transform-box:view-box;}
+.forge-machine .forge-flywheel {transform-origin:164px 426px;}
+.forge-machine .forge-lens,.forge-machine .forge-iris-ring {transform-origin:666px 409px;}
+.forge-machine .forge-blade {transform-origin:711px 389px;}
+.forge-machine .forge-spine-top {transform-origin:1090px 263px;}
+.forge-machine .forge-spine-lower {transform-origin:1152px 452px;}
+.forge-machine :is(.forge-lever-top,.forge-lever-bottom,.forge-hub) {transform-origin:1519px 425px;}
+.forge-machine .forge-crank {transform-origin:1006px 691px;}
+:is(.iris-board,.iris-switch)[data-open="true"] .forge-flywheel {transform:rotate(46deg);}
+:is(.iris-board,.iris-switch)[data-open="true"] .forge-lens {transform:rotate(-38deg);}
+:is(.iris-board,.iris-switch)[data-open="true"] .forge-iris-ring {transform:rotate(32deg);}
+:is(.iris-board,.iris-switch)[data-open="true"] .forge-blade {transform:rotate(24deg);}
+:is(.iris-board,.iris-switch)[data-open="true"] .forge-intake {transform:translateY(-48px);}
+:is(.iris-board,.iris-switch)[data-open="true"] .forge-return {transform:translateY(29px);}
+:is(.iris-board,.iris-switch)[data-open="true"] .forge-crank {transform:rotate(44deg);}
+:is(.iris-board,.iris-switch)[data-open="true"] .forge-spine-top {transform:translateY(-8px) rotate(-5deg);}
+:is(.iris-board,.iris-switch)[data-open="true"] .forge-spine-lower {transform:rotate(6deg);}
+:is(.iris-board,.iris-switch)[data-open="true"] .forge-lever-top {transform:rotate(-12deg);}
+:is(.iris-board,.iris-switch)[data-open="true"] .forge-lever-bottom {transform:rotate(4deg);}
+:is(.iris-board,.iris-switch)[data-open="true"] .forge-hub {transform:rotate(-12deg);}
+:is(.iris-board,.iris-switch)[data-open="true"] .forge-pressure {opacity:.78;}
+@media(prefers-reduced-motion:no-preference) {
+  html:not([data-motion="off"],[data-selfmade-motion="quiet"],[data-selfmade-motion="calm"],[data-selfmade-motion="off"]) body:not(.simple-mode,.exp-field) .forge-machine .forge-joint {
+    transition:transform .38s cubic-bezier(.22,.76,.28,1) var(--forge-delay,0s);
+  }
+  [data-open="true"] .forge-machine :is(.forge-intake,.forge-return,.forge-flywheel){--forge-delay:.07s;}
+  [data-open="true"] .forge-machine :is(.forge-spine-top,.forge-spine-lower,.forge-crank){--forge-delay:.13s;}
+  [data-open="true"] .forge-machine :is(.forge-lever-top,.forge-lever-bottom,.forge-hub){--forge-delay:.20s;}
+  html:not([data-motion="off"],[data-selfmade-motion="quiet"],[data-selfmade-motion="calm"],[data-selfmade-motion="off"]) body:not(.simple-mode,.exp-field) [data-open="true"] .forge-pressure path {stroke-dasharray:1;animation:forge-pressure .54s ease-out both;}
+  html:not([data-motion="off"]) body:not(.simple-mode,.exp-field) .iris-dock[data-engine-mode="frequency"] .iris-switch[data-open="false"] .forge-return {animation:forge-beat .68s ease-out;}
+}
+@keyframes forge-pressure {from{stroke-dashoffset:1}to{stroke-dashoffset:0}}
+@keyframes forge-beat {20%,65%{transform:translateY(14px)}44%,88%{transform:translateY(-5px)}}

@@ -1,0 +1,138 @@
+/* A printed margin note that opens into an illustrated scene. */
+.iris-vignette {
+  --iris-ink:#0a0b09; --iris-gold:#ffcf52; --iris-edge:#837045;
+  --iris-paper:#fff1ce; --iris-tint:#a88a49; --iris-wash:#554321;
+  --iris-image:url('/assets/masterworks/071-thumb.webp');
+  position:relative; isolation:isolate; box-sizing:border-box; overflow:hidden;
+  display:grid; grid-template-columns:clamp(125px,21%,245px) minmax(0,1fr) auto;
+  gap:clamp(14px,2.7vw,40px); align-items:center; width:auto; min-width:0;
+  margin:20px 0; padding:0 clamp(12px,2vw,28px) 0 0;
+  border:1px solid #76664a; border-left:3px solid var(--iris-gold);
+  color:var(--iris-paper); text-align:left; background:
+    repeating-linear-gradient(0deg,transparent 0 5px,#ecde9e06 5px 6px),
+    linear-gradient(105deg,var(--iris-wash) -70%,var(--iris-ink) 35%,#151510 100%);
+  box-shadow:inset 0 1px #f8d17318;
+  font:400 14px/1.5 'DM Sans',Arial,sans-serif; letter-spacing:normal; text-transform:none;
+}
+.iris-vignette::after {
+  content:''; pointer-events:none; position:absolute; z-index:1; top:5px; right:5px;
+  width:15px; height:6px; border-top:1px solid var(--iris-edge); border-right:1px solid var(--iris-edge)
+}
+.iris-vignette[data-scene=map],.iris-vignette[data-scene=expeditions]{--iris-wash:#644c0d;--iris-image:url('/assets/masterworks/070-thumb.webp')}
+.iris-vignette:is([data-scene=frequency],[data-scene=mc],[data-scene=dj],[data-scene=vibration],[data-scene=rhythm]){--iris-wash:#583609;--iris-image:url('/assets/masterworks/012-thumb.webp')}
+.iris-vignette:is([data-scene=art],[data-scene=writer],[data-scene=wall]){--iris-wash:#5b3309;--iris-image:url('/assets/masterworks/001-thumb.webp')}
+.iris-vignette:is([data-scene=shop],[data-scene=selfmade]){--iris-image:url('/assets/masterworks/062-thumb.webp')}
+.iris-vignette:is([data-scene=notebook],[data-scene=sources],[data-scene=manifesto],[data-scene=knowledge]){--iris-image:url('/assets/masterworks/071-thumb.webp')}
+.iris-vignette[data-scene=breaking]{--iris-image:url('/assets/masterworks/083-thumb.webp')}
+.iris-illustration {
+  min-width:0; position:relative; display:grid; place-items:center; overflow:hidden; align-self:stretch;
+  min-height:clamp(112px,11vw,150px); isolation:isolate;
+  background-image:radial-gradient(ellipse at 50% 78%,#e4ae4850,transparent 48%),
+    repeating-linear-gradient(90deg,#ba984711 0 1px,transparent 1px 19px),
+    linear-gradient(90deg,#191913,#29251c66 55%,#131311);
+  border-right:1px solid #a384493b;
+}
+.iris-illustration::before {
+  content:''; position:absolute; z-index:-1; inset:0;
+  background:var(--iris-image) center/cover no-repeat; opacity:.15;
+  filter:grayscale(1) sepia(.8) contrast(1.3);
+  mask-image:linear-gradient(90deg,#000,transparent 47%,#000);
+}
+.iris-illustration::after {
+  content:'';position:absolute;z-index:-1;aspect-ratio:1;width:58%;max-width:125px;border-radius:50%;
+  border:1px dashed #dfb9525e;box-shadow:0 0 0 5px #e1ae3b0d,0 0 0 6px #d3b96233,inset 0 0 15px #d99d1920;
+}
+.iris-actor {width:100%;height:100%;max-height:155px;position:absolute;inset:0;margin:auto;display:grid;place-items:center}
+.iris-actor>svg{display:block;width:100%;height:100%;max-width:none;overflow:visible}
+.iris-caption {position:relative;min-width:0;max-width:70ch;padding:12px 0}
+.iris-vignette .iris-kicker{display:block;color:#c7a660;font:600 9px/1.4 ui-monospace,monospace;letter-spacing:.16em;text-transform:uppercase}
+.iris-vignette .iris-name{display:block;color:var(--iris-paper);margin:4px 0 5px;font:700 clamp(23px,2.3vw,35px)/.99 'Barlow Condensed',Impact,sans-serif;letter-spacing:-.015em;text-transform:uppercase}
+.iris-vignette p.iris-line{margin:0;padding:0;color:#e9e1cb;max-width:61ch;font:400 clamp(12px,.9vw,14px)/1.44 'DM Sans',Arial,sans-serif;letter-spacing:0;text-transform:none}
+.iris-playback{display:flex;align-self:end;gap:3px;margin-bottom:12px;z-index:3}
+.iris-vignette button.iris-control{box-sizing:border-box;display:grid;place-items:center;width:40px;height:40px;min-width:0;min-height:0;padding:0;background:#10110de8;color:#f4d992;border:1px solid #af945b70;border-radius:0;cursor:pointer;box-shadow:none}
+.iris-vignette button.iris-control:focus-visible{outline:2px solid #ffe8a8;outline-offset:2px}
+.iris-vignette button.iris-control:hover:not(:disabled){color:#0c0b08;background:#ffda75}
+.iris-vignette button.iris-control:disabled{opacity:.5;cursor:default}
+.iris-control svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.iris-vignette.iris-flash .iris-illustration::after{animation:iris-guide-signal .7s ease-out both}
+@keyframes iris-guide-signal{from{scale:.88;border-color:#fff1ac;box-shadow:0 0 25px #e7b54480}to{scale:1}}
+main>.iris-panel,main>.iris-inline,body>.iris-outro,main>.iris-outro{width:90%;max-width:1380px;margin:26px auto}
+.iris-inline,.iris-outro {grid-template-columns:clamp(100px,15%,180px) minmax(0,1fr) auto}
+.iris-inline .iris-illustration,.iris-outro .iris-illustration{min-height:100px}
+.iris-hero-ready {position:relative;isolation:isolate}
+.iris-hero-ready>.iris-hero {
+  --iris-throne:url('/assets/alchemy-motion/guide-empty-seat.webp');
+  position:absolute;inset:auto 0 0 auto;z-index:1;display:block;
+  width:var(--iris-hero-size,66%);max-width:100%;aspect-ratio:3/2;margin:0;padding:0;
+  border:0;box-shadow:none;pointer-events:none;overflow:visible;
+  background:var(--iris-throne) right bottom/100% auto no-repeat;
+  mask-image:linear-gradient(90deg,transparent 6%,#000 38%);
+}
+.iris-hero-ready>.iris-hero::after{display:none}
+.iris-hero-ready>.iris-hero .iris-illustration{position:absolute;left:45%;bottom:18%;width:45%;height:62%;min-height:0;border:0;background:none;overflow:visible}
+.iris-hero-ready>.iris-hero .iris-illustration::before,.iris-hero-ready>.iris-hero .iris-illustration::after{display:none}
+.iris-hero-ready>.iris-hero .iris-actor{max-height:none;filter:drop-shadow(1px 5px 2px #0008)}
+.iris-hero-ready>.iris-hero .iris-caption{position:absolute;left:48%;bottom:3%;width:37%;max-width:370px;padding:5px 9px 6px;border-left:2px solid #e4be79;background:linear-gradient(90deg,#080807ea,#08080799);text-shadow:0 1px 2px #000}
+.iris-hero .iris-kicker{font-size:8px}
+.iris-hero .iris-name{font-size:clamp(16px,1.5vw,22px);margin:2px 0 3px}
+.iris-hero p.iris-line{font-size:clamp(10px,.8vw,12px);line-height:1.25}
+.iris-hero .iris-playback{position:absolute;bottom:3%;right:2%;display:grid;gap:1px;margin:0;pointer-events:auto}
+.iris-hero button.iris-control{height:32px;width:34px}
+.iris-hero-ready>:is(.alchemy-stage,.hero-art,.ua-guide-rise,.ua-guide-plate,.alchemy-controls){visibility:hidden!important}
+.iris-hero-ready>.hero-shade,.iris-hero-ready>.play-hero-shade{z-index:2;pointer-events:none}
+.iris-hero-ready>:is(.hero-copy,.play-hero-copy,.hero-side,.art-disclosure,.hero-corner){position:relative;z-index:3}
+.iris-hero-ready>:is(.hero-side,.art-disclosure,.hero-corner){position:absolute}
+.iris-entry {
+  flex:0 0 240px;grid-template-columns:86px 1fr;gap:8px;max-width:270px;margin:5px 0;
+  padding:0 8px 0 0;border:0;border-left:1px solid #ac8d4b73;background:transparent;box-shadow:none
+}
+.iris-entry .iris-illustration{min-height:87px;background:transparent;border:0}
+.iris-entry .iris-caption{padding:5px 0}
+.iris-entry .iris-name{font-size:19px}
+.iris-entry .iris-kicker,.iris-entry p.iris-line{display:none}
+.iris-entry .iris-playback{grid-column:2;align-self:auto;margin:-25px 0 2px;gap:1px}
+.iris-entry button.iris-control{width:28px;height:25px}
+.expeditions-entry:has(>.iris-entry){grid-template-columns:minmax(0,1fr) auto;position:relative}
+.expeditions-entry>.iris-entry{position:relative;z-index:2;justify-self:end}
+.expeditions-entry>img{grid-column:2;grid-row:1}
+.expeditions-entry>.iris-entry{grid-column:2;grid-row:1;align-self:end;background:#0c0c0cde}
+.iris-expstage{position:absolute;z-index:2;bottom:14px;left:4%;right:4%;margin:0;grid-template-columns:95px minmax(0,1fr) auto;gap:9px;padding-right:8px;background:#0a0b08e8}
+.iris-expstage .iris-illustration{min-height:95px}
+.iris-expstage .iris-name{font-size:20px}
+.iris-expstage p.iris-line{font-size:11px}
+:where(.shop-hero-copy,.exp-hero-copy,.mw-art-intro,.signature-main)>.iris-panel{max-width:650px;grid-template-columns:clamp(95px,21%,135px) minmax(0,1fr);gap:12px;padding-right:10px}
+:where(.shop-hero-copy,.exp-hero-copy,.mw-art-intro,.signature-main)>.iris-panel .iris-illustration{grid-column:1;grid-row:1}
+:where(.shop-hero-copy,.exp-hero-copy,.mw-art-intro,.signature-main)>.iris-panel .iris-caption{grid-column:2;grid-row:1}
+:where(.shop-hero-copy,.exp-hero-copy,.mw-art-intro,.signature-main)>.iris-panel .iris-playback{grid-column:1;grid-row:1;align-self:end;justify-self:center;margin:0;transform:translateY(-2px)}
+:where(.shop-hero-copy,.exp-hero-copy,.mw-art-intro,.signature-main)>.iris-panel .iris-control{width:25px;height:22px}
+:where(.shop-hero-copy,.exp-hero-copy,.mw-art-intro,.signature-main)>.iris-panel .iris-actor{bottom:12%;height:90%}
+:where(.shop-hero-copy,.exp-hero-copy,.mw-art-intro,.signature-main)>.iris-panel .iris-name{font-size:25px}
+:where(.shop-hero-copy,.exp-hero-copy,.mw-art-intro,.signature-main)>.iris-panel .iris-line{font-size:12px}
+:where(.signature-main,.mw-art-intro)>.iris-panel {margin-inline:auto;text-align:left}
+html:has(.iris-hero-ready) .ua-guide-crossing:not(.ua-guide-crossing-live){display:none}
+.ua-guide-walker.ua-walk-rig{width:auto;aspect-ratio:150/146;max-width:48%;height:86%}
+.ua-walk-rig[data-facing="left"] .ua-puppet{scale:-1 1}
+body.exp-field .iris-vignette{display:none}
+@media(max-width:760px) {
+  .iris-vignette:not(.iris-hero,.iris-entry){grid-template-columns:clamp(84px,24%,138px) minmax(0,1fr);gap:10px;padding-right:10px}
+  .iris-vignette:not(.iris-hero,.iris-entry) .iris-playback{grid-column:1;grid-row:1;align-self:end;justify-self:center;margin:0 0 2px;gap:1px}
+  .iris-vignette:not(.iris-hero,.iris-entry) .iris-illustration{grid-column:1;grid-row:1;min-height:115px}
+  .iris-vignette:not(.iris-hero,.iris-entry) .iris-actor{inset:0 0 17%;height:83%}
+  .iris-vignette:not(.iris-hero,.iris-entry) .iris-caption{grid-column:2;grid-row:1}
+  .iris-vignette:not(.iris-hero) button.iris-control{height:28px;width:34px}
+  main>.iris-panel,main>.iris-inline,body>.iris-outro,main>.iris-outro{width:92%;margin:15px auto}
+  .iris-vignette .iris-name{font-size:23px}.iris-vignette .iris-kicker{font-size:8px}
+  .iris-hero-ready>.iris-hero{width:100%;mask-image:linear-gradient(180deg,transparent,#000 15%)}
+  .iris-hero-ready>.iris-hero .iris-illustration{width:50%;left:43%;bottom:18%;height:64%}
+  .iris-hero-ready>.iris-hero .iris-caption{left:3%;bottom:3%;max-width:53%;width:auto;padding:5px 7px}
+  .iris-hero .iris-name{font-size:17px}.iris-hero .iris-kicker{font-size:7px}.iris-hero p.iris-line{font-size:10px;line-height:1.3}
+  .iris-hero .iris-playback{display:flex}
+  .iris-hero-ready>:is(.hero-copy,.play-hero-copy){padding-bottom:clamp(220px,67vw,500px)}
+  .iris-hero-ready:is(.hero,.play-hero){min-height:0}
+  .selfmade-entry:has(>.iris-entry){flex-wrap:wrap}
+  .iris-entry{max-width:172px;flex-basis:172px;grid-template-columns:59px 1fr}
+  .iris-entry .iris-illustration{min-height:66px}.iris-entry .iris-name{font-size:16px}
+  .iris-entry .iris-playback{margin-top:-22px}
+  .expeditions-entry>.iris-entry{position:static;justify-self:start;grid-row:auto;grid-column:1/-1}
+}
+@media (prefers-reduced-motion:reduce){.iris-vignette *, .iris-vignette *::after{animation:none!important;transition:none!important}}

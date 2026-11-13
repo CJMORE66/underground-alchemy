@@ -41,4 +41,9 @@ html[data-motion=off] .ctm-title.ctm-phrase .ctm-word{opacity:1!important;transf
 .ctm-action.ctm-wrap>.ctm-run>.ctm-word{white-space:normal;max-width:100%}
 .ctm-action.ctm-wrap>.ctm-run .ctm-ink{max-width:100%;white-space:normal;overflow-wrap:anywhere}
 
+/* The longer French title still fits its two authored lines beside the painting. */
+html[lang="fr"] #hero-title{font-size:clamp(56px,7.4vw,145px);white-space:normal}
+@media(max-width:760px){html[lang="fr"] #hero-title{font-size:clamp(44px,14vw,104px)}}
+#workshop .ws-heading h2{line-height:1.08}
+
 .ctm-action>.ctm-run{display:block;line-height:inherit}

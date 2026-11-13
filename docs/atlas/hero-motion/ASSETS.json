@@ -65,5 +65,69 @@
       "bytes": 155760,
       "sha256": "5bd72c132f60e812fc387103d92b32a31bbd2c5d9966d684898b108fa2b1950a"
     }
-  ]
+  ],
+  "scrollGuide": {
+    "date": "2026-11-07",
+    "method": "Built-in image generation with visual references, then WebP delivery. Native scroll animation uses an illustrated pose and a matched empty-seat background.",
+    "assets": [
+      {
+        "file": "dist/assets/alchemy-motion/guide-standing.webp",
+        "width": 600,
+        "height": 900,
+        "mode": "RGBA",
+        "bytes": 90566,
+        "sha256": "21d68ae0cb7c51e5595ff4b8d9040b91a25f5c794d8a82bac02e7030f5d4ff46",
+        "brief": "Recreate the existing masked CAISIK character from the homepage screenshot as one full-body first-step walking sprite. Match the shadowed hood and mask, yellow and black jacket, chains, trousers and sneakers. Keep the sharp comic ink and isolate the figure on an alpha background."
+      },
+      {
+        "file": "dist/assets/alchemy-motion/guide-empty-seat.webp",
+        "width": 1536,
+        "height": 1024,
+        "mode": "RGB",
+        "bytes": 398808,
+        "sha256": "c6e374b55a97bbfc0f87a32c4fdf4143140d1f2b9976b00a2b1b03b8f94b16c6",
+        "brief": "Remove the seated character from the approved 3:2 hero poster and reconstruct the empty carved throne and steps. Retain the original framing, left black negative space, cathedral, ouroboros, sun and moon, vinyl, red ribbons and reflections."
+      }
+    ]
+  },
+  "scrollPrologue": {
+    "date": "2026-11-08",
+    "plateSource": "dist/assets/alchemy-motion/guide-empty-seat.webp",
+    "plateEdit": "Keep the empty gilded throne, architecture, stairs, red ink and wet floor at original 1536×1024 registration. Remove floating symbols, celestial faces, orbits and serpent to reveal each one in its own shot.",
+    "sequence": [
+      "throne",
+      "symbols",
+      "ouroboros",
+      "arrival",
+      "first line"
+    ],
+    "narration": {
+      "locale": "cs",
+      "transcript": "Pravda mluví jen k chápavým uším.",
+      "method": "Synthetic voice, locally mastered with light echo. Audio requires visitor activation."
+    },
+    "assets": [
+      {
+        "file": "dist/assets/alchemy-prologue/pravda-cs.mp3",
+        "bytes": 17853,
+        "sha256": "ebf3f96b7b26f794b6f61bb62998cacfc13c89f72cdec13f4e73f009fc92b455"
+      },
+      {
+        "file": "dist/assets/alchemy-prologue/throne.webp",
+        "bytes": 317580,
+        "sha256": "4ec7c08b4a3369c09b3d3e1bb12b019bdc32124a26cb32a8847605cd38f4db3e"
+      },
+      {
+        "file": "dist/assets/alchemy-prologue/voice-portrait.webp",
+        "bytes": 273970,
+        "sha256": "64161fb101d77968060e91557beb66a87eef330dfe849b18d3a8a2ce3cf5359b",
+        "source": [
+          "dist/assets/atlas/hero-v2.webp",
+          "dist/assets/alchemy-motion/guide-standing.webp"
+        ],
+        "method": "Generated graphic-novel close-up, optimized as WebP. The speech animation uses masked areas of this same illustration.",
+        "artDirection": "Preserve the original adult Alchemist and angular yellow hood. Use mature natural anatomy, hard amber rim light and deep ink shadows. Keep his lips and a dented brass microphone grille on either side of a visible air gap."
+      }
+    ]
+  }
 }

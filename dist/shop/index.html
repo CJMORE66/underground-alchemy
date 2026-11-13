@@ -9,29 +9,60 @@
   <link rel="icon" href="/assets/logo/caisik-signature.webp" type="image/webp">
   <link rel="stylesheet" href="/fonts-v7.css?v=1">
   <link rel="stylesheet" href="/shop/shop.css?v=4">
-  <link rel="stylesheet" href="/languages.css?v=1">
-  <script src="/languages.js?v=2" defer></script>
+  <link rel="stylesheet" href="/shop/shop-stage.css?v=1">
+  <link rel="stylesheet" href="/languages.css?v=2">
+  <script src="/languages.js?v=3" defer></script>
   <script type="module" src="/shop/shop.js?v=4"></script>
-<link rel="stylesheet" href="/text-motion.css?v=2"><script src="/text-motion.js?v=2" defer></script></head>
+<link rel="stylesheet" href="/text-motion.css?v=3"><script src="/text-motion.js?v=3" defer></script><link rel="stylesheet" href="/caisik-logo.css?v=1"><link rel="stylesheet" href="/nav-motion.css?v=2"><script src="/caisik-logo.js?v=1" defer></script><link rel="stylesheet" href="/iris-engine.css?v=forge3"><link rel="stylesheet" href="/iris-guide.css?v=gold2"><link rel="stylesheet" href="/iris-story.css?v=gold2"><script defer src="/iris-engine.js?v=forge3"></script><script defer src="/iris-guide.js?v=gold2"></script><script defer src="/iris-story.js?v=1"></script></head>
 <body>
   <a class="shop-skip" href="#shop-collection">Přejít ke kolekci</a>
-  <header class="shop-header">
-    <a class="shop-brand" href="/" aria-label="Úvodní stránka CAISIK Underground Alchemy"><img src="/assets/logo/caisik-signature.webp" width="1942" height="809" alt="CAISIK Underground Alchemy"></a>
-    <nav aria-label="Navigace obchodu"><a href="/#hidden-city">HIDDEN CITY</a><a href="/play/">SELFMADE</a><a class="shop-home-link" href="/">Zpět do Alchemy ↗</a></nav>
-  </header>
+  <header class="brand-dock" data-primary-header data-brand-route="shop">
+<a class="brand-fallback" href="/" aria-label="CAISIK Underground Alchemy"><span class="caisik-logo" aria-hidden="true"><img class="caisik-logo-poster" src="/assets/logo/caisik-signature.webp" alt="" width="1942" height="809" decoding="async"><span class="caisik-logo-stage"></span></span></a>
+<button id="menu-toggle" class="brand-toggle" type="button" aria-expanded="false" aria-controls="main-nav" aria-label="CAISIK — Menu" hidden data-text-motion="off">
+ <svg class="brand-seal" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path class="brand-seal-orbit" pathLength="1" d="M24 2 43 13v22L24 46 5 35V13Z"/><path d="M24 6 40 35H8ZM24 42 8 13h32Z"/><path class="brand-seal-eye" d="M14 24q10-12 20 0-10 12-20 0Z"/><circle cx="24" cy="24" r="2.8"/></svg><span class="caisik-logo" aria-hidden="true"><img class="caisik-logo-poster" src="/assets/logo/caisik-signature.webp" alt="" width="1942" height="809" decoding="async"><span class="caisik-logo-stage"></span></span><span class="brand-toggle-caption" aria-hidden="true"><span translate="no">MENU</span><span class="nav-toggle-mark"></span></span>
+</button>
+<nav id="main-nav" aria-label="Main navigation" data-text-motion="off">
+ <div class="nav-panel-mark" aria-hidden="true"><svg viewBox="0 0 216 20" preserveAspectRatio="xMidYMid meet"><path d="M1 10h32l6-6h27l6 6h21m30 0h30l6 6h19l6-6h31M100 10l8-8 8 8-8 8zM108 6v8m-4-4h8"/><circle cx="1" cy="10" r="1"/><circle cx="215" cy="10" r="1"/></svg></div>
+ <a class="nav-home" href="/"><span data-brand-home data-i18n="off">Home</span><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 6h8M7 3l3 3-3 3"/></svg></a>
+ <ul class="nav-route-list">
+  <li><a href="/#hidden-city"><span class="nav-route-index" aria-hidden="true">01</span><span class="nav-route-label">HIDDEN CITY</span><svg class="nav-route-arrow" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 6h8M7 3l3 3-3 3"/></svg></a></li>
+  <li><a href="/#principles"><span class="nav-route-index" aria-hidden="true">02</span><span class="nav-route-label">SEVEN PRINCIPLES</span><svg class="nav-route-arrow" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 6h8M7 3l3 3-3 3"/></svg></a></li>
+  <li><a href="/#frequency"><span class="nav-route-index" aria-hidden="true">03</span><span class="nav-route-label">FREQUENCY</span><svg class="nav-route-arrow" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 6h8M7 3l3 3-3 3"/></svg></a></li>
+  <li><a href="/play/" data-selfmade-entry><span class="nav-route-index" aria-hidden="true">04</span><span class="nav-route-label">SELFMADE</span><svg class="nav-route-arrow" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 9 9 3M4 3h5v5"/></svg></a></li>
+  <li><a href="/expeditions/"><span class="nav-route-index" aria-hidden="true">05</span><span class="nav-route-label">EXPEDICE</span><svg class="nav-route-arrow" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 9 9 3M4 3h5v5"/></svg></a></li>
+  <li><a href="/#living-wall"><span class="nav-route-index" aria-hidden="true">06</span><span class="nav-route-label">LIVING WALL</span><svg class="nav-route-arrow" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 6h8M7 3l3 3-3 3"/></svg></a></li>
+  <li><a href="/shop/" data-native-shop aria-current="page"><span class="nav-route-index" aria-hidden="true">07</span><span class="nav-route-label">SHOP</span><svg class="nav-route-arrow" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 9 9 3M4 3h5v5"/></svg></a></li>
+ </ul>
+ <div data-brand-language></div>
+</nav>
+<div class="brand-shortcuts">
+<a class="brand-quiet-link shop-home-link" href="/">Zpět do Alchemy ↗</a>
+<a class="brand-action" href="#shop-cart" data-text-motion="off"><span data-brand-cart data-i18n="off">Košík</span> <span aria-hidden="true">↓</span></a>
+</div>
+</header>
   <main data-shop>
     <section class="shop-hero" aria-labelledby="shop-title">
       <div class="shop-hero-copy">
         <p class="shop-eyebrow">CAISIK / UNDERGROUND ALCHEMY / SHOP</p>
         <h1 id="shop-title"><span>TVŮJ ZNAK.</span><br><em><span>TVŮJ SVĚT.</span></em></h1>
         <p class="shop-lead">Myšlenky z města. Původní návrhy, které můžeš nosit.</p>
-        <p class="shop-availability">Načítám katalog a ověřuji dostupnost pokladny.</p>
         <div class="shop-hero-actions"><a class="shop-primary" href="#shop-collection">PROHLÉDNOUT KOLEKCI ↓</a><a class="shop-cart-link" href="#shop-cart"><span>Košík</span> <span data-shop-cart-count translate="no">0</span></a></div>
+        <p class="shop-availability">Načítám katalog a ověřuji dostupnost pokladny.</p>
       </div>
       <figure class="shop-hero-art">
-        <svg viewBox="0 0 620 620" aria-hidden="true"><circle cx="310" cy="310" r="259"/><circle cx="310" cy="310" r="234" stroke-dasharray="2 13"/><path d="M310 13V86M310 534V607M13 310H86M534 310H607M90 90 142 142M478 478 530 530M90 530 142 478M478 142 530 90M310 66 523 433H97Z"/></svg>
-        <img src="/assets/catalog/printful-18912189-482104768.png" alt="OMERTA WITH EGO — původní produktový mockup Printful, nikoli fotografie fyzického vzorku" width="800" height="800" fetchpriority="high">
-        <figcaption>PŮVODNÍ NÁVRH / PRODUKTOVÝ MOCKUP</figcaption>
+        <div class="shop-hero-stage">
+          <svg viewBox="0 0 620 620" aria-hidden="true" focusable="false">
+            <path class="shop-stage-corners" d="M26 94V40L40 26H94M526 26H580L594 40V94M594 526V580L580 594H526M94 594H40L26 580V526"/>
+            <g class="shop-stage-seal">
+              <circle cx="310" cy="310" r="246"/>
+              <circle cx="310" cy="310" r="223" stroke-dasharray="2 12"/>
+              <path d="M310 32V90M310 530V588M32 310H90M530 310H588M310 77 513 427H107Z"/>
+              <path class="shop-stage-accent" d="M116 195A223 223 0 0 1 195 116M504 425A223 223 0 0 1 425 504"/>
+            </g>
+          </svg>
+          <img src="/assets/catalog/printful-18912189-482104768.png" alt="OMERTA WITH EGO — původní produktový mockup Printful, nikoli fotografie fyzického vzorku" width="800" height="800" fetchpriority="high">
+        </div>
+        <figcaption><strong translate="no">OMERTA WITH EGO</strong><span>PŮVODNÍ NÁVRH / PRODUKTOVÝ MOCKUP</span></figcaption>
       </figure>
     </section>
     <section class="shop-collection" id="shop-collection" aria-labelledby="shop-collection-title">

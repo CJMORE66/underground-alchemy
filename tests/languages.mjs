@@ -56,6 +56,51 @@ async function fixture({stored='cs',storageFails=false,localeFails=[],deferred=f
  const h=await fixture({deferred:true});const en=h.api.setLanguage('en'),fr=h.api.setLanguage('fr');await h.tick();h.pending.get('fr')();await fr;h.pending.get('en')();await en;assert.equal(h.api.getLanguage(),'fr','slow prior locale cannot override most recent choice');assert.equal(h.document.getElementById('prose').textContent,'Paragraphe original.');h.api.destroy();
 }
 {
+ const h=await fixture();
+ const toggle=h.document.querySelector('[data-language-toggle]');
+ const options=h.document.getElementById(toggle.getAttribute('aria-controls'));
+ const french=options.querySelector('[data-set-language="fr"]');
+ assert.equal(toggle.textContent,'CZ');
+ assert.equal(toggle.getAttribute('aria-expanded'),'false');
+ assert(options.hidden);
+ toggle.click();
+ assert(!options.hidden);
+ assert.equal(toggle.getAttribute('aria-expanded'),'true');
+ french.click();await h.tick();
+ assert.equal(toggle.textContent,'FR');
+ assert.match(toggle.getAttribute('aria-label'),/Langue du site.*Français/);
+ assert(options.hidden,'language selection returns to the compact badge');
+ toggle.click();
+ let restored=false;toggle.focus=()=>{restored=true;};
+ const escape=new h.window.Event('keydown',{bubbles:true,cancelable:true});
+ Object.defineProperty(escape,'key',{value:'Escape'});
+ french.dispatchEvent(escape);
+ assert(options.hidden&&restored&&escape.defaultPrevented,'Escape closes the disclosure and restores trigger focus');
+ toggle.click();h.click('#original');
+ assert(options.hidden,'outside click closes the disclosure');
+ toggle.click();h.document.querySelector('#original').dispatchEvent(new h.window.Event('focusin',{bubbles:true}));
+ assert(options.hidden,'moving focus away closes the disclosure');
+ toggle.click();h.click('[data-open-language-learning]');await h.tick();
+ assert(options.hidden&&h.document.getElementById('caisik-language-dialog').open,'the language workshop opens from the compact disclosure');
+ h.api.destroy();
+}
+{
+ const h=await fixture();
+ h.document.getElementById('dynamic').innerHTML='<h2 class="ctm-title" aria-label="Helpful label" data-ctm-label><ctm-run><ctm-word>Read</ctm-word> </ctm-run><em><ctm-run><ctm-word>more</ctm-word></ctm-run></em><br><ctm-run><ctm-word>A new detail.</ctm-word></ctm-run></h2>';
+ const heading=h.document.querySelector('#dynamic h2');
+ const br=heading.querySelector('br'),em=heading.querySelector('em');
+ await h.api.setLanguage('fr');
+ assert.equal(heading.firstElementChild.textContent,'Lire ');
+ assert.equal(em.textContent,'la suite');
+ assert.equal(heading.lastElementChild.textContent,'Un nouveau détail.');
+ assert.strictEqual(heading.querySelector('br'),br);
+ assert.equal(heading.getAttribute('aria-label'),'Helpful label','the text motion owner controls its generated accessible label');
+ await h.api.setLanguage('en');
+ assert.equal(heading.firstElementChild.textContent,'Read ');
+ assert.strictEqual(heading.querySelector('em'),em);
+ h.api.destroy();
+}
+{
  const h=await fixture({localeFails:['fr'],storageFails:true});await h.api.setLanguage('fr');assert.equal(h.api.getLanguage(),'cs','failed fetch keeps readable current language');assert.equal(h.document.getElementById('prose').textContent,'Původní odstavec.');assert.match(h.document.querySelector('[data-language-status]').textContent,/nepodařilo/);await h.api.setLanguage('en');assert.match(h.document.querySelector('[data-language-status]').textContent,/uložení|storage/i,'failed preference write is visible');h.api.destroy();
 }
 {
@@ -88,7 +133,7 @@ console.log('PASS languages: CS/EN/FR persistence and lazy dictionaries, numeric
  h.api.rescan();const paragraph=h.document.getElementById('public-reading');assert.equal(paragraph.textContent,'Původní odstavec.');
  let selected=paragraph,crossesPrivate=false;
  h.window.getSelection=()=>({isCollapsed:false,rangeCount:1,anchorNode:selected.firstChild,focusNode:selected.firstChild,toString:()=>selected.textContent,getRangeAt:()=>({commonAncestorContainer:selected,intersectsNode:()=>crossesPrivate})});
- h.click('[data-language-dock] [data-reading-toggle]');assert.equal(h.document.querySelector('[data-language-dock] [data-reading-toggle]').getAttribute('aria-pressed'),'true');assert.equal(h.requests.length,1,'reading toggle itself does not download more locales or practice media');
+ h.click('[data-language-toggle]');h.click('[data-language-dock] [data-reading-toggle]');assert.equal(h.document.querySelector('[data-language-dock] [data-reading-toggle]').getAttribute('aria-pressed'),'true');assert.equal(h.requests.length,1,'reading toggle itself does not download more locales or practice media');
  assert(await h.api.compareSelection());const dialog=h.document.getElementById('caisik-language-dialog');assert(dialog.open);const pair=dialog.querySelector('.language-reading-pair');assert(pair);assert.equal(pair.querySelector('[lang="cs"]').textContent,'Původní odstavec.');assert.equal(pair.querySelector('[lang="fr"]').textContent,'Paragraphe original.');assert(h.requests.some(u=>u.includes('/i18n/fr.json')));
  h.click('[data-reading-listen]');assert.equal(h.speech.spoken.at(-1).text,'Paragraphe original.');assert.equal(h.speech.spoken.at(-1).voice.localService,true);
  h.change('[data-learning-target]','en');await h.tick();assert.equal(dialog.querySelector('.language-reading-pair [lang="en"]').textContent,'Original paragraph.','context comparison follows explicit learning-target changes');

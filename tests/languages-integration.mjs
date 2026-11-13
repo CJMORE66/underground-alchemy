@@ -30,7 +30,10 @@ if(process.argv.includes('--runtime')){
  Object.defineProperty(window.HTMLSelectElement.prototype,'value',{configurable:true,get(){return this.querySelector('option[selected]')?.getAttribute('value')??this.querySelector('option')?.getAttribute('value')??'';},set(value){for(const option of this.querySelectorAll('option')){if(option.getAttribute('value')===String(value))option.setAttribute('selected','');else option.removeAttribute('selected');}}});
  const fixture=document.createElement('section');fixture.id='integration-fixture';
  const original=json('locations-data.json').locations;
- fixture.innerHTML='<h2 id="integration-title">THE CITY IS A TEXT.</h2><button class="button" id="integration-action"><svg aria-hidden="true"><path d="M0 0"/></svg>HISTORICAL EVIDENCE</button><img id="integration-image" alt="THE CITY IS A TEXT."><p id="integration-prose"></p><textarea id="integration-draft"></textarea><p data-i18n-user id="integration-user"></p><div id="integration-dynamic"></div>';
+ const shopTitle=parseHTML(read('shop/index.html')).document.getElementById('shop-title').outerHTML;
+ const workshopTitle=read('play/workshops.js').match(/<h2>TVŮJ MATERIÁL\.<br>TVŮJ VLASTNÍ TAH\.<\/h2>/)?.[0];
+ assert(workshopTitle,'the real SELFMADE workbench has two authored headline lines');
+ fixture.innerHTML='<h2 id="integration-title">THE CITY IS A TEXT.</h2><button class="button" id="integration-action"><svg aria-hidden="true"><path d="M0 0"/></svg>HISTORICAL EVIDENCE</button><img id="integration-image" alt="THE CITY IS A TEXT."><p id="integration-prose"></p><textarea id="integration-draft"></textarea><p data-i18n-user id="integration-user"></p><div id="integration-dynamic"></div><div id="integration-workshop"></div>'+shopTitle;
  document.querySelector('main').append(fixture);
  const source=original[0].history,second=original[1].history;
  document.getElementById('integration-prose').textContent=source;
@@ -92,12 +95,29 @@ if(process.argv.includes('--runtime')){
  assert.equal(document.getElementById('integration-title').textContent,dictionaries.cs['THE CITY IS A TEXT.']);
  assert(document.getElementById('integration-title').querySelector('ctm-word'),'actual kinetic text enhanced the translated title');
  assert.equal(requests.filter(url=>url.includes('/i18n/')).length,1,'initial screen fetches one locale only');
+ const workshop=document.getElementById('integration-workshop');
+ workshop.innerHTML=workshopTitle;
+ await settle('workbench loaded after the language runtime');
+ const structuredTitles=[
+  [document.getElementById('hero-title'),['THE CITY','IS A TEXT.']],
+  [document.getElementById('shop-title'),['TVŮJ ZNAK.','TVŮJ SVĚT.']],
+  [workshop.querySelector('h2'),['TVŮJ MATERIÁL.','TVŮJ VLASTNÍ TAH.']]
+ ].map(([heading,sources])=>({heading,sources,br:heading.querySelector('br'),em:heading.querySelector('em')}));
  for(const locale of ['fr','en','cs','fr','cs']){
   await api.setLanguage(locale);await settle(`${locale} switch`);
   assert.equal(document.documentElement.lang,locale);
   assert.equal(document.getElementById('integration-prose').textContent,dictionaries[locale][normalize(source)]);
   assert.equal(document.getElementById('integration-title').textContent,dictionaries[locale]['THE CITY IS A TEXT.']);
   assert.equal(document.getElementById('integration-title').getAttribute('aria-label'),dictionaries[locale]['THE CITY IS A TEXT.'],'kinetic semantic heading has the current translated accessible name');
+  for(const {heading,sources,br,em} of structuredTitles){
+   const expected=sources.map(key=>dictionaries[locale][key]);
+   assert(expected.every(Boolean),`${locale}: each authored line has a translation`);
+   const lines=[...heading.querySelectorAll('ctm-run')].map(run=>normalize(run.textContent));
+   assert.deepEqual(lines,expected,`${locale}: visible animated lines follow the site language`);
+   assert.equal(heading.getAttribute('aria-label'),expected.join(' '),`${locale}: accessible and visible headlines agree`);
+   assert.strictEqual(heading.querySelector('br'),br,'the authored line break survives');
+   assert.strictEqual(heading.querySelector('em'),em,'semantic emphasis survives');
+  }
   assert.strictEqual(document.getElementById('integration-image'),image);assert.equal(image.alt,dictionaries[locale]['THE CITY IS A TEXT.'],'alternative text follows the chosen language without replacing its image');
   assert.strictEqual(document.querySelector('img.hero-art'),productionImage);assert.equal(productionImage.getAttribute('src'),productionImageSrc);assert.equal(productionImage.alt,dictionaries[locale][productionAlt],'actual production hero alternative text follows the selected locale');
   assert(document.getElementById('integration-title').querySelector('ctm-word'),'translated title retains kinetic structure');
