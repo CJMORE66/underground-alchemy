@@ -276,3 +276,35 @@ body:has(.iris-switch[aria-expanded="true"]) .ua-legend-companion { display: non
   .ua-film-track .ua-film-frame { position: relative; top: auto; height: 410px; }
   .ua-film-console, .ua-legend-companion { display: none; }
 }
+
+.ua-film-entries {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.ua-film-story,
+.ua-film-entries button.live-intro {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: .85em;
+  min-height: 44px;
+  min-width: 0;
+  padding: .55rem 1rem;
+  border: 1px solid #ffd600;
+  color: #ffd600;
+  background: #0e0d0b;
+  box-shadow: none;
+  text-transform: none;
+  letter-spacing: .01em;
+  text-decoration: none;
+  font: 700 1rem/1.1 'Barlow Condensed', sans-serif;
+}
+.ua-film-entries .ua-film-story {
+  color: #10100c;
+  background: #ffd600;
+  font-size: 1.25rem;
+  box-shadow: 3px 3px 0 #14120b;
+}
+.ua-film-story:focus-visible { outline: 3px solid #fff; outline-offset: 2px; }

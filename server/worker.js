@@ -1,3 +1,4 @@
+import { handleAlchymistaLive } from './alchymista/live.js';
 import merchandising from '../dist/shop/catalog.json' with { type: 'json' };
 import { LivePrintfulCatalog } from './commerce/live-catalog.js';
 import { D1PublicCatalogCache } from './commerce/catalog-cache.js';
@@ -78,6 +79,9 @@ export function createCommerceWorker({ fetchImplementation = (input, init) => gl
     async fetch(request, env, ctx) {
       const url = new URL(request.url), path = url.pathname;
       if (!path.startsWith('/api/')) return env.ASSETS.fetch(request);
+      if (path === '/api/alchymista/live/status' || path === '/api/alchymista/live/session') {
+        return handleAlchymistaLive(request, env, { fetchImplementation, repositoryFor });
+      }
       try {
         if (path === '/api/commerce/catalog' && request.method === 'GET') {
           const cacheKey = new Request(url.origin + '/api/commerce/catalog', { method: 'GET' });

@@ -4,6 +4,11 @@ import fs from 'node:fs';
 import path from 'node:path';
 import vm from 'node:vm';
 import {parseHTML} from 'linkedom';
+import {imprintEvent,imprintKey,readImprint} from '../dist/needle-imprint-store.js';
+import {readRevizor,revizorEvent,revizorKey} from '../dist/revizor-store.js';
+import {readWriterRepair,writerRepairEvent,writerRepairKey} from '../dist/writer-repair-store.js';
+import {readShadowRoutine,shadowMoveLabels,shadowRoutineEvent,shadowRoutineKey} from '../dist/shadow-quest-store.js';
+import {cornerNoteEvent,cornerNoteKey,cornerReadings,readCornerNote} from '../dist/corner-note-store.js';
 import {parseCultureData,culturePlace,cultureRoutes} from '../dist/culture-data.js';
 import {validCityPoint} from '../dist/city-map.js';
 const root=path.resolve(import.meta.dirname,'..'),dist=path.join(root,'dist');
@@ -47,7 +52,12 @@ async function boot({data=research,dataFails=false,boardFails=false,storageFails
  };
  class TestURL extends URL{static createObjectURL(blob){calls.download=blob;return 'blob:qa-export';}static revokeObjectURL(){}}
  window.L=L;window.matchMedia=query=>query.includes('max-width')?mobileMedia:({matches:false});window.location={pathname:'/',hash:''};
- const context=vm.createContext({window,document,L,URL:TestURL,URLSearchParams,Blob,Map,Set,location:window.location,matchMedia:window.matchMedia,
+ const savedEntries = {getItem: key => storage.get(key) ?? null};
+ const context=vm.createContext({window,document,imprintEvent,imprintKey,readImprint:()=>readImprint(savedEntries),
+  revizorEvent,revizorKey,readRevizor:()=>readRevizor(savedEntries),
+  writerRepairEvent,writerRepairKey,readWriterRepair:()=>readWriterRepair(savedEntries),
+  cornerNoteEvent,cornerNoteKey,cornerReadings,readCornerNote:()=>readCornerNote(savedEntries),
+  shadowMoveLabels,shadowRoutineEvent,shadowRoutineKey,readShadowRoutine:()=>readShadowRoutine(savedEntries),L,URL:TestURL,URLSearchParams,Blob,Map,Set,location:window.location,matchMedia:window.matchMedia,
   console:{...console,error:(...args)=>calls.errors.push(args)},setTimeout:()=>1,clearTimeout(){},requestAnimationFrame:()=>1,cancelAnimationFrame(){},
   localStorage:{getItem:key=>storage.get(key)??null,setItem:(key,value)=>{if(storageFails)throw Error('storage unavailable');storage.set(key,value);},removeItem:key=>storage.delete(key)},
   navigator:{geolocation:{getCurrentPosition(success){calls.geo++;success({coords:{latitude:48.86,longitude:2.35}});}}},

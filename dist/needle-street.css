@@ -1,0 +1,335 @@
+#needle-street{display:grid;grid-template-columns:minmax(15rem,2fr) 3fr;background:#171710;color:#fff4cf;border-block:3px solid #faca18;scroll-margin-top:8rem}
+.needle-story{align-self:center;padding:clamp(1.5rem,5vw,5rem)}
+.needle-story small{color:#ffda29;letter-spacing:.16em}.needle-story h2{font:900 clamp(2.5rem,6vw,6rem)/.94 Impact,sans-serif;margin:.3em 0}.needle-story p{max-width:38ch;line-height:1.5}
+#needle-street button{cursor:pointer;font:inherit;font-weight:800}.needle-story button{background:#ffda29;color:#111;padding:.7em 1em;border:2px solid currentColor}
+.needle-panel{position:relative;min-height:17rem;background:linear-gradient(0deg,#090909c9,transparent 80%),url('/assets/atlas/hero-v2.webp') center/cover}
+.needle-windows{position:absolute;inset:auto 8% 12%;display:flex;gap:4%;justify-content:center}
+.needle-windows button{flex:1;min-height:5rem;color:#f7e4aa;background:repeating-linear-gradient(0deg,#171611 0 8px,#443c25 9px 11px);border:4px solid #14120b;outline:2px solid #978759;box-shadow:4px 5px #0b0a07}
+.needle-windows button.lit{color:#12110b;background:#ffda29}.needle-windows button.found::after{content:' ◈'}
+#needle-street button:focus-visible{outline:4px solid white;outline-offset:4px}
+@media(max-width:720px){#needle-street{grid-template-columns:1fr}.needle-panel{min-height:15rem}}
+
+#needle-street [hidden] { display: none; }
+.needle-story [data-needle-sound] { background: transparent; color: #ffda29; }
+.needle-story [data-needle-sound][aria-pressed="true"] { box-shadow: inset 0 -3px #ffda29; }
+.needle-deck { display: flex; gap: 1rem; align-items: center; flex-wrap: wrap; margin-block-start: 1.1rem; }
+.needle-record {
+  width: 6rem;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(circle at center, #171710 0 4%, #ffda29 5% 20%, transparent 21%),
+    repeating-radial-gradient(circle at center, #050504 0 3px, #333028 4px 5px);
+  border: 2px solid #afa58e;
+  box-shadow: 4px 5px #0b0a07;
+  transform: rotate(var(--record-turn, 0deg));
+}
+.needle-record::after {
+  content: "";
+  position: absolute;
+  inset: 12px auto auto 50%;
+  width: 4px;
+  height: 13px;
+  background: #f7e4aa;
+}
+.needle-scrub { display: grid; flex: 1 1 12rem; gap: 0.45rem; }
+.needle-scrub label { font-weight: 800; }
+.needle-scrub small { letter-spacing: normal; }
+.needle-scrub input { width: 100%; margin: 0; min-height: 44px; accent-color: #ffda29; touch-action: pan-y; }
+.needle-scrub input:focus-visible { outline: 2px solid white; outline-offset: 2px; }
+.needle-scrub button { justify-self: start; text-align: start; }
+.needle-courier {
+  position: absolute;
+  bottom: calc(12% + 4.4rem);
+  left: 50%;
+  width: 8.5rem;
+  height: 7.5rem;
+  transform: translate(calc(-50% + var(--courier-step, 0) * 10px), calc(var(--courier-step, 0) * 9px));
+  border-radius: 45% 45% 10% 10%;
+  border: 2px solid #171611;
+  background: linear-gradient(90deg, #111 0%, #211e17 65%, #454033);
+  box-shadow: 0 0 0 2px #ada077;
+  pointer-events: none;
+}
+.needle-crate {
+  position: absolute;
+  inset: 38% 3% 5%;
+  display: grid;
+  place-items: center;
+  color: #171710;
+  background: repeating-linear-gradient(0deg, #e4ab4f 0 11px, #996529 12px 13px);
+  border: 3px solid #271b0a;
+  box-shadow: 3px 4px #0b0a07;
+  font-size: 1.7rem;
+  font-weight: 900;
+}
+.needle-glove {
+  position: absolute;
+  bottom: 16%;
+  width: 1.55rem;
+  height: 0.8rem;
+  border-radius: 50% 50% 35% 35%;
+  background: linear-gradient(0deg, #817b70, #f1eee6 73%);
+  border: 2px solid #171710;
+}
+.needle-glove-left { left: -6%; transform: rotate(-22deg); }
+.needle-glove-right { right: -6%; transform: rotate(22deg); }
+
+.needle-fork {
+  grid-column: 1 / -1;
+  padding: clamp(1.25rem, 4vw, 3rem) clamp(1.5rem, 5vw, 5rem);
+  border-top: 2px solid #faca18;
+  background: #11110d;
+}
+.needle-fork h3, .needle-fork h4 { color: #ffda29; margin: 0 0 0.45em; }
+.needle-fork h3 { font-size: clamp(1.6rem, 4vw, 3rem); }
+.needle-fork h4 { font-size: clamp(1.25rem, 2.3vw, 1.75rem); }
+.needle-fork p { max-width: 62ch; margin: 0 0 1rem; }
+.needle-options { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.needle-fork button { min-height: 44px; padding: 0.55rem 0.85rem; background: #ffda29; color: #12110b; border: 2px solid #ffda29; }
+.needle-fork button[aria-pressed="true"], .needle-fork .needle-return { background: transparent; color: #ffda29; }
+.needle-branch, .needle-yard { margin-top: 1.3rem; padding: 1rem; border-inline-start: 3px solid #ffda29; background: #222018; }
+.needle-yard { background: #342c10; }
+.needle-writer img { display: block; width: min(100%, 38rem); height: auto; margin: 0 0 1rem; }
+.needle-fork .needle-echo { min-height: 1.5em; margin: 0.45rem 0 0; }
+.needle-pattern, .needle-echo { color: #ffda29; font-weight: 800; }
+.needle-fork .needle-branch-status:not(:empty) { margin-top: 1rem; }
+.needle-return { margin-top: 1rem; }
+.needle-visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.needle-fork .needle-yard-mark { color: #fff0a6; font-weight: 900; letter-spacing: 0.16em; margin-bottom: 0.5rem; }
+/* The atlas already reserves the fixed dock with scroll-padding on the root. */
+.needle-fork :is(h3, h4, button) { scroll-margin-block-start: .5rem; }
+
+.needle-branch::before {
+  display: block;
+  content: "";
+  width: 4.2rem;
+  height: .9rem;
+  margin-block-end: .65rem;
+  background: #ffd600;
+  transform-origin: left;
+}
+.needle-branch[data-branch="stairs"]::before {
+  clip-path: polygon(0 0,36% 0,36% 34%,68% 34%,68% 68%,100% 68%,100% 100%,62% 100%,62% 66%,30% 66%,30% 32%,0 32%);
+}
+.needle-branch[data-branch="wall"]::before {
+  clip-path: polygon(0 50%,20% 0,16% 36%,84% 36%,80% 0,100% 50%,80% 100%,84% 64%,16% 64%,20% 100%);
+}
+.needle-gate {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  perspective: 65rem;
+  width: min(100%, 39rem);
+  height: clamp(7rem, 18vw, 13rem);
+  margin: .7rem 0 1rem;
+  border: 3px solid #080808;
+  box-shadow: 2px 2px #c8a629;
+  background: #171710 url('/assets/alchemy-passage.webp') center 54% / cover no-repeat;
+}
+.needle-gate-door {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border: 4px solid #cab46b;
+  border-right: 8px solid #17140b;
+  transform-origin: right center;
+  transform: rotateY(-82deg);
+  background: repeating-linear-gradient(95deg, #28241c 0 22%, #100f0c 22.5% 23%, #655639 23.5% 24%, #28241c 25%);
+}
+.needle-gate-door::after {
+  content: "";
+  position: absolute;
+  left: 9%;
+  top: 54%;
+  width: 10%;
+  height: 5%;
+  background: #d8c58b;
+  box-shadow: 0 3px #090909;
+}
+.needle-gate .needle-crate {
+  inset: auto auto 9% 28%;
+  width: clamp(3.8rem, 10vw, 6.4rem);
+  height: 34%;
+  transform: rotate(-3deg);
+}
+@keyframes needle-follow-trace {
+  from { transform: scaleX(.1); }
+  to { transform: scaleX(1); }
+}
+@keyframes needle-swing-door {
+  from { transform: rotateY(0deg); }
+  to { transform: rotateY(-82deg); }
+}
+@keyframes needle-set-down {
+  0%, 35% { transform: translateY(-12px) rotate(3deg); }
+  79% { transform: translateY(2px) rotate(-4deg); }
+  100% { transform: rotate(-3deg); }
+}
+@media (prefers-reduced-motion: no-preference) {
+  html:not([data-motion="off"], [data-selfmade-motion="off"], [data-selfmade-motion="quiet"], [data-selfmade-motion="calm"], [data-selfmade-motion="reduced"]) body:not(.simple-mode, .exp-field):not(:has(.culture-board.cb-field)) {
+    & .needle-fork:is([data-cue="stairs"], [data-cue="wall"]) .needle-branch:not([hidden])::before {
+      animation: needle-follow-trace 340ms ease-out;
+    }
+    & .needle-fork[data-cue="gate"] .needle-gate-door {
+      animation: needle-swing-door 650ms cubic-bezier(.2,.65,.22,1);
+    }
+    & .needle-fork[data-cue="gate"] .needle-gate .needle-crate {
+      animation: needle-set-down 750ms ease-out;
+    }
+  }
+}
+
+.needle-fork .needle-yard {
+  max-width: 68rem;
+  padding: clamp(1rem, 2vw, 1.65rem);
+  background: #161611;
+  border: 1px solid #635b32;
+  border-inline-start: 4px solid #ffd600;
+}
+.needle-yard .needle-gate {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 2.4;
+}
+.needle-yard h4:focus-visible { outline-offset: 4px; }
+@media (min-width: 780px) {
+  .needle-yard {
+    display: grid;
+    grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
+    grid-template-rows: 1fr auto auto 1fr;
+    column-gap: clamp(1.4rem, 3vw, 3rem);
+    align-items: start;
+  }
+  .needle-yard .needle-gate { grid-row: 1 / 5; grid-column: 1; margin: 0; }
+  .needle-yard h4 { grid-row: 2; grid-column: 2; }
+  .needle-yard .needle-yard-mark { grid-row: 1; grid-column: 2; align-self: end; }
+  .needle-yard [data-yard-message] { grid-row: 3; grid-column: 2; margin: 0; }
+}
+
+.needle-imprint {
+  max-width: 68rem;
+  margin-block-start: 1rem;
+  padding: clamp(1rem, 3vw, 1.65rem);
+  border: 1px solid #635b32;
+  border-inline-start: 4px solid #ffd600;
+  background: #11110d;
+}
+.needle-imprint p { font-size: 1rem; }
+.needle-imprint-steps {
+  display: grid;
+  grid-template-columns: repeat(8, minmax(0, 1fr));
+  gap: clamp(.4rem, 1vw, .65rem);
+  max-width: 44rem;
+  margin-block-end: 1.15rem;
+}
+.needle-imprint [data-imprint-step] {
+  position: relative;
+  display: grid;
+  justify-items: center;
+  align-content: center;
+  gap: .2rem;
+  min-height: max(44px, 3.75rem);
+  padding: .3rem;
+  color: #fff4cf;
+  background: #25231b;
+  border: 1px solid #7b704a;
+  box-shadow: 0 3px #080808;
+}
+.needle-imprint [data-imprint-step]::before {
+  content: '';
+  width: .85rem;
+  aspect-ratio: 1;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+}
+.needle-imprint [data-imprint-step][aria-pressed="true"] {
+  color: #151407;
+  background: #ffd600;
+  border-color: #ffd600;
+}
+.needle-imprint [data-imprint-step][aria-pressed="true"]::before {
+  background: currentColor;
+}
+.needle-imprint [data-imprint-step].is-current::after {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border: 2px solid #fff4cf;
+  pointer-events: none;
+}
+.needle-imprint-actions [data-imprint-preview] {
+  color: #ffda29;
+  background: transparent;
+}
+.needle-imprint-actions button:disabled {
+  color: #aba38c;
+  background: #25231b;
+  border-color: #5d5640;
+  cursor: default;
+}
+.needle-imprint .needle-imprint-status {
+  min-block-size: 1.5em;
+  margin: .7rem 0 0;
+}
+@media (max-width: 580px) {
+  .needle-imprint-steps { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .needle-imprint [data-imprint-step] { min-height: 3.35rem; }
+}
+
+.needle-windows [data-window="1"]:has(.needle-window-mark:not([hidden])) {
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: .3rem;
+  min-width: 0;
+  padding-inline: .15rem;
+}
+.needle-windows [data-window="1"]:has(.needle-window-mark:not([hidden]))::after { content: none; }
+.needle-window-mark {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: clamp(1px, .32vw, 4px);
+}
+.needle-window-mark > * {
+  display: block;
+  inline-size: clamp(3px, .85vw, 8px);
+  aspect-ratio: 1;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+}
+.needle-window-mark > .is-on { background: currentColor; }
+.needle-windows [data-window="1"].imprint-beat {
+  box-shadow: 4px 5px #0b0a07, inset 0 0 0 2px #ac8c41;
+}
+
+.needle-window-mark i.is-current {
+  outline: 1px solid currentColor;
+  outline-offset: 2px;
+}
+
+.needle-panel:has(.needle-window-caption:not([hidden])) {
+  display: grid;
+  align-content: end;
+  gap: .9rem;
+  padding: 2rem 8% 1.25rem;
+}
+.needle-panel:has(.needle-window-caption:not([hidden])) .needle-windows {
+  position: static;
+}
+.needle-window-caption {
+  max-width: 52ch;
+  margin: 0;
+  padding: .55rem .75rem;
+  border-inline-start: 3px solid #ffd600;
+  background: #14120b;
+  font-size: 1rem;
+  line-height: 1.35;
+}
+
+.needle-imprint-actions [data-imprint-sound] {
+  color: #ffda29;
+  background: transparent;
+}
+.needle-imprint-actions [data-imprint-sound][aria-pressed="true"] {
+  box-shadow: inset 0 -3px #ffda29;
+}

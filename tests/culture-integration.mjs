@@ -4,6 +4,11 @@ import fs from 'node:fs';
 import path from 'node:path';
 import vm from 'node:vm';
 import {parseHTML} from 'linkedom';
+import {imprintEvent,imprintKey,readImprint,writeImprint} from '../dist/needle-imprint-store.js';
+import {normalizeEnding,readRevizor,revizorEvent,revizorKey,revizorMax,writeRevizor} from '../dist/revizor-store.js';
+import {readWriterRepair,writerRepairEvent,writerRepairKey} from '../dist/writer-repair-store.js';
+import {readShadowRoutine,shadowMoveLabels,shadowRoutineEvent,shadowRoutineKey} from '../dist/shadow-quest-store.js';
+import {cornerNoteEvent,cornerNoteKey,cornerReadings,readCornerNote} from '../dist/corner-note-store.js';
 import {parseCultureData,culturePlace,cultureRoutes} from '../dist/culture-data.js';
 import {validCityPoint} from '../dist/city-map.js';
 
@@ -93,7 +98,7 @@ for(const name of ['index.html',...aliases]){
  for(const id of ['hidden-city','principles','frequency','living-wall','profile-dialog','notebook-dialog'])assert(document.getElementById(id),`${name}: original ${id} retained`);
 }
 
-async function boot({data=research,dataFails=false,boardFails=false,storageFails=false,motion='off'}={}){
+async function boot({data=research,dataFails=false,boardFails=false,storageFails=false,motion='off',imprint=null,cornerNote=null}={}){
  const {window,document}=parseHTML(html);
  const oldNote='Původní pozorování zůstává přesně uložené.';
  const oldCultureNote='Moje starší poznámka ke kulturnímu místu.';
@@ -103,6 +108,8 @@ async function boot({data=research,dataFails=false,boardFails=false,storageFails
   ['atlas-observations',JSON.stringify(notes)],['atlas-motion',JSON.stringify(motion)],
   ['caisik-expeditions-v1','untouched-expeditions'],['caisik-selfmade-v1','untouched-selfmade']
  ]);
+ if (imprint) storage.set(imprintKey, JSON.stringify(imprint));
+ if (cornerNote) storage.set(cornerNoteKey, JSON.stringify(cornerNote));
  const calls={geo:0,markers:[],pans:[],lines:[],city:null,sets:[],selections:[],routes:[],board:null,boardDestroyed:0,download:null,errors:[]};
  window.HTMLElement.prototype.scrollIntoView=function(){};
  document.querySelectorAll('dialog').forEach(dialog=>{
@@ -118,7 +125,12 @@ async function boot({data=research,dataFails=false,boardFails=false,storageFails
  };
  class TestURL extends URL{static createObjectURL(blob){calls.download=blob;return 'blob:qa-export';}static revokeObjectURL(){}}
  window.L=L;window.matchMedia=()=>({matches:false});window.location={pathname:'/',hash:''};
- const context=vm.createContext({window,document,L,URL:TestURL,URLSearchParams,Blob,Map,Set,location:window.location,matchMedia:window.matchMedia,
+ const savedEntries = {getItem: key => storage.get(key) ?? null};
+ const context=vm.createContext({window,document,imprintEvent,imprintKey,readImprint:()=>readImprint(savedEntries),
+  revizorEvent,revizorKey,readRevizor:()=>readRevizor(savedEntries),
+  writerRepairEvent,writerRepairKey,readWriterRepair:()=>readWriterRepair(savedEntries),
+  cornerNoteEvent,cornerNoteKey,cornerReadings,readCornerNote:()=>readCornerNote(savedEntries),
+  shadowMoveLabels,shadowRoutineEvent,shadowRoutineKey,readShadowRoutine:()=>readShadowRoutine(savedEntries),L,URL:TestURL,URLSearchParams,Blob,Map,Set,location:window.location,matchMedia:window.matchMedia,
   console:{...console,error:(...args)=>calls.errors.push(args)},setTimeout:()=>1,clearTimeout(){},requestAnimationFrame:()=>1,cancelAnimationFrame(){},
   localStorage:{getItem:key=>storage.get(key)??null,setItem:(key,value)=>{if(storageFails)throw Error('storage unavailable');storage.set(key,value);},removeItem:key=>storage.delete(key)},
   navigator:{geolocation:{getCurrentPosition(success){calls.geo++;success({coords:{latitude:48.86,longitude:2.35}});}}},
@@ -182,6 +194,262 @@ async function boot({data=research,dataFails=false,boardFails=false,storageFails
  }
  h.document.getElementById('notebook-export').click();assert(h.calls.download,'actual notebook creates an export');
  const exported=JSON.parse(await h.calls.download.text());assert.equal(exported['atlas-observations']['notre-dame'],h.oldNote);assert.equal(exported['atlas-observations']['unknown-retained-id'],'Neznámá poznámka pro obnovu.');
+}
+{
+ const steps = [true, false, true, false, false, true, false, false];
+ const h = await boot({imprint: {steps, returned: false}});
+ let language = 'cs';
+ h.window.CaisikI18n = {getLanguage: () => language};
+ const open = h.document.getElementById('notebook-open');
+ assert.equal(h.document.getElementById('saved-count').textContent, '3');
+ open.click();
+ const entry = () => h.document.querySelector('[data-notebook-imprint]');
+ const pattern = () => entry().querySelector('[role="img"]');
+ assert.match(entry().textContent, /Rytmus ze dvora/);
+ assert.equal(pattern().children.length, 8);
+ assert.equal(pattern().querySelectorAll('.is-hit').length, 3);
+ assert.equal(pattern().getAttribute('aria-label'), 'Údery v krocích 1, 3, 6');
+ const previousGroup = h.document.querySelector('#notebook-content .notebook-group:nth-child(2)');
+ h.storage.set(imprintKey, JSON.stringify({steps, returned: true}));
+ h.window.dispatchEvent(new h.window.Event(imprintEvent));
+ assert.match(entry().textContent, /Rytmus zní z okna II/);
+ assert.strictEqual(h.document.querySelector('#notebook-content .notebook-group:nth-child(2)'), previousGroup);
+ language = 'fr';
+ h.window.dispatchEvent(new h.window.Event('caisik:languagechange'));
+ assert.match(entry().textContent, /Rythme de la cour/);
+ language = 'en';
+ h.window.dispatchEvent(new h.window.Event('caisik:languagechange'));
+ assert.match(entry().textContent, /Courtyard rhythm/);
+ h.document.getElementById('notebook-export').click();
+ const exported = JSON.parse(await h.calls.download.text());
+ assert.deepEqual(exported[imprintKey], {steps, returned: true});
+ assert.equal(exported['atlas-observations']['notre-dame'], h.oldNote);
+ assert.equal(h.document.querySelectorAll('[data-notebook-imprint]').length, 1);
+ h.storage.set(imprintKey, '{"steps":[1,1,1,1,1,1,1,1]}');
+ const storageEvent = new h.window.Event('storage');
+ storageEvent.key = imprintKey;
+ h.window.dispatchEvent(storageEvent);
+ assert.equal(entry(), null);
+ assert.equal(h.document.getElementById('saved-count').textContent, '2');
+}
+{
+ const steps = [false, true, false, true, false, false, true, false];
+ let saved;
+ const storage = {getItem: () => saved ?? null, setItem(key, value) {
+  assert.equal(key, imprintKey);
+  saved = value;
+ }};
+ assert.equal(readImprint(storage), null);
+ assert(writeImprint({steps}, storage));
+ assert.deepEqual(readImprint(storage), {steps, returned: false});
+ assert(!writeImprint({steps: Array(8)}, storage));
+ assert(!writeImprint({steps: Array(8).fill(false)}, storage));
+ assert(!writeImprint({steps}, {setItem() {throw Error('Quota exceeded');}}));
+ assert.deepEqual(readImprint(storage), {steps, returned: false}, 'rejected saves preserve the rhythm');
+}
+{
+ const imprint = {steps: [true, false, false, false, true, false, false, false], returned: true};
+ const verse = {endings: ['A teď <beat> & „klid“', 'Třetí patro v rytmu 🎤'], lang: 'cs'};
+ const h = await boot({imprint});
+ let language = 'cs';
+ h.window.CaisikI18n = {getLanguage: () => language};
+ h.document.getElementById('notebook-open').click();
+ const entry = () => h.document.querySelector('[data-notebook-verse]');
+ assert.equal(entry(), null);
+ const savedPlaces = h.document.querySelector('[data-notebook-imprint]').nextElementSibling;
+ h.storage.set(revizorKey, JSON.stringify(verse));
+ h.window.dispatchEvent(new h.window.Event(revizorEvent));
+ h.window.dispatchEvent(new h.window.Event(revizorEvent));
+ assert.equal(h.document.querySelectorAll('[data-notebook-verse]').length, 1);
+ assert.equal(h.document.getElementById('saved-count').textContent, '4');
+ assert.match(entry().querySelector('h3').textContent, /Revizor chce šestnáctku/);
+ const endings = entry().querySelector('ul');
+ assert.equal(endings.getAttribute('lang'), 'cs');
+ assert.equal(endings.getAttribute('translate'), 'no');
+ assert.deepEqual(Array.from(endings.children, line => line.textContent), verse.endings);
+ assert.equal(endings.querySelector('beat'), null, 'player content is rendered as plain text');
+ assert.equal(entry().nextElementSibling, savedPlaces, 'refresh leaves existing notebook groups in place');
+ language = 'en';
+ h.window.dispatchEvent(new h.window.Event('caisik:languagechange'));
+ assert.match(entry().querySelector('h3').textContent, /The inspector wants sixteen bars/);
+ language = 'fr';
+ h.window.dispatchEvent(new h.window.Event('caisik:languagechange'));
+ assert.match(entry().querySelector('h3').textContent, /Le contrôleur veut seize mesures/);
+ assert.equal(entry().querySelector('ul').getAttribute('lang'), 'cs');
+ h.document.getElementById('notebook-export').click();
+ const exported = JSON.parse(await h.calls.download.text());
+ assert.equal(exported.formatVersion, 1);
+ assert.deepEqual(exported[revizorKey], verse);
+ assert.deepEqual(exported[imprintKey], imprint);
+ assert.equal(exported['atlas-observations']['notre-dame'], h.oldNote);
+ h.storage.set(revizorKey, '{invalid');
+ const storageEvent = new h.window.Event('storage');
+ storageEvent.key = revizorKey;
+ h.window.dispatchEvent(storageEvent);
+ assert.equal(entry(), null);
+ assert.equal(h.document.getElementById('saved-count').textContent, '3');
+ assert(h.document.querySelector('[data-notebook-imprint]'));
+}
+{
+ const imprint = {steps: [true, false, false, false, true, false, false, false], returned: true};
+ const repair = {points: [[0, 50], [42, 50], [70, 30]], kind: 'drawn'};
+ const h = await boot({imprint});
+ let language = 'cs';
+ h.window.CaisikI18n = {getLanguage: () => language};
+ const entry = () => h.document.querySelector('[data-notebook-writer]');
+ h.storage.set(writerRepairKey, JSON.stringify(repair));
+ h.window.dispatchEvent(new h.window.Event(writerRepairEvent));
+ assert.equal(h.document.getElementById('saved-count').textContent, '4', 'badge updates when the dialog is closed');
+ h.document.getElementById('notebook-open').click();
+ const savedPlaces = entry().nextElementSibling;
+ h.window.dispatchEvent(new h.window.Event(writerRepairEvent));
+ assert.equal(h.document.querySelectorAll('[data-notebook-writer]').length, 1);
+ assert.match(entry().querySelector('h3').textContent, /Šipka, co zdrhla z piece/);
+ assert.equal(entry().querySelector('polyline').getAttribute('points'), '0,50 42,50 70,30');
+ assert.equal(entry().nextElementSibling, savedPlaces, 'refresh preserves other notebook cards');
+ const storageEvent = new h.window.Event('storage');
+ storageEvent.key = writerRepairKey;
+ const preset = {...repair, kind: 'preset'};
+ h.storage.set(writerRepairKey, JSON.stringify(preset));
+ h.window.dispatchEvent(storageEvent);
+ assert.match(entry().querySelector('figcaption').textContent, /Tah podle předlohy/);
+ language = 'en';
+ h.window.dispatchEvent(new h.window.Event('caisik:languagechange'));
+ assert.match(entry().querySelector('figcaption').textContent, /The guide stroke/);
+ language = 'fr';
+ h.window.dispatchEvent(new h.window.Event('caisik:languagechange'));
+ assert.match(entry().querySelector('figcaption').textContent, /Le tracé du modèle/);
+ h.document.getElementById('notebook-export').click();
+ const exported = JSON.parse(await h.calls.download.text());
+ assert.equal(exported.formatVersion, 1);
+ assert.deepEqual(exported[writerRepairKey], preset);
+ assert.deepEqual(exported[imprintKey], imprint);
+ assert.equal(exported['atlas-observations']['notre-dame'], h.oldNote);
+ h.storage.set(writerRepairKey, JSON.stringify({...repair, points: [[0, 50], [42, 50], [70, '"><img>']]}));
+ h.window.dispatchEvent(storageEvent);
+ assert.equal(entry(), null, 'invalid coordinate data produces no thumbnail');
+ assert.equal(h.document.getElementById('saved-count').textContent, '3');
+ assert(h.document.querySelector('[data-notebook-imprint]'));
+}
+{
+ const imprint = {steps: [true, false, false, false, true, false, false, false], returned: true};
+ const routine = {moves: ['turn', 'freeze', 'step']};
+ const h = await boot({imprint});
+ let language = 'cs';
+ h.window.CaisikI18n = {getLanguage: () => language};
+ const entry = () => h.document.querySelector('[data-notebook-shadow]');
+ const moveLabels = () => Array.from(entry().querySelectorAll('ol li'), item => item.textContent);
+ const changed = new h.window.Event(shadowRoutineEvent);
+ const storageEvent = new h.window.Event('storage');
+ storageEvent.key = shadowRoutineKey;
+ h.storage.set(shadowRoutineKey, JSON.stringify(routine));
+ h.window.dispatchEvent(changed);
+ assert.equal(h.document.getElementById('saved-count').textContent, '4');
+ h.document.getElementById('notebook-open').click();
+ h.window.dispatchEvent(changed);
+ assert.equal(h.document.querySelectorAll('[data-notebook-shadow]').length, 1);
+ assert.match(entry().querySelector('h3').textContent, /Souboj se stínem/);
+ assert.deepEqual(moveLabels(), ['Otočka', 'Freeze', 'Krok']);
+ language = 'en';
+ h.window.dispatchEvent(new h.window.Event('caisik:languagechange'));
+ assert.deepEqual(moveLabels(), ['Turn', 'Freeze', 'Step']);
+ language = 'fr';
+ const updated = {moves: ['step', 'turn', 'freeze']};
+ h.storage.set(shadowRoutineKey, JSON.stringify(updated));
+ h.window.dispatchEvent(storageEvent);
+ assert.deepEqual(moveLabels(), ['Pas', 'Tour', 'Freeze']);
+ h.document.getElementById('notebook-export').click();
+ const exported = JSON.parse(await h.calls.download.text());
+ assert.equal(exported.formatVersion, 1);
+ assert.deepEqual(exported[shadowRoutineKey], updated);
+ assert.deepEqual(exported[imprintKey], imprint);
+ assert.equal(exported['atlas-observations']['notre-dame'], h.oldNote);
+ h.storage.set(shadowRoutineKey, JSON.stringify({moves: ['step', 'step', 'freeze']}));
+ h.window.dispatchEvent(storageEvent);
+ assert.equal(entry(), null, 'invalid choreography has no notebook card');
+ assert.equal(h.document.getElementById('saved-count').textContent, '3');
+}
+{
+ const note = {seen: ['courier', 'dj', 'inspector'], reading: 'signal'};
+ const h = await boot();
+ let language = 'cs';
+ h.window.CaisikI18n = {getLanguage: () => language};
+ const mapNote = h.document.getElementById('corner-map-note');
+ const entry = () => h.document.querySelector('[data-notebook-corner]');
+ const changed = new h.window.Event(cornerNoteEvent);
+ const storageEvent = new h.window.Event('storage');
+ storageEvent.key = cornerNoteKey;
+ assert(mapNote.hidden);
+ assert.equal(mapNote.previousElementSibling, h.calls.city.host);
+ assert.equal(mapNote.nextElementSibling.id, 'map-failure');
+ assert.equal(mapNote.getAttribute('tabindex'), '-1');
+ assert.deepEqual([...mapNote.querySelectorAll('a')].map(a => a.getAttribute('href')), ['#corner-quest', '#corner-recall']);
+ h.storage.set(cornerNoteKey, JSON.stringify({...note, seen: ['courier']}));
+ h.window.dispatchEvent(changed);
+ assert(mapNote.hidden, 'a partial interview is not a completed map note');
+ assert.equal(h.document.getElementById('saved-count').textContent, '2');
+ h.calls.city.onSelect('sainte-chapelle');
+ const selections = h.calls.selections.length;
+ const placeList = h.document.getElementById('place-list').innerHTML;
+ const markerCount = h.group.layers.length;
+ h.storage.set(cornerNoteKey, JSON.stringify(note));
+ h.window.dispatchEvent(changed);
+ assert(!mapNote.hidden);
+ assert.equal(mapNote.querySelector('h3').textContent, cornerReadings.cs.signal.title);
+ assert.equal(mapNote.querySelector('.corner-map-reading-copy').textContent, cornerReadings.cs.signal.body);
+ assert.match(mapNote.querySelector('.corner-map-location').textContent, /herní fikce/);
+ assert.equal(h.calls.selections.length, selections, 'a story note does not change map selection');
+ assert.equal(h.group.layers.length, markerCount, 'a fictional note adds no geographic marker');
+ assert.equal(h.document.getElementById('place-list').innerHTML, placeList);
+ h.document.getElementById('notebook-open').click();
+ h.window.dispatchEvent(changed);
+ assert.equal(h.document.getElementById('saved-count').textContent, '3');
+ assert.equal(h.document.querySelectorAll('[data-notebook-corner]').length, 1);
+ assert.equal(entry().querySelector('strong').textContent, cornerReadings.cs.signal.title);
+ language = 'en';
+ h.window.dispatchEvent(new h.window.Event('caisik:languagechange'));
+ assert.equal(mapNote.querySelector('h3').textContent, cornerReadings.en.signal.title);
+ assert.equal(entry().querySelector('strong').textContent, cornerReadings.en.signal.title);
+ language = 'fr';
+ const updated = {...note, reading: 'memory'};
+ h.storage.set(cornerNoteKey, JSON.stringify(updated));
+ h.window.dispatchEvent(storageEvent);
+ assert.equal(mapNote.querySelector('h3').textContent, cornerReadings.fr.memory.title);
+ assert.equal(entry().querySelector('strong').textContent, cornerReadings.fr.memory.title);
+ h.document.getElementById('notebook-export').click();
+ const exported = JSON.parse(await h.calls.download.text());
+ assert.equal(exported.formatVersion, 1);
+ assert.deepEqual(exported[cornerNoteKey], updated);
+ assert.equal(exported['atlas-observations']['notre-dame'], h.oldNote);
+ const restored = await boot({cornerNote: updated});
+ assert(!restored.document.getElementById('corner-map-note').hidden, 'the map loads a completed note on return');
+ h.storage.delete(cornerNoteKey);
+ h.window.dispatchEvent(storageEvent);
+ assert(mapNote.hidden);
+ assert.equal(entry(), null);
+ assert.equal(h.document.getElementById('saved-count').textContent, '2');
+}
+{
+ const emojiLimit = '🎤'.repeat(revizorMax / 2);
+ assert.equal(normalizeEnding(`  ${emojiLimit}  `), emojiLimit);
+ assert.equal(normalizeEnding(`${emojiLimit}a`), '');
+ for (const invalid of ['   ', 'a\nb', 'a\u2028b', 'a\u0000b', 'a\u202Eb', '\uD800', null]) {
+  assert.equal(normalizeEnding(invalid), '');
+ }
+ let saved;
+ const storage = {getItem: () => saved ?? null, setItem(key, value) {
+  assert.equal(key, revizorKey);
+  saved = value;
+ }};
+ const verse = {endings: ['Původní', emojiLimit], lang: 'cs'};
+ assert.equal(readRevizor(storage), null);
+ assert(writeRevizor({...verse, endings: ['  Původní  ', emojiLimit]}, storage));
+ assert.deepEqual(readRevizor(storage), verse);
+ assert(!writeRevizor({...verse, lang: 'de'}, storage));
+ assert(!writeRevizor({...verse, endings: ['První', ' ']}, storage));
+ assert(!writeRevizor(verse, {setItem() {throw Error('Quota exceeded');}}));
+ assert.equal(readRevizor({getItem() {throw Error('Storage unavailable');}}), null);
+ assert.deepEqual(readRevizor(storage), verse, 'rejected writes preserve the original verse');
 }
 for(const options of [{dataFails:true},{data:{version:1,places:[{id:'broken'}]}}]){
  const h=await boot(options);assert.equal(h.calls.errors.length,0);assert(h.calls.city);assert.equal(h.calls.city.places.length,12);assert.equal(h.document.querySelectorAll('#routes [data-route]').length,3);assert.equal(h.group.layers.length,12);assert.match(h.document.getElementById('culture-district').textContent,/nepodařilo|nedostup/i);assert.equal(h.storage.get('caisik-expeditions-v1'),'untouched-expeditions');

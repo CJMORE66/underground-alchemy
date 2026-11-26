@@ -21,3 +21,134 @@ svg{fill:none;stroke:currentColor}.mobile-only{display:none}.desktop-only{displa
 
 /* Source-backed facade lens; simplified architectural linework. */
 .lens-facade{display:block;width:100%;height:auto;max-height:300px;margin:20px auto;stroke:var(--bone);stroke-width:1.3;fill:none}.lens-facade .lens-dot{stroke:var(--gold);stroke-dasharray:4 4}.lens-facade text{font:14px var(--sans);fill:var(--gold);stroke:none}.lens-detail-buttons{display:flex;gap:9px;flex-wrap:wrap}.lens-detail-caption{margin-top:15px!important;color:var(--bone)}.save-icon svg{width:17px;height:23px;stroke:currentColor;stroke-width:1.1;fill:none}.notebook-item button{white-space:normal!important}.place-list small{font-size:9px;color:var(--muted);display:block}
+
+.notebook-imprint-pattern {
+ display: grid;
+ grid-template-columns: repeat(8, minmax(0, 1fr));
+ gap: .25rem;
+ width: min(100%, 22rem);
+}
+.notebook-imprint-pattern span {
+ display: grid;
+ place-items: center;
+ min-height: 2.2rem;
+ border: 1px solid #695321;
+ color: #f1e6cc;
+ background: #19160d;
+ font-size: 1rem;
+}
+.notebook-imprint-pattern .is-hit {
+ border-color: #ffd600;
+ color: #080808;
+ background: #ffd600;
+}
+[data-notebook-imprint] p {
+ margin: .5rem 0 0;
+ font-size: 1rem;
+}
+.notebook-verse-endings {
+ margin: 0;
+ padding: .2rem 0 .2rem .75rem;
+ border-inline-start: 2px solid var(--gold);
+ display: grid;
+ gap: .35rem;
+ font-size: 1rem;
+ list-style: none;
+ overflow-wrap: anywhere;
+}
+.notebook-writer-repair {
+ display: flex;
+ align-items: center;
+ gap: .75rem;
+ margin: 0;
+}
+.notebook-writer-repair svg {
+ flex: 0 0 auto;
+ width: 4.5rem;
+ height: 4.5rem;
+ padding: .35rem;
+ border: 1px solid #695321;
+ color: var(--gold);
+ background: #19160d;
+}
+.notebook-writer-repair polyline {
+ fill: none;
+ stroke: currentColor;
+ stroke-width: 6;
+ stroke-linecap: round;
+ stroke-linejoin: round;
+}
+.notebook-writer-repair figcaption {
+ min-width: 0;
+ font-size: 1rem;
+ overflow-wrap: anywhere;
+}
+.notebook-shadow-moves {
+ display: flex;
+ flex-wrap: wrap;
+ column-gap: 2.25rem;
+ row-gap: .35rem;
+ margin: 0;
+ padding-inline-start: 1.4rem;
+ font-size: 1rem;
+}
+.notebook-shadow-moves li::marker {
+ color: var(--gold);
+ font-weight: 700;
+}
+
+.corner-map-note {
+ margin-block: .75rem;
+ padding: clamp(.875rem, 3vw, 1.4rem);
+ border: 1px solid var(--line);
+ border-inline-start: 3px solid var(--gold);
+ background: #161309;
+ color: var(--bone);
+ overflow-wrap: anywhere;
+}
+.corner-map-note[hidden] {
+ display: none;
+}
+.corner-map-note:focus-visible {
+ outline: 2px solid var(--bone);
+ outline-offset: 3px;
+}
+.corner-map-location {
+ margin: 0 0 .35rem;
+ color: var(--gold);
+ font-size: .875rem;
+ font-weight: 700;
+}
+.corner-map-note h3 {
+ margin: 0;
+ font: 700 clamp(1.35rem, 4vw, 1.85rem)/1.2 var(--serif);
+}
+.corner-map-reading-copy,
+.notebook-group > .notebook-corner-reading {
+ margin: .5rem 0 0;
+ font-size: 1rem;
+ line-height: 1.55;
+}
+.notebook-corner-reading strong {
+ display: block;
+ color: var(--gold);
+}
+.corner-map-links {
+ display: flex;
+ flex-wrap: wrap;
+ gap: .35rem 1.1rem;
+ margin-block-start: .35rem;
+}
+.corner-map-links a {
+ display: inline-flex;
+ align-items: center;
+ min-block-size: 44px;
+ color: var(--gold);
+ font-size: .875rem;
+ text-decoration: underline;
+ text-underline-offset: .2em;
+}
+.corner-map-links a:focus-visible {
+ outline: 2px solid var(--bone);
+ outline-offset: 2px;
+}

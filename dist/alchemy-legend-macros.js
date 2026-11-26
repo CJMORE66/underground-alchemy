@@ -1,4 +1,6 @@
 /* Contact, articulation and suspension. Each insert can be scrubbed in either direction. */
+export const stylusContactProgress = .46;
+
 const SVG = 'http://www.w3.org/2000/svg';
 const clamp = value => Math.min(1, Math.max(0, value));
 const ease = (a, b, p) => {
@@ -172,15 +174,15 @@ export function createLegendMacros(document) {
   const lens = (x,y,z) => set('lens','transform',`translate(500 325) scale(${f(z)}) translate(${f(-x)} ${f(-y)})`);
 
   function drawStylus(p) {
-    const landed = ease(.15,.46,p);
-    const tracking = ease(.46,.55,p);
+    const landed = ease(.15,stylusContactProgress,p);
+    const tracking = ease(stylusContactProgress,.55,p);
     const slide = Math.sin(p*39) * tracking;
     lens(560-25*landed, 320+67*landed, .84+.82*ease(.05,.72,p));
     set('arm','transform',`translate(0 ${f(-74*(1-landed))})`);
     set('cantilever','transform',`rotate(${f(-.7*slide)} 535 402)`);
     set('record-turn','transform',`rotate(${f(p*280+tracking*Math.sin(p*31)*12)})`);
     set('needle-shadow','opacity',f(.16+.78*landed));
-    set('contact','opacity',f(Math.sin(Math.PI*ease(.46,.59,p))*.95+tracking*(.09+.06*slide)));
+    set('contact','opacity',f(Math.sin(Math.PI*ease(stylusContactProgress,.59,p))*.95+tracking*(.09+.06*slide)));
   }
 
   function drawVoice(p, voicePhase) {

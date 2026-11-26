@@ -3,6 +3,11 @@ import {initPrinciples} from './atlas-principles.js?v=2';
 import {initFrequency} from './atlas-frequency.js?v=2';
 import {createCityExperience,validCityPoint} from './city-map.js?v=5';
 import {parseCultureData,culturePlace,cultureRoutes} from './culture-data.js?v=1';
+import {imprintEvent,imprintKey,readImprint} from './needle-imprint-store.js?v=1';
+import {revizorEvent,revizorKey,readRevizor} from './revizor-store.js?v=1';
+import {readWriterRepair,writerRepairEvent,writerRepairKey} from './writer-repair-store.js?v=1';
+import {readShadowRoutine,shadowMoveLabels,shadowRoutineEvent,shadowRoutineKey} from './shadow-quest-store.js?v=1';
+import {cornerNoteEvent,cornerNoteKey,cornerReadings,readCornerNote} from './corner-note-store.js?v=1';
 const $=id=>document.getElementById(id);
 const escape=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const memory=new Map();
@@ -19,7 +24,72 @@ const layers=['All layers','Architecture','Symbolism','Alchemy','Graffiti','Musi
 const neighbourhoods={'notre-dame':'Île de la Cité Latin Quarter','sainte-chapelle':'Île de la Cité','saint-sulpice':'Saint Germain des Prés','flamel-house':'Le Marais Nicolas Flamel','la-place':'Les Halles Châtelet','mur-oberkampf':'Oberkampf Belleville Ménilmontant','pere-lachaise':'Ménilmontant Gambetta','republique':'République Marianne','abbesses':'Montmartre Hector Guimard','centquatre':'La Chapelle Curial Riquet','philharmonie':'La Villette Jean Nouvel','shakespeare-company':'Latin Quarter George Whitman'};
 function arrayStore(key){const a=read(key,[]);return Array.isArray(a)?a.filter(x=>typeof x==='string'):[];}
 function objectStore(key){const x=read(key,{});return x&&typeof x==='object'&&!Array.isArray(x)?x:{};}
-function savedCount(){const count=arrayStore('atlas-saved-places').length+arrayStore('atlas-saved-routes').length;$('saved-count').textContent=count;$('notebook-open').setAttribute('aria-label',`Open field notebook, ${count} saved discoveries and routes`);}
+const notebookCopy = {
+ cs: {
+  badge: count => `Otevřít terénní zápisník, počet položek: ${count}`,
+  title: 'Blackbook · Rytmus ze dvora',
+  verseTitle: 'Blackbook · Revizor chce šestnáctku',
+  repairTitle: 'Blackbook · Šipka, co zdrhla z piece',
+  drawnRepair: 'Tvůj tah v TRANSMUTE',
+  presetRepair: 'Tah podle předlohy v TRANSMUTE',
+  shadowTitle: 'Blackbook · Souboj se stínem',
+  cornerTitle: 'Stejný roh, tři verze',
+  cornerLocation: 'Okno II · herní fikce',
+  cornerRevisit: 'Znovu porovnat výpovědi',
+  cornerRecall: 'Probrat závěr s Alchymistou',
+  active: 'Údery v krocích',
+  waiting: 'Rytmus je připravený pro okno II.',
+  returned: 'Rytmus zní z okna II.',
+ },
+ en: {
+  badge: count => `Open field notebook, ${count} saved entries`,
+  title: 'Blackbook · Courtyard rhythm',
+  verseTitle: 'Blackbook · The inspector wants sixteen bars',
+  repairTitle: 'Blackbook · The arrow that ran off the piece',
+  drawnRepair: 'Your stroke in TRANSMUTE',
+  presetRepair: 'The guide stroke in TRANSMUTE',
+  shadowTitle: 'Blackbook · Shadow Battle',
+  cornerTitle: 'Same Corner, Three Versions',
+  cornerLocation: 'Window II · game fiction',
+  cornerRevisit: 'Compare the accounts again',
+  cornerRecall: 'Discuss your reading with the Alchemist',
+  active: 'Hits on steps',
+  waiting: 'Your rhythm is ready for window II.',
+  returned: 'Your rhythm plays from window II.',
+ },
+ fr: {
+  badge: count => `Ouvrir le carnet de terrain, ${count} entrées enregistrées`,
+  title: 'Blackbook · Rythme de la cour',
+  verseTitle: 'Blackbook · Le contrôleur veut seize mesures',
+  repairTitle: 'Blackbook · La flèche qui s’est échappée du graff',
+  drawnRepair: 'Ton tracé dans TRANSMUTE',
+  presetRepair: 'Le tracé du modèle dans TRANSMUTE',
+  shadowTitle: 'Blackbook · Duel avec l’ombre',
+  cornerTitle: 'Même coin de rue, trois versions',
+  cornerLocation: 'Fenêtre II · fiction du jeu',
+  cornerRevisit: 'Comparer à nouveau les témoignages',
+  cornerRecall: 'Discuter de ton interprétation avec l’Alchimiste',
+  active: 'Temps joués',
+  waiting: 'Ton rythme est prêt pour la fenêtre II.',
+  returned: 'Ton rythme résonne à la fenêtre II.',
+ },
+};
+function notebookLanguage() {
+ const language = (window.CaisikI18n?.getLanguage?.() || document.documentElement.lang || 'cs').split('-')[0];
+ return Object.hasOwn(notebookCopy, language) ? language : 'cs';
+}
+function notebookWords() {
+ return notebookCopy[notebookLanguage()];
+}
+function savedCount() {
+ const count = arrayStore('atlas-saved-places').length + arrayStore('atlas-saved-routes').length
+  + Number(Boolean(readImprint())) + Number(Boolean(readRevizor())) + Number(Boolean(readWriterRepair()))
+  + Number(Boolean(readShadowRoutine())) + Number(Boolean(readCornerNote()));
+ $('saved-count').textContent = count;
+ const button = $('notebook-open');
+ button.setAttribute('data-i18n', 'off');
+ button.setAttribute('aria-label', notebookWords().badge(count));
+}
 const bookmarkIcon=saved=>`<svg viewBox="0 0 24 28" aria-hidden="true"><path d="M5 3h14v22l-7-5-7 5Z" fill="${saved?'currentColor':'none'}"/></svg>`;
 function toggleSaved(kind,id){const key=kind==='route'?'atlas-saved-routes':'atlas-saved-places';const set=new Set(arrayStore(key));const removed=set.has(id);removed?set.delete(id):set.add(id);const okay=write(key,[...set]);savedCount();notify(okay?(removed?'Removed from your notebook.':'Saved in your field notebook.'):'Kept for this visit. Browser storage is unavailable.');document.querySelectorAll(`[data-save-${kind}="${id}"]`).forEach(button=>{button.setAttribute('aria-pressed',String(!removed));button.innerHTML=bookmarkIcon(!removed);button.setAttribute('aria-label',`${!removed?'Unsave':'Save'} ${kind==='route'?'route':'discovery'}`);});}
 function saveButton(kind,id,name){const saved=arrayStore(kind==='route'?'atlas-saved-routes':'atlas-saved-places').includes(id);return `<button class="save-icon" data-save-${kind}="${escape(id)}" aria-label="${saved?'Unsave':'Save'} ${escape(name)}" aria-pressed="${saved}">${bookmarkIcon(saved)}</button>`;}
@@ -174,7 +244,164 @@ const artThemes=[
 const artSceneMarkup=a=>artworkMarkup({id:a.scene,poster:a.image||`/assets/masterworks-v2/${a.asset}.webp`,width:a.width,height:a.height});
 function renderArt(){$('art-gallery').innerHTML=artThemes.map((a,i)=>`<button class="art-piece" data-art="${i}" aria-label="Open ${escape(a.title)}">${artSceneMarkup(a)}<div class="art-caption"><div><h3>${escape(a.title)}</h3><small>0${i+1} / ORIGINAL CAISIK COMPOSITION</small></div><span>↗</span></div></button>`).join('');}
 function openArt(index){const a=artThemes[index];if(!a)return;$('art-content').innerHTML=`<p class="section-index">THE LIVING WALL / 0${index+1}</p><h2 id="art-title">${escape(a.title)}</h2><div class="art-motion-scope art-dialog-scene"><button class="art-dialog-trigger" type="button" style="--art-ratio:${a.width}/${a.height}" aria-label="Awaken ${escape(a.title)} artwork">${artSceneMarkup(a)}</button>${a.scene==='transmute'?`<div class="art-dialog-motion art-dialog-story"><span data-art-story-phase aria-live="off">THE CITY / EVERY ELEMENT IN MOTION</span><div class="art-dialog-story-buttons"><button type="button" class="small-button" data-art-story-pause aria-label="Pause TRANSMUTE animation" aria-pressed="false" disabled>PAUSE STORY</button><button type="button" class="small-button" data-art-replay aria-label="Replay TRANSMUTE artwork">REPLAY ↻</button></div><label class="art-dialog-story-scrub"><span class="sr-only">Explore TRANSMUTE animation</span><input data-art-story-progress type="range" min="0" max="100" step="0.1" value="0" aria-label="Explore TRANSMUTE animation" disabled></label></div>`:`<div class="art-dialog-motion"><span>MOVE CLOSER. WAKE THE DETAIL.</span><button type="button" class="small-button" data-art-replay>REPLAY ARTWORK ↻</button></div>`}</div><p>${escape(a.description)}</p><p class="evidence-label">YOUR CREATIVE RESPONSE</p><p>${escape(a.prompt)}</p><div class="dialog-actions"><a class="button" href="${a.download||`/assets/masterworks-v2/${a.asset}.webp`}" download>DOWNLOAD ARTWORK ↓</a><button class="small-button" data-art-inspire="${index}">WRITE A RESPONSE ↗</button></div>`;$('art-dialog').showModal();}
-function renderNotebook(){const ps=arrayStore('atlas-saved-places').map(id=>locations.find(p=>p.id===id)).filter(Boolean),rs=arrayStore('atlas-saved-routes').map(id=>routes.find(r=>r.id===id)).filter(Boolean),notes=objectStore('atlas-observations'),pn=objectStore('atlas-principle-notes');$('notebook-content').innerHTML=`<div class="notebook-group"><h3>Saved discoveries / ${ps.length}</h3>${ps.length?ps.map(p=>`<div class="notebook-item"><button data-notebook-place="${p.id}">${escape(p.name)} →</button><button data-remove-place="${p.id}" aria-label="Remove ${escape(p.name)}">REMOVE</button></div>`).join(''):'<p class="empty-state">Save a location with its bookmark to start your archive.</p>'}</div><div class="notebook-group"><h3>Saved routes / ${rs.length}</h3>${rs.map(r=>`<div class="notebook-item"><button data-notebook-route="${r.id}">${escape(r.title)} →</button><button data-remove-route="${r.id}">REMOVE</button></div>`).join('')||'<p class="empty-state">Your saved routes will appear here.</p>'}</div><div class="notebook-group"><h3>Street observations</h3>${Object.entries(notes).filter(([id,n])=>locations.some(p=>p.id===id)&&typeof n==='string').map(([id,n])=>`<p class="evidence-label">${escape(locations.find(p=>p.id===id).name)}</p><p class="notebook-note">${escape(n)}</p>`).join('')||'<p class="empty-state">Open a discovery and save what you noticed.</p>'}</div><div class="notebook-group"><h3>Inner observations</h3>${Object.entries(pn).filter(([id,n])=>knowledge.principles?.some(p=>p.id===id)&&typeof n?.text==='string').map(([id,n])=>`<p class="evidence-label">${escape(knowledge.principles.find(p=>p.id===id).name)} / ${n.unlocked?'DEEPER QUESTION OPEN':'IN PROGRESS'}</p><p class="notebook-note">${escape(n.text)}</p>`).join('')||'<p class="empty-state">The seven-principle studio gives you a place to reflect.</p>'}</div>`;}
+function renderNotebookImprint() {
+ const content = $('notebook-content');
+ const prior = content.querySelector('[data-notebook-imprint]');
+ const imprint = readImprint();
+ if (!imprint) {
+  prior?.remove();
+  return;
+ }
+ const words = notebookWords();
+ const hits = imprint.steps.flatMap((step, i) => step ? [i + 1] : []).join(', ');
+ const cells = imprint.steps.map(step => step ? '<span class="is-hit" aria-hidden="true">●</span>' : '<span aria-hidden="true">·</span>').join('');
+ const entry = `<div class="notebook-group" data-notebook-imprint data-i18n="off" data-text-motion="off">
+    <h3>${escape(words.title)}</h3>
+    <div class="notebook-imprint-pattern" role="img" aria-label="${escape(words.active)} ${hits}">${cells}</div>
+    <p>${escape(imprint.returned ? words.returned : words.waiting)}</p>
+   </div>`;
+ if (prior) prior.outerHTML = entry;
+ else content.insertAdjacentHTML('afterbegin', entry);
+}
+function renderNotebookVerse() {
+ const content = $('notebook-content');
+ const prior = content.querySelector('[data-notebook-verse]');
+ const verse = readRevizor();
+ if (!verse) {
+  prior?.remove();
+  return;
+ }
+ const endings = verse.endings.map(ending => `<li dir="auto">${escape(ending)}</li>`).join('');
+ const entry = `<div class="notebook-group" data-notebook-verse data-i18n="off" data-text-motion="off">
+    <h3>${escape(notebookWords().verseTitle)}</h3>
+    <ul class="notebook-verse-endings" lang="${escape(verse.lang)}" translate="no">${endings}</ul>
+   </div>`;
+ const imprint = content.querySelector('[data-notebook-imprint]');
+ if (prior) prior.outerHTML = entry;
+ else if (imprint) imprint.insertAdjacentHTML('afterend', entry);
+ else content.insertAdjacentHTML('afterbegin', entry);
+}
+function renderNotebookWriterRepair() {
+ const content = $('notebook-content');
+ const prior = content.querySelector('[data-notebook-writer]');
+ const repair = readWriterRepair();
+ if (!repair) {
+  prior?.remove();
+  return;
+ }
+ const words = notebookWords();
+ const points = repair.points.map(point => point.join(',')).join(' ');
+ const caption = repair.kind === 'drawn' ? words.drawnRepair : words.presetRepair;
+ const entry = `<div class="notebook-group" data-notebook-writer data-i18n="off" data-text-motion="off">
+    <h3>${escape(words.repairTitle)}</h3>
+    <figure class="notebook-writer-repair">
+     <svg viewBox="-5 -5 110 110" aria-hidden="true" focusable="false"><polyline points="${escape(points)}"/></svg>
+     <figcaption>${escape(caption)}</figcaption>
+    </figure>
+   </div>`;
+ const after = content.querySelector('[data-notebook-verse]') ?? content.querySelector('[data-notebook-imprint]');
+ if (prior) prior.outerHTML = entry;
+ else if (after) after.insertAdjacentHTML('afterend', entry);
+ else content.insertAdjacentHTML('afterbegin', entry);
+}
+function renderNotebookShadowRoutine() {
+ const content = $('notebook-content');
+ const prior = content.querySelector('[data-notebook-shadow]');
+ const routine = readShadowRoutine();
+ if (!routine) {
+  prior?.remove();
+  return;
+ }
+ const language = notebookLanguage();
+ const moves = routine.moves.map(move => `<li>${escape(shadowMoveLabels[language][move])}</li>`).join('');
+ const entry = `<div class="notebook-group" data-notebook-shadow data-i18n="off" data-text-motion="off">
+    <h3>${escape(notebookCopy[language].shadowTitle)}</h3>
+    <ol class="notebook-shadow-moves">${moves}</ol>
+   </div>`;
+ const after = content.querySelector('[data-notebook-writer]') ??
+  content.querySelector('[data-notebook-verse]') ?? content.querySelector('[data-notebook-imprint]');
+ if (prior) prior.outerHTML = entry;
+ else if (after) after.insertAdjacentHTML('afterend', entry);
+ else content.insertAdjacentHTML('afterbegin', entry);
+}
+function renderNotebookCornerNote() {
+ const content = $('notebook-content');
+ const prior = content.querySelector('[data-notebook-corner]');
+ const note = readCornerNote();
+ if (!note) {
+  prior?.remove();
+  return;
+ }
+ const language = notebookLanguage();
+ const reading = cornerReadings[language][note.reading];
+ const entry = `<div class="notebook-group" data-notebook-corner data-i18n="off" data-text-motion="off">
+    <h3>Blackbook · ${escape(notebookCopy[language].cornerTitle)}</h3>
+    <p class="notebook-corner-reading"><strong>${escape(reading.title)}</strong> ${escape(reading.body)}</p>
+   </div>`;
+ const after = content.querySelector('[data-notebook-shadow]') ?? content.querySelector('[data-notebook-writer]') ??
+  content.querySelector('[data-notebook-verse]') ?? content.querySelector('[data-notebook-imprint]');
+ if (prior) prior.outerHTML = entry;
+ else if (after) after.insertAdjacentHTML('afterend', entry);
+ else content.insertAdjacentHTML('afterbegin', entry);
+}
+function renderNotebookCreations() {
+ renderNotebookImprint();
+ renderNotebookVerse();
+ renderNotebookWriterRepair();
+ renderNotebookShadowRoutine();
+ renderNotebookCornerNote();
+}
+function refreshNotebookCreations() {
+ savedCount();
+ if ($('notebook-dialog').open) renderNotebookCreations();
+}
+function mountCornerMapNote() {
+ const mapWrap = $('city-map')?.closest('.map-wrap');
+ if (!mapWrap) return;
+ const card = document.createElement('aside');
+ card.id = 'corner-map-note';
+ card.className = 'corner-map-note';
+ card.tabIndex = -1;
+ card.hidden = true;
+ card.setAttribute('aria-labelledby', 'corner-map-reading');
+ card.setAttribute('data-i18n', 'off');
+ card.setAttribute('data-text-motion', 'off');
+ const storyPath = location.pathname === '/' || location.pathname === '/index.html' ? '' : '/';
+ card.innerHTML = `<p class="corner-map-location"></p>
+   <h3 id="corner-map-reading"></h3>
+   <p class="corner-map-reading-copy"></p>
+   <div class="corner-map-links">
+    <a href="${storyPath}#corner-quest"></a>
+    <a href="${storyPath}#corner-recall"></a>
+   </div>`;
+ mapWrap.insertAdjacentElement('afterend', card);
+ const locationLabel = card.querySelector('.corner-map-location');
+ const heading = card.querySelector('h3');
+ const description = card.querySelector('.corner-map-reading-copy');
+ const [sceneLink, recallLink] = card.querySelectorAll('a');
+ function update() {
+  const note = readCornerNote();
+  card.hidden = !note;
+  if (!note) return;
+  const language = notebookLanguage();
+  const words = notebookCopy[language];
+  const reading = cornerReadings[language][note.reading];
+  locationLabel.textContent = words.cornerLocation;
+  heading.textContent = reading.title;
+  description.textContent = reading.body;
+  sceneLink.textContent = words.cornerRevisit;
+  recallLink.textContent = words.cornerRecall;
+ }
+ update();
+ window.addEventListener(cornerNoteEvent, update);
+ window.addEventListener('caisik:languagechange', update);
+ window.addEventListener('storage', event => {
+  if (event.key === cornerNoteKey || event.key === null) update();
+ });
+}
+function renderNotebook(){const ps=arrayStore('atlas-saved-places').map(id=>locations.find(p=>p.id===id)).filter(Boolean),rs=arrayStore('atlas-saved-routes').map(id=>routes.find(r=>r.id===id)).filter(Boolean),notes=objectStore('atlas-observations'),pn=objectStore('atlas-principle-notes');$('notebook-content').innerHTML=`<div class="notebook-group"><h3>Saved discoveries / ${ps.length}</h3>${ps.length?ps.map(p=>`<div class="notebook-item"><button data-notebook-place="${p.id}">${escape(p.name)} →</button><button data-remove-place="${p.id}" aria-label="Remove ${escape(p.name)}">REMOVE</button></div>`).join(''):'<p class="empty-state">Save a location with its bookmark to start your archive.</p>'}</div><div class="notebook-group"><h3>Saved routes / ${rs.length}</h3>${rs.map(r=>`<div class="notebook-item"><button data-notebook-route="${r.id}">${escape(r.title)} →</button><button data-remove-route="${r.id}">REMOVE</button></div>`).join('')||'<p class="empty-state">Your saved routes will appear here.</p>'}</div><div class="notebook-group"><h3>Street observations</h3>${Object.entries(notes).filter(([id,n])=>locations.some(p=>p.id===id)&&typeof n==='string').map(([id,n])=>`<p class="evidence-label">${escape(locations.find(p=>p.id===id).name)}</p><p class="notebook-note">${escape(n)}</p>`).join('')||'<p class="empty-state">Open a discovery and save what you noticed.</p>'}</div><div class="notebook-group"><h3>Inner observations</h3>${Object.entries(pn).filter(([id,n])=>knowledge.principles?.some(p=>p.id===id)&&typeof n?.text==='string').map(([id,n])=>`<p class="evidence-label">${escape(knowledge.principles.find(p=>p.id===id).name)} / ${n.unlocked?'DEEPER QUESTION OPEN':'IN PROGRESS'}</p><p class="notebook-note">${escape(n.text)}</p>`).join('')||'<p class="empty-state">The seven-principle studio gives you a place to reflect.</p>'}</div>`;
+ renderNotebookCreations();
+}
 function renderSources(){const photoSources=locations.filter(p=>p.photo).map(p=>`<div class="source-group"><h3>${escape(p.name)} / image</h3><p>${escape(p.photo.credit)}<br>${escape(p.photo.note)}</p><a href="${escape(p.photo.sourcePage)}" target="_blank" rel="noopener">Source image ↗</a><a href="${escape(p.photo.licenseUrl)}" target="_blank" rel="noopener">${escape(p.photo.license)} ↗</a></div>`).join('');$('source-register').innerHTML=`<p class="muted">Original atlas checked 21 October 2026. Cultural additions carry their own verification dates. Sources support the historical and access fields; creative readings are original editorial interpretations. Archival photographs do not establish current appearance or access.</p>${locations.map(p=>`<div class="source-group"><h3>${escape(p.name)}</h3>${p.checkedAt?`<p>Ověření zdrojů: ${escape(p.checkedAt)}</p>`:''}${p.sources.map(s=>`<a href="${escape(s.url)}" target="_blank" rel="noopener">${escape(s.title)} ↗</a>`).join('')}</div>`).join('')}<div class="source-group"><h3>Philosophy & practice</h3>${knowledge.sources.map(s=>`<a href="${escape(s.url)}" target="_blank" rel="noopener">${escape(s.title)} ↗</a>`).join('')}</div><h3>Image credits</h3>${photoSources}<p class="privacy-line">Hero collage and graffiti are AI-assisted original CAISIK artwork in the approved black-and-yellow graphic-novel direction; the hero is a conceptual composition, not documentary evidence. Map tiles and geographic data: OpenStreetMap contributors. Leaflet is BSD-2-Clause; bundled font licenses are included with the source.</p>`;}
 function syncMotionControls(){
  const off=document.documentElement.dataset.motion==='off';const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -198,7 +425,35 @@ function setupEvents(){
  $('place-search').oninput=()=>renderPlaces();$('period-filter').onchange=()=>renderPlaces();$('access-filter').onchange=()=>renderPlaces();
  $('locate').onclick=()=>{if(!navigator.geolocation){$('geo-status').textContent='Location is unavailable. Search by place or neighbourhood instead.';return;}$('geo-status').textContent='Waiting for your location permission…';$('locate').disabled=true;navigator.geolocation.getCurrentPosition(position=>{userPosition={lat:position.coords.latitude,lng:position.coords.longitude};$('locate').disabled=false;$('geo-status').textContent='Discoveries sorted by approximate straight-line distance. Your location is kept only for this visit.';if(map){if(userMarker)map.removeLayer(userMarker);userMarker=L.marker([userPosition.lat,userPosition.lng],{icon:L.divIcon({className:'user-location',iconSize:[12,12]})}).addTo(map);if(distance(locations[0],userPosition)<40)map.panTo([userPosition.lat,userPosition.lng]);}cityExperience?.setUserLocation(userPosition);renderPlaces();},error=>{$('locate').disabled=false;$('geo-status').textContent=error.code===1?'Location permission declined. Search the atlas by neighbourhood instead.':'Your location could not be found. Search the atlas by neighbourhood instead.';},{enableHighAccuracy:false,timeout:12000,maximumAge:60000});};
  $('notebook-open').onclick=()=>{renderNotebook();$('clear-confirm').hidden=true;$('notebook-dialog').showModal();};
- $('notebook-export').onclick=()=>{const exported={project:'CAISIK UNDERGROUND ALCHEMY',exportedAt:new Date().toISOString(),formatVersion:1,...Object.fromEntries(keys.map(k=>[k,read(k,k.endsWith('places')||k.endsWith('routes')?[]:{})]))};download('caisik-field-notebook.json',JSON.stringify(exported,null,2));notify('Notebook exported. Keep the file somewhere safe.');};
+ $('notebook-export').onclick=()=>{
+  const exported = {
+   project: 'CAISIK UNDERGROUND ALCHEMY',
+   exportedAt: new Date().toISOString(),
+   formatVersion: 1,
+   ...Object.fromEntries(keys.map(key => [key, read(key, key.endsWith('places') || key.endsWith('routes') ? [] : {})])),
+  };
+  const imprint = readImprint();
+  if (imprint) exported[imprintKey] = imprint;
+  const verse = readRevizor();
+  if (verse) exported[revizorKey] = verse;
+  const repair = readWriterRepair();
+  if (repair) exported[writerRepairKey] = repair;
+  const routine = readShadowRoutine();
+  if (routine) exported[shadowRoutineKey] = routine;
+  const note = readCornerNote();
+  if (note) exported[cornerNoteKey] = note;
+  download('caisik-field-notebook.json', JSON.stringify(exported, null, 2));
+  notify('Notebook exported. Keep the file somewhere safe.');
+ };
+ window.addEventListener(imprintEvent, refreshNotebookCreations);
+ window.addEventListener(revizorEvent, refreshNotebookCreations);
+ window.addEventListener(writerRepairEvent, refreshNotebookCreations);
+ window.addEventListener(shadowRoutineEvent, refreshNotebookCreations);
+ window.addEventListener(cornerNoteEvent, refreshNotebookCreations);
+ window.addEventListener('storage', event => {
+  if ([imprintKey, revizorKey, writerRepairKey, shadowRoutineKey, cornerNoteKey, null].includes(event.key)) refreshNotebookCreations();
+ });
+ window.addEventListener('caisik:languagechange', refreshNotebookCreations);
  $('notebook-clear').onclick=()=>$('clear-confirm').hidden=false;$('cancel-clear').onclick=()=>$('clear-confirm').hidden=true;$('confirm-clear').onclick=()=>{keys.forEach(k=>{memory.delete(k);try{localStorage.removeItem(k);}catch{}});location.reload();};
  $('sources-open').onclick=()=>{renderSources();$('sources-dialog').showModal();};
  const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;let motion=read('atlas-motion',reduced?'off':'on');if(!['off','on'].includes(motion))motion=reduced?'off':'on';document.documentElement.dataset.motion=motion;$('motion-toggle').setAttribute('aria-pressed',String(motion==='off'));$('motion-toggle').textContent=motion==='off'?'RESUME MOTION':'PAUSE MOTION';$('motion-toggle').onclick=()=>{motion=motion==='off'?'on':'off';document.documentElement.dataset.motion=motion;write('atlas-motion',motion);$('motion-toggle').setAttribute('aria-pressed',String(motion==='off'));$('motion-toggle').textContent=motion==='off'?'RESUME MOTION':'PAUSE MOTION';syncMotionControls();};syncMotionControls();
@@ -236,4 +491,5 @@ function setupEvents(){
  document.addEventListener('visibilitychange',()=>{if(document.hidden)stopNarration();});window.addEventListener('pagehide',stopNarration);window.addEventListener('caisik:languagechange',stopNarration);
 }
 async function init(){try{const [a,p,illustrationData,cultureData]=await Promise.all([fetch('/locations-data.json').then(r=>{if(!r.ok)throw Error();return r.json();}),fetch('/principles-data.json').then(r=>{if(!r.ok)throw Error();return r.json();}),fetch('/assets/places-caisik/manifest.json').then(r=>r.ok?r.json():null).catch(()=>null),fetch('/culture-data.json').then(r=>r.ok?r.json():null).catch(()=>null)]);atlasData={...a,sessionBrief:cultureData?.sessionBrief};const researched=parseCultureData(cultureData,a.locations.map(p=>p.id));cultureEntries=researched.places;locations=[...a.locations,...cultureEntries.map(culturePlace)];routes=[...a.routes,...cultureRoutes(cultureEntries)];knowledge=p;placeIllustrations=parsePlaceIllustrations(illustrationData);setupEvents();renderFilterButtons();[...new Set(locations.map(p=>p.period))].forEach(period=>{const option=document.createElement('option');option.value=period;option.textContent=period;$('period-filter').append(option);});setupMap();renderPlaces();renderPreview();renderRoutes();renderArt();savedCount();mountCultureDistrict();principles=initPrinciples($('principles'),{data:knowledge,read,write,notify});frequency=initFrequency($('frequency'),{data:knowledge,read,write,notify,getLocation:current});$('frequency').insertAdjacentHTML('beforeend','<div class="studio-path-link"><p class="section-index">FROM STREET TO SESSION</p><h3>Z ulice do studia.</h3><p>Připrav zadání. Nahraj dvě vlastní verze. Odnes si jedno vysvětlené rozhodnutí.</p><button class="button" data-open-studios>VYBRAT NAHRÁVACÍ STUDIO ↗</button></div>');const qr=location.pathname.match(/^\/q\/([^/]+)/)?.[1];if(qr){const ids={'generation':'gender','as-above':'correspondence','so-below':'correspondence','shadow-work':'mentalism','underground':'vibration','transmute':'cause-effect'};principles?.select(ids[qr]||qr);$('principles').scrollIntoView({behavior:'instant'});}else if(['#principles','#living-wall'].includes(location.hash)){$(location.hash.slice(1)).scrollIntoView({behavior:'instant'});}if('speechSynthesis'in window)window.speechSynthesis.getVoices();}catch(error){console.error('Atlas initialization failed',error);$('place-preview').innerHTML='<h3>The atlas could not load.</h3><p>Reload the page to try again. Official visitor links remain available in the research section.</p>';$('principles').textContent='The learning data could not load. Reload to try again.';$('frequency').textContent='The laboratory could not load. Reload to try again.';}}
+mountCornerMapNote();
 init();

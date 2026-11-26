@@ -1,0 +1,72 @@
+{
+  "generatedAt": "2026-11-19",
+  "provider": "OpenAI",
+  "model": "tts-1",
+  "voice": "onyx",
+  "speed": 0.92,
+  "language": "cs",
+  "aiGenerated": true,
+  "source": "dist/alchymista/story.js: scenes[id][2]",
+  "clips": [
+    {
+      "scene": "alchemist-practice",
+      "filename": "alchemist-practice-v1.mp3",
+      "bytes": 61056,
+      "text": "Stejná slova, jiný dech. Vyber, kde se ten řádek zlomí."
+    },
+    {
+      "scene": "alchemy-prologue",
+      "filename": "alchemy-prologue-v1.mp3",
+      "bytes": 88320,
+      "text": "Na skle starej otisk, v krku novej hlas.. Tři doby držím já. Tu čtvrtou máš."
+    },
+    {
+      "scene": "alchymista-entry",
+      "filename": "alchymista-entry-v1.mp3",
+      "bytes": 61056,
+      "text": "Zopakuj jeden řádek. Před posledním slovem nech díru."
+    },
+    {
+      "scene": "expeditions",
+      "filename": "expeditions-v1.mp3",
+      "bytes": 76032,
+      "text": "Schovej do druhého řádku jeden detail, který by kamera přehlédla."
+    },
+    {
+      "scene": "frequency",
+      "filename": "frequency-v1.mp3",
+      "bytes": 91008,
+      "text": "Dva řádky ty, dva Alchymista. V každé odpovědi použijte jedno slovo po druhém."
+    },
+    {
+      "scene": "hidden-city",
+      "filename": "hidden-city-v1.mp3",
+      "bytes": 67968,
+      "text": "Půjč svůj hlas zábradlí, výloze nebo zdi. Co by ti řekly?"
+    },
+    {
+      "scene": "home",
+      "filename": "home-v1.mp3",
+      "bytes": 68352,
+      "text": "Vezmi slovo z prologu. Dej mu tvar něčeho, co právě vidíš."
+    },
+    {
+      "scene": "living-wall",
+      "filename": "living-wall-v1.mp3",
+      "bytes": 74112,
+      "text": "Vyber jediný řádek na stěnu. Škrtni slovo a přečti ho znovu."
+    },
+    {
+      "scene": "manifesto",
+      "filename": "manifesto-v1.mp3",
+      "bytes": 94848,
+      "text": "Vrať první slovo do posledního řádku. Ať znamená něco jiného než na začátku."
+    },
+    {
+      "scene": "principles",
+      "filename": "principles-v1.mp3",
+      "bytes": 63744,
+      "text": "Dvakrát stejná ulice. Podruhé vyměň toho, kdo má navrch."
+    }
+  ]
+}

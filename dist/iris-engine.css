@@ -92,7 +92,7 @@ header.iris-dock {
 html.has-language-dock:has(.iris-dock .language-dock) body { padding-bottom:0; }
 html:has(.iris-dock) .journey-rail,html:has(.iris-dock) .play-nav { top:var(--caisik-dock-height); }
 html:has(.iris-dock) { scroll-padding-top:calc(var(--caisik-dock-height) + 12px); }
-html.journey-ready:has(.iris-dock) { scroll-padding-top:calc(var(--caisik-dock-height) + 54px); }
+html.journey-ready:has(.iris-dock) { scroll-padding-top:calc(var(--caisik-dock-height) + 72px); }
 @media(max-width:700px) {
   :root:has(.iris-dock) {--caisik-dock-height:100px;--exp-header:100px;}
   header.iris-dock {gap:3px;padding:0 10px;}
@@ -169,3 +169,98 @@ html:is([data-motion="off"],[data-selfmade-motion="quiet"],[data-selfmade-motion
 }
 @keyframes forge-pressure {from{stroke-dashoffset:1}to{stroke-dashoffset:0}}
 @keyframes forge-beat {20%,65%{transform:translateY(14px)}44%,88%{transform:translateY(-5px)}}
+
+/* A readable contents page within the shared header. */
+.iris-dock nav.iris-panel {
+  width: min(1040px, calc(100vw - 32px));
+  max-height: calc(100dvh - var(--caisik-dock-height) - 20px);
+  padding: 0;
+  background: #10100d;
+  border: 1px solid #8d792a;
+  box-shadow: 0 18px 60px #000b;
+  scrollbar-color: #9c862f #10100d;
+}
+.iris-index-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 22px 26px 18px;
+  border-bottom: 1px solid #393324;
+}
+.iris-index-heading .iris-eyebrow { border: 0; padding: 0; color: #b6aa86; font-size: 9px; letter-spacing: .12em; }
+.iris-index-heading h2 { margin: 7px 0 0; color: #fff4d3; font: 650 32px/1.1 'Barlow Condensed', sans-serif; letter-spacing: 0; }
+.iris-dock .iris-close {
+  flex: 0 0 auto;
+  min-height: 44px;
+  padding: 8px 12px;
+  border: 1px solid #5b5031;
+  border-radius: 0;
+  background: transparent;
+  color: #f4e9ca;
+  font: 600 12px/1.2 'DM Sans', sans-serif;
+  cursor: pointer;
+}
+.iris-resume { display: flex; align-items: center; justify-content: space-between; gap: 18px; padding: 15px 26px; background: #ffd6000b; border-bottom: 1px solid #393324; }
+.iris-resume small { color: #e9c836; font: 600 11px/1.45 'DM Sans', sans-serif; }
+.iris-resume p { margin: 4px 0 0; color: #efe8d4; font: 500 13px/1.5 'DM Sans', sans-serif; }
+.iris-resume a { display: block; flex: 0 0 auto; color: #111; background: #ffd600; padding: 13px 15px; font: 750 12px/1.2 'DM Sans', sans-serif; border: 1px solid #ffd600; }
+.iris-search { padding: 18px 26px 14px; margin: 0; }
+.iris-search label { display: block; color: #f4e9ca; font: 650 12px/1.4 'DM Sans', sans-serif; margin-bottom: 7px; }
+.iris-search > div { position: relative; }
+.iris-dock .iris-search input {
+  display: block; width: 100%; min-width: 0; min-height: 46px; border: 1px solid #655c3e;
+  border-radius: 0; background: #060605; color: #fff4d3; padding: 11px 48px 11px 14px;
+  font: 500 14px/1.4 'DM Sans', sans-serif; letter-spacing: 0;
+}
+.iris-search input::placeholder { color: #aaa08a; opacity: 1; }
+.iris-search input::-webkit-search-cancel-button { display: none; }
+.iris-search input:focus-visible { outline: 2px solid #ffd600; outline-offset: 1px; }
+.iris-dock .iris-search button { position: absolute; right: 3px; top: 3px; min-height: 40px; width: 40px; border: 0; background: transparent; color: #e9d38d; font-size: 24px; cursor: pointer; }
+.iris-index-body { display: grid; grid-template-columns: 152px minmax(0, 1fr); gap: 24px; padding: 0 26px 22px; }
+.iris-categories { display: flex; flex-direction: column; align-items: stretch; gap: 3px; padding-top: 26px; }
+.iris-dock .iris-categories button {
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  min-height: 43px; padding: 10px 12px; border: 1px solid transparent; border-radius: 0;
+  background: transparent; color: #c3baa3; font: 550 13px/1.2 'DM Sans', sans-serif; cursor: pointer; text-align: left;
+}
+.iris-categories button small { color: #a99c72; font: 500 11px/1 ui-monospace, monospace; }
+.iris-dock .iris-categories button[aria-pressed="true"] { color: #ffd600; background: #ffd60013; border-color: #807034; }
+.iris-result-count { color: #a99e82; margin: 0 0 9px; font: 500 11px/1.5 'DM Sans', sans-serif; }
+.iris-panel ol.iris-chapters { grid-template-columns: repeat(2, minmax(0, 1fr)); align-content: start; gap: 9px; }
+.iris-dock .iris-chapters li { min-width: 0; }
+.iris-dock .iris-chapters a {
+  display: grid; grid-template-columns: minmax(0, 1fr) 18px; align-items: start; gap: 10px;
+  height: 100%; min-height: 97px; padding: 15px; margin: 0; background: #191914; color: #f5edda;
+  border: 1px solid #3e3b2c; text-transform: none; letter-spacing: 0;
+}
+.iris-entry-title { display: block; font: 650 20px/1.15 'Barlow Condensed', sans-serif; color: inherit; }
+.iris-chapters .iris-entry-description { margin: 7px 0 0; color: #bcb49f; font: 450 12px/1.5 'DM Sans', sans-serif; }
+.iris-dock .iris-chapters a i { font-size: 17px; line-height: 1; color: #b8a05a; font-style: normal; }
+.iris-dock .iris-chapters a:is(:hover, :focus-visible, [data-preview]) { background: #262415; border-color: #b99b2f; color: #ffdf58; }
+.iris-dock .iris-chapters a[aria-current="location"] { border-inline-start: 3px solid #ffd600; background: #292716; }
+.iris-empty { padding: 22px 0; color: #e7dcc0; font: 500 14px/1.6 'DM Sans', sans-serif; }
+.iris-dock .iris-empty button { border: 1px solid #ffd600; background: #ffd600; padding: 11px 14px; min-height: 44px; font: 650 13px/1.3 'DM Sans', sans-serif; cursor: pointer; }
+.iris-dock .iris-foot { padding: 15px 26px; border-top: 1px solid #393324; gap: 14px; }
+.iris-dock .iris-pages a { color: #e5d9b7; font: 550 12px/1.4 'DM Sans', sans-serif; min-height: 40px; }
+nav.iris-panel [hidden] { display: none !important; }
+.iris-dock .iris-panel:not([hidden]) { animation: none !important; }
+@media (max-width: 760px) {
+  .iris-dock nav.iris-panel { width: calc(100vw - 16px); max-height: calc(100dvh - var(--caisik-dock-height) - 8px); }
+  .iris-index-heading { padding: 16px; gap: 8px; }
+  .iris-index-heading h2 { font-size: 28px; }
+  .iris-index-heading .iris-eyebrow { font-size: 8px; letter-spacing: .06em; }
+  .iris-dock .iris-close span { display: none; }
+  .iris-dock .iris-close { min-width: 44px; font-size: 22px; }
+  .iris-resume { display: block; padding: 14px 16px; }
+  .iris-resume a { margin-top: 12px; text-align: center; }
+  .iris-search { padding: 14px 16px 10px; }
+  .iris-index-body { display: block; padding: 0 16px 16px; }
+  .iris-categories { flex-direction: row; flex-wrap: wrap; gap: 5px; padding: 0; margin-bottom: 14px; }
+  .iris-dock .iris-categories button { padding: 9px 10px; min-height: 40px; gap: 6px; background: #181812; border-color: #3e3b2c; font-size: 12px; }
+  .iris-categories button small { display: none; }
+  .iris-panel ol.iris-chapters { grid-template-columns: 1fr; gap: 7px; }
+  .iris-dock .iris-chapters a { min-height: 82px; padding: 13px; }
+  .iris-entry-title { font-size: 21px; }
+  .iris-dock .iris-foot { padding: 12px 16px; }
+}

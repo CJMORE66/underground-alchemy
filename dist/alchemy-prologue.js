@@ -3,7 +3,7 @@ import { createPrologueActor } from './alchemy-prologue-actor.js?v=4';
 import { createLegendMic, sampleLegendMicSpeech, sampleLegendMicStow, sampleLegendMc } from './alchemy-legend-mc.js';
 import { createLegendDjBreakArt, sampleLegendDj, breakCameraAt, createBreakCan } from './alchemy-legend-dj-break.js?v=3';
 import { createLegendWorld } from './alchemy-legend-world.js';
-import { createLegendMacros } from './alchemy-legend-macros.js?v=3';
+import { createLegendMacros, stylusContactProgress } from './alchemy-legend-macros.js?v=4';
 import { createLegendFinale } from './alchemy-legend-finale.js?v=5';
 import { writerPhases, writerRefillAt } from './alchemy-writer-strokes.js?v=4';
 import { createWriterGlass } from './alchemy-writer-glass.js';
@@ -55,6 +55,10 @@ const cuts = [
   ['meditation', 2.955 + epilogueShift, 3.047 + epilogueShift, 6.1],
 ].map(([name, start, stop, seconds]) => ({ name, start, stop, seconds }));
 const end = 3.06 + epilogueShift;
+const stylusIndex = cuts.findIndex(cut => cut.name === 'stylus');
+const stylusStart = cuts[stylusIndex].start;
+const stylusEnd = cuts[stylusIndex + 1].start;
+const needleDrop = stylusStart + (stylusEnd - stylusStart) * stylusContactProgress;
 const breakStart = 1.12;
 const stillFrame = .61 / end;
 const files = {
@@ -67,20 +71,20 @@ const files = {
 };
 const languages = {
   cs: {
-    title: 'Cesta začíná.', speaker: 'Alchymista', name: 'Legenda o druhém otisku', next: 'Další záběr', skip: 'Přeskočit', enter: 'Otevřít atlas',
-    play: 'Přehrát film', pause: 'Pozastavit film', soundOn: 'Zapnout zvuk', soundOff: 'Ztlumit zvuk', replay: 'Přehrát znovu', captions: 'Titulky',
+    title: 'Cesta začíná.', speaker: 'Alchymista', name: 'Legenda o druhém otisku', next: 'Další záběr', skip: 'Přeskočit', enter: 'Otevřít atlas', story: 'Hrát první kapitolu', guide: 'Hlasový průvodce',
+    play: 'Přehrát film se zvukem', pause: 'Pozastavit film', soundOn: 'Zapnout zvuk', soundOff: 'Ztlumit zvuk', replay: 'Přehrát znovu', captions: 'Titulky',
     art: 'Druhý otisk', truth: '',
     rap: 'Na skle starej otisk, v krku novej hlas, / tři doby držím já, tu čtvrtou nechám na vás.',
   },
   en: {
-    title: 'The journey begins.', speaker: 'The alchemist', name: 'Legend of the Second Imprint', next: 'Next shot', skip: 'Skip', enter: 'Open atlas',
-    play: 'Play film', pause: 'Pause film', soundOn: 'Enable sound', soundOff: 'Mute sound', replay: 'Play again', captions: 'Captions',
+    title: 'The journey begins.', speaker: 'The alchemist', name: 'Legend of the Second Imprint', next: 'Next shot', skip: 'Skip', enter: 'Open atlas', story: 'Play chapter one', guide: 'Voice guide',
+    play: 'Play film with sound', pause: 'Pause film', soundOn: 'Enable sound', soundOff: 'Mute sound', replay: 'Play again', captions: 'Captions',
     art: 'The Second Imprint', truth: 'Truth speaks only to those who understand how to listen.',
     rap: 'Old trace on the glass, new voice in my throat, / I hold the first three beats, the fourth is yours to float.',
   },
   fr: {
-    title: 'Le voyage commence.', speaker: 'L’alchimiste', name: 'La légende de la deuxième empreinte', next: 'Plan suivant', skip: 'Passer', enter: 'Ouvrir l’atlas',
-    play: 'Lire le film', pause: 'Mettre le film en pause', soundOn: 'Activer le son', soundOff: 'Couper le son', replay: 'Réécouter', captions: 'Sous-titres',
+    title: 'Le voyage commence.', speaker: 'L’alchimiste', name: 'La légende de la deuxième empreinte', next: 'Plan suivant', skip: 'Passer', enter: 'Ouvrir l’atlas', story: 'Jouer au premier chapitre', guide: 'Guide vocal',
+    play: 'Lire le film avec le son', pause: 'Mettre le film en pause', soundOn: 'Activer le son', soundOff: 'Couper le son', replay: 'Réécouter', captions: 'Sous-titres',
     art: 'La deuxième empreinte', truth: 'La vérité ne parle qu’aux oreilles qui savent comprendre.',
     rap: 'Vieille trace sur la vitre, nouvelle voix en moi, / je tiens les trois premiers temps, le quatrième est à toi.',
   },
@@ -142,6 +146,9 @@ function mountPrologue() {
   const captions = find('captions');
   const replay = find('replay');
   const skip = find('skip');
+  const story = find('story');
+  const storyLabel = find('story-label');
+  const guide = find('guide');
   const gallery = find('art');
   const reel = find('reel');
   const meters = cuts.map(() => reel.appendChild(doc.createElement('span')));
@@ -179,6 +186,7 @@ function mountPrologue() {
   let captioned = false;
   let audible = false;
   let lastProgress = -1;
+  let lastNeedleProgress = -1;
   let lastVoice = -1;
   let lastAmbient = -100;
   let playhead = null;
@@ -272,6 +280,8 @@ function mountPrologue() {
     copy = languages[lang] || languages.cs;
     track.lang = languages[lang] ? lang : 'cs';
     track.setAttribute('aria-label', copy.name);
+    if (storyLabel) storyLabel.textContent = copy.story;
+    if (guide) guide.textContent = copy.guide;
     paintControls();
   }
 
@@ -380,6 +390,9 @@ function mountPrologue() {
     schedule();
   }
 
+  const companionHasAudio = () => root.hasAttribute('data-alchymista-audio') &&
+    !root.hasAttribute('data-alchymista-film-beat');
+
   function update(time) {
     raf = null;
     if (sleeping || doc.hidden) return;
@@ -407,7 +420,7 @@ function mountPrologue() {
     const playingWriter = inPlayback && p >= writerStart && p < writerEnd && name !== 'refill' && name !== 'dog';
     const audioScene = playingWriter ? 'writer' : inPlayback && (name === 'refill' || name === 'dog') ? name :
       name === 'quote' ? 'truth' : name === 'voice' ? 'rap' : name === 'scratch' ? 'scratch' : null;
-    const audibleInView = audible && inView;
+    const audibleInView = audible && inView && !companionHasAudio();
     const cutSeconds = cuts[shot].seconds;
     const offset = playingWriter ? state.writer * writerSeconds :
       inPlayback && ['refill', 'dog', 'rap'].includes(audioScene) ? local * cutSeconds : 0;
@@ -425,11 +438,15 @@ function mountPrologue() {
     if (flow === 'scroll' && audibleInView && p > lastProgress && p - lastProgress < .085) {
       const ticks = [.458, .48, .501, .526, .574, .583, .945, .965];
       if (ticks.some(tick => lastProgress < tick && p >= tick)) audio.tap(p < .55 ? 90 : 215);
-      const touches = name === 'stylus' ? [.46] : name === 'pigment' ? [.25, .41, .57, .73, .89] : [];
+      const touches = name === 'stylus' ? [stylusContactProgress] : name === 'pigment' ? [.25, .41, .57, .73, .89] : [];
       const previousLocal = range(cuts[shot].start, cuts[shot + 1]?.start ?? end, lastProgress);
       if (touches.some(t => previousLocal < t && local >= t)) audio.contact(name === 'pigment');
     }
     render(state, time / 1000, activeAudio ? audio.progress() : 0, inView);
+    if (flow === 'scroll' && lastNeedleProgress < needleDrop && p >= needleDrop) {
+      window.dispatchEvent(new window.Event('alchymista:needle-drop'));
+    }
+    lastNeedleProgress = p;
     const showCompanion = past && flow === 'scroll';
     companion.element.toggleAttribute('hidden', !showCompanion);
     if (showCompanion) {
@@ -452,7 +469,7 @@ function mountPrologue() {
   }
 
   function play(id, direct = false, offset = 0) {
-    if (!id) return;
+    if (!id || companionHasAudio()) return;
     if (audio.play(id, direct, () => {
       activeAudio = null;
       track.removeAttribute('data-film-audio');
@@ -468,12 +485,21 @@ function mountPrologue() {
     if (raf === null && !sleeping && !doc.hidden) raf = requestAnimationFrame(update);
   }
 
+  function armFilmSound(progress = layout().p) {
+    audible = true;
+    audio.unlock(schedule);
+    if (track.dataset.filmFlow !== 'scroll') return;
+    window.dispatchEvent(new window.Event('alchymista:needle-arm'));
+    if (progress * end >= needleDrop) window.dispatchEvent(new window.Event('alchymista:needle-drop'));
+  }
+
   transport.addEventListener('click', () => {
     if (playhead !== null) pauseFilm();
     else {
       const progress = layout().p;
       playhead = progress >= .999 ? 0 : progress;
       previousTime = null;
+      armFilmSound(playhead);
       paintControls();
       schedule();
     }
@@ -492,21 +518,30 @@ function mountPrologue() {
   window.addEventListener('keydown', event => {
     if (playhead !== null && ['ArrowDown', 'ArrowUp', 'PageDown', 'PageUp', 'Home', 'End', ' '].includes(event.key)) pauseFilm();
   });
+  story?.addEventListener('click', event => {
+    if (event.button > 0 || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+    pauseFilm();
+    stopAudio();
+    window.dispatchEvent(new window.Event('alchymista:needle-mute'));
+    doc.getElementById('needle-street')?.focus({ preventScroll: true });
+  });
   skip.addEventListener('click', event => {
     if (event.button > 0 || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
     pauseFilm();
+    window.dispatchEvent(new window.Event('alchymista:needle-skip'));
     doc.getElementById('home')?.focus({ preventScroll: true });
   });
   sound.addEventListener('click', () => {
-    audible = !audible;
-    if (audible) {
-      audio.unlock(schedule);
+    if (!audible) {
+      armFilmSound();
       if (!replay.hidden) {
         const { name, local, shot } = sampleLegendTimeline(layout().p);
         const offset = name === 'voice' && playhead !== null ? local * cuts[shot].seconds : 0;
         play(name === 'quote' ? 'truth' : 'rap', true, offset);
       }
     } else {
+      audible = false;
+      window.dispatchEvent(new window.Event('alchymista:needle-mute'));
       stopAudio();
       heard = null;
     }
@@ -528,6 +563,10 @@ function mountPrologue() {
   short.addEventListener('change', fit);
   window.addEventListener('scroll', schedule, { passive: true });
   window.addEventListener('resize', schedule, { passive: true });
+  window.addEventListener('alchymista:audiochange', () => {
+    if (companionHasAudio()) stopAudio();
+    schedule();
+  });
   window.addEventListener('caisik:languagechange', localize);
   window.addEventListener('storage', event => { if (event.key === 'atlas-motion' || event.key === null) fit(); });
   doc.addEventListener('visibilitychange', () => { if (doc.hidden) { pauseFilm(); stopAudio(); } else schedule(); });

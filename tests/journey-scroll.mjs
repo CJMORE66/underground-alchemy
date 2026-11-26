@@ -50,5 +50,112 @@ function harness({markup=html,io=true,mo=true,ro=true,reduced=false}={}){
 {
  const h=harness({markup:'<!doctype html><html><body><main><section id="hidden-city">Readable atlas</section></main></body></html>',io:false,mo:false,ro:false});h.flush();assert.equal(h.api.stats().bridges,1);assert.equal(h.api.stats().sections,1);h.scroll(200);assert(Number.isFinite(h.api.stats().progress['hidden-city']));h.api.destroy();const empty=harness({markup:'<!doctype html><html><body>No app</body></html>',io:false,mo:false,ro:false});empty.flush();assert.equal(empty.api.stats().bridges,0);empty.api.destroy();
 }
+{
+ const h=harness();h.flush();
+ const current=h.document.querySelector('.journey-rail-identity'),previous=h.document.querySelector('.journey-previous'),next=h.document.querySelector('.journey-next'),index=h.document.querySelector('[data-journey-index]');
+ assert.equal(current.textContent,'Skryté město');assert.equal(previous.getAttribute('href'),null);assert.equal(previous.getAttribute('aria-disabled'),'true');assert.equal(next.getAttribute('href'),'#principles');
+ h.scroll(2800);assert.equal(current.textContent,'Sedm principů');assert.equal(previous.getAttribute('href'),'#hidden-city');assert.equal(next.getAttribute('href'),'#frequency');
+ let opened=0;h.window.addEventListener('caisik:open-index',event=>{assert.equal(event.detail.source,'journey-rail');opened++;});index.click();assert.equal(opened,1);
+ h.window.CaisikI18n={getLanguage:()=> 'fr'};h.window.dispatchEvent(new h.window.Event('caisik:languagechange'));assert.equal(current.textContent,'Les sept principes');assert.equal(index.textContent,'Sommaire');assert.equal(next.textContent,'Suivant →');
+ h.scroll(6500);assert.equal(next.getAttribute('href'),null);assert.equal(next.getAttribute('aria-disabled'),'true');assert.equal(previous.getAttribute('href'),'#living-wall');h.api.destroy();
+}
+{
+ const h=harness();
+ h.window.getComputedStyle=()=>({scrollPaddingTop:'188px'});
+ h.window.innerHeight=500;
+ h.scroll(1100-188);
+ const page=h.document.querySelector('.journey-next');
+ const target=h.document.getElementById('principles');
+ let focused='';
+ target.focus=options=>{if(options.preventScroll)focused=target.id;};
+ function activate(link,modifiers={}){
+  const click=new h.window.Event('click',{bubbles:true,cancelable:true});
+  Object.assign(click,modifiers);
+  link.dispatchEvent(click);
+  assert(!click.defaultPrevented,'native fragment navigation and history remain available');
+ }
+ activate(page);
+ assert.equal(focused,'principles');
+ assert.equal(target.getAttribute('tabindex'),'-1');
+ assert.equal(page.getAttribute('href'),'#principles','href is stable during native activation');
+ assert(h.document.documentElement.classList.contains('journey-page-jump'));
+ const leaf=h.document.querySelector('.journey-turn');
+ assert.equal(leaf.dataset.turn,'forward');
+ assert.equal(leaf.getAttribute('aria-hidden'),'true');
+ h.scroll(2600-188);
+ assert(!h.document.documentElement.classList.contains('journey-page-jump'));
+ assert.equal(h.api.stats().active,'principles','the new section is active below both sticky bars, even at a 500px viewport height');
+ assert.equal(page.getAttribute('href'),'#frequency','Next advances after landing');
+ activate(h.document.querySelector('.journey-previous'));
+ const reverse=h.document.querySelector('.journey-turn');
+ assert(!leaf.isConnected);
+ assert.equal(reverse.dataset.turn,'backward');
+ assert.equal(h.document.querySelectorAll('.journey-turn').length,1,'rapid navigation replaces the previous fold');
+ leaf.dispatchEvent(new h.window.Event('animationend'));
+ assert(reverse.isConnected,'a stale animation cannot remove its successor');
+ reverse.dispatchEvent(new h.window.Event('animationend'));
+ assert(!reverse.isConnected);
+
+ const menu=h.document.createElement('nav');
+ menu.className='iris-panel';
+ menu.innerHTML='<a href="#frequency">Frekvence</a><a href="/art/">Blackbook</a>';
+ h.document.querySelector('header').append(menu);
+ const local=menu.firstElementChild;
+ activate(menu.lastElementChild);
+ activate(local,{ctrlKey:true});
+ assert.equal(h.document.querySelector('.journey-turn'),null,'external and modified links use browser defaults');
+ activate(local);
+ assert.equal(h.document.querySelector('.journey-turn').dataset.turn,'forward');
+ h.media.change(true);
+ assert.equal(h.document.querySelector('.journey-turn'),null,'switching to reduced motion cancels an active fold');
+ activate(local);
+ assert.equal(h.document.querySelector('.journey-turn'),null,'the destination is usable immediately in reduced motion');
+ h.media.change(false);
+ const story=h.document.createElement('section');
+ story.id='needle-street';
+ const entry=h.document.createElement('a');
+ entry.setAttribute('data-film-story','');
+ entry.href='#needle-street';
+ h.document.querySelector('main').append(story,entry);
+ activate(entry);
+ assert(h.document.documentElement.classList.contains('journey-before-atlas'));
+ assert(!h.document.querySelector('.journey-turn').classList.contains('journey-turn-atlas'));
+ h.api.destroy();
+ assert.equal(h.document.querySelector('.journey-turn'),null);
+ assert(!h.document.documentElement.classList.contains('journey-page-jump'));
+}
+{
+ // Chrome in a short iframe can leave the viewport on the previous chapter
+ // even though native Enter activation accepted the fragment and moved focus.
+ const h=harness();
+ h.window.innerHeight=500;
+ h.window.getComputedStyle=()=>({scrollPaddingTop:'188px'});
+ h.scroll(1100-188);
+ const target=h.document.getElementById('principles');
+ const next=h.document.querySelector('.journey-next');
+ let corrections=0;
+ target.scrollIntoView=options=>{
+  assert.equal(options.behavior,'instant');assert.equal(options.block,'start');
+  assert(h.document.documentElement.classList.contains('journey-page-jump'));
+  corrections++;
+  h.window.scrollY=2600-188;
+ };
+ next.click();
+ assert.equal(corrections,0,'native navigation gets first opportunity');
+ h.flush();
+ assert.equal(corrections,1);
+ assert.equal(h.api.stats().active,'principles');
+ assert.equal(next.getAttribute('href'),'#frequency');
+ h.flush();assert.equal(corrections,1,'a landing is checked only once');
+ h.scroll(1100-188);
+ next.click();
+ h.document.dispatchEvent(new h.window.Event('wheel'));
+ h.flush();
+ assert.equal(corrections,1,'player input cancels the pending correction');
+ next.click();
+ h.scroll(2600-188);
+ assert.equal(corrections,1,'an accurate native landing is left untouched');
+ h.api.destroy();
+}
 assert(!/scrollTo\(|preventDefault\(|\.animate\(/.test(source));assert(!/opacity\s*:\s*0\b/.test(css));assert(css.includes('@media(prefers-reduced-motion:reduce)'));
-console.log('PASS journey scroll: four native-scroll compositions; reversible drawing and transforms; real chapter navigation/progress; preserved prose/actions; finite RAF; pause/reduced/field/modal/tab/BFCache cleanup; dynamic language labels without scene reset.');
+console.log('PASS journey scroll: four native-scroll compositions; reversible drawing and transforms; native forward/back page folds, immediate reduced motion and small-viewport chapter landing; preserved prose/actions; finite RAF; pause/reduced/field/modal/tab/BFCache cleanup; dynamic language labels without scene reset.');

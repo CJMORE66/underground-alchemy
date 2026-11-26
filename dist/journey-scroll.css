@@ -10,4 +10,63 @@ html.journey-ready{scroll-padding-top:164px}
 @media(max-height:520px) and (min-width:761px){.journey-rail{top:112px;min-height:36px;padding-block:2px}.journey-bridge{min-height:225px}.journey-bridge-visual{height:200px}}
 @media(prefers-reduced-motion:reduce){.journey-svg g,.journey-svg path,.journey-route-point{transform:none!important;scale:1!important;opacity:1!important;stroke-dashoffset:0!important;clip-path:none!important}.journey-bridge-word{transform:none}.journey-bridge:after{display:none}.journey-section-ruler:before{transform:none}.journey-rail{backdrop-filter:none}}
 html[data-motion=off] .journey-bridge:after,body.simple-mode .journey-bridge:after,body.exp-field .journey-bridge:after{display:none}
-@media print{.journey-rail,.journey-bridge,.journey-section-ruler{display:none!important}}
+
+/* The chapter rail doubles as a compact reading control. */
+.journey-rail { top: var(--caisik-dock-height,112px); min-height: 58px; gap: 12px; padding: 7px clamp(12px,4vw,72px); letter-spacing: normal; }
+.journey-rail-identity { display: block; min-width: 0; max-width: 190px; font: 700 15px/1.2 'DM Sans',Arial,sans-serif; white-space: normal; }
+.journey-index,.journey-page-link { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 8px 12px; border: 1px solid #74601c; border-radius: 2px; background: #17140b; color: #fff4cf; font: 700 12px/1.15 'DM Sans',Arial,sans-serif; text-decoration: none; white-space: nowrap; }
+.journey-index { border-color: #ffd600; color: #ffd600; cursor: pointer; }
+.journey-rail-paging { display: flex; gap: 6px; margin-left: auto; }
+.journey-page-link[aria-disabled="true"] { color: #8c8570; border-color: #3f3822; background: transparent; pointer-events: none; }
+.journey-index:is(:hover,:focus-visible),.journey-page-link:is(:hover,:focus-visible) { color: #080808; background: #ffd600; border-color: #ffd600; }
+.journey-index:focus-visible,.journey-page-link:focus-visible { outline: 2px solid white; outline-offset: 2px; }
+.journey-rail-meter { position: absolute; inset: auto 0 -1px; width: 100%; height: 2px; }
+.journey-rail-percent { display: none; }
+@media(max-width:1200px) { .journey-rail-links { display: none; } .journey-rail-identity { flex: 1; max-width: none; } }
+@media(max-width:700px) {
+ .journey-rail { top: var(--caisik-dock-height,100px); gap: 8px; min-height: 58px; padding: 7px 10px; }
+ .journey-rail-identity { font-size: 13px; }
+ .journey-index { padding-inline: 10px; }
+ .journey-rail-paging { gap: 4px; }
+ .journey-page-link { min-width: 40px; width: 40px; padding-inline: 4px; font-size: 0; }
+ .journey-previous::before { content: '←'; font: 700 20px/1 Arial,sans-serif; }
+ .journey-next::before { content: '→'; font: 700 20px/1 Arial,sans-serif; }
+}
+
+/* A diagonal fold of ink and halftone paper crosses only the top edge of
+   the new page. Text, links and the native scroll position stay available. */
+html.journey-ready.journey-page-jump { scroll-behavior: auto; }
+html.journey-ready.journey-page-jump.journey-before-atlas {
+ scroll-padding-top: calc(var(--caisik-dock-height,112px) + 12px);
+}
+/* Root padding already reserves the sticky controls for this fragment jump. */
+html.journey-page-jump :is(#needle-street,[data-journey-section]) { scroll-margin-top: 0; }
+.journey-turn {
+ position: fixed;
+ z-index: 44;
+ inset-inline: 0;
+ top: var(--caisik-dock-height,112px);
+ height: clamp(62px,12vh,112px);
+ overflow: hidden;
+ pointer-events: none;
+ contain: strict;
+}
+.journey-turn-atlas { top: calc(var(--caisik-dock-height,112px) + 60px); }
+.journey-turn[data-turn="backward"] { transform: scaleX(-1); }
+.journey-turn::before {
+ content: '';
+ position: absolute;
+ inset: 0;
+ background:
+  radial-gradient(circle,#14120b 1px,transparent 1.4px) 0 0 / 5px 5px,
+  linear-gradient(147deg,#14120b 46%,#ad8d27 56%,#f7e8b2 66%,#ffd32b 73%,#14120b 76%);
+ clip-path: polygon(61% 0,100% 0,87% 18%,81% 48%,67% 100%,72% 41%);
+ animation: journey-page-fold 460ms cubic-bezier(.25,.65,.32,1) both;
+}
+@keyframes journey-page-fold {
+ from { transform: translateX(40%); }
+ to { transform: translateX(-101%); }
+}
+@media (prefers-reduced-motion: reduce) { .journey-turn { display: none; } }
+
+@media print{.journey-turn,.journey-rail,.journey-bridge,.journey-section-ruler{display:none!important}}

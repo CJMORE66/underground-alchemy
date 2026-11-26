@@ -4,23 +4,82 @@
  if(window.CaisikJourneyScroll)return;
  const doc=document,root=doc.documentElement,NS='http://www.w3.org/2000/svg';
  const chapters=[
-  {id:'hidden-city',label:'MĚSTO',word:'STONE',title:'OD SIGNÁLU K MÍSTU.',copy:'Najdi skutečný bod. Všimni si detailu. Teprve potom mu dej význam.',kind:'map'},
-  {id:'principles',label:'MYSL',word:'MIND',title:'ZMĚŇ ÚHEL. ZMĚŇ ČTENÍ.',copy:'Stejné město. Jiná otázka. Sleduj, co se změní v tvé pozornosti.',kind:'eye'},
-  {id:'frequency',label:'HLAS',word:'SOUND',title:'ULICE DOSTÁVÁ HLAS.',copy:'Pozorovaný detail proměň v rytmus, obraz nebo vlastní větu.',kind:'sound'},
-  {id:'living-wall',label:'STOPA',word:'SIGNS',title:'HLAS SE MĚNÍ VE STOPU.',copy:'Zkoušej. Překresli rozhodnutí. Tvůj výstup patří do Blackbooku.',kind:'ink'},
-  {id:'manifesto',label:'DÁL',word:'SELFMADE'}
+  {id:'hidden-city',names:['Skryté město','Hidden City','La ville cachée'],label:'MĚSTO',word:'STONE',title:'OD SIGNÁLU K MÍSTU.',copy:'Najdi skutečný bod. Všimni si detailu. Teprve potom mu dej význam.',kind:'map'},
+  {id:'principles',names:['Sedm principů','Seven Principles','Les sept principes'],label:'MYSL',word:'MIND',title:'ZMĚŇ ÚHEL. ZMĚŇ ČTENÍ.',copy:'Stejné město. Jiná otázka. Sleduj, co se změní v tvé pozornosti.',kind:'eye'},
+  {id:'frequency',names:['Frekvence','Frequency','Fréquence'],label:'HLAS',word:'SOUND',title:'ULICE DOSTÁVÁ HLAS.',copy:'Pozorovaný detail proměň v rytmus, obraz nebo vlastní větu.',kind:'sound'},
+  {id:'living-wall',names:['Živá zeď','Living Wall','Le mur vivant'],label:'STOPA',word:'SIGNS',title:'HLAS SE MĚNÍ VE STOPU.',copy:'Zkoušej. Překresli rozhodnutí. Tvůj výstup patří do Blackbooku.',kind:'ink'},
+  {id:'manifesto',names:['Manifest','Manifesto','Manifeste'],label:'DÁL',word:'SELFMADE'}
  ];
  const scenes=new Map(),sections=new Map(),seen=new Set(),removers=[];
  const reduced=window.matchMedia?.('(prefers-reduced-motion: reduce)');
  const main=doc.querySelector('main');
- let rail,railValue,railLabel,railIdentity,frame=0,disposed=false,sleeping=false,lastY=0,direction='forward',io,resize,mutations,preferences;
+ let rail,railValue,railLabel,railIdentity,indexButton,previousLink,nextLink,frame=0,disposed=false,sleeping=false,lastY=0,direction='forward',io,resize,mutations,preferences;
+ let turnMarker=null,landingTarget=null;
  const clamp=v=>Math.max(0,Math.min(1,v));
  const t=source=>{try{const translated=window.CaisikI18n?.t?.(source);return typeof translated==='string'?translated:source;}catch{return source;}};
+ const railWords={cs:{index:'Obsah',previous:'Předchozí',next:'Další'},en:{index:'Contents',previous:'Previous',next:'Next'},fr:{index:'Sommaire',previous:'Précédent',next:'Suivant'}};
+ const railLanguage=()=>{const language=(window.CaisikI18n?.getLanguage?.()||root.lang||'cs').split('-')[0];return railWords[language]?language:'cs';};
+ const chapterName=chapter=>chapter.names[{cs:0,en:1,fr:2}[railLanguage()]];
  const listen=(target,type,handler,options)=>{target.addEventListener(type,handler,options);removers.push(()=>target.removeEventListener(type,handler,options));};
  const make=(tag,cls,text)=>{const el=doc.createElement(tag);if(cls)el.className=cls;if(text)el.textContent=text;return el;};
  const node=(tag,attrs={})=>{const el=doc.createElementNS(NS,tag);for(const[k,v]of Object.entries(attrs))el.setAttribute(k,String(v));return el;};
  const motionAllowed=()=>!disposed&&!sleeping&&!doc.hidden&&!reduced?.matches&&root.dataset.motion!=='off'&&!['off','quiet','calm','reduced'].includes(root.dataset.selfmadeMotion)&&!doc.body.classList.contains('simple-mode')&&!doc.body.classList.contains('exp-field')&&!doc.querySelector('.culture-board.cb-field');
  const blocked=()=>!!doc.querySelector('dialog[open]');
+ function landingLine(){
+  const padding=window.getComputedStyle?.(root)?.scrollPaddingTop;
+  return (Number.parseFloat(padding)||0)+2;
+ }
+ function clearTurn(){
+  turnMarker?.remove();
+  turnMarker=null;
+ }
+ function cancelLanding(){
+  landingTarget=null;
+  root.classList.remove('journey-page-jump','journey-before-atlas');
+ }
+ function settleLanding(viewHeight){
+  if(!landingTarget)return;
+  // Chromium can focus the fragment without moving an inner viewport when
+  // Enter activated its sticky link. Check once, after the anchor default action.
+  const target=landingTarget;
+  const scroller=doc.scrollingElement||root;
+  const current=window.scrollY||0;
+  const offset=landingLine()-2;
+  const wanted=Math.max(0,Math.min(scroller.scrollHeight-viewHeight,current+target.getBoundingClientRect().top-offset));
+  if(Math.abs(current-wanted)>2){
+   target.scrollIntoView?.({behavior:'instant',block:'start',inline:'nearest'});
+  }
+  cancelLanding();
+ }
+ function followPageLink(event){
+  if(event.defaultPrevented||event.button>0||event.metaKey||event.ctrlKey||event.shiftKey||event.altKey)return;
+  const link=event.target.closest?.('.journey-rail a[href], nav.iris-panel a[href], a[data-film-story][href]');
+  const href=link?.getAttribute('href');
+  if(!href?.startsWith('#')||link.hasAttribute('download')||(link.target&&link.target!=='_self'))return;
+  const target=doc.getElementById(href.slice(1));
+  if(!target||!main?.contains(target))return;
+
+  // Keep native fragment history. Explicit paging should skip the long
+  // intermediate scroll, even when smooth scrolling is enabled elsewhere.
+  clearTurn();
+  landingTarget=target;
+  root.classList.add('journey-page-jump');
+  root.classList.toggle('journey-before-atlas',!sections.has(target.id));
+  schedule();
+  if(!target.hasAttribute('tabindex'))target.setAttribute('tabindex','-1');
+  target.focus({preventScroll:true});
+  if(!motionAllowed()||blocked())return;
+
+  const mark=make('div','journey-turn');
+  mark.setAttribute('aria-hidden','true');
+  mark.dataset.turn=target.getBoundingClientRect().top<landingLine()?'backward':'forward';
+  if(sections.has(target.id))mark.classList.add('journey-turn-atlas');
+  turnMarker=mark;
+  const finish=()=>{if(turnMarker===mark)clearTurn();};
+  mark.addEventListener('animationend',finish,{once:true});
+  mark.addEventListener('animationcancel',finish,{once:true});
+  doc.body.append(mark);
+ }
  function graphics(kind){
   const svg=node('svg',{viewBox:'0 0 1000 360','aria-hidden':'true',focusable:'false',class:`journey-svg journey-svg-${kind}`});
   const line=(parent,d,cls='journey-draw',i=0)=>{const path=node('path',{d,class:cls,pathLength:1,'data-journey-draw':i});parent.append(path);return path;};
@@ -53,7 +112,8 @@
   return svg;
  }
  function applyLanguage(){
-  if(rail){rail.setAttribute('aria-label',t('Tvoje cesta městem'));railIdentity.textContent=t('CAISIK / TVOJE CESTA');rail.querySelector('[role=progressbar]').setAttribute('aria-label',t('Průchod stránkou'));for(const chapter of chapters){const link=rail.querySelector(`[data-journey-chapter="${chapter.id}"]`);if(link)link.textContent=t(chapter.label);}}
+  if(rail){rail.setAttribute('aria-label',t('Tvoje cesta městem'));rail.querySelector('[role=progressbar]').setAttribute('aria-label',t('Průchod stránkou'));for(const chapter of chapters){const link=rail.querySelector(`[data-journey-chapter="${chapter.id}"]`);if(link)link.textContent=t(chapter.label);}}
+  updateRailNavigation();
   for(const item of scenes.values()){item.el.setAttribute('aria-label',t(item.chapter.title));item.title.textContent=t(item.chapter.title);item.description.textContent=t(item.chapter.copy);item.label.textContent=`${t('PŘECHOD')} ${String(item.index+1).padStart(2,'0')} / ${t('TY JSI AUTOR')}`;}
  }
  function makeBridge(chapter,index,target){
@@ -64,7 +124,24 @@
  function makeRail(){
   const present=chapters.filter(chapter=>doc.getElementById(chapter.id));if(!present.length)return;
   rail=make('nav','journey-rail');rail.setAttribute('data-text-motion','off');railIdentity=make('span','journey-rail-identity');const links=make('div','journey-rail-links');for(const chapter of present){const a=make('a','journey-rail-link');a.href=`#${chapter.id}`;a.dataset.journeyChapter=chapter.id;links.append(a);}
-  const progress=make('div','journey-rail-meter');progress.setAttribute('role','progressbar');progress.setAttribute('aria-valuemin','0');progress.setAttribute('aria-valuemax','100');progress.setAttribute('aria-valuenow','0');railValue=make('span','journey-rail-meter-value');progress.append(railValue);railLabel=make('span','journey-rail-percent','00');railLabel.setAttribute('aria-hidden','true');rail.append(railIdentity,links,progress,railLabel);const first=[...scenes.values()][0]?.el||doc.getElementById(present[0].id);first.before(rail);
+  indexButton=make('button','journey-index');indexButton.type='button';indexButton.setAttribute('data-journey-index','');listen(indexButton,'click',()=>window.dispatchEvent(new window.CustomEvent('caisik:open-index',{detail:{source:'journey-rail'}})));
+  previousLink=make('a','journey-page-link journey-previous');nextLink=make('a','journey-page-link journey-next');
+  const paging=make('div','journey-rail-paging');paging.append(previousLink,nextLink);
+  const progress=make('div','journey-rail-meter');progress.setAttribute('role','progressbar');progress.setAttribute('aria-valuemin','0');progress.setAttribute('aria-valuemax','100');progress.setAttribute('aria-valuenow','0');railValue=make('span','journey-rail-meter-value');progress.append(railValue);railLabel=make('span','journey-rail-percent','00');railLabel.setAttribute('aria-hidden','true');rail.append(indexButton,railIdentity,links,paging,progress,railLabel);const first=[...scenes.values()][0]?.el||doc.getElementById(present[0].id);first.before(rail);
+ }
+ function updateRailNavigation(){
+  if(!rail)return;
+  const present=chapters.filter(chapter=>sections.has(chapter.id));
+  const current=present.find(chapter=>chapter.id===rail.dataset.activeChapter)||present[0];
+  if(!current)return;
+  const words=railWords[railLanguage()],position=present.indexOf(current);
+  railIdentity.textContent=chapterName(current);indexButton.textContent=words.index;
+  for(const [link,label,destination] of [[previousLink,words.previous,present[position-1]],[nextLink,words.next,present[position+1]]]){
+   link.textContent=link===previousLink?'← '+label:label+' →';
+   link.setAttribute('aria-label',destination?label+' · '+chapterName(destination):label);
+   if(destination){link.href='#'+destination.id;link.removeAttribute('aria-disabled');link.removeAttribute('tabindex');}
+   else{link.removeAttribute('href');link.setAttribute('aria-disabled','true');link.setAttribute('tabindex','-1');}
+  }
  }
  function scan(){
   if(disposed||!main)return;
@@ -76,19 +153,24 @@
   for(const path of scene.draws){const stagger=Math.min(Number(path.dataset.journeyDraw)||0,5)*.035;path.style.strokeDashoffset=(1-clamp((p-stagger)/.66)).toFixed(4);}
  }
  function update(){
-  frame=0;if(disposed||sleeping||doc.hidden)return;const vh=window.innerHeight||root.clientHeight||800,y=Math.max(0,window.scrollY||window.pageYOffset||0),allowed=motionAllowed()&&!blocked();if(Math.abs(y-lastY)>1)direction=y>lastY?'forward':'backward';lastY=y;root.dataset.journeyDirection=direction;root.classList.toggle('journey-motion-active',allowed);rail?.classList.toggle('journey-obscured',blocked());
+  frame=0;if(disposed||sleeping||doc.hidden)return;const vh=window.innerHeight||root.clientHeight||800;settleLanding(vh);const y=Math.max(0,window.scrollY||window.pageYOffset||0),allowed=motionAllowed()&&!blocked();if(Math.abs(y-lastY)>1)direction=y>lastY?'forward':'backward';lastY=y;root.dataset.journeyDirection=direction;root.classList.toggle('journey-motion-active',allowed);rail?.classList.toggle('journey-obscured',blocked());
+  const readingLine=Math.max(vh*.35,landingLine());
   let active=chapters.find(chapter=>sections.has(chapter.id))?.id;
-  for(const chapter of chapters){const item=sections.get(chapter.id);if(!item)continue;const rect=item.el.getBoundingClientRect();if(rect.top<=vh*.35)active=chapter.id;item.el.style.setProperty('--journey-section-p',clamp((vh*.55-rect.top)/Math.max(vh*.4,rect.height)).toFixed(4));}
+  for(const chapter of chapters){const item=sections.get(chapter.id);if(!item)continue;const rect=item.el.getBoundingClientRect();if(rect.top<=readingLine)active=chapter.id;item.el.style.setProperty('--journey-section-p',clamp((vh*.55-rect.top)/Math.max(vh*.4,rect.height)).toFixed(4));}
   for(const scene of scenes.values()){const rect=scene.el.getBoundingClientRect(),p=clamp((vh*.91-rect.top)/(vh*.75+Math.max(rect.height,1)));if(allowed&&(!io||seen.has(scene.el))){scene.el.classList.add('journey-is-live');writeScene(scene,p);}else{scene.el.classList.remove('journey-is-live');writeScene(scene,1);}}
-  if(rail){for(const link of rail.querySelectorAll('[data-journey-chapter]')){const current=link.dataset.journeyChapter===active;link.classList.toggle('is-current',current);if(current)link.setAttribute('aria-current','location');else link.removeAttribute('aria-current');}rail.dataset.activeChapter=active||'';const height=Math.max(root.scrollHeight||0,doc.body.scrollHeight||0)-vh,p=height>0?clamp(y/height):0,percent=Math.round(p*100);railValue.style.transform=`scaleX(${p.toFixed(4)})`;rail.querySelector('[role=progressbar]').setAttribute('aria-valuenow',String(percent));railLabel.textContent=String(percent).padStart(2,'0');}
+  if(rail){for(const link of rail.querySelectorAll('[data-journey-chapter]')){const current=link.dataset.journeyChapter===active;link.classList.toggle('is-current',current);if(current)link.setAttribute('aria-current','location');else link.removeAttribute('aria-current');}if(rail.dataset.activeChapter!==active){rail.dataset.activeChapter=active||'';updateRailNavigation();}const height=Math.max(root.scrollHeight||0,doc.body.scrollHeight||0)-vh,p=height>0?clamp(y/height):0,percent=Math.round(p*100);railValue.style.transform=`scaleX(${p.toFixed(4)})`;rail.querySelector('[role=progressbar]').setAttribute('aria-valuenow',String(percent));railLabel.textContent=String(percent).padStart(2,'0');}
  }
  function schedule(){if(!disposed&&!sleeping&&!doc.hidden&&!frame)frame=requestAnimationFrame(update);}
- function preferenceChanged(){if(frame){cancelAnimationFrame(frame);frame=0;}if(doc.hidden||sleeping){root.classList.remove('journey-motion-active');for(const scene of scenes.values()){scene.el.classList.remove('journey-is-live');writeScene(scene,1);}return;}schedule();}
- function destroy(){if(disposed)return;disposed=true;if(frame)cancelAnimationFrame(frame);frame=0;io?.disconnect();resize?.disconnect();mutations?.disconnect();preferences?.disconnect();removers.forEach(fn=>fn());rail?.remove();for(const scene of scenes.values())scene.el.remove();for(const item of sections.values()){item.ruler.remove();delete item.el.dataset.journeySection;item.el.style.removeProperty('--journey-section-p');}scenes.clear();sections.clear();seen.clear();root.classList.remove('journey-motion-active','journey-ready');delete root.dataset.journeyDirection;}
+ function preferenceChanged(){if(doc.hidden||sleeping)cancelLanding();if(!motionAllowed()||blocked())clearTurn();if(frame){cancelAnimationFrame(frame);frame=0;}if(doc.hidden||sleeping){root.classList.remove('journey-motion-active');for(const scene of scenes.values()){scene.el.classList.remove('journey-is-live');writeScene(scene,1);}return;}schedule();}
+ function destroy(){if(disposed)return;disposed=true;clearTurn();cancelLanding();if(frame)cancelAnimationFrame(frame);frame=0;io?.disconnect();resize?.disconnect();mutations?.disconnect();preferences?.disconnect();removers.forEach(fn=>fn());rail?.remove();for(const scene of scenes.values())scene.el.remove();for(const item of sections.values()){item.ruler.remove();delete item.el.dataset.journeySection;item.el.style.removeProperty('--journey-section-p');}scenes.clear();sections.clear();seen.clear();root.classList.remove('journey-motion-active','journey-ready');delete root.dataset.journeyDirection;}
  if(typeof IntersectionObserver==='function')io=new IntersectionObserver(entries=>{for(const entry of entries){if(entry.isIntersecting)seen.add(entry.target);else seen.delete(entry.target);}schedule();},{rootMargin:'100px 0px',threshold:[0,.1,.5,1]});
  if(typeof ResizeObserver==='function'&&main){resize=new ResizeObserver(schedule);resize.observe(main);}
  if(typeof MutationObserver==='function'){
   mutations=new MutationObserver(records=>{if(records.some(record=>record.type==='attributes'&&((record.target.tagName==='DIALOG'&&record.attributeName==='open')||(record.target.classList?.contains('culture-board')&&record.attributeName==='class'))))preferenceChanged();if(records.some(record=>record.type==='childList'&&[...record.addedNodes,...record.removedNodes].some(n=>n.nodeType===1&&!n.matches?.('.journey-bridge,.journey-rail,.journey-section-ruler')&&(n.matches?.('section,dialog')||n.querySelector?.('section,dialog')))))scan();});mutations.observe(doc.body,{childList:true,subtree:true,attributes:true,attributeFilter:['open','class']});preferences=new MutationObserver(preferenceChanged);preferences.observe(root,{attributes:true,attributeFilter:['data-motion','data-selfmade-motion']});preferences.observe(doc.body,{attributes:true,attributeFilter:['class']});
+ }
+ listen(doc,'click',followPageLink);
+ for(const input of ['pointerdown','wheel','touchstart','keydown']){
+  listen(doc,input,()=>{if(landingTarget)cancelLanding();},{capture:true,passive:true});
  }
  listen(window,'scroll',schedule,{passive:true});listen(window,'resize',schedule,{passive:true});listen(doc,'visibilitychange',preferenceChanged);if(reduced?.addEventListener)listen(reduced,'change',preferenceChanged);listen(window,'caisik:languagechange',applyLanguage);
  listen(window,'pagehide',event=>{if(event.persisted){sleeping=true;preferenceChanged();}else destroy();});listen(window,'pageshow',()=>{sleeping=false;schedule();});
