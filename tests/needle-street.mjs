@@ -146,6 +146,24 @@ test('a completed legacy route resumes in the courtyard without autoplay; reduce
   assert.equal(openStreet(saved).get('[data-yard]').hidden, false);
 });
 
+test('TRANSMUTE keeps its actual image and accessible directions across language changes', () => {
+  const { document, window, get } = openStreet();
+  const poster = get('img[data-alt="artAlt"]');
+  const src = poster.getAttribute('src');
+  const directions = {
+    cs: 'TRANSMUTE od CAISIK. Levý krajní hrot míří doleva a pravý doprava.',
+    en: 'TRANSMUTE by CAISIK. The leftmost arrowhead points left and the rightmost one points right.',
+    fr: 'TRANSMUTE de CAISIK. La pointe tout à gauche va vers la gauche et celle tout à droite vers la droite.'
+  };
+  for (const lang of ['cs', 'fr', 'en', 'cs']) {
+    document.documentElement.lang = lang;
+    window.dispatchEvent(new window.Event('caisik:languagechange'));
+    assert.strictEqual(get('img[data-alt="artAlt"]'), poster);
+    assert.equal(poster.getAttribute('src'), src);
+    assert.equal(poster.getAttribute('alt'), directions[lang]);
+  }
+});
+
 test('quiet mode skips the cue and unearned courtyard state falls back to the selected puzzle', () => {
   const saved = new Map([
     ['caisik-needle-carrier-v1', 'silver-gloves'],
