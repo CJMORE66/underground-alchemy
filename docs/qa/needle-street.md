@@ -84,3 +84,13 @@ Klíč `caisik-corner-note-v1` ukládá prohlédnuté detaily i vybraný výklad
 V Chromium v rámu 390 px prošla repríza Souboje se stínem, prohlídka obrazu myší a ovládání klávesnicí, obnova dvou detailů i dokončeného výkladu, návrat fokusu, shoda mapy a Blackbooku a odpověď Alchymisty. Přepnutí na francouzštinu zachovalo výklad, vypnutí pohybu zachovalo statické stopy. Hra v náhledu proběhla bez zvuku.
 
 Další krok: po vrácení rytmu do okna II otevřít přehled pěti vedlejších stop s viditelným stavem a návratem do rozehrané scény.
+
+## 2026-11-27 · Vedlejší stopy
+
+Po vrácení rytmu se v ulici u okna II objeví Přehled vedlejších stop. V jedné sekci lze otevřít všech pět existujících scén, zjistit, která je dostupná nebo dokončená, a z každé se vrátit přímo na její kartu. Revizor se odemyká dokončením metra. Pokračovat vybírá poslední navštívenou nedokončenou stopu. Přehled zobrazuje skutečné ukládané odměny a u výpovědí počet prohlédnutých detailů.
+
+Klíč `caisik-street-trails-v1` přidává pořadí navštívených scén. Odměna každé stopy zůstává v jejím stávajícím záznamu. Už otevřená scéna se při návratu z přehledu znovu neotevírá a zachová rozpracovaný panel. Po obnovení se vybere správná stopa a načtou její dříve uložené kroky. Rozpracovaný panel Writeru nebo nepředaná sestava stínu žije v otevřené kartě.
+
+V Chromium v rámci širokém 390 px prošel vstup z ulice, všech pět akcí karet, tichý rytmus metra a okamžité odemčení revizora. Ověřeny návraty fokusu, nepřerušený panel Otisk na víku, obnova jednoho detailu výpovědi po načtení, francouzské popisky a přehled s vypnutým pohybem. Teď lze projít první kapitolu a všech pět vedlejších stop z jednoho rozcestí.
+
+Další krok: přidat Pokračovat už k úvodnímu panelu a ověřit hraní od vstupu k rozpracované stopě v jedné cestě.

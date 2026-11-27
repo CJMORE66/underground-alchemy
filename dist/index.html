@@ -88,6 +88,7 @@
     </div>
     <p role="status" data-result></p>
     <button type="button" data-follow aria-controls="needle-fork" aria-expanded="false" data-line="follow" hidden>Po stopě kurýra</button>
+    <a class="street-trails-entry" href="#street-trails" data-trails-entry data-trails-line="entry" hidden>Vedlejší stopy</a>
   </div>
   <div class="needle-panel"><div class="needle-windows" role="group" aria-labelledby="needle-title">
     <button type="button" data-window="0">I</button>
@@ -162,6 +163,54 @@
   </div>
 </section>
 <link rel="stylesheet" href="/needle-street.css?v=5"><script type="module" src="/needle-street.js?v=6"></script>
+<link rel="stylesheet" href="/street-trails.css?v=1">
+<section id="street-trails" class="street-trails" data-street-trails data-i18n="off" data-text-motion="off" aria-labelledby="street-trails-title" hidden>
+  <div class="street-trails__layout">
+    <div class="street-trails__header">
+      <div>
+        <h2 id="street-trails-title" data-trails-title data-trails-line="title" tabindex="-1">Vedlejší stopy</h2>
+        <p data-trails-line="intro">Rytmus se vrátil do okna II. Kolem ulice čeká dalších pět stop.</p>
+      </div>
+      <div class="street-trails__actions">
+        <p data-trails-count role="status">0 z 5 dokončeno</p>
+        <button type="button" data-trails-continue hidden>Pokračovat</button>
+      </div>
+    </div>
+    <ul class="street-trails__list" role="list">
+      <li data-trail-card="dj" data-state="ready">
+        <h3 id="street-trail-dj-title" data-trail-title>Poslední metro má swing</h3>
+        <p id="street-trail-dj-state" data-trail-state>K zahrání</p>
+        <p data-trail-summary>Zopakuj rytmus dveří na dvou padech.</p>
+        <button type="button" data-trail-open aria-describedby="street-trail-dj-title street-trail-dj-state">Hrát</button>
+      </li>
+      <li data-trail-card="mc" data-state="locked">
+        <h3 id="street-trail-mc-title" data-trail-title>Revizor chce šestnáctku</h3>
+        <p id="street-trail-mc-state" data-trail-state>Po dokončení metra</p>
+        <p data-trail-summary>Dopiš dvě zakončení sloky přes DJův přechod.</p>
+        <button type="button" data-trail-open aria-describedby="street-trail-mc-title street-trail-mc-state" disabled>Hrát</button>
+      </li>
+      <li data-trail-card="writer" data-state="ready">
+        <h3 id="street-trail-writer-title" data-trail-title>Šipka, co zdrhla z piece</h3>
+        <p id="street-trail-writer-state" data-trail-state>K zahrání</p>
+        <p data-trail-summary>Najdi hrot z TRANSMUTE a dokresli vlastní tah.</p>
+        <button type="button" data-trail-open aria-describedby="street-trail-writer-title street-trail-writer-state">Hrát</button>
+      </li>
+      <li data-trail-card="breaking" data-state="ready">
+        <h3 id="street-trail-breaking-title" data-trail-title>Souboj se stínem</h3>
+        <p id="street-trail-breaking-state" data-trail-state>K zahrání</p>
+        <p data-trail-summary>Seřaď tři pohyby a nech stín zatančit.</p>
+        <button type="button" data-trail-open aria-describedby="street-trail-breaking-title street-trail-breaking-state">Hrát</button>
+      </li>
+      <li data-trail-card="knowledge" data-state="ready">
+        <h3 id="street-trail-knowledge-title" data-trail-title>Stejný roh, tři verze</h3>
+        <p id="street-trail-knowledge-state" data-trail-state>K zahrání</p>
+        <p data-trail-summary>Porovnej tři výpovědi a zapiš do mapy vlastní závěr.</p>
+        <button type="button" data-trail-open aria-describedby="street-trail-knowledge-title street-trail-knowledge-state">Hrát</button>
+      </li>
+    </ul>
+  </div>
+</section>
+<script type="module" src="/street-trails.js?v=1"></script>
 <link rel="stylesheet" href="/metro-quest.css?v=2">
 <link rel="stylesheet" href="/revizor-quest.css?v=1">
 <section id="metro-quest" data-metro-quest data-i18n="off" data-text-motion="off" aria-labelledby="metro-entry-title" hidden>
@@ -247,6 +296,7 @@
           <div class="metro-controls">
             <button type="button" data-metro-return data-metro-line="return" hidden>Vrátit se k DJovi</button>
             <button type="button" data-metro-close data-metro-line="back">Zpátky do ulice</button>
+            <a class="trails-back" href="#street-trails" data-trails-back data-trails-line="back" hidden>Zpátky na přehled stop</a>
           </div>
         </div>
       </div>
@@ -280,6 +330,7 @@
             <div class="revizor-controls revizor-submit">
               <button type="submit" data-revizor-submit data-revizor-line="submit">Uložit do Blackbooku</button>
               <button type="button" data-revizor-close data-revizor-line="close">Zavřít zápisník</button>
+              <a class="trails-back" href="#street-trails" data-trails-back data-trails-line="back" hidden>Zpátky na přehled stop</a>
             </div>
             <p data-revizor-status role="status"></p>
           </form>
@@ -362,6 +413,7 @@
       <div class="writer-footer">
         <p data-writer-status role="status"></p>
         <button type="button" data-writer-close data-writer-line="close">Zavřít scénu</button>
+        <a class="trails-back" href="#street-trails" data-trails-back data-trails-line="back" hidden>Zpátky na přehled stop</a>
       </div>
     </div>
   </div>
@@ -451,6 +503,7 @@
       <div class="shadow-footer">
         <p data-shadow-status role="status"></p>
         <button type="button" data-shadow-close data-shadow-line="close">Zpátky na ulici</button>
+        <a class="trails-back" href="#street-trails" data-trails-back data-trails-line="back" hidden>Zpátky na přehled stop</a>
       </div>
     </div>
   </div>
@@ -508,6 +561,7 @@
         <p data-corner-feedback role="status"></p>
         <a class="corner-primary" href="#corner-map-note" data-corner-map-link data-corner-line="map" hidden>Otevřít poznámku v mapě</a>
         <button type="button" data-corner-close data-corner-line="close">Zavřít scénu</button>
+        <a class="trails-back" href="#street-trails" data-trails-back data-trails-line="back" hidden>Zpátky na přehled stop</a>
       </div>
     </div>
   </div>
