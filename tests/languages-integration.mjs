@@ -18,7 +18,6 @@ const dictionaries=Object.fromEntries(locales.map(lang=>[lang,json(`i18n/${lang}
 
 if(process.argv.includes('--runtime')){
  const {window,document}=parseHTML(read('index.html'));
- const productionImage=document.querySelector('img.hero-art'),productionAlt=normalize(productionImage.getAttribute('alt')),productionImageSrc=productionImage.getAttribute('src');
  Object.defineProperty(document,'hidden',{value:false,writable:true});
  window.innerWidth=1280;window.innerHeight=800;
  window.HTMLElement.prototype.getBoundingClientRect=function(){return {x:20,y:120,left:20,top:120,right:520,bottom:160,width:500,height:40};};
@@ -51,6 +50,8 @@ if(process.argv.includes('--runtime')){
  journalStore.update(state=>Object.assign(state,savedState));
  const unmountJournal=mountJournal(journal,{store:journalStore});
  globalThis.window=window;
+ globalThis.Event=window.Event;
+ globalThis.CustomEvent=window.CustomEvent;
  const {initFrequency}=await import('../dist/atlas-frequency.js');
  const frequency=document.getElementById('frequency');
  initFrequency(frequency,{data:json('principles-data.json'),read:()=>({draft:source,words:'THE CITY IS A TEXT.'}),write:()=>true,getLocation:()=>original[0]});
@@ -99,8 +100,8 @@ if(process.argv.includes('--runtime')){
  workshop.innerHTML=workshopTitle;
  await settle('workbench loaded after the language runtime');
  const structuredTitles=[
-  [document.getElementById('hero-title'),['THE CITY','IS A TEXT.']],
-  [document.getElementById('shop-title'),['TVŮJ ZNAK.','TVŮJ SVĚT.']],
+  [document.getElementById('wall-title'),['LET THE LETTERS','DO THE TALKING.']],
+  [document.getElementById('shop-title'),['Příští','drop.']],
   [workshop.querySelector('h2'),['TVŮJ MATERIÁL.','TVŮJ VLASTNÍ TAH.']]
  ].map(([heading,sources])=>({heading,sources,br:heading.querySelector('br'),em:heading.querySelector('em')}));
  for(const locale of ['fr','en','cs','fr','cs']){
@@ -119,7 +120,6 @@ if(process.argv.includes('--runtime')){
    assert.strictEqual(heading.querySelector('em'),em,'semantic emphasis survives');
   }
   assert.strictEqual(document.getElementById('integration-image'),image);assert.equal(image.alt,dictionaries[locale]['THE CITY IS A TEXT.'],'alternative text follows the chosen language without replacing its image');
-  assert.strictEqual(document.querySelector('img.hero-art'),productionImage);assert.equal(productionImage.getAttribute('src'),productionImageSrc);assert.equal(productionImage.alt,dictionaries[locale][productionAlt],'actual production hero alternative text follows the selected locale');
   assert(document.getElementById('integration-title').querySelector('ctm-word'),'translated title retains kinetic structure');
   assert.strictEqual(document.getElementById('integration-action'),action);assert.strictEqual(action.querySelector('path'),icon);
   assert.equal(document.getElementById('integration-draft').value,source);assert.equal(document.getElementById('integration-user').textContent,source);
@@ -185,17 +185,48 @@ if(process.argv.includes('--runtime')){
  assert.equal(missing.length,0,`actual public human content fields missing translations: ${JSON.stringify(missingUnique)}`);
  // Worker assets are a verified byte-identical build copy, not additional authored pages.
  const walk=directory=>fs.readdirSync(directory,{withFileTypes:true}).flatMap(item=>directory===dist&&['client','server','.openai'].includes(item.name)?[]:item.isDirectory()?walk(path.join(directory,item.name)):item.name.endsWith('.html')?[path.join(directory,item.name)]:[]);
- let htmlCount=0,atlasCount=0;
+ const motionRoutes=new Set([
+  'index.html','archive/index.html','art/index.html','logo/index.html','play/index.html',
+  ...['as-above-so-below','shadow-work','the-kybalion','underground-originals'].map(slug=>`collections/${slug}/index.html`),
+  'expeditions/index.html',...['breaking','dj','knowledge','mc','writer'].map(slug=>`expeditions/${slug}/index.html`)
+ ]);
+ const activeMotionRoutes=new Set();
+ let atlasCount=0;
  for(const file of walk(dist)){
-  const html=fs.readFileSync(file,'utf8');if(!html.includes('text-motion.js'))continue;htmlCount++;
+  const html=fs.readFileSync(file,'utf8');if(!html.includes('text-motion.js'))continue;
   const {document}=parseHTML(html),name=path.relative(dist,file);
+  activeMotionRoutes.add(name);
   const script=document.querySelectorAll('script[src^="/languages.js?"]');assert.equal(script.length,1,`${name}: one language runtime`);assert(script[0].hasAttribute('defer'),`${name}: nonblocking classic defer`);
   assert.equal(document.querySelectorAll('link[href^="/languages.css?"]').length,1,`${name}: language styles once`);
   for(const img of document.querySelectorAll('img[alt]')){const alt=normalize(img.getAttribute('alt'));if(alt&&!/^(?:CAISIK|CAISIK Underground Alchemy|CAISIK — Underground Alchemy)$/i.test(alt))assert(locales.every(locale=>Object.hasOwn(dictionaries[locale],alt)),`${name}: descriptive alternative text has three local translations: ${alt}`);}
   assert(html.indexOf('/languages.js?')<html.indexOf('/text-motion.js?'),`${name}: locale runtime precedes kinetic text`);
-  if(document.getElementById('hidden-city')){atlasCount++;assert.equal(document.querySelectorAll('script[src^="/journey-scroll.js?"]').length,1,`${name}: chapter bridge runtime once`);}
+  if(document.getElementById('hidden-city')){
+   atlasCount++;
+   assert.equal(name,'index.html','the atlas is a single edition shell');
+   const edition=document.querySelectorAll('script[src="/edition-shell.js"]');
+   assert.equal(edition.length,1,'the edition route runtime is loaded once');
+   assert.equal(edition[0].getAttribute('type'),'module');
+  }
  }
- assert.equal(htmlCount,28);assert.equal(atlasCount,13);assert.equal(atlas.locations.length+culture.places.length,32);
+ assert.deepEqual(activeMotionRoutes,motionRoutes,'every authored kinetic route retains the language runtime');
+ assert.equal(atlasCount,1);
+ // QR URLs now preserve a fallback page and route into the one language-enabled atlas.
+ const stickerTargets={
+  'as-above':'correspondence','cause-effect':'cause-effect',correspondence:'correspondence',
+  generation:'gender',mentalism:'mentalism',polarity:'polarity',rhythm:'rhythm',
+  'shadow-work':'mentalism','so-below':'correspondence',transmute:'cause-effect',
+  underground:'vibration',vibration:'vibration'
+ };
+ for(const [slug,principle] of Object.entries(stickerTargets)){
+  const href=`/#atlas/principles/${principle}`, html=read(`q/${slug}/index.html`);
+  const {document}=parseHTML(html);
+  assert(html.includes(`location.replace("${href}")`),`QR ${slug}: automatic deep link`);
+  assert(document.querySelector(`main a[href="${href}"]`),`QR ${slug}: accessible fallback deep link`);
+ }
+ const {document:shop}=parseHTML(read('shop/index.html'));
+ assert.equal(shop.querySelectorAll('script[defer][src^="/languages.js?"]').length,1);
+ assert.equal(shop.querySelectorAll('link[href^="/languages.css?"]').length,1);
+ assert.equal(atlas.locations.length+culture.places.length,32);
  const studios=culture.places.filter(p=>p.category==='studio');assert.equal(studios.length,6);assert.equal(culture.sessionBrief.lessons.length,3);
  const pinned=[...atlas.locations,...culture.places].filter(p=>Number.isFinite(p.lat)&&Number.isFinite(p.lng));assert.equal(pinned.length,31);
  const missingPins=culture.places.filter(p=>p.lat===null);assert.equal(missingPins.length,1);assert.equal(missingPins[0].id,'spot13');
@@ -203,6 +234,6 @@ if(process.argv.includes('--runtime')){
  const child=spawnSync(process.execPath,[fileURLToPath(import.meta.url),'--runtime'],{cwd:root,encoding:'utf8',timeout:15000,maxBuffer:1000000});
  assert(!child.error,`real-observer runtime exceeded safety budget: ${child.error?.message}\n${child.stdout}\n${child.stderr}`);
  assert.equal(child.status,0,`real-observer runtime failed:\n${child.stdout}\n${child.stderr}`);
- console.log(`PASS release integration: ${keys.length} identical catalogue keys ×3 locales; ${fields.length} actual teaching/profile/task/access fields covered; ${htmlCount} correctly ordered language entries, ${atlasCount} scroll entries; 32 places/31 pins/6 studios/3 session lessons.`);
+ console.log(`PASS release integration: ${keys.length} identical catalogue keys ×3 locales; ${fields.length} actual teaching/profile/task/access fields covered; ${activeMotionRoutes.size} correctly ordered language entries, ${Object.keys(stickerTargets).length} QR routes, ${atlasCount} edition atlas; 32 places/31 pins/6 studios/3 session lessons.`);
  process.stdout.write(child.stdout);
 }
