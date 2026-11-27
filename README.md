@@ -1,44 +1,33 @@
 # CAISIK — The Hidden City / Underground Alchemy
 
-A static, source-backed Paris cultural atlas. The restored atlas homepage combines an interactive geographic explorer, three ordered routes, seven philosophical lessons, a browser-local freestyle workspace, and the regenerated CAISIK graffiti archive. The existing Site identity and public audience are preserved.
+The homepage opens with the original 27-shot scroll film. After the last shot, a three-window facade starts the first playable chapter. Each room, story step and field stop has a direct address. The five street trails, local Frequency studio, seven principles and player notebook work on a static server.
 
 ## Run and verify
 
-The deployment serves `dist/` directly. No dependency installation or build is required for this release. In the managed Sites environment use `sites-preview start /workspace/sites/caisik-underground-alchemy` for internal browser QA. Run `npm test` for the focused atlas integrity and syntax checks.
+Serve the authored frontend with `python -m http.server 8080 --directory dist`. Use `npm ci` to install development dependencies. Run `npm test` for the atlas and story regressions, `npm run test:commerce` for the lookbook and commerce suites, and `npm run test:edition:browser` for the Chromium interaction checks (Python Playwright and Chromium required). The optional native Worker deployment is built with `npm run build` and checked with `npm run check:commerce-release`.
 
-- `dist/atlas.js` owns discovery filters, geographic map, profiles, local notebook, source register and gallery.
-- `dist/atlas-principles.js` owns the seven lessons, visual/sound demonstrations and observation-based progression.
-- `dist/atlas-frequency.js` owns creative prompts, local writing, microphone capture, playback/download and timing tools.
-- `dist/locations-data.json` contains research, explicit access flags, approximate/verified coordinate notes, routes and credited image sources.
-- `dist/principles-data.json` contains the modern Kybalion context, attributed doctrine and original creative exercises.
-- `dist/graphic-novel.css` and `dist/graphic-novel.js` apply the approved yellow/black graphic-novel identity and pointer-responsive artwork motion across the atlas, archive, blackbook and collections.
-- `docs/atlas/APPROVED-STYLE.md` and `dist/assets/style-reference/approved-caisik-graphic-novel.png` preserve the exact approved direction.
-- `dist/assets/masterworks-v2/` contains 100 regenerated artworks and their lightweight thumbnails. Metadata records actual dimensions and alpha, rather than assuming every piece is transparent.
+| Entrance | Content |
+| --- | --- |
+| `/#story/continue` | Resume the saved scene and step. An eight-step player rhythm changes Window II. |
+| `/#atlas/zin/le-grand-jeu` | Writer’s field edition, followed by Le M.U.R. Oberkampf and Lavo//Matik. |
+| `/#atlas/places` and `/#atlas/principles/rhythm` | Documented venues, routes, expeditions and seven freely readable principles. |
+| `/#workshop/frequency` | Local Frequency writing and audio, with separate entrances to GPT-Live and SELFMADE. |
+| `/#blackbook` | Personal rhythms, drawings, texts, field notes and seals with their origins. |
+| `/art/`, `/shop/`, `/archive/` | Galerie CAISIK, the streetwear lookbook and the original edition. |
 
-## Content and privacy
+The twelve sticker URLs under `/q/` are permanent entrances to their corresponding principles. The atlas keeps access conditions, fact sources and image credits next to the places. The field edition distinguishes documentary photographs from fictional scenes and original CAISIK margin notes. It identifies *The Kybalion* (1908) as a modern source of inspiration. Le M.U.R. is a curated exhibition.
 
-Historical evidence and contemporary CAISIK interpretation are presented separately. The Kybalion is identified as a 1908 modern Hermetic-inspired text, not an authenticated ancient Egyptian source. Le M.U.R. is a curated exhibition, not a free-paint wall. Access conditions are sourced per location and can change after the 21 October 2026 research check.
+## Privacy and commerce
 
-Notes, favourites and lesson progress use browser localStorage with an in-memory fallback. Export a JSON notebook for a durable personal copy. Microphone permission is requested only by Record; recordings are never uploaded, stop at five minutes or when the page becomes hidden, and must be downloaded before leaving. Narration uses only a device voice marked local. Geolocation is opt-in, retained only in page memory, and map requests reveal the viewed area and IP to OpenStreetMap. Maps request only ordinary viewed tiles, without prefetch or offline download.
+Writing and sketches stay in the browser. Download a Frequency recording before leaving the session. GPT-Live is a separate voice experience that requires explicit consent for network audio. GPS is optional. The field edition includes its own static map. The full external map has a separate data connection.
 
-## Retained experiences and verification
-
-The original homepage is preserved at `/archive/`; collections, the 100-work `/art/` blackbook, and store links remain available. The twelve existing `/q/` entry paths now open related lessons in the new experience. `/shop/` contains the original collection and dated variant prices. Ordering still
-belongs to the existing original store, but its documented catalog and product
-routes currently display a Synology not-found page in the 27 October browser
-audit. There is no verified working checkout or paid Printful fulfillment.
-See `docs/COMMERCE.md` and `docs/commerce/SHOP_REPAIR.md` for the current boundary,
-required backend access and acceptance steps.
-
-Nine discovery profiles use credited, reusable external Commons photographs, some explicitly archival. La Place, Le M.U.R. and Philharmonie use labelled contemporary geometric studies and link to official venue imagery; those are not documentary photos. The hero is a generated artistic collage. Eight regenerated artworks are curated under the original thematic prompts. All 100 archive artworks, the logo and the hero have been regenerated in the approved graphic-novel direction. Documentary and product photographs remain faithful to their subjects.
-
-Desktop browser interactions were verified at the cloud browser's native viewport. Mobile responsive rules were reviewed in source; a physical mobile browser, actual microphone capture, geolocation permission grant, and device-local narration were not exercised. Browser permission/format fallbacks are implemented, but these remain device checks.
+The shop opens as a static lookbook. Product and variant identifiers remain available for the commerce integration. A live order requires separately configured fulfillment and payment services. The original approved art direction is in [APPROVED-STYLE.md](docs/atlas/APPROVED-STYLE.md).
 
 ## Restoration
 
 At the user’s explicit request, the atlas functionality was restored from version 13, source `e159616e564d8bb5904c5af55f58fdc91afe8db3`, before applying the approved graphic-novel direction. The superseded version 14 was preserved in Git history and the local `before-approved-style-v14` branch. No history was rewritten.
 
-## Commerce execution —31October2026
+## Historical commerce release of 31 October 2026
 
 Static Sites release31 adds a saved variant cart and reviewed SHOP repairs.
 The live Printful/payment/order backend remains blocked; checkout stays disabled.

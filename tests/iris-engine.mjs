@@ -81,15 +81,15 @@ test('Contents open explicitly, include existing destinations and restore focus'
   p.expanded(false);
   assert.deepEqual(p.links.slice(0, 10).map(link => link.dataset.route), coreRoutes);
   assert.deepEqual(p.links.slice(0, 10).map(link => link.getAttribute('href')), [
-    '#home', '#needle-street', '#hidden-city', '#principles', '#frequency', '/play/', '/expeditions/', '#living-wall', '/shop/', '/art/',
+    '/#film', '/#story/continue', '/#atlas/places', '/#atlas/principles/mentalism', '/#workshop/frequency', '/play/', '/expeditions/', '/#atlas/gallery', '/shop/', '/art/',
   ]);
   assert.equal(p.links.length, 22);
   assert.equal(p.head.querySelector('.iris-tools #notebook-open'), p.original);
   assert.ok(p.nav.querySelector('.iris-pages [href="/logo/"]'));
   for (const link of p.links) {
     const href = link.getAttribute('href');
-    if (href.startsWith('#')) assert.ok(p.document.getElementById(href.slice(1)), 'local target ' + href);
-    else assert.ok(readFileSync(new URL(href.slice(1) + 'index.html', dist), 'utf8'), 'existing route ' + href);
+    const path = new URL(href, p.location).pathname;
+    assert.ok(readFileSync(new URL(path.slice(1) + 'index.html', dist), 'utf8'), 'existing static document for ' + href);
   }
   p.fire(p.toggle, 'pointerenter', { pointerType: 'mouse' });
   p.expanded(false);
@@ -111,7 +111,7 @@ test('Contents open explicitly, include existing destinations and restore focus'
   assert.equal(p.document.activeElement, p.search);
   p.fire(p.link('map'), 'click');
   p.expanded(false);
-  assert.equal(p.document.activeElement.id, 'hidden-city');
+  assert.equal(p.link('map').getAttribute('href'), '/#atlas/places');
   p.fire(p.toggle, 'click');
   p.fire(p.document.body, 'pointerdown', { pointerType: 'touch' });
   p.expanded(false);
@@ -134,7 +134,7 @@ test('Search, categories and reset filter real topics across all supported langu
   p.fire(form, 'submit');
   assert.deepEqual(submissions, ['map'], 'Enter activates the first visible result once');
   p.expanded(false);
-  assert.equal(p.document.activeElement.id, 'hidden-city', 'the local destination receives focus');
+  assert.equal(p.link('map').getAttribute('href'), '/#atlas/places', 'Enter resolves the addressable map destination');
   p.fire(p.toggle, 'click');
   p.query('record your voice');
   assert.deepEqual(p.visible(), ['frequency'], 'multiple search words all match in English');
@@ -143,7 +143,7 @@ test('Search, categories and reset filter real topics across all supported langu
   p.query('');
   p.group('archive');
   assert.deepEqual(p.visible(), ['wall', 'blackbook']);
-  p.query('Blackbook');
+  p.query('Galerie CAISIK');
   assert(p.visible().includes('blackbook'));
   p.fire(p.nav.querySelector('[data-search-clear]'), 'click');
   assert.deepEqual(p.visible(), ['wall', 'blackbook'], 'clear keeps selected category');
@@ -250,24 +250,24 @@ test('Current location follows local sections and scene events', async () => {
   assert.equal(p.head.dataset.engineMode, 'frequency', 'closing restores current section after hover preview');
 });
 
-test('Expedition keeps mode switch and subpage destinations; shop keeps cart and translated labels', async () => {
+test('Expeditions, the upcoming drop and the public gallery retain distinct destinations', async () => {
   const p = await page('/expeditions/');
   assert.equal(p.head.querySelector('.iris-tools #exp-mode'), p.original);
   assert.equal(p.head.dataset.engineMode, 'expeditions');
-  assert.equal(p.link('map').getAttribute('href'), '/#hidden-city');
-  assert.equal(p.link('story').getAttribute('href'), '/#needle-street');
+  assert.equal(p.link('map').getAttribute('href'), '/#atlas/places');
+  assert.equal(p.link('story').getAttribute('href'), '/#story/continue');
   assert.equal(p.link('writer').getAttribute('href'), '/expeditions/writer/');
   p.fire(p.window, 'caisik:scene', { detail: { action: 'writer' } });
   assert.equal(p.link('expeditions').getAttribute('aria-current'), 'location');
-  const shop = await page('/shop/');
-  assert.equal(shop.head.querySelector('.iris-tools [href="#shop-cart"]'), shop.original);
-  shop.language('fr');
-  assert.equal(shop.original.querySelector('[data-brand-cart]')?.textContent ?? shop.original.textContent, 'Panier');
+  const shop = parseHTML(readFileSync(new URL('shop/index.html', dist), 'utf8')).document;
+  assert.ok(shop.querySelector('a[href="/#story/continue"]'));
+  assert.ok(shop.querySelector('[data-shop-mode="lookbook"]'));
+  assert.equal(shop.querySelector('[data-shop-cart]'), null, 'the catalog is a lookbook until sales open');
   const art = await page('/art/');
   assert.equal(art.link('blackbook').getAttribute('aria-current'), 'location');
-  const lesson = await page('/q/mentalism/');
-  assert.equal(lesson.link('story').getAttribute('href'), '/#needle-street', 'legacy lesson reaches the current story on the homepage');
-  assert.equal(lesson.link('map').getAttribute('href'), '/#hidden-city');
+  const lesson = parseHTML(readFileSync(new URL('q/mentalism/index.html', dist), 'utf8')).document;
+  assert.ok(lesson.querySelector('a[href="/#atlas/principles/mentalism"]'), 'the physical sticker links straight to the lesson');
+
 });
 
 test('The golden machine in the gallery and menu has local bearings per mark', async () => {

@@ -11,7 +11,7 @@ function normalizeImprint(value) {
 
 export function readImprint(storage) {
   try {
-    return normalizeImprint(JSON.parse((storage ?? globalThis.localStorage).getItem(imprintKey)));
+    return normalizeImprint(JSON.parse((storage ?? globalThis.UAStoryState?.storage ?? globalThis.localStorage).getItem(imprintKey)));
   } catch {
     return null;
   }
@@ -21,7 +21,7 @@ export function writeImprint(imprint, storage) {
   const value = normalizeImprint(imprint);
   if (!value) return false;
   try {
-    (storage ?? globalThis.localStorage).setItem(imprintKey, JSON.stringify(value));
+    (storage ?? globalThis.UAStoryState?.storage ?? globalThis.localStorage).setItem(imprintKey, JSON.stringify(value));
     return true;
   } catch {
     return false;

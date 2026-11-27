@@ -28,7 +28,7 @@
     '#ffd600', entries[0][5],
   ]);
   entries.push([
-    'blackbook', '/art/', ['Blackbook', 'Blackbook', 'Blackbook'],
+    'blackbook', '/art/', ['Galerie CAISIK', 'CAISIK Gallery', 'Galerie CAISIK'],
     ['Prohlížej celou sbírku graffiti CAISIK.', 'Browse the CAISIK graffiti collection.', 'Feuillette la collection de graffiti CAISIK.'],
     '#ffd600', entries.find(entry => entry[0] === 'wall')[5],
   ]);
@@ -57,7 +57,7 @@
     shop: ['Prohlédni kolekce a motivy na oblečení.', 'Browse collections and printed designs.', 'Parcours les collections et les motifs sur vêtements.'],
   };
   const catalog = entries.map(entry => ({
-    id: entry[0], href: entry[1], title: entry[2],
+    id: entry[0], href: ({home:'/#film',story:'/#story/continue',map:'/#atlas/places',principles:'/#atlas/principles/mentalism',frequency:'/#workshop/frequency',wall:'/#atlas/gallery'}[entry[0]] || entry[1]), title: entry[2],
     description: descriptions[entry[0]] || entry[3],
     group: groupFor[entry[0]], parent: entry[0],
   }));
@@ -133,9 +133,12 @@
         <div><span class="iris-eyebrow">CAISIK / UNDERGROUND ALCHEMY</span><h2 data-index-title></h2></div>
         <button type="button" class="iris-close" data-index-close><span data-index-close-label></span> ×</button>
       </div>
+      <div class="iris-primary" data-edition-primary role="group" aria-label="Hlavní prostory">
+        <a href="/#story/continue" data-room-tab="story">Příběh</a><a href="/#atlas/zin/le-grand-jeu" data-room-tab="atlas">Atlas Paříže</a><a href="/#workshop" data-room-tab="workshop">Dílna</a><a href="/#blackbook" data-room-tab="blackbook">Můj Blackbook</a><a href="/shop/">Drop ↗</a>
+      </div>
       <div class="iris-resume">
         <div><small data-objective-label></small><p data-story-objective></p></div>
-        <a href="${rootLink}#needle-street" data-story-continue></a>
+        <a href="${rootLink}#story/continue" data-story-continue></a>
       </div>
       <form class="iris-search" role="search">
         <label for="iris-search" data-search-label></label>
@@ -153,13 +156,30 @@
           <div class="iris-empty" hidden><p></p><button type="button" data-search-reset></button></div>
         </div>
       </div>
-      <div class="iris-foot"><div class="iris-pages"><a data-iris-home href="${entries[0][1]}"></a><a href="/logo/">CAISIK 111 ↗</a></div><div data-brand-language></div></div>
+      <div class="iris-foot"><div class="iris-pages"><a data-iris-home href="${entries[0][1]}"></a><a href="/art/">Galerie CAISIK ↗</a><a href="/archive/">Původní vydání ↗</a><a href="/logo/">CAISIK 111 ↗</a></div><div data-brand-language></div></div>
     </nav>`;
   if (atlas || shop || (!archive && legacy)) legacy ? legacy.replaceWith(head) : document.body.prepend(head);
   else document.body.prepend(head);
   if (path.startsWith('/expeditions/')) head.classList.add('exp-header');
   const tools = one('.iris-tools',head);
   if (oldShort) tools.append(oldShort);
+  if (atlas) {
+    const resume = document.createElement('a');
+    resume.className = 'iris-immediate-resume';
+    resume.href = '/#story/continue';
+    resume.textContent = 'Pokračovat →';
+    resume.setAttribute('aria-label','Pokračovat přesně v rozehrané scéně');
+    const update = () => {
+      const read = key => {
+        try { return localStorage.getItem(key); } catch { return null; }
+      };
+      resume.hidden = !['caisik-needle-street-v1','caisik-needle-fork-v1','caisik-needle-imprint-v1','caisik-story-v1'].some(key=>Boolean(read(key)));
+    };
+    update();
+    window.addEventListener('ua:route',update);
+    window.addEventListener('storage',update);
+    tools.prepend(resume);
+  }
   if (cart) tools.append(cart);
   if (notebook) tools.append(notebook);
   if (local) tools.append(local);

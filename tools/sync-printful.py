@@ -283,6 +283,9 @@ def previous_catalogue(output):
         product_id = identifier(product.get("printfulSyncProductId"))
         if str(product.get("printfulStoreId")) != str(STORE_ID) or product_id in mapped:
             raise SyncError("The previous catalogue contains conflicting Printful identities.")
+        # Legacy exports included links to the retired storefront. A partial sync
+        # also republishes untouched products, so remove those links on intake.
+        product.pop("sourceUrl", None)
         mapped[product_id] = product
     return mapped
 
@@ -437,7 +440,7 @@ def public_product(product_id, detail, previous, checked_at=None):
     if not variants or not images:
         raise SyncError("A synced product has no exportable variants or safe preview image.")
     public_id = stable_id(previous.get("id") or previous.get("productId"), "pf-" + str(product_id))
-    result = {"id": public_id, "productId": stable_id(previous.get("productId"), public_id),
+    return {"id": public_id, "productId": stable_id(previous.get("productId"), public_id),
             "handle": stable_id(previous.get("handle"), "printful-" + str(STORE_ID) + "-" + str(product_id)),
             "name": name, "originalName": name,
             "displayName": text(previous.get("displayName") or name, 300, required=True),
@@ -447,12 +450,6 @@ def public_product(product_id, detail, previous, checked_at=None):
             "options": [{"title": key, "values": values} for key, values in options.items()],
             "variants": variants, "printfulSyncProductId": product_id, "printfulStoreId": str(STORE_ID),
             "printfulCheckedAt": checked_at, "unconfiguredVariantIds": unconfigured}
-    original_url = "https://hiphop.caisik.i234.me/dk/products/" + result["handle"]
-    if (re.fullmatch(r"prod_[A-Za-z0-9]+", result["productId"])
-            and re.fullmatch(r"printful-18912189-[0-9]+", result["handle"])
-            and previous.get("sourceUrl") == original_url):
-        result["sourceUrl"] = original_url
-    return result
 
 
 def sync_catalogue(output, client, product_ids=None):

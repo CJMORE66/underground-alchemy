@@ -1,0 +1,91 @@
+#edition-blackbook {
+  color: #f5f2e8;
+  background: #0b0b09;
+}
+[data-edition-journal] {
+  --book-paper: #f5f2e8;
+  --book-yellow: #ffd600;
+  width: min(100%, 74rem);
+  margin-inline: auto;
+  padding: clamp(1.2rem,5vw,5rem);
+  box-sizing: border-box;
+  color: var(--book-paper);
+  overflow-wrap: anywhere;
+}
+[data-edition-journal] h1,
+[data-edition-journal] h2,
+[data-edition-journal] h3 {
+  margin: 0;
+  color: inherit;
+  letter-spacing: -.025em;
+  font-family: "Barlow Condensed", "Arial Narrow", sans-serif;
+}
+.book-title {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+  justify-content: space-between;
+  gap: 1rem 2rem;
+  padding-block: .75rem 1.5rem;
+  border-bottom: 3px solid var(--book-yellow);
+}
+.book-title h1 { font-size: clamp(3rem,9vw,7.2rem); line-height: .94; }
+.book-title p { margin: 0; max-width: 19rem; font-size: 1rem; color: #e2d6a1; line-height: 1.45; }
+.book-tabs, .book-actions { display: flex; flex-wrap: wrap; align-items: center; gap: .55rem; }
+.book-tabs { margin: 1.5rem 0; }
+.book-tabs a, .book-actions a, .book-backup a,
+[data-edition-journal] button, .book-content > a {
+  box-sizing: border-box;
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  padding: .6rem .9rem;
+  color: var(--book-paper);
+  border: 1px solid #696550;
+  text-decoration: none;
+  background: #151511;
+  font: 650 .94rem/1.25 "DM Sans", sans-serif;
+  cursor: pointer;
+}
+.book-actions a:first-child, .book-tabs [aria-current="page"] {
+  color: #111;
+  border-color: var(--book-yellow);
+  background: var(--book-yellow);
+}
+[data-edition-journal] :is(a, button, input, summary):focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 3px;
+}
+[data-edition-journal] :is(a, button):hover { border-color: var(--book-yellow); }
+.book-search { display: grid; gap: .35rem; max-width: 28rem; margin: 1rem 0 1.5rem; font-size: .9rem; color: #e5deca; }
+.book-search input { padding: .8rem; width: 100%; box-sizing: border-box; border: 1px solid #797360; color: #fff; background: #191813; font: inherit; font-size: 1rem; }
+.book-pages { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(16rem,100%), 1fr)); gap: 1rem; margin-block: 1.2rem; }
+.book-card { display: flex; flex-direction: column; align-items: start; min-width: 0; gap: .7rem; border: 1px solid #55503c; border-inline-start: 4px solid var(--book-yellow); background: #161510; padding: 1.25rem; color: var(--book-paper); text-decoration: none; }
+.book-source { margin: 0; color: #d9c77c; font: 650 .77rem/1.35 "DM Sans", sans-serif; letter-spacing: .045em; }
+.book-card strong { font: 750 1.65rem/1.1 "Barlow Condensed", sans-serif; }
+.book-excerpt { color: #d5cfbd; font-size: .95rem; line-height: 1.55; white-space: pre-line; }
+.book-stamp { display: inline-block; width: fit-content; align-self: start; color: var(--book-yellow); border: 2px double currentColor; padding: .27rem .5rem; font: 700 .75rem/1.3 "Barlow Condensed", sans-serif; letter-spacing: .07em; text-transform: uppercase; }
+.book-card .book-stamp { margin-top: auto; }
+.book-sheet, .book-first { padding: clamp(1.1rem,4vw,3rem); background: #181711; border: 1px solid #5f5940; border-top: 4px solid var(--book-yellow); margin: 1.6rem 0; }
+.book-sheet-head { display: flex; align-items: start; flex-wrap: wrap; justify-content: space-between; gap: .6rem; }
+.book-sheet h2,.book-first h2 { margin-block: .8rem; font-size: clamp(2rem,5vw,3.8rem); line-height: 1.04; }
+.book-content h3 { margin: 1.3rem 0 .25rem; font-size: 1.3rem; }
+.book-content p, .book-first p, .book-empty,.book-backup p { color: #e1dccc; max-width: 68ch; line-height: 1.65; }
+.book-content .book-user { white-space: pre-wrap; margin: .2rem 0 1.2rem; }
+.book-content .journal-sketch { display: block; background: #080808; width: 100%; max-height: 25rem; margin: 1rem 0; border: 1px solid #5f5940; }
+.book-content .book-moves { padding-inline-start: 2rem; line-height: 1.8; }
+.book-grid-beat { display: grid; grid-template-columns: repeat(8,minmax(0,1fr)); max-width: 35rem; gap: clamp(2px,1vw,8px); margin: 1.4rem 0; }
+.book-grid-beat span { display: grid; place-items: center; aspect-ratio: 1; border: 1px solid #89816b; color: #c8c1ac; background: #252319; font: 700 clamp(.8rem,3vw,1.3rem)/1 monospace; }
+.book-grid-beat .hit { background: var(--book-yellow); color: #111; border-color: var(--book-yellow); }
+.book-actions { padding-top: 1rem; }
+.book-backup { margin-top: 2rem; padding-block: .5rem; border-block: 1px solid #625a40; color: #ece4cb; }
+.book-backup summary, .book-version summary { display: list-item; min-height: 44px; padding-block: .6rem; cursor: pointer; box-sizing: border-box; }
+.book-backup a,.book-backup button { margin: 0 .3rem .5rem 0; }
+.book-version { border-block-end: 1px solid #655e43; }
+.book-version[open] { margin-bottom: .8rem; }
+@media (max-width:560px) {
+  .book-title { display: block; }
+  .book-title p { margin-top: .85rem; }
+  .book-pages { grid-template-columns: 1fr; gap: .65rem; }
+  .book-card { padding: 1rem; }
+}

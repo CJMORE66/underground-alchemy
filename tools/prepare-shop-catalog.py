@@ -39,7 +39,7 @@ def prepare(source):
         } for item in product["variants"]]
         products.append({
             "id": product["productId"], "productId": product["productId"],
-            "handle": product["handle"], "sourceUrl": product["url"], "name": product["name"],
+            "handle": product["handle"], "name": product["name"],
             "originalName": product.get("originalName", product["name"]),
             "displayName": product.get("displayName", product["name"]),
             "category": product.get("category", "other"),

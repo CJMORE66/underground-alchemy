@@ -15,7 +15,7 @@ function normalizeRepair(value) {
 
 export function readWriterRepair(storage) {
   try {
-    return normalizeRepair(JSON.parse((storage ?? localStorage).getItem(writerRepairKey)));
+    return normalizeRepair(JSON.parse((storage ?? globalThis.UAStoryState?.storage ?? globalThis.localStorage).getItem(writerRepairKey)));
   } catch { return null; }
 }
 
@@ -23,7 +23,7 @@ export function writeWriterRepair(value, storage) {
   const repair = normalizeRepair(value);
   if (!repair) return false;
   try {
-    (storage ?? localStorage).setItem(writerRepairKey, JSON.stringify(repair));
+    (storage ?? globalThis.UAStoryState?.storage ?? globalThis.localStorage).setItem(writerRepairKey, JSON.stringify(repair));
     return true;
   } catch { return false; }
 }

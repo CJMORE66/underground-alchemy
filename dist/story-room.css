@@ -1,0 +1,36 @@
+/* A single playable panel starts at both original film exits. */
+#home.needle-landing { display:block; position:relative; padding:0; margin:0; border:0; height:0; min-height:0; scroll-margin-top:var(--caisik-dock-height,5rem); }
+[data-story-away] { display:none !important; }
+#needle-street { gap:0; isolation:isolate; border-block:1px solid #ffd600; background:#0b0b0b; scroll-margin-top:var(--caisik-dock-height,5rem); }
+#needle-street .needle-story { padding:clamp(1.3rem,4.5vw,5rem); }
+#needle-street .needle-story h2 { max-width:9ch; font:800 clamp(3.25rem,7.4vw,8rem)/.87 "Barlow Condensed",Impact,sans-serif; letter-spacing:-.035em; text-transform:uppercase; color:#ffda00; margin:.2em 0 .31em; }
+#needle-street .needle-story [data-line="setup"] { font:650 clamp(1.18rem,2vw,1.7rem)/1.27 "Barlow Condensed", sans-serif; color:#faf5dd; }
+#needle-street .needle-panel { min-height:clamp(22rem,39vw,40rem); background-size:cover; background-position:62% center; }
+#needle-street .needle-windows { bottom:9%; }
+.needle-story a.street-resume,.needle-story a.street-atlas-link,.story-detour-back,.story-stamp-link {
+  display:inline-flex; align-items:center; justify-content:center; min-height:44px; margin:.25rem .5rem .25rem 0; padding:.55rem .88rem; color:#ffdc32; background:#0c0c0c; border:1px solid #74631e; font:700 .94rem/1.25 "DM Sans",sans-serif; text-decoration:none;
+}
+.needle-story a.street-resume { color:#080808; background:#ffd600; border-color:#ffd600; }
+.needle-story a.street-atlas-link { border:0; text-decoration:underline; text-underline-offset:.25em; }
+#needle-street [data-play].is-secondary-play { color:#ffda29; background:transparent; }
+.needle-story button[data-needle-sound] { display:block; margin:.4rem 0; border:0; padding:.45rem 0; min-height:44px; color:#c7c3b4; font-size:.84rem; text-decoration:underline; text-underline-offset:.22em; }
+.story-world-card { display:flex; gap:.5rem 1.5rem; padding:.85rem 1.4rem; align-items:center; flex-wrap:wrap; border-bottom:1px solid #645520; }
+.story-world-card a { color:#ffda18; text-decoration:underline; text-underline-offset:.2em; }
+.story-world-card a + a { color:#eee7d1; }
+.story-detour-back { margin:0 0 1rem; }
+.story-stamp-link { border-inline-start:3px solid #ffd600; }
+.story-stamp-link[hidden],.story-world-card[hidden],.story-detour-back[hidden],.street-resume[hidden] { display:none!important; }
+#needle-street .story-temporary { font-size:.85rem; color:#ffdf75; }
+html[data-story-scene="mc"] [data-metro-quest] :is(.metro-entry,.metro-platform-heading,.metro-console) { display:none; }
+#needle-street :is(button,a,input),#writer-quest :is(button,a),#metro-quest :is(button,a),#corner-quest :is(button,a),#shadow-quest :is(button,a) { scroll-margin-block-start:calc(var(--caisik-dock-height,5rem) + 1rem); }
+@media(max-width:720px) {
+  #needle-street .needle-story { padding:1.1rem 1.1rem .7rem; }
+  #needle-street .needle-story h2 { max-width:100%; font-size:clamp(2.9rem,11vw,4.8rem); }
+  #needle-street .needle-panel { min-height:clamp(11rem,49vw,19rem); background-position:60% 52%; }
+  #needle-street .needle-windows button { min-height:3rem; }
+  #needle-street .needle-windows { bottom:7%; }
+  .needle-story a.street-resume,.needle-story a.street-atlas-link { padding-inline:.5rem; }
+}
+
+.story-studio-link { display:inline-flex; align-items:center; min-height:44px; color:#f2e7c4; text-decoration:underline; text-underline-offset:.2em; }
+.story-studio-link[hidden] { display:none!important; }

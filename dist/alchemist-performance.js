@@ -174,7 +174,7 @@ function start() {
 
   function localize() {
     copy = words[window.CaisikI18n?.getLanguage?.() || root.lang] || words.cs;
-    entry.firstChild.nodeValue = copy.entry + ' ';
+    if (entry?.firstChild) entry.firstChild.nodeValue = copy.entry + ' ';
     main.querySelector('[data-performance-kicker]').textContent = copy.kicker;
     main.querySelector('h2').textContent = copy.title;
     main.querySelector('[data-performance-lead]').textContent = copy.lead;

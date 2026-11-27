@@ -94,7 +94,7 @@ test('public export retains reviewed IDs, merchandising, local image, dated pric
   assert.equal(result.version, 1); assert.equal(result.catalogueVerifiedLive, true); assert.equal(result.checkedAt, CHECKED); assert.equal(result.checkout.enabled, false);
   assert.equal(product.id, 'prod_fixture'); assert.equal(product.productId, 'prod_fixture'); assert.equal(product.displayName, 'Reviewed fixture name');
   assert.equal(product.name, 'Provider fixture name'); assert.equal(product.category, 'tees'); assert.equal(product.localImage, LOCAL); assert.equal(product.image, LOCAL);
-  assert.equal(product.sourceUrl, merchandising().products[0].sourceUrl); assert.equal(product.description, 'Public fixture description');
+  assert(!Object.hasOwn(product,'sourceUrl'),'legacy merchandising cannot reintroduce a retired storefront link'); assert.equal(product.description, 'Public fixture description');
   assert.equal(variant.id, 'variant_fixture'); assert.equal(variant.sku, '6AD_FIXTURE_SKU'); assert.equal(variant.sourceSku, 'PF-18912189-1001'); assert.deepEqual(variant.sourcePrice, historical);
   assert.deepEqual(variant.printfulRetailPrice, { amount: '39.90', currency: 'EUR', checkedAt: CHECKED, source: 'printful-sync-variant', checkoutQuote: false });
   const serialized = JSON.stringify(result);

@@ -211,6 +211,10 @@
       const slot = sel==='.selfmade-entry'||sel==='.expeditions-entry' ? make(target,key,'entry','append') :
         sel==='#principles' || sel==='#frequency' ? make(target,key,'panel','before') :
         make(target,key,sel==='#methodology'?'inline':'panel','before');
+      if (target.dataset.editionRoom && slot?.el && slot.el.parentElement === main) {
+        slot.el.dataset.editionRoom = target.dataset.editionRoom;
+        slot.el.toggleAttribute('data-edition-closed',target.hasAttribute('data-edition-closed'));
+      }
       zone(target,key,slot);
       if(key==='principles')study=slot;
       if(key==='frequency')chamber=slot;
@@ -253,7 +257,7 @@
     if(!slot)return;
     if(e.target.open){active=slot;emit(slot.key);}else schedule();
   },true);
-  const foot=$('footer'); if(foot){const last=make(foot,'close','outro','before');zone(foot,'close',last);}
+  const foot=$('footer'); if(foot && !document.getElementById('edition-tabs')){const last=make(foot,'close','outro','before');zone(foot,'close',last);}
   // Use the current guide strip inside the active lesson, next to the action that changes it.
   function seatNear(slot,node,place='before'){if(slot&&node&&node!==slot.el&&node[place==='before'?'previousElementSibling':'nextElementSibling']!==slot.el)node[place](slot.el);}
   function placeLessons(){

@@ -97,7 +97,7 @@ function words() {
 }
 
 function read(key) {
-  try { return localStorage.getItem(key); } catch { return null; }
+  try { return (window.UAStoryState?.storage ?? localStorage).getItem(key); } catch { return null; }
 }
 
 function readReward() {
@@ -112,7 +112,7 @@ function readReward() {
 function saveReward(imprint) {
   const saved = { steps: imprint.steps.slice() };
   try {
-    localStorage.setItem(saveKey, JSON.stringify(saved));
+    (window.UAStoryState?.storage ?? localStorage).setItem(saveKey, JSON.stringify(saved));
     return saved;
   } catch { return null; }
 }
@@ -125,6 +125,24 @@ let heardCue = false;
 let answer = [];
 let feedback = '';
 let playing = null;
+const metroDraft = window.UAStoryState?.getDraft('dj');
+if (metroDraft?.heardCue && !saved) {
+  heardCue = true;
+  const partial = metroDraft.answer;
+  if (Array.isArray(partial) && partial.length < cueNotes.length && partial.every((v, i) => v === cueNotes[i])) answer = [...partial];
+}
+window.UAStoryState?.register('dj', {
+  step: () => saved ? (open ? 'platform' : 'mix') : heardCue ? 'pads' : 'platform',
+  open(step) {
+    if (!unlocked) return null;
+    open = !(step === 'mix' && saved);
+    paint();
+    return this.step();
+  },
+  saveDraft() { window.UAStoryState.saveDraft('dj', {heardCue, answer}); },
+  target(step) { return step === 'mix' ? mix : platform.querySelector('[data-metro-platform-title]'); },
+  suspend: stopPlayback,
+});
 
 const audio = createMetroAudio({
   soundEnabled: () => soundOn,
@@ -233,6 +251,10 @@ function leavePlatform() {
   answer = [];
   feedback = '';
   paint();
+  if (window.UAEdition) {
+    window.UAEdition.navigate(saved ? '#story/dj/mix' : '#story/trails');
+    return;
+  }
   focusInScene(saved ? mix : opener, saved ? reward : quest);
 }
 
@@ -295,7 +317,7 @@ window.addEventListener('caisik:revizor-close', () => {
 });
 function toggleSound() {
   soundOn = !soundOn;
-  try { localStorage.setItem(soundKey, soundOn ? 'on' : 'off'); } catch { /* This visit still has sound controls. */ }
+  try { (window.UAStoryState?.storage ?? localStorage).setItem(soundKey, soundOn ? 'on' : 'off'); } catch { /* This visit still has sound controls. */ }
   window.dispatchEvent(new window.CustomEvent(soundEvent, { detail: soundOn }));
 }
 for (const toggle of soundToggles) toggle.addEventListener('click', toggleSound);

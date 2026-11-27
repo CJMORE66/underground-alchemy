@@ -82,7 +82,7 @@ function language() {
 
 function readVisits() {
   try {
-    const data = JSON.parse(localStorage.getItem(visitsKey));
+    const data = JSON.parse((window.UAStoryState?.storage ?? localStorage).getItem(visitsKey));
     if (Array.isArray(data?.visited)) return [...new Set(data.visited.filter(id => destinations.has(id)))];
   } catch { /* The existing quest saves remain independent. */ }
   return [];
@@ -97,7 +97,7 @@ function remember(id) {
   const combined = [...visited.filter(visit => !latest.includes(visit)), ...latest];
   visited = [...combined.filter(visit => visit !== id), id];
   if (visited.length === latest.length && latest.every((visit, index) => visit === visited[index])) return;
-  try { localStorage.setItem(visitsKey, JSON.stringify({ visited })); } catch { /* Resume in this tab remains usable. */ }
+  try { (window.UAStoryState?.storage ?? localStorage).setItem(visitsKey, JSON.stringify({ visited })); } catch { /* Resume in this tab remains usable. */ }
 }
 
 function text(element, value) {
@@ -105,7 +105,8 @@ function text(element, value) {
 }
 
 function snapshot() {
-  const gate = destinations.get('dj').panel.hasAttribute('data-gate-open');
+  const edition = window.UAStoryState;
+  const gate = edition ? edition.hasDJMix() : destinations.get('dj').panel.hasAttribute('data-gate-open');
   const corner = readCornerProgress();
   const finished = {
     dj: gate,
@@ -114,7 +115,13 @@ function snapshot() {
     breaking: Boolean(readShadowRoutine()),
     knowledge: Boolean(corner?.reading),
   };
-  const partial = {
+  const partial = edition ? {
+    dj: Boolean(edition.getDraft('dj').heardCue),
+    mc: (Array.isArray(edition.getDraft('mc').endings) && edition.getDraft('mc').endings.some(s => typeof s === 'string' && s.trim())),
+    writer: ['crate','repair'].includes(edition.getDraft('writer').stage),
+    breaking: Boolean(edition.getDraft('breaking').moves?.length),
+    knowledge: Boolean(corner?.seen.length),
+  } : {
     dj: Boolean(document.querySelector('[data-metro-platform]:not([hidden]) [data-metro-model]:not([hidden])')),
     mc: [...document.querySelectorAll('[data-revizor-ending]')].some(input => input.value.trim()),
     writer: Boolean(document.querySelector('[data-writer-stage="1"]:not([hidden]), [data-writer-stage="2"]:not([hidden])')),
@@ -179,6 +186,14 @@ function setHash(id) {
 function enterTrail(id) {
   if (board.hidden) return;
   const entry = destinations.get(id);
+  if (window.UAStoryState?.enterTrail) {
+    if (!entry || id === 'mc' && !window.UAStoryState.hasDJMix()) return;
+    current = id;
+    remember(id);
+    window.UAStoryState.enterTrail(id);
+    paint();
+    return;
+  }
   const metro = destinations.get('dj');
   if (id === 'mc') {
     if (!metro.panel.hasAttribute('data-gate-open')) return;
@@ -200,6 +215,10 @@ continueButton.addEventListener('click', () => { if (resume) enterTrail(resume);
 function showBoard(returnTo = null) {
   paint();
   if (board.hidden) return;
+  if (window.UAStoryState?.showBoard) {
+    window.UAStoryState.showBoard();
+    return;
+  }
   setHash(board.id);
   const button = cards.get(returnTo)?.querySelector('[data-trail-open]');
   land(button && !button.disabled ? button : heading);

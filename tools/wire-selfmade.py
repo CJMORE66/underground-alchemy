@@ -4,7 +4,17 @@ ROOT=Path(__file__).resolve().parents[1]
 DIST=ROOT/'dist'
 HEAD='<link rel="stylesheet" href="/selfmade-motion.css?v=1"><script src="/selfmade-motion.js?v=1" defer></script>'
 BANNER='''<section class="selfmade-entry" aria-label="SELFMADE — tvoje vlastní cesta"><div><p>THE CITY IS YOUR PLAYGROUND / TY JSI HRDINA</p><h2>SELF<span>MADE.</span></h2><p>Vlastní questy. Pět dílen. Tvoje tvorba proměňuje tvůj svět.</p></div><a href="/play/">VSTOUPIT DO VLASTNÍHO SVĚTA ↗</a></section>'''
+def legacy_page(path):
+    relative = path.relative_to(DIST)
+    if relative.parts[0] in {'client', 'server', '.openai', 'shop'}:
+        return False
+    # These edition entry points own their navigation and script loading.
+    if relative.parts[0] == 'q' or relative.as_posix() in {'index.html', 'art/index.html'}:
+        return '/edition-shell.' not in path.read_text() and 'Galerie CAISIK' not in path.read_text()
+    return True
+
 pages=[DIST/'index.html',DIST/'art/index.html',DIST/'logo/index.html',*sorted((DIST/'q').glob('*/index.html')),*sorted((DIST/'expeditions').glob('**/index.html'))]
+pages = [path for path in pages if legacy_page(path)]
 for file in pages:
     data=file.read_text()
     if '/selfmade-motion.js' not in data: data=data.replace('</head>',HEAD+'</head>')
@@ -24,6 +34,7 @@ print(f'Selfmade linked to {len(pages)} existing pages; original routes retained
 # Interactive typography is optional enhancement, never required to read a page.
 TEXT_HEAD='<link rel="stylesheet" href="/text-motion.css?v=3"><script src="/text-motion.js?v=3" defer></script>'
 text_pages=[p for p in sorted(DIST.rglob('*.html')) if p.name not in ['implementation.html','launch-plan.html'] and p!=DIST/'play/roadmap/index.html']
+text_pages = [path for path in text_pages if legacy_page(path)]
 for file in text_pages:
     data=file.read_text()
     for version in (1,2):
@@ -35,6 +46,7 @@ print(f'Interactive type linked to {len(text_pages)} experience pages.')
 
 # Preserve the geographic atlas and add an optional 3D stage around its 2D map.
 atlas_pages=[DIST/'index.html',*sorted((DIST/'q').glob('*/index.html'))]
+atlas_pages = [path for path in atlas_pages if legacy_page(path)]
 for file in atlas_pages:
     data=file.read_text()
     data=data.replace('/atlas.js?v=3','/atlas.js?v=4')

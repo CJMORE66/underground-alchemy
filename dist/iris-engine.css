@@ -264,3 +264,10 @@ nav.iris-panel [hidden] { display: none !important; }
   .iris-entry-title { font-size: 21px; }
   .iris-dock .iris-foot { padding: 12px 16px; }
 }
+
+/* Shared section menu is also available in external workspaces and the lookbook. */
+.iris-dock .iris-primary { display:flex;flex-wrap:wrap;gap:2px;padding:8px 12px;background:#13120d;border-bottom:1px solid #655822; }
+.iris-dock .iris-primary a { display:inline-flex;align-items:center;min-height:44px;padding:0 10px;color:#ffd600;font:700 14px/1.15 "Barlow Condensed",sans-serif;text-decoration:none; }
+.iris-dock .iris-primary a:is(:hover,:focus-visible,[aria-current]) { background:#ffd600;color:#111; }
+.iris-dock .iris-immediate-resume[hidden],html[data-edition-section]:not([data-edition-section="entry"]) .iris-immediate-resume {display:none!important}
+@media(max-width:700px){.iris-dock .iris-tools .iris-immediate-resume {font-size:11px;min-height:36px;padding:0 5px}.iris-dock:has(.iris-immediate-resume:not([hidden])) .iris-tools #notebook-open {display:none}}

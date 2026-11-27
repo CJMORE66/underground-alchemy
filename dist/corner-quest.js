@@ -82,6 +82,21 @@ let open = false;
 let recalling = false;
 let message = '';
 
+const cornerDraft = window.UAStoryState?.getDraft('knowledge');
+if (cornerWitnesses.includes(cornerDraft?.witness)) witness = cornerDraft.witness;
+if (cornerChoices.includes(cornerDraft?.choice)) choice = cornerDraft.choice;
+window.UAStoryState?.register('knowledge', {
+  step: () => progress.seen.length === cornerWitnesses.length ? 'reading' : witness,
+  open(step) {
+    if (!readImprint()?.returned && !progress.reading) return null;
+    open = true;
+    if (cornerWitnesses.includes(step)) witness = step;
+    paint();
+    return this.step();
+  },
+  saveDraft() { window.UAStoryState.saveDraft('knowledge', {witness, choice}); },
+  target(step) { return step === 'reading' ? choices.find(b=>b.dataset.cornerChoice === choice) || choices[0] : title; },
+});
 function language() {
   const selected = (window.CaisikI18n?.getLanguage?.() || document.documentElement.lang || 'cs').split('-')[0];
   return Object.hasOwn(words, selected) ? selected : 'cs';
@@ -135,6 +150,7 @@ function land(element) {
 }
 
 function closeScene() {
+  if (window.UAStoryState?.closeTrail) { window.UAStoryState.closeTrail(); return; }
   open = false;
   message = '';
   paint();
@@ -232,7 +248,8 @@ mapLink.addEventListener('click', event => {
   const note = document.getElementById('corner-map-note');
   if (!note || note.hidden) return;
   event.preventDefault();
-  goTo(note);
+  if (window.UAEdition) window.UAEdition.navigate('#atlas/places?from=' + encodeURIComponent('#story/knowledge/reading'));
+  else goTo(note);
 });
 
 function returnToCorner() {

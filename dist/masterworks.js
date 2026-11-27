@@ -5,3 +5,15 @@ artRoot.addEventListener('click',e=>{const button=e.target.closest('[data-art]')
 document.getElementById('mw-modal-close').onclick=()=>dialog.close();dialog.addEventListener('close',()=>trigger?.focus());dialog.addEventListener('click',e=>{if(e.target===dialog){const rect=dialog.getBoundingClientRect();if(e.clientX<rect.left||e.clientX>rect.right||e.clientY<rect.top||e.clientY>rect.bottom)dialog.close();}});
 for(const button of document.querySelectorAll('[data-backdrop]'))button.onclick=()=>{const back=document.getElementById('mw-transparency');back.dataset.backdrop=button.dataset.backdrop;back.style.backgroundImage='';back.style.backgroundColor=button.dataset.backdrop==='dark'?'#101012':button.dataset.backdrop==='light'?'#eee':'';};render();})();
 (()=>{const link=document.getElementById('mw-png'),preview=document.getElementById('mw-preview');if(!link||!preview)return;let url;preview.addEventListener('load',async()=>{const requested=preview.src;try{const canvas=document.createElement('canvas');canvas.width=preview.naturalWidth;canvas.height=preview.naturalHeight;const context=canvas.getContext('2d');if(!context)throw new Error('Canvas unavailable');context.drawImage(preview,0,0);const blob=await new Promise(resolve=>canvas.toBlob(resolve,'image/png'));if(!blob)throw new Error('PNG unavailable');if(preview.src!==requested)return;if(url)URL.revokeObjectURL(url);url=URL.createObjectURL(blob);link.href=url;link.download='caisik-'+requested.split('/').pop().replace('.webp','.png');link.setAttribute('aria-disabled','false');link.textContent='DOWNLOAD PNG ↓';}catch(error){link.textContent='PNG UNAVAILABLE — USE WEBP';link.setAttribute('aria-disabled','true');}});})();
+
+(() => {
+  const showAddressedArt = () => {
+    if (!/^#work-\d{3}$/.test(location.hash)) return;
+    const card = document.getElementById(location.hash.slice(1));
+    const button = card?.querySelector('[data-art]');
+    if (!button || document.getElementById('mw-art-modal')?.open) return;
+    button.click();
+  };
+  window.addEventListener('hashchange',showAddressedArt);
+  showAddressedArt();
+})();

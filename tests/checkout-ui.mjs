@@ -4,7 +4,6 @@ import fs from 'node:fs';
 import {parseHTML} from 'linkedom';
 import {mountCheckout,safeCheckoutURL,normalizeShipping,normalizeQuote,commerceText} from '../dist/shop/checkout.js';
 import {mountShop,normalizeShopCatalog} from '../dist/shop/shop.js';
-import {originalVariantURL} from '../dist/shop/source-commerce.js';
 import {historicalShopFixture} from './shop-fixture.mjs';
 const CLOCK=Date.UTC(2026,10,1),tick=()=>new Promise(resolve=>setImmediate(resolve));
 const requested=[{variantId:'variant_fixture1',quantity:2}];
@@ -72,8 +71,18 @@ for(const value of [{...quote,totalMinor:1},{...quote,expiresAt:Math.floor(CLOCK
 }
 for(const language of ['cs','en','fr']){const h=fixture({language});await h.api.ready;assert.equal(h.document.querySelector('#commerce-title').textContent,commerceText('title',language));assert.equal(h.document.querySelector('.shop-checkout').lang,language);h.state.language=language==='fr'?'en':'fr';h.window.dispatchEvent(new h.window.Event('caisik:languagechange'));assert.equal(h.document.querySelector('#commerce-title').textContent,commerceText('title',h.state.language));h.api.destroy();}
 {
- const snapshot=historicalShopFixture();const original=structuredClone(snapshot);snapshot.products[0].variants[0].sourceSku=snapshot.products[0].variants[0].sku;snapshot.products[0].variants[0].sku='REALPRINTFULSKU';const migrated=normalizeShopCatalog(snapshot).products[0];assert.equal(originalVariantURL(migrated,migrated.variants[0]),originalVariantURL(normalizeShopCatalog(original).products[0],normalizeShopCatalog(original).products[0].variants[0]),'real SKU migration preserves exact historical external variant link');
- const html=fs.readFileSync(new URL('../dist/shop/index.html',import.meta.url),'utf8'),{document,window}=parseHTML(html);window.localStorage={getItem:()=>null,setItem:()=>{}};window.CaisikI18n={t:key=>key,getLanguage:()=> 'cs',rescan:()=>{}};const calls=[];const api=mountShop(document.querySelector('[data-shop]'),{document,fetch:async(path)=>{calls.push(path);if(path==='/api/commerce/status')return response(status);if(path==='/api/commerce/catalog')return response({error:'UPSTREAM_DOWN'},503);if(path.startsWith('/shop/catalog.json'))return response(original);return response({},404);}});await api.ready;await tick();assert(!api.getState().catalogueLive);assert(!api.getState().checkoutEnabled);assert.match(document.querySelector('[data-shop-catalog-notice]').textContent,/uložená kolekce/);assert(calls.includes('/api/commerce/catalog'));assert(calls.some(path=>path.startsWith('/shop/catalog.json')));api.destroy();
+ const snapshot = historicalShopFixture();
+ const historical = structuredClone(snapshot.products[0]);
+ const changed = snapshot.products[0].variants[0];
+ changed.sourceSku = changed.sku;
+ changed.sku = 'REALPRINTFULSKU';
+ const migrated = normalizeShopCatalog(snapshot).products[0];
+ assert.equal(migrated.productId, historical.productId);
+ assert.equal(migrated.variants[0].id, historical.variants[0].id);
+ assert.equal(migrated.variants[0].sourceSku, historical.variants[0].sku);
+ assert.equal(migrated.variants[0].sku, 'REALPRINTFULSKU');
+ assert.equal(Object.hasOwn(migrated, 'sourceUrl'), false, 'SKU migrations preserve exact identities without reviving retired ordering links');
+ const html=fs.readFileSync(new URL('../dist/shop/index.html',import.meta.url),'utf8'),{document,window}=parseHTML(html);window.localStorage={getItem:()=>null,setItem:()=>{}};window.CaisikI18n={t:key=>key,getLanguage:()=> 'cs',rescan:()=>{}};const calls=[];const api=mountShop(document.querySelector('[data-shop]'),{document,fetch:async(path)=>{calls.push(path);if(path==='/api/commerce/status')return response(status);if(path==='/api/commerce/catalog')return response({error:'UPSTREAM_DOWN'},503);if(path.startsWith('/shop/catalog.json'))return response(snapshot);return response({},404);}});await api.ready;await tick();assert.equal(api.getState().count, snapshot.products.length, 'every saved product is restored after the live catalogue fails');assert(!api.getState().catalogueLive);assert(!api.getState().checkoutEnabled);assert.match(document.querySelector('[data-shop-catalog-notice]').textContent,/uložená kolekce/);assert(calls.includes('/api/commerce/catalog'));assert(calls.some(path=>path.startsWith('/shop/catalog.json')));api.destroy();
 }
 {
  const live=historicalShopFixture();live.mode='printful-readonly';live.catalogueVerifiedLive=true;for(const product of live.products)for(const variant of product.variants){variant.configurationStatus='synced';variant.availability={status:'active'};}

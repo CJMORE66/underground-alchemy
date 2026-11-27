@@ -51,7 +51,15 @@ async function boot({data=research,dataFails=false,boardFails=false,storageFails
   tileLayer:()=>({on(){return this;},addTo(){return this;}})
  };
  class TestURL extends URL{static createObjectURL(blob){calls.download=blob;return 'blob:qa-export';}static revokeObjectURL(){}}
- window.L=L;window.matchMedia=query=>query.includes('max-width')?mobileMedia:({matches:false});window.location={pathname:'/',hash:''};
+ window.L=L;window.matchMedia=query=>query.includes('max-width')?mobileMedia:({matches:false});window.location={pathname:'/',hash:'#atlas/places'};
+ window.UAEdition = {
+  current() {
+   const [path, query = ''] = window.location.hash.slice(1).split('?');
+   const [section, ...parts] = path.split('/');
+   return {section, parts, params:new URLSearchParams(query)};
+  },
+  navigate(hash) { window.location.hash = hash; }
+ };
  const savedEntries = {getItem: key => storage.get(key) ?? null};
  const context=vm.createContext({window,document,imprintEvent,imprintKey,readImprint:()=>readImprint(savedEntries),
   revizorEvent,revizorKey,readRevizor:()=>readRevizor(savedEntries),

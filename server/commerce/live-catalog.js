@@ -236,14 +236,11 @@ export class LivePrintfulCatalog {
     if (options.size > 8 || [...options.values()].some(values => values.size > 100) || variants.some(variant => [...options.keys()].some(title => !variant.options.some(option => option.title === title)))) fail('PRINTFUL_INCONSISTENT_OPTIONS');
     if (!images.length) fail('PRINTFUL_PUBLIC_PREVIEW_REQUIRED');
     const handle = stableId(previous?.handle, `printful-${EXPECTED_STORE_ID}-${productId}`);
-    const result = { id: publicId, productId: stableId(previous?.productId, publicId), handle, name, originalName: name,
+    return { id: publicId, productId: stableId(previous?.productId, publicId), handle, name, originalName: name,
       displayName: text(previous?.displayName || name), category: previous?.category || 'other',
       description: description(raw.description || previous?.description), localImage: local, image: images[0], images,
       options: [...options].map(([title, values]) => ({ title, values: [...values] })), variants,
       printfulSyncProductId: productId, printfulStoreId: String(EXPECTED_STORE_ID), printfulCheckedAt: checkedAt, unconfiguredVariantIds: unconfigured };
-    const sourceUrl = 'https://hiphop.caisik.i234.me/dk/products/' + handle;
-    if (/^prod_[A-Za-z0-9]+$/.test(result.productId) && /^printful-18912189-[0-9]+$/.test(handle) && previous?.sourceUrl === sourceUrl) result.sourceUrl = sourceUrl;
-    return result;
   }
 
   async #loadCatalog() {

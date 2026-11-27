@@ -68,7 +68,7 @@ function normalizeProgress(value) {
 
 export function readCornerProgress(storage) {
   try {
-    return normalizeProgress(JSON.parse((storage ?? localStorage).getItem(cornerNoteKey)));
+    return normalizeProgress(JSON.parse((storage ?? globalThis.UAStoryState?.storage ?? globalThis.localStorage).getItem(cornerNoteKey)));
   } catch { return null; }
 }
 
@@ -81,7 +81,7 @@ export function writeCornerProgress(value, storage) {
   const progress = normalizeProgress(value);
   if (!progress) return false;
   try {
-    (storage ?? localStorage).setItem(cornerNoteKey, JSON.stringify(progress));
+    (storage ?? globalThis.UAStoryState?.storage ?? globalThis.localStorage).setItem(cornerNoteKey, JSON.stringify(progress));
     return true;
   } catch { return false; }
 }

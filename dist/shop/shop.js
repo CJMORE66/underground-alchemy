@@ -1,58 +1,32 @@
-/* Live Printful catalogue with a labelled saved fallback and server-verified checkout. */
-import {sourcePrice,sourceProductURL,originalVariantURL} from "./source-commerce.js";
-import {createCart,cartView} from "./cart.js";
-import {mountCheckout,commerceText} from "./checkout.js";
-const CATEGORY_LABELS={all:'Vše',tees:'Trička',hoodies:'Mikiny',accessories:'Doplňky',other:'Další návrhy'};
-const escape=value=>String(value??'').replace(/[&<>"']/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
-const text=value=>typeof value==='string'?value.trim():'';
-const plainDescription=value=>text(value).replace(/<[^>]*>/g,'').slice(0,6000);
-const countLabel=count=>count===1?'1 návrh':count>=2&&count<=4?`${count} návrhy`:`${count} návrhů`;
-export function safeShopImage(value){
- if(typeof value!=='string')return null;
- if(/^\/assets\/catalog\/[a-zA-Z0-9_.-]+\.(png|webp|jpe?g)$/i.test(value))return value;
- try{const url=new URL(value);if(url.protocol==='https:'&&url.hostname==='files.cdn.printful.com'&&!url.username&&!url.password&&!url.search&&!url.hash&&/^\/files\/[A-Za-z0-9/_-]+(?:_preview|_thumbnail)\.(?:png|jpe?g|webp)$/i.test(url.pathname))return url.href;}catch{}
- return null;
-}
-export function normalizePrintfulRetailPrice(value){
- if(!value||typeof value.amount!=='string'||!/^(?:0|[1-9][0-9]{0,8})(?:\.[0-9]{1,6})?$/.test(value.amount)||(value.currency!==null&&(typeof value.currency!=='string'||!/^[A-Z]{3}$/.test(value.currency)))||typeof value.checkedAt!=='string'||!/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d{1,6})?(?:Z|[+-]\d{2}:\d{2})$/.test(value.checkedAt)||!Number.isFinite(Date.parse(value.checkedAt))||value.checkoutQuote!==false||value.source!=='printful-sync-variant')return null;
- return {amount:value.amount,currency:value.currency,checkedAt:value.checkedAt,source:'printful-sync-variant',checkoutQuote:false};
-}
+/* Explicit commerce edition. The public lookbook does not load checkout or the cart. */
+import {createCart,cartView} from './cart.js';
+import {mountCheckout,commerceText} from './checkout.js';
+import {CATEGORY_LABELS,escapeHTML as escape,countLabel,normalizeShopCatalog,findShopVariant} from './catalog-model.js';
+export {normalizeShopCatalog,normalizePrintfulRetailPrice,safeShopImage,findShopVariant} from './catalog-model.js';
+
 const canSaveVariant=variant=>!!variant&&variant.configurationStatus!=='incomplete'&&!['discontinued','out_of_stock','temporary_out_of_stock'].includes(variant.availability);
-export function normalizeShopCatalog(raw){
- if(!raw||raw.version!==1||!Array.isArray(raw.products)||raw.products.length>500)throw new Error('Invalid shop catalogue');
- const seen=new Set(),products=[];
- for(const source of raw.products){
-  if(!source||typeof source!=='object')continue;
-  const id=text(source.id)||text(source.productId),name=text(source.displayName)||text(source.name),primary=safeShopImage(source.localImage)||safeShopImage(source.image);
-  if(!id||!name||seen.has(id)||!primary||!Object.hasOwn(CATEGORY_LABELS,source.category)||source.category==='all'||!Array.isArray(source.variants))continue;
-  const options=(Array.isArray(source.options)?source.options:[]).slice(0,8).filter(option=>option&&text(option.title)&&Array.isArray(option.values)).map(option=>({title:text(option.title),values:[...new Set(option.values.map(text).filter(Boolean))].slice(0,100)})).filter(option=>option.values.length);
-  const variants=[],variantIds=new Set();
-  for(const variant of source.variants.slice(0,500)){
-   if(!variant||!text(variant.id)||variantIds.has(variant.id)||!text(variant.sku)||!Array.isArray(variant.options))continue;
-   const values=variant.options.filter(option=>option&&text(option.title)&&text(option.value)).map(option=>({title:text(option.title),value:text(option.value)}));
-   if(options.some(option=>!values.some(value=>value.title===option.title&&option.values.includes(value.value))))continue;
-   const availability=['active','discontinued','out_of_stock','temporary_out_of_stock'].includes(variant.availability?.status)?variant.availability.status:'unknown';
-   variantIds.add(variant.id);variants.push({id:text(variant.id),sku:text(variant.sku),title:text(variant.title),options:values,sourceSku:/^PF-18912189-[1-9][0-9]{0,15}$/.test(variant.sourceSku||'')?variant.sourceSku:null,sourcePrice:sourcePrice(variant.sourcePrice),printfulRetailPrice:normalizePrintfulRetailPrice(variant.printfulRetailPrice),availability,configurationStatus:['synced','incomplete'].includes(variant.configurationStatus)?variant.configurationStatus:'unverified'});
-  }
-  if(!variants.length)continue;
-  seen.add(id);
-  const extra=(Array.isArray(source.images)?source.images:[]).map(safeShopImage).filter(Boolean).filter(url=>url!==source.image&&url!==primary);
-  const sourceIdentity={id,productId:text(source.productId)||id,handle:text(source.handle),sourceUrl:text(source.sourceUrl)};
-  products.push({...sourceIdentity,sourceUrl:sourceProductURL(sourceIdentity),name,originalName:text(source.name)||name,category:source.category,description:plainDescription(source.description),image:primary,images:[...new Set([primary,...extra])].slice(0,12),options,variants});
- }
- if(raw.products.length&&!products.length)throw new Error('No usable shop products');
- // Historical prices and bounded provider observations remain distinct; neither is a checkout quote.
- return {version:1,checkedAt:text(raw.checkedAt),mode:'preview',checkoutEnabled:false,products};
+
+function addCommerceControls(host){
+ if(host.querySelector('[data-shop-cart]'))return;
+ host.querySelector('.shop-hero-actions')?.insertAdjacentHTML('beforeend','<a class="shop-cart-link" href="#shop-cart">Košík <span data-shop-cart-count translate="no">0</span></a>');
+ host.insertAdjacentHTML('beforeend',`<section id="shop-cart" class="shop-cart" data-shop-cart aria-labelledby="shop-cart-title" tabindex="-1">
+      <p class="shop-eyebrow">CAISIK / SHOP</p><h2 id="shop-cart-title">Tvůj košík</h2>
+      <p>Ulož si vybrané varianty. Košík není objednávka.</p>
+      <p data-shop-cart-storage role="status" aria-live="polite"></p>
+      <div data-shop-cart-lines></div>
+      <div class="shop-cart-summary" data-shop-cart-summary></div>
+      <p class="shop-source-note">Ceny jsou historický odhad bez dopravy a konečných daní. Dostupnost i cenu musí ověřit server před platbou.</p>
+      <button class="shop-primary" type="button" disabled aria-describedby="shop-checkout-reason">POKLADNA NEDOSTUPNÁ</button>
+      <p id="shop-checkout-reason">Platba čeká na ověřené připojení obchodu, Printful a platební brány.</p>
+      <noscript><p>Pro práci s košíkem zapni JavaScript.</p></noscript>
+    </section>`);
 }
-export function findShopVariant(product,selection){
- if(!product||product.options.some(option=>!selection[option.title]))return null;
- const matches=product.variants.filter(variant=>product.options.every(option=>variant.options.some(value=>value.title===option.title&&value.value===selection[option.title])));
- return matches.length===1?matches[0]:null;
-}
+
 export function mountShop(host,{document:doc=host?.ownerDocument,fetch:request=globalThis.fetch,catalogUrl='/api/commerce/catalog',fallbackCatalogUrl='/shop/catalog.json?v=3'}={}){
  if(!host||!doc)return {destroy(){},getState:()=>({destroyed:true})};
  const view=doc.defaultView||globalThis,dialog=doc.querySelector('[data-shop-dialog]'),detail=dialog?.querySelector('[data-shop-detail]'),grid=host.querySelector('[data-shop-grid]'),filters=host.querySelector('[data-shop-filters]'),search=host.querySelector('[data-shop-search]'),count=host.querySelector('[data-shop-count]'),status=host.querySelector('[data-shop-status]');
  if(!dialog||!detail||!grid||!filters||!search||!count||!status)throw new Error('Shop page is incomplete');
+ addCommerceControls(host);
  const cartHost=host.querySelector('[data-shop-cart]'),cartLines=cartHost?.querySelector('[data-shop-cart-lines]'),cartSummary=cartHost?.querySelector('[data-shop-cart-summary]'),cartStorage=cartHost?.querySelector('[data-shop-cart-storage]');
  const cleanups=[],controller=typeof AbortController!=='undefined'?new AbortController():null;
  let catalogue=null,category='all',term='',selected=null,opener=null,closeTarget=null,disposed=false,loadEpoch=0,catalogueLive=false,checkout=null,activeLoadController=null;
@@ -109,8 +83,6 @@ export function mountShop(host,{document:doc=host?.ownerDocument,fetch:request=g
  function updateVariant(){
   if(!selected)return;
   const variant=findShopVariant(selected,selection()),node=detail.querySelector('[data-shop-variant-status]'),price=detail.querySelector('[data-shop-price]'),retail=detail.querySelector('[data-shop-retail-price]'),availability=detail.querySelector('[data-shop-availability]');
-  const destination=originalVariantURL(selected,variant);
-  if(destination)node.dataset.sourceVariantUrl=destination;else delete node.dataset.sourceVariantUrl;
   if(variant?.sourcePrice){const saved=variant.sourcePrice;let amount;try{amount=new Intl.NumberFormat('en-IE',{style:'currency',currency:saved.currency}).format(saved.amount);}catch{amount=saved.amount+' '+saved.currency;}
    price.innerHTML=`<span>Cena ve zdrojovém katalogu:</span> <strong translate="no">${escape(amount)}</strong><br><span>Cenový snapshot:</span> <time datetime="${escape(saved.checkedAt)}" translate="no">${escape(saved.checkedAt.slice(0,10))}</time>${saved.taxInclusive===false?'<br><span>Zdrojová cena bez daně.</span>':''}`;
   }else price.textContent=variant?t('Cena této varianty není doložená.') : '';
@@ -195,4 +167,3 @@ export function mountShop(host,{document:doc=host?.ownerDocument,fetch:request=g
  const ready=load();
  return {ready,destroy,getState:()=>({destroyed:disposed,category,search:term,count:visible().length,selected:selected?.id||null,checkoutEnabled:checkout?.getState().enabled===true,catalogueLive,cartCount:cartView(cart.getState().lines,catalogue).count}),open:id=>open(id,null)};
 }
-if(typeof document!=='undefined'&&document.querySelector('[data-shop]'))mountShop(document.querySelector('[data-shop]'));

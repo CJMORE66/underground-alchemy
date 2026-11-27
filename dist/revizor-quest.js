@@ -89,6 +89,20 @@ function loadFields() {
   draftLanguage = verse?.lang ?? language();
 }
 
+window.UAStoryState?.register('mc', {
+  step: () => hasCurrentVerse() ? 'verse' : 'write',
+  open() {
+    if (!platform.hasAttribute('data-gate-open')) return null;
+    window.UAStoryState.get('dj')?.open('platform');
+    opened = true;
+    paint();
+    return this.step();
+  },
+  saveDraft() {
+    window.UAStoryState.saveDraft('mc', {endings: fields.map(field => field.value.slice(0,72)), lang:draftLanguage});
+  },
+  target() { return title; },
+});
 function hasCurrentVerse() {
   return Boolean(verse && fields.every((field, index) => normalizeEnding(field.value) === verse.endings[index]));
 }
@@ -144,11 +158,12 @@ opener.addEventListener('click', () => {
   paint();
   land(title);
 });
-close.addEventListener('click', () => closeEditor(true));
+close.addEventListener('click', () => window.UAStoryState?.closeTrail ? window.UAStoryState.closeTrail() : closeEditor(true));
 panel.addEventListener('keydown', event => {
   if (event.key !== 'Escape' || event.isComposing || event.defaultPrevented || !opened) return;
   event.preventDefault();
-  closeEditor(true);
+  if (window.UAStoryState?.closeTrail) window.UAStoryState.closeTrail();
+  else closeEditor(true);
 });
 
 for (const field of fields) field.addEventListener('input', () => {
@@ -201,6 +216,7 @@ form.addEventListener('submit', event => {
 
 street.addEventListener('click', () => {
   if (panel.hidden || street.hidden) return;
+  if (window.UAEdition) { window.UAEdition.navigate('#story/dj/mix'); return; }
   returnToDJ.click();
   if (!echo.hidden) land(echo);
 });
@@ -221,4 +237,10 @@ stamp.addEventListener('animationend', () => scene.removeAttribute('data-stamp-m
 window.addEventListener('pagehide', () => scene.removeAttribute('data-stamp-motion'));
 
 loadFields();
+const pendingVerse = window.UAStoryState?.getDraft('mc');
+if (Array.isArray(pendingVerse?.endings) && pendingVerse.endings.length === 2 && pendingVerse.endings.every(v => typeof v === 'string' && v.length <= 72)) {
+  fields.forEach((field, i) => { field.value = pendingVerse.endings[i]; });
+  if (['cs','fr','en'].includes(pendingVerse.lang)) draftLanguage = pendingVerse.lang;
+  dirty = !hasCurrentVerse();
+}
 paint();

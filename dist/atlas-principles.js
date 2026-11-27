@@ -1,6 +1,15 @@
 import {artworkMarkup} from './artwork-markup.js';
 const escape = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const romans = ['I','II','III','IV','V','VI','VII'];
+const marginReadings = {
+  mentalism: 'Na stejné zdi si malíř všimne mezery a domovník oprýskané omítky. Oba se zastavili na stejném metru chodníku.',
+  correspondence: 'Dělí je šest pater, ale mezera mezi dvěma okny dýchá stejně jako mezera mezi tvými písmeny.',
+  vibration: 'Polož ruku na zábradlí, když pod tebou projíždí vlak. Všimni si okamžiku, kdy chvění přestaneš cítit a začneš si ho pamatovat.',
+  polarity: 'Tentýž roh jde přečíst jako úkryt i jako past. Stačí přijít z druhé strany.',
+  rhythm: 'Ticho před úderem má přesnou délku. Zkrať ho o chlup a dav udělá krok v jinou chvíli.',
+  'cause-effect': 'Přeskakující jehla zanechá mapu. Poslechni si, kam se vrací pokaždé, když čekáš další řádek.',
+  gender: 'Někdo přinese kus řeči z ulice. Druhý mu nechá prázdný takt. Až mezi nimi vznikne sloka, oba uslyší něco cizího.',
+};
 const geometry = [
   '<circle cx="50" cy="50" r="34"/><path d="M16 50 50 16 84 50 50 84Z M26 26H74V74H26Z M16 50H84 M50 16V84"/>',
   '<circle cx="37" cy="50" r="28"/><circle cx="63" cy="50" r="28"/>',
@@ -52,7 +61,7 @@ export function initPrinciples(container, {data, read = (_,fallback)=>fallback, 
     panel.setAttribute('aria-labelledby',`ap-tab-${current}`);
     container.querySelectorAll('.ap-tab').forEach((el,i)=>{el.setAttribute('aria-selected',String(i===current));el.tabIndex=i===current?0:-1;});
     panel.innerHTML = `<div class="ap-visual-column"><div class="ap-art art-motion-scope"><button class="ap-art-trigger" type="button" aria-label="Awaken ${escape(p.name)} artwork">${artworkMarkup({id:p.id,poster:`/assets/masterworks-v2/${String(current+21).padStart(3,'0')}.webp`})}</button><div class="ap-art-caption"><span class="ap-art-credit">${romans[current]} / ${escape(p.name)} · ORIGINAL CAISIK ART</span><div class="ap-story-buttons"><button type="button" class="ap-art-replay" data-art-story-pause aria-label="Pause ${escape(p.name)} animation" aria-pressed="false" disabled>PAUSE STORY</button><button type="button" class="ap-art-replay" data-art-replay aria-label="Replay ${escape(p.name)} artwork">REPLAY ↻</button></div><label class="ap-story-scrub"><span data-art-story-phase aria-live="off">WATCH THE IDEA TAKE SHAPE</span><input data-art-story-progress type="range" min="0" max="100" step="0.1" value="0" aria-label="Explore ${escape(p.name)} animation" disabled></label></div></div><div class="ap-experiment"><p class="ap-label">EXPERIMENT / ${current===2||current===4?'SOUND & COMPOSITION':'VISUAL ANALOGY'}</p><h4>${escape(p.subtitle)}</h4><div class="ap-demo" data-demo></div><p class="ap-demo-disclosure">Contemporary creative experiment. This does not demonstrate a metaphysical law.</p></div></div>
-      <div class="ap-copy"><p class="ap-label">${String(current+1).padStart(2,'0')} / 07 · PHILOSOPHY INTO PRACTICE</p><h3>${escape(p.name)}</h3><div class="ap-book"><span class="ap-label">THE KYBALION'S POSITION</span><p>${escape(p.doctrine)} ${escape(p.context)}</p></div><p class="ap-explanation">${escape(p.explanation)}</p><div class="ap-urban"><h4>Read the city</h4><p>${escape(p.urban)}</p><p class="ap-question">${escape(p.observe)}</p></div><div class="ap-practice"><h4>Try it in the street</h4><p>${escape(p.exercise)}</p><h4>Put it in a verse</h4><p>${escape(p.freestyle)}</p></div><p class="ap-related">CONNECTED IDEAS <span>${p.related.map(escape).join(' / ')}</span></p><form class="ap-observation"><label for="ap-note">Your observation</label><textarea id="ap-note" rows="3" maxlength="1600" placeholder="What did the city make you notice?">${escape(saved.text||'')}</textarea><label class="ap-tried"><input id="ap-tried" type="checkbox" ${saved.tried?'checked':''}> I tried the exercise</label><div class="ap-save-line"><button type="submit" class="ap-save">Save observation ↗</button><span class="ap-note-status" role="status">${saved.unlocked?'Deeper reflection unlocked.':'Save a note of at least 12 characters and try the exercise to reveal a deeper question.'}</span></div><div class="ap-deeper" ${saved.unlocked?'':'hidden'}><span class="ap-label">A DEEPER QUESTION</span><p>${escape(p.deeper)}</p></div><p class="ap-local">Notes stay in this browser. No account or upload.</p></form></div>`;
+      <div class="ap-copy"><p class="ap-label">${String(current+1).padStart(2,'0')} / 07 · PHILOSOPHY INTO PRACTICE</p><h3>${escape(p.name)}</h3><div class="ap-book"><span class="ap-label">THE KYBALION'S POSITION</span><p>${escape(p.doctrine)} ${escape(p.context)}</p></div><p class="ap-explanation">${escape(p.explanation)}</p><div class="ap-urban"><h4>Read the city</h4><p>${escape(p.urban)}</p><p class="ap-question">${escape(p.observe)}</p></div><div class="ap-practice"><h4>Try it in the street</h4><p>${escape(p.exercise)}</p><h4>Put it in a verse</h4><p>${escape(p.freestyle)}</p></div><aside class="ap-urban" lang="cs" data-i18n="off"><h4>CAISIK / autorské čtení</h4><p>${escape(marginReadings[p.id] || '')}</p></aside><p class="ap-related">CONNECTED IDEAS <span>${p.related.map(escape).join(' / ')}</span></p><form class="ap-observation"><label for="ap-note">Your observation</label><textarea id="ap-note" rows="3" maxlength="1600" placeholder="What did the city make you notice?">${escape(saved.text||'')}</textarea><label class="ap-tried"><input id="ap-tried" type="checkbox" ${saved.tried?'checked':''}> I tried the exercise</label><div class="ap-save-line"><button type="submit" class="ap-save">Save observation ↗</button><span class="ap-note-status" role="status">${saved.unlocked?'Deeper reflection unlocked.':'Save a note of at least 12 characters and try the exercise to reveal a deeper question.'}</span></div><div class="ap-deeper" ${saved.unlocked?'':'hidden'}><span class="ap-label">A DEEPER QUESTION</span><p>${escape(p.deeper)}</p></div><p class="ap-local">Notes stay in this browser. No account or upload.</p></form></div>`;
     wireDemo(p);
     panel.querySelector('form').addEventListener('submit',event=>{
       event.preventDefault();
@@ -111,9 +120,27 @@ export function initPrinciples(container, {data, read = (_,fallback)=>fallback, 
       const a=demo.querySelector('#ap-receive'),b=demo.querySelector('#ap-initiate');const update=()=>{demo.querySelector('[data-receive-value]').textContent=a.value;demo.querySelector('[data-initiate-value]').textContent=b.value;let one='',two='',combined='';for(let x=0;x<=400;x+=3){const y1=Math.sin(x/400*Math.PI*4)*(+a.value*.4),y2=Math.cos(x/400*Math.PI*6)*(+b.value*.4);const op=x?'L':'M';one+=op+x+','+(65+y1).toFixed(1);two+=op+x+','+(65+y2).toFixed(1);combined+=op+x+','+(65+(y1+y2)/2).toFixed(1);}demo.querySelector('[data-receive]').setAttribute('d',one);demo.querySelector('[data-initiate]').setAttribute('d',two);demo.querySelector('[data-combined]').setAttribute('d',combined);};a.addEventListener('input',update);b.addEventListener('input',update);update();
     }
   };
-  container.querySelectorAll('[data-principle]').forEach(button=>button.addEventListener('click',()=>{current=+button.dataset.principle;render();}));
-  container.querySelector('.ap-tabs').addEventListener('keydown',event=>{if(!['ArrowRight','ArrowLeft','Home','End'].includes(event.key))return;event.preventDefault();current=event.key==='Home'?0:event.key==='End'?6:(current+(event.key==='ArrowRight'?1:6))%7;render();container.querySelector(`[data-principle="${current}"]`).focus();});
-  const hide=()=>{if(document.hidden)stopSound();};document.addEventListener('visibilitychange',hide);window.addEventListener('pagehide',stopSound);stops.push(()=>document.removeEventListener('visibilitychange',hide),()=>window.removeEventListener('pagehide',stopSound));
+  function choose(index) {
+    if (index !== current) { current = index; render(); }
+    if (window.UAEdition?.navigate) window.UAEdition.navigate('#atlas/principles/' + items[index].id);
+  }
+  container.querySelectorAll('[data-principle]').forEach(button => button.addEventListener('click', () => choose(+button.dataset.principle)));
+  container.querySelector('.ap-tabs').addEventListener('keydown', event => {
+    if (!['ArrowRight','ArrowLeft','Home','End'].includes(event.key)) return;
+    event.preventDefault();
+    const last = items.length - 1;
+    const next = event.key === 'Home' ? 0 : event.key === 'End' ? last : (current + (event.key === 'ArrowRight' ? 1 : last)) % items.length;
+    choose(next);
+    container.querySelector('[data-principle="' + current + '"]').focus();
+  });
+  const hide = () => { if (document.hidden) stopSound(); };
+  const route = event => {
+    if (event.detail?.section !== 'atlas' || event.detail?.parts?.[0] !== 'principles') stopSound();
+  };
+  document.addEventListener('visibilitychange',hide);
+  window.addEventListener('pagehide',stopSound);
+  window.addEventListener('ua:route',route);
+  stops.push(() => document.removeEventListener('visibilitychange',hide), () => window.removeEventListener('pagehide',stopSound), () => window.removeEventListener('ua:route',route));
   render();
-  return {select(id){const i=items.findIndex(p=>p.id===id);if(i>=0){current=i;render();}},destroy(){stopSound();stops.forEach(fn=>fn());}};
+  return {select(id){const i=items.findIndex(p=>p.id===id);if(i>=0&&i!==current){current=i;render();}},destroy(){stopSound();stops.forEach(fn=>fn());}};
 }

@@ -117,7 +117,7 @@ def image_art(art):
 def header(current):
     return f'''<a class="exp-skip" href="#exp-main">Přejít na obsah</a>
 <header class="exp-header"><a class="exp-brand" href="/" aria-label="CAISIK Underground Alchemy — hlavní web"><img src="/assets/logo/caisik-signature.webp" width="1942" height="809" alt="CAISIK Underground Alchemy" decoding="async"></a>
-<nav class="exp-nav" aria-label="Hlavní navigace">{anchor('/expeditions/', 'EXPEDICE', extra=' aria-current="page"' if current == 'overview' else '')}{anchor('/#hidden-city', 'HIDDEN CITY')}{anchor('/#frequency', 'FREQUENCY')}{anchor('/art/', 'BLACKBOOK')}</nav>
+<nav class="exp-nav" aria-label="Hlavní navigace">{anchor('/expeditions/', 'EXPEDICE', extra=' aria-current="page"' if current == 'overview' else '')}{anchor('/#hidden-city', 'HIDDEN CITY')}{anchor('/#frequency', 'FREQUENCY')}{anchor('/art/', 'Galerie CAISIK')}</nav>
 <button id="exp-mode" class="exp-mode" type="button" aria-pressed="false">Terénní režim</button></header>'''
 
 
@@ -222,7 +222,7 @@ def blackbook(chapters,chapter=None):
 
 
 def links_section():
-    return '<section id="exp-links" class="exp-links"><h2>Pokračuj ve vlastním světě.</h2>'+''.join(anchor(url,label) for url,label in [('/#hidden-city','Hidden City ↗'),('/#principles','Seven Principles ↗'),('/#frequency','Frequency ↗'),('/#living-wall','Living Wall ↗'),('/art/','100-work Blackbook ↗')])+'</section>'
+    return '<section id="exp-links" class="exp-links"><h2>Pokračuj ve vlastním světě.</h2>'+''.join(anchor(url,label) for url,label in [('/#hidden-city','Hidden City ↗'),('/#principles','Seven Principles ↗'),('/#frequency','Frequency ↗'),('/#living-wall','Living Wall ↗'),('/art/','Galerie CAISIK · 100 děl ↗')])+'</section>'
 
 
 def sources_section(chapters,routes,places,sources):

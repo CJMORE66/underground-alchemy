@@ -15,7 +15,7 @@ function normalizeRoutine(value) {
 
 export function readShadowRoutine(storage) {
   try {
-    return normalizeRoutine(JSON.parse((storage ?? localStorage).getItem(shadowRoutineKey)));
+    return normalizeRoutine(JSON.parse((storage ?? globalThis.UAStoryState?.storage ?? globalThis.localStorage).getItem(shadowRoutineKey)));
   } catch { return null; }
 }
 
@@ -23,7 +23,7 @@ export function writeShadowRoutine(value, storage) {
   const routine = normalizeRoutine(value);
   if (!routine) return false;
   try {
-    (storage ?? localStorage).setItem(shadowRoutineKey, JSON.stringify(routine));
+    (storage ?? globalThis.UAStoryState?.storage ?? globalThis.localStorage).setItem(shadowRoutineKey, JSON.stringify(routine));
     return true;
   } catch { return false; }
 }

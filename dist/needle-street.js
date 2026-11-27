@@ -85,7 +85,7 @@ const lines = {
     imprintPreview: 'Zkusit rytmus', imprintSave: 'Uložit do Blackbooku', imprintReturn: 'Vrátit se k oknu II',
     imprintStep: 'Doba', imprintSaved: 'Rytmus je v Blackbooku.', imprintError: 'Rytmus se nepodařilo uložit. Zkus to znovu.',
     imprintPlaying: 'Přehrává se rytmus.', imprintWindow: 'Okno II, přehrát tvůj rytmus',
-    imprintEnding: 'Ve třetím patře se rozsvítí tvoje doby. Alchymista pokývne. „Tak už vím, kdo ruší noční klid.“',
+    imprintEnding: 'V okně II bliká tvoje fráze. „Slyšíš, co dělají ty mezery? Před chvílí šlo celý patro spát. Teď čeká na tvůj další úder.“',
     yardAgain: 'Vrátit se na dvůr',
   },
   en: {
@@ -165,10 +165,10 @@ const lines = {
 };
 
 function read(key) {
-  try { return localStorage.getItem(key); } catch { return null; }
+  try { return (window.UAStoryState?.storage ?? localStorage).getItem(key); } catch { return null; }
 }
 function save(key, value) {
-  try { localStorage.setItem(key, value); } catch { /* Keep the current run playable. */ }
+  try { (window.UAStoryState?.storage ?? localStorage).setItem(key, value); } catch { /* Keep the current run playable. */ }
 }
 
 function readProgress() {
@@ -208,6 +208,13 @@ let played = false;
 let timer;
 let barAttempt = 0;
 let position = steps;
+const streetDraft = window.UAStoryState?.getDraft('needle');
+if (streetDraft) {
+  if (Array.isArray(streetDraft.steps) && streetDraft.steps.length === imprintLength && streetDraft.steps.every(v => typeof v === 'boolean')) draft = streetDraft.steps.slice();
+  if (Number.isInteger(streetDraft.position)) position = Math.min(steps, Math.max(0, streetDraft.position));
+  if (progress.route === 'stairs' && Array.isArray(streetDraft.strikes) && streetDraft.strikes.length < rhythm.length && streetDraft.strikes.every(v => v === 'short' || v === 'long')) strikes = [...streetDraft.strikes];
+  if (streetDraft.heard) { played = true; observed = true; if (!solved) message = 'clue'; }
+}
 let context;
 let recording;
 const voices = new Set();
@@ -329,6 +336,47 @@ function persistProgress() {
   save(progressKey, JSON.stringify(progress));
 }
 
+function needleStep() {
+  if (progress.view === 'yard' && spotted) return sameSteps(draft, imprint?.steps) && !imprint.returned ? 'return' : 'rhythm';
+  if (progress.view === 'route' && spotted) return progress.route;
+  if (progress.view === 'fork' && spotted) return 'fork';
+  if (imprint?.returned) return 'window';
+  if (imprint) return 'return';
+  if (spotted) return completedRoute() ? 'rhythm' : 'courier';
+  if (solved) return 'rewind';
+  return observed || played ? 'listen' : 'start';
+}
+function openNeedle(requested) {
+  const earned = completedRoute();
+  if (['rhythm', 'return'].includes(requested) && earned && spotted) {
+    progress.route = earned;
+    progress.view = 'yard';
+  } else if (spotted && ['stairs','wall','fork'].includes(requested)) {
+    progress.view = requested === 'fork' ? 'fork' : 'route';
+    if (requested !== 'fork') progress.route = requested;
+  } else if (['start','listen','rewind','courier','window'].includes(requested)) {
+    progress.view = 'street';
+    if (requested === 'listen' && played && !observed) return 'listen';
+  }
+  paint();
+  return needleStep();
+}
+window.UAStoryState?.register('needle', {
+  step: needleStep, open: openNeedle,
+  saveDraft() {
+    window.UAStoryState.saveDraft('needle', {steps: draft, position, strikes, heard: played || observed});
+  },
+  target(step) {
+    if (step === 'window') return windows[1];
+    if (step === 'return') return returnImprint;
+    if (step === 'rhythm') return editor.querySelector('h4');
+    if (step === 'fork') return fork.querySelector('h3');
+    if (['stairs','wall'].includes(step)) return branches.find(b => b.dataset.branch === step)?.querySelector('h4');
+    if (step === 'courier') return follow;
+    if (step === 'rewind') return rewind;
+    return scene;
+  },
+});
 function canMove() {
   return !document.hidden && !reduced.matches && root.dataset.motion !== 'off' &&
     !['quiet', 'calm', 'off', 'reduced'].includes(root.dataset.selfmadeMotion) &&

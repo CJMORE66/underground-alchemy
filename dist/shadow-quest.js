@@ -92,6 +92,22 @@ let playback = null;
 let frame = null;
 let timer = null;
 
+const shadowDraft = window.UAStoryState?.getDraft('breaking');
+if (Array.isArray(shadowDraft?.moves) && shadowDraft.moves.length <= shadowMoves.length &&
+  new Set(shadowDraft.moves).size === shadowDraft.moves.length && shadowDraft.moves.every(m => shadowMoves.includes(m))) draft = [...shadowDraft.moves];
+window.UAStoryState?.register('breaking', {
+  step: () => saved && sameOrder(saved.moves, draft) ? 'routine' : 'compose',
+  open() {
+    if (!readImprint()?.returned && !saved) return null;
+    open = true;
+    sceneRig ??= createShadowQuestRig(stage);
+    paint();
+    return this.step();
+  },
+  saveDraft() { window.UAStoryState.saveDraft('breaking', {moves:draft}); },
+  target() { return title; },
+  suspend,
+});
 function language() {
   const value = (window.CaisikI18n?.getLanguage?.() || document.documentElement.lang || 'cs').split('-')[0];
   return Object.hasOwn(words, value) ? value : 'cs';
@@ -219,6 +235,7 @@ function enter(trigger) {
 }
 
 function close() {
+  if (window.UAStoryState?.closeTrail) { window.UAStoryState.closeTrail(); return; }
   open = false;
   stop();
   if (!quest.hidden) land(lastTrigger.hidden ? opener : lastTrigger);

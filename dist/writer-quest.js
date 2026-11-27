@@ -87,6 +87,32 @@ let drawing = false;
 let open = false;
 let stage = 0;
 let feedback = '';
+const stageIds = ['poster', 'crate', 'repair'];
+let detour = false;
+const writerDraft = window.UAStoryState?.getDraft('writer');
+if (writerDraft) {
+  if (stageIds.includes(writerDraft.stage)) stage = stageIds.indexOf(writerDraft.stage);
+  if (Object.hasOwn(writerDraft, 'stroke')) {
+    const pending = writerDraft.stroke;
+    if (pending === null) draft = null;
+    else if (['drawn','preset'].includes(pending?.kind) && Array.isArray(pending.points) && pending.points.length >= 2 && pending.points.length <= repairPointLimit &&
+      pending.points.every(p => Array.isArray(p) && p.length === 2 && p.every(v => Number.isInteger(v) && v >= 0 && v <= 100))) draft = pending;
+  }
+}
+window.UAStoryState?.register('writer', {
+  step: () => stageIds[stage],
+  open(request, from) {
+    detour = Boolean(from);
+    if (!detour && !readImprint()?.returned && !saved) return null;
+    open = true;
+    if (stageIds.includes(request)) stage = stageIds.indexOf(request);
+    paint();
+    return this.step();
+  },
+  saveDraft() { window.UAStoryState.saveDraft('writer', {stage:stageIds[stage], stroke:draft}); },
+  target() { return stages[stage].querySelector('[data-writer-step-title]'); },
+  suspend() { stopDrawing(); detour = false; },
+});
 
 function copy() {
   const language = (window.CaisikI18n?.getLanguage?.() || document.documentElement.lang || 'cs').split('-')[0];
@@ -107,7 +133,7 @@ function paint() {
     const key = label.dataset.writerLine;
     if (Object.hasOwn(text, key)) label.textContent = text[key];
   }
-  const unlocked = Boolean(readImprint()?.returned || saved);
+  const unlocked = Boolean(detour || readImprint()?.returned || saved);
   root.hidden = !unlocked;
   panel.hidden = !open || !unlocked;
   opener.hidden = !panel.hidden;
@@ -151,6 +177,7 @@ function changeStage(next) {
 }
 
 function closeScene() {
+  if (window.UAStoryState?.closeTrail) { window.UAStoryState.closeTrail(); return; }
   stopDrawing();
   open = false;
   feedback = '';
@@ -161,7 +188,7 @@ function closeScene() {
 opener.addEventListener('click', () => {
   if (root.hidden) return;
   open = true;
-  changeStage(saved ? stages.length - 1 : 0);
+  changeStage(window.UAStoryState ? stage : saved ? stages.length - 1 : 0);
 });
 for (const next of root.querySelectorAll('[data-writer-next]')) {
   next.addEventListener('click', () => { if (open && stage < stages.length - 1) changeStage(stage + 1); });
@@ -282,9 +309,17 @@ function moveTo(target, focusTarget) {
 wallLink.addEventListener('click', event => {
   if (!saved || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
   event.preventDefault();
-  moveTo(wall, wall);
+  if (window.UAEdition) {
+    const from = location.hash.startsWith('#story/') ? location.hash : '#story/writer/repair';
+    window.UAEdition.navigate('#atlas/gallery?from=' + encodeURIComponent(from));
+  } else moveTo(wall, wall);
 });
 function returnFromWall() {
+  if (window.UAEdition) {
+    const from = window.UAEdition.current()?.params.get('from');
+    window.UAEdition.navigate(from?.startsWith('#story/writer/') ? from : '#story/writer/repair');
+    return;
+  }
   moveTo(root, panel.hidden ? opener : stages[stage].querySelector('[data-writer-step-title]'));
 }
 wallReturn.addEventListener('click', event => {

@@ -285,7 +285,7 @@ class SyncTests(unittest.TestCase):
         sync.sync_catalogue(self.output, client)
         result = json.loads(self.output.read_text())["products"][0]
         self.assertEqual(result["variants"][0]["sourcePrice"], price)
-        self.assertEqual(result["sourceUrl"], product["sourceUrl"])
+        self.assertNotIn("sourceUrl", result, "the retired order URL must not be reintroduced")
         self.assertNotEqual(result["variants"][0]["sourcePrice"]["amount"], 99.00,
                             "Printful retail_price is not the original store's quote")
 
@@ -409,7 +409,8 @@ class SyncTests(unittest.TestCase):
     def test_incremental_preserves_other_products_and_their_observation_dates(self):
         untouched = dict(self.baseline["products"][0])
         untouched.update(id="other-product", productId="other-product", handle="other-product",
-                         printfulSyncProductId=102, printfulCheckedAt="2020-01-01T00:00:00Z")
+                         printfulSyncProductId=102, printfulCheckedAt="2020-01-01T00:00:00Z",
+                         sourceUrl="https://hiphop.caisik.i234.me/dk/products/other-product")
         untouched["variants"] = [dict(untouched["variants"][0], id="other-variant", printfulSyncVariantId=1002)]
         self.baseline["products"].append(untouched)
         self.output.write_text(json.dumps(self.baseline))
@@ -420,7 +421,8 @@ class SyncTests(unittest.TestCase):
         self.assertEqual(result["sync"]["mode"], "incremental")
         self.assertFalse(result["sync"]["completeStoreScan"])
         self.assertEqual(result["sync"]["removedProductIds"], [])
-        self.assertEqual(result["products"][0], untouched)
+        self.assertNotIn("sourceUrl", result["products"][0])
+        self.assertEqual(result["products"][0], {key: value for key, value in untouched.items() if key != "sourceUrl"})
         self.assertEqual([p for p, _ in handler.calls], ["/stores", "/store/products/101"])
 
     def test_incremental_missing_product_never_infers_deletion(self):

@@ -14,6 +14,9 @@ export function initFrequency(container, {data, read, write, notify = () => {}, 
   const restored = read('atlas-frequency-draft', {});
   const stored = restored && typeof restored === 'object' ? restored : {};
   let inspiration = getLocation();
+  let source = {context:'',from:'',place:'',prompt:'',subject:''};
+  let draftKey = 'atlas-frequency-draft';
+  let writing = false;
   let mode = modes.some(m => m[0] === stored.mode) ? stored.mode : 'four';
   let exerciseIndex = Math.max(0, Math.min(exercises.length - 1, Number(stored.exercise) || 0));
   let variant = 0;
@@ -22,7 +25,7 @@ export function initFrequency(container, {data, read, write, notify = () => {}, 
     return `<path d="M${i*5+3} ${52-height/2}v${height.toFixed(2)}"/>`;
   }).join('');
   container.innerHTML = `
-    <div class="fl-heading"><div><span class="fl-label">HIP-HOP AS INNER ALCHEMY</span><h2>THE FREQUENCY<span>.</span></h2></div><p>The street becomes a verse.<br>Give your inner dialogue a little room.</p></div>
+    <div class="fl-local-notice" data-i18n="off"><strong>100 % lokální Frequency</strong><span>Text a zvuk zůstávají v tomto prohlížeči. Nahrávku si před odchodem stáhni.</span></div><div class="fl-heading"><div><span class="fl-label">HIP-HOP AS INNER ALCHEMY</span><h2>THE FREQUENCY<span>.</span></h2></div><p>The street becomes a verse.<br>Give your inner dialogue a little room.</p></div>
     <div class="fl-signal" aria-hidden="true"><span>CAISIK / LOCAL SESSION</span><svg viewBox="0 0 530 104" preserveAspectRatio="none">${waves}</svg><span>LISTEN → MAKE → REFLECT</span></div>
     <div class="fl-layout">
       <div class="fl-workshop">
@@ -33,7 +36,7 @@ export function initFrequency(container, {data, read, write, notify = () => {}, 
         <label for="fl-exercise">Practice focus</label><select id="fl-exercise">${exercises.map((e,i) => `<option value="${i}">${String(i+1).padStart(2,'0')} / ${escapeHTML(e.title)} · ${escapeHTML(e.duration)}</option>`).join('')}</select>
         <p id="fl-exercise-copy" class="fl-exercise-copy"></p>
         <label for="fl-words">Word chain <span>Three details, one unexpected connection</span></label><input id="fl-words" type="text" maxlength="300" placeholder="concrete → memory → dawn" autocomplete="off"><p class="fl-microcopy">Start with an object you can see. Follow an association. Turn the third word into a metaphor.</p>
-        <label for="fl-draft">Your blackbook <span id="fl-count">0 / 8000</span></label><textarea id="fl-draft" rows="7" maxlength="8000" placeholder="First thought. First line. Keep going."></textarea>
+        <label for="fl-draft">Moje čtyři bary <span id="fl-count">0 / 8000</span></label><textarea id="fl-draft" rows="7" maxlength="8000" placeholder="First thought. First line. Keep going."></textarea>
         <div class="fl-draft-actions"><button type="button" id="fl-download-draft" class="fl-outline">Download the draft ↓</button><button type="button" id="fl-clear-draft" class="fl-text-button">Clear writing</button></div><p id="fl-save-status" class="fl-microcopy" role="status">Writing is saved in this browser. No account or upload.</p>
       </div>
       <div class="fl-booth">
@@ -55,7 +58,13 @@ export function initFrequency(container, {data, read, write, notify = () => {}, 
   exercise.value = String(exerciseIndex);
   const persist = () => {
     $('fl-count').textContent = `${draft.value.length} / 8000`;
-    const ok = write('atlas-frequency-draft', {draft:draft.value, words:words.value, mode, exercise:exerciseIndex});
+    const ok = write(draftKey, {...source,draft:draft.value, words:words.value, mode, exercise:exerciseIndex});
+    if (source.context) {
+      const saved = read('caisik-frequency-contexts-v1',[]);
+      const contexts = Array.isArray(saved) ? saved.filter(id => typeof id==='string') : [];
+      if (!contexts.includes(source.context)) write('caisik-frequency-contexts-v1',[...contexts,source.context]);
+    }
+    window.dispatchEvent(new Event('ua:frequency-change'));
     $('fl-save-status').textContent = ok === false ? 'Browser storage is unavailable. Download your draft before leaving.' : 'Writing saved in this browser. No account or upload.';
   };
   const angles = [
@@ -204,5 +213,33 @@ export function initFrequency(container, {data, read, write, notify = () => {}, 
   $('fl-silent').addEventListener('change',()=>{if(pulseInterval){stopPulse();$('fl-pulse-status').textContent='Pulse mode changed. Press Start to use the new setting.';}});
   document.addEventListener('visibilitychange',()=>{if(document.hidden){stopRecording('Recording stopped because this tab is hidden.');stopPulse();}});
   window.addEventListener('pagehide',()=>{stopRecording();stopPulse();removeAudio();});
-  return {setInspiration};
+  function openContext(route,place) {
+    const from = window.UAEdition.sourceHash(route.params.get('from'));
+    const prompt = (route.params.get('prompt') || '').slice(0,600);
+    const subject = (route.params.get('subject') || '').slice(0,120);
+    const context = place?.id || (from.split('?')[0] + (subject ? ':'+subject : ''));
+    const nextKey = context ? 'caisik-frequency-v1:'+context : 'atlas-frequency-draft';
+    if (writing && nextKey === draftKey && from === source.from) return;
+    writing=true;draftKey=nextKey;
+    source={context,from,place:place?.id || '',prompt,subject};
+    const saved=read(draftKey,{}) || {};
+    draft.value=typeof saved.draft === 'string' ? saved.draft.slice(0,8000) : '';
+    words.value=typeof saved.words === 'string' ? saved.words.slice(0,300) : '';
+    mode=modes.some(row=>row[0]===saved.mode) ? saved.mode : 'four';
+    exerciseIndex=Number.isInteger(saved.exercise) && exercises[saved.exercise] ? saved.exercise : 0;
+    exercise.value=String(exerciseIndex);
+    const label=subject || (from.startsWith('#story/') ? 'Stopa z příběhu' : 'Město kolem tebe');
+    setInspiration(place ? {...place,challenge:prompt || place.challenge} : {name:label,challenge:prompt});
+    updateExercise();
+    $('fl-count').textContent=draft.value.length+' / 8000';
+    $('fl-save-status').textContent='Text se ukládá v tomto prohlížeči.';
+  }
+  function leave() {
+    if (!writing) return;
+    writing=false;
+    if (recorder?.state==='recording' || pending) stopRecording('Záznam zastaven při odchodu z Dílny.');
+    if (pulseInterval || pulsePending) stopPulse();
+    $('fl-audio').pause();
+  }
+  return {setInspiration,openContext,leave};
 }

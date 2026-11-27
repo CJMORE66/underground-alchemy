@@ -21,7 +21,7 @@ function normalizeVerse(value) {
 
 export function readRevizor(storage) {
   try {
-    return normalizeVerse(JSON.parse((storage ?? globalThis.localStorage).getItem(revizorKey)));
+    return normalizeVerse(JSON.parse((storage ?? globalThis.UAStoryState?.storage ?? globalThis.localStorage).getItem(revizorKey)));
   } catch {
     return null;
   }
@@ -31,7 +31,7 @@ export function writeRevizor(verse, storage) {
   const value = normalizeVerse(verse);
   if (!value) return false;
   try {
-    (storage ?? globalThis.localStorage).setItem(revizorKey, JSON.stringify(value));
+    (storage ?? globalThis.UAStoryState?.storage ?? globalThis.localStorage).setItem(revizorKey, JSON.stringify(value));
     return true;
   } catch {
     return false;

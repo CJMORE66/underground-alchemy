@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import {parseHTML} from 'linkedom';
-import {sourcePrice,sourceProductURL,originalVariantURL} from '../dist/shop/source-commerce.js';
+import {sourcePrice} from '../dist/shop/source-commerce.js';
 import {normalizeShopCatalog,safeShopImage,findShopVariant,mountShop} from '../dist/shop/shop.js';
 import {historicalShopFixture} from './shop-fixture.mjs';
 
@@ -16,7 +16,7 @@ assert.equal(normalized.products.flatMap(product=>product.variants).length,86);
 assert.equal(normalized.checkoutEnabled,false);
 assert(!JSON.stringify(normalized).includes('calculatedAmount'));
 assert(!JSON.stringify(normalized).includes('printfulAvailableAtSync'));
-assert(normalized.products.every(product=>sourceProductURL(product)?.startsWith('https://hiphop.caisik.i234.me/dk/products/')));
+assert(normalized.products.every(product=>!Object.hasOwn(product,'sourceUrl')),'cached historical product addresses are excluded from normalized catalogue data');
 assert(!JSON.stringify(normalized).includes('priceLabel'));
 assert.equal(normalizeShopCatalog({...input,checkout:{enabled:true,url:'https://attacker.example/checkout'},token:'private'}).checkoutEnabled,false,'the preview never enables orders from unverified config');
 assert.equal(safeShopImage('javascript:alert(1)'),null);
@@ -71,7 +71,7 @@ function fixture(responses=[input],{liveResponses=[],liveHandler=null,language='
  assert.match(h.document.querySelector('[data-shop-variant-status]').textContent,new RegExp(variant.sku));
  assert.match(h.document.querySelector('[data-shop-price]').textContent,/€56.50/);
  assert.match(h.document.querySelector('[data-shop-price]').textContent,/2026-10-16/);
- assert.equal(h.document.querySelector('[data-shop-variant-status]').dataset.sourceVariantUrl,originalVariantURL(omerta,variant));
+ assert.equal(h.document.querySelector('[data-shop-variant-status]').dataset.sourceVariantUrl,undefined,'selecting a known legacy SKU never produces a retired order destination');
  assert(h.document.querySelector('.shop-detail-availability button').disabled,'unavailable checkout remains blocked even after a valid selection');
  assert(!h.document.querySelector('[data-shop-add]').disabled,'an exact variant can be saved in the local cart');
  h.click('[data-shop-add]');assert.equal(h.api.getState().cartCount,1);assert.match(h.document.querySelector('[data-shop-cart-lines]').textContent,/OMERTA/);
@@ -132,19 +132,19 @@ for(const source of raw.products){
  for(const original of source.variants){
   const variant=product.variants.find(variant=>variant.id===original.id);assert(variant);assert.equal(variant.sku,original.sku);
   assert.deepEqual(variant.sourcePrice,{amount:original.calculatedAmount,currency:original.currency.toUpperCase(),taxInclusive:original.priceTaxInclusive,checkedAt:source.checkedAt});
-  const url=new URL(originalVariantURL(product,variant));assert.equal(url.origin,'https://hiphop.caisik.i234.me');assert.equal(url.pathname,'/dk/products/'+source.handle);assert.equal(url.searchParams.get('v_id'),original.id);
  }
 }
 assert.equal(sourcePrice({amount:NaN,currency:'EUR',checkedAt:input.checkedAt}),null);
 assert.equal(sourcePrice({amount:-1,currency:'EUR',checkedAt:input.checkedAt}),null);
 assert.equal(sourcePrice({amount:1,currency:'BAD!',checkedAt:input.checkedAt}),null);
 assert.equal(sourcePrice({amount:1,currency:'EUR',checkedAt:'not a date'}),null);
-assert.equal(sourceProductURL({...normalized.products[0],sourceUrl:'https://attacker.example/'}),null);
-assert.equal(originalVariantURL(normalized.products[0],{id:'variant_fake',sku:'fake'}),null);
-assert.equal(originalVariantURL({...product,sourceUrl:'javascript:bad()'},product.variants[0]),null);
+for(const sourceUrl of ['https://attacker.example/', 'javascript:bad()', 'https://hiphop.caisik.i234.me/dk/products/retired']){
+ const mixed=structuredClone(input);mixed.products[0].sourceUrl=sourceUrl;
+ assert(!Object.hasOwn(normalizeShopCatalog(mixed).products[0],'sourceUrl'),'legacy or unexpected destinations never reach the UI');
+}
 const home=fs.readFileSync(new URL('../dist/index.html',import.meta.url),'utf8'),{document:homeDoc}=parseHTML(home);
 assert.equal(homeDoc.querySelectorAll('#main-nav a[href="/shop/"]').length,1);
 const shortcut=homeDoc.querySelector('header a[data-shop-shortcut][href="/shop/"]');
 assert(shortcut&&!shortcut.closest('#main-nav'),'mobile shortcut is outside the collapsed navigation');
 for(const lang of ['cs','en','fr']){const messages=JSON.parse(fs.readFileSync(new URL(`../dist/i18n/${lang}.json`,import.meta.url),'utf8'));for(const key of ['Cena ve zdrojovém katalogu:','Cenový snapshot:','NÁKUP DOČASNĚ NEDOSTUPNÝ','Objednávání je dočasně nedostupné. Původní obchod se musí obnovit.'])assert(messages[key],lang+': '+key);}
-console.log('PASS shop: 20 designs/86 exact IDs, SKUs and dated source prices; exact original-store variant URL construction; invalid/ambiguous/reset/reopen; local cart selections with blocked checkout; visible mobile entry; CS/EN/FR; image safety, search/category/detail, escaping, bounded confirmed-pending retries, labelled fallback/manual live refresh, abort/focus and lifecycle.');
+console.log('PASS shop: 20 designs/86 exact IDs, SKUs and dated source prices; no retired order URLs; invalid/ambiguous/reset/reopen; local cart selections with blocked checkout; visible mobile entry; CS/EN/FR; image safety, search/category/detail, escaping, bounded confirmed-pending retries, labelled fallback/manual live refresh, abort/focus and lifecycle.');

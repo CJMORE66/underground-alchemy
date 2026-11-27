@@ -1,6 +1,6 @@
 import {artworkMarkup} from './artwork-markup.js';
 import {initPrinciples} from './atlas-principles.js?v=2';
-import {initFrequency} from './atlas-frequency.js?v=2';
+import {initFrequency} from './atlas-frequency.js?v=edition1';
 import {createCityExperience,validCityPoint} from './city-map.js?v=5';
 import {parseCultureData,culturePlace,cultureRoutes} from './culture-data.js?v=1';
 import {imprintEvent,imprintKey,readImprint} from './needle-imprint-store.js?v=1';
@@ -13,6 +13,11 @@ const escape=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>'
 const memory=new Map();
 function read(key,fallback){if(memory.has(key))return memory.get(key);try{const value=JSON.parse(localStorage.getItem(key));if(value!==null){memory.set(key,value);return value;}}catch{}return fallback;}
 function write(key,value){memory.set(key,value);try{localStorage.setItem(key,JSON.stringify(value));return true;}catch{return false;}}
+window.UAAtlasRead = read;
+window.addEventListener('storage', event => {
+  if (event.key === null) memory.clear();
+  else memory.delete(event.key);
+});
 let toastTimer;
 let modelStudy=null,modelStudyEpoch=0;
 function notify(message){$('toast').textContent=message;$('toast').hidden=false;clearTimeout(toastTimer);toastTimer=setTimeout(()=>$('toast').hidden=true,3700);}
@@ -195,13 +200,33 @@ function setupPlaceBrowser(){
  const release=event=>{if(event.persisted)return;placeBrowserMedia?.removeEventListener?.('change',changed);window.removeEventListener('pagehide',release);};window.addEventListener('pagehide',release);
  setPlacePicker(false);
 }
-function selectPlace(id,pan=false){if(!locations.some(x=>x.id===id))return;selectedId=id;renderPreview();syncPlaceBrowser();revealSelectedInList();if(map){markerGroup.eachLayer(marker=>{const el=marker.getElement?.();if(el)el.classList.toggle('active',marker.options.placeId===id);});if(pan){const p=current();if(validCityPoint(p))map.panTo([p.lat,p.lng],{animate:false});}}cityExperience?.select(id,{fly:pan});}
+function selectPlace(id,pan=false){
+ if(!locations.some(place=>place.id===id))return;
+ selectedId=id;
+ renderPreview();
+ syncPlaceBrowser();
+ revealSelectedInList();
+ if(map){
+  markerGroup.eachLayer(marker=>marker.getElement?.()?.classList.toggle('active',marker.options.placeId===id));
+  const place=current();
+  if(pan && validCityPoint(place))map.panTo([place.lat,place.lng],{animate:false});
+ }
+ cityExperience?.select(id,{fly:pan});
+ const route = window.UAEdition?.current();
+ if(pan && route?.section==='atlas' && route.parts[0]==='places' && route.parts[1]!==id){
+  const query = route.params.toString();
+  window.UAEdition.navigate('#atlas/places/'+id+(query?'?'+query:''),{replace:true});
+ }
+}
 function normalized(value){return value.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();}
 function filtered(){const term=normalized($('place-search').value.trim());const period=$('period-filter').value;const access=$('access-filter').value;return locations.filter(p=>(layer==='All layers'||p.categories.includes(layer))&&(!term||normalized([p.name,p.address,p.history,p.symbols,p.interpretation,p.categories.join(' '),neighbourhoods[p.id]].join(' ')).includes(term))&&(!period||p.period===period)&&(!access||(access==='verified'?p.accessVerified:p.outdoorViewing)));}
-function renderPlaces(){let visible=placeResults();$('result-count').textContent=`${visible.length} / ${locations.length} DISCOVERIES`;$('place-list').innerHTML=visible.length?visible.map(p=>`<button type="button" data-select-place="${escape(p.id)}" aria-pressed="${p.id===selectedId}"><span>${String(locations.indexOf(p)+1).padStart(2,'0')}</span>${escape(p.name)}${userPosition&&validCityPoint(p)?`<small>~${distance(p,userPosition).toFixed(1)} km</small>`:!validCityPoint(p)?'<small>ADRESA / BEZ OVĚŘENÉHO PINU</small>':''}</button>`).join(''):'<p class="no-results">No discoveries match this combination. Try another layer or clear your search.</p>';if(map){markerGroup.clearLayers();visible.filter(validCityPoint).forEach(p=>{const index=locations.indexOf(p);const marker=L.marker([p.lat,p.lng],{placeId:p.id,keyboard:true,title:p.name,alt:p.name,icon:L.divIcon({className:`atlas-pin ${p.id===selectedId?'active':''}`,html:`<span class="pin-disc">${String(index+1).padStart(2,'0')}</span>`,iconSize:[30,30],iconAnchor:[15,15]})});marker.bindTooltip(p.name,{direction:'top',offset:[0,-15]});marker.on('click',()=>selectPlace(p.id));marker.addTo(markerGroup);});}if(visible.length){if(!visible.some(p=>p.id===selectedId))selectPlace(visible[0].id);else renderPreview();}else if(!visible.length){$('place-preview').innerHTML='<h3>No matching discoveries.</h3><p class="muted">Change the filters to reveal another layer of Paris.</p><button class="button" data-reset-filters>RESET FILTERS →</button>';}syncPlaceBrowser(visible);revealSelectedInList();cityExperience?.setPlaces(visible,selectedId);}
+function renderPlaces(){let visible=placeResults();$('result-count').textContent=`${visible.length} / ${locations.length} DISCOVERIES`;$('place-list').innerHTML=visible.length?visible.map(p=>`<button type="button" data-select-place="${escape(p.id)}" aria-pressed="${p.id===selectedId}"><span>${String(locations.indexOf(p)+1).padStart(2,'0')}</span>${escape(p.name)}${userPosition&&validCityPoint(p)?`<small>~${distance(p,userPosition).toFixed(1)} km</small>`:!validCityPoint(p)?'<small>ADRESA / BEZ OVĚŘENÉHO PINU</small>':''}</button>`).join(''):'<p class="no-results">No discoveries match this combination. Try another layer or clear your search.</p>';if(map){markerGroup.clearLayers();visible.filter(validCityPoint).forEach(p=>{const index=locations.indexOf(p);const marker=L.marker([p.lat,p.lng],{placeId:p.id,keyboard:true,title:p.name,alt:p.name,icon:L.divIcon({className:`atlas-pin ${p.id===selectedId?'active':''}`,html:`<span class="pin-disc">${String(index+1).padStart(2,'0')}</span>`,iconSize:[30,30],iconAnchor:[15,15]})});marker.bindTooltip(p.name,{direction:'top',offset:[0,-15]});marker.on('click',()=>selectPlace(p.id,true));marker.addTo(markerGroup);});}if(visible.length){if(!visible.some(p=>p.id===selectedId))selectPlace(visible[0].id);else renderPreview();}else if(!visible.length){$('place-preview').innerHTML='<h3>No matching discoveries.</h3><p class="muted">Change the filters to reveal another layer of Paris.</p><button class="button" data-reset-filters>RESET FILTERS →</button>';}syncPlaceBrowser(visible);revealSelectedInList();cityExperience?.setPlaces(visible,selectedId);}
 function resetFilters(){layer='All layers';$('place-search').value='';$('period-filter').value='';$('access-filter').value='';renderFilterButtons();renderPlaces();renderPreview();}
 function renderFilterButtons(){const focused=document.activeElement?.closest?.('#layer-filters [data-layer]')?.dataset.layer;$('layer-filters').innerHTML=layers.map(x=>`<button data-layer="${x}" aria-pressed="${x===layer}">${x}</button>`).join('');if(focused)$('layer-filters').querySelector(`[data-layer="${focused}"]`)?.focus({preventScroll:true});}
+let initializedMap = false;
 function setupMap(){
+ if (initializedMap) return;
+ initializedMap = true;
  let tilesAdded=false;
  const fallback=()=>{
   if(!map){$('map-failure').hidden=false;return;}
@@ -231,7 +256,16 @@ function directionsUrl(route){const stops=route.stops.map(id=>locations.find(p=>
 function showRoute(id){const r=routes.find(x=>x.id===id);if(!r)return;activeRouteId=id;resetFilters();if(routeLine&&map)map.removeLayer(routeLine);if(map){const segments=[];let run=[];for(const id of r.stops){const p=locations.find(p=>p.id===id);if(validCityPoint(p))run.push([p.lat,p.lng]);else{if(run.length>1)segments.push(run);run=[];}}if(run.length>1)segments.push(run);routeLine=null;if(segments.length){routeLine=L.polyline(segments,{color:'#ffd600',weight:1.5,dashArray:'5,9',interactive:false}).addTo(map);map.fitBounds(routeLine.getBounds(),{padding:[40,40],maxZoom:14});}}selectPlace(r.stops[0]);cityExperience?.setRoute({id:r.id,title:r.title,stops:r.stops.map(id=>locations.find(p=>p.id===id)).filter(Boolean)});$('active-route').hidden=false;$('active-route').innerHTML=`<h4>${escape(r.title)}</h4><div class="route-stops">${r.stops.map((id,i)=>`<button data-route-stop="${id}">${i+1}. ${escape(locations.find(p=>p.id===id).name)}</button>${i<r.stops.length-1?'<span aria-hidden="true">→</span>':''}`).join('')}</div><p>The dashed line shows the stop sequence, not a walkable path. Místa bez ověřených souřadnic nemají pin ani spojnici; použij jejich adresu. Live directions determine the walking route. Venue hours and temporary restrictions apply.</p><a class="button" href="${escape(directionsUrl(r))}" target="_blank" rel="noopener">OPEN WALKING DIRECTIONS ↗</a> <button class="small-button" id="close-route">CLOSE ROUTE</button>`;renderRoutes();}
 function stopNarration(){if('speechSynthesis'in window)window.speechSynthesis.cancel();document.querySelectorAll('[data-narrate]').forEach(b=>b.textContent='LISTEN / DEVICE VOICE');}
 function openProfile(id){selectPlace(id);stopNarration();const p=current();const nearby=locations.filter(x=>x.id!==p.id&&validCityPoint(x)&&validCityPoint(p)).sort((a,b)=>distance(a,p)-distance(b,p)).slice(0,3);const obs=objectStore('atlas-observations')[id]||'';$('profile-content').innerHTML=`<p class="section-index">PARIS / DISCOVERY ${String(locations.indexOf(p)+1).padStart(2,'0')}</p><h2 id="profile-title">${escape(p.name)}</h2><p class="profile-title-address"><span translate="no">${escape(p.address)}</span> · <span>${escape(p.period)}</span></p>${imageBlock(p,true)}${placeIllustrations[p.id]?`<div class="place-model-actions"><button type="button" class="small-button" data-open-model="${id}">PROSTOROVÝ MODEL ↗</button><span>Otoč stavbu. Odhal její části.</span></div>`:''}${placeIllustrations[p.id]?'<p class="place-art-disclosure">Autorská vizuální interpretace CAISIK. Symbolické vrstvy a animace nejsou důkazem historických souvislostí ani přesnou rekonstrukcí stavby.</p>':''}${p.photo?`<details class="documentary-source"><summary>HISTORICKÝ / DOKUMENTÁRNÍ SNÍMEK A ZDROJ ↗</summary>${documentaryImageBlock(p,true)}<p class="privacy-line">${escape(p.photo.note)} · <a href="${escape(p.photo.sourcePage)}" target="_blank" rel="noopener">Image & credit</a> · <a href="${escape(p.photo.licenseUrl)}" target="_blank" rel="noopener">${escape(p.photo.license)}</a></p></details>`:''}${p.culture?`<section class="profile-block"><p class="evidence-label">TVŮJ POSTUP / AUTORSKÉ ZADÁNÍ CAISIK</p><p><b>Otázka:</b> ${escape(p.task.question)}</p><p><b>Všímej si:</b> ${escape(p.task.observe)}</p><p><b>Vlastní pokus:</b> ${escape(p.task.try)}</p><p><b>Zpětná vazba:</b> ${escape(p.task.review)}</p><p><b>Výstup:</b> ${escape(p.task.output)}</p><a class="text-link" href="/expeditions/${escape(p.relatedExpedition)}/">NAVÁZAT V EXPEDICI ↗</a></section>`:''}<div class="lens-toggle"><button class="small-button" data-profile-lens aria-expanded="false">◎ OPEN SYMBOL LENS</button><button class="small-button" data-narrate>LISTEN / DEVICE VOICE</button><button class="small-button" data-stop-narration>STOP VOICE</button></div><div id="symbol-lens" class="lens-annotation" hidden>${lensStudy(p)}</div><div class="profile-columns"><div><section class="profile-block"><h3>${p.culture?'Doložený kulturní kontext':'Historical evidence'}</h3><p>${escape(p.history)}</p><h3>${p.culture?'Co je ověřené':'Documented symbols'}</h3><p>${escape(p.symbols)}</p></section><section class="profile-block profile-interpretation"><h3>Artistic interpretation</h3><p>${escape(p.interpretation)}</p><h3>Ask yourself</h3><p>${escape(p.reflection)}</p></section><section class="profile-block"><h3>${p.culture?'Tvůj tvůrčí úkol':'Street to sound'}</h3><p>${escape(p.challenge)}</p><button class="button" data-profile-inspire="${id}">TAKE THIS TO THE LAB →</button></section></div><div><section class="profile-block"><h3>Access & the public boundary</h3><p>${escape(p.access)}</p><h3>Accessibility</h3><p>${escape(p.accessibility)}</p><p class="muted"><span>Map position:</span> <span>${escape(p.coordinateStatus)}</span>. <span>Check the official venue before your visit.</span></p><a class="text-link" href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(p.name+' '+p.address)}" target="_blank" rel="noopener">NAVIGATE TO THE ADDRESS ↗</a></section><section class="profile-block"><h3>Sources & visitor information</h3><ul class="profile-source-list">${p.sources.map(s=>`<li><a href="${escape(s.url)}" target="_blank" rel="noopener">${escape(s.title)} ↗</a></li>`).join('')}</ul><p class="privacy-line">${p.checkedAt?`<span>Ověření zdrojů:</span> <time>${escape(p.checkedAt)}</time>. <span>Podmínky si před návštěvou potvrď u provozovatele.</span>`:'Checked 21 October 2026. Conditions can change.'}</p></section></div></div><section class="profile-block profile-observation"><h3>Leave a note for yourself</h3><label for="place-observation">What did you see? What did you interpret?</label><textarea id="place-observation" maxlength="3000" placeholder="Separate the detail from the story you gave it…">${escape(obs)}</textarea><button class="small-button" data-save-observation="${id}">SAVE MY OBSERVATION ↗</button> ${saveButton('place',id,p.name)}<p class="privacy-line">Stored in this browser, never submitted. Export your field notebook to keep a copy.</p></section><section class="profile-block"><h3>${nearby.length?'Nearby threads':'Tvoje další cesta'}</h3><div class="nearby-links">${nearby.length?nearby.map(n=>`<button data-open-place="${n.id}">${escape(n.name)} ↗</button>`).join(''):'<a href="#culture-district" data-return-culture>STREET / SOUND / THOUGHT ↗</a>'}</div></section>`;imageFallbacks($('profile-content'));const dialog=$('profile-dialog');if(!dialog.open)dialog.showModal();dialog.scrollTop=0;}
-function inspire(id){const p=locations.find(x=>x.id===id);if(!p)return;frequency?.setInspiration(p);$('profile-dialog').close();$('frequency').scrollIntoView({behavior:document.documentElement.dataset.motion==='off'?'instant':'smooth'});notify(`Creative starting point: ${p.name}`);}
+function inspire(id) {
+ const place = locations.find(item => item.id === id);
+ if (!place) return;
+ if ($('profile-dialog').open) $('profile-dialog').close();
+ const route = window.UAEdition?.current();
+ const routeId = route?.section==='atlas' && route.parts[0]==='routes' ? route.parts[1] : null;
+ const from = routeId && routes.find(item=>item.id===routeId)?.stops.includes(place.id)
+  ? '#atlas/routes/'+routeId+'/'+place.id : '#atlas/places/'+place.id;
+ window.UAEdition?.navigate('#workshop/frequency?' + new URLSearchParams({from,place:place.id}));
+}
 const artThemes=[
 {title:'AS ABOVE / SO BELOW',scene:'as-above',width:1312,height:1199,asset:'072',description:'Mirrored architectural geometry in crisp black-and-yellow ink.',prompt:'Find an echo between a skyline and a small detail. Draw the difference as carefully as the resemblance.'},
 {title:'TRANSMUTE',scene:'transmute',width:1536,height:1024,image:'/assets/atlas/transmute-approved.webp',download:'/assets/atlas/transmute-approved.png',description:'Approved black-and-yellow graphic-novel wildstyle. Thought becomes letter architecture.',prompt:'Take one word you use against yourself. Redraw it as a direction you can act on.'},
@@ -408,10 +442,18 @@ function syncMotionControls(){
  document.querySelectorAll('[data-atlas-motion]').forEach(b=>{b.setAttribute('aria-pressed',String(off));b.textContent=off?'ZAPNOUT ANIMACE ↗':'POZASTAVIT ANIMACE Ⅱ';});
  document.querySelectorAll('[data-atlas-motion-state]').forEach(el=>el.textContent=reduced?'Zařízení požaduje omezený pohyb. Ilustrace zůstávají statické.':off?'Pohyb je v tomto prohlížeči vypnutý.':'Živé detaily jsou zapnuté. U ilustrace můžeš přehrát kreslení znovu.');
 }
+function openCultureView(route){
+ if (route?.section!=='atlas' || route.parts[0]!=='places') return;
+ const view=route.params.get('view');
+ if (view!=='culture' && view!=='studios') return;
+ const host=$('culture-district');
+ if(view==='studios') host.querySelector('[data-cb-filter="studio"]')?.click();
+ host.scrollIntoView({behavior:'instant'});
+}
 async function mountCultureDistrict(){
  const host=$('culture-district');if(!host)return;
  if(!cultureEntries.length){host.innerHTML='<p class="status">Kulturní průvodce se nepodařilo načíst. Původní atlas, expedice a zápisník zůstávají dostupné.</p>';return;}
- try{const module=await import('./culture-board.js?v=2');cultureSymbols=module.mountCultureSymbols?.(document);cultureBoard=module.mountCultureBoard(host,{places:cultureEntries,sessionBrief:atlasData.sessionBrief,onOpen:openProfile,onFilter:category=>{const labels={graffiti:'Graffiti',artshop:'Graffiti shop',hiphop:'Music',recordshop:'Record shop',philosophy:'Philosophy',studio:'Recording studio'};layer=labels[category]||'All layers';$('place-search').value='';$('period-filter').value='';$('access-filter').value='';renderFilterButtons();renderPlaces();},read,write,notify});if(['#culture-district','#studios'].includes(location.hash)){if(location.hash==='#studios')host.querySelector('[data-cb-filter="studio"]')?.click();host.scrollIntoView({behavior:'instant'});}window.addEventListener('pagehide',event=>{if(!event.persisted){cultureBoard?.destroy();cultureSymbols?.destroy();}},{once:true});}
+ try{const module=await import('./culture-board.js?v=2');cultureSymbols=module.mountCultureSymbols?.(document);cultureBoard=module.mountCultureBoard(host,{places:cultureEntries,sessionBrief:atlasData.sessionBrief,onOpen:openProfile,onFilter:category=>{const labels={graffiti:'Graffiti',artshop:'Graffiti shop',hiphop:'Music',recordshop:'Record shop',philosophy:'Philosophy',studio:'Recording studio'};layer=labels[category]||'All layers';$('place-search').value='';$('period-filter').value='';$('access-filter').value='';renderFilterButtons();renderPlaces();},read,write,notify});openCultureView(window.UAEdition?.current());window.addEventListener('pagehide',event=>{if(!event.persisted){cultureBoard?.destroy();cultureSymbols?.destroy();}},{once:true});}
  catch{host.innerHTML='<p class="status">Interaktivní dílnu nelze načíst. Všechna nová místa najdeš také v seznamu a filtrech atlasu výše.</p>';}
 }
 function setupEvents(){
@@ -424,7 +466,13 @@ function setupEvents(){
  }
  $('place-search').oninput=()=>renderPlaces();$('period-filter').onchange=()=>renderPlaces();$('access-filter').onchange=()=>renderPlaces();
  $('locate').onclick=()=>{if(!navigator.geolocation){$('geo-status').textContent='Location is unavailable. Search by place or neighbourhood instead.';return;}$('geo-status').textContent='Waiting for your location permission…';$('locate').disabled=true;navigator.geolocation.getCurrentPosition(position=>{userPosition={lat:position.coords.latitude,lng:position.coords.longitude};$('locate').disabled=false;$('geo-status').textContent='Discoveries sorted by approximate straight-line distance. Your location is kept only for this visit.';if(map){if(userMarker)map.removeLayer(userMarker);userMarker=L.marker([userPosition.lat,userPosition.lng],{icon:L.divIcon({className:'user-location',iconSize:[12,12]})}).addTo(map);if(distance(locations[0],userPosition)<40)map.panTo([userPosition.lat,userPosition.lng]);}cityExperience?.setUserLocation(userPosition);renderPlaces();},error=>{$('locate').disabled=false;$('geo-status').textContent=error.code===1?'Location permission declined. Search the atlas by neighbourhood instead.':'Your location could not be found. Search the atlas by neighbourhood instead.';},{enableHighAccuracy:false,timeout:12000,maximumAge:60000});};
- $('notebook-open').onclick=()=>{renderNotebook();$('clear-confirm').hidden=true;$('notebook-dialog').showModal();};
+ const fieldNotes = () => {
+  renderNotebook();
+  $('clear-confirm').hidden = true;
+  if (!$('notebook-dialog').open) $('notebook-dialog').showModal();
+ };
+ $('notebook-open').onclick = () => window.UAEdition ? window.UAEdition.navigate('#blackbook') : fieldNotes();
+ window.addEventListener('ua:field-notes', fieldNotes);
  $('notebook-export').onclick=()=>{
   const exported = {
    project: 'CAISIK UNDERGROUND ALCHEMY',
@@ -457,9 +505,9 @@ function setupEvents(){
  $('notebook-clear').onclick=()=>$('clear-confirm').hidden=false;$('cancel-clear').onclick=()=>$('clear-confirm').hidden=true;$('confirm-clear').onclick=()=>{keys.forEach(k=>{memory.delete(k);try{localStorage.removeItem(k);}catch{}});location.reload();};
  $('sources-open').onclick=()=>{renderSources();$('sources-dialog').showModal();};
  const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;let motion=read('atlas-motion',reduced?'off':'on');if(!['off','on'].includes(motion))motion=reduced?'off':'on';document.documentElement.dataset.motion=motion;$('motion-toggle').setAttribute('aria-pressed',String(motion==='off'));$('motion-toggle').textContent=motion==='off'?'RESUME MOTION':'PAUSE MOTION';$('motion-toggle').onclick=()=>{motion=motion==='off'?'on':'off';document.documentElement.dataset.motion=motion;write('atlas-motion',motion);$('motion-toggle').setAttribute('aria-pressed',String(motion==='off'));$('motion-toggle').textContent=motion==='off'?'RESUME MOTION':'PAUSE MOTION';syncMotionControls();};syncMotionControls();
- document.querySelectorAll('dialog').forEach(d=>{d.querySelector('[data-close]').onclick=()=>d.close();d.addEventListener('click',e=>{if(e.target===d){const r=d.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)d.close();}});});$('profile-dialog').addEventListener('close',stopNarration);
+ document.querySelectorAll('dialog').forEach(d=>{const close=d.querySelector('[data-close]');if(close)close.onclick=()=>d.close();d.addEventListener('click',e=>{if(e.target===d){const r=d.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)d.close();}});});$('profile-dialog').addEventListener('close',stopNarration);
  document.addEventListener('click',e=>{const b=e.target.closest('button,a');if(!b)return;const d=b.dataset;
-  if(b.hasAttribute('data-open-studios')){if($('profile-dialog').open)$('profile-dialog').close();$('culture-district')?.querySelector('[data-cb-filter="studio"]')?.click();$('culture-district')?.scrollIntoView({behavior:'instant'});}
+  if(b.hasAttribute('data-open-studios')){window.UAEdition?.navigate('#atlas/places?view=studios');if($('profile-dialog').open)$('profile-dialog').close();}
   if(d.openModel&&placeIllustrations[d.openModel])openModelStudy(d.openModel);
   if(b.hasAttribute('data-atlas-motion'))$('motion-toggle').click();
   if(b.hasAttribute('data-return-culture'))$('profile-dialog').close();
@@ -473,23 +521,52 @@ function setupEvents(){
   if(d.openPlace)openProfile(d.openPlace);
   if(d.inspire)inspire(d.inspire);
   if(d.profileInspire)inspire(d.profileInspire);
-  if(d.route)showRoute(d.route);
-  if(d.routeStop)selectPlace(d.routeStop,true);
-  if(b.id==='close-route'){if(routeLine&&map)map.removeLayer(routeLine);activeRouteId=null;cityExperience?.setRoute(null);$('active-route').hidden=true;renderRoutes();}
+  if(d.route && routes.some(r=>r.id===d.route)) window.UAEdition ? window.UAEdition.navigate('#atlas/routes/'+d.route) : showRoute(d.route);
+  if(d.routeStop) window.UAEdition ? window.UAEdition.navigate('#atlas/routes/'+activeRouteId+'/'+d.routeStop) : selectPlace(d.routeStop,true);
+  if(b.id==='close-route'){window.UAEdition?.navigate('#atlas/routes');if(routeLine&&map)map.removeLayer(routeLine);activeRouteId=null;cityExperience?.setRoute(null);$('active-route').hidden=true;renderRoutes();}
   if(d.art!==undefined)openArt(Number(d.art));
-  if(d.artInspire!==undefined){const a=artThemes[Number(d.artInspire)];frequency?.setInspiration({name:a.title,challenge:a.prompt});$('art-dialog').close();$('frequency').scrollIntoView();}
+  if(d.artInspire!==undefined) {
+   const art=artThemes[Number(d.artInspire)];
+   $('art-dialog').close();
+   window.UAEdition?.navigate('#workshop/frequency?' + new URLSearchParams({from:'#atlas/gallery',prompt:art.prompt,subject:art.title}));
+  }
   if(d.saveObservation){const text=$('place-observation').value.trim();if(!text){notify('Write an observation first.');return;}const notes=objectStore('atlas-observations');notes[d.saveObservation]=text;notify(write('atlas-observations',notes)?'Observation saved in your notebook.':'Kept for this visit. Browser storage is unavailable.');}
   if(d.profileLens!==undefined){const el=$('symbol-lens');el.hidden=!el.hidden;b.setAttribute('aria-expanded',String(!el.hidden));b.textContent=el.hidden?'◎ OPEN SYMBOL LENS':'◎ CLOSE SYMBOL LENS';}
   if(d.lensDetail!==undefined){const captions=['01 / The central rose combines circular geometry with Christian imagery. The philosophical reading of many perspectives is a contemporary analogy.','02 / The paired towers frame the western facade. Their vertical divisions provide an observable architectural rhythm, not evidence of a hidden doctrine.','03 / The three western portals have documented Christian programmes: the Virgin, the Last Judgment and Saint Anne. Read the narrative before inventing a meaning.'];$('symbol-lens-caption').textContent=captions[Number(d.lensDetail)]||captions[0];}
   if(d.narrate!==undefined){if(!('speechSynthesis'in window)){notify('Device narration is unavailable. Read the profile text instead.');return;}const lang=window.CaisikI18n?.getLanguage?.()||'en',tr=value=>window.CaisikI18n?.t?.(value,lang)||value;const voice=window.speechSynthesis.getVoices().find(v=>v.localService&&v.lang.toLowerCase().startsWith(lang));if(!voice){notify('Pro zvolený jazyk není dostupný místní hlas. Text zůstává níže.');return;}stopNarration();const p=current(),speech=new SpeechSynthesisUtterance(`${p.name}. ${tr('Historical evidence')}. ${tr(p.history)} ${tr('Documented symbols')}. ${tr(p.symbols)} ${tr('Artistic interpretation')}. ${tr(p.interpretation)} ${tr(p.observe)}`);speech.voice=voice;speech.lang=voice.lang;speech.rate=.9;speech.onend=()=>b.textContent='LISTEN / DEVICE VOICE';window.speechSynthesis.speak(speech);b.textContent='READING / DEVICE VOICE';}
   if(d.stopNarration!==undefined)stopNarration();
-  if(d.notebookPlace){$('notebook-dialog').close();openProfile(d.notebookPlace);}
-  if(d.notebookRoute){$('notebook-dialog').close();showRoute(d.notebookRoute);$('hidden-city').scrollIntoView();}
+  if(d.notebookPlace){$('notebook-dialog').close();window.UAEdition?.navigate('#atlas/places/'+d.notebookPlace);openProfile(d.notebookPlace);}
+  if(d.notebookRoute){$('notebook-dialog').close();window.UAEdition?.navigate('#atlas/routes/'+d.notebookRoute);}
   if(d.removePlace){toggleSaved('place',d.removePlace);renderNotebook();}
   if(d.removeRoute){toggleSaved('route',d.removeRoute);renderNotebook();}
  });
  document.addEventListener('visibilitychange',()=>{if(document.hidden)stopNarration();});window.addEventListener('pagehide',stopNarration);window.addEventListener('caisik:languagechange',stopNarration);
 }
-async function init(){try{const [a,p,illustrationData,cultureData]=await Promise.all([fetch('/locations-data.json').then(r=>{if(!r.ok)throw Error();return r.json();}),fetch('/principles-data.json').then(r=>{if(!r.ok)throw Error();return r.json();}),fetch('/assets/places-caisik/manifest.json').then(r=>r.ok?r.json():null).catch(()=>null),fetch('/culture-data.json').then(r=>r.ok?r.json():null).catch(()=>null)]);atlasData={...a,sessionBrief:cultureData?.sessionBrief};const researched=parseCultureData(cultureData,a.locations.map(p=>p.id));cultureEntries=researched.places;locations=[...a.locations,...cultureEntries.map(culturePlace)];routes=[...a.routes,...cultureRoutes(cultureEntries)];knowledge=p;placeIllustrations=parsePlaceIllustrations(illustrationData);setupEvents();renderFilterButtons();[...new Set(locations.map(p=>p.period))].forEach(period=>{const option=document.createElement('option');option.value=period;option.textContent=period;$('period-filter').append(option);});setupMap();renderPlaces();renderPreview();renderRoutes();renderArt();savedCount();mountCultureDistrict();principles=initPrinciples($('principles'),{data:knowledge,read,write,notify});frequency=initFrequency($('frequency'),{data:knowledge,read,write,notify,getLocation:current});$('frequency').insertAdjacentHTML('beforeend','<div class="studio-path-link"><p class="section-index">FROM STREET TO SESSION</p><h3>Z ulice do studia.</h3><p>Připrav zadání. Nahraj dvě vlastní verze. Odnes si jedno vysvětlené rozhodnutí.</p><button class="button" data-open-studios>VYBRAT NAHRÁVACÍ STUDIO ↗</button></div>');const qr=location.pathname.match(/^\/q\/([^/]+)/)?.[1];if(qr){const ids={'generation':'gender','as-above':'correspondence','so-below':'correspondence','shadow-work':'mentalism','underground':'vibration','transmute':'cause-effect'};principles?.select(ids[qr]||qr);$('principles').scrollIntoView({behavior:'instant'});}else if(['#principles','#living-wall'].includes(location.hash)){$(location.hash.slice(1)).scrollIntoView({behavior:'instant'});}if('speechSynthesis'in window)window.speechSynthesis.getVoices();}catch(error){console.error('Atlas initialization failed',error);$('place-preview').innerHTML='<h3>The atlas could not load.</h3><p>Reload the page to try again. Official visitor links remain available in the research section.</p>';$('principles').textContent='The learning data could not load. Reload to try again.';$('frequency').textContent='The laboratory could not load. Reload to try again.';}}
+window.UAAtlasLabel = (type,id) => type === 'route'
+ ? routes.find(item=>item.id===id)?.title : locations.find(item=>item.id===id)?.name;
+let cultureStarted = false;
+let fieldOpen = false;
+function openEditionView(route) {
+ if (!route || !frequency || !principles) return;
+ const [view,id,stop] = route.parts;
+ const isField = route.section === 'atlas' && ['places','routes'].includes(view);
+ if (isField) {
+  if (!initializedMap) { setupMap();renderPlaces(); }
+  if (!cultureStarted) { cultureStarted=true;mountCultureDistrict(); } else if(cultureBoard) openCultureView(route);
+  if (id && view === 'routes' && activeRouteId !== id) showRoute(id);
+  const placeId = view === 'places' ? id : stop;
+  if (placeId && placeId!==selectedId && placesContain(placeId)) selectPlace(placeId,true);
+  if (!fieldOpen) requestAnimationFrame(()=>{map?.invalidateSize();window.dispatchEvent(new window.Event('resize'));});
+ }
+ fieldOpen = isField;
+ if (route.section === 'atlas' && view === 'principles') principles.select(id==='generation'?'gender':id || 'mentalism');
+ if (route.section === 'workshop' && view === 'frequency') {
+  const place = locations.find(item=>item.id===route.params.get('place'));
+  frequency.openContext(route,place);
+ } else frequency.leave?.();
+}
+function placesContain(id) { return locations.some(item=>item.id===id); }
+window.addEventListener('ua:route', event=>openEditionView(event.detail));
+async function init(){try{const [a,p,illustrationData,cultureData]=await Promise.all([fetch('/locations-data.json').then(r=>{if(!r.ok)throw Error();return r.json();}),fetch('/principles-data.json').then(r=>{if(!r.ok)throw Error();return r.json();}),fetch('/assets/places-caisik/manifest.json').then(r=>r.ok?r.json():null).catch(()=>null),fetch('/culture-data.json').then(r=>r.ok?r.json():null).catch(()=>null)]);atlasData={...a,sessionBrief:cultureData?.sessionBrief};const researched=parseCultureData(cultureData,a.locations.map(p=>p.id));cultureEntries=researched.places;locations=[...a.locations,...cultureEntries.map(culturePlace)];routes=[...a.routes,...cultureRoutes(cultureEntries)];knowledge=p;placeIllustrations=parsePlaceIllustrations(illustrationData);setupEvents();renderFilterButtons();[...new Set(locations.map(p=>p.period))].forEach(period=>{const option=document.createElement('option');option.value=period;option.textContent=period;$('period-filter').append(option);});renderPlaces();renderPreview();renderRoutes();renderArt();savedCount();principles=initPrinciples($('principles'),{data:knowledge,read,write,notify});frequency=initFrequency($('frequency'),{data:knowledge,read,write,notify,getLocation:current});$('frequency').insertAdjacentHTML('beforeend','<div class="studio-path-link"><p class="section-index">FROM STREET TO SESSION</p><h3>Z ulice do studia.</h3><p>Připrav zadání. Nahraj dvě vlastní verze. Odnes si jedno vysvětlené rozhodnutí.</p><button class="button" data-open-studios>VYBRAT NAHRÁVACÍ STUDIO ↗</button></div>');const qr=location.pathname.match(/^\/q\/([^/]+)/)?.[1];if(qr){const ids={'generation':'gender','as-above':'correspondence','so-below':'correspondence','shadow-work':'mentalism','underground':'vibration','transmute':'cause-effect'};principles?.select(ids[qr]||qr);$('principles').scrollIntoView({behavior:'instant'});}else if(['#principles','#living-wall'].includes(location.hash)){$(location.hash.slice(1)).scrollIntoView({behavior:'instant'});}openEditionView(window.UAEdition?.current());window.dispatchEvent(new window.Event('ua:atlas-ready'));if('speechSynthesis'in window)window.speechSynthesis.getVoices();}catch(error){console.error('Atlas initialization failed',error);$('place-preview').innerHTML='<h3>The atlas could not load.</h3><p>Reload the page to try again. Official visitor links remain available in the research section.</p>';$('principles').textContent='The learning data could not load. Reload to try again.';$('frequency').textContent='The laboratory could not load. Reload to try again.';}}
 mountCornerMapNote();
 init();
